@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>security Archive - E.D.D.I</title>
+	<atom:link href="/de/tag/security/feed/" rel="self" type="application/rss+xml" />
+	<link>/de/tag/security/</link>
+	<description>Enhanced Dialogue Driven Intelligence by Labs.ai</description>
+	<lastBuildDate>Fri, 11 Dec 2020 14:46:48 +0000</lastBuildDate>
+	<language>de-DE</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2020/12/cropped-EDDI-Logo-Blue_1-32x32.png</url>
+	<title>security Archive - E.D.D.I</title>
+	<link>/de/tag/security/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Chatbots and GDPR</title>
+		<link>/de/chatbots-and-gdpr/</link>
+					<comments>/de/chatbots-and-gdpr/#respond</comments>
+		
+		<dc:creator><![CDATA[Franz Weber]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 13:13:17 +0000</pubDate>
+				<category><![CDATA[Unkategorisiert]]></category>
+		<category><![CDATA[chatbot]]></category>
+		<category><![CDATA[GDPR]]></category>
+		<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">/?p=325</guid>
+
+					<description><![CDATA[<p>How do the EU General Data Protection Rules affect Chatbots? With the new EU General Data Protection Rules (GDPR) we have to rethink how we are developing chatbots. GDPR is regulating how companies (anywhere in the world) have to handle personal data of EU citizens. And ‘personal data’ means any information relating to an identified &#8230;</p>
+<p class="read-more"> <a class="" href="/de/chatbots-and-gdpr/"> <span class="screen-reader-text">Chatbots and GDPR</span> Weiterlesen &#187;</a></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/chatbots-and-gdpr/">Chatbots and GDPR</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<h2>How do the EU General Data Protection Rules affect Chatbots?</h2>
+<p>With the new EU General Data Protection Rules (GDPR) we have to rethink how we are developing chatbots. GDPR is regulating how companies (anywhere in the world) have to handle personal data of EU citizens. And ‘personal data’ means any information relating to an identified or identifiable natural person (data subject). Now chatbots are clearly using and storing personal data.<br />
+So what do we have to take care of when developing chatbots?</p>
+<h2>Principles</h2>
+<p>The data collected via the chatbot should be processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures (‘integrity and confidentiality’). This principle requires a chatbot developer to make sure that the data collected during a chat is stored and safeguarded properly, which means that the location where the data is stored needs to be known at any point in time. Another principle is the lawfulness of processing. This is given in most of the use cases with a chatbot, if the processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract (e.g. a user is providing personal information via a chatbot in order to get a quote for an insurance).</p>
+<h2>Rights of the Data Subject</h2>
+<p>The new law provides many rights to the user of a chatbot in case personal data is collected and stored. Starting with transparency about where and who is collecting the data to fundamental rights such as right for information and access, rectification and erasure. Another important topic to take care of is the transfers of personal data to third countries or international organisations. All these topics have to be considered in an conversational flow with a chatbot where personal information is involved and stored.</p>
+<h2>Liabilities and Penalties</h2>
+<p>Not to forget to mention the possible penalties which can arise in case the company using chatbots is not in compliance with the GDPR. Non-compliance shall be subject to administrative fines up to 20.000.000 EUR, or in the case of an undertaking, up to 4 % of the total worldwide annual turnover of the preceding financial year, whichever is higher. This can lead to serious amounts, which could cause quite some financial troubles for a company.</p>
+<h2>Recommendations</h2>
+<p>Taking all these GDPR topics into consideration it is definitely recommended to consider running the chatbot development platform on-premise. With this the data storage location is known for sure and you have control over the flow of the data and where the data resides. In addition you can manage the database in a way, that it can be included in your company wide established processes related to the rights of a data subject (e.g. when a user is requesting to get information about all data stored about him/her).<br />
+In case you are using a cloud service or hosting provider you have to make sure that you enter into a so called processor agreement with your cloud service or hosting provider. In this agreement you have to specify all the relevant topics and then include this into your internal processes.</p>
+<p>Der Beitrag <a rel="nofollow" href="/de/chatbots-and-gdpr/">Chatbots and GDPR</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/de/chatbots-and-gdpr/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

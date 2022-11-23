@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Unkategorisiert Archive - E.D.D.I</title>
+	<atom:link href="/de/category/unkategorisiert/feed/" rel="self" type="application/rss+xml" />
+	<link>/de/category/unkategorisiert/</link>
+	<description>Enhanced Dialogue Driven Intelligence by Labs.ai</description>
+	<lastBuildDate>Fri, 11 Dec 2020 14:49:01 +0000</lastBuildDate>
+	<language>de-DE</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2020/12/cropped-EDDI-Logo-Blue_1-32x32.png</url>
+	<title>Unkategorisiert Archive - E.D.D.I</title>
+	<link>/de/category/unkategorisiert/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Why a great technology is not enough to build great chatbots?</title>
+		<link>/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/</link>
+					<comments>/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/#respond</comments>
+		
+		<dc:creator><![CDATA[Franz Weber]]></dc:creator>
+		<pubDate>Mon, 14 Jan 2019 17:31:37 +0000</pubDate>
+				<category><![CDATA[Unkategorisiert]]></category>
+		<category><![CDATA[chatbot]]></category>
+		<category><![CDATA[conversation design]]></category>
+		<category><![CDATA[knowledge]]></category>
+		<category><![CDATA[technology]]></category>
+		<guid isPermaLink="false">/?p=352</guid>
+
+					<description><![CDATA[<p>Big Tech Companies offer Great Technology Thanks to advancements in natural language processing technology, big tech companies such as Microsoft, IBM, among others–have made conversational interface technology (chatbots) available via their respective platforms. These proprietary platforms are offered with a specific license model as great technology only. However real life projects proof everyday, that this &#8230;</p>
+<p class="read-more"> <a class="" href="/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/"> <span class="screen-reader-text">Why a great technology is not enough to build great chatbots?</span> Weiterlesen &#187;</a></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/">Why a great technology is not enough to build great chatbots?</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<h2 id="viewer-ce5tl" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Big Tech Companies offer Great Technology</span></h2>
+<p id="viewer-qtdr" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Thanks to advancements in natural language processing technology, big tech companies such as Microsoft, IBM, among others–have made conversational interface technology (chatbots) available via their respective platforms. These proprietary platforms are offered with a specific license model as great technology only.</span></p>
+<p id="viewer-4627c" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">However real life projects proof everyday, that this is not enough and that chatbot developers are looking for knowledge transfer together with a great technology. Most of the projects turn out to be not successful because the focus was only on the technology.</span></p>
+<h3 id="viewer-94e3n" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"></h3>
+<h2 id="viewer-987fm" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Defining the Chatbot Use Case right from the very beginning</span></h2>
+<h3 id="viewer-6rfpe" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"></h3>
+<h4 id="viewer-4b7ad" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Focus independent from the technology you intend to use on the definition of the chatbot use case at the very beginning. </span></h4>
+<h4 id="viewer-4jnbg" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"></h4>
+<h4 id="viewer-bg02p" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">What do you want to achieve with the chatbot?</span></h4>
+<p id="viewer-c4csg" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Ask yourself whether this makes sense and is fully achievable. Nothing is worse than creating wrong expectations about the capabilities of the chatbot. This will disappoint the users and the chatbot is at the end of the day not used at all.</span></p>
+<p id="viewer-5bbnr" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">“Underpromise and Overdeliver” is in this context highly important. Set the tone right and you will have success with your chatbot. Once the chatbot is accepted by the user, you can always gradually extend the capabilities. Believe me &#8211; this will come as a positive surprise to the users.</span></p>
+<h3 id="viewer-egeb0" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"></h3>
+<h2 id="viewer-ecl6e" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Conversation Design is evenly important than using the Right Technology</span></h2>
+<p id="viewer-1g57j" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Bevor getting into the technology the scoping of the conversation flow should be done. This starts with the users of the chatbot.</span></p>
+<p id="viewer-c4o7n" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Who are they? What questions will they ask? What are the possible answers?</span></p>
+<p id="viewer-8sm5d" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">When you have defined this work yourself backwards from the answers and define the conversation flow. Start with a bot who takes control over the conversation. This can be achieved with a well defined use case, where the user knows exactly what to expect and what not. Don’t try to create a bot which can answer everything.</span></p>
+<h3 id="viewer-2dqtv" class="_3tkn1 _208Ie blog-post-header-three-font blog-post-header-three-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"></h3>
+<h2 id="viewer-ev5at" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Chatbot Technology and Knowledge Transfer</span></h2>
+<p id="viewer-1cv00" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">We at <a class="_2qJYG blog-link-hashtag-color _2xVcV" href="/" target="_blank" rel="noopener noreferrer">Labs.ai </a>have put a lot of work and efforts into the technology piece and have come up with a chatbot development platform, which is driven by the conversation flow design and is as great as any other platform in the market.</span></p>
+<p id="viewer-bslim" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">However, this was not enough for us to bring it to the market. Through many customer meetings and discussions we have learned why chatbot projects were failing and the bottom line was always that the use case was not defined well and the conversation design was neglected.</span></p>
+<p id="viewer-5425p" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Why was this missing?</span></p>
+<p id="viewer-6ct8e" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Most of the time the big tech companies were selling technology, when this was achieved the customers were left alone and the chatbot projects were at the end not successful.</span></p>
+<p id="viewer-cfb6h" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">This has lead us to our open source approach, were our great technology is available for free to any developer around the globe and on top of the technology we provide the necessary knowledge transfer (as part of our support subscription) to our customers. This has proven to be more appreciated by customers and creates from the very beginning a bases for many successful chatbot projects.</span></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/">Why a great technology is not enough to build great chatbots?</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/de/why-a-great-technology-is-not-enough-to-build-great-chatbots/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Chatbots and GDPR</title>
+		<link>/de/chatbots-and-gdpr/</link>
+					<comments>/de/chatbots-and-gdpr/#respond</comments>
+		
+		<dc:creator><![CDATA[Franz Weber]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 13:13:17 +0000</pubDate>
+				<category><![CDATA[Unkategorisiert]]></category>
+		<category><![CDATA[chatbot]]></category>
+		<category><![CDATA[GDPR]]></category>
+		<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">/?p=325</guid>
+
+					<description><![CDATA[<p>How do the EU General Data Protection Rules affect Chatbots? With the new EU General Data Protection Rules (GDPR) we have to rethink how we are developing chatbots. GDPR is regulating how companies (anywhere in the world) have to handle personal data of EU citizens. And ‘personal data’ means any information relating to an identified &#8230;</p>
+<p class="read-more"> <a class="" href="/de/chatbots-and-gdpr/"> <span class="screen-reader-text">Chatbots and GDPR</span> Weiterlesen &#187;</a></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/chatbots-and-gdpr/">Chatbots and GDPR</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<h2>How do the EU General Data Protection Rules affect Chatbots?</h2>
+<p>With the new EU General Data Protection Rules (GDPR) we have to rethink how we are developing chatbots. GDPR is regulating how companies (anywhere in the world) have to handle personal data of EU citizens. And ‘personal data’ means any information relating to an identified or identifiable natural person (data subject). Now chatbots are clearly using and storing personal data.<br />
+So what do we have to take care of when developing chatbots?</p>
+<h2>Principles</h2>
+<p>The data collected via the chatbot should be processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures (‘integrity and confidentiality’). This principle requires a chatbot developer to make sure that the data collected during a chat is stored and safeguarded properly, which means that the location where the data is stored needs to be known at any point in time. Another principle is the lawfulness of processing. This is given in most of the use cases with a chatbot, if the processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract (e.g. a user is providing personal information via a chatbot in order to get a quote for an insurance).</p>
+<h2>Rights of the Data Subject</h2>
+<p>The new law provides many rights to the user of a chatbot in case personal data is collected and stored. Starting with transparency about where and who is collecting the data to fundamental rights such as right for information and access, rectification and erasure. Another important topic to take care of is the transfers of personal data to third countries or international organisations. All these topics have to be considered in an conversational flow with a chatbot where personal information is involved and stored.</p>
+<h2>Liabilities and Penalties</h2>
+<p>Not to forget to mention the possible penalties which can arise in case the company using chatbots is not in compliance with the GDPR. Non-compliance shall be subject to administrative fines up to 20.000.000 EUR, or in the case of an undertaking, up to 4 % of the total worldwide annual turnover of the preceding financial year, whichever is higher. This can lead to serious amounts, which could cause quite some financial troubles for a company.</p>
+<h2>Recommendations</h2>
+<p>Taking all these GDPR topics into consideration it is definitely recommended to consider running the chatbot development platform on-premise. With this the data storage location is known for sure and you have control over the flow of the data and where the data resides. In addition you can manage the database in a way, that it can be included in your company wide established processes related to the rights of a data subject (e.g. when a user is requesting to get information about all data stored about him/her).<br />
+In case you are using a cloud service or hosting provider you have to make sure that you enter into a so called processor agreement with your cloud service or hosting provider. In this agreement you have to specify all the relevant topics and then include this into your internal processes.</p>
+<p>Der Beitrag <a rel="nofollow" href="/de/chatbots-and-gdpr/">Chatbots and GDPR</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/de/chatbots-and-gdpr/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Why are chatbots here to stay?</title>
+		<link>/de/why-are-chatbots-here-to-stay/</link>
+					<comments>/de/why-are-chatbots-here-to-stay/#respond</comments>
+		
+		<dc:creator><![CDATA[Franz Weber]]></dc:creator>
+		<pubDate>Sun, 25 Mar 2018 16:31:45 +0000</pubDate>
+				<category><![CDATA[Unkategorisiert]]></category>
+		<category><![CDATA[chatbot]]></category>
+		<category><![CDATA[technology]]></category>
+		<category><![CDATA[usecases]]></category>
+		<guid isPermaLink="false">/?p=349</guid>
+
+					<description><![CDATA[<p>I have compiled here several articles and case studies which provide a comprehensive overview about current chatbot trends &#38; topics. &#160; Big Tech Companies Think Chatbots are the Future Thanks to advancements in natural voice recognition technology, big tech companies–Google, Microsoft, Amazon, IBM, among others–have made conversational interface technology (chatbots) household names. By mobilizing the &#8230;</p>
+<p class="read-more"> <a class="" href="/de/why-are-chatbots-here-to-stay/"> <span class="screen-reader-text">Why are chatbots here to stay?</span> Weiterlesen &#187;</a></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/why-are-chatbots-here-to-stay/">Why are chatbots here to stay?</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<p>I have compiled here several articles and case studies which provide a comprehensive overview about current chatbot trends &amp; topics.</p>
+<p>&nbsp;</p>
+<h2>Big Tech Companies Think Chatbots are the Future</h2>
+<p>Thanks to advancements in natural voice recognition technology, big tech companies–Google, Microsoft, Amazon, IBM, among others–have made conversational interface technology (chatbots) household names. By mobilizing the power of AI and continuing development in this area to make further improvements, Alexa, Google Assistant, and China’s XiaoIce have become commonplace technologies in homes and workplaces across the world.Each of the big players has a slightly different approach to AI usage, and below is a short overview of some of the best known chatbots on the market today. Here are examples of how the ‘big four’ are investing heavily in chatbot technology.</p>
+<blockquote class="wp-embedded-content" data-secret="RjNi39JUhx"><p><a href="https://beatcreativemarketing.com/big-tech-chatbots/">Big Tech and the Chatbot Evolution</a></p></blockquote>
+<p><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" title="&#8220;Big Tech and the Chatbot Evolution&#8221; &#8212; BeatCreative Marketing" src="https://beatcreativemarketing.com/big-tech-chatbots/embed/#?secret=RjNi39JUhx" data-secret="RjNi39JUhx" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>&nbsp;</p>
+<h2>How Chatbots Will Transform Customer Experience</h2>
+<p>Some predict that bots are the new apps. Consider Microsoft CEO Satya Nadella who recently said, “People-to-people conversations, people-to-digital assistants, people-to-bots … that’s the world you’re going to get to see in the years to come.” Consumers are overwhelmed with apps, and they prefer to converse on the messenger apps they&#8217;re already on. If you think about it this is a natural progression, considering that messaging is the root of all mobile communication. 50% of U.S. mobile users haven’t downloaded an app in the last year, but billions of people are already using messaging apps. Platforms like Facebook Messenger, Kik, and WhatsApp have a combined user-base of more than one billion. Even just Kik alone has more than 300 million users who have exchanged more than 350 million messages with bots.<br />
+https://www.forbes.com/sites/blakemorgan/2017/03/21/how-chatbots-will-transform-customer-experience-an-infographic/#268756857fb4</p>
+<p>&nbsp;</p>
+<h2>Why ‘talk to our chatbot’ will replace ‘send us an email’</h2>
+<p>Chatbot interactions like this go beyond replacing retail inquiries and tech support questions. This type of bot already exists, at least to some extent (even if the A.I. is fairly rudimentary at this point in bot evolution). I want a chatbot for more than sales and support; I want one for almost every situation where email is the preferred mode of communication. I’d ask about my college tuition payment for one of my kids, check with a state park bot about reserving a camping site, and even use one on the job — asking a PR bot to schedule an interview for me. If I need to contact an individual, I’d talk to a personal chatbot instead of sending an email, and perhaps find out that the person is in Lisbon on vacation. I’d interact with the bot instead and get the information I need. No email chain equals success.</p>
+<blockquote class="wp-embedded-content" data-secret="PHcHZxepcq"><p><a href="https://venturebeat.com/2016/09/25/why-talk-to-our-chatbot-will-replace-send-us-an-email/">Why ‘talk to our chatbot’ will replace ‘send us an email’</a></p></blockquote>
+<p><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" title="&#8220;Why ‘talk to our chatbot’ will replace ‘send us an email’&#8221; &#8212; VentureBeat" src="https://venturebeat.com/2016/09/25/why-talk-to-our-chatbot-will-replace-send-us-an-email/embed/#?secret=PHcHZxepcq" data-secret="PHcHZxepcq" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>&nbsp;</p>
+<h1>The Importance of Chatbots in Every Business</h1>
+<p>Chatbots are gaining more popularity than ever and they are totally bringing new ways of how businesses run marketing. They have become the latest addition to every marketer’s bag of strategies as being an early adopter can give you major advantage from customer support to lead generation. In this infographic, we look at the importance of chatbots and the stats so you’ll have a better understanding of how they can help your business succeed.<br />
+https://chatbotsmagazine.com/the-importance-of-chatbots-in-every-business-infographic-8a8f990be0aa</p>
+<p>&nbsp;</p>
+<h2>Chatbot Market Size To Reach $1.25 Billion By 2025</h2>
+<p>The global chatbot market is expected to reach USD 1.25 billion by 2025, growing at a CAGR of 24.3%, according to a new report by Grand View Research, Inc. The chatbot industry is expected to witness significant growth over the forecast period as they enable enterprises to substantially reduce operating costs. Additionally, innovations in artificial intelligence and machine learning technologies are likely to enhance the features of chatbots, which acts as a major driver for the market.<br />
+http://www.grandviewresearch.com/press-release/global-chatbot-market</p>
+<p>&nbsp;</p>
+<h2>Chatbots Will Appeal to Modern Workers</h2>
+<p>Chatbots continue to be a hot topic among media, end users and vendor communities. This is no surprise as chatbots — which use artificial intelligence (AI) to mimic human conversations — are expected to become widespread within the next two to three years.</p>
+<p>“By 2020, over 50% of medium to large enterprises will have deployed product chatbots,” said Van Baker, research vice president at Gartner, while at the Gartner Application Architecture, Development &amp; Integration Summit, held March 12-13 in Mumbai.<br />
+https://www.gartner.com/smarterwithgartner/chatbots-will-appeal-to-modern-workers/</p>
+<p>&nbsp;</p>
+<h2>4 Uses for Chatbots in the Enterprise</h2>
+<p>Four potential uses of chatbot platforms that exist in enterprises today include:</p>
+<ol>
+<li> Call center help desk: Specialized chatbots can potentially reduce the number of help desk workers, by facilitating the handling of routine requests via automated chatbot responses.</li>
+<li> ChatOps approvals: A change in a back-end record will trigger an event, which can cause a message to be delivered to an enterprise messaging or workflow environment requesting an employee responds to “approve,” “deny” or “defer” in the app.</li>
+<li><span style="font-size: 16px;"> Equipment diagnostic inventory management: When implemented in conjunction with Internet of Things (IoT) technologies, warehouse workers can be notified when a product is out of stock, or if a shipment has arrived at the loading dock that contains out-of-stock items.</span></li>
+<li><span style="font-size: 16px;"> Chatbot scheduling agent: Requires both the use of AI and bot-to-bot communication. The chatbot will likely call another bot that uses AI to initiate a messaging stream combined with calendar access, in an effort to find open time on multiple calendars.</span></li>
+</ol>
+<p><span style="font-size: 16px;">h</span>ttps://www.gartner.com/smarterwithgartner/4-uses-for-chatbots-in-the-enterprise/</p>
+<p>https://www.gartner.com/newsroom/id/3858564</p>
+<p>&nbsp;</p>
+<h2>Chatbot trends to look forward to in 2018</h2>
+<p>“By 2021, more than 50% of enterprises will be spending more per annum on bots and chatbot creations than traditional mobile app developments. Gartner is predicting that by 2020, 55% of all large enterprises will have deployed (used in production) at least one bot or chatbot. Rapid advances in natural-language processing (NLP) make today&#8217;s chatbots much better at recognizing the user intent than previous generations. According to Gartner’s predictions study, NLP is used to determine the entry point for the decision tree in a chatbot, but a majority of chatbots still use scripted responses in a decision tree.”</p>
+<p>Kia is seeing 3 times more conversions through its chatbot than its website<br />
+At last count, Kia had more than 800 websites where a customer can ask about buying a car.</p>
+<p>In November, to try and simplify the process, Kia launched Kian, a Facebook Messenger and chatbot, in order to have a direct source for all the information that users might search for. In the four months since its launch, Kia has gotten three times more conversions through Kian than through its main website, Kia.com.</p>
+<p>The conversion rate through Kian is 21 percent, while conversions through Kia.com are at 7 percent, according to Nathalie Choy, national manager of digital, social and CRM marketing at Kia Motors America.</p>
+<p>Customers aren’t shying away from asking their questions. Choy said Kia has seen an increase in engagement, mostly thanks to Kian. Kian has exchanged 600,000 messages, resulting in 50 times more engagement through Messenger, according to Choy.</p>
+<blockquote class="wp-embedded-content" data-secret="QDR7DpcCYz"><p><a href="https://digiday.com/marketing/personalization-allows-media-optimization-kia-seeing-3-times-conversions-chatbot-website/">Kia is seeing 3 times more conversions through its chatbot than its website</a></p></blockquote>
+<p><iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" title="&#8220;Kia is seeing 3 times more conversions through its chatbot than its website&#8221; &#8212; Digiday" src="https://digiday.com/marketing/personalization-allows-media-optimization-kia-seeing-3-times-conversions-chatbot-website/embed/#?secret=QDR7DpcCYz" data-secret="QDR7DpcCYz" width="600" height="338" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/why-are-chatbots-here-to-stay/">Why are chatbots here to stay?</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/de/why-are-chatbots-here-to-stay/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

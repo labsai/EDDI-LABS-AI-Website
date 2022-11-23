@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>framework Archive - E.D.D.I</title>
+	<atom:link href="/de/tag/framework/feed/" rel="self" type="application/rss+xml" />
+	<link>/de/tag/framework/</link>
+	<description>Enhanced Dialogue Driven Intelligence by Labs.ai</description>
+	<lastBuildDate>Wed, 09 Dec 2020 12:49:34 +0000</lastBuildDate>
+	<language>de-DE</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2020/12/cropped-EDDI-Logo-Blue_1-32x32.png</url>
+	<title>framework Archive - E.D.D.I</title>
+	<link>/de/tag/framework/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>The Art of Writing a Powerful Chatbot Framework</title>
+		<link>/de/the-art-of-writing-a-powerful-chatbot-framework/</link>
+					<comments>/de/the-art-of-writing-a-powerful-chatbot-framework/#respond</comments>
+		
+		<dc:creator><![CDATA[Judith Abramov]]></dc:creator>
+		<pubDate>Fri, 27 Mar 2020 17:50:15 +0000</pubDate>
+				<category><![CDATA[Chatbot Technology]]></category>
+		<category><![CDATA[chatbot]]></category>
+		<category><![CDATA[framework]]></category>
+		<category><![CDATA[NLP]]></category>
+		<category><![CDATA[technology]]></category>
+		<guid isPermaLink="false">/?p=356</guid>
+
+					<description><![CDATA[<p>Getting computers to understand and react appropriately to natural language is very difficult. Humans have evolved sophisticated natural language capabilities over the past 150,000 or so years. Emulating it in computer systems, which are far less advanced, is challenging. Given that we’re not much closer to artificial general intelligence than we were decades ago, chatbots &#8230;</p>
+<p class="read-more"> <a class="" href="/de/the-art-of-writing-a-powerful-chatbot-framework/"> <span class="screen-reader-text">The Art of Writing a Powerful Chatbot Framework</span> Weiterlesen &#187;</a></p>
+<p>Der Beitrag <a rel="nofollow" href="/de/the-art-of-writing-a-powerful-chatbot-framework/">The Art of Writing a Powerful Chatbot Framework</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></description>
+										<content:encoded><![CDATA[<div class="_1yEvn">
+<h5 class="_2wZrM _3BIio" tabindex="-1" data-hook="post-title"><span style="color: #ffffff;">Getting computers to understand and react appropriately to natural language is very difficult. Humans have evolved sophisticated natural language capabilities over the past 150,000 or so years. Emulating it in computer systems, which are far less advanced, is challenging. Given that we’re not much closer to artificial general intelligence than we were decades ago, chatbots have to be constrained to solving specific problems. Many common front-line customer support applications, for instance, can be effectively automated with the use of a chatbot.</span></h5>
+</div>
+<div class="yF0IC" data-hook="post-description">
+<article class="blog-post-page-font">
+<div class="post-content__body">
+<div class="lV_uZ _1LHlu _1ltva" data-rce-version="8.6.5">
+<div class="kcuBq _1PkHV blog-post-page-font _3f8WX uatYj" dir="ltr">
+<h5></h5>
+<h5 class="kaqlz _1FQ9t blog-post-page-font zJfAe">
+<span style="color: #ffffff;">Despite the fact that chatbots have nowhere near the capabilities of humans when it comes to speech and language, their capabilities are steadily expanding and they are now useful for a variety of applications that were a pipe dream a few years ago. Any kind of repetitive, relatively formulaic interaction can now oftentimes be replaced by artificial intelligence.</span><br />
+<span style="color: #ffffff;">That said, building a useful chatbot framework that can be adapted to a variety of circumstances is an unfinished endeavor. As natural language processing (NLP) technology continues to advance, more and more specific uses are becoming possible with chatbot technology.</span></h5>
+</div>
+<h2><span style="color: #ffffff;"> </span></h2>
+<p>&nbsp;</p>
+<h2 id="viewer-f32a8" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">What does a good chatbot framework have to do?</span></h2>
+<p id="viewer-25jpq" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">To make a chatbot framework that is as broadly applicable as possible, there’s a variety of features and other requirements that should be implemented:</span></p>
+<div id="viewer-f6237" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr"> </span></div>
+<ul class="public-DraftStyleDefault-ul">
+<li id="viewer-e36lo" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr public-DraftStyleDefault-reset _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">An advanced natural language parser. Humans are bad at typing, especially in a hurry, so we don’t always spell things correctly. Parsers that rely on specific and correct spellings and phrasings are going to miss out on a lot of natural human interactions.</p>
+</li>
+<li id="viewer-ekjeu" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Contextual information gathering. When two people talk to one another, they don’t forget what the other one was saying midway through the conversation. Similarly, chatbots should always have an idea of the topic of conversation so that the human can use pronouns and write normally. This is somewhat rare in common chatbot software. Even applications like Siri from huge companies are just beginning to integrate advanced contextual awareness. It’s a surprisingly hard problem.</p>
+</li>
+<li id="viewer-fmddv" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Ease of extension. New ways of integrating chatbot technology are always being created. Building a chatbot framework in a modular way make it easier to extend with new concepts for new applications.</p>
+</li>
+<li id="viewer-c0rnj" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Ease of use at scale. NLP applications are often used with lots of users at the same time or in large companies that require the framework to scale. Using certain architectural decisions, like modular API design and containerization, make some chatbot frameworks scale better than others.</p>
+</li>
+</ul>
+<div id="viewer-1o5dl" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr"> </span></div>
+<h2 id="viewer-6u21u" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Why is NLP so hard?</span></h2>
+<p id="viewer-ad5g0" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Humans communicate using hundreds of different intricate written and spoken languages. Even if a chatbot only works in English, for instance, the myriad ways to express a particular concept make it very difficult to determine meaning without human intuition. Over the years, there has been a variety of attempts to create generic natural language understanding and natural language generation systems.</span></p>
+<p id="viewer-f04a9" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Traditional symbolic artificial intelligence systems tried to describe the way that language works from a logical perspective. The idea was that writing out rules for how language worked would allow the computer to understand and generate convincingly realistic language if the rules were specific enough. It turns out that natural language is complicated enough that it is practically impossible to specify rules that work any significant fraction of the time.</span></p>
+<p id="viewer-8ic6e" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">More recently, now that computers are much more powerful, machine learning based on statistics has taken over as the dominant way to parse and generate natural language. The full-sized GPT-2 model, for example, does an impressive job of generating text. Still, it cannot generate anything that makes perfect sense, even if the text it produces is grammatically correct and logical-sounding.</span></p>
+<p id="viewer-3ncte" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Building a machine learning model for natural language requires training the model on millions of pieces of text from diverse authors. It usually also requires a ton of GPU power to perform the training process, which only recently became cost-effective. </span></p>
+<div id="viewer-3utd8" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr"> </span></div>
+<h2 id="viewer-2airv" class="_3f-vr _208Ie blog-post-header-two-font blog-post-header-two-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">How does a good chatbot framework work?</span></h2>
+<p id="viewer-2mooi" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">Since chatbots will not be as fluent as humans across a wide range of topics for a very long time, we have to select specific tasks that can be automated with chatbots to produce a usable product. </span></p>
+<p id="viewer-9gf3b" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">In order to build a chatbot using a framework, the developer must:</span></p>
+<div id="viewer-ec7j6" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr"> </span></div>
+<ul class="public-DraftStyleDefault-ul">
+<li id="viewer-1gq5" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr public-DraftStyleDefault-reset _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Define a dictionary that maps different types of user input to their meanings.</p>
+</li>
+<li id="viewer-84ree" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Define a set of behavioral rules that perform certain actions when certain conditions are triggered.</p>
+</li>
+<li id="viewer-9fo0a" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Build templates to output appropriate responses.</p>
+</li>
+<li id="viewer-bp7pm" class="ljrnk _1QOLZ _2eQSj _1BJwx public-DraftStyleDefault-unorderedListItem
+   public-DraftStyleDefault-depth0
+   public-DraftStyleDefault-list-ltr _2QAo- _25MYV _1Fao9 ljrnk">
+<p class="_208Ie _2QAo- _25MYV _1Fao9 ljrnk">Package it all up and deploy it.</p>
+</li>
+</ul>
+<div id="viewer-uecq" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr"> </span></div>
+<p id="viewer-ars4o" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">For example, a chatbot for redirecting customers to the appropriate customer support division in a large company might ask questions about the type of product the user wants help with. Depending on the customer’s answer (using the dictionary and behavioral rules), it might then ask additional questions to refine its understanding of the customer’s desires. Finally, it would dispatch the user to an appropriate support channel. This job would be very boring and repetitive for a human, so it’s a prime target for automation using a powerful chatbot framework. </span></p>
+<p id="viewer-8442q" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">A well-designed chatbot framework makes it easy to specify these parameters for simple, common applications and makes it possible to define them for novel and complex projec</span></p>
+<p id="viewer-58fk" class="XzvDs _208Ie ljrnk blog-post-text-font blog-post-text-color _2QAo- _25MYV _1Fao9 ljrnk public-DraftStyleDefault-block-depth0 public-DraftStyleDefault-text-ltr"><span class="vkIF2 public-DraftStyleDefault-ltr">ts. For its part, the framework should automatically check user input for typos, retain contextual information for subsequent questions, make it easy to integrate the chatbot API into various types of apps, and make deployment and scaling a breeze.</span></p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</p>
+<p><span style="font-size: 16px;">Given the complexity of natural language processing and the difficulties inherent in designing a modular, scalable, easy-to-use chatbot framework, good ones are rare. Frameworks that are also free and open source software and not dependent on a particular provider’s cloud infrastructure are even more rare. That’s why E.D.D.I from Labs.ai is so cool: it’s an advanced chatbot framework provided for free with the source code.</span></p>
+</div>
+</div>
+</article>
+<div id="viewer-anc40" class="q2uC4 _3kAGd" style="font-size: 16px; font-style: normal; font-weight: 400;">
+<div class="_1wj_L IoEY5 IoEY5 _3LSSz _34F04 _34F04" style="font-size: 16px;"></div>
+</div>
+</div>
+<p>Der Beitrag <a rel="nofollow" href="/de/the-art-of-writing-a-powerful-chatbot-framework/">The Art of Writing a Powerful Chatbot Framework</a> erschien zuerst auf <a rel="nofollow" href="/de/">E.D.D.I</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/de/the-art-of-writing-a-powerful-chatbot-framework/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
