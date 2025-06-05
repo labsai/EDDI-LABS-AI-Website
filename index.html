@@ -7,8 +7,10 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="E.D.D.I - Advanced Conversational AI Middleware">
-    <meta name="description" content="Enterprise-ready, multilingual conversational AI middleware to build and manage virtual assistants and chatbots across multiple channels.">
-    <meta name="keywords" content="conversational AI, chatbot, virtual assistant, AI middleware, NLP, LABS.AI, open source, enterprise AI">
+    <meta name="description"
+          content="Enterprise-ready, multilingual conversational AI middleware to build and manage virtual assistants and chatbots across multiple channels.">
+    <meta name="keywords"
+          content="conversational AI, chatbot, virtual assistant, AI middleware, NLP, LABS.AI, open source, enterprise AI">
     <meta name="author" content="LABS.AI">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://eddi.labs.ai/">
@@ -17,7 +19,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eddi.labs.ai/">
     <meta property="og:title" content="E.D.D.I - Advanced Conversational AI Middleware">
-    <meta property="og:description" content="Build enterprise-grade conversational experiences with the leading open-source AI middleware platform.">
+    <meta property="og:description"
+          content="Build enterprise-grade conversational experiences with the leading open-source AI middleware platform.">
     <meta property="og:image" content="https://eddi.labs.ai/images/eddi-social-card.jpg">
     <meta property="og:site_name" content="E.D.D.I by LABS.AI">
     <meta property="og:locale" content="en_US">
@@ -26,7 +29,8 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://eddi.labs.ai/">
     <meta property="twitter:title" content="E.D.D.I - Advanced Conversational AI Middleware">
-    <meta property="twitter:description" content="Build enterprise-grade conversational experiences with the leading open-source AI middleware platform.">
+    <meta property="twitter:description"
+          content="Build enterprise-grade conversational experiences with the leading open-source AI middleware platform.">
     <meta property="twitter:image" content="https://eddi.labs.ai/images/eddi-social-card.jpg">
     <meta name="twitter:site" content="@LABS_AI">
     <meta name="twitter:creator" content="@LABS_AI">
@@ -52,31 +56,33 @@
 
     <!-- Structured Data for Rich Results -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "E.D.D.I",
-      "description": "Enterprise-ready, multilingual conversational AI middleware to build and manage virtual assistants and chatbots across multiple channels.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Docker",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "LABS.AI",
-        "url": "https://eddi.labs.ai"
-      },
-      "softwareVersion": "5.5.0",
-      "downloadUrl": "https://github.com/labsai/EDDI",
-      "screenshot": "https://eddi.labs.ai/images/eddi-social-card.jpg"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "E.D.D.I",
+            "description": "Enterprise-ready, multilingual conversational AI middleware to build and manage virtual assistants and chatbots across multiple channels.",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Docker",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "author": {
+                "@type": "Organization",
+                "name": "LABS.AI",
+                "url": "https://eddi.labs.ai"
+            },
+            "softwareVersion": "5.5.0",
+            "downloadUrl": "https://github.com/labsai/EDDI",
+            "screenshot": "https://eddi.labs.ai/images/eddi-social-card.jpg"
+        }
     </script>
 
     <!-- Google Analytics - Only initialized when cookies are accepted -->
-    <style>.cmplz-hidden{display:none!important;}</style>
+    <style>.cmplz-hidden {
+        display: none !important;
+    }</style>
     <script>
         // Only load Google Analytics after cookie consent is given
         function enableGoogleAnalytics() {
@@ -86,7 +92,11 @@
             document.head.appendChild(analyticsScript);
 
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
             gtag('js', new Date());
             gtag('config', 'G-L1011GL1PY');
         }
@@ -113,16 +123,16 @@
         }
 
         // Apply contacts after DOM is loaded to avoid bots
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Apply to all elements with class 'protected-email'
-            document.querySelectorAll('.protected-email').forEach(function(element) {
+            document.querySelectorAll('.protected-email').forEach(function (element) {
                 // Always render just the email without icons
                 element.innerHTML = decodeAndRenderEmail();
                 element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
             });
 
             // Apply to all elements with class 'protected-phone'
-            document.querySelectorAll('.protected-phone').forEach(function(element) {
+            document.querySelectorAll('.protected-phone').forEach(function (element) {
                 element.innerHTML = decodeAndRenderPhone();
                 element.setAttribute('href', 'tel:' + decodeAndRenderPhone().replace(/[\s-]/g, ''));
             });
@@ -131,7 +141,7 @@
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
             // Replace any remaining mailto: links that might contain the email directly
-            document.querySelectorAll('a[href^="mailto:"]').forEach(function(element) {
+            document.querySelectorAll('a[href^="mailto:"]').forEach(function (element) {
                 if (!element.classList.contains('protected-email')) {
                     element.classList.add('protected-email');
                     element.innerHTML = decodeAndRenderEmail();
@@ -144,7 +154,7 @@
             const imprintContent = document.getElementById('imprint-content');
 
             if (showImprintButton && imprintContent) {
-                showImprintButton.addEventListener('click', function() {
+                showImprintButton.addEventListener('click', function () {
                     if (imprintContent.classList.contains('hidden')) {
                         imprintContent.classList.remove('hidden');
                         showImprintButton.textContent = 'Hide Imprint';
@@ -165,11 +175,14 @@
             background-color: #111827; /* Dark base background (Tailwind gray-900) */
             color: #d1d5db; /* Lighter text for dark bg (Tailwind gray-300) */
         }
+
         .hero-bg {
             background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Darker hero gradient */
         }
+
         .section-title { /* Enhanced section title styling */
-            @apply text-4xl sm:text-5xl font-extrabold text-center mb-10; /* Responsive font size */
+            @apply text-4xl sm:text-5xl font-extrabold text-center mb-10;
+            /* Responsive font size */
             background-image: linear-gradient(to right, #60a5fa, #a78bfa); /* blue-400 to purple-400 */
             -webkit-background-clip: text;
             background-clip: text;
@@ -177,25 +190,32 @@
             padding-top: 2.5rem;
             padding-bottom: 0.5rem;
         }
+
         .section-subtitle { /* Consistent subtitle styling */
             @apply text-lg text-center text-gray-400 mb-20 md:mb-24 max-w-2xl mx-auto px-4;
             line-height: 1.8;
         }
+
         .feature-card {
             @apply bg-gray-800 p-6 md:p-8 rounded-xl shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-purple-500 mb-8;
         }
+
         .feature-icon {
             @apply flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-8 shadow-lg;
         }
+
         .feature-icon i {
             font-size: 2.5rem;
         }
+
         .cta-button {
             @apply px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 border-2 border-transparent;
         }
+
         .cta-button-secondary {
             @apply px-8 py-3 bg-gray-700 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center border border-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900;
         }
+
         /* Responsive adjustments for mobile CTA buttons */
         @media (max-width: 640px) {
             .cta-button, .cta-button-secondary {
@@ -205,21 +225,25 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+
             .space-y-6 > :not([hidden]) ~ :not([hidden]) {
                 --tw-space-y-reverse: 0;
                 margin-top: calc(1.75rem * calc(1 - var(--tw-space-y-reverse)));
                 margin-bottom: calc(1.75rem * var(--tw-space-y-reverse));
             }
         }
+
         .nav-link {
             @apply px-3 lg:px-4 py-2 text-gray-300 hover:text-white rounded-md text-base font-medium transition-all duration-300 relative focus:outline-none focus:ring-1 focus:ring-purple-400 mx-3 lg:mx-4;
             transform: translateY(0);
         }
+
         .nav-link:hover {
             @apply bg-gray-800 shadow-md;
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(167, 139, 250, 0.2);
         }
+
         .nav-link.active::after, .nav-link:hover::after {
             content: '';
             position: absolute;
@@ -233,39 +257,47 @@
             border-radius: 1px;
             transition: width 0.3s ease;
         }
+
         .nav-link:hover::after {
             width: calc(100% - 1.5rem);
             max-width: 80px;
         }
+
         .nav-link.active {
             @apply text-white bg-gray-800/70;
             box-shadow: 0 4px 6px -1px rgba(167, 139, 250, 0.1);
         }
+
         .fade-in {
             opacity: 0;
             transform: translateY(25px);
             transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         /* Adjusted partner logo filter for better visibility of colored logos on dark backgrounds */
         .partner-logo {
             /* General filter for monochrome or dark logos to make them white-ish */
             filter: grayscale(100%) brightness(300%) contrast(200%) opacity(0.7);
             transition: all 0.3s ease;
         }
+
         .partner-logo:hover {
             filter: grayscale(0%) brightness(100%) opacity(1); /* Show color on hover or full brightness */
             transform: scale(1.1);
         }
+
         /* Specific class for logos that are already light/white or should retain color */
         .partner-logo-colored {
             filter: none; /* No filter or minimal adjustments */
             opacity: 0.8;
             transition: all 0.3s ease;
         }
+
         .partner-logo-colored:hover {
             opacity: 1;
             transform: scale(1.1);
@@ -283,22 +315,25 @@
             height: 5rem;
             line-height: 1;
         }
+
         .tech-stack-icon:hover {
             color: white;
             transform: scale(1.1);
         }
+
         .redhat-icon {
             color: #ee0000;
             font-weight: bold;
             position: relative;
         }
+
         .redhat-icon:hover::after {
             content: 'Certified on Red Hat OpenShift - Enterprise-grade Kubernetes platform';
             position: absolute;
             bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
@@ -308,15 +343,19 @@
             z-index: 10;
             font-weight: normal;
         }
+
         .gradient-text {
             @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400;
         }
+
         .section-bg-alt {
             @apply bg-gray-800;
         }
+
         .form-input {
             @apply mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm text-white;
         }
+
         .action-button {
             @apply inline-flex items-center justify-center w-full px-8 py-5 font-semibold text-base rounded-2xl transition-all duration-300 focus:outline-none;
             letter-spacing: 0.5px;
@@ -326,15 +365,18 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         .action-button:hover {
             background-color: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
+
         .action-button:active {
             transform: translateY(1px);
         }
+
         .integration-icon {
             font-size: 4rem;
             color: #e5e7eb;
@@ -347,6 +389,7 @@
             height: 5rem;
             line-height: 1;
         }
+
         .integration-icon:hover {
             color: white;
             transform: scale(1.1);
@@ -355,26 +398,33 @@
 </head>
 <body class="text-gray-300">
 <!-- Cookie Consent Banner -->
-<div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
+<div id="cookie-consent-banner"
+     class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
     <div class="max-w-screen-xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div class="md:flex md:items-center md:justify-between">
             <div class="flex-1 min-w-0 md:mr-6">
                 <h2 class="text-lg font-bold text-white mb-1">Cookie Consent</h2>
                 <p class="text-sm text-gray-300">
-                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. Visit our Privacy Policy to learn more.
+                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze
+                    our traffic. By clicking "Accept All", you consent to our use of cookies. Visit our Privacy Policy
+                    to learn more.
                 </p>
             </div>
             <div class="mt-4 flex flex-shrink-0 md:mt-0 space-x-3">
                 <button id="cookie-accept-all" class="cta-button text-sm py-2 px-4">Accept All</button>
-                <button id="cookie-accept-necessary" class="cta-button-secondary text-sm py-2 px-4">Necessary Only</button>
-                <button id="cookie-settings" class="text-gray-300 hover:text-white text-sm py-2 px-4 underline">Cookie Settings</button>
+                <button id="cookie-accept-necessary" class="cta-button-secondary text-sm py-2 px-4">Necessary Only
+                </button>
+                <button id="cookie-settings" class="text-gray-300 hover:text-white text-sm py-2 px-4 underline">Cookie
+                    Settings
+                </button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Cookie Settings Modal -->
-<div id="cookie-settings-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+<div id="cookie-settings-modal"
+     class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
     <div class="bg-gray-800 rounded-lg max-w-md w-full mx-4 border border-gray-700 shadow-xl">
         <div class="p-6">
             <div class="flex justify-between items-center mb-4">
@@ -386,7 +436,8 @@
             <div class="space-y-4">
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="necessary-cookies" name="necessary-cookies" type="checkbox" checked disabled class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                        <input id="necessary-cookies" name="necessary-cookies" type="checkbox" checked disabled
+                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
                     </div>
                     <div class="ml-3 text-sm">
                         <label for="necessary-cookies" class="font-medium text-white">Necessary Cookies</label>
@@ -395,7 +446,8 @@
                 </div>
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="analytics-cookies" name="analytics-cookies" type="checkbox" class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                        <input id="analytics-cookies" name="analytics-cookies" type="checkbox"
+                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
                     </div>
                     <div class="ml-3 text-sm">
                         <label for="analytics-cookies" class="font-medium text-white">Analytics Cookies</label>
@@ -404,11 +456,13 @@
                 </div>
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
-                        <input id="marketing-cookies" name="marketing-cookies" type="checkbox" class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                        <input id="marketing-cookies" name="marketing-cookies" type="checkbox"
+                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
                     </div>
                     <div class="ml-3 text-sm">
                         <label for="marketing-cookies" class="font-medium text-white">Marketing Cookies</label>
-                        <p class="text-gray-400">Used to track visitors across websites to display relevant advertisements.</p>
+                        <p class="text-gray-400">Used to track visitors across websites to display relevant
+                            advertisements.</p>
                     </div>
                 </div>
             </div>
@@ -421,7 +475,7 @@
 
 <script>
     // Cookie consent functionality
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Check if consent was already given
         const cookieConsent = localStorage.getItem('cookieConsent');
 
@@ -438,7 +492,7 @@
         }
 
         // Accept all cookies
-        document.getElementById('cookie-accept-all').addEventListener('click', function() {
+        document.getElementById('cookie-accept-all').addEventListener('click', function () {
             const consentData = {
                 necessary: true,
                 analytics: true,
@@ -456,7 +510,7 @@
         });
 
         // Accept only necessary cookies
-        document.getElementById('cookie-accept-necessary').addEventListener('click', function() {
+        document.getElementById('cookie-accept-necessary').addEventListener('click', function () {
             const consentData = {
                 necessary: true,
                 analytics: false,
@@ -471,7 +525,7 @@
         });
 
         // Open cookie settings
-        document.getElementById('cookie-settings').addEventListener('click', function() {
+        document.getElementById('cookie-settings').addEventListener('click', function () {
             document.getElementById('cookie-settings-modal').classList.remove('hidden');
 
             // Set checkboxes based on saved preferences if any
@@ -483,12 +537,12 @@
         });
 
         // Close cookie settings
-        document.getElementById('close-cookie-settings').addEventListener('click', function() {
+        document.getElementById('close-cookie-settings').addEventListener('click', function () {
             document.getElementById('cookie-settings-modal').classList.add('hidden');
         });
 
         // Save preferences
-        document.getElementById('save-cookie-preferences').addEventListener('click', function() {
+        document.getElementById('save-cookie-preferences').addEventListener('click', function () {
             const analyticsConsent = document.getElementById('analytics-cookies').checked;
             const marketingConsent = document.getElementById('marketing-cookies').checked;
 
@@ -513,12 +567,15 @@
         });
     });
 </script>
-<nav id="navbar" aria-label="Main navigation" class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-2xl transition-all duration-300">
+<nav id="navbar" aria-label="Main navigation"
+     class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-2xl transition-all duration-300">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
             <div class="flex items-center">
                 <a href="#hero" class="flex-shrink-0">
-                    <span class="text-white text-3xl font-bold tracking-tight">E<span class="text-blue-400">.</span>D<span class="text-blue-400">.</span>D<span class="text-blue-400">.</span>I</span>
+                    <span class="text-white text-3xl font-bold tracking-tight">E<span
+                            class="text-blue-400">.</span>D<span class="text-blue-400">.</span>D<span
+                            class="text-blue-400">.</span>I</span>
                 </a>
             </div>
             <div class="hidden md:block">
@@ -533,7 +590,8 @@
                 </div>
             </div>
             <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                     <span class="sr-only">Open main menu</span>
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -553,17 +611,22 @@
     </div>
 </nav>
 
-<section id="hero" class="hero-bg py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white overflow-hidden">
+<section id="hero"
+         class="hero-bg py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white overflow-hidden">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
             Orchestrate Your AI Conversations with <span class="gradient-text">E.D.D.I</span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            E.D.D.I is the open-source Prompt & Conversation Management Middleware for leading LLM APIs. Build lean, scalable, and cloud-native AI assistants with unparalleled flexibility.
+            E.D.D.I is the open-source Prompt & Conversation Management Middleware for leading LLM APIs. Build lean,
+            scalable, and cloud-native AI assistants with unparalleled flexibility.
         </p>
         <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
-            <a href="#getting-started" class="cta-button text-lg px-10 py-4 whitespace-nowrap mb-6 sm:mb-0" aria-label="Start building with EDDI"><i class="fas fa-rocket mr-2" aria-hidden="true"></i>Start Building Now</a>
-            <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg px-10 py-4 whitespace-nowrap" aria-label="Explore EDDI on GitHub">
+            <a href="#getting-started" class="cta-button text-lg px-10 py-4 whitespace-nowrap mb-6 sm:mb-0"
+               aria-label="Start building with EDDI"><i class="fas fa-rocket mr-2" aria-hidden="true"></i>Start Building
+                Now</a>
+            <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer"
+               class="cta-button-secondary text-lg px-10 py-4 whitespace-nowrap" aria-label="Explore EDDI on GitHub">
                 <i class="fab fa-github mr-2" aria-hidden="true"></i>Explore on GitHub
             </a>
         </div>
@@ -575,7 +638,9 @@
                 <i class="fab fa-docker tech-stack-icon" title="Docker"></i>
                 <span class="tech-stack-icon font-bold" title="Kubernetes">K8s</span>
                 <i class="fas fa-database tech-stack-icon" title="MongoDB"></i>
-                <div class="tech-stack-icon redhat-icon" title="Certified on Red Hat OpenShift - Enterprise-grade Kubernetes platform"><i class="fab fa-redhat"></i></div>
+                <div class="tech-stack-icon redhat-icon"
+                     title="Certified on Red Hat OpenShift - Enterprise-grade Kubernetes platform"><i
+                        class="fab fa-redhat"></i></div>
             </div>
         </div>
     </div>
@@ -584,34 +649,45 @@
 <section id="about" class="py-28 md:py-40 section-bg-alt">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Why Choose E.D.D.I?</h2>
-        <p class="section-subtitle">In a rapidly evolving AI landscape, E.D.D.I provides the critical middleware layer to unify, manage, and scale your conversational AI initiatives without vendor lock-in.</p>
+        <p class="section-subtitle">In a rapidly evolving AI landscape, E.D.D.I provides the critical middleware layer
+            to unify, manage, and scale your conversational AI initiatives without vendor lock-in.</p>
         <br>
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="fade-in order-2 md:order-1">
-                <h3 class="text-2xl md:text-3xl font-semibold text-white mb-8">The Central Nervous System for Your AI Bots</h3>
+                <h3 class="text-2xl md:text-3xl font-semibold text-white mb-8">The Central Nervous System for Your AI
+                    Bots</h3>
                 <p class="text-lg text-gray-300 mb-7">
-                    E.D.D.I (Enhanced Dialogue Driven Interface) isn't just another chatbot framework. It's a high-performance middleware engineered to connect and manage diverse LLM API bots. It excels at prompt engineering, conversation state management, and seamless API integration.
+                    E.D.D.I (Enhanced Dialogue Driven Interface) isn't just another chatbot framework. It's a
+                    high-performance middleware engineered to connect and manage diverse LLM API bots. It excels at
+                    prompt engineering, conversation state management, and seamless API integration.
                 </p>
                 <p class="text-lg text-gray-300 mb-8">
-                    Developed in Java with Quarkus, E.D.D.I is exceptionally lean, RESTful, scalable, and cloud-native. Deploy with its certified Docker container, orchestrate with Kubernetes or OpenShift, and take control of your AI stack.
+                    Developed in Java with Quarkus, E.D.D.I is exceptionally lean, RESTful, scalable, and cloud-native.
+                    Deploy with its certified Docker container, orchestrate with Kubernetes or OpenShift, and take
+                    control of your AI stack.
                 </p>
                 <ul class="space-y-6">
                     <li class="flex items-center">
                         <i class="fas fa-check-circle text-purple-400 mr-3 text-xl"></i>
-                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Open & Extensible:</strong> Apache 2.0 licensed, fully customizable</span>
+                        <span class="text-gray-200 text-lg"><strong
+                                class="font-semibold text-white">Open & Extensible:</strong> Apache 2.0 licensed, fully customizable</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check-circle text-purple-400 mr-3 text-xl"></i>
-                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Performance-Driven:</strong> Built with Quarkus for speed and efficiency</span>
+                        <span class="text-gray-200 text-lg"><strong
+                                class="font-semibold text-white">Performance-Driven:</strong> Built with Quarkus for speed and efficiency</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check-circle text-purple-400 mr-3 text-xl"></i>
-                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Future-Proof:</strong> Easily adapt to new LLMs and AI services</span>
+                        <span class="text-gray-200 text-lg"><strong
+                                class="font-semibold text-white">Future-Proof:</strong> Easily adapt to new LLMs and AI services</span>
                     </li>
                 </ul>
             </div>
             <div class="fade-in order-1 md:order-2">
-                <img src="images/AI-orchestration.jpg" alt="Diagram illustrating E.D.D.I as a central AI orchestration middleware" class="rounded-lg shadow-2xl mx-auto transform hover:scale-105 transition-transform duration-300 border-2 border-gray-700 hover:border-purple-500">
+                <img src="images/AI-orchestration.jpg"
+                     alt="Diagram illustrating E.D.D.I as a central AI orchestration middleware"
+                     class="rounded-lg shadow-2xl mx-auto transform hover:scale-105 transition-transform duration-300 border-2 border-gray-700 hover:border-purple-500">
             </div>
         </div>
     </div>
@@ -620,50 +696,61 @@
 <section id="features" class="py-16 md:py-24 bg-gray-900">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Unlock Advanced AI Capabilities</h2>
-        <p class="section-subtitle">E.D.D.I is packed with features designed for robust and flexible conversational AI development.</p>
+        <p class="section-subtitle">E.D.D.I is packed with features designed for robust and flexible conversational AI
+            development.</p>
         <br>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             <div class="feature-card fade-in flex flex-col">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-brain"></i></div>
                 </div>
-                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Sophisticated Prompt Engineering</h3>
-                <p class="text-gray-400 text-center">Master your LLM interactions with advanced prompt management and templating capabilities.</p>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Sophisticated Prompt
+                    Engineering</h3>
+                <p class="text-gray-400 text-center">Master your LLM interactions with advanced prompt management and
+                    templating capabilities.</p>
             </div>
             <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.05s;">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-comments-dollar"></i></div>
                 </div>
-                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Conversation State Management</h3>
-                <p class="text-gray-400 text-center">Maintain context and history across user sessions for coherent and intelligent dialogues.</p>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Conversation State
+                    Management</h3>
+                <p class="text-gray-400 text-center">Maintain context and history across user sessions for coherent and
+                    intelligent dialogues.</p>
             </div>
             <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.1s;">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-link"></i></div>
                 </div>
                 <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Seamless API Integration</h3>
-                <p class="text-gray-400 text-center">Connect effortlessly with various conversational services or traditional REST APIs via runtime configurations.</p>
+                <p class="text-gray-400 text-center">Connect effortlessly with various conversational services or
+                    traditional REST APIs via runtime configurations.</p>
             </div>
             <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.15s;">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
                 </div>
-                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Configurable Behavior Rules</h3>
-                <p class="text-gray-400 text-center">Orchestrate LLM involvement and define complex interaction logic with a powerful rules engine.</p>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Configurable Behavior
+                    Rules</h3>
+                <p class="text-gray-400 text-center">Orchestrate LLM involvement and define complex interaction logic
+                    with a powerful rules engine.</p>
             </div>
             <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.2s;">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
                 </div>
-                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Multi-Bot & Version Management</h3>
-                <p class="text-gray-400 text-center">Run multiple chatbots, including different versions of the same bot, concurrently for smooth upgrades.</p>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Multi-Bot & Version
+                    Management</h3>
+                <p class="text-gray-400 text-center">Run multiple chatbots, including different versions of the same
+                    bot, concurrently for smooth upgrades.</p>
             </div>
             <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.25s;">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-key"></i></div>
                 </div>
                 <h3 class="text-xl md:text-2xl font-semibold text-white mb-3 text-center">Secure & Authenticated</h3>
-                <p class="text-gray-400 text-center">Integrates with OAuth 2.0 (Keycloak) for robust authentication and user management.</p>
+                <p class="text-gray-400 text-center">Integrates with OAuth 2.0 (Keycloak) for robust authentication and
+                    user management.</p>
             </div>
         </div>
     </div>
@@ -672,7 +759,8 @@
 <section id="integrations" class="py-16 md:py-24 section-bg-alt">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Connect to the AI Ecosystem</h2>
-        <p class="section-subtitle">E.D.D.I supports major AI API integrations via Langchain4j, giving you access to the best models. It's available as a certified Docker container.</p>
+        <p class="section-subtitle">E.D.D.I supports major AI API integrations via Langchain4j, giving you access to the
+            best models. It's available as a certified Docker container.</p>
         <br>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 items-start justify-items-center">
             <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
@@ -707,53 +795,79 @@
     </div>
 </section>
 
-<section id="getting-started" class="py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white">
+<section id="getting-started"
+         class="py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">Ready to Revolutionize Your AI Bots?</h2>
         <p class="text-xl md:text-2xl text-gray-200 mb-16 max-w-3xl mx-auto">
-            Dive into the E.D.D.I ecosystem. Explore our comprehensive documentation, grab the certified Docker image, or jump straight into the code on GitHub.
+            Dive into the E.D.D.I ecosystem. Explore our comprehensive documentation, grab the certified Docker image,
+            or jump straight into the code on GitHub.
         </p>
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
             <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full">
                 <div class="text-6xl mb-6 text-blue-300"><i class="fab fa-docker"></i></div>
                 <h3 class="text-2xl font-semibold mb-4">Run with Docker</h3>
-                <p class="text-gray-300 mb-6">The quickest way to get E.D.D.I up and running. Pull the official certified image.</p><div class="mt-auto">
-                <a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="Get Docker Image"><i class="fab fa-docker mr-3" aria-hidden="true"></i>Get Docker Image</a></div>
+                <p class="text-gray-300 mb-6">The quickest way to get E.D.D.I up and running. Pull the official
+                    certified image.</p>
+                <div class="mt-auto">
+                    <a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer"
+                       class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300"
+                       aria-label="Get Docker Image"><i class="fab fa-docker mr-3" aria-hidden="true"></i>Get Docker
+                        Image</a></div>
             </div>
-            <div class="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 fade-in border border-white/30 flex flex-col h-full" style="transition-delay: 0.05s;">
+            <div class="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 fade-in border border-white/30 flex flex-col h-full"
+                 style="transition-delay: 0.05s;">
                 <div class="text-6xl mb-6 text-white"><i class="fas fa-book-open"></i></div>
                 <h3 class="text-2xl font-semibold mb-4">Explore Docs</h3>
-                <p class="text-gray-100 mb-6">Detailed guides, API references, and tutorials to master E.D.D.I's capabilities.</p><div class="mt-auto">
-                <a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="Read Documentation"><i class="fas fa-book-open mr-3" aria-hidden="true"></i>Read Documentation</a></div>
+                <p class="text-gray-100 mb-6">Detailed guides, API references, and tutorials to master E.D.D.I's
+                    capabilities.</p>
+                <div class="mt-auto">
+                    <a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer"
+                       class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300"
+                       aria-label="Read Documentation"><i class="fas fa-book-open mr-3" aria-hidden="true"></i>Read
+                        Documentation</a></div>
             </div>
-            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full" style="transition-delay: 0.1s;">
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full"
+                 style="transition-delay: 0.1s;">
                 <div class="text-6xl mb-6 text-blue-300"><i class="fab fa-github"></i></div>
                 <h3 class="text-2xl font-semibold mb-4">Contribute on GitHub</h3>
-                <p class="text-gray-300 mb-6">Access source code, report issues, and become part of the E.D.D.I open-source community.</p>
-                <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="View on GitHub"><i class="fab fa-github mr-3" aria-hidden="true"></i>View on GitHub</a></div>
+                <p class="text-gray-300 mb-6">Access source code, report issues, and become part of the E.D.D.I
+                    open-source community.</p>
+                <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer"
+                   class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300"
+                   aria-label="View on GitHub"><i class="fab fa-github mr-3" aria-hidden="true"></i>View on GitHub</a>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
 <section id="community" class="py-16 md:py-24 section-bg-alt">
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="section-title">Join the E.D.D.I Community</h2>
-        <p class="section-subtitle">E.D.D.I is an open-source project driven by its community. Connect, contribute, and help shape the future of conversational AI.</p>
+        <p class="section-subtitle">E.D.D.I is an open-source project driven by its community. Connect, contribute, and
+            help shape the future of conversational AI.</p>
         <br>
         <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="fade-in text-center md:text-left order-2 md:order-1">
                 <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">Be Part of Something Bigger</h3>
                 <p class="text-lg text-gray-300 mb-10">
-                    Whether you're a developer looking to contribute code, an AI enthusiast with ideas, or an enterprise seeking robust solutions, the E.D.D.I community welcomes you.
+                    Whether you're a developer looking to contribute code, an AI enthusiast with ideas, or an enterprise
+                    seeking robust solutions, the E.D.D.I community welcomes you.
                 </p>
                 <div class="space-y-4 sm:space-y-0 sm:flex sm:flex-wrap sm:justify-center md:justify-start sm:gap-6">
-                    <a href="https://github.com/labsai/EDDI/issues" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-bug mr-2"></i>Report an Issue</a>
-                    <a href="https://github.com/labsai/EDDI/discussions" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-comments mr-2"></i>Join Discussions</a>
+                    <a href="https://github.com/labsai/EDDI/issues" target="_blank" rel="noopener noreferrer"
+                       class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-bug mr-2"></i>Report an
+                        Issue</a>
+                    <a href="https://github.com/labsai/EDDI/discussions" target="_blank" rel="noopener noreferrer"
+                       class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-comments mr-2"></i>Join
+                        Discussions</a>
                 </div>
             </div>
             <div class="fade-in order-1 md:order-2">
-                <img src="images/Illustration-collaborating-AI.jpg" alt="Illustration of diverse people collaborating on a project, representing the E.D.D.I community" class="rounded-lg shadow-2xl mx-auto border-2 border-gray-700 hover:border-purple-500">
+                <img src="images/Illustration-collaborating-AI.jpg"
+                     alt="Illustration of diverse people collaborating on a project, representing the E.D.D.I community"
+                     class="rounded-lg shadow-2xl mx-auto border-2 border-gray-700 hover:border-purple-500">
             </div>
         </div>
     </div>
@@ -763,7 +877,8 @@
     <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-xl mx-auto bg-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-purple-500/30">
             <p class="text-lg md:text-xl text-center text-gray-200 mb-8">
-                Have questions, require enterprise support, or interested in collaborating? Reach out to the LABS.AI team.
+                Have questions, require enterprise support, or interested in collaborating? Reach out to the LABS.AI
+                team.
             </p>
             <div id="hubspot-form-container" class="space-y-6">
                 <script>hbspt.forms.create({
@@ -772,7 +887,8 @@
                 });</script>
             </div>
             <p class="mt-10 text-md text-center text-gray-400">
-                Or email us directly at: <a href="#" class="protected-email font-medium text-blue-400 hover:text-purple-400 transition-colors">Loading...</a><br>
+                Or email us directly at: <a href="#"
+                                            class="protected-email font-medium text-blue-400 hover:text-purple-400 transition-colors">Loading...</a><br>
                 <span class="mt-1 block">LABS.AI, Vienna, Austria</span>
             </p>
         </div>
@@ -784,10 +900,12 @@
         <div class="grid md:grid-cols-3 gap-10 mb-10 text-center md:text-left">
             <div class="md:col-span-1">
                 <h3 class="text-2xl font-semibold text-white mb-4">E.D.D.I</h3>
-                <p class="text-lg">The open-source middleware for advanced prompt and conversation management with LLM APIs. <br>Built for developers, by developers.</p>
+                <p class="text-lg">The open-source middleware for advanced prompt and conversation management with LLM
+                    APIs. <br>Built for developers, by developers.</p>
                 <br>
                 <div>
-                    <button id="show-imprint" class="text-xs hover:text-purple-300 transition-colors">Show Imprint</button>
+                    <button id="show-imprint" class="text-xs hover:text-purple-300 transition-colors">Show Imprint
+                    </button>
                     <div id="imprint-content" class="text-xs mt-2 hidden">
                         <p>
                             LABS.AI, Ing. Gregor Jarisch, Vienna, Austria
@@ -799,27 +917,43 @@
             <div class="md:col-span-1">
                 <h3 class="text-sm font-semibold text-white mb-4">Key Resources</h3>
                 <ul class="space-y-3 text-sm">
-                    <li><a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Documentation</a></li>
-                    <li><a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">GitHub Repository</a></li>
-                    <li><a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Certified Docker Hub Image</a></li>
-                    <li><a href="https://github.com/labsai/EDDI/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Apache 2.0 License</a></li>
+                    <li><a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer"
+                           class="hover:text-purple-300 transition-colors">Documentation</a></li>
+                    <li><a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer"
+                           class="hover:text-purple-300 transition-colors">GitHub Repository</a></li>
+                    <li><a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer"
+                           class="hover:text-purple-300 transition-colors">Certified Docker Hub Image</a></li>
+                    <li><a href="https://github.com/labsai/EDDI/blob/master/LICENSE" target="_blank"
+                           rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Apache 2.0
+                        License</a></li>
                 </ul>
             </div>
             <div class="md:col-span-1">
                 <h3 class="text-lg font-semibold text-white mb-4">Connect with LABS.AI</h3>
                 <p class="text-sm mb-3">
-                    Email: <a href="#" class="protected-email hover:text-purple-300 transition-colors">Loading...</a><br>
+                    Email: <a href="#"
+                              class="protected-email hover:text-purple-300 transition-colors">Loading...</a><br>
                     Phone: <a href="#" class="protected-phone hover:text-purple-300 transition-colors">Loading...</a>
                 </p>
                 <div class="mt-5 flex space-x-8 justify-center md:justify-start">
-                    <a href="https://github.com/labsai" target="_blank" rel="noopener noreferrer" aria-label="labs.ai on GitHub" class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span class="sr-only">GitHub</span><i class="fab fa-github fa-2x"></i></a>
-                    <a href="https://hub.docker.com/r/labsai/eddi" target="_blank" rel="noopener noreferrer" aria-label="E.D.D.I on Docker Hub" class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span class="sr-only">Docker Hub</span><i class="fab fa-docker fa-2x"></i></a>
-                    <a href="https://www.linkedin.com/company/labsai/" target="_blank" rel="noopener noreferrer" aria-label="labs.ai on LinkedIn" class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span class="sr-only">LinkedIn</span><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/labsai" target="_blank" rel="noopener noreferrer"
+                       aria-label="labs.ai on GitHub"
+                       class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span
+                            class="sr-only">GitHub</span><i class="fab fa-github fa-2x"></i></a>
+                    <a href="https://hub.docker.com/r/labsai/eddi" target="_blank" rel="noopener noreferrer"
+                       aria-label="E.D.D.I on Docker Hub"
+                       class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span
+                            class="sr-only">Docker Hub</span><i class="fab fa-docker fa-2x"></i></a>
+                    <a href="https://www.linkedin.com/company/labsai/" target="_blank" rel="noopener noreferrer"
+                       aria-label="labs.ai on LinkedIn"
+                       class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span
+                            class="sr-only">LinkedIn</span><i class="fab fa-linkedin fa-2x"></i></a>
                 </div>
             </div>
         </div>
         <div class="border-t border-gray-700 pt-10 text-center text-sm">
-            <p>&copy; <span id="currentYear"></span> LABS.AI. All rights reserved. E.D.D.I is proudly open source. Developed with ❤️ in Europe.</p>
+            <p>&copy; <span id="currentYear"></span> LABS.AI. All rights reserved. E.D.D.I is proudly open source.
+                Developed with ❤️ in Europe.</p>
         </div>
     </div>
 </footer>
@@ -912,10 +1046,10 @@
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.05 }); // Trigger when 5% of the element is visible for earlier fade-in
+    }, {threshold: 0.05}); // Trigger when 5% of the element is visible for earlier fade-in
     fadeInElements.forEach(el => observer.observe(el));
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.pageYOffset > 50) {
             navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
             navbar.classList.remove('bg-gray-900/80');
