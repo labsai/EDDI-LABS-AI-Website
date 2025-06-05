@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- HubSpot Forms Script -->    
+    <!-- HubSpot Forms Script -->
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
     <!-- HubSpot Analytics Tracking -->
@@ -58,7 +58,7 @@
       "name": "E.D.D.I",
       "description": "Enterprise-ready, multilingual conversational AI middleware to build and manage virtual assistants and chatbots across multiple channels.",
       "applicationCategory": "BusinessApplication",
-      "operatingSystem": "All",
+      "operatingSystem": "Docker",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -67,11 +67,11 @@
       "author": {
         "@type": "Organization",
         "name": "LABS.AI",
-        "url": "https://labs.ai"
+        "url": "https://eddi.labs.ai"
       },
-      "softwareVersion": "5.0.0",
+      "softwareVersion": "5.5.0",
       "downloadUrl": "https://github.com/labsai/EDDI",
-      "screenshot": "https://eddi.labs.ai/images/eddi-dashboard.png"
+      "screenshot": "https://eddi.labs.ai/images/eddi-social-card.jpg"
     }
     </script>
 
@@ -138,6 +138,22 @@
                     element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
                 }
             });
+
+            // Toggle imprint visibility
+            const showImprintButton = document.getElementById('show-imprint');
+            const imprintContent = document.getElementById('imprint-content');
+
+            if (showImprintButton && imprintContent) {
+                showImprintButton.addEventListener('click', function() {
+                    if (imprintContent.classList.contains('hidden')) {
+                        imprintContent.classList.remove('hidden');
+                        showImprintButton.textContent = 'Hide Imprint';
+                    } else {
+                        imprintContent.classList.add('hidden');
+                        showImprintButton.textContent = 'Imprint';
+                    }
+                });
+            }
         });
     </script>
     <style>
@@ -770,11 +786,15 @@
                 <h3 class="text-2xl font-semibold text-white mb-4">E.D.D.I</h3>
                 <p class="text-lg">The open-source middleware for advanced prompt and conversation management with LLM APIs. <br>Built for developers, by developers.</p>
                 <br>
-                <p class="text-xs">
-                    Imprint:
-                    <br>LABS.AI, Ing. Gregor Jarisch, Vienna, Austria
-                    <br>VAT: ATU65272778
-                </p>
+                <div>
+                    <button id="show-imprint" class="text-xs hover:text-purple-300 transition-colors">Show Imprint</button>
+                    <div id="imprint-content" class="text-xs mt-2 hidden">
+                        <p>
+                            LABS.AI, Ing. Gregor Jarisch, Vienna, Austria
+                            <br>VAT: ATU65272778
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="md:col-span-1">
                 <h3 class="text-sm font-semibold text-white mb-4">Key Resources</h3>
