@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E.D.D.I. - Advanced Conversational AI Middleware</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- HubSpot Forms Script -->    
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+
+    <!-- HubSpot Analytics Tracking -->
+    <script type="text/javascript" class="hsq-set-content-id" data-content-id="">
+        var _hsq = _hsq || [];
+        _hsq.push(["setContentType", ""]);
+    </script>
+
+    <!-- Google Analytics - Only initialized when cookies are accepted -->
+    <style>.cmplz-hidden{display:none!important;}</style>
+    <script>
+        // Only load Google Analytics after cookie consent is given
+        function enableGoogleAnalytics() {
+            var analyticsScript = document.createElement('script');
+            analyticsScript.async = true;
+            analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-L1011GL1PY';
+            document.head.appendChild(analyticsScript);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-L1011GL1PY');
+        }
+
+        // Contact information protection
+        function decodeAndRenderEmail() {
+            // Split and reversed parts of the email to avoid detection
+            // Using array character codes to obscure even further
+            const chars = [99, 111, 110, 116, 97, 99, 116]; // 'contact'
+            const emailUsername = String.fromCharCode(...chars);
+
+            const domainChars = [108, 97, 98, 115]; // 'labs'
+            const emailDomain = String.fromCharCode(...domainChars);
+
+            const tldChars = [97, 105]; // 'ai'
+            const emailTLD = String.fromCharCode(...tldChars);
+
+            // Assemble email address
+            return emailUsername + '@' + emailDomain + '.' + emailTLD;
+        }
+
+        function decodeAndRenderPhone() {
+            return "+43 699 1 930 62 50";
+        }
+
+        // Apply contacts after DOM is loaded to avoid bots
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply to all elements with class 'protected-email'
+            document.querySelectorAll('.protected-email').forEach(function(element) {
+                // Always render just the email without icons
+                element.innerHTML = decodeAndRenderEmail();
+                element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
+            });
+
+            // Apply to all elements with class 'protected-phone'
+            document.querySelectorAll('.protected-phone').forEach(function(element) {
+                element.innerHTML = decodeAndRenderPhone();
+                element.setAttribute('href', 'tel:' + decodeAndRenderPhone().replace(/[\s-]/g, ''));
+            });
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Replace any remaining mailto: links that might contain the email directly
+            document.querySelectorAll('a[href^="mailto:"]').forEach(function(element) {
+                if (!element.classList.contains('protected-email')) {
+                    element.classList.add('protected-email');
+                    element.innerHTML = decodeAndRenderEmail();
+                    element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #111827; /* Dark base background (Tailwind gray-900) */
+            color: #d1d5db; /* Lighter text for dark bg (Tailwind gray-300) */
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%); /* Darker hero gradient */
+        }
+        .section-title { /* Enhanced section title styling */
+            @apply text-4xl sm:text-5xl font-extrabold text-center mb-10; /* Responsive font size */
+            background-image: linear-gradient(to right, #60a5fa, #a78bfa); /* blue-400 to purple-400 */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding-top: 2.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .section-subtitle { /* Consistent subtitle styling */
+            @apply text-lg text-center text-gray-400 mb-20 md:mb-24 max-w-2xl mx-auto px-4;
+            line-height: 1.8;
+        }
+        .feature-card {
+            @apply bg-gray-800 p-6 md:p-8 rounded-xl shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:-translate-y-2 border border-gray-700 hover:border-purple-500 mb-8;
+        }
+        .feature-icon {
+            @apply flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-5 text-3xl shadow-lg;
+        }
+        .cta-button {
+            @apply px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 border-2 border-transparent;
+        }
+        .cta-button-secondary {
+            @apply px-8 py-3 bg-gray-700 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center border border-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+        }
+        .nav-link {
+            @apply px-3 lg:px-4 py-2 text-gray-300 hover:text-white rounded-md text-base font-medium transition-colors duration-200 relative focus:outline-none focus:ring-1 focus:ring-purple-400;
+        }
+        .nav-link.active::after, .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0px;
+            width: calc(100% - 1rem); /* Adjust width based on padding */
+            max-width: 50px;
+            height: 2px;
+            background-color: #a78bfa; /* purple-400 for accent */
+            border-radius: 1px;
+        }
+        .nav-link.active {
+            @apply text-white;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Adjusted partner logo filter for better visibility of colored logos on dark backgrounds */
+        .partner-logo {
+            /* General filter for monochrome or dark logos to make them white-ish */
+            filter: grayscale(100%) brightness(300%) contrast(200%) opacity(0.7);
+            transition: all 0.3s ease;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%) brightness(100%) opacity(1); /* Show color on hover or full brightness */
+            transform: scale(1.1);
+        }
+        /* Specific class for logos that are already light/white or should retain color */
+        .partner-logo-colored {
+            filter: none; /* No filter or minimal adjustments */
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        .partner-logo-colored:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .tech-stack-icon {
+            font-size: 4rem;
+            color: #e5e7eb;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            margin: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5rem;
+            line-height: 1;
+        }
+        .tech-stack-icon:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+        .redhat-icon {
+            color: #ee0000;
+            font-weight: bold;
+            position: relative;
+        }
+        .redhat-icon:hover::after {
+            content: 'Certified on Red Hat OpenShift - Enterprise-grade Kubernetes platform';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            width: max-content;
+            max-width: 200px;
+            z-index: 10;
+            font-weight: normal;
+        }
+        .gradient-text {
+            @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400;
+        }
+        .section-bg-alt {
+            @apply bg-gray-800;
+        }
+        .form-input {
+            @apply mt-1 block w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm text-white;
+        }
+        .action-button {
+            @apply inline-flex items-center justify-center w-full px-8 py-5 font-semibold text-base rounded-2xl transition-all duration-300 focus:outline-none;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .action-button:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        .action-button:active {
+            transform: translateY(1px);
+        }
+        .integration-icon {
+            font-size: 4rem;
+            color: #e5e7eb;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            margin: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5rem;
+            line-height: 1;
+        }
+        .integration-icon:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="flex-1 min-w-0 md:mr-6">
+                <h2 class="text-lg font-bold text-white mb-1">Cookie Consent</h2>
+                <p class="text-sm text-gray-300">
+                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. Visit our Privacy Policy to learn more.
+                </p>
+            </div>
+            <div class="mt-4 flex flex-shrink-0 md:mt-0 space-x-3">
+                <button id="cookie-accept-all" class="cta-button text-sm py-2 px-4">Accept All</button>
+                <button id="cookie-accept-necessary" class="cta-button-secondary text-sm py-2 px-4">Necessary Only</button>
+                <button id="cookie-settings" class="text-gray-300 hover:text-white text-sm py-2 px-4 underline">Cookie Settings</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-settings-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
+    <div class="bg-gray-800 rounded-lg max-w-md w-full mx-4 border border-gray-700 shadow-xl">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-white">Cookie Settings</h3>
+                <button id="close-cookie-settings" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="necessary-cookies" name="necessary-cookies" type="checkbox" checked disabled class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="necessary-cookies" class="font-medium text-white">Necessary Cookies</label>
+                        <p class="text-gray-400">Required for the website to function properly. Cannot be disabled.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="analytics-cookies" name="analytics-cookies" type="checkbox" class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="analytics-cookies" class="font-medium text-white">Analytics Cookies</label>
+                        <p class="text-gray-400">Help us understand how visitors interact with our website.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="marketing-cookies" name="marketing-cookies" type="checkbox" class="h-4 w-4 text-blue-500 border-gray-600 rounded">
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="marketing-cookies" class="font-medium text-white">Marketing Cookies</label>
+                        <p class="text-gray-400">Used to track visitors across websites to display relevant advertisements.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="save-cookie-preferences" class="cta-button text-sm py-2 px-4">Save Preferences</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Cookie consent functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if consent was already given
+        const cookieConsent = localStorage.getItem('cookieConsent');
+
+        if (!cookieConsent) {
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-0');
+        } else {
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-full', 'hidden');
+            const consentData = JSON.parse(cookieConsent);
+
+            // Initialize analytics if previously consented
+            if (consentData.analytics) {
+                enableGoogleAnalytics();
+            }
+        }
+
+        // Accept all cookies
+        document.getElementById('cookie-accept-all').addEventListener('click', function() {
+            const consentData = {
+                necessary: true,
+                analytics: true,
+                marketing: true,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(consentData));
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
+            setTimeout(() => {
+                document.getElementById('cookie-consent-banner').classList.add('hidden');
+            }, 500);
+
+            // Enable Google Analytics
+            enableGoogleAnalytics();
+        });
+
+        // Accept only necessary cookies
+        document.getElementById('cookie-accept-necessary').addEventListener('click', function() {
+            const consentData = {
+                necessary: true,
+                analytics: false,
+                marketing: false,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(consentData));
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
+            setTimeout(() => {
+                document.getElementById('cookie-consent-banner').classList.add('hidden');
+            }, 500);
+        });
+
+        // Open cookie settings
+        document.getElementById('cookie-settings').addEventListener('click', function() {
+            document.getElementById('cookie-settings-modal').classList.remove('hidden');
+
+            // Set checkboxes based on saved preferences if any
+            if (cookieConsent) {
+                const consentData = JSON.parse(cookieConsent);
+                document.getElementById('analytics-cookies').checked = consentData.analytics;
+                document.getElementById('marketing-cookies').checked = consentData.marketing;
+            }
+        });
+
+        // Close cookie settings
+        document.getElementById('close-cookie-settings').addEventListener('click', function() {
+            document.getElementById('cookie-settings-modal').classList.add('hidden');
+        });
+
+        // Save preferences
+        document.getElementById('save-cookie-preferences').addEventListener('click', function() {
+            const analyticsConsent = document.getElementById('analytics-cookies').checked;
+            const marketingConsent = document.getElementById('marketing-cookies').checked;
+
+            const consentData = {
+                necessary: true,
+                analytics: analyticsConsent,
+                marketing: marketingConsent,
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('cookieConsent', JSON.stringify(consentData));
+            document.getElementById('cookie-settings-modal').classList.add('hidden');
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
+            setTimeout(() => {
+                document.getElementById('cookie-consent-banner').classList.add('hidden');
+            }, 500);
+
+            // Enable Google Analytics if consented
+            if (analyticsConsent) {
+                enableGoogleAnalytics();
+            }
+        });
+    });
+</script>
+<nav id="navbar" aria-label="Main navigation" class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 shadow-2xl transition-all duration-300">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-20">
+            <div class="flex items-center">
+                <a href="#hero" class="flex-shrink-0">
+                    <span class="text-white text-3xl font-bold tracking-tight">E<span class="text-blue-400">.</span>D<span class="text-blue-400">.</span>D<span class="text-blue-400">.</span>I</span>
+                </a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                    <a href="#hero" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">Why EDDI?</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#integrations" class="nav-link">Integrations</a>
+                    <a href="#getting-started" class="nav-link">Get Started</a>
+                    <a href="#community" class="nav-link">Community</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                    <span class="sr-only">Open main menu</span>
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 bg-gray-800 rounded-b-md shadow-lg">
+            <a href="#hero" class="nav-link block text-lg py-3 active">Home</a>
+            <a href="#about" class="nav-link block text-lg py-3">Why EDDI?</a>
+            <a href="#features" class="nav-link block text-lg py-3">Features</a>
+            <a href="#integrations" class="nav-link block text-lg py-3">Integrations</a>
+            <a href="#getting-started" class="nav-link block text-lg py-3">Get Started</a>
+            <a href="#community" class="nav-link block text-lg py-3">Community</a>
+            <a href="#contact" class="nav-link block text-lg py-3">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section id="hero" class="hero-bg py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white overflow-hidden">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+            Orchestrate Your AI Conversations with <span class="gradient-text">E.D.D.I.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            E.D.D.I is the open-source Prompt & Conversation Management Middleware for leading LLM APIs. Build lean, scalable, and cloud-native AI assistants with unparalleled flexibility.
+        </p>
+        <div class="space-y-4 sm:space-y-0 sm:flex sm:flex-wrap sm:justify-center sm:gap-6">
+            <a href="#getting-started" class="cta-button text-lg px-10 py-4" aria-label="Start building with EDDI"><i class="fas fa-rocket mr-2" aria-hidden="true"></i>Start Building Now</a>
+            <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg px-10 py-4" aria-label="Explore EDDI on GitHub">
+                <i class="fab fa-github mr-2" aria-hidden="true"></i>Explore on GitHub
+            </a>
+        </div>
+        <div class="mt-28 fade-in">
+            <p class="text-lg text-gray-300 uppercase tracking-wider mb-10">Powered by Robust Technologies</p>
+            <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16 py-6">
+                <i class="fab fa-java tech-stack-icon" title="Java"></i>
+                <span class="tech-stack-icon font-bold" title="Quarkus">Q</span>
+                <i class="fab fa-docker tech-stack-icon" title="Docker"></i>
+                <span class="tech-stack-icon font-bold" title="Kubernetes">K8s</span>
+                <i class="fas fa-database tech-stack-icon" title="MongoDB"></i>
+                <div class="tech-stack-icon redhat-icon" title="Certified on Red Hat OpenShift - Enterprise-grade Kubernetes platform"><i class="fab fa-redhat"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-28 md:py-40 section-bg-alt">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Why Choose E.D.D.I.?</h2>
+        <p class="section-subtitle">In a rapidly evolving AI landscape, E.D.D.I. provides the critical middleware layer to unify, manage, and scale your conversational AI initiatives without vendor lock-in.</p>
+        <br>
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div class="fade-in order-2 md:order-1">
+                <h3 class="text-2xl md:text-3xl font-semibold text-white mb-8">The Central Nervous System for Your AI Bots</h3>
+                <p class="text-lg text-gray-300 mb-7">
+                    E.D.D.I. (Enhanced Dialogue Driven Interface) isn't just another chatbot framework. It's a high-performance middleware engineered to connect and manage diverse LLM API bots. It excels at prompt engineering, conversation state management, and seamless API integration.
+                </p>
+                <p class="text-lg text-gray-300 mb-8">
+                    Developed in Java with Quarkus, E.D.D.I. is exceptionally lean, RESTful, scalable, and cloud-native. Deploy with its certified Docker container, orchestrate with Kubernetes or OpenShift, and take control of your AI stack.
+                </p>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-purple-400 mt-1 mr-3 text-xl"></i>
+                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Open & Extensible:</strong> Apache 2.0 licensed, fully customizable.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-purple-400 mt-1 mr-3 text-xl"></i>
+                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Performance-Driven:</strong> Built with Quarkus for speed and efficiency.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-purple-400 mt-1 mr-3 text-xl"></i>
+                        <span class="text-gray-200 text-lg"><strong class="font-semibold text-white">Future-Proof:</strong> Easily adapt to new LLMs and AI services.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="fade-in order-1 md:order-2">
+                <img src="https://placehold.co/600x450/3730A3/A5B4FC?text=Unified+AI+Orchestration" alt="Diagram illustrating E.D.D.I. as a central AI orchestration middleware" class="rounded-lg shadow-2xl mx-auto transform hover:scale-105 transition-transform duration-300 border-2 border-gray-700 hover:border-purple-500">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="py-16 md:py-24 bg-gray-900">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Unlock Advanced AI Capabilities</h2>
+        <p class="section-subtitle">E.D.D.I. is packed with features designed for robust and flexible conversational AI development.</p>
+        <br>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            <div class="feature-card fade-in">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Sophisticated Prompt Engineering</h3>
+                <p class="text-gray-400">Master your LLM interactions with advanced prompt management and templating capabilities.</p>
+            </div>
+            <div class="feature-card fade-in" style="transition-delay: 0.05s;">
+                <div class="feature-icon"><i class="fas fa-comments-dollar"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Conversation State Management</h3>
+                <p class="text-gray-400">Maintain context and history across user sessions for coherent and intelligent dialogues.</p>
+            </div>
+            <div class="feature-card fade-in" style="transition-delay: 0.1s;">
+                <div class="feature-icon"><i class="fas fa-link"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Seamless API Integration</h3>
+                <p class="text-gray-400">Connect effortlessly with various conversational services or traditional REST APIs via runtime configurations.</p>
+            </div>
+            <div class="feature-card fade-in" style="transition-delay: 0.15s;">
+                <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Configurable Behavior Rules</h3>
+                <p class="text-gray-400">Orchestrate LLM involvement and define complex interaction logic with a powerful rules engine.</p>
+            </div>
+            <div class="feature-card fade-in" style="transition-delay: 0.2s;">
+                <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Multi-Bot & Version Management</h3>
+                <p class="text-gray-400">Run multiple chatbots, including different versions of the same bot, concurrently for smooth upgrades.</p>
+            </div>
+            <div class="feature-card fade-in" style="transition-delay: 0.25s;">
+                <div class="feature-icon"><i class="fas fa-key"></i></div>
+                <h3 class="text-xl md:text-2xl font-semibold text-white mb-3">Secure & Authenticated</h3>
+                <p class="text-gray-400">Integrates with OAuth 2.0 (Keycloak) for robust authentication and user management.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="integrations" class="py-16 md:py-24 section-bg-alt">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Connect to the AI Ecosystem</h2>
+        <p class="section-subtitle">E.D.D.I. supports major AI API integrations via Langchain4j, giving you access to the best models. It's available as a certified Docker container.</p>
+        <br>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 items-start justify-items-center">
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fas fa-robot integration-icon text-blue-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">OpenAI (ChatGPT)</p>
+            </div>
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fab fa-google integration-icon text-green-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">Google (Gemini)</p>
+            </div>
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fas fa-brain integration-icon text-orange-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">Anthropic (Claude)</p>
+            </div>
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fas fa-smile integration-icon text-yellow-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">Hugging Face</p>
+            </div>
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fas fa-feather-alt integration-icon text-teal-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">Ollama</p>
+            </div>
+            <div class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fab fa-java integration-icon text-red-500"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">Jlama</p>
+            </div>
+            <div class="flex flex-col items-center justify-center p-4 rounded-lg hover:bg-gray-700/50 transition-all fade-in w-full h-full">
+                <i class="fas fa-ellipsis-h integration-icon text-blue-400"></i>
+                <p class="text-sm font-medium text-gray-300 text-center">And more...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="getting-started" class="py-20 md:py-32 bg-gradient-to-br from-purple-700 via-blue-700 to-gray-900 text-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">Ready to Revolutionize Your AI Bots?</h2>
+        <p class="text-xl md:text-2xl text-gray-200 mb-16 max-w-3xl mx-auto">
+            Dive into the E.D.D.I. ecosystem. Explore our comprehensive documentation, grab the certified Docker image, or jump straight into the code on GitHub.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full">
+                <div class="text-6xl mb-6 text-blue-300"><i class="fab fa-docker"></i></div>
+                <h3 class="text-2xl font-semibold mb-4">Run with Docker</h3>
+                <p class="text-gray-300 mb-6">The quickest way to get E.D.D.I. up and running. Pull the official certified image.</p><div class="mt-auto">
+                <a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="Get Docker Image"><i class="fab fa-docker mr-3" aria-hidden="true"></i>Get Docker Image</a></div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 fade-in border border-white/30 flex flex-col h-full" style="transition-delay: 0.05s;">
+                <div class="text-6xl mb-6 text-white"><i class="fas fa-book-open"></i></div>
+                <h3 class="text-2xl font-semibold mb-4">Explore Docs</h3>
+                <p class="text-gray-100 mb-6">Detailed guides, API references, and tutorials to master E.D.D.I.'s capabilities.</p><div class="mt-auto">
+                <a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="Read Documentation"><i class="fas fa-book-open mr-3" aria-hidden="true"></i>Read Documentation</a></div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full" style="transition-delay: 0.1s;">
+                <div class="text-6xl mb-6 text-blue-300"><i class="fab fa-github"></i></div>
+                <h3 class="text-2xl font-semibold mb-4">Contribute on GitHub</h3>
+                <p class="text-gray-300 mb-6">Access source code, report issues, and become part of the E.D.D.I. open-source community.</p>
+                <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="get-started-button github-button border-2 border-white px-6 py-3 rounded-lg inline-block hover:bg-white/20 transition-colors duration-300" aria-label="View on GitHub"><i class="fab fa-github mr-3" aria-hidden="true"></i>View on GitHub</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="community" class="py-16 md:py-24 section-bg-alt">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Join the E.D.D.I. Community</h2>
+        <p class="section-subtitle">E.D.D.I. is an open-source project driven by its community. Connect, contribute, and help shape the future of conversational AI.</p>
+        <br>
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div class="fade-in text-center md:text-left order-2 md:order-1">
+                <h3 class="text-2xl md:text-3xl font-semibold text-white mb-6">Be Part of Something Bigger</h3>
+                <p class="text-lg text-gray-300 mb-10">
+                    Whether you're a developer looking to contribute code, an AI enthusiast with ideas, or an enterprise seeking robust solutions, the E.D.D.I. community welcomes you.
+                </p>
+                <div class="space-y-4 sm:space-y-0 sm:flex sm:flex-wrap sm:justify-center md:justify-start sm:gap-6">
+                    <a href="https://github.com/labsai/EDDI/issues" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-bug mr-2"></i>Report an Issue</a>
+                    <a href="https://github.com/labsai/EDDI/discussions" target="_blank" rel="noopener noreferrer" class="cta-button-secondary text-lg w-full sm:w-auto"><i class="fas fa-comments mr-2"></i>Join Discussions</a>
+                </div>
+            </div>
+            <div class="fade-in order-1 md:order-2">
+                <img src="https://placehold.co/600x400/5B21B6/C4B5FD?text=Community+%26+Collaboration" alt="Illustration of diverse people collaborating on a project, representing the E.D.D.I. community" class="rounded-lg shadow-2xl mx-auto border-2 border-gray-700 hover:border-purple-500">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-16 md:py-24 bg-gray-900">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-xl mx-auto bg-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl shadow-2xl border border-purple-500/30">
+            <p class="text-lg md:text-xl text-center text-gray-200 mb-8">
+                Have questions, require enterprise support, or interested in collaborating? Reach out to the labs.ai team.
+            </p>
+            <div id="hubspot-form-container" class="space-y-6">
+                <script>hbspt.forms.create({
+                    portalId: "4269433",
+                    formId: "745f1cce-9043-4ed1-8c81-03b0c679d32b"
+                });</script>
+            </div>
+            <p class="mt-10 text-md text-center text-gray-400">
+                Or email us directly at: <a href="#" class="protected-email font-medium text-blue-400 hover:text-purple-400 transition-colors">Loading...</a><br>
+                <span class="mt-1 block">labs.ai Software Gmbh, Vienna, Austria</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-900 border-t border-gray-700/50 text-gray-400 py-12 md:py-16">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-10 mb-10 text-center md:text-left">
+            <div class="md:col-span-1">
+                <h3 class="text-2xl font-semibold text-white mb-4">E.D.D.I.</h3>
+                <p class="text-lg">The open-source middleware for advanced prompt and conversation management with LLM APIs. <br>Built for developers, by developers.</p>
+                <br>
+                <p class="text-xs">
+                    Imprint:
+                    <br>Labs.ai, Ing. Gregor Jarisch, Vienna, Austria
+                    <br>VAT: ATU65272778
+                </p>
+            </div>
+            <div class="md:col-span-1">
+                <h3 class="text-sm font-semibold text-white mb-4">Key Resources</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="https://docs.labs.ai/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Documentation</a></li>
+                    <li><a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">GitHub Repository</a></li>
+                    <li><a href="https://hub.docker.com/r/labsai/eddi/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Certified Docker Hub Image</a></li>
+                    <li><a href="https://github.com/labsai/EDDI/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Apache 2.0 License</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-1">
+                <h3 class="text-lg font-semibold text-white mb-4">Connect with labs.ai</h3>
+                <p class="text-sm mb-3">
+                    Email: <a href="#" class="protected-email hover:text-purple-300 transition-colors">Loading...</a><br>
+                    Phone: <a href="#" class="protected-phone hover:text-purple-300 transition-colors">Loading...</a>
+                </p>
+                <div class="mt-5 flex space-x-5 justify-center md:justify-start">
+                    <a href="https://github.com/labsai" target="_blank" rel="noopener noreferrer" aria-label="labs.ai on GitHub" class="text-gray-400 hover:text-white transition-colors"><span class="sr-only">GitHub</span><i class="fab fa-github fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 pt-10 text-center text-sm">
+            <p>&copy; <span id="currentYear"></span> LABS.AI. All rights reserved. E.D.D.I. is proudly open source. Developed with ❤️ in Europe.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = mobileMenuButton.querySelector('i');
+
+    mobileMenuButton.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
+        if (isHidden) {
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+        } else {
+            mobileMenuIcon.classList.remove('fa-bars');
+            mobileMenuIcon.classList.add('fa-times');
+        }
+    });
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const navbar = document.getElementById('navbar');
+
+    function changeActiveLink() {
+        let currentSectionId = 'hero';
+        const navbarHeight = navbar.offsetHeight;
+        const scrollPosition = window.scrollY + navbarHeight * 0.75; // Adjust offset for earlier link activation
+
+        const currentSection = sections.find(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            return scrollPosition >= sectionTop && scrollPosition < sectionBottom;
+        });
+
+        if (currentSection) {
+            currentSectionId = currentSection.id;
+        } else if (window.scrollY < sections[0].offsetTop - navbarHeight) {
+            currentSectionId = 'hero';
+        } else if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
+            currentSectionId = sections[sections.length - 1].id;
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('load', changeActiveLink);
+    window.addEventListener('scroll', changeActiveLink);
+
+    document.querySelectorAll('#mobile-menu .nav-link, .nav-link:not([href^="http"])').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const isMobileLink = link.closest('#mobile-menu');
+            if (isMobileLink) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+            const targetId = link.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeightCurrent = navbar.offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeightCurrent;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.05 }); // Trigger when 5% of the element is visible for earlier fade-in
+    fadeInElements.forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
+            navbar.classList.remove('bg-gray-900/80');
+        } else {
+            navbar.classList.add('bg-gray-900/80');
+            navbar.classList.remove('bg-gray-900/95', 'shadow-2xl');
+        }
+    }, false);
+
+</script>
+
+</body>
+</html>
