@@ -32,13 +32,7 @@
     <meta property="twitter:description"
           content="Build enterprise-grade conversational experiences with the leading open-source AI middleware platform.">
     <meta property="twitter:image" content="https://eddi.labs.ai/images/eddi-social-card.jpg">
-    <meta name="twitter:site" content="@LABS_AI">
-    <meta name="twitter:creator" content="@LABS_AI">
 
-    <!-- Favicon and Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#111827">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -119,33 +113,56 @@
         }
 
         function decodeAndRenderPhone() {
-            return "+43 699 1 930 62 50";
+            const countryCode = String.fromCharCode(43, 52, 51);
+            const part1 = String.fromCharCode(54, 57, 57);
+            const part2 = String.fromCharCode(49);
+            const part3 = String.fromCharCode(57, 51, 48);
+            const part4 = String.fromCharCode(54, 50);
+            const part5 = String.fromCharCode(53, 48);
+
+            return countryCode + ' ' + part1 + ' ' + part2 + ' ' + part3 + ' ' + part4 + ' ' + part5;
         }
 
         // Apply contacts after DOM is loaded to avoid bots
         document.addEventListener('DOMContentLoaded', function () {
+            // Error handling wrapper function
+            function safeQuerySelector(selector, callback) {
+                const elements = document.querySelectorAll(selector);
+                if (elements && elements.length > 0) {
+                    elements.forEach(callback);
+                }
+            }
+
             // Apply to all elements with class 'protected-email'
-            document.querySelectorAll('.protected-email').forEach(function (element) {
-                // Always render just the email without icons
-                element.innerHTML = decodeAndRenderEmail();
-                element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
+            safeQuerySelector('.protected-email', function (element) {
+                // Store email value to avoid multiple calls
+                const email = decodeAndRenderEmail();
+                // Set content and href attribute with the same value
+                element.innerHTML = email;
+                element.setAttribute('href', 'mailto:' + email);
             });
 
             // Apply to all elements with class 'protected-phone'
-            document.querySelectorAll('.protected-phone').forEach(function (element) {
-                element.innerHTML = decodeAndRenderPhone();
-                element.setAttribute('href', 'tel:' + decodeAndRenderPhone().replace(/[\s-]/g, ''));
+            safeQuerySelector('.protected-phone', function (element) {
+                const phone = decodeAndRenderPhone();
+                element.innerHTML = phone;
+                element.setAttribute('href', 'tel:' + phone.replace(/[\s-]/g, ''));
             });
 
             // Set current year in footer
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
 
             // Replace any remaining mailto: links that might contain the email directly
-            document.querySelectorAll('a[href^="mailto:"]').forEach(function (element) {
+            safeQuerySelector('a[href^="mailto:"]', function (element) {
                 if (!element.classList.contains('protected-email')) {
                     element.classList.add('protected-email');
-                    element.innerHTML = decodeAndRenderEmail();
-                    element.setAttribute('href', 'mailto:' + decodeAndRenderEmail());
+                    // Store email value to avoid multiple calls
+                    const email = decodeAndRenderEmail();
+                    element.innerHTML = email;
+                    element.setAttribute('href', 'mailto:' + email);
                 }
             });
 
@@ -303,6 +320,27 @@
             transform: scale(1.1);
         }
 
+        /* Transition delay utility classes */
+        .delay-50 {
+            transition-delay: 0.05s;
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-150 {
+            transition-delay: 0.15s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-250 {
+            transition-delay: 0.25s;
+        }
+
         .tech-stack-icon {
             font-size: 4rem;
             color: #e5e7eb;
@@ -429,7 +467,8 @@
         <div class="p-6">
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-white">Cookie Settings</h3>
-                <button id="close-cookie-settings" class="text-gray-400 hover:text-white">
+                <button id="close-cookie-settings" class="text-gray-400 hover:text-white"
+                        aria-label="Close cookie settings">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -526,7 +565,8 @@
 
         // Open cookie settings
         document.getElementById('cookie-settings').addEventListener('click', function () {
-            document.getElementById('cookie-settings-modal').classList.remove('hidden');
+            const modal = document.getElementById('cookie-settings-modal');
+            modal.classList.remove('hidden');
 
             // Set checkboxes based on saved preferences if any
             if (cookieConsent) {
@@ -534,7 +574,41 @@
                 document.getElementById('analytics-cookies').checked = consentData.analytics;
                 document.getElementById('marketing-cookies').checked = consentData.marketing;
             }
+
+            // Focus the first interactive element in the modal
+            const closeButton = document.getElementById('close-cookie-settings');
+            setTimeout(() => closeButton.focus(), 100);
+
+            // Set up focus trap for keyboard navigation
+            setupModalFocusTrap(modal);
         });
+
+        // Function to trap focus within modal for keyboard accessibility
+        function setupModalFocusTrap(modal) {
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            // Handle tab key navigation to keep focus within the modal
+            modal.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    // Shift + Tab on first element should loop to last element
+                    if (e.shiftKey && document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                    // Tab on last element should loop to first element
+                    else if (!e.shiftKey && document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+                // Close modal on Escape key
+                else if (e.key === 'Escape') {
+                    document.getElementById('close-cookie-settings').click();
+                }
+            });
+        }
 
         // Close cookie settings
         document.getElementById('close-cookie-settings').addEventListener('click', function () {
@@ -709,7 +783,7 @@
                 <p class="text-gray-400 text-center">Master your LLM interactions with advanced prompt management and
                     templating capabilities.</p>
             </div>
-            <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.05s;">
+            <div class="feature-card fade-in flex flex-col delay-50">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-comments-dollar"></i></div>
                 </div>
@@ -718,7 +792,7 @@
                 <p class="text-gray-400 text-center">Maintain context and history across user sessions for coherent and
                     intelligent dialogues.</p>
             </div>
-            <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.1s;">
+            <div class="feature-card fade-in flex flex-col delay-100">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-link"></i></div>
                 </div>
@@ -726,7 +800,7 @@
                 <p class="text-gray-400 text-center">Connect effortlessly with various conversational services or
                     traditional REST APIs via runtime configurations.</p>
             </div>
-            <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.15s;">
+            <div class="feature-card fade-in flex flex-col delay-150">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
                 </div>
@@ -735,7 +809,7 @@
                 <p class="text-gray-400 text-center">Orchestrate LLM involvement and define complex interaction logic
                     with a powerful rules engine.</p>
             </div>
-            <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.2s;">
+            <div class="feature-card fade-in flex flex-col delay-200">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
                 </div>
@@ -744,7 +818,7 @@
                 <p class="text-gray-400 text-center">Run multiple chatbots, including different versions of the same
                     bot, concurrently for smooth upgrades.</p>
             </div>
-            <div class="feature-card fade-in flex flex-col" style="transition-delay: 0.25s;">
+            <div class="feature-card fade-in flex flex-col delay-250">
                 <div class="flex justify-center mb-6">
                     <div class="feature-icon"><i class="fas fa-key"></i></div>
                 </div>
@@ -815,8 +889,7 @@
                        aria-label="Get Docker Image"><i class="fab fa-docker mr-3" aria-hidden="true"></i>Get Docker
                         Image</a></div>
             </div>
-            <div class="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 fade-in border border-white/30 flex flex-col h-full"
-                 style="transition-delay: 0.05s;">
+            <div class="bg-white/20 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/30 transition-all duration-300 transform hover:scale-105 fade-in border border-white/30 flex flex-col h-full delay-50">
                 <div class="text-6xl mb-6 text-white"><i class="fas fa-book-open"></i></div>
                 <h3 class="text-2xl font-semibold mb-4">Explore Docs</h3>
                 <p class="text-gray-100 mb-6">Detailed guides, API references, and tutorials to master E.D.D.I's
@@ -827,8 +900,7 @@
                        aria-label="Read Documentation"><i class="fas fa-book-open mr-3" aria-hidden="true"></i>Read
                         Documentation</a></div>
             </div>
-            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full"
-                 style="transition-delay: 0.1s;">
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 fade-in border border-white/20 flex flex-col h-full delay-100">
                 <div class="text-6xl mb-6 text-blue-300"><i class="fab fa-github"></i></div>
                 <h3 class="text-2xl font-semibold mb-4">Contribute on GitHub</h3>
                 <p class="text-gray-300 mb-6">Access source code, report issues, and become part of the E.D.D.I
@@ -838,7 +910,6 @@
                    aria-label="View on GitHub"><i class="fab fa-github mr-3" aria-hidden="true"></i>View on GitHub</a>
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -936,7 +1007,7 @@
                     Phone: <a href="#" class="protected-phone hover:text-purple-300 transition-colors">Loading...</a>
                 </p>
                 <div class="mt-5 flex space-x-8 justify-center md:justify-start">
-                    <a href="https://github.com/labsai" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer"
                        aria-label="labs.ai on GitHub"
                        class="text-gray-400 hover:text-white hover:scale-110 transition-all duration-300"><span
                             class="sr-only">GitHub</span><i class="fab fa-github fa-2x"></i></a>
@@ -953,7 +1024,7 @@
         </div>
         <div class="border-t border-gray-700 pt-10 text-center text-sm">
             <p>&copy; <span id="currentYear"></span> LABS.AI. All rights reserved. E.D.D.I is proudly open source.
-                Developed&nbsp;❤️&nbsp;in&nbsp;Europe.</p>
+                Developed with&nbsp;❤️&nbsp;in&nbsp;Europe.</p>
         </div>
     </div>
 </footer>
