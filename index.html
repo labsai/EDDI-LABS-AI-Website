@@ -226,11 +226,21 @@
         }
 
         .cta-button {
-            @apply px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 border-2 border-transparent;
+            @apply px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 border-2 border-transparent;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 10px 15px -3px rgba(167, 139, 250, 0.5), 0 4px 6px -4px rgba(167, 139, 250, 0.5);
+            transform: translateY(-3px) scale(1.05);
         }
 
         .cta-button-secondary {
-            @apply px-8 py-3 bg-gray-700 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center border border-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+            @apply px-8 py-3 bg-gray-700 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-600 transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center border border-gray-600 hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+        }
+
+        .cta-button-secondary:hover {
+            box-shadow: 0 10px 15px -3px rgba(167, 139, 250, 0.4), 0 4px 6px -4px rgba(167, 139, 250, 0.4);
+            transform: translateY(-3px) scale(1.05);
         }
 
         /* Responsive adjustments for mobile CTA buttons */
@@ -696,11 +706,11 @@
             scalable, and cloud-native AI assistants with unparalleled flexibility.
         </p>
         <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
-            <a href="#getting-started" class="cta-button text-lg px-10 py-4 whitespace-nowrap mb-6 sm:mb-0"
+            <a href="#getting-started" class="cta-button border-2 border-white rounded-lg text-lg px-10 py-4 whitespace-nowrap mb-6 sm:mb-0"
                aria-label="Start building with EDDI"><i class="fas fa-rocket mr-2" aria-hidden="true"></i>Start Building
                 Now</a>
             <a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener noreferrer"
-               class="cta-button-secondary text-lg px-10 py-4 whitespace-nowrap" aria-label="Explore EDDI on GitHub">
+               class="cta-button-secondary border-2 border-white rounded-lg text-lg px-10 py-4 whitespace-nowrap" aria-label="Explore EDDI on GitHub">
                 <i class="fab fa-github mr-2" aria-hidden="true"></i>Explore on GitHub
             </a>
         </div>
