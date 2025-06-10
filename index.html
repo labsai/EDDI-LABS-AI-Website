@@ -15,58 +15,6 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://eddi.labs.ai/">
 
-    <!-- Page loading overlay styles - prevent unstyled content flash -->
-    <style>
-        /* Critical loading styles - must be in head */
-        #page-loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #111827; /* Match site background */
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.3s ease-out;
-        }
-
-        #loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #60a5fa; /* blue-400 */
-            border-radius: 50%;
-            animation: spinner 1s ease-in-out infinite;
-        }
-
-        @keyframes spinner {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Hide content until fully loaded */
-        body > *:not(#page-loading-overlay) {
-            visibility: hidden;
-        }
-
-        /* Special class added when content is ready */
-        body.content-loaded > *:not(#page-loading-overlay) {
-            visibility: visible;
-        }
-
-        body.content-loaded #page-loading-overlay {
-            opacity: 0;
-            pointer-events: none;
-        }
-    </style>
-
-    <!-- Preconnect to required origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://js.hsforms.net" crossorigin>
-
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eddi.labs.ai/">
@@ -87,34 +35,12 @@
 
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#111827">
-    <script src="https://cdn.tailwindcss.com" importance="high"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&font-display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </noscript>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- HubSpot Forms Script - with better loading approach -->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js" defer></script>
-    <script>
-        // Initialize HubSpot form after page has fully loaded
-        window.addEventListener('load', function() {
-            // Small delay to ensure HubSpot script has loaded
-            setTimeout(function() {
-                if (window.hbspt) {
-                    hbspt.forms.create({
-                        portalId: "4269433",
-                        formId: "745f1cce-9043-4ed1-8c81-03b0c679d32b",
-                        target: "#hubspot-form-container"
-                    });
-                } else {
-                    console.error('HubSpot forms library not loaded');
-                    document.getElementById('hubspot-form-container').innerHTML = '<div class="text-center py-4"><p>Contact form could not be loaded. Please email us directly.</p></div>';
-                }
-            }, 1000);
-        });
-    </script>
+    <!-- HubSpot Forms Script -->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
     <!-- HubSpot Analytics Tracking -->
     <script type="text/javascript" class="hsq-set-content-id" data-content-id="">
@@ -151,90 +77,6 @@
     <style>.cmplz-hidden {
         display: none !important;
     }</style>
-    <!-- Critical CSS for above-the-fold content -->
-    <style>
-        /* Inline critical CSS for faster initial render */
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-color: #111827;
-            color: #d1d5db;
-            margin: 0;
-        }
-        /* Font fallbacks for text to avoid layout shifts while custom fonts load */
-        h1, h2, h3, h4, h5, h6, p, span, a, button {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        /* Critical styles for top navigation and hero section to avoid visual instability */
-        .bg-gray-900\/80 {
-            background-color: rgba(17, 24, 39, 0.8);
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-        }
-        .backdrop-blur-lg {
-            backdrop-filter: blur(16px);
-        }
-        .sticky {
-            position: sticky;
-        }
-        .top-0 {
-            top: 0;
-        }
-        .z-50 {
-            z-index: 50;
-        }
-        .text-white {
-            color: #ffffff;
-        }
-        .text-blue-400 {
-            color: #60a5fa;
-        }
-        .font-bold {
-            font-weight: 700;
-        }
-        /* Additional critical styles for basic layout */
-        .max-w-screen-xl {
-            max-width: 1280px;
-        }
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        .flex {
-            display: flex;
-        }
-        .items-center {
-            align-items: center;
-        }
-        .justify-between {
-            justify-content: space-between;
-        }
-        .h-16 {
-            height: 4rem;
-        }
-        .hidden {
-            display: none;
-        }
-        /* Basic responsive layout classes */
-        @media (min-width: 768px) {
-            .md\:block {
-                display: block;
-            }
-            .md\:hidden {
-                display: none;
-            }
-            .md\:h-20 {
-                height: 5rem;
-            }
-        }
-    </style>
     <script>
         // Only load Google Analytics after cookie consent is given
         function enableGoogleAnalytics() {
@@ -342,54 +184,8 @@
         });
     </script>
     <style>
-        /* Font fallback metrics to reduce CLS */
-        @font-face {
-            font-family: 'Inter Fallback';
-            src: local('Arial');
-            size-adjust: 107%;
-            ascent-override: 90%;
-            descent-override: 22%;
-            line-gap-override: normal;
-        }
-
-        /* Font display swap to prevent render blocking */
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 500;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 800;
-            font-display: swap;
-        }
-
         body {
-            font-family: 'Inter', 'Inter Fallback', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -649,53 +445,6 @@
     </style>
 </head>
 <body class="text-gray-300">
-<!-- Page loading overlay -->
-<div id="page-loading-overlay">
-    <div id="loading-spinner"></div>
-</div>
-
-<!-- Loading control script -->
-<script>
-    // Function to handle showing content when critical resources are loaded
-    function showContent() {
-        // Check if Tailwind has loaded
-        const isTailwindLoaded = typeof window.tailwind !== 'undefined';
-
-        // Wait for both DOM and critical styling to be ready
-        const readyCheck = function() {
-            if (document.readyState === 'complete' || (isTailwindLoaded && document.body)) {
-                // Add a slight delay to ensure styles are applied
-                setTimeout(function() {
-                    document.body.classList.add('content-loaded');
-
-                    // Remove overlay after fade out animation completes
-                    setTimeout(function() {
-                        const overlay = document.getElementById('page-loading-overlay');
-                        if (overlay && overlay.parentNode) {
-                            overlay.parentNode.removeChild(overlay);
-                        }
-                    }, 400); // Slightly longer than the opacity transition
-                }, 200);
-            } else {
-                setTimeout(readyCheck, 50);
-            }
-        };
-
-        readyCheck();
-    }
-
-    // Check if the page has already loaded
-    if (document.readyState === 'complete') {
-        showContent();
-    } else {
-        // Wait for critical resources to load
-        window.addEventListener('load', showContent);
-
-        // Fallback: Show content after a maximum delay (3 seconds)
-        // This ensures users won't get stuck on the loading screen
-        setTimeout(showContent, 3000);
-    }
-</script>
 <!-- Cookie Consent Banner -->
 <div id="cookie-consent-banner"
      class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
@@ -1223,47 +972,16 @@
                 team.
             </p>
             <div id="hubspot-form-container" class="space-y-6">
-                <!-- HubSpot form will be loaded here after page load -->
-                <div class="text-center py-4" id="form-loading-indicator">
-                    <div class="inline-block animate-pulse">
-                        <i class="fas fa-circle-notch fa-spin text-purple-400 text-2xl"></i>
-                        <p class="mt-2 text-gray-400">Loading contact form...</p>
-                    </div>
-                </div>
+                <script>hbspt.forms.create({
+                    portalId: "4269433",
+                    formId: "745f1cce-9043-4ed1-8c81-03b0c679d32b"
+                });</script>
             </div>
-            <script>
-                // Remove loading indicator when form loads
-                window.addEventListener('load', function() {
-                    setTimeout(function() {
-                        const loadingIndicator = document.getElementById('form-loading-indicator');
-                        if (loadingIndicator) {
-                            loadingIndicator.style.display = 'none';
-                        }
-                    }, 2000);
-                });
-            </script>
             <p class="mt-10 text-md text-center text-gray-400">
                 Or email us directly at: <a href="#"
                                             class="protected-email font-medium text-blue-400 hover:text-purple-400 transition-colors">Loading...</a><br>
                 <span class="mt-1 block">LABS.AI, Vienna, Austria</span>
-                <span id="form-error-message" class="hidden mt-2 block text-purple-400 font-medium">Having trouble with the form? Please email us directly using the address above.</span>
             </p>
-            <script>
-                // Show additional message if form takes too long to load
-                window.addEventListener('load', function() {
-                    setTimeout(function() {
-                        const formContainer = document.getElementById('hubspot-form-container');
-                        const errorMessage = document.getElementById('form-error-message');
-
-                        // Check if form has loaded properly
-                        if (formContainer && !formContainer.querySelector('iframe') && !formContainer.querySelector('form')) {
-                            if (errorMessage) {
-                                errorMessage.classList.remove('hidden');
-                            }
-                        }
-                    }, 5000); // Check after 5 seconds
-                });
-            </script>
         </div>
     </div>
 </section>
@@ -1423,23 +1141,15 @@
     }, {threshold: 0.05}); // Trigger when 5% of the element is visible for earlier fade-in
     fadeInElements.forEach(el => observer.observe(el));
 
-    // Use requestAnimationFrame to optimize scroll event handler
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                if (window.pageYOffset > 50) {
-                    navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
-                    navbar.classList.remove('bg-gray-900/80');
-                } else {
-                    navbar.classList.add('bg-gray-900/80');
-                    navbar.classList.remove('bg-gray-900/95', 'shadow-2xl');
-                }
-                ticking = false;
-            });
-            ticking = true;
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
+            navbar.classList.remove('bg-gray-900/80');
+        } else {
+            navbar.classList.add('bg-gray-900/80');
+            navbar.classList.remove('bg-gray-900/95', 'shadow-2xl');
         }
-    }, { passive: true });
+    }, false);
 
 </script>
 
