@@ -15,6 +15,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://eddi.labs.ai/">
 
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://js.hsforms.net" crossorigin>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eddi.labs.ai/">
@@ -35,12 +41,34 @@
 
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#111827">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
 
-    <!-- HubSpot Forms Script -->
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <!-- HubSpot Forms Script - with better loading approach -->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js" defer></script>
+    <script>
+        // Initialize HubSpot form after page has fully loaded
+        window.addEventListener('load', function() {
+            // Small delay to ensure HubSpot script has loaded
+            setTimeout(function() {
+                if (window.hbspt) {
+                    hbspt.forms.create({
+                        portalId: "4269433",
+                        formId: "745f1cce-9043-4ed1-8c81-03b0c679d32b",
+                        target: "#hubspot-form-container"
+                    });
+                } else {
+                    console.error('HubSpot forms library not loaded');
+                    document.getElementById('hubspot-form-container').innerHTML = '<div class="text-center py-4"><p>Contact form could not be loaded. Please email us directly.</p></div>';
+                }
+            }, 1000);
+        });
+    </script>
 
     <!-- HubSpot Analytics Tracking -->
     <script type="text/javascript" class="hsq-set-content-id" data-content-id="">
@@ -77,6 +105,51 @@
     <style>.cmplz-hidden {
         display: none !important;
     }</style>
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Inline critical CSS for faster initial render */
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #111827;
+            color: #d1d5db;
+            margin: 0;
+        }
+        /* Font fallbacks for text to avoid layout shifts while custom fonts load */
+        h1, h2, h3, h4, h5, h6, p, span, a, button {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        /* Critical styles for top navigation and hero section to avoid visual instability */
+        .bg-gray-900\/80 {
+            background-color: rgba(17, 24, 39, 0.8);
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+        .backdrop-blur-lg {
+            backdrop-filter: blur(16px);
+        }
+        .sticky {
+            position: sticky;
+        }
+        .top-0 {
+            top: 0;
+        }
+        .z-50 {
+            z-index: 50;
+        }
+        .text-white {
+            color: #ffffff;
+        }
+        .text-blue-400 {
+            color: #60a5fa;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+    </style>
     <script>
         // Only load Google Analytics after cookie consent is given
         function enableGoogleAnalytics() {
@@ -777,6 +850,8 @@
             <div class="fade-in order-1 md:order-2">
                 <img src="images/AI-orchestration.webp"
                      alt="Diagram illustrating E.D.D.I as a central AI orchestration middleware"
+                     width="800" height="600"
+                     loading="lazy"
                      class="rounded-lg shadow-2xl mx-auto transform hover:scale-105 transition-transform duration-300 border-2 border-gray-700 hover:border-purple-500">
             </div>
         </div>
@@ -954,6 +1029,8 @@
             <div class="fade-in order-1 md:order-2">
                 <img src="images/Illustration-collaborating-AI.webp"
                      alt="Illustration of diverse people collaborating on a project, representing the E.D.D.I community"
+                     width="800" height="600"
+                     loading="lazy"
                      class="rounded-lg shadow-2xl mx-auto border-2 border-gray-700 hover:border-purple-500">
             </div>
         </div>
@@ -968,16 +1045,47 @@
                 team.
             </p>
             <div id="hubspot-form-container" class="space-y-6">
-                <script>hbspt.forms.create({
-                    portalId: "4269433",
-                    formId: "745f1cce-9043-4ed1-8c81-03b0c679d32b"
-                });</script>
+                <!-- HubSpot form will be loaded here after page load -->
+                <div class="text-center py-4" id="form-loading-indicator">
+                    <div class="inline-block animate-pulse">
+                        <i class="fas fa-circle-notch fa-spin text-purple-400 text-2xl"></i>
+                        <p class="mt-2 text-gray-400">Loading contact form...</p>
+                    </div>
+                </div>
             </div>
+            <script>
+                // Remove loading indicator when form loads
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const loadingIndicator = document.getElementById('form-loading-indicator');
+                        if (loadingIndicator) {
+                            loadingIndicator.style.display = 'none';
+                        }
+                    }, 2000);
+                });
+            </script>
             <p class="mt-10 text-md text-center text-gray-400">
                 Or email us directly at: <a href="#"
                                             class="protected-email font-medium text-blue-400 hover:text-purple-400 transition-colors">Loading...</a><br>
                 <span class="mt-1 block">LABS.AI, Vienna, Austria</span>
+                <span id="form-error-message" class="hidden mt-2 block text-purple-400 font-medium">Having trouble with the form? Please email us directly using the address above.</span>
             </p>
+            <script>
+                // Show additional message if form takes too long to load
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const formContainer = document.getElementById('hubspot-form-container');
+                        const errorMessage = document.getElementById('form-error-message');
+
+                        // Check if form has loaded properly
+                        if (formContainer && !formContainer.querySelector('iframe') && !formContainer.querySelector('form')) {
+                            if (errorMessage) {
+                                errorMessage.classList.remove('hidden');
+                            }
+                        }
+                    }, 5000); // Check after 5 seconds
+                });
+            </script>
         </div>
     </div>
 </section>
@@ -1137,15 +1245,23 @@
     }, {threshold: 0.05}); // Trigger when 5% of the element is visible for earlier fade-in
     fadeInElements.forEach(el => observer.observe(el));
 
-    window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 50) {
-            navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
-            navbar.classList.remove('bg-gray-900/80');
-        } else {
-            navbar.classList.add('bg-gray-900/80');
-            navbar.classList.remove('bg-gray-900/95', 'shadow-2xl');
+    // Use requestAnimationFrame to optimize scroll event handler
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                if (window.pageYOffset > 50) {
+                    navbar.classList.add('bg-gray-900/95', 'shadow-2xl');
+                    navbar.classList.remove('bg-gray-900/80');
+                } else {
+                    navbar.classList.add('bg-gray-900/80');
+                    navbar.classList.remove('bg-gray-900/95', 'shadow-2xl');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    }, false);
+    }, { passive: true });
 
 </script>
 
