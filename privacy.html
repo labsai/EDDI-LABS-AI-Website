@@ -36,7 +36,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#111827">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&font-display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Google Analytics - Only initialized when cookies are accepted -->
@@ -132,8 +132,54 @@
         });
     </script>
     <style>
+        /* Font fallback metrics to reduce CLS */
+        @font-face {
+            font-family: 'Inter Fallback';
+            src: local('Arial');
+            size-adjust: 107%;
+            ascent-override: 90%;
+            descent-override: 22%;
+            line-gap-override: normal;
+        }
+
+        /* Font display swap to prevent render blocking */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Inter Fallback', sans-serif;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -271,7 +317,7 @@
         <div class="flex items-center justify-between h-16 md:h-20">
             <div class="flex items-center">
                 <a href="http://eddi.labs.ai" class="flex-shrink-0">
-                    <img src="images/eddi-logo.svg" alt="E.D.D.I Logo" class="h-8">
+                    <img src="images/eddi-logo.svg" alt="E.D.D.I Logo" class="h-8" width="120" height="32">
                 </a>
             </div>
             <div class="hidden md:block">
