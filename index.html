@@ -15,6 +15,52 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://eddi.labs.ai/">
 
+    <!-- Page loading overlay styles - prevent unstyled content flash -->
+    <style>
+        /* Critical loading styles - must be in head */
+        #page-loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111827; /* Match site background */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease-out;
+        }
+
+        #loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #60a5fa; /* blue-400 */
+            border-radius: 50%;
+            animation: spinner 1s ease-in-out infinite;
+        }
+
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Hide content until fully loaded */
+        body > *:not(#page-loading-overlay) {
+            visibility: hidden;
+        }
+
+        /* Special class added when content is ready */
+        body.content-loaded > *:not(#page-loading-overlay) {
+            visibility: visible;
+        }
+
+        body.content-loaded #page-loading-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+
     <!-- Preconnect to required origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +87,7 @@
 
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#111827">
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com" importance="high"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript>
@@ -148,6 +194,45 @@
         }
         .font-bold {
             font-weight: 700;
+        }
+        /* Additional critical styles for basic layout */
+        .max-w-screen-xl {
+            max-width: 1280px;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .flex {
+            display: flex;
+        }
+        .items-center {
+            align-items: center;
+        }
+        .justify-between {
+            justify-content: space-between;
+        }
+        .h-16 {
+            height: 4rem;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Basic responsive layout classes */
+        @media (min-width: 768px) {
+            .md\:block {
+                display: block;
+            }
+            .md\:hidden {
+                display: none;
+            }
+            .md\:h-20 {
+                height: 5rem;
+            }
         }
     </style>
     <script>
@@ -518,6 +603,53 @@
     </style>
 </head>
 <body class="text-gray-300">
+<!-- Page loading overlay -->
+<div id="page-loading-overlay">
+    <div id="loading-spinner"></div>
+</div>
+
+<!-- Loading control script -->
+<script>
+    // Function to handle showing content when critical resources are loaded
+    function showContent() {
+        // Check if Tailwind has loaded
+        const isTailwindLoaded = typeof window.tailwind !== 'undefined';
+
+        // Wait for both DOM and critical styling to be ready
+        const readyCheck = function() {
+            if (document.readyState === 'complete' || (isTailwindLoaded && document.body)) {
+                // Add a slight delay to ensure styles are applied
+                setTimeout(function() {
+                    document.body.classList.add('content-loaded');
+
+                    // Remove overlay after fade out animation completes
+                    setTimeout(function() {
+                        const overlay = document.getElementById('page-loading-overlay');
+                        if (overlay && overlay.parentNode) {
+                            overlay.parentNode.removeChild(overlay);
+                        }
+                    }, 400); // Slightly longer than the opacity transition
+                }, 200);
+            } else {
+                setTimeout(readyCheck, 50);
+            }
+        };
+
+        readyCheck();
+    }
+
+    // Check if the page has already loaded
+    if (document.readyState === 'complete') {
+        showContent();
+    } else {
+        // Wait for critical resources to load
+        window.addEventListener('load', showContent);
+
+        // Fallback: Show content after a maximum delay (3 seconds)
+        // This ensures users won't get stuck on the loading screen
+        setTimeout(showContent, 3000);
+    }
+</script>
 <!-- Cookie Consent Banner -->
 <div id="cookie-consent-banner"
      class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
