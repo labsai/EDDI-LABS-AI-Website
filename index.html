@@ -80,20 +80,36 @@
     <script>
         // Only load Google Analytics after cookie consent is given
         function enableGoogleAnalytics() {
-            var analyticsScript = document.createElement('script');
-            analyticsScript.async = true;
-            analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-L1011GL1PY';
-            document.head.appendChild(analyticsScript);
+            try {
+                var analyticsScript = document.createElement('script');
+                analyticsScript.async = true;
+                analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-L1011GL1PY';
+                analyticsScript.onerror = function() {
+                    console.warn('Google Analytics failed to load');
+                };
+                document.head.appendChild(analyticsScript);
 
-            window.dataLayer = window.dataLayer || [];
+                window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+                gtag('config', 'G-L1011GL1PY');
+            } catch (error) {
+                console.warn('Error initializing Google Analytics:', error);
             }
-
-            gtag('js', new Date());
-            gtag('config', 'G-L1011GL1PY');
         }
+
+        // Global error handler for third-party script timeouts
+        window.addEventListener('unhandledrejection', function(event) {
+            // Suppress timeout errors from third-party scripts (HubSpot, Analytics, etc.)
+            if (event.reason && (event.reason.message === 'Timeout' || event.reason === 'Timeout')) {
+                event.preventDefault();
+                console.warn('Third-party script timeout (suppressed):', event.reason);
+            }
+        });
 
         // Contact information protection
         function decodeAndRenderEmail() {
@@ -447,77 +463,87 @@
 <body class="text-gray-300">
 <!-- Cookie Consent Banner -->
 <div id="cookie-consent-banner"
-     class="fixed bottom-0 left-0 right-0 bg-gray-800 z-50 shadow-lg border-t border-gray-700 transform transition-transform duration-500 ease-in-out">
-    <div class="max-w-screen-xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-        <div class="md:flex md:items-center md:justify-between">
-            <div class="flex-1 min-w-0 md:mr-6">
-                <h2 class="text-lg font-bold text-white mb-1">Cookie Consent</h2>
-                <p class="text-sm text-gray-300">
-                    We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze
-                    our traffic. By clicking "Accept All", you consent to our use of cookies. Visit our Privacy Policy
-                    to learn more.
-                </p>
-            </div>
-            <div class="mt-4 flex flex-shrink-0 md:mt-0 space-x-3">
-                <button id="cookie-accept-all" class="cta-button text-sm py-2 px-4">Accept All</button>
-                <button id="cookie-accept-necessary" class="cta-button-secondary text-sm py-2 px-4">Necessary Only
-                </button>
-                <button id="cookie-settings" class="text-gray-300 hover:text-white text-sm py-2 px-4 underline">Cookie
-                    Settings
-                </button>
-            </div>
+     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-lg m-4 w-full border border-gray-700">
+        <h2 class="text-2xl font-bold text-white mb-4">
+            We Value Your Privacy
+        </h2>
+        <p class="text-gray-300 mb-6">
+            We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze
+            our traffic. By clicking "Accept All", you consent to our use of cookies. For more information, see our
+            <a href="/privacy.html" class="underline text-blue-400 hover:text-purple-400 transition-colors">Privacy Policy</a>.
+        </p>
+        <div class="flex flex-col-reverse sm:flex-row sm:justify-end gap-4">
+            <button id="cookie-settings" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2.5 px-6 rounded-lg transition-colors">
+                Manage Cookies
+            </button>
+            <button id="cookie-accept-all" class="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2.5 px-6 rounded-lg transition-colors shadow-md">
+                Accept All
+            </button>
         </div>
     </div>
 </div>
 
 <!-- Cookie Settings Modal -->
 <div id="cookie-settings-modal"
-     class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center hidden">
-    <div class="bg-gray-800 rounded-lg max-w-md w-full mx-4 border border-gray-700 shadow-xl">
-        <div class="p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-white">Cookie Settings</h3>
-                <button id="close-cookie-settings" class="text-gray-400 hover:text-white"
-                        aria-label="Close cookie settings">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="space-y-4">
-                <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                        <input id="necessary-cookies" name="necessary-cookies" type="checkbox" checked disabled
-                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                        <label for="necessary-cookies" class="font-medium text-white">Necessary Cookies</label>
-                        <p class="text-gray-400">Required for the website to function properly. Cannot be disabled.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                        <input id="analytics-cookies" name="analytics-cookies" type="checkbox"
-                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                        <label for="analytics-cookies" class="font-medium text-white">Analytics Cookies</label>
-                        <p class="text-gray-400">Help us understand how visitors interact with our website.</p>
+     class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center">
+    <div class="bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-lg m-4 w-full border border-gray-700">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold text-white">Manage Your Preferences</h3>
+            <button id="close-cookie-settings" class="text-gray-400 hover:text-white transition-colors"
+                    aria-label="Close cookie settings">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <p class="text-gray-300 mb-6">
+            You can adjust your cookie settings below. Necessary cookies cannot be disabled.
+        </p>
+        <div class="space-y-4">
+            <div class="p-4 border border-gray-700 rounded-lg bg-gray-900/50">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-white">Necessary Cookies</span>
+                    <div class="relative inline-flex items-center h-6 rounded-full w-11 cursor-not-allowed">
+                        <input type="checkbox" checked disabled
+                               class="w-11 h-6 rounded-full appearance-none bg-gradient-to-r from-blue-500 to-purple-600">
+                        <span class="absolute left-1 top-1 w-4 h-4 transform bg-white rounded-full transition-transform translate-x-5"></span>
                     </div>
                 </div>
-                <div class="flex items-start">
-                    <div class="flex items-center h-5">
-                        <input id="marketing-cookies" name="marketing-cookies" type="checkbox"
-                               class="h-4 w-4 text-blue-500 border-gray-600 rounded">
-                    </div>
-                    <div class="ml-3 text-sm">
-                        <label for="marketing-cookies" class="font-medium text-white">Marketing Cookies</label>
-                        <p class="text-gray-400">Used to track visitors across websites to display relevant
-                            advertisements.</p>
-                    </div>
+                <p class="mt-2 text-sm text-gray-400">
+                    Required for the website to function properly. Cannot be disabled.
+                </p>
+            </div>
+            <div class="p-4 border border-gray-700 rounded-lg bg-gray-900/50">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-white">Analytics & Performance</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="analytics-cookies" name="analytics-cookies" type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-blue-500 peer-checked:to-purple-600"></div>
+                    </label>
                 </div>
+                <p class="mt-2 text-sm text-gray-400">
+                    Help us understand how visitors interact with our website.
+                </p>
             </div>
-            <div class="mt-6 flex justify-end space-x-3">
-                <button id="save-cookie-preferences" class="cta-button text-sm py-2 px-4">Save Preferences</button>
+            <div class="p-4 border border-gray-700 rounded-lg bg-gray-900/50">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-white">Marketing Cookies</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input id="marketing-cookies" name="marketing-cookies" type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-blue-500 peer-checked:to-purple-600"></div>
+                    </label>
+                </div>
+                <p class="mt-2 text-sm text-gray-400">
+                    Used to track visitors across websites to display relevant advertisements.
+                </p>
             </div>
+        </div>
+        <div class="mt-8 flex flex-col-reverse sm:flex-row justify-end gap-4">
+            <button id="cookie-accept-necessary" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-2.5 px-6 rounded-lg transition-colors">
+                Reject All
+            </button>
+            <button id="save-cookie-preferences" class="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-2.5 px-6 rounded-lg transition-colors shadow-md">
+                Save Preferences
+            </button>
         </div>
     </div>
 </div>
@@ -529,9 +555,8 @@
         const cookieConsent = localStorage.getItem('cookieConsent');
 
         if (!cookieConsent) {
-            document.getElementById('cookie-consent-banner').classList.add('translate-y-0');
+            document.getElementById('cookie-consent-banner').classList.remove('hidden');
         } else {
-            document.getElementById('cookie-consent-banner').classList.add('translate-y-full', 'hidden');
             const consentData = JSON.parse(cookieConsent);
 
             // Initialize analytics if previously consented
@@ -549,16 +574,13 @@
                 timestamp: new Date().toISOString()
             };
             localStorage.setItem('cookieConsent', JSON.stringify(consentData));
-            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
-            setTimeout(() => {
-                document.getElementById('cookie-consent-banner').classList.add('hidden');
-            }, 500);
+            document.getElementById('cookie-consent-banner').classList.add('hidden');
 
             // Enable Google Analytics
             enableGoogleAnalytics();
         });
 
-        // Accept only necessary cookies
+        // Accept only necessary cookies (Reject All from settings modal)
         document.getElementById('cookie-accept-necessary').addEventListener('click', function () {
             const consentData = {
                 necessary: true,
@@ -567,15 +589,14 @@
                 timestamp: new Date().toISOString()
             };
             localStorage.setItem('cookieConsent', JSON.stringify(consentData));
-            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
-            setTimeout(() => {
-                document.getElementById('cookie-consent-banner').classList.add('hidden');
-            }, 500);
+            document.getElementById('cookie-settings-modal').classList.add('hidden');
+            document.getElementById('cookie-consent-banner').classList.add('hidden');
         });
 
         // Open cookie settings
         document.getElementById('cookie-settings').addEventListener('click', function () {
             const modal = document.getElementById('cookie-settings-modal');
+            document.getElementById('cookie-consent-banner').classList.add('hidden');
             modal.classList.remove('hidden');
 
             // Set checkboxes based on saved preferences if any
@@ -623,6 +644,10 @@
         // Close cookie settings
         document.getElementById('close-cookie-settings').addEventListener('click', function () {
             document.getElementById('cookie-settings-modal').classList.add('hidden');
+            // Return to main banner if no consent given yet
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookie-consent-banner').classList.remove('hidden');
+            }
         });
 
         // Save preferences
@@ -639,10 +664,7 @@
 
             localStorage.setItem('cookieConsent', JSON.stringify(consentData));
             document.getElementById('cookie-settings-modal').classList.add('hidden');
-            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
-            setTimeout(() => {
-                document.getElementById('cookie-consent-banner').classList.add('hidden');
-            }, 500);
+            document.getElementById('cookie-consent-banner').classList.add('hidden');
 
             // Enable Google Analytics if consented
             if (analyticsConsent) {
