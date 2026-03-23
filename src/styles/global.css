@@ -88,6 +88,21 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* ===== HOMEPAGE GRID CARD UNIFORM HEIGHTS ===== */
+/* Force all direct children of CSS grids inside homepage sections
+   to stretch their visible backgrounds to fill the entire row height.
+   This ensures cards with less content still expand to match the tallest card. */
+.sl-markdown-content section .grid > div {
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+}
+
+/* Make the last block-level child (typically the <p>) grow to fill remaining space */
+.sl-markdown-content section .grid > div > p:last-child {
+	flex-grow: 1 !important;
+}
+
 /* ===== GLASSMORPHISM & CARD ENHANCEMENTS ===== */
 /* Override Starlight default cards for a premium feel */
 :global(.sl-markdown-content .card),
