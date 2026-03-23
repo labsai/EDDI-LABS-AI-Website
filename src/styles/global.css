@@ -59,6 +59,12 @@
 	}
 }
 
+/* Global overflow protection */
+body {
+	overflow-x: hidden;
+	width: 100%;
+}
+
 @media (min-width: 30rem) and (max-width: 50rem) {
 	:global(h1) {
 		font-size: 2rem !important;
@@ -222,7 +228,16 @@ html[data-theme='light'] :global(.sl-link-card) {
 /* ===== STARLIGHT OVERRIDES ===== */
 html[data-theme='dark'], :root {
 	--sl-color-bg-nav: #030305 !important;
+	--sl-nav-height: 5rem !important;
 }
 html[data-theme='light'] {
 	--sl-color-bg-nav: #ffffff !important;
+	--sl-nav-height: 5rem !important;
+}
+
+/* Ensure Logo and Buttons have breathing room */
+:global(.site-title svg), :global(.site-title img) {
+	height: 2.5rem !important;
+	width: auto !important;
+	margin-top: 0.25rem;
 }
