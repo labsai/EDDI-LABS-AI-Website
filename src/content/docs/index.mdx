@@ -59,9 +59,9 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">EDDI fills an <strong>absolute void</strong> in the Java ecosystem — a deployable middleware platform with:</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(180px,auto)] gap-6">
-    {/* Config-as-code (Wide) */}
-    <div class="col-span-1 md:col-span-8 p-8 rounded-3xl bg-linear-to-br from-gray-900/80 to-gray-950/90 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden relative">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* Config-as-code */}
+    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-br from-gray-900/80 to-gray-950/90 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden relative">
       <div class="absolute -right-6 -bottom-10 opacity-5 text-9xl group-hover:scale-110 transition-transform duration-500">⚙️</div>
       <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3 z-10 relative">
         <span class="text-accent-400 text-sm tracking-widest uppercase">01</span> Configuration-as-Code
@@ -69,40 +69,40 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
       <p class="text-gray-300 leading-relaxed max-w-xl z-10 relative">Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.</p>
     </div>
 
-    {/* 39 MCP Tools (Medium) */}
-    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    {/* 39 MCP Tools */}
+    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
         <span class="text-accent-400 text-sm tracking-widest uppercase">02</span> 39 MCP Tools
       </h3>
       <p class="text-gray-400 text-sm leading-relaxed">EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.</p>
     </div>
 
-    {/* Security (Medium) */}
-    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    {/* Security */}
+    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
         <span class="text-accent-400 text-sm tracking-widest uppercase">03</span> Security-First
       </h3>
       <p class="text-gray-400 text-sm leading-relaxed">No <code>eval()</code>, no escapes. Vault integration, URL validation, and cryptographic audit trails are <strong>architectural foundations</strong>.</p>
     </div>
 
-    {/* Observability (Medium) */}
-    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    {/* Observability */}
+    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
         <span class="text-accent-400 text-sm tracking-widest uppercase">04</span> Observability
       </h3>
       <p class="text-gray-400 text-sm leading-relaxed">Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.</p>
     </div>
 
-    {/* Concurrency (Wide Split) */}
-    <div class="col-span-1 md:col-span-6 p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    {/* Concurrency */}
+    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
         <span class="text-accent-400 text-sm tracking-widest uppercase">05</span> Enterprise Concurrency
       </h3>
       <p class="text-gray-300 text-sm leading-relaxed">Java 25 Virtual Threads on Quarkus. <strong>Millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.</p>
     </div>
 
-    {/* Multi-Agent (Wide Split) */}
-    <div class="col-span-1 md:col-span-6 p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    {/* Multi-Agent */}
+    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
         <span class="text-accent-400 text-sm tracking-widest uppercase">06</span> Multi-Agent Orchestration
       </h3>

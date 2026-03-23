@@ -219,3 +219,10 @@ html[data-theme='light'] :global(.sl-link-card) {
 	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent);
 }
 
+/* ===== STARLIGHT OVERRIDES ===== */
+html[data-theme='dark'], :root {
+	--sl-color-bg-nav: #030305 !important;
+}
+html[data-theme='light'] {
+	--sl-color-bg-nav: #ffffff !important;
+}

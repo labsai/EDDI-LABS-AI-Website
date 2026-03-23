@@ -62,7 +62,7 @@ if (image) {
 			}
 		</div>
 
-		<div class="hero-visual float-animation">
+		<div class="hero-visual p-4 rounded-[2.5rem] bg-gray-900/30 backdrop-blur border border-gray-700/50 shadow-2xl">
 			{
 				darkImage && (
 					<Image
@@ -80,12 +80,11 @@ if (image) {
 
 <style>
 	.hero {
-		padding: 4rem 1rem 6rem;
+		padding: 6rem 1rem 6rem;
 		min-height: 75vh;
 		display: flex;
 		align-items: center;
 		overflow: visible;
-		margin-top: -3rem; /* pull up into header slightly */
 		border-bottom: 1px solid color-mix(in srgb, var(--sl-color-gray-6) 50%, transparent);
 	}
 
