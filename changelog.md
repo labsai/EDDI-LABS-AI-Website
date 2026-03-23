@@ -4,6 +4,9 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+- `feat(website)`: Updated global color palette from Electric Cyan/Violet to Gold/Amber to match the EDDI Manager's branding.
+- `fix(website)`: Removed branded site-wide footer from docs pages to avoid Starlight's `<a>` tag stripping issue. Homepage and other pages retain the full footer.
+
 ### Added
 - Created a custom `Hero.astro` component with animated background gradients, dynamic text clipping, and floating elements.
 - Integrated modern Google Fonts (**Outfit** for UI sans-serif, **JetBrains Mono** for monospace).

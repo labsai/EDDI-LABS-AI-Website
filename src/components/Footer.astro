@@ -2,14 +2,18 @@
 /**
  * Custom EDDI footer with premium design.
  * Extends Starlight's default Footer (pagination/edit/lastUpdated).
+ * The branded site-wide footer is only shown on non-docs pages (homepage, features, enterprise).
  */
 import Default from '@astrojs/starlight/components/Footer.astro';
+
+const isDocsPage = Astro.url.pathname.startsWith('/docs/');
 ---
 
 <!-- Starlight's default footer (pagination, edit link, last updated) -->
 <Default><slot /></Default>
 
-<!-- Site-wide footer -->
+{!isDocsPage && (
+<!-- Site-wide footer (hidden on docs pages) -->
 <footer class="eddi-site-footer not-content">
 	<div class="eddi-footer-inner">
 
@@ -74,7 +78,7 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 				<a href="/docs/api/rest/">REST API</a>
 			</div>
 
-			<!-- Company column -->
+			<!-- Resources column -->
 			<div class="eddi-footer-col">
 				<h3>Resources</h3>
 				<a href="/enterprise/why-eddi/">Why EDDI?</a>
@@ -95,8 +99,9 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 		</div>
 	</div>
 </footer>
+)}
 
-<style>
+<style is:global>
 	.eddi-site-footer {
 		background: color-mix(in srgb, var(--sl-color-bg) 90%, black);
 		border-top: 1px solid var(--sl-color-gray-6);
@@ -245,6 +250,7 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 		color: var(--sl-color-white);
 	}
 
+
 	/* ===== BOTTOM BAR ===== */
 	.eddi-footer-bottom {
 		display: flex;
@@ -300,3 +306,4 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 		}
 	}
 </style>
+
