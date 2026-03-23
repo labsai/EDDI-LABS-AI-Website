@@ -100,6 +100,13 @@ html {
 	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease !important;
 	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
 	overflow: hidden;
+	height: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+:global(.sl-markdown-content .card .body) {
+	flex: 1 1 auto;
 }
 
 html[data-theme='light'] :global(.sl-markdown-content .card),

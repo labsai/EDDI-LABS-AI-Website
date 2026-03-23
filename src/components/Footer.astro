@@ -101,6 +101,13 @@ import Default from '@astrojs/starlight/components/Footer.astro';
 		background: color-mix(in srgb, var(--sl-color-bg) 90%, black);
 		border-top: 1px solid var(--sl-color-gray-6);
 		margin-top: 3rem;
+		/* Break out of Starlight container to be full width */
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
 	}
 
 	.eddi-footer-inner {

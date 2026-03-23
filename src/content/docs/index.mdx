@@ -32,21 +32,21 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+    <div class="h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
       <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
       </div>
       <h3 class="text-xl font-bold text-white mb-3">The Prototype Trap</h3>
       <p class="text-gray-400 text-sm leading-relaxed">Teams prototype with Python/Flowise/n8n &mdash; then <strong>rewrite everything from scratch</strong> in Java for production. Visual prototypes are discarded entirely.</p>
     </div>
-    <div class="p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+    <div class="h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
       <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
       </div>
       <h3 class="text-xl font-bold text-white mb-3">Boilerplate Fatigue</h3>
       <p class="text-gray-400 text-sm leading-relaxed">Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires recompilation.</p>
     </div>
-    <div class="p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+    <div class="h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
       <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
       </div>
@@ -67,7 +67,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {/* Config-as-code */}
-    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-br from-gray-900/80 to-gray-950/90 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden relative">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-linear-to-br from-gray-900/80 to-gray-950/90 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden relative">
       <div class="absolute -right-6 -bottom-10 opacity-5 text-9xl group-hover:scale-110 transition-transform duration-500">⚙️</div>
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 z-10 relative">01</div>
       <h3 class="text-2xl font-bold text-white mb-3 z-10 relative">
@@ -77,7 +77,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
 
     {/* 39 MCP Tools */}
-    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">02</div>
       <h3 class="text-xl font-bold text-white mb-3">
         39 MCP Tools
@@ -86,7 +86,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
 
     {/* Security */}
-    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">03</div>
       <h3 class="text-xl font-bold text-white mb-3">
         Security-First
@@ -95,7 +95,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
 
     {/* Observability */}
-    <div class="col-span-1 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">04</div>
       <h3 class="text-xl font-bold text-white mb-3">
         Observability
@@ -104,7 +104,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
 
     {/* Concurrency */}
-    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">05</div>
       <h3 class="text-xl font-bold text-white mb-3">
         Enterprise Concurrency
@@ -113,7 +113,7 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
 
     {/* Multi-Agent */}
-    <div class="col-span-1 p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+    <div class="col-span-1 h-full p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
       <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">06</div>
       <h3 class="text-xl font-bold text-white mb-3">
         Multi-Agent Orchestration
@@ -129,8 +129,8 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
   </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-    <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+  <div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+    <div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
       <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
     </div>
     <div class="text-center sm:text-left">
@@ -139,8 +139,8 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
   </div>
   
-  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-    <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+  <div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+    <div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
       <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
     </div>
     <div class="text-center sm:text-left">
@@ -149,8 +149,8 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
     </div>
   </div>
 
-  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
-    <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+  <div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+    <div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
       <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
     </div>
     <div class="text-center sm:text-left">
