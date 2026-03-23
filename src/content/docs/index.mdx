@@ -1,0 +1,264 @@
+---
+title: The Enterprise AI Orchestrator
+description: EDDI — Configuration-driven, Java-native AI orchestration middleware. The only visual AI middleware built natively on the JVM.
+template: splash
+hero:
+  title: |
+    The Enterprise
+    <br/>
+    <span class="text-gradient-dynamic">
+      AI Orchestrator
+    </span>
+  tagline: Configuration-driven. Java-native. Production-ready. The only visual AI middleware built natively on the JVM.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/labsai/EDDI
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## The Problem
+
+Enterprise Java has **no visual AI orchestration middleware**. Teams are stuck in a painful, fractured lifecycle:
+
+<CardGrid>
+	<Card title="🪤 The Prototype Trap" icon="warning">
+		Teams prototype with Python/Flowise/n8n — then **rewrite everything from scratch** in Java for production. Visual prototypes are discarded entirely.
+	</Card>
+	<Card title="⚙️ Boilerplate Fatigue" icon="warning">
+		Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management **from scratch**. Every prompt tweak requires recompilation and redeployment.
+	</Card>
+	<Card title="🧱 BPMN Friction" icon="warning">
+		Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates **severe impedance mismatches** and brittle architectures.
+	</Card>
+</CardGrid>
+
+## The Solution
+
+EDDI fills an **absolute void** in the Java ecosystem — a deployable middleware platform with:
+
+<CardGrid stagger>
+	<Card title="Configuration-as-Code" icon="setting">
+		agent logic, pipelines, and tool definitions are **JSON configurations** — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.
+	</Card>
+	<Card title="39 MCP Tools" icon="puzzle">
+		EDDI exposes its full capabilities via the **Model Context Protocol** — enabling Claude Desktop, IDE plugins, and custom clients to interact with deployed agents programmatically. Agents can also **consume external MCP tools** as a client.
+	</Card>
+	<Card title="Security-First Architecture" icon="approve-check-circle">
+		No `eval()`, no sandbox escapes. Vault integration, URL validation, cryptographic audit trails, and EU AI Act compliance are **architectural foundations**, not afterthoughts.
+	</Card>
+	<Card title="Transparent Observability" icon="open-book">
+		Every pipeline step is logged with an **immutable audit trail** — LLM tokens, cost, timing, tool calls. Full CQRS telemetry ledger for debugging and compliance.
+	</Card>
+	<Card title="Enterprise Concurrency" icon="rocket">
+		Java 25 Virtual Threads on Quarkus. **Millions of lightweight threads** for I/O-bound LLM workloads. No event loop blocking, no GIL, no single-threaded bottlenecks.
+	</Card>
+	<Card title="Multi-Agent Orchestration" icon="list-format">
+		Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. **One conversation per intent+user**, auto-created and auto-managed.
+	</Card>
+</CardGrid>
+
+## Trusted & Certified
+
+<div class="trust-badges">
+  <div class="trust-badge">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div>
+      <strong>Red Hat Certified Container</strong>
+      <span>Docker image certified by IBM/Red Hat</span>
+    </div>
+  </div>
+  <div class="trust-badge">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+    <div>
+      <strong>Apache 2.0 Licensed</strong>
+      <span>Fully open-source, enterprise-friendly</span>
+    </div>
+  </div>
+  <div class="trust-badge">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+    <div>
+      <strong>1,000+ Tests · Zero Failures</strong>
+      <span>Comprehensive test coverage, CI/CD enforced</span>
+    </div>
+  </div>
+</div>
+
+<style>{`
+  .trust-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .trust-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: color-mix(in srgb, var(--sl-color-accent) 5%, var(--sl-color-bg));
+    border: 1px solid color-mix(in srgb, var(--sl-color-accent) 15%, transparent);
+    border-radius: 0.625rem;
+  }
+  .trust-badge svg {
+    color: var(--sl-color-text-accent);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  .trust-badge strong {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--sl-color-white);
+    margin-bottom: 0.125rem;
+  }
+  .trust-badge span {
+    font-size: 0.75rem;
+    color: var(--sl-color-gray-3);
+    line-height: 1.3;
+  }
+  @media (max-width: 48rem) {
+    .trust-badges {
+      grid-template-columns: 1fr;
+    }
+  }
+`}</style>
+
+## Built on Proven Technology
+
+<div class="tech-stack-row">
+  <div class="tech-item">
+    <div class="tech-icon">☕</div>
+    <strong>Java 25</strong>
+    <span>Enterprise runtime</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">⚡</div>
+    <strong>Quarkus</strong>
+    <span>Cloud-native, sub-second boot</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">🔗</div>
+    <strong>LangChain4j</strong>
+    <span>20+ LLM providers</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">🍃</div>
+    <strong>MongoDB</strong>
+    <span>Document store</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">🐘</div>
+    <strong>PostgreSQL</strong>
+    <span>Relational store</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">🐳</div>
+    <strong>Docker</strong>
+    <span>Container-ready</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">☸️</div>
+    <strong>Kubernetes</strong>
+    <span>Orchestration</span>
+  </div>
+  <div class="tech-item">
+    <div class="tech-icon">🎩</div>
+    <strong>OpenShift</strong>
+    <span>Red Hat certified</span>
+  </div>
+</div>
+
+<style>{`
+  .tech-stack-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    background: var(--sl-color-gray-6);
+    border-radius: 0.5rem;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .tech-item:hover {
+    transform: translateY(-2px);
+    background: var(--sl-color-gray-5);
+  }
+  .tech-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .tech-item strong {
+    font-size: 0.8125rem;
+    color: var(--sl-color-white);
+    margin-bottom: 0.125rem;
+  }
+  .tech-item span {
+    font-size: 0.6875rem;
+    color: var(--sl-color-gray-3);
+  }
+  @media (max-width: 48rem) {
+    .tech-stack-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+`}</style>
+
+## Next Steps
+
+<CardGrid>
+	<LinkCard title="Get Started in 5 Minutes" href="/docs/getting-started/" description="Install EDDI, create your first agent, and start a conversation." />
+	<LinkCard title="Explore the Architecture" href="/docs/architecture/seven-pillars/" description="Understand the 7 pillars that define EDDI's design philosophy." />
+	<LinkCard title="Browse 39 MCP Tools" href="/docs/mcp/overview/" description="See every tool EDDI exposes via the Model Context Protocol." />
+	<LinkCard title="Why EDDI?" href="/enterprise/why-eddi/" description="Learn why configuration-driven AI orchestration beats code-first approaches." />
+</CardGrid>
+
+## Frequently Asked Questions
+
+<details>
+<summary><strong>What is EDDI?</strong></summary>
+
+EDDI is an open-source, JVM-native visual AI orchestration middleware built on Quarkus and Java 25. It enables enterprise teams to build, configure, and deploy AI-powered agents using JSON configuration rather than compiled code. EDDI provides a complete platform with built-in REST APIs, conversation state management, security (OIDC/Keycloak), audit trails, and 39 MCP tools — all deployable via Docker or Kubernetes.
+
+</details>
+
+<details>
+<summary><strong>How is EDDI different from Spring AI or LangChain4j?</strong></summary>
+
+Spring AI and LangChain4j are excellent **libraries** — EDDI actually uses LangChain4j internally. The key difference is that EDDI is a **deployable middleware platform**, not a library. With Spring AI, you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI provides all of this out of the box, enabling prompt engineers to iterate on agent rules instantly via UI or API without touching Java code.
+
+</details>
+
+<details>
+<summary><strong>Is EDDI production-ready for enterprise use?</strong></summary>
+
+Yes. EDDI runs on Java 25 with Quarkus, leveraging Virtual Threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream. It has no `eval()` or code execution blocks, eliminating an entire class of security vulnerabilities.
+
+</details>
+
+<details>
+<summary><strong>What is the Model Context Protocol (MCP) and how does EDDI use it?</strong></summary>
+
+The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes 39 MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics. Agents can also act as **MCP clients**, consuming tools from external MCP servers during conversations.
+
+</details>
+
+<details>
+<summary><strong>Can EDDI replace Flowise or n8n for production workloads?</strong></summary>
+
+EDDI serves a similar visual-building purpose but on the JVM instead of Node.js. Unlike Flowise and n8n, EDDI uses no `eval()` or code blocks (eliminating CVSS 10.0 risks), runs Java 25 Virtual Threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL rather than SQLite. It is designed for regulated industries where security, auditability, and JVM-native performance are requirements.
+
+</details>

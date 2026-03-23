@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+	/* Premium EDDI Brand: Deep navy with neon cyan/violet accents and modern typography */
+	--font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+	/* Accent: Electric Cyan to deep Violet for a neon tech feel */
+	--color-accent-50: oklch(0.97 0.05 250);
+	--color-accent-100: oklch(0.92 0.08 250);
+	--color-accent-200: oklch(0.85 0.12 250);
+	--color-accent-300: oklch(0.78 0.18 250);
+	--color-accent-400: oklch(0.70 0.22 250); /* Vibrant Cyan-Blue */
+	--color-accent-500: oklch(0.60 0.25 250); /* Brand Primary */
+	--color-accent-600: oklch(0.50 0.25 255);
+	--color-accent-700: oklch(0.40 0.22 260); /* Deep Violet logic */
+	--color-accent-800: oklch(0.32 0.18 260);
+	--color-accent-900: oklch(0.24 0.12 260);
+	--color-accent-950: oklch(0.18 0.08 260);
+
+	/* Gray: Premium Slate/Navy dark theme tones */
+	--color-gray-50: oklch(0.98 0.01 250);
+	--color-gray-100: oklch(0.94 0.01 250);
+	--color-gray-200: oklch(0.88 0.02 250);
+	--color-gray-300: oklch(0.78 0.02 250);
+	--color-gray-400: oklch(0.64 0.02 258);
+	--color-gray-500: oklch(0.50 0.03 258);
+	--color-gray-600: oklch(0.40 0.04 258);
+	--color-gray-700: oklch(0.30 0.05 258);
+	--color-gray-800: oklch(0.22 0.06 258);
+	--color-gray-900: oklch(0.15 0.06 258); /* Background near black */
+	--color-gray-950: oklch(0.11 0.05 258); /* Maximum depth */
+}
+
+/* ===== RESPONSIVE CARD GRIDS ===== */
+/* Ensure card grids stack properly on small screens */
+@media (max-width: 30rem) {
+	:global(.sl-link-card) {
+		padding: 0.75rem !important;
+	}
+
+	:global(h1) {
+		font-size: 1.75rem !important;
+	}
+
+	:global(h2) {
+		font-size: 1.25rem !important;
+	}
+
+	/* Force single-column cards on mobile */
+	:global(.card-grid) {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+@media (min-width: 30rem) and (max-width: 50rem) {
+	:global(h1) {
+		font-size: 2rem !important;
+	}
+}
+
+/* ===== SPLASH PAGE RESPONSIVE ===== */
+@media (max-width: 50rem) {
+	/* Hero section responsive adjustments */
+	:global([data-page-template="splash"] .hero) {
+		padding: 2rem 1rem !important;
+	}
+
+	:global([data-page-template="splash"] .hero .hero-html) {
+		text-align: center;
+	}
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+	scroll-behavior: smooth;
+}
+
+/* ===== GLASSMORPHISM & CARD ENHANCEMENTS ===== */
+/* Override Starlight default cards for a premium feel */
+:global(.sl-markdown-content .card),
+:global(.sl-link-card) {
+	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent) !important;
+	backdrop-filter: blur(12px) !important;
+	-webkit-backdrop-filter: blur(12px) !important;
+	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
+	border-radius: 0.75rem !important;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease !important;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+	overflow: hidden;
+}
+
+html[data-theme='light'] :global(.sl-markdown-content .card),
+html[data-theme='light'] :global(.sl-link-card) {
+	background: color-mix(in srgb, var(--sl-color-white) 80%, transparent) !important;
+	border-color: color-mix(in srgb, var(--sl-color-gray-5) 20%, transparent) !important;
+}
+
+:global(.sl-markdown-content .card:hover),
+:global(.sl-link-card:hover) {
+	transform: translateY(-4px) scale(1.01) !important;
+	border-color: color-mix(in srgb, var(--sl-color-accent) 50%, transparent) !important;
+	box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--sl-color-accent) 15%, transparent), 0 8px 10px -6px color-mix(in srgb, var(--sl-color-accent) 10%, transparent) !important;
+}
+
+/* Make card icons glow slightly */
+:global(.sl-markdown-content .card .icon) {
+	color: var(--sl-color-accent-400) !important;
+	filter: drop-shadow(0 0 8px color-mix(in srgb, var(--sl-color-accent-400) 50%, transparent));
+}
+
+/* ===== HERO SECTION ENHANCEMENTS ===== */
+.hero-gradient {
+	position: relative;
+}
+
+/* Main animated ambient background for the premium feel */
+.hero-gradient::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent-500) 15%, transparent) 0%, transparent 60%),
+				radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-accent-300) 10%, transparent) 0%, transparent 40%);
+	z-index: -1;
+	pointer-events: none;
+	animation: pulse-ambient 15s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-ambient {
+	0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+	50% { transform: scale(1.05) translate(2%, 2%); opacity: 1; }
+	100% { transform: scale(1) translate(-2%, 1%); opacity: 0.9; }
+}
+
+/* Glow effect for CTAs */
+.glow-accent {
+	position: relative;
+	transition: all 0.3s ease;
+	background: linear-gradient(135deg, var(--sl-color-accent-500), var(--sl-color-accent-700));
+	border: none !important;
+}
+.glow-accent:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 0 20px color-mix(in srgb, var(--sl-color-accent) 40%, transparent),
+				0 0 40px color-mix(in srgb, var(--sl-color-accent) 20%, transparent);
+}
+
+/* Fluid dynamic text gradient */
+.text-gradient-dynamic {
+	background: linear-gradient(135deg, var(--color-accent-300), var(--color-accent-500), var(--color-accent-300));
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* ===== DETAILS/FAQ STYLING ===== */
+:global(details) {
+	border: 1px solid var(--sl-color-gray-5);
+	background: color-mix(in srgb, var(--sl-color-gray-6) 20%, transparent);
+	backdrop-filter: blur(8px);
+	border-radius: 0.5rem;
+	padding: 1rem 1.25rem;
+	margin-bottom: 0.75rem;
+	transition: all 0.3s ease;
+}
+
+:global(details:hover) {
+	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent);
+	border-color: color-mix(in srgb, var(--sl-color-gray-4) 50%, transparent);
+}
+
+:global(details summary) {
+	cursor: pointer;
+	font-weight: 600;
+	padding: 0;
+	font-size: 1.05rem;
+	color: var(--sl-color-white);
+}
+
+:global(details[open]) {
+	border-left: 3px solid var(--sl-color-accent-500);
+}
+
+:global(details[open] summary) {
+	margin-bottom: 0.75rem;
+	color: var(--sl-color-accent-300);
+}
+
+/* ===== TABLE RESPONSIVE ===== */
+@media (max-width: 50rem) {
+	:global(table) {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		font-size: 0.8125rem;
+	}
+}
+
+/* ===== CODE BLOCKS ===== */
+:global(pre) {
+	border-radius: 0.5rem !important;
+	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent);
+}
+
