@@ -1,0 +1,59 @@
+---
+title: "Enterprise Concurrency: Virtual Threads on Quarkus"
+description: "Java 25 Virtual Threads for I/O-bound AI workloads. Millions of concurrent connections with no GIL, no event loop blocking, no single-threaded bottlenecks."
+template: splash
+hero:
+  title: |
+    Millions of
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Lightweight Threads.
+    </span>
+  tagline: "AI orchestration is I/O-bound — agents wait for LLM responses. Java 25 Virtual Threads on Quarkus turn that wait time into capacity."
+  actions:
+    - text: Architecture Documentation
+      link: /docs/architecture/seven-pillars/
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## The Concurrency Challenge
+
+Every AI agent conversation involves multiple blocking I/O operations:
+
+1. **LLM API call** — 500ms to 30s per turn
+2. **Tool execution** — external API calls, database queries
+3. **RAG retrieval** — embedding lookup + vector search
+4. **Audit logging** — writing telemetry to the database
+
+Traditional thread-per-request architectures exhaust OS threads at scale. Node.js/Python solutions hit event loop blocking or GIL contention.
+
+## EDDI's Answer
+
+<CardGrid stagger>
+  <Card title="Java 25 Virtual Threads" icon="rocket">
+    Lightweight threads scheduled by the JVM, not the OS. **Millions of concurrent threads** with near-zero memory overhead per thread. Each conversation gets its own virtual thread — no thread pool sizing, no blocking concerns.
+  </Card>
+  <Card title="Quarkus Runtime" icon="setting">
+    Non-blocking reactive architecture that **prevents carrier thread pinning**. Quarkus smart-routes virtual threads to avoid the common pitfalls of synchronized blocks and ThreadLocal.
+  </Card>
+  <Card title="NATS JetStream" icon="puzzle">
+    Distributed messaging for horizontal scaling. NATS handles inter-service communication with sub-millisecond latency and at-least-once delivery guarantees.
+  </Card>
+  <Card title="GraalVM Ready" icon="approve-check-circle">
+    Compile to native image for **sub-second boot times** and minimal memory footprint. Perfect for serverless and auto-scaling Kubernetes deployments.
+  </Card>
+</CardGrid>
+
+## Why This Matters
+
+| Scenario | Python/Node | EDDI (Java 25 + Quarkus) |
+|----------|-------------|--------------------------|
+| 1,000 concurrent conversations | Thread pool exhaustion / event loop blocking | ✅ 1,000 virtual threads, ~2MB overhead |
+| 10,000 concurrent conversations | Requires complex async/await chains | ✅ 10,000 virtual threads, ~20MB overhead |
+| LLM call taking 30s | Blocks the event loop or requires callback hell | ✅ Virtual thread parks, carrier thread freed |

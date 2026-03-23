@@ -11,7 +11,7 @@ hero:
     </span>
   tagline: Configuration-driven. Java-native. Production-ready. The only visual AI middleware built natively on the JVM.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/abstract_orchestrator.png
   actions:
     - text: Get Started
       link: /docs/getting-started/
@@ -25,48 +25,96 @@ hero:
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## The Problem
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Problem</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams are stuck in a painful, fractured lifecycle:</p>
+  </div>
 
-Enterprise Java has **no visual AI orchestration middleware**. Teams are stuck in a painful, fractured lifecycle:
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="text-4xl mb-6 bg-gray-800/80 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">🪤</div>
+      <h3 class="text-xl font-bold text-white mb-3">The Prototype Trap</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Teams prototype with Python/Flowise/n8n &mdash; then <strong>rewrite everything from scratch</strong> in Java for production. Visual prototypes are discarded entirely.</p>
+    </div>
+    <div class="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="text-4xl mb-6 bg-gray-800/80 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">⚙️</div>
+      <h3 class="text-xl font-bold text-white mb-3">Boilerplate Fatigue</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires recompilation.</p>
+    </div>
+    <div class="p-8 rounded-2xl bg-gray-900/40 backdrop-blur-md border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="text-4xl mb-6 bg-gray-800/80 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">🧱</div>
+      <h3 class="text-xl font-bold text-white mb-3">BPMN Friction</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates <strong>severe impedance mismatches</strong> and brittle architectures.</p>
+    </div>
+  </div>
+</section>
 
-<CardGrid>
-	<Card title="🪤 The Prototype Trap" icon="warning">
-		Teams prototype with Python/Flowise/n8n — then **rewrite everything from scratch** in Java for production. Visual prototypes are discarded entirely.
-	</Card>
-	<Card title="⚙️ Boilerplate Fatigue" icon="warning">
-		Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management **from scratch**. Every prompt tweak requires recompilation and redeployment.
-	</Card>
-	<Card title="🧱 BPMN Friction" icon="warning">
-		Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates **severe impedance mismatches** and brittle architectures.
-	</Card>
-</CardGrid>
+<section class="py-24 max-w-7xl mx-auto relative mt-12">
+  {/* Ambient background glow behind the bento grid */}
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-## The Solution
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Solution</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">EDDI fills an <strong>absolute void</strong> in the Java ecosystem — a deployable middleware platform with:</p>
+  </div>
 
-EDDI fills an **absolute void** in the Java ecosystem — a deployable middleware platform with:
+  <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[minmax(180px,auto)] gap-6">
+    {/* Config-as-code (Wide) */}
+    <div class="col-span-1 md:col-span-8 p-8 rounded-3xl bg-linear-to-br from-gray-900/80 to-gray-950/90 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden relative">
+      <div class="absolute -right-6 -bottom-10 opacity-5 text-9xl group-hover:scale-110 transition-transform duration-500">⚙️</div>
+      <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-3 z-10 relative">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">01</span> Configuration-as-Code
+      </h3>
+      <p class="text-gray-300 leading-relaxed max-w-xl z-10 relative">Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.</p>
+    </div>
 
-<CardGrid stagger>
-	<Card title="Configuration-as-Code" icon="setting">
-		agent logic, pipelines, and tool definitions are **JSON configurations** — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.
-	</Card>
-	<Card title="39 MCP Tools" icon="puzzle">
-		EDDI exposes its full capabilities via the **Model Context Protocol** — enabling Claude Desktop, IDE plugins, and custom clients to interact with deployed agents programmatically. Agents can also **consume external MCP tools** as a client.
-	</Card>
-	<Card title="Security-First Architecture" icon="approve-check-circle">
-		No `eval()`, no sandbox escapes. Vault integration, URL validation, cryptographic audit trails, and EU AI Act compliance are **architectural foundations**, not afterthoughts.
-	</Card>
-	<Card title="Transparent Observability" icon="open-book">
-		Every pipeline step is logged with an **immutable audit trail** — LLM tokens, cost, timing, tool calls. Full CQRS telemetry ledger for debugging and compliance.
-	</Card>
-	<Card title="Enterprise Concurrency" icon="rocket">
-		Java 25 Virtual Threads on Quarkus. **Millions of lightweight threads** for I/O-bound LLM workloads. No event loop blocking, no GIL, no single-threaded bottlenecks.
-	</Card>
-	<Card title="Multi-Agent Orchestration" icon="list-format">
-		Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. **One conversation per intent+user**, auto-created and auto-managed.
-	</Card>
-</CardGrid>
+    {/* 39 MCP Tools (Medium) */}
+    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">02</span> 39 MCP Tools
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.</p>
+    </div>
 
-## Trusted & Certified
+    {/* Security (Medium) */}
+    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">03</span> Security-First
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">No <code>eval()</code>, no escapes. Vault integration, URL validation, and cryptographic audit trails are <strong>architectural foundations</strong>.</p>
+    </div>
+
+    {/* Observability (Medium) */}
+    <div class="col-span-1 md:col-span-4 p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">04</span> Observability
+      </h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.</p>
+    </div>
+
+    {/* Concurrency (Wide Split) */}
+    <div class="col-span-1 md:col-span-6 p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">05</span> Enterprise Concurrency
+      </h3>
+      <p class="text-gray-300 text-sm leading-relaxed">Java 25 Virtual Threads on Quarkus. <strong>Millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.</p>
+    </div>
+
+    {/* Multi-Agent (Wide Split) */}
+    <div class="col-span-1 md:col-span-6 p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+        <span class="text-accent-400 text-sm tracking-widest uppercase">06</span> Multi-Agent Orchestration
+      </h3>
+      <p class="text-gray-300 text-sm leading-relaxed">Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. <strong>One conversation per intent+user</strong>, auto-created and auto-managed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Trusted & Certified</h2>
+  </div>
 
 <div class="trust-badges">
   <div class="trust-badge">
@@ -131,7 +179,12 @@ EDDI fills an **absolute void** in the Java ecosystem — a deployable middlewar
   }
 `}</style>
 
-## Built on Proven Technology
+</section>
+
+<section class="py-24 max-w-7xl mx-auto relative border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Built on Proven Technology</h2>
+  </div>
 
 <div class="tech-stack-row">
   <div class="tech-item">
@@ -217,7 +270,12 @@ EDDI fills an **absolute void** in the Java ecosystem — a deployable middlewar
   }
 `}</style>
 
-## Next Steps
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Next Steps</h2>
+  </div>
 
 <CardGrid>
 	<LinkCard title="Get Started in 5 Minutes" href="/docs/getting-started/" description="Install EDDI, create your first agent, and start a conversation." />
@@ -225,8 +283,12 @@ EDDI fills an **absolute void** in the Java ecosystem — a deployable middlewar
 	<LinkCard title="Browse 39 MCP Tools" href="/docs/mcp/overview/" description="See every tool EDDI exposes via the Model Context Protocol." />
 	<LinkCard title="Why EDDI?" href="/enterprise/why-eddi/" description="Learn why configuration-driven AI orchestration beats code-first approaches." />
 </CardGrid>
+</section>
 
-## Frequently Asked Questions
+<section class="py-24 max-w-3xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
+  </div>
 
 <details>
 <summary><strong>What is EDDI?</strong></summary>
@@ -262,3 +324,4 @@ The Model Context Protocol (MCP) is an open standard that allows AI assistants l
 EDDI serves a similar visual-building purpose but on the JVM instead of Node.js. Unlike Flowise and n8n, EDDI uses no `eval()` or code blocks (eliminating CVSS 10.0 risks), runs Java 25 Virtual Threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL rather than SQLite. It is designed for regulated industries where security, auditability, and JVM-native performance are requirements.
 
 </details>
+</section>

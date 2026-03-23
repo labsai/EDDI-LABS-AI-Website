@@ -1,0 +1,106 @@
+---
+title: "Use Cases"
+description: "Real-world deployment patterns for EDDI — from customer support agents to API orchestration and multi-agent systems."
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+EDDI's configuration-driven architecture makes it flexible enough for a wide range of AI deployment patterns. Here are the most common use cases:
+
+## Customer Support Agent
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Customer support teams need AI agents that understand company products, follow brand tone, escalate complex issues, and maintain conversation context across sessions.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Configure a support agent with **system prompts** defining brand tone, **tool definitions** for CRM lookups and ticket creation, and **rules** for escalation logic — all without writing Java code.
+  </Card>
+</CardGrid>
+
+**Key features used:** Config-as-Code, Conversation Memory, MCP Tools, Multi-Agent (escalation routing)
+
+---
+
+## Knowledge Base / RAG Agent
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Organizations need to make internal knowledge (docs, policies, technical specs) conversationally accessible while ensuring accurate, sourced responses.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Configure an agent with **RAG pipeline steps** — embedding store integration, context retrieval, and LLM-generated answers with source attribution. Swap between 30+ embedding stores via configuration.
+  </Card>
+</CardGrid>
+
+**Key features used:** LangChain4j embeddings, Config-as-Code, Pipeline Architecture
+
+---
+
+## API Orchestration Agent
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Teams need AI agents that can interact with existing REST APIs — reading data, creating records, triggering workflows — based on natural language instructions.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Use `create_api_agent` to generate an agent from an **OpenAPI 3.0/3.1 spec**. EDDI parses the spec, generates HttpCalls configs grouped by API tag, creates the full pipeline, and deploys. Your API, instantly conversational.
+  </Card>
+</CardGrid>
+
+**Key features used:** `create_api_agent` MCP tool, HttpCalls, Config-as-Code
+
+---
+
+## Multi-Agent System
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Complex organizations need multiple specialized agents — one for sales, one for support, one for HR — with intelligent routing based on user intent.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Deploy multiple agents and configure **agent triggers** that route intents to the right agent. `chat_managed` handles one-conversation-per-intent routing automatically. A/B test agent configurations with traffic splitting.
+  </Card>
+</CardGrid>
+
+**Key features used:** Multi-Agent orchestration, Agent Triggers, Managed Conversations
+
+---
+
+## Scheduled Reports & Monitoring
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Organizations need agents that run on schedules — generating daily reports, monitoring dashboards, sending alerts — without manual triggers.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Configure **schedules** with cron expressions to trigger automated agent conversations. The agent processes data via tool calls and generates reports or alerts on a defined cadence.
+  </Card>
+</CardGrid>
+
+**Key features used:** Schedule Management (6 MCP tools), Pipeline Architecture, Tool Calling
+
+---
+
+## Compliance & Audit Agent
+
+<CardGrid>
+  <Card title="The Challenge" icon="warning">
+    Regulated industries need provable audit trails for every AI interaction — who asked what, what the AI responded, which tools were called, and how much it cost.
+  </Card>
+  <Card title="EDDI's Approach" icon="approve-check-circle">
+    Every pipeline step is logged with an **immutable CQRS audit trail** — including LLM tokens, cost, timing, tool calls, and correlation IDs. Cryptographic integrity checks make entries tamper-evident. Meets EU AI Act Articles 13-14 and 52.
+  </Card>
+</CardGrid>
+
+**Key features used:** Observability, Cryptographic Audit Trails, EU AI Act Compliance
+
+---
+
+## Getting Started
+
+<CardGrid>
+  <LinkCard title="Install EDDI" href="/docs/getting-started/" description="Get EDDI running in under 5 minutes with Docker." />
+  <LinkCard title="Create Your First Agent" href="/docs/quickstart/" description="Build and deploy an agent via MCP in seconds." />
+  <LinkCard title="Browse MCP Tools" href="/docs/mcp/overview/" description="Explore all 39 tools for programmatic AI control." />
+</CardGrid>

@@ -9,6 +9,9 @@ All notable changes to the EDDI website will be documented in this file.
 - Integrated modern Google Fonts (**Outfit** for UI sans-serif, **JetBrains Mono** for monospace).
 - Implemented a complete **glassmorphism** design system in `global.css` affecting all `.card`, `.sl-link-card`, and `<details>` elements (using `backdrop-blur`, semi-transparent backgrounds, and hover elevation).
 - Added a custom geographic pride message to `Footer.astro`: *"Initiated in Vienna. Developed with ❤️ in Europe. Made for the World."*
+- **[Phase 2]** Replaced the default mascot with a custom abstract 3D visual for the hero section.
+- **[Phase 2]** Redesigned the "The Problem" section using elevated glassmorphism feature rows instead of basic Starlight `<CardGrid>`s.
+- **[Phase 2]** Implemented a high-end asymmetrical **Bento Grid** layout for "The Solution" section, introducing numbered hierarchies and dramatic `py-24` vertical spacing across the homepage.
 
 ### Changed
 - Refactored `global.css` CSS variables to use a premium, high-contrast neon palette (Electric Cyan & Deep Violet) for dark mode.

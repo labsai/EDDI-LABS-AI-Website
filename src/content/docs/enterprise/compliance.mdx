@@ -1,0 +1,58 @@
+---
+title: "EU AI Act & Compliance"
+description: "How EDDI's architecture supports EU AI Act requirements through immutable audit trails, deterministic governance, and transparent observability."
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## EDDI & the EU AI Act
+
+The EU AI Act (effective August 2024) establishes requirements for "high-risk AI systems" including:
+
+- **Traceability** — the ability to trace AI decisions back to their inputs
+- **Transparency** — users must know they're interacting with AI
+- **Accountability** — organizations must be able to explain AI decisions
+- **Risk management** — continuous monitoring and assessment of AI system performance
+- **Data governance** — quality, relevance, and representativeness of training data
+
+## How EDDI Addresses Each Requirement
+
+<CardGrid stagger>
+  <Card title="Immutable Audit Trails" icon="open-book">
+    Every LLM interaction is logged with: model ID, provider, prompt tokens, completion tokens, cost, latency, tool calls, and tool results.
+
+    Audit entries are **tamper-evident** with cryptographic integrity checks. Stored in the database alongside, but separated from, execution state (CQRS pattern).
+  </Card>
+  <Card title="Deterministic Governance" icon="setting">
+    Non-deterministic LLM rules is wrapped in deterministic guardrails:
+    - **Budget caps** prevent runaway API costs
+    - **Circuit breakers** halt infinite loops
+    - **Execution hashes** detect recursive agent traps
+  </Card>
+  <Card title="Configuration Versioning" icon="document">
+    Every configuration change creates a new immutable version. Full history is preserved — which model, which prompt, which parameters produced any given response.
+  </Card>
+  <Card title="Role-Based Access" icon="approve-check-circle">
+    OIDC/Keycloak integration provides enterprise-grade access control. MCP tools can be filtered by role — ensuring appropriate access levels for different users.
+  </Card>
+</CardGrid>
+
+## Compliance Mapping
+
+| EU AI Act Requirement | EDDI Feature | Implementation |
+|----------------------|-------------|----------------|
+| **Art. 12 — Record-keeping** | Audit Ledger | Per-task immutable logs with LLM details |
+| **Art. 13 — Transparency** | Conversation Logs | Full visibility into AI reasoning steps |
+| **Art. 14 — Human oversight** | Manager UI | Visual agent management and monitoring |
+| **Art. 15 — Accuracy** | rules | Conditional logic guards for response quality |
+| **Art. 9 — Risk management** | Budget Caps / Circuit Breakers | Automated cost and rules controls |
+| **Art. 10 — Data governance** | Configuration Versioning | Full provenance tracking for all configs |
+
+## Self-Hosted by Design
+
+EDDI is **self-hosted on your infrastructure**. Your data never leaves your environment:
+
+- Deploy to your own Kubernetes cluster, OpenShift, or private cloud
+- All audit data is stored in your own MongoDB or PostgreSQL instance
+- No telemetry sent to external services
+- Full control over data residency and jurisdictional requirements

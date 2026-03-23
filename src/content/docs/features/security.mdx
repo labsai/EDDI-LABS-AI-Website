@@ -1,0 +1,66 @@
+---
+title: "Security-First Architecture"
+description: "No eval, no sandbox escapes. EDDI's security model is structural, not bolt-on — vault integration, URL validation, cryptographic audit trails."
+template: splash
+hero:
+  title: |
+    Security as
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Architecture.
+    </span>
+  tagline: "Not bolt-on. Not an afterthought. EDDI's security model is a structural property of the codebase — eliminating entire vulnerability classes by design."
+  actions:
+    - text: Security Documentation
+      link: /docs/security/overview/
+      icon: right-arrow
+    - text: EU AI Act Compliance
+      link: /enterprise/compliance/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Eliminated by Design
+
+<CardGrid>
+  <Card title="🚫 No eval()" icon="approve-check-circle">
+    EDDI doesn't offer JavaScript or Python code blocks inside workflows. This eliminates the #1 cause of **CVSS 10.0 Remote Code Execution** vulnerabilities in AI platforms like Flowise and n8n.
+  </Card>
+  <Card title="🔐 Vault Integration" icon="approve-check-circle">
+    API keys and secrets are never stored in agent configurations. Managed through **Quarkus Vault/Secrets Manager** and referenced via secure vault URIs.
+  </Card>
+  <Card title="🌐 URL Validation" icon="approve-check-circle">
+    All external URLs in configurations are validated against **allowlists**, preventing SSRF attacks. No arbitrary outbound connections.
+  </Card>
+  <Card title="📁 Path Traversal Protection" icon="approve-check-circle">
+    File operations are sandboxed with **strict path validation**. No `../` escapes, no access outside designated directories.
+  </Card>
+</CardGrid>
+
+## The MCP Escape Hatch
+
+Need custom code execution? EDDI's answer:
+
+> *"Spin up an external MCP server in an isolated Docker container. EDDI will call it as a tool via the MCP client."*
+
+This pushes the RCE risk **entirely outside the EDDI perimeter** — into a sandboxed, isolated container you control.
+
+## Enterprise Authentication
+
+<CardGrid stagger>
+  <Card title="OIDC / Keycloak" icon="setting">
+    Enterprise authentication built into the architecture — complex OAuth2/OIDC topologies, native Keycloak integration, role-based access control.
+  </Card>
+  <Card title="Role-Based Tool Access" icon="approve-check-circle">
+    MCP tools can be filtered by role — `mcp-user` gets conversation tools only, `mcp-admin` gets full administrative access.
+  </Card>
+  <Card title="Cryptographic Audit Trails" icon="open-book">
+    Every LLM interaction is logged with tokens, cost, timing, and tool calls. Audit entries are **tamper-evident** with cryptographic integrity checks.
+  </Card>
+</CardGrid>

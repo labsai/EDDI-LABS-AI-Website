@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/eddi-website.iml" filepath="$PROJECT_DIR$/.idea/eddi-website.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../uploads-ssl.webflow.com/.idea/uploads-ssl.webflow.com.iml" filepath="$PROJECT_DIR$/../uploads-ssl.webflow.com/.idea/uploads-ssl.webflow.com.iml" />
+    </modules>
+  </component>
+</project>

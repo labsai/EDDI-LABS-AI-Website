@@ -1,0 +1,61 @@
+---
+title: "Features at a Glance"
+description: "Every capability that makes EDDI the enterprise AI orchestrator — config-as-code, 39 MCP tools, security-first architecture, and more."
+template: splash
+hero:
+  title: |
+    Everything You Need to
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Orchestrate AI
+    </span>
+  tagline: "EDDI provides a complete, production-ready platform for building, deploying, and managing AI agents — without writing boilerplate."
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/labsai/EDDI
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Core Platform
+
+<CardGrid>
+  <LinkCard title="⚙️ Config-as-Code" href="/features/config-as-code/" description="Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly — no recompilation needed." />
+  <LinkCard title="🔌 MCP Server (39 Tools)" href="/features/mcp-server/" description="Full AI-native control via the Model Context Protocol. Claude Desktop, Cursor, and custom clients manage agents programmatically." />
+  <LinkCard title="🔐 Security-First" href="/features/security/" description="No eval(), vault integration, path traversal protection, OIDC/Keycloak, cryptographic audit trails." />
+  <LinkCard title="🚀 Performance" href="/features/performance/" description="Java 25 Virtual Threads on Quarkus — millions of lightweight threads for I/O-bound LLM workloads." />
+</CardGrid>
+
+## Orchestration & Intelligence
+
+<CardGrid>
+  <LinkCard title="🤖 Multi-Agent" href="/features/multi-agent/" description="Intent-based agent discovery, managed conversations, agent triggers, and A/B routing across multiple agents." />
+  <LinkCard title="📊 Observability" href="/features/observability/" description="Every pipeline step logged with immutable audit trails — tokens, cost, timing, and tool calls." />
+</CardGrid>
+
+## Engineering Excellence
+
+<CardGrid>
+  <LinkCard title="🧪 Code Quality" href="/features/code-quality/" description="1,000+ tests with zero failures. Checkstyle warnings reduced from 697 to 81. CI/CD enforced on every merge." />
+  <LinkCard title="🧩 AI-Ready Architecture" href="/features/ai-ready/" description="39 MCP tools, predictable CRUD patterns, self-documenting APIs. Built for coding agents to work with." />
+</CardGrid>
+
+## Technical Foundation
+
+<CardGrid stagger>
+  <Card title="Java 25" icon="seti:java">Virtual Threads, unnamed variables, pattern matching. The most trusted enterprise runtime, modernized.</Card>
+  <Card title="Quarkus 3.32.4" icon="rocket">Cloud-native, sub-second boot, native compilation. Built for containers and Kubernetes.</Card>
+  <Card title="LangChain4j" icon="puzzle">20+ LLM providers, 30+ embedding stores. OpenAI, Anthropic, Google Gemini, Ollama, and more.</Card>
+  <Card title="MongoDB & PostgreSQL" icon="seti:db">Dual database support — choose the right store for your deployment topology.</Card>
+  <Card title="NATS JetStream" icon="list-format">Distributed messaging for horizontally scalable agent deployments.</Card>
+  <Card title="Docker & Kubernetes" icon="setting">One-command Docker setup. Helm charts and K8s manifests for production deployments.</Card>
+</CardGrid>

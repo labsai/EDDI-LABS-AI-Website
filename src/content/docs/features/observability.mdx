@@ -1,0 +1,59 @@
+---
+title: "Transparent Observability"
+description: "Every pipeline step is logged with an immutable audit trail — LLM tokens, cost, timing, tool calls. Full CQRS telemetry for debugging and compliance."
+template: splash
+hero:
+  title: |
+    See
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Everything.
+    </span>
+  tagline: Every pipeline step, every LLM call, every tool invocation — logged with an immutable audit trail. Debug in seconds, comply with confidence.
+  actions:
+    - text: Observability Documentation
+      link: /docs/security/overview/
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What Gets Logged
+
+<CardGrid stagger>
+  <Card title="Audit Ledger" icon="open-book">
+    Per-task audit entries with: LLM provider, model ID, prompt tokens, completion tokens, total cost, latency, tool calls made, and tool call results. **Immutable and tamper-evident.**
+  </Card>
+  <Card title="Pipeline Logs" icon="list-format">
+    Server-side error and performance logging filtered by agent, conversation, and severity level. See exactly where a pipeline step failed and why.
+  </Card>
+  <Card title="CQRS Telemetry" icon="setting">
+    Execution state is **separated from observability state**. Read models are optimized for querying, write models for append-only integrity. No performance penalty for comprehensive logging.
+  </Card>
+  <Card title="Conversation Memory" icon="comment-alt">
+    Full conversation history including intermediate steps — LLM reasoning, tool calls, property mutations, rule evaluations. Every decision the agent made, visible.
+  </Card>
+</CardGrid>
+
+## Debugging AI is Hard. EDDI Makes It Visible.
+
+When an AI agent produces an unexpected response, you need to answer:
+
+1. **What prompt** did the LLM actually see?
+2. **What tools** were called, and what did they return?
+3. **Which rule** fired, and why?
+4. **How much** did this conversation cost?
+
+EDDI's audit trail answers all four questions for every single turn — via the `read_audit_trail` and `read_conversation_log` MCP tools, or via the REST API.
+
+## EU AI Act Ready
+
+The EU AI Act requires "high-risk AI systems" to maintain comprehensive logging. EDDI's audit ledger provides:
+
+- **Traceability** — every AI decision is logged with its inputs and outputs
+- **Accountability** — which model, which version, which configuration produced this response
+- **Reproducibility** — full conversation context preserved for review

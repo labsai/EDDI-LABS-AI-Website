@@ -1,0 +1,120 @@
+---
+title: MCP Server Overview
+description: "EDDI exposes 39 tools via the Model Context Protocol — enabling AI assistants to interact with deployed agents and manage the platform programmatically."
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+EDDI exposes its agent conversation and administration capabilities via the **Model Context Protocol (MCP)**, enabling AI assistants (Claude Desktop, IDE plugins, custom MCP clients) to interact with deployed agents and manage the platform programmatically.
+
+## Transport
+
+EDDI uses **Streamable HTTP** transport via the Quarkus MCP Server extension.
+
+| Endpoint | Description |
+|----------|-------------|
+| `http://localhost:7070/mcp` | MCP server endpoint |
+
+## Tool Categories
+
+EDDI exposes **39 tools** organized into 5 categories:
+
+<CardGrid>
+  <Card title="Conversation Tools (11)" icon="comment-alt">
+    `list_agents`, `discover_bots`, `create_conversation`, `talk_to_agent`, `chat_with_agent`, `chat_managed`, `read_conversation`, `read_conversation_log`, `list_conversations`, `get_agent`, `list_bot_configs`
+  </Card>
+  <Card title="Admin Tools (13)" icon="setting">
+    `deploy_agent`, `undeploy_agent`, `get_deployment_status`, `list_workflows`, `create_agent`, `delete_agent`, `update_agent`, `read_workflow`, `read_resource`, `list_agent_triggers`, `create_agent_trigger`, `update_agent_trigger`, `delete_agent_trigger`
+  </Card>
+  <Card title="Resource CRUD (5)" icon="document">
+    `update_resource`, `create_resource`, `delete_resource`, `apply_bot_changes`, `list_bot_resources`
+  </Card>
+  <Card title="Diagnostic Tools (2)" icon="open-book">
+    `read_bot_logs`, `read_audit_trail`
+  </Card>
+  <Card title="Setup Tools (2)" icon="rocket">
+    `setup_agent` — Create a fully working agent in one call.
+    `create_api_agent` — Create an agent from an OpenAPI spec.
+  </Card>
+</CardGrid>
+
+## Quick Start: Claude Desktop
+
+Add EDDI to your Claude Desktop config:
+
+```json
+{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}
+```
+
+## Example Workflows
+
+### Basic Chat
+
+```
+1. list_agents → see deployed agents
+2. create_conversation(agentId: "my-agent") → get conversationId
+3. talk_to_agent(agentId: "my-agent", conversationId: "...", message: "Hello!") → get response
+4. read_conversation_log(conversationId: "...") → see full history
+```
+
+### Intent-Based Managed Chat
+
+```
+1. create_agent_trigger(config: {"intent":"support","botDeployments":[{"agentId":"abc123"}]})
+2. chat_managed(intent: "support", userId: "user1", message: "Hello!") → auto-creates conversation
+3. chat_managed(intent: "support", userId: "user1", message: "I need help") → reuses same conversation
+```
+
+### Full Agent Setup in One Call
+
+```
+setup_agent(
+  name: "Support Agent",
+  systemPrompt: "You are a helpful support agent.",
+  provider: "anthropic",
+  modelId: "claude-sonnet-4-6",
+  enableSentimentAnalysis: true
+)
+→ { agentId: "abc123", version: 1, status: "deployed" }
+```
+
+## Two-Tier Conversation Model
+
+| Tier | Tools | Conversations | Use Case |
+|------|-------|---------------|----------|
+| **Low-level** | `create_conversation` + `talk_to_agent` | Multiple per user, manually managed | Custom apps, multi-conversation UIs |
+| **Managed** | `chat_managed` | One per intent+userId, auto-created | Single-window chat, intent-based routing |
+
+## Architecture
+
+```
+┌──────────────┐     ┌──────────────────────┐
+│  MCP Client  │────▶│ quarkus-mcp-server   │
+│ (Claude,IDE) │◀────│ Streamable HTTP /mcp │
+└──────────────┘     └──────────┬───────────┘
+                                │
+                  ┌─────────────┼─────────────┐
+                  ▼             ▼              ▼
+         ┌────────────┐ ┌────────────┐ ┌────────────┐
+         │ McpConv.   │ │ McpAdmin   │ │ McpSetup   │
+         │   Tools    │ │   Tools    │ │   Tools    │
+         └─────┬──────┘ └─────┬──────┘ └─────┬──────┘
+               │              │               │
+         ┌─────▼──────┐ ┌─────▼──────┐ ┌─────▼──────┐
+         │ REST API   │ │ REST API   │ │ REST API   │
+         │ endpoints  │ │ endpoints  │ │ + OpenAPI  │
+         └────────────┘ └────────────┘ └────────────┘
+```
+
+## Learn More
+
+- [Conversation Tools](/docs/mcp/conversation-tools/) — Detailed reference for all 11 conversation tools
+- [Admin Tools](/docs/mcp/admin-tools/) — Deployment, agent management, and resource CRUD
+- [Setup Tools](/docs/mcp/setup-tools/) — `setup_agent` and `create_api_agent` deep dives
+- [MCP Security](/docs/mcp/security/) — Authentication, authorization, and tool filtering

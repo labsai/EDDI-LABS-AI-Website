@@ -1,0 +1,94 @@
+---
+title: "MCP Server: 39 Tools for AI-Native Control"
+description: "EDDI exposes its full capabilities via the Model Context Protocol — enabling Claude Desktop, IDE plugins, and custom clients to manage agents programmatically. Agents can also consume external MCP tools."
+template: splash
+hero:
+  title: |
+    39 Tools.
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      One Protocol.
+    </span>
+  tagline: EDDI exposes its full capabilities via the Model Context Protocol (MCP) — enabling Claude Desktop, IDE plugins, and custom clients to manage agents programmatically. Agents can also consume external MCP tools.
+  actions:
+    - text: View Tool Reference
+      link: /docs/mcp/overview/
+      icon: right-arrow
+    - text: Claude Desktop Setup
+      link: /docs/mcp/overview/#quick-start-claude-desktop
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## MCP Server — Tool Categories
+
+<CardGrid>
+  <Card title="Conversation Tools (11)" icon="comment-alt">
+    Chat with agents, manage conversations, read history. Includes both low-level (`create_conversation` + `talk_to_agent`) and managed (`chat_managed`) patterns with intent-based routing.
+  </Card>
+  <Card title="Admin Tools (13)" icon="setting">
+    Deploy and undeploy agents, manage workflows, read resources, CRUD agent triggers for intent-based routing.
+  </Card>
+  <Card title="Resource CRUD (5)" icon="document">
+    Create, read, update, delete any resource type. Apply cascading changes across workflows and agents. List all resources for an agent.
+  </Card>
+  <Card title="Setup Tools (2)" icon="rocket">
+    `setup_agent` creates a fully working agent in one call. `create_api_agent` generates an agent from an OpenAPI spec.
+  </Card>
+  <Card title="Schedule Management (6)" icon="list-format">
+    Create, read, update, delete schedules. Deploy/undeploy lifecycle hooks. Cron-based triggers for automated agent conversations.
+  </Card>
+  <Card title="Diagnostic Tools (2)" icon="open-book">
+    Read server-side pipeline logs and per-task audit trails with LLM details, timing, cost, and tool calls.
+  </Card>
+</CardGrid>
+
+## Power Tools
+
+<CardGrid stagger>
+  <Card title="setup_agent" icon="rocket">
+    Create a **fully working agent in one call** — rules, LLM config, output templates, workflow, agent, and deployment. From zero to chatting in seconds.
+  </Card>
+  <Card title="create_api_agent" icon="puzzle">
+    Create an agent from an **OpenAPI 3.0/3.1 spec**. EDDI parses the spec, generates HttpCalls configs grouped by API tag, creates the full pipeline, and deploys. Your API, instantly conversational.
+  </Card>
+  <Card title="chat_managed" icon="comment-alt">
+    **Intent-based managed conversations.** One conversation per intent+userId, auto-created on first message. No conversation management overhead for single-window chat UIs.
+  </Card>
+  <Card title="apply_agent_changes" icon="setting">
+    **Cascading updates.** Change a LLM config version, and EDDI automatically updates the workflow and agent references. Optional auto-redeploy.
+  </Card>
+</CardGrid>
+
+## MCP Client — Agents Consume External Tools
+
+EDDI agents can also act as **MCP clients**, connecting to external MCP servers during conversations:
+
+<CardGrid>
+  <Card title="External Tool Access" icon="external">
+    Configure `mcpServers` in your agent's LLM config — EDDI connects via **StreamableHTTP transport** and makes external tools available to the LLM during conversations.
+  </Card>
+  <Card title="Vault-Secured Keys" icon="approve-check-circle">
+    External MCP server API keys are stored via `${vault:key}` references — never exposed in agent configurations.
+  </Card>
+</CardGrid>
+
+## Connect in Seconds
+
+```json
+{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}
+```
+
+Add this to your Claude Desktop config, and all 39 tools are immediately available.

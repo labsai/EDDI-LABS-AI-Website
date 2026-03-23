@@ -1,0 +1,11 @@
+# EDDI — Enterprise AI Orchestrator
+# https://eddi.labs.ai
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eddi.labs.ai/sitemap-index.xml
+
+# Disallow build artifacts
+Disallow: /_astro/

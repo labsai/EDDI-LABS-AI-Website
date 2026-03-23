@@ -1,0 +1,83 @@
+---
+title: "Roadmap"
+description: "What's been built, what's in progress, and what's next for EDDI."
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## v6.0 — Current Release ✅
+
+The v6.0 release represents a major architectural evolution — renaming core concepts, modernizing to Java 25, and adding MCP client capabilities.
+
+<CardGrid stagger>
+  <Card title="Agent-Centric Architecture" icon="approve-check-circle">
+    Core terminology refactored: **Bot → Agent**, **Package → Workflow**, **Behavior → Rules**. The entire codebase and API surface now uses agent-centric language.
+  </Card>
+  <Card title="39 MCP Tools" icon="approve-check-circle">
+    Expanded from 33 to 39 tools — adding 6 schedule management tools for cron-based automation: create, read, update, delete, deploy, and undeploy schedules.
+  </Card>
+  <Card title="MCP Client" icon="approve-check-circle">
+    Agents can now **consume external MCP tools** from other servers via StreamableHTTP transport. Configure external MCP servers in your agent's LLM config.
+  </Card>
+  <Card title="Java 25 Modernization" icon="approve-check-circle">
+    Leveraging unnamed variables (`_`), `toList()` collectors, `instanceof` pattern matching, and enhanced switch expressions throughout the codebase.
+  </Card>
+  <Card title="Quarkus 3.32.4" icon="approve-check-circle">
+    Latest Quarkus release with improved Virtual Threads support, faster native compilation, and enhanced CDI lifecycle management.
+  </Card>
+  <Card title="Code Quality" icon="approve-check-circle">
+    Checkstyle warnings reduced from 697 to 81. Over 1,000 tests with zero failures. Comprehensive MCP tool test coverage.
+  </Card>
+</CardGrid>
+
+For full details, see the [v6.0 Changelog](/docs/changelog/v6/).
+
+---
+
+## Near-Term — In Development 🔨
+
+<CardGrid>
+  <Card title="React Management UI" icon="setting">
+    Visual agent builder with drag-and-drop pipeline configuration, real-time conversation monitoring, and deployment management.
+  </Card>
+  <Card title="RAG Pipeline Templates" icon="puzzle">
+    Pre-built pipeline configurations for common RAG patterns — document ingestion, chunk-and-embed, and retrieval-augmented generation.
+  </Card>
+  <Card title="Webhook Integrations" icon="external">
+    Event-driven webhooks for agent lifecycle events — creation, deployment, conversation start/end, and error conditions.
+  </Card>
+</CardGrid>
+
+---
+
+## Future — Planned 🗺️
+
+<CardGrid>
+  <Card title="Agent Marketplace" icon="star">
+    Shareable agent templates and pipeline configurations. Import pre-built agents for common use cases with one click.
+  </Card>
+  <Card title="Multi-Tenant Support" icon="list-format">
+    Full tenant isolation with per-tenant databases, rate limiting, and billing. Enterprise-ready SaaS deployment model.
+  </Card>
+  <Card title="Advanced Analytics" icon="open-book">
+    Conversation analytics dashboards — user satisfaction, resolution rates, cost optimization, and model comparison A/B testing.
+  </Card>
+  <Card title="Plugin SDK" icon="puzzle">
+    Java SDK for custom pipeline steps. Extend EDDI's pipeline with business-specific logic while maintaining the config-driven architecture.
+  </Card>
+</CardGrid>
+
+---
+
+## Contributing
+
+EDDI is open-source under the **Apache 2.0 License**. Contributions are welcome:
+
+- **GitHub:** [labsai/EDDI](https://github.com/labsai/EDDI)
+- **Issues:** Report bugs or request features via GitHub Issues
+- **Pull Requests:** Fork, implement, test, and submit PRs against the `main` branch
+
+<CardGrid>
+  <LinkCard title="Get Started" href="/docs/getting-started/" description="Set up your development environment and create your first agent." />
+  <LinkCard title="Architecture Overview" href="/docs/architecture/seven-pillars/" description="Understand EDDI's design philosophy before contributing." />
+</CardGrid>

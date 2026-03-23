@@ -1,0 +1,108 @@
+---
+title: "Why EDDI?"
+description: "EDDI fills an absolute void in the Java ecosystem — the only visual AI orchestration middleware built natively on the JVM."
+template: splash
+hero:
+  title: |
+    The Only
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      JVM-Native
+    </span>
+    Visual AI Middleware
+  tagline: "EDDI occupies a blue ocean position in enterprise software: the intersection of visual AI orchestration and the Java Virtual Machine. No other product exists here."
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: right-arrow
+    - text: Compare Alternatives
+      link: /enterprise/vs-alternatives/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## The 3 Pitches
+
+<CardGrid stagger>
+  <Card title="1. Escape the Prototype Trap" icon="warning">
+    Teams prototype AI agents with Python, Flowise, or n8n — then face a painful rewrite when it's time for production.
+
+    **EDDI breaks the cycle.** It's a visual builder that runs natively on the JVM. Prototype and deploy in the same system. No Python→Java translation layer. No discarded prototypes.
+  </Card>
+  <Card title="2. Agility Through Configuration" icon="setting">
+    Using Spring AI or LangChain4j means writing REST controllers, auth layers, and state management from scratch. Every prompt tweak requires recompilation.
+
+    **EDDI separates concerns.** agent logic is configuration (JSON). Java is the engine. Prompt engineers iterate instantly via UI or API. Java developers maintain the platform, not the prompts.
+  </Card>
+  <Card title="3. Uncompromised Cloud-Native Scale" icon="rocket">
+    Forcing AI agents into Camunda or Temporal workflows creates severe impedance mismatches. BPMN was designed for deterministic processes, not non-deterministic LLM reasoning.
+
+    **EDDI speaks AI natively.** ReAct loops, tool calling, multi-agent orchestration — all first-class concepts, not square pegs in BPMN holes.
+  </Card>
+</CardGrid>
+
+## The Blue Ocean
+
+No other product combines all three:
+
+| Capability | Code Libraries | Workflow Engines | Visual Builders | **EDDI** |
+|-----------|---------------|-----------------|----------------|----------|
+| Visual agent building | ❌ | ❌ | ✅ | ✅ |
+| JVM-native runtime | ✅ | ✅ | ❌ | ✅ |
+| Config-driven (no recompile) | ❌ | Partial | ✅ | ✅ |
+| Production-grade security | Varies | ✅ | ❌ | ✅ |
+| Enterprise concurrency | ✅ | ✅ | ❌ | ✅ |
+| MCP protocol support | ❌ | ❌ | ❌ | ✅ |
+
+## Who EDDI Is For
+
+<CardGrid>
+  <Card title="Enterprise Java Teams" icon="seti:java">
+    Organizations running mission-critical systems on the JVM who need visual AI orchestration without leaving the Java ecosystem.
+  </Card>
+  <Card title="Platform Engineers" icon="setting">
+    Teams building internal AI platforms who need a deployable middleware — not a library they have to wrap in custom infrastructure.
+  </Card>
+  <Card title="Regulated Industries" icon="approve-check-circle">
+    Finance, healthcare, government — sectors where security auditing, EU AI Act compliance, and deterministic governance are non-negotiable.
+  </Card>
+  <Card title="AI/Prompt Engineers" icon="puzzle">
+    Teams who want to iterate on agent rules instantly without waiting for Java recompilation cycles.
+  </Card>
+</CardGrid>
+
+## Frequently Asked Questions
+
+<details>
+<summary><strong>Is EDDI truly open-source?</strong></summary>
+
+Yes. EDDI is licensed under the Apache License 2.0, which permits commercial use, modification, and distribution without royalties. The full source code is available on [GitHub](https://github.com/labsai/EDDI). There is no "community vs. enterprise" split — all features are available in the open-source version.
+
+</details>
+
+<details>
+<summary><strong>What LLM providers does EDDI support?</strong></summary>
+
+EDDI uses LangChain4j internally, which supports 20+ LLM providers including OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini, Ollama (local models), Mistral, and Amazon Bedrock. You can switch providers by changing a JSON configuration — no code changes required.
+
+</details>
+
+<details>
+<summary><strong>How does EDDI handle the EU AI Act?</strong></summary>
+
+EDDI's architecture directly addresses several EU AI Act requirements: immutable audit trails provide the transparency mandated by Articles 13-14 and 52, the deterministic pipeline governance addresses risk management (Article 9), and the self-hosted deployment model ensures data sovereignty (Article 10). See the [EU AI Act & Compliance page](/enterprise/compliance/) for a detailed article-by-article mapping.
+
+</details>
+
+<details>
+<summary><strong>Can I run EDDI with local/on-premises LLMs?</strong></summary>
+
+Yes. EDDI supports Ollama and other local LLM providers through LangChain4j. This means you can run the entire stack — EDDI middleware plus LLM inference — entirely on your own infrastructure, with zero data leaving your network. This is critical for regulated industries with strict data residency requirements.
+
+</details>

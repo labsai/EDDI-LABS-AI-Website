@@ -1,0 +1,80 @@
+---
+title: "Configuration-as-Code: Logic Meets Agility"
+description: "EDDI's defining paradigm — agent logic is configuration, Java is the engine. Update prompts, pipelines, and tools without touching code."
+template: splash
+hero:
+  title: |
+    Logic is Configuration.
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Java is the Engine.
+    </span>
+  tagline: Every aspect of agent rules — prompts, pipeline tasks, output formatting, tool definitions — is a JSON configuration. Change anything, instantly, without recompilation.
+  actions:
+    - text: Read the Architecture Guide
+      link: /docs/architecture/config-as-code/
+      icon: right-arrow
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## The Traditional Approach vs. EDDI
+
+<CardGrid>
+  <Card title="❌ Traditional AI Platforms" icon="warning">
+    1. Edit Java source code
+    2. Recompile the project
+    3. Run automated tests
+    4. Deploy via CI/CD pipeline
+    5. Wait 5–15 minutes
+
+    **Every single prompt change.**
+  </Card>
+  <Card title="✅ EDDI" icon="approve-check-circle">
+    1. Update JSON configuration via REST API or Manager UI
+    2. Done.
+
+    **Changes are live instantly.**
+    No recompilation. No redeployment. No downtime.
+  </Card>
+</CardGrid>
+
+## What's Configurable?
+
+<CardGrid stagger>
+  <Card title="Rules" icon="setting">
+    Conditional response logic: "If the user mentions billing, set action to `redirect_billing`." Evaluated before the LLM call, controlling which output templates fire.
+  </Card>
+  <Card title="LLM Configuration" icon="puzzle">
+    LLM provider, model ID, temperature, max tokens, tool bindings, RAG data sources. Switch from GPT-4 to Claude in seconds.
+  </Card>
+  <Card title="Output Sets" icon="document">
+    Response templates with HTML formatting, quick reply buttons, action triggers. The full presentation layer is configuration.
+  </Card>
+  <Card title="HTTP Calls" icon="external">
+    REST API integrations as pipeline tasks. Call your backend, webhooks, or third-party APIs — configured, not coded.
+  </Card>
+  <Card title="Workflows" icon="list-format">
+    Pipeline composition — which tasks run, in what order. Add sentiment analysis by adding a pipeline extension; remove it by removing a line.
+  </Card>
+  <Card title="Agent Triggers" icon="rocket">
+    Intent-to-agent routing rules for managed conversations. Route `customer_support` intent to Agent A in production, Agent B in staging.
+  </Card>
+</CardGrid>
+
+## Immutable Versioning
+
+Every resource in EDDI is **immutably versioned**. When you update an LLM config, EDDI creates version 2 while preserving version 1.
+
+- **Instant rollback** — revert to any previous version via a single API call
+- **A/B testing** — run two agent versions simultaneously with different configs
+- **Audit compliance** — every change is tracked with its full history
+- **Zero-risk updates** — if version 2 breaks, version 1 is untouched

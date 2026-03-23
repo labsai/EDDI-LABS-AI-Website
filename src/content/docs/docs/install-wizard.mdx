@@ -1,0 +1,119 @@
+---
+title: "Install Wizard"
+description: "Get EDDI running with a single command — interactive setup with database, authentication, and monitoring choices."
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+EDDI provides an interactive **one-command install wizard** that configures your entire environment — database, authentication, monitoring, and deployment topology — in seconds.
+
+## Quick Install
+
+### Linux / macOS
+
+```bash
+curl -fsSL https://eddi.labs.ai/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://eddi.labs.ai/install.ps1 | iex
+```
+
+The wizard will walk you through:
+
+1. **Database** — MongoDB or PostgreSQL
+2. **Authentication** — None, Keycloak, or custom OIDC
+3. **Monitoring** — Prometheus + Grafana (optional)
+4. **LLM Provider** — API key configuration
+5. **Deployment** — Docker Compose or Kubernetes manifest generation
+
+## Docker Quick Start
+
+If you prefer a single command without the wizard:
+
+```bash
+docker run -p 7070:7070 labsai/eddi:latest
+```
+
+EDDI will be available at `http://localhost:7070` with an embedded MongoDB instance for development.
+
+## Docker Compose (Production)
+
+For production deployments with external MongoDB:
+
+```yaml
+version: '3.8'
+services:
+  eddi:
+    image: labsai/eddi:latest
+    ports:
+      - "7070:7070"
+    environment:
+      - EDDI_ENV=production
+      - QUARKUS_MONGODB_CONNECTION_STRING=mongodb://mongo:27017
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+```
+
+## Connect Your AI Assistant
+
+After installation, add EDDI as an MCP server to your AI assistant:
+
+### Claude Desktop
+
+```json
+{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}
+```
+
+### Cursor / Windsurf
+
+Add to your IDE's MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}
+```
+
+## Verify Installation
+
+Once EDDI is running, verify with a simple health check:
+
+```bash
+curl http://localhost:7070/q/health
+```
+
+Expected response:
+```json
+{
+  "status": "UP"
+}
+```
+
+## Next Steps
+
+<CardGrid>
+  <LinkCard title="Create Your First Agent" href="/docs/quickstart/" description="Build and deploy an agent via MCP in seconds." />
+  <LinkCard title="Browse 39 MCP Tools" href="/docs/mcp/overview/" description="See every tool EDDI exposes for AI-native control." />
+  <LinkCard title="Production Deployment" href="/docs/deployment/docker/" description="Docker Compose and Kubernetes deployment guides." />
+</CardGrid>

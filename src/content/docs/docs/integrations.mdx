@@ -1,0 +1,85 @@
+---
+title: "Integrations"
+description: "EDDI connects to 20+ LLM providers, multiple databases, MCP ecosystem, auth systems, and deployment platforms."
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+EDDI is built on proven open-source foundations — LangChain4j, Quarkus, and the Model Context Protocol — making it compatible with a wide ecosystem of AI tools and infrastructure.
+
+## LLM Providers
+
+EDDI supports **20+ LLM providers** through LangChain4j. Switch between providers by changing a JSON configuration — no code changes required.
+
+<CardGrid>
+  <Card title="OpenAI" icon="rocket">GPT-4o, GPT-4o-mini, o1, and all OpenAI models. Full tool calling support.</Card>
+  <Card title="Anthropic" icon="puzzle">Claude Sonnet, Claude Opus, Claude Haiku. Native function calling.</Card>
+  <Card title="Google Gemini" icon="star">Gemini Pro, Gemini Flash, and the full Vertex AI family.</Card>
+  <Card title="Azure OpenAI" icon="setting">Enterprise Azure deployments with managed endpoints and private networking.</Card>
+  <Card title="Ollama" icon="laptop">Run local models entirely on-premises. Zero data leaves your network.</Card>
+  <Card title="Amazon Bedrock" icon="approve-check-circle">Access Claude, Llama, Titan, and other models via AWS infrastructure.</Card>
+  <Card title="Mistral" icon="rocket">Mistral Large, Medium, and Small. European-hosted LLM option.</Card>
+  <Card title="And More..." icon="list-format">Cohere, Together AI, Fireworks, Groq, DeepSeek, and additional providers via LangChain4j.</Card>
+</CardGrid>
+
+## Databases
+
+<CardGrid>
+  <Card title="MongoDB" icon="seti:db">
+    Document-based storage for agent configurations, conversation state, and audit logs. Native replica set support for high availability.
+  </Card>
+  <Card title="PostgreSQL" icon="seti:db">
+    Relational database support for teams preferring SQL. Full ACID compliance and enterprise-grade stability.
+  </Card>
+</CardGrid>
+
+## MCP Ecosystem
+
+<CardGrid>
+  <Card title="MCP Server" icon="puzzle">
+    EDDI exposes **39 tools** via MCP — compatible with Claude Desktop, Cursor, Windsurf, Continue, and any MCP-compatible client.
+  </Card>
+  <Card title="MCP Client" icon="external">
+    Agents can **consume external MCP tools** from other servers during conversations via StreamableHTTP transport. Extend agent capabilities without code changes.
+  </Card>
+</CardGrid>
+
+## Authentication & Security
+
+<CardGrid>
+  <Card title="Keycloak / OIDC" icon="approve-check-circle">
+    Enterprise authentication with native Keycloak integration. Complex OAuth2/OIDC topologies, role-based access control, and SSO.
+  </Card>
+  <Card title="Vault Integration" icon="setting">
+    API keys and secrets managed through Quarkus Vault/Secrets Manager. Referenced via secure `${vault:key}` URIs — never stored in agent configurations.
+  </Card>
+</CardGrid>
+
+## Deployment
+
+<CardGrid>
+  <Card title="Docker" icon="setting">
+    Single-command deployment: `docker run -p 7070:7070 labsai/eddi:latest`. Production-ready with health checks and graceful shutdown.
+  </Card>
+  <Card title="Kubernetes" icon="rocket">
+    Helm charts and K8s manifests for scalable production deployments. Horizontal pod autoscaling and rolling updates.
+  </Card>
+  <Card title="GraalVM Native" icon="star">
+    Quarkus native compilation for sub-second startup times and minimal memory footprint. Ideal for serverless and edge deployments.
+  </Card>
+</CardGrid>
+
+## Messaging & Distribution
+
+<CardGrid>
+  <Card title="NATS JetStream" icon="list-format">
+    Distributed messaging backbone for horizontally scaled agent deployments. At-least-once delivery guarantees with persistent streams.
+  </Card>
+</CardGrid>
+
+## Next Steps
+
+<CardGrid>
+  <LinkCard title="Get Started" href="/docs/getting-started/" description="Install EDDI and create your first agent in 5 minutes." />
+  <LinkCard title="Docker Deployment" href="/docs/deployment/docker/" description="Production Docker and Kubernetes deployment guide." />
+</CardGrid>

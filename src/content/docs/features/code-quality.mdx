@@ -1,0 +1,128 @@
+---
+title: "Code Quality & Test Coverage"
+description: "EDDI maintains rigorous code quality standards: 1,000+ tests (0 failures), automated CI pipelines, a clean modular architecture, and a dedicated integration test repository."
+template: splash
+hero:
+  title: |
+    Enterprise-Grade
+    <span
+      class="font-black text-transparent
+        bg-clip-text bg-linear-to-b
+        from-accent-700 to-accent-400
+        dark:from-accent-500 dark:to-accent-200"
+    >
+      Code Quality.
+    </span>
+  tagline: "Production software demands production-grade engineering. EDDI enforces code quality at every level — from architecture to 1,000+ automated tests to CI/CD pipelines."
+  actions:
+    - text: View on GitHub
+      link: https://github.com/labsai/EDDI
+      icon: external
+      variant: minimal
+    - text: Integration Tests
+      link: https://github.com/labsai/EDDI-integration-tests
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## 1,000+ Automated Tests — Zero Failures
+
+<CardGrid stagger>
+  <Card title="🧪 1,000+ Tests — 0 Failures" icon="approve-check-circle">
+    EDDI's test suite runs **over 1,000 tests with zero failures** — covering pipeline logic, MCP tools, configuration parsing, conversation state, rules, output templating, context matching, security validation, NLP, and cryptographic secrets. Work with confidence — refactor freely knowing the test suite has your back.
+  </Card>
+  <Card title="🔗 Dedicated Integration Test Repo" icon="approve-check-circle">
+    EDDI maintains a **separate integration test repository** ([EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests)) for full end-to-end lifecycle testing: agent creation → deployment → conversation → audit trail — running against real MongoDB and PostgreSQL via Docker.
+  </Card>
+  <Card title="🛠️ MCP Tool Coverage" icon="approve-check-circle">
+    All 39 MCP tools have dedicated test coverage — including edge cases for CDI injection, authentication, authorization, input validation, and error handling.
+  </Card>
+  <Card title="🚀 CI/CD Pipeline" icon="rocket">
+    GitHub Actions pipelines enforce: compilation, unit tests, integration tests, and artifact publishing. **No merge without green CI.** Quarkus native compilation keeps build times fast.
+  </Card>
+</CardGrid>
+
+## Test Depth
+
+EDDI doesn't just have tests — it has the *right* tests. Key areas covered:
+
+<CardGrid>
+  <Card title="Pipeline Engine" icon="approve-check-circle">
+    Result manipulation, output templating, context matching, input parsing, and dynamic value resolution are each covered by **dedicated test suites** — not surface-level smoke tests.
+  </Card>
+  <Card title="Conversation Memory" icon="approve-check-circle">
+    Conversation step management, memory serialization, multi-turn state tracking, and undo/redo operations all have **thorough test coverage** with edge case validation.
+  </Card>
+  <Card title="rules" icon="approve-check-circle">
+    Action matching, input matching, context matching, and rule priority resolution are tested with combinatorial scenarios to catch subtle rule evaluation bugs.
+  </Card>
+  <Card title="Security Validation" icon="approve-check-circle">
+    API key vault integration, URL allowlist enforcement, path traversal protection, and role-based access control are all verified with both positive and negative test cases.
+  </Card>
+</CardGrid>
+
+## Architecture Quality
+
+<CardGrid stagger>
+  <Card title="Clean Module Boundaries" icon="setting">
+    EDDI follows a **layered architecture** with clear separation: API layer → Service layer → Repository layer. Each module has a single responsibility with well-defined interfaces.
+  </Card>
+  <Card title="CDI Dependency Injection" icon="puzzle">
+    All dependencies are managed via Quarkus CDI — no static singletons, no service locators. Every component is independently testable and mockable.
+  </Card>
+  <Card title="Immutable Data Patterns" icon="approve-check-circle">
+    Configuration objects, pipeline steps, and audit records use **immutable data patterns**. Once created, they cannot be modified — eliminating entire classes of concurrency bugs.
+  </Card>
+  <Card title="🧹 Checkstyle: 697 → 81 Warnings" icon="approve-check-circle">
+    Comprehensive checkstyle cleanup reduced static analysis warnings from **697 to 81** — removing noisy style-only checks and enforcing consistent code formatting across the entire codebase.
+  </Card>
+</CardGrid>
+
+## Code Standards
+
+<CardGrid>
+  <Card title="☕ Java 25 Modernization" icon="approve-check-circle">
+    Leveraging Java 25 features: unnamed variables (`_`), `toList()` collectors, `instanceof` pattern matching, enhanced switch expressions. Clean, idiomatic, modern Java.
+  </Card>
+  <Card title="🔒 No Magic Strings" icon="approve-check-circle">
+    Constants, enums, and configuration keys are defined once and referenced everywhere. Tool names, permission strings, and resource types are never raw strings.
+  </Card>
+  <Card title="📖 Documentation" icon="open-book">
+    Javadoc on public APIs, inline comments for complex logic, and architecture decision records. MCP tools have comprehensive parameter descriptions and usage examples.
+  </Card>
+  <Card title="📦 Dependency Hygiene" icon="setting">
+    Minimal dependency footprint. Quarkus BOM manages version alignment. No abandoned libraries, no CVE-flagged dependencies. Dependabot monitors for updates continuously.
+  </Card>
+</CardGrid>
+
+## Frequently Asked Questions
+
+<details>
+<summary><strong>How many tests does EDDI have?</strong></summary>
+
+EDDI has **over 1,000 tests with zero failures** in its main repository, plus additional end-to-end tests in the dedicated [EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests) repository. This comprehensive coverage means you can refactor, extend, and contribute with confidence — the test suite catches regressions before they reach production.
+
+</details>
+
+<details>
+<summary><strong>What test framework does EDDI use?</strong></summary>
+
+EDDI uses **JUnit 5** with **Quarkus Test** extensions. Tests run in a real Quarkus container with CDI injection, making them true integration tests rather than superficial mocks. Mockito is used selectively for external service boundaries (LLM providers, databases in unit tests).
+
+</details>
+
+<details>
+<summary><strong>How do I run the test suite locally?</strong></summary>
+
+Run `mvn test` for unit tests or `mvn verify` for the full integration test suite. Quarkus Dev Services automatically spins up MongoDB and PostgreSQL containers — no manual database setup required. For the full end-to-end suite, clone the [EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests) repo and run it against a running EDDI instance.
+
+</details>
+
+<details>
+<summary><strong>Does EDDI follow any specific coding standards?</strong></summary>
+
+EDDI follows standard Java conventions with Quarkus idioms: CDI injection over static factories, reactive patterns for I/O, immutable DTOs, and builder patterns for complex objects. The codebase is organized by domain (agent management, conversations, MCP, security) rather than by technical layer, making it intuitive for contributors to navigate.
+
+</details>
