@@ -16,6 +16,20 @@ All notable changes to the EDDI website will be documented in this file.
 - **[Phase 3]** Framed the Hero abstract visual in a stunning glassmorphism container and disabled floating animations.
 - **[Phase 3]** Normalized "The Solution" Bento Grid layout into a uniform `md:grid-cols-2 lg:grid-cols-3` layout.
 - **[Phase 3]** Changed Starlight's default navigation header background to deep black via `--sl-color-bg-nav`.
+- `feat(website)`: Phase 4 Visual Enhancements
+  - **The Problem:** Replaced basic emojis with premium glowing Lucide SVGs inside glassmorphism containers.
+  - **The Solution:** Upgraded plain text numbers (`01-06`) to standalone glowing pill badges.
+  - **Trusted & Certified:** Redesigned trust badges from custom CSS into sleek Tailwind glass panels with Lucide icons.
+  - **Proven Technology:** Eliminated all emojis in favor of monochromatic, hover-responsive Lucide line-art icons.
+- `fix(website)`: Top menu dropdown spacing increased.
+- `feat(website)`: Hero image framed in a sleek glassmorphism container and paused the distracting animation.
+- `feat(website)`: Top menu background permanently darkened to black by overriding Starlight `--sl-color-bg-nav`.
+- `fix(website)`: Normalized Bento grid columns in "The Solution" section to render a uniform 3x2 symmetrical grid.
+- `feat(website)`: Replaced abstract hero image with high-tech orchestrator visual (`abstract_orchestrator.png`).
+- `feat(website)`: Redesigned "The Problem" section to use 3 modern dark-glass Tailwind cards, replacing Starlight defaults.
+- `feat(website)`: Rebuilt "The Solution" section into a responsive Bento grid design with translucent cards and gradient flares.
+- `feat(website)`: Dropped the "Houston" mascot from the homepage to elevate the brand's enterprise tone.
+- `feat(website)`: Added new foundational global CSS variables for `accent-500`, `gray-800`, and `gray-900` to support Tailwind.
 
 ### Changed
 - Refactored `global.css` CSS variables to use a premium, high-contrast neon palette (Electric Cyan & Deep Violet) for dark mode.
