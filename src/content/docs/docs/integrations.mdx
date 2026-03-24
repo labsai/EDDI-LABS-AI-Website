@@ -3,83 +3,175 @@ title: "Integrations"
 description: "EDDI connects to 20+ LLM providers, multiple databases, MCP ecosystem, auth systems, and deployment platforms."
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
-
 EDDI is built on proven open-source foundations — LangChain4j, Quarkus, and the Model Context Protocol — making it compatible with a wide ecosystem of AI tools and infrastructure.
 
 ## LLM Providers
 
 EDDI supports **20+ LLM providers** through LangChain4j. Switch between providers by changing a JSON configuration — no code changes required.
 
-<CardGrid>
-  <Card title="OpenAI" icon="rocket">GPT-4o, GPT-4o-mini, o1, and all OpenAI models. Full tool calling support.</Card>
-  <Card title="Anthropic" icon="puzzle">Claude Sonnet, Claude Opus, Claude Haiku. Native function calling.</Card>
-  <Card title="Google Gemini" icon="star">Gemini Pro, Gemini Flash, and the full Vertex AI family.</Card>
-  <Card title="Azure OpenAI" icon="setting">Enterprise Azure deployments with managed endpoints and private networking.</Card>
-  <Card title="Ollama" icon="laptop">Run local models entirely on-premises. Zero data leaves your network.</Card>
-  <Card title="Amazon Bedrock" icon="approve-check-circle">Access Claude, Llama, Titan, and other models via AWS infrastructure.</Card>
-  <Card title="Mistral" icon="rocket">Mistral Large, Medium, and Small. European-hosted LLM option.</Card>
-  <Card title="And More..." icon="list-format">Cohere, Together AI, Fireworks, Groq, DeepSeek, and additional providers via LangChain4j.</Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">OpenAI</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">GPT-4o, GPT-4o-mini, o1, and all OpenAI models. Full tool calling support.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Anthropic</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Claude Sonnet, Claude Opus, Claude Haiku. Native function calling.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Google Gemini</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Gemini Pro, Gemini Flash, and the full Vertex AI family.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Azure OpenAI</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Enterprise Azure deployments with managed endpoints and private networking.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Ollama</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Run local models entirely on-premises. Zero data leaves your network.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Amazon Bedrock</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Access Claude, Llama, Titan, and other models via AWS infrastructure.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">Mistral</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Mistral Large, Medium, and Small. European-hosted LLM option.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-3 w-10 h-10 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    </div>
+    <h4 class="text-sm font-bold text-white mb-1">And More...</h4>
+    <p class="text-gray-400 text-xs leading-relaxed">Cohere, Together AI, Fireworks, Groq, DeepSeek, and additional providers via LangChain4j.</p>
+  </div>
+</div>
 
 ## Databases
 
-<CardGrid>
-  <Card title="MongoDB" icon="seti:db">
-    Document-based storage for agent configurations, conversation state, and audit logs. Native replica set support for high availability.
-  </Card>
-  <Card title="PostgreSQL" icon="seti:db">
-    Relational database support for teams preferring SQL. Full ACID compliance and enterprise-grade stability.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">MongoDB</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Document-based storage for agent configurations, conversation state, and audit logs. Native replica set support for high availability.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">PostgreSQL</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Relational database support for teams preferring SQL. Full ACID compliance and enterprise-grade stability.</p>
+  </div>
+</div>
 
 ## MCP Ecosystem
 
-<CardGrid>
-  <Card title="MCP Server" icon="puzzle">
-    EDDI exposes **39 tools** via MCP — compatible with Claude Desktop, Cursor, Windsurf, Continue, and any MCP-compatible client.
-  </Card>
-  <Card title="MCP Client" icon="external">
-    Agents can **consume external MCP tools** from other servers during conversations via StreamableHTTP transport. Extend agent capabilities without code changes.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">MCP Server</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">EDDI exposes <strong class="text-gray-300">39 tools</strong> via MCP — compatible with Claude Desktop, Cursor, Windsurf, Continue, and any MCP-compatible client.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">MCP Client</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Agents can <strong class="text-gray-300">consume external MCP tools</strong> from other servers during conversations via StreamableHTTP transport. Extend agent capabilities without code changes.</p>
+  </div>
+</div>
 
 ## Authentication & Security
 
-<CardGrid>
-  <Card title="Keycloak / OIDC" icon="approve-check-circle">
-    Enterprise authentication with native Keycloak integration. Complex OAuth2/OIDC topologies, role-based access control, and SSO.
-  </Card>
-  <Card title="Vault Integration" icon="setting">
-    API keys and secrets managed through Quarkus Vault/Secrets Manager. Referenced via secure `${vault:key}` URIs — never stored in agent configurations.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Keycloak / OIDC</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Enterprise authentication with native Keycloak integration. Complex OAuth2/OIDC topologies, role-based access control, and SSO.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Vault Integration</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">API keys and secrets managed through Quarkus Vault/Secrets Manager. Referenced via secure <code>${"vault:key"}</code> URIs — never stored in agent configurations.</p>
+  </div>
+</div>
 
 ## Deployment
 
-<CardGrid>
-  <Card title="Docker" icon="setting">
-    Single-command deployment: `docker run -p 7070:7070 labsai/eddi:latest`. Production-ready with health checks and graceful shutdown.
-  </Card>
-  <Card title="Kubernetes" icon="rocket">
-    Helm charts and K8s manifests for scalable production deployments. Horizontal pod autoscaling and rolling updates.
-  </Card>
-  <Card title="GraalVM Native" icon="star">
-    Quarkus native compilation for sub-second startup times and minimal memory footprint. Ideal for serverless and edge deployments.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Docker</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Single-command deployment: <code>docker run -p 7070:7070 labsai/eddi:latest</code>. Production-ready with health checks and graceful shutdown.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Kubernetes</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Helm charts and K8s manifests for scalable production deployments. Horizontal pod autoscaling and rolling updates.</p>
+  </div>
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">GraalVM Native</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Quarkus native compilation for sub-second startup times and minimal memory footprint. Ideal for serverless and edge deployments.</p>
+  </div>
+</div>
 
 ## Messaging & Distribution
 
-<CardGrid>
-  <Card title="NATS JetStream" icon="list-format">
-    Distributed messaging backbone for horizontally scaled agent deployments. At-least-once delivery guarantees with persistent streams.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">NATS JetStream</h3>
+    <p class="text-gray-400 text-sm leading-relaxed">Distributed messaging backbone for horizontally scaled agent deployments. At-least-once delivery guarantees with persistent streams.</p>
+  </div>
+</div>
 
 ## Next Steps
 
-<CardGrid>
-  <LinkCard title="Get Started" href="/docs/getting-started/" description="Install EDDI and create your first agent in 5 minutes." />
-  <LinkCard title="Docker Deployment" href="/docs/deployment/docker/" description="Production Docker and Kubernetes deployment guide." />
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <a href="/docs/getting-started/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Get Started →</h4>
+    <p class="text-gray-400 text-sm">Install EDDI and create your first agent in 5 minutes.</p>
+  </a>
+  <a href="/docs/deployment/docker/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Docker Deployment →</h4>
+    <p class="text-gray-400 text-sm">Production Docker and Kubernetes deployment guide.</p>
+  </a>
+</div>

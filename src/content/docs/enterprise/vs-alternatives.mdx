@@ -1,0 +1,160 @@
+---
+title: "EDDI vs. Alternative AI Platforms"
+description: "How EDDI compares to Flowise, n8n, Dify, Spring AI, LangChain4j, and Camunda for enterprise AI orchestration."
+template: splash
+hero:
+  title: |
+    How EDDI
+    <span class="text-gradient-dynamic">
+      Compares.
+    </span>
+  tagline: "An honest comparison of EDDI against the major categories of AI tools: visual builders, code libraries, and workflow engines."
+  image:
+    file: ../../../assets/hero_vs_alternatives.jpg
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: right-arrow
+    - text: Why EDDI?
+      link: /enterprise/why-eddi/
+      icon: external
+      variant: minimal
+---
+
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Visual AI Builders</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Tools like Flowise, n8n, and Dify make it easy to prototype — but struggle in regulated, high-scale production environments.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-12">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Flowise</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow space-y-2">
+        <p><strong class="text-red-400">Security: CVSS 10.0</strong> — Remote Code Execution via JavaScript code blocks (<code>CVE-2025-26319</code>).</p>
+        <p><strong class="text-gray-300">Runtime:</strong> Node.js — single-threaded event loop.</p>
+        <p><strong class="text-gray-300">Concurrency:</strong> Limited by event loop blocking.</p>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">n8n</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow space-y-2">
+        <p><strong class="text-red-400">Security: CVSS 9.8</strong> — RCE in Code Node, SQL injection (<code>CVE-2024-36471</code>).</p>
+        <p><strong class="text-gray-300">Runtime:</strong> Node.js — BPMN-style, not AI-native.</p>
+        <p><strong class="text-gray-300">Focus:</strong> General automation, not AI-specific orchestration.</p>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Dify</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow space-y-2">
+        <p><strong class="text-red-400">Security: CVSS 10.0</strong> — Sandbox escape in Jinja template code execution (<code>CVE-2024-10252</code>).</p>
+        <p><strong class="text-gray-300">Runtime:</strong> Python — GIL-limited concurrency.</p>
+        <p><strong class="text-gray-300">Model:</strong> SaaS-first with cloud dependency.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <p class="text-gray-500 text-sm max-w-2xl mx-auto">EDDI's config-as-code approach eliminates these vulnerability classes entirely — no <code>eval()</code>, no sandbox escapes, no user-submitted code execution.</p>
+  </div>
+</section>
+
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Full Comparison Matrix</h2>
+  </div>
+
+  <div class="not-content overflow-x-auto rounded-2xl border border-gray-700/50 bg-gray-900/30 backdrop-blur">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-700/50">
+          <th class="text-left p-4 text-gray-300 font-semibold">Factor</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Flowise/n8n/Dify</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Spring AI/LC4j</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Camunda</th>
+          <th class="text-left p-4 text-accent-400 font-semibold">EDDI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Runtime</td><td class="p-4 text-gray-500">Node.js / Python</td><td class="p-4 text-gray-500">JVM</td><td class="p-4 text-gray-500">JVM</td><td class="p-4 text-accent-300">JVM (Java 25)</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Visual Builder</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">User Code Execution</td><td class="p-4 text-red-400">Yes (eval/sandbox)</td><td class="p-4 text-gray-500">N/A (library)</td><td class="p-4 text-gray-500">Scripts</td><td class="p-4 text-accent-300">❌ None</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Critical CVEs (2024-25)</td><td class="p-4 text-red-400">3+ (CVSS 9.8-10.0)</td><td class="p-4 text-gray-500">0</td><td class="p-4 text-gray-500">0</td><td class="p-4 text-accent-300">0</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Config-as-Code</td><td class="p-4 text-gray-500">Partial</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">BPMN</td><td class="p-4 text-accent-300">Full JSON</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">MCP Support</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">39 Tools</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Concurrency</td><td class="p-4 text-gray-500">Event loop / GIL</td><td class="p-4 text-gray-500">Platform threads</td><td class="p-4 text-gray-500">Platform threads</td><td class="p-4 text-accent-300">Virtual threads</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Audit Trail</td><td class="p-4 text-gray-500">Basic logging</td><td class="p-4 text-gray-500">DIY</td><td class="p-4 text-accent-300">Process history</td><td class="p-4 text-accent-300">Cryptographic</td></tr>
+        <tr><td class="p-4 text-gray-400">License</td><td class="p-4 text-gray-500">Mixed (SEE/AGPL)</td><td class="p-4 text-accent-300">Apache 2.0</td><td class="p-4 text-gray-500">Dual (CE/EE)</td><td class="p-4 text-accent-300">Apache 2.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Java/JVM Libraries</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Spring AI and LangChain4j are excellent <strong>code libraries</strong> — but they're not middleware.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M15 3v5h5"/><path d="M10 12l-2 2 2 2"/><path d="M14 12l2 2-2 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M15 3v5h5"/><path d="M10 12l-2 2 2 2"/><path d="M14 12l2 2-2 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Library = Build Everything Yourself</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Spring AI and LangChain4j give you building blocks. You still need to build the REST API, the conversation management, the agent deployment, the audit trail, the multi-agent routing, and the visual management UI — <strong>from scratch</strong>.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Middleware = Deploy and USE</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">EDDI is a complete <strong>deployable middleware</strong>. Docker run, connect your LLM key, and you have a production-ready AI orchestration platform with REST API, MCP server, conversation management, and audit trails.</p>
+    </div>
+  </div>
+
+  <p class="text-center text-gray-500 text-sm mt-8 max-w-2xl mx-auto"><strong>Note:</strong> EDDI actually uses LangChain4j internally for LLM abstraction. They complement each other — EDDI wraps LangChain4j inside a managed, deployed middleware.</p>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">BPMN Workflow Engines</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Camunda is excellent for business process automation — but AI orchestration requires different primitives.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">BPMN ≠ AI Orchestration</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">BPMN models deterministic business processes. AI orchestration is non-deterministic — LLMs decide tool calls, ReAct loops iterate until satisfied, and conversation context grows dynamically. <strong>These are fundamentally different paradigms.</strong></p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">EDDI Speaks AI Natively</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">EDDI's pipeline is purpose-built for AI: LLM calls, tool execution, rules evaluation, intent routing, and conversation memory. These aren't BPMN tasks with custom adapters — they're <strong>first-class pipeline steps</strong>.</p>
+    </div>
+  </div>
+</section>

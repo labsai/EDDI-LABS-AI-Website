@@ -4,6 +4,24 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+- `fix(website)`: **Quickstart Page Rendering** — Rewrote quickstart page without `<Steps>` component (was causing blank render). Now uses plain headings with code blocks.
+- `fix(website)`: **Hero CTA Button Visibility** — Added gold gradient background, border, and glow effects to `.hero-btn-primary` in `Hero.astro`. Button was previously invisible (white text on dark bg).
+- `feat(website)`: **Prev/Next Pagination Glassmorphism** — Styled Starlight's `.pagination-links` with semi-transparent background, blur, rounded corners, and accent hover border.
+- `feat(website)`: **FAQ Section Wider** — Changed FAQ container from `max-w-3xl` to `max-w-5xl` on 4 pages (landing, why-eddi, code-quality, ai-ready).
+- `fix(website)`: **Edit Page Link Spacing** — Reduced excessive vertical whitespace around the "Edit page" link on docs pages.
+- `fix(website)`: **Inline Code Pill Styling** — Added subtle background, border, and border-radius to inline `<code>` elements for polished tool name display.
+- `fix(website)`: **Getting Started Casing** — Fixed "Create Your first agent" → "Create Your First Agent" for consistent Title Case.
+
+- `feat(website)`: **Hero Images for All Pages** — Generated and added custom hero images to all 12 feature and enterprise pages. Each image matches the page's theme (security shield, neural pathways, comparison arena, etc.) with amber/gold tones on dark backgrounds.
+- `fix(website)`: **Full-Width Hero Gradient** — Fixed the hero gradient background to span the full viewport width using `100vw` + `translateX(-50%)` technique, preventing clipping by parent containers.
+- `feat(website)`: **Docs Pages Glassmorphism** — Converted 6 remaining docs pages (`mcp/overview`, `use-cases`, `integrations`, `roadmap`, `install-wizard`, `architecture/seven-pillars`) from default Starlight `<Card>` components to custom glassmorphism HTML cards with SVG icons, watermark backgrounds, and accent hover borders.
+- `feat(website)`: **Page Consistency Overhaul** — Converted all 12 feature and enterprise pages to match the landing page's premium glassmorphism design:
+  - **Feature Pages (9):** `overview`, `config-as-code`, `security`, `mcp-server`, `observability`, `performance`, `multi-agent`, `code-quality`, `ai-ready`
+  - **Enterprise Pages (3):** `why-eddi`, `vs-alternatives` (converted `.md` → `.mdx`), `compliance`
+  - All pages now use: custom HTML cards with glassmorphism, inline SVG icons with glowing containers, watermark background icons, accent hover borders, section dividers (`border-t border-gray-800/60`), and consistent `py-24` spacing.
+  - Replaced all Starlight default `<Card>` components and emojis with inline HTML cards.
+  - Added styled comparison tables on enterprise pages.
+  - Added FAQ sections with `<details>` elements on several pages.
 - `feat(website)`: Updated global color palette from Electric Cyan/Violet to Gold/Amber to match the EDDI Manager's branding.
 - `fix(website)`: Removed branded site-wide footer from docs pages to avoid Starlight's `<a>` tag stripping issue. Homepage and other pages retain the full footer.
 

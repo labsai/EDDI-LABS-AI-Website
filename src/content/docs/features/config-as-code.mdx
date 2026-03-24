@@ -5,15 +5,12 @@ template: splash
 hero:
   title: |
     Logic is Configuration.
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-linear-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
+    <span class="text-gradient-dynamic">
       Java is the Engine.
     </span>
   tagline: Every aspect of agent rules — prompts, pipeline tasks, output formatting, tool definitions — is a JSON configuration. Change anything, instantly, without recompilation.
+  image:
+    file: ../../../assets/hero_config_as_code.jpg
   actions:
     - text: Read the Architecture Guide
       link: /docs/architecture/config-as-code/
@@ -24,57 +21,148 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Traditional Approach vs. EDDI</h2>
+  </div>
 
-## The Traditional Approach vs. EDDI
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-red-500/20 to-red-900/40 border border-red-500/30 flex items-center justify-center text-red-400 shadow-[0_0_30px_rgba(239,68,68,0.2)] group-hover:scale-110 transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Traditional AI Platforms</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow">
+        <ol class="list-decimal list-inside space-y-1 mb-4 text-gray-400">
+          <li>Edit Java source code</li>
+          <li>Recompile the project</li>
+          <li>Run automated tests</li>
+          <li>Deploy via CI/CD pipeline</li>
+          <li>Wait 5–15 minutes</li>
+        </ol>
+        <p class="text-red-400 font-semibold">Every single prompt change.</p>
+      </div>
+    </div>
 
-<CardGrid>
-  <Card title="❌ Traditional AI Platforms" icon="warning">
-    1. Edit Java source code
-    2. Recompile the project
-    3. Run automated tests
-    4. Deploy via CI/CD pipeline
-    5. Wait 5–15 minutes
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">EDDI</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow">
+        <ol class="list-decimal list-inside space-y-1 mb-4 text-gray-400">
+          <li>Update JSON configuration via REST API or Manager UI</li>
+          <li>Done.</li>
+        </ol>
+        <p class="text-accent-400 font-semibold">Changes are live instantly. No recompilation. No redeployment. No downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    **Every single prompt change.**
-  </Card>
-  <Card title="✅ EDDI" icon="approve-check-circle">
-    1. Update JSON configuration via REST API or Manager UI
-    2. Done.
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">What's Configurable?</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Every aspect of agent behavior is a <strong>JSON resource</strong> you can update at runtime.</p>
+  </div>
 
-    **Changes are live instantly.**
-    No recompilation. No redeployment. No downtime.
-  </Card>
-</CardGrid>
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">01</div>
+      <h3 class="text-xl font-bold text-white mb-3">Rules</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Conditional response logic: "If the user mentions billing, set action to <code>redirect_billing</code>." Evaluated before the LLM call, controlling which output templates fire.</p>
+    </div>
 
-## What's Configurable?
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">02</div>
+      <h3 class="text-xl font-bold text-white mb-3">LLM Configuration</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">LLM provider, model ID, temperature, max tokens, tool bindings, RAG data sources. Switch from GPT-4 to Claude in seconds.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="Rules" icon="setting">
-    Conditional response logic: "If the user mentions billing, set action to `redirect_billing`." Evaluated before the LLM call, controlling which output templates fire.
-  </Card>
-  <Card title="LLM Configuration" icon="puzzle">
-    LLM provider, model ID, temperature, max tokens, tool bindings, RAG data sources. Switch from GPT-4 to Claude in seconds.
-  </Card>
-  <Card title="Output Sets" icon="document">
-    Response templates with HTML formatting, quick reply buttons, action triggers. The full presentation layer is configuration.
-  </Card>
-  <Card title="HTTP Calls" icon="external">
-    REST API integrations as pipeline tasks. Call your backend, webhooks, or third-party APIs — configured, not coded.
-  </Card>
-  <Card title="Workflows" icon="list-format">
-    Pipeline composition — which tasks run, in what order. Add sentiment analysis by adding a pipeline extension; remove it by removing a line.
-  </Card>
-  <Card title="Agent Triggers" icon="rocket">
-    Intent-to-agent routing rules for managed conversations. Route `customer_support` intent to Agent A in production, Agent B in staging.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">03</div>
+      <h3 class="text-xl font-bold text-white mb-3">Output Sets</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Response templates with HTML formatting, quick reply buttons, action triggers. The full presentation layer is configuration.</p>
+    </div>
 
-## Immutable Versioning
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">04</div>
+      <h3 class="text-xl font-bold text-white mb-3">HTTP Calls</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">REST API integrations as pipeline tasks. Call your backend, webhooks, or third-party APIs — configured, not coded.</p>
+    </div>
 
-Every resource in EDDI is **immutably versioned**. When you update an LLM config, EDDI creates version 2 while preserving version 1.
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">05</div>
+      <h3 class="text-xl font-bold text-white mb-3">Workflows</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Pipeline composition — which tasks run, in what order. Add sentiment analysis by adding a pipeline extension; remove it by removing a line.</p>
+    </div>
 
-- **Instant rollback** — revert to any previous version via a single API call
-- **A/B testing** — run two agent versions simultaneously with different configs
-- **Audit compliance** — every change is tracked with its full history
-- **Zero-risk updates** — if version 2 breaks, version 1 is untouched
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">06</div>
+      <h3 class="text-xl font-bold text-white mb-3">Agent Triggers</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Intent-to-agent routing rules for managed conversations. Route <code>customer_support</code> intent to Agent A in production, Agent B in staging.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Immutable Versioning</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Every resource in EDDI is <strong>immutably versioned</strong>. When you update an LLM config, EDDI creates version 2 while preserving version 1.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      </div>
+      <strong class="text-white mb-1">Instant Rollback</strong>
+      <span class="text-sm text-gray-400 grow">Revert to any previous version via a single API call</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+      </div>
+      <strong class="text-white mb-1">A/B Testing</strong>
+      <span class="text-sm text-gray-400 grow">Run two agent versions simultaneously with different configs</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <strong class="text-white mb-1">Audit Compliance</strong>
+      <span class="text-sm text-gray-400 grow">Every change is tracked with its full history</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <strong class="text-white mb-1">Zero-Risk Updates</strong>
+      <span class="text-sm text-gray-400 grow">If version 2 breaks, version 1 is untouched</span>
+    </div>
+  </div>
+</section>

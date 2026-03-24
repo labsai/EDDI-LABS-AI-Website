@@ -5,55 +5,133 @@ template: splash
 hero:
   title: |
     Millions of
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-linear-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
+    <span class="text-gradient-dynamic">
       Lightweight Threads.
     </span>
   tagline: "AI orchestration is I/O-bound — agents wait for LLM responses. Java 25 Virtual Threads on Quarkus turn that wait time into capacity."
+  image:
+    file: ../../../assets/hero_performance.jpg
   actions:
     - text: Architecture Documentation
       link: /docs/architecture/seven-pillars/
       icon: right-arrow
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Concurrency Challenge</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Every AI agent conversation involves <strong>multiple blocking I/O operations</strong>:</p>
+  </div>
 
-## The Concurrency Challenge
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 font-bold border border-accent-500/20">1</div>
+      <strong class="text-white mb-1">LLM API call</strong>
+      <span class="text-sm text-gray-400">500ms to 30s per turn</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 font-bold border border-accent-500/20">2</div>
+      <strong class="text-white mb-1">Tool execution</strong>
+      <span class="text-sm text-gray-400">External API calls, database queries</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 font-bold border border-accent-500/20">3</div>
+      <strong class="text-white mb-1">RAG retrieval</strong>
+      <span class="text-sm text-gray-400">Embedding lookup + vector search</span>
+    </div>
+    <div class="flex flex-col h-full p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <div class="w-10 h-10 mb-4 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 font-bold border border-accent-500/20">4</div>
+      <strong class="text-white mb-1">Audit logging</strong>
+      <span class="text-sm text-gray-400">Writing telemetry to the database</span>
+    </div>
+  </div>
 
-Every AI agent conversation involves multiple blocking I/O operations:
+  <p class="text-center text-gray-500 text-sm max-w-2xl mx-auto">Traditional thread-per-request architectures exhaust OS threads at scale. Node.js/Python solutions hit event loop blocking or GIL contention.</p>
+</section>
 
-1. **LLM API call** — 500ms to 30s per turn
-2. **Tool execution** — external API calls, database queries
-3. **RAG retrieval** — embedding lookup + vector search
-4. **Audit logging** — writing telemetry to the database
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">EDDI's Answer</h2>
+  </div>
 
-Traditional thread-per-request architectures exhaust OS threads at scale. Node.js/Python solutions hit event loop blocking or GIL contention.
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Java 25 Virtual Threads</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Lightweight threads scheduled by the JVM, not the OS. <strong>Millions of concurrent threads</strong> with near-zero memory overhead per thread.</p>
+    </div>
 
-## EDDI's Answer
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Quarkus Runtime</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Non-blocking reactive architecture that <strong>prevents carrier thread pinning</strong>. Quarkus smart-routes virtual threads to avoid common pitfalls.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="Java 25 Virtual Threads" icon="rocket">
-    Lightweight threads scheduled by the JVM, not the OS. **Millions of concurrent threads** with near-zero memory overhead per thread. Each conversation gets its own virtual thread — no thread pool sizing, no blocking concerns.
-  </Card>
-  <Card title="Quarkus Runtime" icon="setting">
-    Non-blocking reactive architecture that **prevents carrier thread pinning**. Quarkus smart-routes virtual threads to avoid the common pitfalls of synchronized blocks and ThreadLocal.
-  </Card>
-  <Card title="NATS JetStream" icon="puzzle">
-    Distributed messaging for horizontal scaling. NATS handles inter-service communication with sub-millisecond latency and at-least-once delivery guarantees.
-  </Card>
-  <Card title="GraalVM Ready" icon="approve-check-circle">
-    Compile to native image for **sub-second boot times** and minimal memory footprint. Perfect for serverless and auto-scaling Kubernetes deployments.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">NATS JetStream</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Distributed messaging for horizontal scaling. NATS handles inter-service communication with <strong>sub-millisecond latency</strong> and at-least-once delivery.</p>
+    </div>
 
-## Why This Matters
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">GraalVM Ready</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Compile to native image for <strong>sub-second boot times</strong> and minimal memory footprint. Perfect for serverless and auto-scaling Kubernetes deployments.</p>
+    </div>
+  </div>
+</section>
 
-| Scenario | Python/Node | EDDI (Java 25 + Quarkus) |
-|----------|-------------|--------------------------|
-| 1,000 concurrent conversations | Thread pool exhaustion / event loop blocking | ✅ 1,000 virtual threads, ~2MB overhead |
-| 10,000 concurrent conversations | Requires complex async/await chains | ✅ 10,000 virtual threads, ~20MB overhead |
-| LLM call taking 30s | Blocks the event loop or requires callback hell | ✅ Virtual thread parks, carrier thread freed |
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Why This Matters</h2>
+  </div>
+
+  <div class="not-content overflow-x-auto rounded-2xl border border-gray-700/50 bg-gray-900/30 backdrop-blur">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-700/50">
+          <th class="text-left p-4 text-gray-300 font-semibold">Scenario</th>
+          <th class="text-left p-4 text-gray-300 font-semibold">Python/Node</th>
+          <th class="text-left p-4 text-accent-400 font-semibold">EDDI (Java 25 + Quarkus)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-800/50">
+          <td class="p-4 text-gray-400">1,000 concurrent conversations</td>
+          <td class="p-4 text-gray-500">Thread pool exhaustion / event loop blocking</td>
+          <td class="p-4 text-accent-300">✅ 1,000 virtual threads, ~2MB overhead</td>
+        </tr>
+        <tr class="border-b border-gray-800/50">
+          <td class="p-4 text-gray-400">10,000 concurrent conversations</td>
+          <td class="p-4 text-gray-500">Complex async/await chains required</td>
+          <td class="p-4 text-accent-300">✅ 10,000 virtual threads, ~20MB overhead</td>
+        </tr>
+        <tr>
+          <td class="p-4 text-gray-400">LLM call taking 30s</td>
+          <td class="p-4 text-gray-500">Blocks the event loop or callback hell</td>
+          <td class="p-4 text-accent-300">✅ Virtual thread parks, carrier thread freed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -5,16 +5,13 @@ template: splash
 hero:
   title: |
     The Only
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-linear-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
+    <span class="text-gradient-dynamic">
       JVM-Native
     </span>
     Visual AI Middleware
   tagline: "EDDI occupies a blue ocean position in enterprise software: the intersection of visual AI orchestration and the Java Virtual Machine. No other product exists here."
+  image:
+    file: ../../../assets/hero_why_eddi.jpg
   actions:
     - text: Get Started
       link: /docs/getting-started/
@@ -25,59 +22,132 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The 3 Pitches</h2>
+  </div>
 
-## The 3 Pitches
+  <div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">1. Escape the Prototype Trap</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Teams prototype AI agents with Python, Flowise, or n8n — then face a painful rewrite for production. <strong>EDDI breaks the cycle.</strong> A visual builder that runs natively on the JVM. No Python→Java translation layer. No discarded prototypes.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="1. Escape the Prototype Trap" icon="warning">
-    Teams prototype AI agents with Python, Flowise, or n8n — then face a painful rewrite when it's time for production.
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">2. Agility Through Configuration</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><strong>EDDI separates concerns.</strong> Agent logic is configuration (JSON). Java is the engine. Prompt engineers iterate instantly via UI or API. Java developers maintain the platform, not the prompts.</p>
+    </div>
 
-    **EDDI breaks the cycle.** It's a visual builder that runs natively on the JVM. Prototype and deploy in the same system. No Python→Java translation layer. No discarded prototypes.
-  </Card>
-  <Card title="2. Agility Through Configuration" icon="setting">
-    Using Spring AI or LangChain4j means writing REST controllers, auth layers, and state management from scratch. Every prompt tweak requires recompilation.
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">3. Uncompromised Cloud-Native Scale</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><strong>EDDI speaks AI natively.</strong> ReAct loops, tool calling, multi-agent orchestration — all first-class concepts, not square pegs in BPMN holes.</p>
+    </div>
+  </div>
+</section>
 
-    **EDDI separates concerns.** agent logic is configuration (JSON). Java is the engine. Prompt engineers iterate instantly via UI or API. Java developers maintain the platform, not the prompts.
-  </Card>
-  <Card title="3. Uncompromised Cloud-Native Scale" icon="rocket">
-    Forcing AI agents into Camunda or Temporal workflows creates severe impedance mismatches. BPMN was designed for deterministic processes, not non-deterministic LLM reasoning.
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Blue Ocean</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">No other product combines all three:</p>
+  </div>
 
-    **EDDI speaks AI natively.** ReAct loops, tool calling, multi-agent orchestration — all first-class concepts, not square pegs in BPMN holes.
-  </Card>
-</CardGrid>
+  <div class="not-content overflow-x-auto rounded-2xl border border-gray-700/50 bg-gray-900/30 backdrop-blur">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-700/50">
+          <th class="text-left p-4 text-gray-300 font-semibold">Capability</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Code Libraries</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Workflow Engines</th>
+          <th class="text-left p-4 text-gray-400 font-semibold">Visual Builders</th>
+          <th class="text-left p-4 text-accent-400 font-semibold">EDDI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Visual agent building</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">JVM-native runtime</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Config-driven (no recompile)</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">Partial</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Production-grade security</td><td class="p-4 text-gray-500">Varies</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Enterprise concurrency</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr><td class="p-4 text-gray-400">MCP protocol support</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-## The Blue Ocean
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Who EDDI Is For</h2>
+  </div>
 
-No other product combines all three:
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Enterprise Java Teams</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Organizations running mission-critical systems on the JVM who need visual AI orchestration <strong>without leaving the Java ecosystem</strong>.</p>
+    </div>
 
-| Capability | Code Libraries | Workflow Engines | Visual Builders | **EDDI** |
-|-----------|---------------|-----------------|----------------|----------|
-| Visual agent building | ❌ | ❌ | ✅ | ✅ |
-| JVM-native runtime | ✅ | ✅ | ❌ | ✅ |
-| Config-driven (no recompile) | ❌ | Partial | ✅ | ✅ |
-| Production-grade security | Varies | ✅ | ❌ | ✅ |
-| Enterprise concurrency | ✅ | ✅ | ❌ | ✅ |
-| MCP protocol support | ❌ | ❌ | ❌ | ✅ |
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Platform Engineers</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Teams building internal AI platforms who need a <strong>deployable middleware</strong> — not a library they have to wrap in custom infrastructure.</p>
+    </div>
 
-## Who EDDI Is For
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Regulated Industries</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Finance, healthcare, government — sectors where <strong>security auditing, EU AI Act compliance</strong>, and deterministic governance are non-negotiable.</p>
+    </div>
 
-<CardGrid>
-  <Card title="Enterprise Java Teams" icon="seti:java">
-    Organizations running mission-critical systems on the JVM who need visual AI orchestration without leaving the Java ecosystem.
-  </Card>
-  <Card title="Platform Engineers" icon="setting">
-    Teams building internal AI platforms who need a deployable middleware — not a library they have to wrap in custom infrastructure.
-  </Card>
-  <Card title="Regulated Industries" icon="approve-check-circle">
-    Finance, healthcare, government — sectors where security auditing, EU AI Act compliance, and deterministic governance are non-negotiable.
-  </Card>
-  <Card title="AI/Prompt Engineers" icon="puzzle">
-    Teams who want to iterate on agent rules instantly without waiting for Java recompilation cycles.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">AI/Prompt Engineers</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Teams who want to iterate on agent rules <strong>instantly without waiting</strong> for Java recompilation cycles.</p>
+    </div>
+  </div>
+</section>
 
-## Frequently Asked Questions
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
+  </div>
 
 <details>
 <summary><strong>Is EDDI truly open-source?</strong></summary>
@@ -103,6 +173,7 @@ EDDI's architecture directly addresses several EU AI Act requirements: immutable
 <details>
 <summary><strong>Can I run EDDI with local/on-premises LLMs?</strong></summary>
 
-Yes. EDDI supports Ollama and other local LLM providers through LangChain4j. This means you can run the entire stack — EDDI middleware plus LLM inference — entirely on your own infrastructure, with zero data leaving your network. This is critical for regulated industries with strict data residency requirements.
+Yes. EDDI supports Ollama and other local LLM providers through LangChain4j. This means you can run the entire stack — EDDI middleware plus LLM inference — entirely on your own infrastructure, with zero data leaving your network.
 
 </details>
+</section>

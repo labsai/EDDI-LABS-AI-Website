@@ -5,15 +5,12 @@ template: splash
 hero:
   title: |
     Built for
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-linear-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
+    <span class="text-gradient-dynamic">
       AI Agents.
     </span>
   tagline: "EDDI isn't just an AI orchestrator — its codebase is engineered so that AI coding agents can understand, modify, and extend it with minimal friction."
+  image:
+    file: ../../../assets/hero_ai_ready.jpg
   actions:
     - text: Browse the Code
       link: https://github.com/labsai/EDDI
@@ -24,87 +21,122 @@ hero:
       icon: right-arrow
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Why AI Agents Love EDDI</h2>
+  </div>
 
-## Why AI Agents Love EDDI
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">39 MCP Tools</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">EDDI exposes its <strong>entire capability surface</strong> via the Model Context Protocol. Claude Desktop, Cursor, Windsurf, and custom agents can create agents, manage conversations, and deploy configurations.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="🤖 39 MCP Tools" icon="puzzle">
-    EDDI exposes its **entire capability surface** via the Model Context Protocol. Claude Desktop, Cursor, Windsurf, and custom agents can create agents, manage conversations, deploy configurations, and read logs — all without touching the codebase directly.
-  </Card>
-  <Card title="📐 Predictable Patterns" icon="setting">
-    Every resource follows the same CRUD pattern: `create → read → update → delete → deploy`. Once an AI agent learns one domain (agents), it can apply the same pattern to workflows, conversations, and triggers.
-  </Card>
-  <Card title="📝 Self-Documenting APIs" icon="open-book">
-    MCP tool schemas include **detailed parameter descriptions**, required/optional flags, and example values. An AI agent can discover what tools exist and how to call them without reading source code.
-  </Card>
-  <Card title="🧩 Modular Architecture" icon="list-format">
-    Clean workflow boundaries mean AI agents can focus on one domain at a time. Changing agent management code doesn't require understanding the conversation engine. Changes are **locally scoped** and testable.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Predictable Patterns</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Every resource follows the same CRUD pattern: <code>create → read → update → delete → deploy</code>. Once an AI agent learns one domain, it can apply the same pattern <strong>to all others</strong>.</p>
+    </div>
 
-## Agent-Friendly Codebase
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Self-Documenting APIs</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">MCP tool schemas include <strong>detailed parameter descriptions</strong>, required/optional flags, and example values. An AI agent can discover tools without reading source code.</p>
+    </div>
 
-<CardGrid>
-  <Card title="Consistent Naming" icon="approve-check-circle">
-    Classes, methods, and fields follow strict naming conventions. `AgentStore`, `AgentService`, `AgentResource` — the pattern is always `{Domain}{Layer}`. AI agents can predict file locations and class names from context alone.
-  </Card>
-  <Card title="Small, Focused Classes" icon="approve-check-circle">
-    Average class size under 200 lines. Single responsibility principle enforced throughout. An AI agent can read and understand an entire class in one context window.
-  </Card>
-  <Card title="Typed Configuration" icon="approve-check-circle">
-    Agent logic is **JSON configuration**, not compiled Java. AI agents can modify agent rules — prompts, pipelines, tool definitions — via REST API or MCP without understanding Java internals.
-  </Card>
-  <Card title="Comprehensive Error Messages" icon="approve-check-circle">
-    API errors include structured error codes, descriptive messages, and correlation IDs. When an AI agent's action fails, the error response contains enough context to self-correct.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Modular Architecture</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Clean workflow boundaries mean AI agents can focus on one domain at a time. Changes are <strong>locally scoped</strong> and independently testable.</p>
+    </div>
+  </div>
+</section>
 
-## The MCP Advantage
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The MCP Advantage</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">EDDI's MCP server is the <strong>primary interface for AI coding agents</strong>. Instead of parsing source code, agents can:</p>
+  </div>
 
-EDDI's MCP server is the **primary interface for AI coding agents**. Instead of parsing source code, agents can:
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Discover</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><code>list_tools</code> → See all 39 operations with full parameter schemas.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="Discover" icon="magnifier">
-    `list_tools` → See all 39 available operations with full parameter schemas. No documentation crawling needed.
-  </Card>
-  <Card title="Build" icon="setting">
-    `setup_agent` → Create a fully configured agent in a single MCP call: LLM provider, system prompt, tools, pipeline steps.
-  </Card>
-  <Card title="Test" icon="rocket">
-    `chat` / `chat_managed` → Send messages and validate responses programmatically. AI agents can run their own acceptance tests.
-  </Card>
-  <Card title="Debug" icon="open-book">
-    `read_logs` → Inspect pipeline execution, LLM token usage, tool call sequences, and timing data. Full observability without `grep`-ing log files.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6"/></svg>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Build</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><code>setup_agent</code> → Create a fully configured agent in a single MCP call.</p>
+    </div>
 
-## Frequently Asked Questions
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Test</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><code>chat</code> → Send messages and validate responses programmatically.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Debug</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><code>read_logs</code> → Inspect pipeline execution and timing data.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
+  </div>
 
 <details>
 <summary><strong>Can an AI coding agent modify EDDI's agent configurations?</strong></summary>
 
-Yes — this is EDDI's primary design goal. Agent logic (prompts, pipelines, tool definitions) is **JSON configuration**, not compiled Java code. AI agents can read and modify configurations via the REST API or MCP tools (`update_agent`, `update_regulardictionary`, etc.) without any Java knowledge. Changes take effect immediately — no recompilation or redeployment needed.
+Yes — this is EDDI's primary design goal. Agent logic (prompts, pipelines, tool definitions) is **JSON configuration**, not compiled Java code. AI agents can read and modify configurations via the REST API or MCP tools without any Java knowledge.
 
 </details>
 
 <details>
 <summary><strong>How does EDDI's MCP server help coding agents?</strong></summary>
 
-EDDI's MCP server exposes 39 tools that cover the full agent lifecycle: creation, configuration, deployment, conversation, scheduling, and diagnostics. AI assistants like Claude Desktop or IDE plugins (Cursor, Windsurf) can interact with EDDI programmatically. The MCP tool schemas include detailed parameter descriptions, making them self-documenting — agents can discover capabilities without reading source code.
+EDDI's MCP server exposes 39 tools that cover the full agent lifecycle: creation, configuration, deployment, conversation, scheduling, and diagnostics. The MCP tool schemas include detailed parameter descriptions, making them self-documenting.
 
 </details>
 
 <details>
 <summary><strong>Is the EDDI codebase easy for AI tools like Copilot or Cursor to understand?</strong></summary>
 
-Yes. EDDI's codebase is designed with AI-readability in mind: consistent naming conventions (`{Domain}{Layer}`), small focused classes (under 200 lines average), typed configuration models, CDI dependency injection (no hidden singletons), and **1,000+ tests with zero failures** ensuring safe refactoring. The modular workflow structure means agents can work on one domain without needing the full codebase in context.
+Yes. EDDI's codebase is designed with AI-readability in mind: consistent naming conventions, small focused classes (under 200 lines average), typed configuration models, CDI dependency injection, and **1,000+ tests with zero failures** ensuring safe refactoring.
 
 </details>
-
-<details>
-<summary><strong>What's the difference between using MCP tools vs. editing EDDI's source code?</strong></summary>
-
-MCP tools let agents **operate** EDDI (create agents, manage conversations, read logs) without touching Java code. This is the recommended approach for 90% of use cases. Editing source code is only needed for adding new capabilities to the platform itself — such as implementing new pipeline task types or adding new MCP tools. The modular architecture ensures that even source-level changes are locally scoped and independently testable.
-
-</details>
+</section>

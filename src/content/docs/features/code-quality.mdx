@@ -5,15 +5,12 @@ template: splash
 hero:
   title: |
     Enterprise-Grade
-    <span
-      class="font-black text-transparent
-        bg-clip-text bg-linear-to-b
-        from-accent-700 to-accent-400
-        dark:from-accent-500 dark:to-accent-200"
-    >
+    <span class="text-gradient-dynamic">
       Code Quality.
     </span>
   tagline: "Production software demands production-grade engineering. EDDI enforces code quality at every level — from architecture to 1,000+ automated tests to CI/CD pipelines."
+  image:
+    file: ../../../assets/hero_code_quality.jpg
   actions:
     - text: View on GitHub
       link: https://github.com/labsai/EDDI
@@ -25,104 +22,140 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">1,000+ Automated Tests — Zero Failures</h2>
+  </div>
 
-## 1,000+ Automated Tests — Zero Failures
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">1,000+ Tests — 0 Failures</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Covering pipeline logic, MCP tools, configuration parsing, conversation state, rules, output templating, context matching, security validation, NLP, and cryptographic secrets.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="🧪 1,000+ Tests — 0 Failures" icon="approve-check-circle">
-    EDDI's test suite runs **over 1,000 tests with zero failures** — covering pipeline logic, MCP tools, configuration parsing, conversation state, rules, output templating, context matching, security validation, NLP, and cryptographic secrets. Work with confidence — refactor freely knowing the test suite has your back.
-  </Card>
-  <Card title="🔗 Dedicated Integration Test Repo" icon="approve-check-circle">
-    EDDI maintains a **separate integration test repository** ([EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests)) for full end-to-end lifecycle testing: agent creation → deployment → conversation → audit trail — running against real MongoDB and PostgreSQL via Docker.
-  </Card>
-  <Card title="🛠️ MCP Tool Coverage" icon="approve-check-circle">
-    All 39 MCP tools have dedicated test coverage — including edge cases for CDI injection, authentication, authorization, input validation, and error handling.
-  </Card>
-  <Card title="🚀 CI/CD Pipeline" icon="rocket">
-    GitHub Actions pipelines enforce: compilation, unit tests, integration tests, and artifact publishing. **No merge without green CI.** Quarkus native compilation keeps build times fast.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Dedicated Integration Test Repo</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Full end-to-end lifecycle testing: agent creation → deployment → conversation → audit trail — running against <strong>real MongoDB and PostgreSQL</strong> via Docker.</p>
+    </div>
 
-## Test Depth
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">MCP Tool Coverage</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">All 39 MCP tools have dedicated test coverage — including edge cases for CDI injection, authentication, authorization, input validation, and error handling.</p>
+    </div>
 
-EDDI doesn't just have tests — it has the *right* tests. Key areas covered:
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">CI/CD Pipeline</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">GitHub Actions pipelines enforce: compilation, unit tests, integration tests, and artifact publishing. <strong>No merge without green CI.</strong></p>
+    </div>
+  </div>
+</section>
 
-<CardGrid>
-  <Card title="Pipeline Engine" icon="approve-check-circle">
-    Result manipulation, output templating, context matching, input parsing, and dynamic value resolution are each covered by **dedicated test suites** — not surface-level smoke tests.
-  </Card>
-  <Card title="Conversation Memory" icon="approve-check-circle">
-    Conversation step management, memory serialization, multi-turn state tracking, and undo/redo operations all have **thorough test coverage** with edge case validation.
-  </Card>
-  <Card title="rules" icon="approve-check-circle">
-    Action matching, input matching, context matching, and rule priority resolution are tested with combinatorial scenarios to catch subtle rule evaluation bugs.
-  </Card>
-  <Card title="Security Validation" icon="approve-check-circle">
-    API key vault integration, URL allowlist enforcement, path traversal protection, and role-based access control are all verified with both positive and negative test cases.
-  </Card>
-</CardGrid>
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Architecture Quality</h2>
+  </div>
 
-## Architecture Quality
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Clean Module Boundaries</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><strong>Layered architecture</strong> with clear separation: API layer → Service layer → Repository layer. Single responsibility with well-defined interfaces.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="Clean Module Boundaries" icon="setting">
-    EDDI follows a **layered architecture** with clear separation: API layer → Service layer → Repository layer. Each module has a single responsibility with well-defined interfaces.
-  </Card>
-  <Card title="CDI Dependency Injection" icon="puzzle">
-    All dependencies are managed via Quarkus CDI — no static singletons, no service locators. Every component is independently testable and mockable.
-  </Card>
-  <Card title="Immutable Data Patterns" icon="approve-check-circle">
-    Configuration objects, pipeline steps, and audit records use **immutable data patterns**. Once created, they cannot be modified — eliminating entire classes of concurrency bugs.
-  </Card>
-  <Card title="🧹 Checkstyle: 697 → 81 Warnings" icon="approve-check-circle">
-    Comprehensive checkstyle cleanup reduced static analysis warnings from **697 to 81** — removing noisy style-only checks and enforcing consistent code formatting across the entire codebase.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">CDI Dependency Injection</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">All dependencies managed via Quarkus CDI — no static singletons, no service locators. Every component is <strong>independently testable and mockable</strong>.</p>
+    </div>
 
-## Code Standards
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Immutable Data Patterns</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Configuration objects, pipeline steps, and audit records use <strong>immutable data patterns</strong>. Once created, they cannot be modified — eliminating concurrency bugs.</p>
+    </div>
 
-<CardGrid>
-  <Card title="☕ Java 25 Modernization" icon="approve-check-circle">
-    Leveraging Java 25 features: unnamed variables (`_`), `toList()` collectors, `instanceof` pattern matching, enhanced switch expressions. Clean, idiomatic, modern Java.
-  </Card>
-  <Card title="🔒 No Magic Strings" icon="approve-check-circle">
-    Constants, enums, and configuration keys are defined once and referenced everywhere. Tool names, permission strings, and resource types are never raw strings.
-  </Card>
-  <Card title="📖 Documentation" icon="open-book">
-    Javadoc on public APIs, inline comments for complex logic, and architecture decision records. MCP tools have comprehensive parameter descriptions and usage examples.
-  </Card>
-  <Card title="📦 Dependency Hygiene" icon="setting">
-    Minimal dependency footprint. Quarkus BOM manages version alignment. No abandoned libraries, no CVE-flagged dependencies. Dependabot monitors for updates continuously.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M15 3v5h5"/><path d="M10 12l-2 2 2 2"/><path d="M14 12l2 2-2 2"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M15 3v5h5"/><path d="M10 12l-2 2 2 2"/><path d="M14 12l2 2-2 2"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Checkstyle: 697 → 81 Warnings</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Comprehensive checkstyle cleanup — removing noisy style-only checks and enforcing <strong>consistent code formatting</strong> across the entire codebase.</p>
+    </div>
+  </div>
+</section>
 
-## Frequently Asked Questions
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
+  </div>
 
 <details>
 <summary><strong>How many tests does EDDI have?</strong></summary>
 
-EDDI has **over 1,000 tests with zero failures** in its main repository, plus additional end-to-end tests in the dedicated [EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests) repository. This comprehensive coverage means you can refactor, extend, and contribute with confidence — the test suite catches regressions before they reach production.
+EDDI has **over 1,000 tests with zero failures** in its main repository, plus additional end-to-end tests in the dedicated [EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests) repository.
 
 </details>
 
 <details>
 <summary><strong>What test framework does EDDI use?</strong></summary>
 
-EDDI uses **JUnit 5** with **Quarkus Test** extensions. Tests run in a real Quarkus container with CDI injection, making them true integration tests rather than superficial mocks. Mockito is used selectively for external service boundaries (LLM providers, databases in unit tests).
+EDDI uses **JUnit 5** with **Quarkus Test** extensions. Tests run in a real Quarkus container with CDI injection, making them true integration tests.
 
 </details>
 
 <details>
 <summary><strong>How do I run the test suite locally?</strong></summary>
 
-Run `mvn test` for unit tests or `mvn verify` for the full integration test suite. Quarkus Dev Services automatically spins up MongoDB and PostgreSQL containers — no manual database setup required. For the full end-to-end suite, clone the [EDDI-integration-tests](https://github.com/labsai/EDDI-integration-tests) repo and run it against a running EDDI instance.
+Run `mvn test` for unit tests or `mvn verify` for the full integration test suite. Quarkus Dev Services automatically spins up MongoDB and PostgreSQL containers.
 
 </details>
 
 <details>
 <summary><strong>Does EDDI follow any specific coding standards?</strong></summary>
 
-EDDI follows standard Java conventions with Quarkus idioms: CDI injection over static factories, reactive patterns for I/O, immutable DTOs, and builder patterns for complex objects. The codebase is organized by domain (agent management, conversations, MCP, security) rather than by technical layer, making it intuitive for contributors to navigate.
+EDDI follows standard Java conventions with Quarkus idioms: CDI injection over static factories, reactive patterns for I/O, immutable DTOs, and builder patterns for complex objects.
 
 </details>
+</section>

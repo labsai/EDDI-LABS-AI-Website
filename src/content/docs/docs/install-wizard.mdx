@@ -3,8 +3,6 @@ title: "Install Wizard"
 description: "Get EDDI running with a single command — interactive setup with database, authentication, and monitoring choices."
 ---
 
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
-
 EDDI provides an interactive **one-command install wizard** that configures your entire environment — database, authentication, monitoring, and deployment topology — in seconds.
 
 ## Quick Install
@@ -112,8 +110,17 @@ Expected response:
 
 ## Next Steps
 
-<CardGrid>
-  <LinkCard title="Create Your First Agent" href="/docs/quickstart/" description="Build and deploy an agent via MCP in seconds." />
-  <LinkCard title="Browse 39 MCP Tools" href="/docs/mcp/overview/" description="See every tool EDDI exposes for AI-native control." />
-  <LinkCard title="Production Deployment" href="/docs/deployment/docker/" description="Docker Compose and Kubernetes deployment guides." />
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+  <a href="/docs/quickstart/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Create Your First Agent →</h4>
+    <p class="text-gray-400 text-sm">Build and deploy an agent via MCP in seconds.</p>
+  </a>
+  <a href="/docs/mcp/overview/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Browse 39 MCP Tools →</h4>
+    <p class="text-gray-400 text-sm">See every tool EDDI exposes for AI-native control.</p>
+  </a>
+  <a href="/docs/deployment/docker/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Production Deployment →</h4>
+    <p class="text-gray-400 text-sm">Docker Compose and Kubernetes deployment guides.</p>
+  </a>
+</div>

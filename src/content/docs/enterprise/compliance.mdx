@@ -1,58 +1,125 @@
 ---
 title: "EU AI Act & Compliance"
-description: "How EDDI's architecture supports EU AI Act requirements through immutable audit trails, deterministic governance, and transparent observability."
+description: "EDDI's architecture provides structural compliance with EC AI Act requirements — immutable audit trails, transparent decision logging, and deterministic governance."
+template: splash
+hero:
+  title: |
+    EU AI Act
+    <span class="text-gradient-dynamic">
+      Compliance.
+    </span>
+  tagline: "EDDI's architecture directly addresses EU AI Act requirements: transparency, accountability, and human oversight — by design, not by bolt-on."
+  image:
+    file: ../../../assets/hero_compliance.jpg
+  actions:
+    - text: Security Architecture
+      link: /features/security/
+      icon: right-arrow
+    - text: Observability
+      link: /features/observability/
+      icon: external
+      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">How EDDI Addresses the EU AI Act</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">The EU AI Act requires "high-risk AI systems" to meet specific requirements. EDDI's architecture provides structural solutions.</p>
+  </div>
 
-## EDDI & the EU AI Act
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 13‑14 — Transparency</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">EDDI logs every LLM call, tool invocation, rule evaluation, and output. <strong>Immutable audit trails</strong> with tamper-evident cryptographic integrity — every AI decision is traceable.</p>
+    </div>
 
-The EU AI Act (effective August 2024) establishes requirements for "high-risk AI systems" including:
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 9 — Risk Management</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Deterministic pipeline governance: rules-before-LLM, typed output templates, <strong>configurable guardrails</strong>. The system behavior is defined by configuration, not emergent LLM behavior alone.</p>
+    </div>
 
-- **Traceability** — the ability to trace AI decisions back to their inputs
-- **Transparency** — users must know they're interacting with AI
-- **Accountability** — organizations must be able to explain AI decisions
-- **Risk management** — continuous monitoring and assessment of AI system performance
-- **Data governance** — quality, relevance, and representativeness of training data
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 10 — Data Governance</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><strong>Fully self-hosted deployment</strong> — data never leaves your infrastructure. On-premise LLMs via Ollama, local databases, and configurable storage backends.</p>
+    </div>
 
-## How EDDI Addresses Each Requirement
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 14 — Human Oversight</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Human-in-the-loop via the <strong>Manager UI and MCP tools</strong>. Review agent configurations, inspect conversation history, and override agent responses at any point.</p>
+    </div>
 
-<CardGrid stagger>
-  <Card title="Immutable Audit Trails" icon="open-book">
-    Every LLM interaction is logged with: model ID, provider, prompt tokens, completion tokens, cost, latency, tool calls, and tool results.
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 52 — User Notification</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Full conversation memory shows users are interacting with an AI system. Agent type metadata and <strong>transparent tool call logging</strong> make the AI involvement unambiguous.</p>
+    </div>
 
-    Audit entries are **tamper-evident** with cryptographic integrity checks. Stored in the database alongside, but separated from, execution state (CQRS pattern).
-  </Card>
-  <Card title="Deterministic Governance" icon="setting">
-    Non-deterministic LLM rules is wrapped in deterministic guardrails:
-    - **Budget caps** prevent runaway API costs
-    - **Circuit breakers** halt infinite loops
-    - **Execution hashes** detect recursive agent traps
-  </Card>
-  <Card title="Configuration Versioning" icon="document">
-    Every configuration change creates a new immutable version. Full history is preserved — which model, which prompt, which parameters produced any given response.
-  </Card>
-  <Card title="Role-Based Access" icon="approve-check-circle">
-    OIDC/Keycloak integration provides enterprise-grade access control. MCP tools can be filtered by role — ensuring appropriate access levels for different users.
-  </Card>
-</CardGrid>
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Art. 12 — Record-Keeping</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Immutable versioning of all configurations. <strong>Every resource change creates a new version</strong>, preserving the complete history. Full audit trail of who changed what and when.</p>
+    </div>
+  </div>
+</section>
 
-## Compliance Mapping
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Compliance Summary Matrix</h2>
+  </div>
 
-| EU AI Act Requirement | EDDI Feature | Implementation |
-|----------------------|-------------|----------------|
-| **Art. 12 — Record-keeping** | Audit Ledger | Per-task immutable logs with LLM details |
-| **Art. 13 — Transparency** | Conversation Logs | Full visibility into AI reasoning steps |
-| **Art. 14 — Human oversight** | Manager UI | Visual agent management and monitoring |
-| **Art. 15 — Accuracy** | rules | Conditional logic guards for response quality |
-| **Art. 9 — Risk management** | Budget Caps / Circuit Breakers | Automated cost and rules controls |
-| **Art. 10 — Data governance** | Configuration Versioning | Full provenance tracking for all configs |
+  <div class="not-content overflow-x-auto rounded-2xl border border-gray-700/50 bg-gray-900/30 backdrop-blur">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-gray-700/50">
+          <th class="text-left p-4 text-gray-300 font-semibold">EU AI Act Requirement</th>
+          <th class="text-left p-4 text-gray-300 font-semibold">EDDI Feature</th>
+          <th class="text-left p-4 text-gray-300 font-semibold">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Transparency (Art. 13-14)</td><td class="p-4 text-gray-300">Immutable audit ledger, conversation logs</td><td class="p-4 text-accent-300">✅ Structural</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Risk Management (Art. 9)</td><td class="p-4 text-gray-300">Deterministic pipelines, typed outputs, config-as-code</td><td class="p-4 text-accent-300">✅ Structural</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Data Governance (Art. 10)</td><td class="p-4 text-gray-300">Self-hosted, local LLM support, no cloud dependency</td><td class="p-4 text-accent-300">✅ Structural</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Human Oversight (Art. 14)</td><td class="p-4 text-gray-300">Manager UI, MCP tools, conversation review</td><td class="p-4 text-accent-300">✅ Built-in</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">User Notification (Art. 52)</td><td class="p-4 text-gray-300">Agent metadata, transparent tool call logging</td><td class="p-4 text-accent-300">✅ Built-in</td></tr>
+        <tr><td class="p-4 text-gray-400">Record-Keeping (Art. 12)</td><td class="p-4 text-gray-300">Immutable versioning, full change history</td><td class="p-4 text-accent-300">✅ Structural</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-## Self-Hosted by Design
-
-EDDI is **self-hosted on your infrastructure**. Your data never leaves your environment:
-
-- Deploy to your own Kubernetes cluster, OpenShift, or private cloud
-- All audit data is stored in your own MongoDB or PostgreSQL instance
-- No telemetry sent to external services
-- Full control over data residency and jurisdictional requirements
+  <p class="text-center text-gray-500 text-sm mt-8 max-w-2xl mx-auto">EDDI provides the <strong>technical infrastructure</strong> for compliance. Full regulatory compliance requires additional organizational processes, documentation, and legal review specific to your use case.</p>
+</section>

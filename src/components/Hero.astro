@@ -179,7 +179,17 @@ if (image) {
 	}
 
 	.hero-btn-primary {
-		color: white;
+		color: var(--sl-color-black);
+		background: linear-gradient(135deg, oklch(0.75 0.18 75), oklch(0.50 0.14 65));
+		border: 1px solid oklch(0.78 0.17 78);
+		font-weight: 700;
+		box-shadow: 0 0 20px color-mix(in srgb, oklch(0.75 0.18 75) 30%, transparent);
+	}
+
+	.hero-btn-primary:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 0 30px color-mix(in srgb, oklch(0.75 0.18 75) 50%, transparent),
+					0 0 60px color-mix(in srgb, oklch(0.75 0.18 75) 20%, transparent);
 	}
 
 	.hero-btn-minimal {

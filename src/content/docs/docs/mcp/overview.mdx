@@ -3,8 +3,6 @@ title: MCP Server Overview
 description: "EDDI exposes 39 tools via the Model Context Protocol — enabling AI assistants to interact with deployed agents and manage the platform programmatically."
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
-
 EDDI exposes its agent conversation and administration capabilities via the **Model Context Protocol (MCP)**, enabling AI assistants (Claude Desktop, IDE plugins, custom MCP clients) to interact with deployed agents and manage the platform programmatically.
 
 ## Transport
@@ -19,24 +17,62 @@ EDDI uses **Streamable HTTP** transport via the Quarkus MCP Server extension.
 
 EDDI exposes **39 tools** organized into 5 categories:
 
-<CardGrid>
-  <Card title="Conversation Tools (11)" icon="comment-alt">
-    `list_agents`, `discover_bots`, `create_conversation`, `talk_to_agent`, `chat_with_agent`, `chat_managed`, `read_conversation`, `read_conversation_log`, `list_conversations`, `get_agent`, `list_bot_configs`
-  </Card>
-  <Card title="Admin Tools (13)" icon="setting">
-    `deploy_agent`, `undeploy_agent`, `get_deployment_status`, `list_workflows`, `create_agent`, `delete_agent`, `update_agent`, `read_workflow`, `read_resource`, `list_agent_triggers`, `create_agent_trigger`, `update_agent_trigger`, `delete_agent_trigger`
-  </Card>
-  <Card title="Resource CRUD (5)" icon="document">
-    `update_resource`, `create_resource`, `delete_resource`, `apply_bot_changes`, `list_bot_resources`
-  </Card>
-  <Card title="Diagnostic Tools (2)" icon="open-book">
-    `read_bot_logs`, `read_audit_trail`
-  </Card>
-  <Card title="Setup Tools (2)" icon="rocket">
-    `setup_agent` — Create a fully working agent in one call.
-    `create_api_agent` — Create an agent from an OpenAPI spec.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+      <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Conversation Tools (11)</h3>
+    <p class="text-gray-400 text-sm leading-relaxed"><code>list_agents</code>, <code>discover_bots</code>, <code>create_conversation</code>, <code>talk_to_agent</code>, <code>chat_with_agent</code>, <code>chat_managed</code>, <code>read_conversation</code>, <code>read_conversation_log</code>, <code>list_conversations</code>, <code>get_agent</code>, <code>list_bot_configs</code></p>
+  </div>
+
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+      <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </div>
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Admin Tools (13)</h3>
+    <p class="text-gray-400 text-sm leading-relaxed"><code>deploy_agent</code>, <code>undeploy_agent</code>, <code>get_deployment_status</code>, <code>list_workflows</code>, <code>create_agent</code>, <code>delete_agent</code>, <code>update_agent</code>, <code>read_workflow</code>, <code>read_resource</code>, <code>list_agent_triggers</code>, <code>create_agent_trigger</code>, <code>update_agent_trigger</code>, <code>delete_agent_trigger</code></p>
+  </div>
+
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+      <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Resource CRUD (5)</h3>
+    <p class="text-gray-400 text-sm leading-relaxed"><code>update_resource</code>, <code>create_resource</code>, <code>delete_resource</code>, <code>apply_bot_changes</code>, <code>list_bot_resources</code></p>
+  </div>
+
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group">
+    <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+      <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </div>
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Diagnostic Tools (2)</h3>
+    <p class="text-gray-400 text-sm leading-relaxed"><code>read_bot_logs</code>, <code>read_audit_trail</code></p>
+  </div>
+
+  <div class="relative overflow-hidden flex flex-col h-full p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl group md:col-span-2">
+    <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+      <svg class="w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <h3 class="text-lg font-bold text-white mb-2">Setup Tools (2)</h3>
+    <p class="text-gray-400 text-sm leading-relaxed"><code>setup_agent</code> — Create a fully working agent in one call.<br/><code>create_api_agent</code> — Create an agent from an OpenAPI spec.</p>
+  </div>
+</div>
 
 ## Quick Start: Claude Desktop
 
@@ -114,7 +150,21 @@ setup_agent(
 
 ## Learn More
 
-- [Conversation Tools](/docs/mcp/conversation-tools/) — Detailed reference for all 11 conversation tools
-- [Admin Tools](/docs/mcp/admin-tools/) — Deployment, agent management, and resource CRUD
-- [Setup Tools](/docs/mcp/setup-tools/) — `setup_agent` and `create_api_agent` deep dives
-- [MCP Security](/docs/mcp/security/) — Authentication, authorization, and tool filtering
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+  <a href="/docs/mcp/conversation-tools/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Conversation Tools →</h4>
+    <p class="text-gray-400 text-sm">Detailed reference for all 11 conversation tools</p>
+  </a>
+  <a href="/docs/mcp/admin-tools/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Admin Tools →</h4>
+    <p class="text-gray-400 text-sm">Deployment, agent management, and resource CRUD</p>
+  </a>
+  <a href="/docs/mcp/setup-tools/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Setup Tools →</h4>
+    <p class="text-gray-400 text-sm"><code>setup_agent</code> and <code>create_api_agent</code> deep dives</p>
+  </a>
+  <a href="/docs/mcp/security/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">MCP Security →</h4>
+    <p class="text-gray-400 text-sm">Authentication, authorization, and tool filtering</p>
+  </a>
+</div>

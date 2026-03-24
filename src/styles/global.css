@@ -146,6 +146,7 @@ html[data-theme='light'] :global(.sl-link-card) {
 /* ===== HERO SECTION ENHANCEMENTS ===== */
 .hero-gradient {
 	position: relative;
+	overflow: hidden;
 }
 
 /* Main animated ambient background for the premium feel */
@@ -153,8 +154,9 @@ html[data-theme='light'] :global(.sl-link-card) {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
 	height: 100%;
 	background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-accent-500) 15%, transparent) 0%, transparent 70%),
 				radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-accent-300) 10%, transparent) 0%, transparent 50%);
@@ -247,6 +249,16 @@ html[data-theme='light'] :global(.sl-link-card) {
 	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent);
 }
 
+/* Inline code pill styling — polished look for tool names in cards */
+:global(.sl-markdown-content code:not(pre code)) {
+	background: color-mix(in srgb, var(--sl-color-gray-6) 60%, transparent) !important;
+	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 40%, transparent) !important;
+	border-radius: 0.375rem !important;
+	padding: 0.125rem 0.4rem !important;
+	font-size: 0.85em !important;
+	white-space: nowrap !important;
+}
+
 /* ===== STARLIGHT OVERRIDES ===== */
 html[data-theme='dark'], :root {
 	--sl-color-bg-nav: #030305 !important;
@@ -263,3 +275,52 @@ html[data-theme='light'] {
 	width: auto !important;
 	margin-top: 0.25rem;
 }
+
+/* ===== HERO CTA PRIMARY BUTTON FIX ===== */
+/* Starlight's variant:primary button needs a visible gold gradient background */
+:global(.hero .sl-link-button.primary),
+:global(.sl-link-button.primary) {
+	background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700)) !important;
+	border: 1px solid var(--color-accent-400) !important;
+	color: var(--sl-color-black) !important;
+	font-weight: 600 !important;
+	box-shadow: 0 0 15px color-mix(in srgb, var(--sl-color-accent) 25%, transparent) !important;
+	transition: all 0.3s ease !important;
+}
+:global(.hero .sl-link-button.primary:hover),
+:global(.sl-link-button.primary:hover) {
+	transform: translateY(-2px) !important;
+	box-shadow: 0 0 25px color-mix(in srgb, var(--sl-color-accent) 45%, transparent),
+				0 0 50px color-mix(in srgb, var(--sl-color-accent) 20%, transparent) !important;
+}
+
+/* ===== PAGINATION (PREV/NEXT) GLASSMORPHISM ===== */
+:global(.pagination-links a) {
+	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent) !important;
+	backdrop-filter: blur(12px) !important;
+	-webkit-backdrop-filter: blur(12px) !important;
+	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
+	border-radius: 0.75rem !important;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+:global(.pagination-links a:hover) {
+	transform: translateY(-2px) !important;
+	border-color: color-mix(in srgb, var(--sl-color-accent) 50%, transparent) !important;
+	box-shadow: 0 8px 20px -5px color-mix(in srgb, var(--sl-color-accent) 15%, transparent) !important;
+}
+:global(.pagination-links .link-title) {
+	color: var(--sl-color-white) !important;
+}
+
+/* ===== EDIT PAGE LINK — REDUCE FLOATING GAP ===== */
+:global(.sl-markdown-content + .meta) {
+	margin-top: 1rem !important;
+	padding-top: 0 !important;
+}
+/* Target the edit-page container specifically */
+:global([data-edit-url]) {
+	margin-top: 1.5rem !important;
+	margin-bottom: 0.5rem !important;
+}
+
+

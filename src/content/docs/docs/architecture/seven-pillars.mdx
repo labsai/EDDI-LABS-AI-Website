@@ -3,8 +3,6 @@ title: The 7 Pillars of EDDI
 description: The architectural principles that define EDDI's design philosophy and differentiate it from every other AI orchestration platform.
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
-
 EDDI's architecture is governed by seven core principles. These aren't marketing bullet points — they are **hard architectural constraints** that shape every design decision in the codebase.
 
 ## 1. Configuration-Driven Logic, Not Code-Embedded Logic
@@ -69,11 +67,19 @@ EDDI's interfaces are designed for both business users and power users:
 
 ---
 
-<CardGrid>
-  <Card title="Read the Configuration Guide" icon="setting">
-    See how [Configuration-as-Code](/docs/architecture/config-as-code/) works in practice.
-  </Card>
-  <Card title="Explore the MCP Tools" icon="puzzle">
-    Browse the [39 MCP tools](/docs/mcp/overview/) that expose EDDI's full capabilities.
-  </Card>
-</CardGrid>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <a href="/docs/architecture/config-as-code/" class="relative overflow-hidden flex flex-col p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+    </div>
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Read the Configuration Guide →</h4>
+    <p class="text-gray-400 text-sm">See how Configuration-as-Code works in practice.</p>
+  </a>
+  <a href="/docs/mcp/overview/" class="relative overflow-hidden flex flex-col p-6 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+    <div class="mb-4 w-12 h-12 rounded-xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_20px_rgba(var(--color-accent-500-rgb),0.15)]">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/></svg>
+    </div>
+    <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Explore the MCP Tools →</h4>
+    <p class="text-gray-400 text-sm">Browse the 39 MCP tools that expose EDDI's full capabilities.</p>
+  </a>
+</div>
