@@ -55,31 +55,9 @@ export default defineConfig({
 				],
 			},
 			{
-				label: 'Features',
-				items: [
-					{ label: 'All Features', slug: 'features/overview' },
-					{ label: 'Config-as-Code', slug: 'features/config-as-code' },
-					{ label: 'MCP Server (39 Tools)', slug: 'features/mcp-server' },
-					{ label: 'Security-First', slug: 'features/security' },
-					{ label: 'Observability', slug: 'features/observability' },
-					{ label: 'Performance', slug: 'features/performance' },
-					{ label: 'Multi-Agent', slug: 'features/multi-agent' },
-					{ label: 'Code Quality', slug: 'features/code-quality' },
-					{ label: 'AI-Ready Architecture', slug: 'features/ai-ready' },
-				],
-			},
-			{
-				label: 'Enterprise',
-				items: [
-					{ label: 'Why EDDI?', slug: 'enterprise/why-eddi' },
-					{ label: 'EDDI vs. Alternatives', slug: 'enterprise/vs-alternatives' },
-					{ label: 'EU AI Act & Compliance', slug: 'enterprise/compliance' },
-					{ label: 'Use Cases', slug: 'docs/use-cases' },
-				],
-			},
-			{
 				label: 'Resources',
 				items: [
+					{ label: 'Use Cases', slug: 'docs/use-cases' },
 					{ label: 'Integrations', slug: 'docs/integrations' },
 					{ label: 'Security Architecture', slug: 'docs/security/overview' },
 					{ label: 'Docker & Kubernetes', slug: 'docs/deployment/docker' },

@@ -4,6 +4,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+- `fix(website)`: **Docs/Website Navigation Separation** — Removed Features (9 pages) and Enterprise (3 pages) from the Starlight docs sidebar to eliminate confusing cross-linking between marketing pages and documentation. Marketing pages are accessed via the Header nav only. Moved `docs/use-cases` from Enterprise to Resources sidebar group where it belongs.
 - `fix(website)`: **Quickstart Page Rendering** — Rewrote quickstart page without `<Steps>` component (was causing blank render). Now uses plain headings with code blocks.
 - `fix(website)`: **Hero CTA Button Visibility** — Added gold gradient background, border, and glow effects to `.hero-btn-primary` in `Hero.astro`. Button was previously invisible (white text on dark bg).
 - `feat(website)`: **Prev/Next Pagination Glassmorphism** — Styled Starlight's `.pagination-links` with semi-transparent background, blur, rounded corners, and accent hover border.
