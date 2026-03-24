@@ -4,6 +4,10 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+- `feat(website)`: **Light/Dark Mode Optimization** — Added comprehensive light mode support via CSS-level overrides in `global.css`, remapping all hardcoded dark-mode Tailwind classes (`text-white`, `bg-gray-900/*`, `border-gray-700/*`, etc.) to appropriate light-mode equivalents. Covers all 20+ MDX content pages without individual file edits.
+- `feat(website)`: **Gold/Amber Logo Rebrand** — Updated both SVG logo variants (`eddi-logo-dark.svg`, `eddi-logo-light.svg`) from blue to gold/amber brand identity. Footer now uses actual logo image with automatic light/dark switching instead of text.
+- `fix(website)`: **Navigation Sizing** — Reduced header logo from 2.5rem to 1.8rem. Increased nav link font-size from 0.8125rem to 0.9375rem for better readability.
+- `feat(website)`: **Header & Footer Light Mode** — Added full light mode style overrides for header (nav links, dropdowns, mobile menu) and footer (background, text, social icons, links, trust items).
 - `fix(website)`: **Docs/Website Navigation Separation** — Removed Features (9 pages) and Enterprise (3 pages) from the Starlight docs sidebar to eliminate confusing cross-linking between marketing pages and documentation. Marketing pages are accessed via the Header nav only. Moved `docs/use-cases` from Enterprise to Resources sidebar group where it belongs.
 - `fix(website)`: **Quickstart Page Rendering** — Rewrote quickstart page without `<Steps>` component (was causing blank render). Now uses plain headings with code blocks.
 - `fix(website)`: **Hero CTA Button Visibility** — Added gold gradient background, border, and glow effects to `.hero-btn-primary` in `Hero.astro`. Button was previously invisible (white text on dark bg).

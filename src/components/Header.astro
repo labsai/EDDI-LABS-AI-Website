@@ -231,7 +231,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		padding: 0.4375rem 0.625rem;
 		color: var(--sl-color-gray-2);
 		text-decoration: none;
-		font-size: 0.8125rem;
+		font-size: 0.9375rem;
 		font-weight: 500;
 		border-radius: 0.375rem;
 		border: none;
@@ -516,6 +516,58 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	:global(.eddi-nav-active) {
 		color: var(--sl-color-text-accent) !important;
 		background: color-mix(in srgb, var(--sl-color-accent) 8%, transparent) !important;
+	}
+
+	/* ===== LIGHT MODE ===== */
+	:global(html[data-theme='light']) .eddi-nav-link {
+		color: var(--sl-color-gray-2);
+	}
+
+	:global(html[data-theme='light']) .eddi-nav-link:hover {
+		color: var(--sl-color-black);
+		background: var(--sl-color-gray-6);
+	}
+
+	:global(html[data-theme='light']) .has-dropdown:hover > .eddi-nav-link {
+		color: var(--sl-color-black);
+	}
+
+	:global(html[data-theme='light']) .eddi-dropdown {
+		background: var(--sl-color-bg-nav);
+		border-color: var(--sl-color-gray-5);
+		box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+	}
+
+	:global(html[data-theme='light']) .eddi-dropdown-item {
+		color: var(--sl-color-gray-2);
+	}
+
+	:global(html[data-theme='light']) .eddi-dropdown-item strong {
+		color: var(--sl-color-black);
+	}
+
+	:global(html[data-theme='light']) .eddi-dropdown-item:hover {
+		background: var(--sl-color-gray-6);
+	}
+
+	:global(html[data-theme='light']) .eddi-hamburger-line {
+		background: var(--sl-color-gray-2);
+	}
+
+	:global(html[data-theme='light']) .eddi-mobile-section h3 {
+		color: var(--sl-color-gray-3);
+	}
+
+	:global(html[data-theme='light']) .eddi-mobile-section a {
+		color: var(--sl-color-gray-1);
+	}
+
+	:global(html[data-theme='light']) .eddi-icon-link {
+		color: var(--sl-color-gray-2);
+	}
+
+	:global(html[data-theme='light']) .eddi-icon-link:hover {
+		color: var(--sl-color-black);
 	}
 </style>
 

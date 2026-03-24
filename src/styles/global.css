@@ -271,7 +271,7 @@ html[data-theme='light'] {
 
 /* Ensure Logo and Buttons have breathing room */
 :global(.site-title svg), :global(.site-title img) {
-	height: 2.5rem !important;
+	height: 1.8rem !important;
 	width: auto !important;
 	margin-top: 0.25rem;
 }
@@ -323,4 +323,132 @@ html[data-theme='light'] {
 	margin-bottom: 0.5rem !important;
 }
 
+/* ===================================================================
+   LIGHT MODE — GLOBAL OVERRIDES
+   Remap all hardcoded dark-mode Tailwind classes used across MDX pages
+   so every page is readable in both themes without editing content.
+   =================================================================== */
+html[data-theme='light'] {
+	/* ---- Card backgrounds ---- */
+	& .bg-gray-900\/40,
+	& .bg-gray-900\/60,
+	& .bg-gray-900\/30,
+	& .bg-gray-900\/20 {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
+	}
 
+	/* Gradient card variants */
+	& .from-accent-900\/10 {
+		--tw-gradient-from: color-mix(in srgb, var(--color-accent-200) 15%, transparent) !important;
+	}
+	& .to-gray-900\/60 {
+		--tw-gradient-to: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
+	}
+
+	/* ---- Text colors ---- */
+	& .text-white,
+	& .text-white\! {
+		color: var(--sl-color-black) !important;
+	}
+
+	& .text-gray-400 {
+		color: var(--sl-color-gray-2) !important;
+	}
+
+	& .text-gray-300 {
+		color: var(--sl-color-gray-2) !important;
+	}
+
+	& .text-gray-500 {
+		color: var(--sl-color-gray-3) !important;
+	}
+
+	/* ---- Borders ---- */
+	& .border-gray-700\/50,
+	& .border-gray-800,
+	& .border-gray-800\/60 {
+		border-color: color-mix(in srgb, var(--sl-color-gray-5) 40%, transparent) !important;
+	}
+
+	/* ---- Icon containers (bg-linear gradients) ---- */
+	& [class*="from-accent-500\/20"][class*="to-accent-900\/40"] {
+		background: color-mix(in srgb, var(--color-accent-200) 30%, white) !important;
+	}
+
+	/* ---- Ambient glow backgrounds ---- */
+	& .bg-accent-500\/5 {
+		background: color-mix(in srgb, var(--color-accent-200) 8%, transparent) !important;
+	}
+
+	/* ---- Hero section ---- */
+	& .hero-title {
+		color: var(--sl-color-black) !important;
+	}
+
+	& .hero-tagline {
+		color: var(--sl-color-gray-2) !important;
+	}
+
+	& .hero-btn-minimal {
+		background: color-mix(in srgb, var(--sl-color-gray-5) 20%, white) !important;
+		color: var(--sl-color-gray-1) !important;
+		border-color: var(--sl-color-gray-4) !important;
+	}
+
+	/* Hero visual container */
+	& .hero-visual {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
+		border-color: color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
+	}
+
+	/* ---- Hero gradient ambient glow — tone down for light ---- */
+	& .hero-gradient::before {
+		opacity: 0.4;
+	}
+
+	/* ---- FAQ / details ---- */
+	& :global(details summary) {
+		color: var(--sl-color-black) !important;
+	}
+
+	& :global(details[open] summary) {
+		color: var(--color-accent-700) !important;
+	}
+
+	& :global(details) {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 15%, white) !important;
+		border-color: var(--sl-color-gray-5) !important;
+	}
+
+	& :global(details:hover) {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
+	}
+
+	/* ---- Inline code pills ---- */
+	& :global(.sl-markdown-content code:not(pre code)) {
+		background: color-mix(in srgb, var(--sl-color-gray-5) 20%, white) !important;
+		border-color: color-mix(in srgb, var(--sl-color-gray-4) 40%, transparent) !important;
+	}
+
+	/* ---- Pagination links ---- */
+	& :global(.pagination-links a) {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
+	}
+
+	& :global(.pagination-links .link-title) {
+		color: var(--sl-color-black) !important;
+	}
+
+	/* ---- Footer ---- */
+	& .eddi-site-footer {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
+	}
+
+	& .eddi-logo-text {
+		color: var(--sl-color-black) !important;
+	}
+
+	& .eddi-footer-tagline {
+		color: var(--sl-color-gray-1) !important;
+	}
+}

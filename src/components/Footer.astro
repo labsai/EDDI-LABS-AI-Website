@@ -7,6 +7,9 @@
 import Default from '@astrojs/starlight/components/Footer.astro';
 
 const isDocsPage = Astro.url.pathname.startsWith('/docs/');
+
+import eddiLogoDark from '../assets/eddi-logo-dark.svg';
+import eddiLogoLight from '../assets/eddi-logo-light.svg';
 ---
 
 <!-- Starlight's default footer (pagination, edit link, last updated) -->
@@ -44,8 +47,8 @@ const isDocsPage = Astro.url.pathname.startsWith('/docs/');
 			<!-- Brand column -->
 			<div class="eddi-footer-brand">
 				<a href="/" class="eddi-footer-logo" aria-label="EDDI Home">
-					<span class="eddi-logo-text">EDDI</span>
-					<span class="eddi-logo-slash">/&gt;</span>
+					<img src={eddiLogoDark.src} alt="EDDI" class="eddi-footer-logo-img eddi-footer-logo-dark" width="80" height="20" />
+					<img src={eddiLogoLight.src} alt="EDDI" class="eddi-footer-logo-img eddi-footer-logo-light" width="80" height="20" />
 				</a>
 				<p class="eddi-footer-tagline">The Enterprise AI Orchestrator</p>
 				<p class="eddi-footer-sub">Configuration-driven. Java-native. Production-ready.</p>
@@ -171,6 +174,26 @@ const isDocsPage = Astro.url.pathname.startsWith('/docs/');
 		text-decoration: none;
 	}
 
+	.eddi-footer-logo-img {
+		height: 1.5rem;
+		width: auto;
+	}
+
+	/* Dark mode: show dark logo, hide light */
+	.eddi-footer-logo-dark {
+		display: block;
+	}
+	.eddi-footer-logo-light {
+		display: none;
+	}
+
+	html[data-theme='light'] .eddi-footer-logo-dark {
+		display: none !important;
+	}
+	html[data-theme='light'] .eddi-footer-logo-light {
+		display: block !important;
+	}
+
 	.eddi-logo-text {
 		font-size: 1.25rem;
 		font-weight: 800;
@@ -250,7 +273,6 @@ const isDocsPage = Astro.url.pathname.startsWith('/docs/');
 		color: var(--sl-color-white);
 	}
 
-
 	/* ===== BOTTOM BAR ===== */
 	.eddi-footer-bottom {
 		display: flex;
@@ -287,6 +309,57 @@ const isDocsPage = Astro.url.pathname.startsWith('/docs/');
 		.eddi-trust-bar {
 			gap: 1rem;
 		}
+	}
+
+	/* ===== LIGHT MODE OVERRIDES ===== */
+	html[data-theme='light'] .eddi-site-footer {
+		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
+	}
+
+	html[data-theme='light'] .eddi-trust-item {
+		color: var(--sl-color-gray-2);
+	}
+
+	html[data-theme='light'] .eddi-footer-col h3 {
+		color: var(--sl-color-gray-1);
+	}
+
+	html[data-theme='light'] .eddi-footer-col a {
+		color: var(--sl-color-gray-2);
+	}
+
+	html[data-theme='light'] .eddi-footer-col a:hover {
+		color: var(--sl-color-black);
+	}
+
+	html[data-theme='light'] .eddi-footer-tagline {
+		color: var(--sl-color-gray-1);
+	}
+
+	html[data-theme='light'] .eddi-footer-sub {
+		color: var(--sl-color-gray-3);
+	}
+
+	html[data-theme='light'] .eddi-footer-social a {
+		color: var(--sl-color-gray-2);
+		background: var(--sl-color-gray-6);
+	}
+
+	html[data-theme='light'] .eddi-footer-social a:hover {
+		color: var(--sl-color-black);
+		background: var(--sl-color-gray-5);
+	}
+
+	html[data-theme='light'] .eddi-footer-bottom p {
+		color: var(--sl-color-gray-3);
+	}
+
+	html[data-theme='light'] .eddi-footer-bottom a {
+		color: var(--sl-color-gray-2);
+	}
+
+	html[data-theme='light'] .eddi-footer-bottom a:hover {
+		color: var(--sl-color-black);
 	}
 
 	@media (max-width: 30rem) {
