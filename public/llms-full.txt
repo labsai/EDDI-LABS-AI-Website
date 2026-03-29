@@ -1,0 +1,166 @@
+# EDDI — Enterprise AI Orchestrator
+
+> EDDI is a production-grade, configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
+
+## What is EDDI?
+
+EDDI (Enhanced Dialog Driven Intelligence) is the only AI middleware that combines all three properties:
+
+1. **JVM-native runtime** — Built on Java 25 with virtual threads for enterprise-grade concurrency
+2. **Configuration-as-Code** — Agent logic defined as JSON configurations, not compiled code
+3. **Visual Management UI** — A production-grade React management dashboard (EDDI Manager)
+
+No other product in the market combines these three. Code libraries (Spring AI, LangChain4j) require recompilation. Visual builders (Flowise, n8n, Dify) run on Node.js/Python. Workflow engines (Camunda) weren't designed for AI.
+
+## Key Capabilities
+
+### Configuration-as-Code
+- Agent behavior, pipelines, LLM settings, rules, and tools are all JSON configurations
+- No Java code needed to create or modify agents
+- Prompt engineers can iterate without developer involvement
+- Import/export agents as JSON packages for CI/CD pipelines
+
+### EDDI Manager (Visual UI)
+- Full agent lifecycle: create → configure → deploy → test → monitor
+- 8 dedicated resource editors: Rules, LLM Config, Output Sets, HTTP Calls, Workflows, Prompt Templates, Properties, Bot Configuration
+- Side-panel live chat with integrated DebugDrawer (real-time tool calls, token usage, pipeline timing)
+- Audit & Logs dashboards for per-task LLM details, cost tracking, and error analysis
+- Coordinator events dashboard for multi-agent orchestration tracking
+- 11-locale i18n: English, German, French, Spanish, Portuguese, Italian, Turkish, Arabic (RTL), Japanese, Korean, Chinese
+- Dark/light theme, interactive onboarding tours
+
+### MCP (Model Context Protocol) Server
+- 39 MCP tools exposing all EDDI capabilities to external AI agents
+- Claude Desktop, Cursor, and other MCP clients can manage EDDI agents programmatically
+- EDDI agents can also consume external MCP tools as part of their pipelines
+
+### Multi-Agent Orchestration
+- Coordinator pattern for routing conversations to specialist agents
+- Agents can delegate to other agents within the same EDDI instance
+- Shared context and memory across coordinated conversations
+
+### Performance
+- Java 25 virtual threads (Project Loom) — millions of concurrent conversations
+- Sub-millisecond internal pipeline overhead
+- JVM-native performance: no GIL, no event loop limitations
+- Quarkus framework for fast startup and low memory footprint
+
+### Security
+- Zero user code execution — no eval(), no sandbox escapes, no template injection
+- Cryptographic audit trails with SHA-256 hashing
+- 0 critical CVEs (compared to 3+ CVSS 9.8-10.0 in Flowise/n8n/Dify ecosystem)
+- RBAC-ready architecture
+- GDPR-compliant data handling
+
+### Observability
+- Native Prometheus metrics endpoint
+- 45-panel Grafana "Operations Command Center" dashboard (auto-provisioned)
+- Conversation lifecycle, tool execution, LLM latency, token usage, and error rate monitoring
+- Integrated audit trail in the Manager UI
+
+### Deployment
+- Docker Compose (with Install Wizard for interactive setup)
+- Kubernetes via Helm charts and Kustomize manifests
+- Supports MongoDB OR PostgreSQL as backend database
+- Optional NATS messaging for event-driven architectures
+- Red Hat container certified
+
+## Architecture
+
+EDDI uses a pipeline-based architecture:
+
+1. **Input Processing** — Normalize and validate incoming messages
+2. **Pipeline Execution** — Sequential processing through configured task steps
+3. **Task Types** — Rules evaluation, LLM calls, HTTP calls, property management
+4. **Output Generation** — Template-based response rendering
+5. **Audit & Logging** — Cryptographic audit trail for every interaction
+
+### Resource Model
+- **Bot** — Top-level container linking all resources
+- **Packages** — Versioned bundles of resources (rules, LLM configs, etc.)
+- **Conversations** — Stateful interaction sessions with memory
+
+### LLM Integration
+Supports multiple providers simultaneously:
+- OpenAI (GPT-4o, o1, etc.)
+- Anthropic (Claude 3.5, Claude 4)
+- Google (Gemini 2.x)
+- Ollama (local models)
+- Azure OpenAI
+- Any OpenAI-compatible endpoint
+
+## API
+
+### REST API
+Full CRUD operations for all resources:
+- `/botstore` — Bot management with deploy/undeploy
+- `/packagestore` — Package configuration
+- `/regulardictionarystore` — Rules and dictionaries
+- `/outputstore` — Output templates
+- `/httpcallsstore` — HTTP integration configurations
+- `/conversationstore` — Conversation management
+- `/propertiesstore` — Key-value property storage
+
+### MCP Tools (39 total)
+Organized by domain:
+- Bot management (create, read, update, deploy, undeploy)
+- Package management (create, read, update, add/remove resources)
+- Conversation management (create, read, send messages, get logs)
+- Resource CRUD (rules, LLM configs, output sets, HTTP calls, properties)
+- System operations (health check, metrics)
+
+## Comparison Matrix
+
+| Factor | EDDI | Flowise/n8n/Dify | Spring AI/LC4j | Camunda |
+|--------|------|-------------------|----------------|---------|
+| Runtime | JVM (Java 25) | Node.js / Python | JVM | JVM |
+| Visual Builder | ✅ | ✅ | ❌ | ✅ |
+| User Code Execution | ❌ None | Yes (eval/sandbox) | N/A (library) | Scripts |
+| Critical CVEs (2024-25) | 0 | 3+ (CVSS 9.8-10.0) | 0 | 0 |
+| Config-as-Code | Full JSON | Partial | ❌ | BPMN |
+| MCP Support | 39 Tools | ❌ | ❌ | ❌ |
+| Concurrency | Virtual threads | Event loop / GIL | Platform threads | Platform threads |
+| Audit Trail | Cryptographic | Basic logging | DIY | Process history |
+| Management UI | ✅ (11 languages) | ✅ | ❌ | ✅ |
+| Prometheus/Grafana | 45 panels | ❌ | DIY | ✅ |
+| License | Apache 2.0 | Mixed (SEE/AGPL) | Apache 2.0 | Dual (CE/EE) |
+
+## Getting Started
+
+### Prerequisites
+- Docker and Docker Compose
+- A supported LLM API key (OpenAI, Anthropic, Google, or Ollama for local)
+
+### Quickstart
+1. Visit https://eddi.labs.ai/docs/install-wizard/ for the interactive Install Wizard
+2. Or use Docker Compose directly:
+   ```
+   git clone https://github.com/labsai/EDDI.git
+   cd EDDI
+   docker compose up -d
+   ```
+3. Access EDDI Manager at http://localhost:7070
+4. Access EDDI API at http://localhost:7071
+
+### Configure an Agent
+1. Open EDDI Manager → Create a new Bot
+2. Add a Package with LLM Config (provider, model, temperature)
+3. Add Rules, Output Sets, and HTTP Calls as needed
+4. Deploy the Bot
+5. Test via the side-panel chat
+
+## Use Cases
+
+- **Enterprise Customer Support** — Multi-tenant AI agents with audit trails
+- **Internal Operations Automation** — Tool-calling agents for business processes
+- **Compliance & Regulated Industries** — Cryptographic audit trails, no code execution
+- **Multi-Agent Systems** — Coordinator-based specialist agent routing
+- **AI-Powered APIs** — Headless LLM orchestration via REST/MCP
+
+## Links
+
+- Website: https://eddi.labs.ai
+- GitHub: https://github.com/labsai/EDDI
+- Documentation: https://docs.labs.ai
+- Docker Hub: https://hub.docker.com/r/labsai/eddi
+- License: Apache 2.0

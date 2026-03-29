@@ -80,22 +80,24 @@ hero:
       <thead>
         <tr class="border-b border-gray-700/50">
           <th class="text-left p-4 text-gray-300 font-semibold">Factor</th>
+          <th class="text-left p-4 text-accent-400 font-semibold">EDDI</th>
           <th class="text-left p-4 text-gray-400 font-semibold">Flowise/n8n/Dify</th>
           <th class="text-left p-4 text-gray-400 font-semibold">Spring AI/LC4j</th>
           <th class="text-left p-4 text-gray-400 font-semibold">Camunda</th>
-          <th class="text-left p-4 text-accent-400 font-semibold">EDDI</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Runtime</td><td class="p-4 text-gray-500">Node.js / Python</td><td class="p-4 text-gray-500">JVM</td><td class="p-4 text-gray-500">JVM</td><td class="p-4 text-accent-300">JVM (Java 25)</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Visual Builder</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">User Code Execution</td><td class="p-4 text-red-400">Yes (eval/sandbox)</td><td class="p-4 text-gray-500">N/A (library)</td><td class="p-4 text-gray-500">Scripts</td><td class="p-4 text-accent-300">❌ None</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Critical CVEs (2024-25)</td><td class="p-4 text-red-400">3+ (CVSS 9.8-10.0)</td><td class="p-4 text-gray-500">0</td><td class="p-4 text-gray-500">0</td><td class="p-4 text-accent-300">0</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Config-as-Code</td><td class="p-4 text-gray-500">Partial</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">BPMN</td><td class="p-4 text-accent-300">Full JSON</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">MCP Support</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">39 Tools</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Concurrency</td><td class="p-4 text-gray-500">Event loop / GIL</td><td class="p-4 text-gray-500">Platform threads</td><td class="p-4 text-gray-500">Platform threads</td><td class="p-4 text-accent-300">Virtual threads</td></tr>
-        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Audit Trail</td><td class="p-4 text-gray-500">Basic logging</td><td class="p-4 text-gray-500">DIY</td><td class="p-4 text-accent-300">Process history</td><td class="p-4 text-accent-300">Cryptographic</td></tr>
-        <tr><td class="p-4 text-gray-400">License</td><td class="p-4 text-gray-500">Mixed (SEE/AGPL)</td><td class="p-4 text-accent-300">Apache 2.0</td><td class="p-4 text-gray-500">Dual (CE/EE)</td><td class="p-4 text-accent-300">Apache 2.0</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Runtime</td><td class="p-4 text-accent-300">JVM (Java 25)</td><td class="p-4 text-gray-500">Node.js / Python</td><td class="p-4 text-gray-500">JVM</td><td class="p-4 text-gray-500">JVM</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Visual Builder</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">User Code Execution</td><td class="p-4 text-accent-300">❌ None</td><td class="p-4 text-red-400">Yes (eval/sandbox)</td><td class="p-4 text-gray-500">N/A (library)</td><td class="p-4 text-gray-500">Scripts</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Critical CVEs (2024-25)</td><td class="p-4 text-accent-300">0</td><td class="p-4 text-red-400">3+ (CVSS 9.8-10.0)</td><td class="p-4 text-gray-500">0</td><td class="p-4 text-gray-500">0</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Config-as-Code</td><td class="p-4 text-accent-300">Full JSON</td><td class="p-4 text-gray-500">Partial</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">BPMN</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">MCP Support</td><td class="p-4 text-accent-300">39 Tools</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">❌</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Concurrency</td><td class="p-4 text-accent-300">Virtual threads</td><td class="p-4 text-gray-500">Event loop / GIL</td><td class="p-4 text-gray-500">Platform threads</td><td class="p-4 text-gray-500">Platform threads</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Audit Trail</td><td class="p-4 text-accent-300">Cryptographic</td><td class="p-4 text-gray-500">Basic logging</td><td class="p-4 text-gray-500">DIY</td><td class="p-4 text-accent-300">Process history</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Management UI</td><td class="p-4 text-accent-300">✅ (11 languages)</td><td class="p-4 text-accent-300">✅</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr class="border-b border-gray-800/50"><td class="p-4 text-gray-400">Prometheus/Grafana</td><td class="p-4 text-accent-300">45 panels</td><td class="p-4 text-gray-500">❌</td><td class="p-4 text-gray-500">DIY</td><td class="p-4 text-accent-300">✅</td></tr>
+        <tr><td class="p-4 text-gray-400">License</td><td class="p-4 text-accent-300">Apache 2.0</td><td class="p-4 text-gray-500">Mixed (SEE/AGPL)</td><td class="p-4 text-accent-300">Apache 2.0</td><td class="p-4 text-gray-500">Dual (CE/EE)</td></tr>
       </tbody>
     </table>
   </div>

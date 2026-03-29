@@ -4,6 +4,19 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+- `feat(website)`: **llms.txt + llms-full.txt** — Added AI discoverability files following the [llmstxt.org](https://llmstxt.org) standard. `llms.txt` is a curated table-of-contents, `llms-full.txt` is a comprehensive single-pass ingest document. Both discoverable via `<link>` tags in HTML head and referenced in `robots.txt`.
+- `fix(website)`: **Comparison Table Column Reorder** — Moved EDDI column to 2nd position (right after Factor/Capability) in both `vs-alternatives.mdx` and `why-eddi.mdx`. On mobile, users now see EDDI's advantages immediately without horizontal scrolling.
+- `fix(website)`: **Mobile Section Spacing** — Reduced `py-24` to `py-12` (3rem) on splash pages at `<50rem` viewports to eliminate excessive whitespace dead zones between sections. Also tightened section heading margins.
+
+- `feat(website)`: **EDDI Manager Feature Page** — New `/features/manager/` page showcasing the React management UI: agent builder, live chat & debug, audit/logs/coordinator dashboards, deploy & schedule, 11-locale i18n, and guided onboarding. Includes "Why a Manager Matters" comparison and resource editor showcase.
+- `feat(website)`: **Landing Page Content Refresh** — Updated hero tagline to mention visual management. Enriched FAQ "What is EDDI?" to cover the Manager UI, immutable audit trails, and 11-language support. Updated "The Solution" section description.
+- `feat(website)`: **Features Overview Manager Card** — Added EDDI Manager as the first card in the Core Platform section of the features overview page.
+- `feat(website)`: **Navigation: Manager Link** — Added EDDI Manager to header Features dropdown (first position) and mobile menu.
+- `feat(website)`: **Observability: Prometheus & Grafana** — New section on the observability page covering the 45-panel Operations Command Center dashboard with conversation lifecycle, tool execution, multi-agent orchestration, JVM/infrastructure, database/messaging, and tenant quota monitoring panels.
+- `feat(website)`: **Roadmap Corrections** — Moved EDDI Manager UI from "In Development" to v6.0 completed. Replaced stale near-term items with actual development priorities: Persistent User Memory, Intelligent Context Management, and Grafana Operations Center.
+- `feat(website)`: **Comparison Table: New Rows** — Added "Management UI" and "Prometheus/Grafana" rows to the vs-alternatives comparison matrix.
+- `fix(website)`: Fixed multi-agent page environment typo (production/production → staging/production).
+- `fix(website)`: Fixed observability page CTA link pointing to wrong section.
 - `feat(website)`: **Light/Dark Mode Optimization** — Added comprehensive light mode support via CSS-level overrides in `global.css`, remapping all hardcoded dark-mode Tailwind classes (`text-white`, `bg-gray-900/*`, `border-gray-700/*`, etc.) to appropriate light-mode equivalents. Covers all 20+ MDX content pages without individual file edits.
 - `feat(website)`: **Gold/Amber Logo Rebrand** — Updated both SVG logo variants (`eddi-logo-dark.svg`, `eddi-logo-light.svg`) from blue to gold/amber brand identity. Footer now uses actual logo image with automatic light/dark switching instead of text.
 - `fix(website)`: **Navigation Sizing** — Reduced header logo from 2.5rem to 1.8rem. Increased nav link font-size from 0.8125rem to 0.9375rem for better readability.

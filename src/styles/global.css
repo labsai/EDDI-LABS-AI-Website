@@ -81,6 +81,17 @@ body {
 	:global([data-page-template="splash"] .hero .hero-html) {
 		text-align: center;
 	}
+
+	/* Reduce section spacing on mobile to eliminate scroll dead-zones */
+	:global([data-page-template="splash"] .sl-markdown-content section) {
+		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
+	}
+
+	/* Tighten section heading margins on mobile */
+	:global([data-page-template="splash"] .sl-markdown-content section .text-center.mb-16) {
+		margin-bottom: 2rem !important;
+	}
 }
 
 /* ===== SMOOTH SCROLL ===== */

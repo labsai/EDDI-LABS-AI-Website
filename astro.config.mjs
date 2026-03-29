@@ -96,6 +96,15 @@ export default defineConfig({
 						sameAs: ['https://github.com/labsai/EDDI'],
 					}),
 				},
+				// LLM / AI agent content maps (https://llmstxt.org)
+				{
+					tag: 'link',
+					attrs: { rel: 'author', type: 'text/markdown', href: '/llms.txt' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'author', type: 'text/markdown', href: '/llms-full.txt' },
+				},
 				// JSON-LD: WebSite with search
 				{
 					tag: 'script',
@@ -123,7 +132,7 @@ export default defineConfig({
 						name: 'EDDI',
 						applicationCategory: 'DeveloperApplication',
 						operatingSystem: 'Cross-platform (JVM)',
-						description: 'JVM-native visual AI orchestration middleware. Configuration-driven agent logic, 39 MCP tools, security-first architecture, Java 25 Virtual Threads on Quarkus.',
+						description: 'JVM-native AI orchestration middleware with a visual management UI. Configuration-driven agent logic, 39 MCP tools, security-first architecture, 11-locale i18n, and Java 25 Virtual Threads on Quarkus.',
 						url: 'https://eddi.labs.ai',
 						downloadUrl: 'https://github.com/labsai/EDDI',
 						softwareVersion: '6.0',

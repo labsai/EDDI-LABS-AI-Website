@@ -1,0 +1,233 @@
+---
+title: "EDDI Manager: Visual Agent Control"
+description: "A production-grade React management UI for building, deploying, testing, and monitoring AI agents — with 11-locale i18n, interactive onboarding, and real-time observability dashboards."
+template: splash
+hero:
+  title: |
+    Visual Control.
+    <span class="text-gradient-dynamic">
+      Zero Friction.
+    </span>
+  tagline: "Build, deploy, test, and monitor AI agents from a premium management UI — no JSON editing required. 11 languages, dark/light mode, and interactive onboarding built in."
+  image:
+    file: ../../../assets/hero_manager.jpg
+  actions:
+    - text: Get Started
+      link: /docs/getting-started/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/labsai/EDDI
+      icon: external
+      variant: minimal
+---
+
+<section class="py-24 max-w-7xl mx-auto">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Complete Agent Lifecycle</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">The EDDI Manager covers the <strong>entire agent lifecycle</strong> — from first configuration to production monitoring — in a single, cohesive interface.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">01</div>
+      <h3 class="text-xl font-bold text-white mb-3">Agent Builder</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Create and configure agents with <strong>visual form editors</strong> for rules, LLM settings, output templates, HTTP calls, and workflows. No JSON hand-editing needed — the Manager generates valid configurations automatically.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">02</div>
+      <h3 class="text-xl font-bold text-white mb-3">Live Chat & Debug</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Test agents directly in a <strong>side-panel chat</strong> with an integrated DebugDrawer. See real-time tool calls, LLM reasoning, token usage, and pipeline step timing — all while chatting.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">03</div>
+      <h3 class="text-xl font-bold text-white mb-3">Audit & Logs Dashboards</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Dedicated dashboards for <strong>audit trails</strong> (per-task LLM details, cost, timing), <strong>pipeline logs</strong> (filterable server-side errors), and <strong>coordinator events</strong> (agent orchestration tracking).</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">04</div>
+      <h3 class="text-xl font-bold text-white mb-3">Deploy & Schedule</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">One-click <strong>deploy and undeploy</strong> agents across environments. Visual schedule management with cron expression builders for automated agent conversations.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">05</div>
+      <h3 class="text-xl font-bold text-white mb-3">11-Locale i18n</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow">Full internationalization across <strong>11 languages</strong> including RTL Arabic support. Every label, tooltip, and onboarding step is localized. Teams worldwide work in their native language.</p>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+      <div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 shadow-[0_0_15px_rgba(var(--color-accent-500-rgb),0.1)] group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">06</div>
+      <h3 class="text-xl font-bold text-white mb-3">Guided Onboarding</h3>
+      <p class="text-gray-400 text-sm leading-relaxed grow"><strong>Interactive step-by-step tours</strong> guide new users through the platform. Auto-triggered on first visit, non-intrusive, and fully localized across all 11 languages.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Why a Management UI Matters</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">REST APIs and MCP tools are powerful — but <strong>visual management</strong> unlocks an entirely different user group.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-red-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-red-500/20 to-red-900/40 border border-red-500/30 flex items-center justify-center text-red-400 shadow-[0_0_30px_rgba(239,68,68,0.2)] group-hover:scale-110 transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">Without a Manager</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow">
+        <ol class="list-decimal list-inside space-y-1 mb-4 text-gray-400">
+          <li>Hand-craft JSON configurations</li>
+          <li>POST to REST API via curl/Postman</li>
+          <li>Manually track resource IDs and versions</li>
+          <li>Write scripts to query audit logs</li>
+          <li>Only developers can iterate on prompts</li>
+        </ol>
+        <p class="text-red-400 font-semibold">Prompt engineers locked out of the loop.</p>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+      <div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_rgba(var(--color-accent-500-rgb),0.2)] group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(var(--color-accent-500-rgb),0.5)] transition-all duration-500">
+        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 class="text-xl font-bold text-white mb-3">With EDDI Manager</h3>
+      <div class="text-gray-400 text-sm leading-relaxed grow">
+        <ol class="list-decimal list-inside space-y-1 mb-4 text-gray-400">
+          <li>Fill in forms, click Deploy</li>
+          <li>Test in the side-panel chat instantly</li>
+          <li>Iterate on prompts and rules visually</li>
+          <li>Browse audit trails in a dedicated dashboard</li>
+          <li>Prompt engineers and developers collaborate</li>
+        </ol>
+        <p class="text-accent-400 font-semibold">Everyone on the team can iterate on agents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-7xl mx-auto border-t border-gray-800/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">Resource Editors</h2>
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Every EDDI resource type has a <strong>dedicated visual editor</strong> — purpose-built forms instead of raw JSON.</p>
+  </div>
+
+  <div class="not-content grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8l-5-5z"/><path d="M15 3v5h5"/><path d="M10 12l-2 2 2 2"/><path d="M14 12l2 2-2 2"/></svg>
+      <strong class="text-white text-sm mb-1">Rules</strong>
+      <span class="text-xs text-gray-500">Conditional logic editor</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      <strong class="text-white text-sm mb-1">LLM Config</strong>
+      <span class="text-xs text-gray-500">Provider, model, temperature</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <strong class="text-white text-sm mb-1">Output Sets</strong>
+      <span class="text-xs text-gray-500">Response templates</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <strong class="text-white text-sm mb-1">HTTP Calls</strong>
+      <span class="text-xs text-gray-500">API integration builder</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      <strong class="text-white text-sm mb-1">Workflows</strong>
+      <span class="text-xs text-gray-500">Pipeline composition</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <strong class="text-white text-sm mb-1">Agents</strong>
+      <span class="text-xs text-gray-500">Deploy & version control</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <strong class="text-white text-sm mb-1">Schedules</strong>
+      <span class="text-xs text-gray-500">Cron-based automation</span>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+      <svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+      <strong class="text-white text-sm mb-1">Triggers</strong>
+      <span class="text-xs text-gray-500">Intent routing rules</span>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
+  </div>
+
+<details>
+<summary><strong>Is the Manager included in the open-source version?</strong></summary>
+
+Yes. The EDDI Manager is fully open-source under the same Apache 2.0 license as the EDDI backend. There is no "community vs. enterprise" split — all features are available in the open-source version.
+
+</details>
+
+<details>
+<summary><strong>What tech stack is the Manager built on?</strong></summary>
+
+The EDDI Manager is a **React** single-page application built with modern tooling: React Router for navigation, i18next for internationalization, and a component library optimized for the EDDI API surface. It communicates with EDDI via the standard REST API.
+
+</details>
+
+<details>
+<summary><strong>Can I still use the REST API and MCP tools directly?</strong></summary>
+
+Absolutely. The Manager is one of three interfaces to EDDI — alongside the **REST API** (for programmatic integration) and the **MCP server** (for AI-native control via Claude Desktop, Cursor, etc.). All three interfaces are fully interchangeable; changes made in the Manager are immediately visible via API and vice versa.
+
+</details>
+
+<details>
+<summary><strong>Which languages does the Manager support?</strong></summary>
+
+The Manager supports **11 locales**: English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Czech, Turkish, and Arabic (with full RTL layout support). All UI elements, tooltips, error messages, and onboarding tours are fully translated.
+
+</details>
+</section>
+
+<section class="py-16 max-w-5xl mx-auto border-t border-gray-800/60 mb-20">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-white! border-0! text-center">Explore More</h2>
+  </div>
+
+  <div class="not-content grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="/docs/getting-started/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+      <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Get Started →</h4>
+      <p class="text-gray-400 text-sm">Install EDDI and create your first agent in 5 minutes.</p>
+    </a>
+    <a href="/features/observability/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+      <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Observability →</h4>
+      <p class="text-gray-400 text-sm">Audit trails, pipeline logs, and Prometheus/Grafana monitoring.</p>
+    </a>
+    <a href="/features/config-as-code/" class="flex flex-col p-5 rounded-2xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 no-underline group">
+      <h4 class="text-base font-semibold text-white mb-1 group-hover:text-accent-400 transition-colors">Config-as-Code →</h4>
+      <p class="text-gray-400 text-sm">The JSON configuration paradigm behind the Manager's visual editors.</p>
+    </a>
+  </div>
+</section>

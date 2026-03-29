@@ -1,53 +1,50 @@
-# Starlight Starter Kit: Tailwind
+# EDDI Website
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+> Marketing and documentation site for [EDDI](https://github.com/labsai/EDDI) — the multi-agent orchestration middleware for conversational AI.
 
-```
-npm create astro@latest -- --template starlight/tailwind
-```
+**Live at:** [eddi.labs.ai](https://eddi.labs.ai)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack
 
-## 🚀 Project Structure
+| Technology   | Purpose              |
+| ------------ | -------------------- |
+| Astro        | Static site framework |
+| Starlight    | Documentation theme  |
+| Tailwind CSS | Styling              |
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Development
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   ├── styles/
-│   │   └── global.css
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```bash
+npm install
+npm run dev          # http://localhost:4321
+npm run build        # Production build → ./dist/
+npm run preview      # Preview production build
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Deployment
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+The site is deployed to **GitHub Pages** at `eddi.labs.ai` (configured via the `CNAME` file).
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Project Structure
 
-The project includes [Tailwind CSS](https://starlight.astro.build/guides/css-and-tailwind/#tailwind-css) for styling. Customize your design by modifying `src/styles/global.css`.
+```
+src/
+├── assets/          # Images and media
+├── content/
+│   └── docs/        # Documentation pages (.md / .mdx)
+│       ├── docs/    # Technical documentation
+│       └── features/ # Feature showcase pages
+├── styles/
+│   └── global.css   # Custom styles
+└── content.config.ts
+```
 
-## 🧞 Commands
+## Related Repos
 
-All commands are run from the root of the project, from a terminal:
+- [EDDI](https://github.com/labsai/EDDI) — Backend engine (Java 25, Quarkus)
+- [EDDI-Manager](https://github.com/labsai/EDDI-Manager) — Admin dashboard (React 19)
+- [eddi-chat-ui](https://github.com/labsai/eddi-chat-ui) — Standalone chat widget
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## License
 
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+See [EDDI License](https://github.com/labsai/EDDI/blob/master/LICENSE) for details.
