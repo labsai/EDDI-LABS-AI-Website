@@ -1,23 +1,12 @@
 ---
 /**
- * Custom EDDI footer with premium design.
- * Extends Starlight's default Footer (pagination/edit/lastUpdated).
- * The branded site-wide footer is only shown on non-docs pages (homepage, features, enterprise).
+ * Custom EDDI footer — standalone (no Starlight dependencies).
  */
-import Default from '@astrojs/starlight/components/Footer.astro';
-
-const isDocsPage = Astro.url.pathname.startsWith('/docs/');
-
 import eddiLogoDark from '../assets/eddi-logo-dark.svg';
 import eddiLogoLight from '../assets/eddi-logo-light.svg';
 ---
 
-<!-- Starlight's default footer (pagination, edit link, last updated) -->
-<Default><slot /></Default>
-
-{!isDocsPage && (
-<!-- Site-wide footer (hidden on docs pages) -->
-<footer class="eddi-site-footer not-content">
+<footer class="eddi-site-footer">
 	<div class="eddi-footer-inner">
 
 		<!-- Trust bar -->
@@ -73,12 +62,9 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 			<!-- Develop column -->
 			<div class="eddi-footer-col">
 				<h3>Develop</h3>
-				<a href="/docs/getting-started/">Getting Started</a>
-				<a href="/docs/quickstart/">Quickstart</a>
-				<a href="/docs/install-wizard/">Install Wizard</a>
-				<a href="/docs/mcp/overview/">MCP Tools</a>
-				<a href="/docs/integrations/">Integrations</a>
-				<a href="/docs/api/rest/">REST API</a>
+				<a href="/getting-started/">Getting Started</a>
+				<a href="https://docs.labs.ai" target="_blank" rel="noopener">Documentation ↗</a>
+				<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">GitHub ↗</a>
 			</div>
 
 			<!-- Resources column -->
@@ -87,9 +73,7 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 				<a href="/enterprise/why-eddi/">Why EDDI?</a>
 				<a href="/enterprise/vs-alternatives/">vs. Alternatives</a>
 				<a href="/enterprise/compliance/">EU AI Act</a>
-				<a href="/docs/use-cases/">Use Cases</a>
-				<a href="/docs/roadmap/">Roadmap</a>
-				<a href="/docs/changelog/v6/">Changelog</a>
+				<a href="/use-cases/">Use Cases</a>
 			</div>
 		</div>
 
@@ -102,20 +86,18 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		</div>
 	</div>
 </footer>
-)}
 
-<style is:global>
+<style>
 	.eddi-site-footer {
-		background: color-mix(in srgb, var(--sl-color-bg) 90%, black);
-		border-top: 1px solid var(--sl-color-gray-6);
+		border-top: 1px solid var(--color-border);
 		margin-top: 3rem;
-		/* Break out of Starlight container to be full width */
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
+	}
+
+	html[data-theme='dark'] .eddi-site-footer {
+		background: rgba(3, 3, 5, 0.9);
+	}
+	html[data-theme='light'] .eddi-site-footer {
+		background: #f5f6f8;
 	}
 
 	.eddi-footer-inner {
@@ -139,19 +121,19 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		gap: 0.5rem;
 		font-size: 0.75rem;
 		font-weight: 500;
-		color: var(--sl-color-gray-3);
+		color: var(--color-text-subtle);
 		white-space: nowrap;
 	}
 
 	.eddi-trust-item svg {
-		color: var(--sl-color-text-accent);
+		color: var(--color-accent);
 		flex-shrink: 0;
 	}
 
 	/* ===== DIVIDER ===== */
 	.eddi-footer-divider {
 		height: 1px;
-		background: var(--sl-color-gray-6);
+		background: var(--color-border);
 	}
 
 	/* ===== FOOTER GRID ===== */
@@ -179,46 +161,22 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		width: auto;
 	}
 
-	/* Dark mode: show dark logo, hide light */
-	.eddi-footer-logo-dark {
-		display: block;
-	}
-	.eddi-footer-logo-light {
-		display: none;
-	}
-
-	html[data-theme='light'] .eddi-footer-logo-dark {
-		display: none !important;
-	}
-	html[data-theme='light'] .eddi-footer-logo-light {
-		display: block !important;
-	}
-
-	.eddi-logo-text {
-		font-size: 1.25rem;
-		font-weight: 800;
-		letter-spacing: -0.02em;
-		color: var(--sl-color-white);
-	}
-
-	.eddi-logo-slash {
-		font-size: 1.25rem;
-		font-weight: 400;
-		color: var(--sl-color-text-accent);
-		opacity: 0.8;
-	}
+	.eddi-footer-logo-dark { display: block; }
+	.eddi-footer-logo-light { display: none; }
+	html[data-theme='light'] .eddi-footer-logo-dark { display: none !important; }
+	html[data-theme='light'] .eddi-footer-logo-light { display: block !important; }
 
 	.eddi-footer-tagline {
 		margin: 0.5rem 0 0.125rem;
 		font-size: 0.8125rem;
 		font-weight: 600;
-		color: var(--sl-color-gray-2);
+		color: var(--color-text-muted);
 	}
 
 	.eddi-footer-sub {
 		margin: 0;
 		font-size: 0.75rem;
-		color: var(--sl-color-gray-4);
+		color: var(--color-text-subtle);
 		line-height: 1.4;
 	}
 
@@ -234,15 +192,15 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		justify-content: center;
 		width: 2rem;
 		height: 2rem;
-		color: var(--sl-color-gray-3);
-		background: var(--sl-color-gray-6);
+		color: var(--color-text-subtle);
+		background: var(--color-surface);
 		border-radius: 0.375rem;
 		transition: color 0.15s, background 0.15s;
 	}
 
 	.eddi-footer-social a:hover {
-		color: var(--sl-color-white);
-		background: var(--sl-color-gray-5);
+		color: var(--color-text);
+		background: var(--color-border);
 	}
 
 	/* ===== COLUMNS ===== */
@@ -256,7 +214,7 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: var(--sl-color-gray-2);
+		color: var(--color-text-muted);
 		margin: 0 0 0.625rem;
 	}
 
@@ -264,13 +222,13 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		display: block;
 		padding: 0.2rem 0;
 		font-size: 0.8125rem;
-		color: var(--sl-color-gray-3);
+		color: var(--color-text-subtle);
 		text-decoration: none;
 		transition: color 0.15s;
 	}
 
 	.eddi-footer-col a:hover {
-		color: var(--sl-color-white);
+		color: var(--color-text);
 	}
 
 	/* ===== BOTTOM BAR ===== */
@@ -283,17 +241,17 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 
 	.eddi-footer-bottom p {
 		font-size: 0.6875rem;
-		color: var(--sl-color-gray-4);
+		color: var(--color-text-subtle);
 		margin: 0;
 	}
 
 	.eddi-footer-bottom a {
-		color: var(--sl-color-gray-3);
+		color: var(--color-text-muted);
 		text-decoration: none;
 	}
 
 	.eddi-footer-bottom a:hover {
-		color: var(--sl-color-white);
+		color: var(--color-text);
 	}
 
 	/* ===== RESPONSIVE ===== */
@@ -309,57 +267,6 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		.eddi-trust-bar {
 			gap: 1rem;
 		}
-	}
-
-	/* ===== LIGHT MODE OVERRIDES ===== */
-	html[data-theme='light'] .eddi-site-footer {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
-	}
-
-	html[data-theme='light'] .eddi-trust-item {
-		color: var(--sl-color-gray-2);
-	}
-
-	html[data-theme='light'] .eddi-footer-col h3 {
-		color: var(--sl-color-gray-1);
-	}
-
-	html[data-theme='light'] .eddi-footer-col a {
-		color: var(--sl-color-gray-2);
-	}
-
-	html[data-theme='light'] .eddi-footer-col a:hover {
-		color: var(--sl-color-black);
-	}
-
-	html[data-theme='light'] .eddi-footer-tagline {
-		color: var(--sl-color-gray-1);
-	}
-
-	html[data-theme='light'] .eddi-footer-sub {
-		color: var(--sl-color-gray-3);
-	}
-
-	html[data-theme='light'] .eddi-footer-social a {
-		color: var(--sl-color-gray-2);
-		background: var(--sl-color-gray-6);
-	}
-
-	html[data-theme='light'] .eddi-footer-social a:hover {
-		color: var(--sl-color-black);
-		background: var(--sl-color-gray-5);
-	}
-
-	html[data-theme='light'] .eddi-footer-bottom p {
-		color: var(--sl-color-gray-3);
-	}
-
-	html[data-theme='light'] .eddi-footer-bottom a {
-		color: var(--sl-color-gray-2);
-	}
-
-	html[data-theme='light'] .eddi-footer-bottom a:hover {
-		color: var(--sl-color-black);
 	}
 
 	@media (max-width: 30rem) {
@@ -379,4 +286,3 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		}
 	}
 </style>
-

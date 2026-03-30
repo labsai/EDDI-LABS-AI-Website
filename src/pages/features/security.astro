@@ -1,0 +1,21 @@
+---
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_security.jpg';
+---
+<FeaturePage title="Security-First Architecture" description="No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication — security is an architectural foundation." heroImage={heroImage}>
+
+<h2>Enterprise Security by Design</h2>
+<p>EDDI eliminates entire classes of security vulnerabilities by design. There is <strong>no eval()</strong>, no code execution blocks, and no dynamic code injection — agent behavior is defined through declarative JSON configuration only.</p>
+
+<h3>Security Features</h3>
+<ul>
+<li><strong>Zero eval()</strong> — No dynamic code execution (eliminates CVSS 10.0 RCE risks)</li>
+<li><strong>OIDC/Keycloak</strong> — Enterprise authentication and authorization</li>
+<li><strong>Vault Integration</strong> — Secure secret management for API keys</li>
+<li><strong>Path Traversal Protection</strong> — Input validation at every boundary</li>
+<li><strong>URL Validation</strong> — Prevent SSRF and redirect attacks</li>
+<li><strong>Cryptographic Audit Trails</strong> — Immutable, tamper-evident operation logs</li>
+<li><strong>EU AI Act Ready</strong> — Built-in governance capabilities for regulatory compliance</li>
+</ul>
+
+</FeaturePage>

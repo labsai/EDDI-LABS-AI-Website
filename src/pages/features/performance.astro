@@ -1,0 +1,19 @@
+---
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_performance.jpg';
+---
+<FeaturePage title="Enterprise Performance" description="Java 25 Virtual Threads on Quarkus — millions of lightweight threads for I/O-bound LLM workloads with sub-second boot times." heroImage={heroImage}>
+
+<h2>Built for Scale</h2>
+<p>EDDI runs on <strong>Java 25 with Quarkus</strong>, leveraging Virtual Threads (Project Loom) for massive I/O-bound concurrency. Unlike Node.js event loops, Virtual Threads provide genuine multi-threaded parallelism with minimal overhead.</p>
+
+<h3>Performance Highlights</h3>
+<ul>
+<li><strong>Virtual Threads</strong> — Millions of lightweight threads for concurrent LLM calls</li>
+<li><strong>GraalVM Native Image</strong> — Sub-second boot times, minimal memory footprint</li>
+<li><strong>Quarkus Runtime</strong> — Cloud-native, dev-mode hot reload, optimized for containers</li>
+<li><strong>NATS JetStream</strong> — Horizontal scaling with event-driven architecture</li>
+<li><strong>Dual Database</strong> — MongoDB or PostgreSQL with database abstraction layer</li>
+</ul>
+
+</FeaturePage>

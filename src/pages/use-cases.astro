@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Use Cases" description="Real-world deployment patterns and use cases for the EDDI AI orchestration platform.">
+
+<section class="uc-hero">
+	<div class="uc-hero-inner">
+		<h1>Use Cases</h1>
+		<p>Real-world deployment patterns for the EDDI platform.</p>
+	</div>
+</section>
+
+<article class="uc-content">
+
+<div class="uc-grid">
+	<div class="uc-card">
+		<span class="uc-icon">🏥</span>
+		<h3>Healthcare</h3>
+		<p>Patient intake agents, medical FAQ bots, appointment scheduling — with full audit trails for HIPAA compliance and EU AI Act readiness.</p>
+	</div>
+
+	<div class="uc-card">
+		<span class="uc-icon">🏦</span>
+		<h3>Financial Services</h3>
+		<p>Customer support agents with compliance logging, fraud detection assistants, and internal knowledge base chatbots with cryptographic audit trails.</p>
+	</div>
+
+	<div class="uc-card">
+		<span class="uc-icon">🛒</span>
+		<h3>E-Commerce</h3>
+		<p>Product recommendation agents, order support bots, and multi-language customer service — with intent-based routing across specialized agents.</p>
+	</div>
+
+	<div class="uc-card">
+		<span class="uc-icon">🏭</span>
+		<h3>Manufacturing</h3>
+		<p>Equipment maintenance assistants, quality control agents, and supply chain optimization — running on-premises or in private clouds.</p>
+	</div>
+
+	<div class="uc-card">
+		<span class="uc-icon">🏛️</span>
+		<h3>Government</h3>
+		<p>Citizen inquiry agents, internal process automation, and document analysis — in air-gapped environments with no cloud dependency.</p>
+	</div>
+
+	<div class="uc-card">
+		<span class="uc-icon">🧑‍💻</span>
+		<h3>Developer Platforms</h3>
+		<p>Internal AI services for engineering teams — API-accessible agents that integrate into CI/CD pipelines, code review, and documentation workflows.</p>
+	</div>
+</div>
+
+</article>
+
+</BaseLayout>
+
+<style>
+	.uc-hero {
+		padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem;
+		text-align: center;
+	}
+
+	html[data-theme='dark'] .uc-hero {
+		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
+	}
+	html[data-theme='light'] .uc-hero {
+		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
+	}
+
+	.uc-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		color: var(--color-text);
+		margin: 0 0 0.75rem;
+	}
+
+	.uc-hero p {
+		color: var(--color-text-muted);
+		font-size: 1.125rem;
+		margin: 0;
+	}
+
+	.uc-content {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 6rem;
+	}
+
+	.uc-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: 1.5rem;
+	}
+
+	.uc-card {
+		padding: 2rem;
+		border-radius: 1rem;
+		transition: all 0.3s ease;
+	}
+
+	html[data-theme='dark'] .uc-card {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	html[data-theme='light'] .uc-card {
+		background: #f5f6f8;
+		border: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.uc-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--color-accent);
+	}
+
+	.uc-icon {
+		font-size: 2rem;
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	.uc-card h3 {
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.5rem;
+	}
+
+	.uc-card p {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		margin: 0;
+	}
+</style>

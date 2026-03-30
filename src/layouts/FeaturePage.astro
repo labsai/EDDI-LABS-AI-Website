@@ -1,0 +1,194 @@
+---
+/**
+ * Feature page layout — used by all /features/* and /enterprise/* pages.
+ * Provides a hero section with image, title, and a full content slot.
+ */
+import BaseLayout from './BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	title: string;
+	description: string;
+	heroImage?: ImageMetadata;
+}
+
+const { title, description, heroImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} fullWidth={true}>
+
+<section class="fp-hero hero-gradient">
+	<div class="fp-hero-inner">
+		<div class="fp-hero-text">
+			<h1>{title}</h1>
+			<p class="fp-hero-tagline">{description}</p>
+			<div class="fp-hero-actions">
+				<a href="/getting-started/" class="fp-btn-primary">Get Started →</a>
+				<a href="https://github.com/labsai/EDDI" class="fp-btn-minimal" target="_blank" rel="noopener">View on GitHub ↗</a>
+			</div>
+		</div>
+		{heroImage && (
+			<div class="fp-hero-image">
+				<Image src={heroImage} alt={title} width={480} height={320} loading="eager" decoding="async" />
+			</div>
+		)}
+	</div>
+</section>
+
+<article class="fp-content">
+	<slot />
+</article>
+
+</BaseLayout>
+
+<style>
+	.fp-hero {
+		padding: calc(var(--nav-height, 4rem) + 3rem) 1.5rem 3rem;
+	}
+
+	html[data-theme='dark'] .fp-hero {
+		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
+	}
+	html[data-theme='light'] .fp-hero {
+		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
+	}
+
+	.fp-hero-inner {
+		max-width: 72rem;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+	}
+
+	.fp-hero-text {
+		flex: 1;
+	}
+
+	.fp-hero-text h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		line-height: 1.15;
+		margin: 0 0 1rem;
+		color: var(--color-text);
+	}
+
+	.fp-hero-tagline {
+		font-size: 1.125rem;
+		line-height: 1.65;
+		margin: 0 0 2rem;
+		max-width: 36rem;
+		color: var(--color-text-muted);
+	}
+
+	.fp-hero-actions {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.fp-btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.625rem 1.5rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: #111 !important;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		border-radius: 0.5rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent);
+	}
+
+	.fp-btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent);
+	}
+
+	.fp-btn-minimal {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.625rem 1.5rem;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		color: var(--color-text-muted);
+		border: 1px solid var(--color-border);
+	}
+
+	.fp-btn-minimal:hover {
+		transform: translateY(-2px);
+		color: var(--color-text);
+	}
+
+	.fp-hero-image {
+		flex-shrink: 0;
+		border-radius: 1rem;
+		overflow: hidden;
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+	}
+
+	html[data-theme='light'] .fp-hero-image {
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	.fp-hero-image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: 28rem;
+	}
+
+	.fp-content {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 6rem;
+		color: var(--color-text-muted);
+		line-height: 1.75;
+	}
+
+	.fp-content :global(h2) {
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 3rem 0 1rem;
+	}
+
+	.fp-content :global(h3) {
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 2rem 0 0.75rem;
+	}
+
+	.fp-content :global(p) {
+		margin: 0 0 1rem;
+	}
+
+	.fp-content :global(strong) {
+		color: var(--color-text);
+	}
+
+	.fp-content :global(ul), .fp-content :global(ol) {
+		padding-left: 1.5rem;
+		margin: 0 0 1rem;
+	}
+
+	.fp-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	@media (max-width: 50rem) {
+		.fp-hero-inner {
+			flex-direction: column;
+			text-align: center;
+		}
+		.fp-hero-tagline { max-width: none; }
+		.fp-hero-actions { justify-content: center; }
+		.fp-hero-image { max-width: 20rem; }
+	}
+</style>

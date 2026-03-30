@@ -1,18 +1,20 @@
 ---
 /**
- * Custom EDDI header that replaces Starlight's default Header component.
- * Renders inside Starlight's <header class="header"> wrapper.
+ * Custom EDDI header — standalone (no Starlight dependencies).
+ * Includes: logo, navigation, theme toggle, mobile menu.
  */
-import Search from 'virtual:starlight/components/Search';
-import SiteTitle from 'virtual:starlight/components/SiteTitle';
-import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+import eddiLogoDark from '../assets/eddi-logo-dark.svg';
+import eddiLogoLight from '../assets/eddi-logo-light.svg';
 ---
 
-<div class="eddi-header-row">
+<header class="eddi-header">
 	<div class="eddi-header-inner">
 		<!-- Logo -->
 		<div class="eddi-header-left">
-			<SiteTitle />
+			<a href="/" class="eddi-logo" aria-label="EDDI Home">
+				<img src={eddiLogoDark.src} alt="EDDI" class="eddi-logo-img eddi-logo-dark" width="80" height="20" />
+				<img src={eddiLogoLight.src} alt="EDDI" class="eddi-logo-img eddi-logo-light" width="80" height="20" />
+			</a>
 		</div>
 
 		<!-- Desktop Navigation -->
@@ -93,7 +95,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 				</div>
 			</div>
 
-			<a href="/docs/getting-started/" class="eddi-nav-link">Docs</a>
+			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">Docs <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 
 			<div class="eddi-nav-item has-dropdown">
 				<button class="eddi-nav-link" aria-expanded="false" aria-haspopup="true">
@@ -121,7 +123,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 							<span>Compliance & governance</span>
 						</div>
 					</a>
-					<a href="/docs/use-cases/" class="eddi-dropdown-item">
+					<a href="/use-cases/" class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">📋</span>
 						<div>
 							<strong>Use Cases</strong>
@@ -130,19 +132,18 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 					</a>
 				</div>
 			</div>
-
-			<a href="/docs/mcp/overview/" class="eddi-nav-link">MCP Tools</a>
-			<a href="/docs/changelog/v6/" class="eddi-nav-link">Changelog</a>
 		</nav>
 
 		<!-- Right side -->
 		<div class="eddi-header-right">
-			<Search />
-			<a href="/docs/getting-started/" class="eddi-cta desktop-only">Get Started</a>
+			<a href="/getting-started/" class="eddi-cta desktop-only">Get Started</a>
 			<a href="https://github.com/labsai/EDDI" class="eddi-icon-link desktop-only" aria-label="GitHub" target="_blank" rel="noopener">
 				<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 			</a>
-			<div class="desktop-only"><ThemeSelect /></div>
+			<button class="eddi-theme-toggle desktop-only" aria-label="Toggle theme" title="Toggle theme">
+				<svg class="eddi-theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="eddi-theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+			</button>
 			<button class="eddi-hamburger mobile-only" aria-label="Open menu" aria-expanded="false">
 				<span class="eddi-hamburger-line"></span>
 				<span class="eddi-hamburger-line"></span>
@@ -150,7 +151,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 			</button>
 		</div>
 	</div>
-</div>
+</header>
 
 <!-- Mobile menu overlay -->
 <div class="eddi-mobile-menu" id="eddi-mobile-menu" aria-hidden="true">
@@ -169,41 +170,42 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 			<a href="/features/ai-ready/">AI-Ready</a>
 		</div>
 		<div class="eddi-mobile-section">
-			<h3>Documentation</h3>
-			<a href="/docs/getting-started/">Getting Started</a>
-			<a href="/docs/quickstart/">Quickstart</a>
-			<a href="/docs/install-wizard/">Install Wizard</a>
-			<a href="/docs/architecture/seven-pillars/">Architecture</a>
-			<a href="/docs/mcp/overview/">MCP Tools</a>
-			<a href="/docs/integrations/">Integrations</a>
-			<a href="/docs/deployment/docker/">Docker & K8s</a>
-			<a href="/docs/api/rest/">REST API</a>
-		</div>
-		<div class="eddi-mobile-section">
 			<h3>Solutions</h3>
 			<a href="/enterprise/why-eddi/">Why EDDI?</a>
 			<a href="/enterprise/vs-alternatives/">vs. Alternatives</a>
 			<a href="/enterprise/compliance/">EU AI Act</a>
-			<a href="/docs/use-cases/">Use Cases</a>
+			<a href="/use-cases/">Use Cases</a>
 		</div>
 		<div class="eddi-mobile-section">
-			<h3>Community</h3>
+			<h3>Resources</h3>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener">Documentation ↗</a>
 			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">GitHub ↗</a>
-			<a href="/docs/roadmap/">Roadmap</a>
-			<a href="/docs/changelog/v6/">Changelog</a>
 		</div>
 		<div class="eddi-mobile-cta">
-			<a href="/docs/getting-started/" class="eddi-cta">Get Started</a>
+			<a href="/getting-started/" class="eddi-cta">Get Started</a>
 		</div>
 	</div>
 </div>
 
 <style>
-	/* ===== HEADER ROW ===== */
-	.eddi-header-row {
-		display: flex;
-		align-items: center;
-		width: 100%;
+	/* ===== HEADER ===== */
+	.eddi-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		height: var(--nav-height, 4rem);
+		border-bottom: 1px solid var(--color-border);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+
+	html[data-theme='dark'] .eddi-header {
+		background: rgba(3, 3, 5, 0.85);
+	}
+	html[data-theme='light'] .eddi-header {
+		background: rgba(255, 255, 255, 0.85);
 	}
 
 	.eddi-header-inner {
@@ -213,13 +215,32 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		width: 100%;
 		max-width: 80rem;
 		margin: 0 auto;
-		padding: 0 1rem;
-		height: 3.5rem;
+		padding: 0 1.5rem;
+		height: 100%;
 	}
 
 	.eddi-header-left {
 		flex-shrink: 0;
 	}
+
+	/* ===== LOGO ===== */
+	.eddi-logo {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	.eddi-logo-img {
+		height: 1.1rem;
+		width: auto;
+	}
+
+	/* Theme-aware logo */
+	.eddi-logo-dark { display: block; }
+	.eddi-logo-light { display: none; }
+
+	html[data-theme='light'] .eddi-logo-dark { display: none; }
+	html[data-theme='light'] .eddi-logo-light { display: block; }
 
 	/* ===== DESKTOP NAV ===== */
 	.eddi-nav {
@@ -237,7 +258,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		align-items: center;
 		gap: 0.25rem;
 		padding: 0.4375rem 0.625rem;
-		color: var(--sl-color-gray-2);
+		color: var(--color-text-muted);
 		text-decoration: none;
 		font-size: 0.9375rem;
 		font-weight: 500;
@@ -247,12 +268,12 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		cursor: pointer;
 		transition: color 0.15s, background 0.15s;
 		white-space: nowrap;
-		font-family: var(--sl-font);
+		font-family: inherit;
 	}
 
 	.eddi-nav-link:hover {
-		color: var(--sl-color-white);
-		background: var(--sl-color-gray-6);
+		color: var(--color-text);
+		background: var(--color-surface);
 	}
 
 	.eddi-chevron {
@@ -265,8 +286,8 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		top: calc(100% + 0.5rem);
 		left: 50%;
 		transform: translateX(-50%) translateY(4px);
-		background: var(--sl-color-bg-nav);
-		border: 1px solid var(--sl-color-gray-6);
+		background: var(--color-bg-elevated);
+		border: 1px solid var(--color-border);
 		border-radius: 0.75rem;
 		box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
 		opacity: 0;
@@ -293,8 +314,8 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	}
 
 	.has-dropdown:hover > .eddi-nav-link {
-		color: var(--sl-color-white);
-		background: var(--sl-color-gray-6);
+		color: var(--color-text);
+		background: var(--color-surface);
 	}
 
 	.eddi-dropdown-grid {
@@ -310,12 +331,12 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		padding: 0.5rem 0.625rem;
 		border-radius: 0.375rem;
 		text-decoration: none;
-		color: var(--sl-color-gray-2);
+		color: var(--color-text-muted);
 		transition: background 0.15s;
 	}
 
 	.eddi-dropdown-item:hover {
-		background: var(--sl-color-gray-6);
+		background: var(--color-surface);
 	}
 
 	.eddi-dropdown-icon {
@@ -328,18 +349,18 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		display: block;
 		font-size: 0.8125rem;
 		font-weight: 600;
-		color: var(--sl-color-white);
+		color: var(--color-text);
 		margin-bottom: 0.0625rem;
 	}
 
 	.eddi-dropdown-item div span {
 		font-size: 0.6875rem;
-		color: var(--sl-color-gray-3);
+		color: var(--color-text-subtle);
 		line-height: 1.3;
 	}
 
 	.eddi-dropdown-footer {
-		border-top: 1px solid var(--sl-color-gray-6);
+		border-top: 1px solid var(--color-border);
 		margin-top: 0.375rem;
 		padding-top: 0.375rem;
 	}
@@ -349,14 +370,14 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		padding: 0.3125rem 0.625rem;
 		font-size: 0.8125rem;
 		font-weight: 500;
-		color: var(--sl-color-text-accent);
+		color: var(--color-accent);
 		text-decoration: none;
 		border-radius: 0.25rem;
 		transition: background 0.15s;
 	}
 
 	.eddi-dropdown-footer a:hover {
-		background: color-mix(in srgb, var(--sl-color-accent) 10%, transparent);
+		background: color-mix(in srgb, var(--color-accent) 10%, transparent);
 	}
 
 	/* ===== RIGHT SIDE ===== */
@@ -373,7 +394,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		font-size: 0.8125rem;
 		font-weight: 600;
 		color: white !important;
-		background: var(--sl-color-accent);
+		background: var(--color-accent);
 		border-radius: 0.375rem;
 		text-decoration: none;
 		transition: background 0.15s, box-shadow 0.15s;
@@ -381,22 +402,49 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	}
 
 	.eddi-cta:hover {
-		background: color-mix(in srgb, var(--sl-color-accent) 85%, white);
-		box-shadow: 0 0 16px color-mix(in srgb, var(--sl-color-accent) 30%, transparent);
+		background: color-mix(in srgb, var(--color-accent) 85%, white);
+		box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 30%, transparent);
 	}
 
 	.eddi-icon-link {
 		display: flex;
 		align-items: center;
 		padding: 0.25rem;
-		color: var(--sl-color-gray-2);
+		color: var(--color-text-muted);
 		border-radius: 0.25rem;
 		transition: color 0.15s;
 	}
 
 	.eddi-icon-link:hover {
-		color: var(--sl-color-white);
+		color: var(--color-text);
 	}
+
+	/* ===== THEME TOGGLE ===== */
+	.eddi-theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.375rem;
+		background: none;
+		border: none;
+		border-radius: 0.375rem;
+		cursor: pointer;
+		color: var(--color-text-muted);
+		transition: color 0.15s, background 0.15s;
+	}
+
+	.eddi-theme-toggle:hover {
+		color: var(--color-text);
+		background: var(--color-surface);
+	}
+
+	/* In dark mode: show sun (to switch to light), hide moon */
+	html[data-theme='dark'] .eddi-theme-icon-sun { display: block; }
+	html[data-theme='dark'] .eddi-theme-icon-moon { display: none; }
+
+	/* In light mode: show moon (to switch to dark), hide sun */
+	html[data-theme='light'] .eddi-theme-icon-sun { display: none; }
+	html[data-theme='light'] .eddi-theme-icon-moon { display: block; }
 
 	/* ===== HAMBURGER ===== */
 	.eddi-hamburger {
@@ -414,14 +462,14 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	}
 
 	.eddi-hamburger:hover {
-		background: var(--sl-color-gray-6);
+		background: var(--color-surface);
 	}
 
 	.eddi-hamburger-line {
 		display: block;
 		width: 100%;
 		height: 2px;
-		background: var(--sl-color-gray-2);
+		background: var(--color-text-muted);
 		border-radius: 1px;
 		transition: transform 0.3s, opacity 0.3s;
 	}
@@ -440,11 +488,11 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	.eddi-mobile-menu {
 		display: none;
 		position: fixed;
-		top: 4rem;
+		top: var(--nav-height, 4rem);
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: var(--sl-color-bg);
+		background: var(--color-bg);
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		transform: translateX(100%);
@@ -469,14 +517,14 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: var(--sl-color-gray-3);
+		color: var(--color-text-subtle);
 		margin: 0 0 0.375rem 0.625rem;
 	}
 
 	.eddi-mobile-section a {
 		display: block;
 		padding: 0.5rem 0.625rem;
-		color: var(--sl-color-gray-1);
+		color: var(--color-text-muted);
 		text-decoration: none;
 		font-size: 0.875rem;
 		border-radius: 0.375rem;
@@ -484,12 +532,12 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 	}
 
 	.eddi-mobile-section a:hover {
-		background: var(--sl-color-gray-6);
+		background: var(--color-surface);
 	}
 
 	.eddi-mobile-cta {
 		padding-top: 0.75rem;
-		border-top: 1px solid var(--sl-color-gray-6);
+		border-top: 1px solid var(--color-border);
 	}
 
 	.eddi-mobile-cta .eddi-cta {
@@ -520,67 +568,15 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 		}
 	}
 
-	/* ===== ACTIVE NAV ===== */
-	:global(.eddi-nav-active) {
-		color: var(--sl-color-text-accent) !important;
-		background: color-mix(in srgb, var(--sl-color-accent) 8%, transparent) !important;
-	}
-
-	/* ===== LIGHT MODE ===== */
-	:global(html[data-theme='light']) .eddi-nav-link {
-		color: var(--sl-color-gray-2);
-	}
-
-	:global(html[data-theme='light']) .eddi-nav-link:hover {
-		color: var(--sl-color-black);
-		background: var(--sl-color-gray-6);
-	}
-
-	:global(html[data-theme='light']) .has-dropdown:hover > .eddi-nav-link {
-		color: var(--sl-color-black);
-	}
-
-	:global(html[data-theme='light']) .eddi-dropdown {
-		background: var(--sl-color-bg-nav);
-		border-color: var(--sl-color-gray-5);
+	/* ===== LIGHT MODE DROPDOWN SHADOWS ===== */
+	html[data-theme='light'] .eddi-dropdown {
 		box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
-	}
-
-	:global(html[data-theme='light']) .eddi-dropdown-item {
-		color: var(--sl-color-gray-2);
-	}
-
-	:global(html[data-theme='light']) .eddi-dropdown-item strong {
-		color: var(--sl-color-black);
-	}
-
-	:global(html[data-theme='light']) .eddi-dropdown-item:hover {
-		background: var(--sl-color-gray-6);
-	}
-
-	:global(html[data-theme='light']) .eddi-hamburger-line {
-		background: var(--sl-color-gray-2);
-	}
-
-	:global(html[data-theme='light']) .eddi-mobile-section h3 {
-		color: var(--sl-color-gray-3);
-	}
-
-	:global(html[data-theme='light']) .eddi-mobile-section a {
-		color: var(--sl-color-gray-1);
-	}
-
-	:global(html[data-theme='light']) .eddi-icon-link {
-		color: var(--sl-color-gray-2);
-	}
-
-	:global(html[data-theme='light']) .eddi-icon-link:hover {
-		color: var(--sl-color-black);
 	}
 </style>
 
 <script>
 	function initEddiHeader() {
+		// === Hamburger ===
 		const hamburger = document.querySelector('.eddi-hamburger');
 		const mobileMenu = document.getElementById('eddi-mobile-menu');
 
@@ -601,7 +597,17 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 			});
 		}
 
-		// Highlight active section
+		// === Theme toggle ===
+		document.querySelectorAll('.eddi-theme-toggle').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const current = document.documentElement.getAttribute('data-theme');
+				const next = current === 'dark' ? 'light' : 'dark';
+				document.documentElement.setAttribute('data-theme', next);
+				localStorage.setItem('eddi-theme', next);
+			});
+		});
+
+		// === Highlight active section ===
 		const path = window.location.pathname;
 		document.querySelectorAll('.eddi-nav > .eddi-nav-link, .eddi-nav > .eddi-nav-item > .eddi-nav-link').forEach(el => {
 			const link = el as HTMLElement;
@@ -612,10 +618,7 @@ import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 			const checkHref = href || firstDropdownHref;
 			if (
 				(checkHref.startsWith('/features/') && path.startsWith('/features/')) ||
-				(checkHref.startsWith('/docs/getting-started') && path.startsWith('/docs/') && !path.startsWith('/docs/mcp/') && !path.startsWith('/docs/changelog/') && !path.startsWith('/docs/use-cases/') && !path.startsWith('/docs/roadmap/') && !path.startsWith('/docs/integrations/')) ||
-				(checkHref.startsWith('/docs/mcp/') && path.startsWith('/docs/mcp/')) ||
-				(checkHref.startsWith('/docs/changelog/') && path.startsWith('/docs/changelog/')) ||
-				((checkHref.startsWith('/enterprise/') || checkHref.startsWith('/docs/use-cases/')) && (path.startsWith('/enterprise/') || path.startsWith('/docs/use-cases/')))
+				((checkHref.startsWith('/enterprise/') || checkHref.startsWith('/use-cases/')) && (path.startsWith('/enterprise/') || path.startsWith('/use-cases/')))
 			) {
 				link.classList.add('eddi-nav-active');
 			}

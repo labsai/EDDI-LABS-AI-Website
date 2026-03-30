@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Getting Started" description="Install EDDI, create your first agent, and start chatting in 5 minutes.">
+
+<section class="gs-hero">
+	<div class="gs-hero-inner">
+		<h1>Get Started with EDDI</h1>
+		<p class="gs-subtitle">Install EDDI, create your first agent, and start chatting in 5 minutes.</p>
+	</div>
+</section>
+
+<article class="gs-content">
+
+	<section class="gs-section">
+		<h2>Prerequisites</h2>
+		<ul>
+			<li><strong>Docker</strong> (recommended) or Java 25+</li>
+			<li>An LLM provider API key (OpenAI, Anthropic, Google Gemini, or a local Ollama instance)</li>
+		</ul>
+	</section>
+
+	<section class="gs-section">
+		<h2>1. Start EDDI with Docker</h2>
+		<p>The fastest way to run EDDI:</p>
+		<pre><code>docker run -p 7070:7070 labsai/eddi:latest</code></pre>
+		<p>EDDI will be available at <code>http://localhost:7070</code>.</p>
+	</section>
+
+	<section class="gs-section">
+		<h2>2. Connect via MCP</h2>
+		<p>If you use <strong>Claude Desktop</strong> or any MCP-compatible client, add EDDI as an MCP server:</p>
+		<pre><code>{`{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}`}</code></pre>
+		<p>Now you can interact with EDDI's 39 MCP tools directly from your AI assistant.</p>
+	</section>
+
+	<section class="gs-section">
+		<h2>3. Create Your First Agent</h2>
+		<p>Use the <code>setup_agent</code> MCP tool to create a fully working agent in one call:</p>
+		<pre><code>{`setup_agent(
+  name: "My first agent",
+  systemPrompt: "You are a helpful assistant that answers questions clearly.",
+  provider: "anthropic",
+  modelId: "claude-sonnet-4-6"
+)`}</code></pre>
+		<p>This creates the rules, LLM config, workflow, agent, and deploys it — all in one step.</p>
+	</section>
+
+	<section class="gs-section">
+		<h2>4. Chat with Your Agent</h2>
+		<pre><code>{`chat_with_agent(agentId: "<your-agent-id>", message: "Hello! What can you do?")`}</code></pre>
+	</section>
+
+	<section class="gs-section">
+		<h2>5. Open the Manager UI</h2>
+		<p>Navigate to <code>http://localhost:7070</code> to visually manage your agents, workflows, and conversations with the EDDI Manager.</p>
+	</section>
+
+	<section class="gs-next-steps">
+		<h2>What's Next?</h2>
+		<div class="gs-cards">
+			<a href="/features/overview/" class="gs-card">
+				<strong>All Features</strong>
+				<span>Explore everything EDDI offers</span>
+			</a>
+			<a href="/features/mcp-server/" class="gs-card">
+				<strong>MCP Server</strong>
+				<span>Browse all 39 MCP tools</span>
+			</a>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="gs-card">
+				<strong>Documentation ↗</strong>
+				<span>Deep-dive into architecture & APIs</span>
+			</a>
+			<a href="/enterprise/why-eddi/" class="gs-card">
+				<strong>Why EDDI?</strong>
+				<span>The enterprise case for EDDI</span>
+			</a>
+		</div>
+	</section>
+
+</article>
+
+</BaseLayout>
+
+<style>
+	.gs-hero {
+		padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem;
+		text-align: center;
+	}
+
+	html[data-theme='dark'] .gs-hero {
+		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
+	}
+	html[data-theme='light'] .gs-hero {
+		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
+	}
+
+	.gs-hero-inner {
+		max-width: 42rem;
+		margin: 0 auto;
+	}
+
+	.gs-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		margin: 0 0 1rem;
+		color: var(--color-text);
+	}
+
+	.gs-subtitle {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+
+	.gs-content {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 6rem;
+		line-height: 1.8;
+		color: var(--color-text-muted);
+	}
+
+	.gs-content h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 1rem;
+	}
+
+	.gs-content p {
+		margin: 0 0 1rem;
+	}
+
+	.gs-content ul {
+		padding-left: 1.25rem;
+		margin: 0 0 1rem;
+	}
+
+	.gs-content pre {
+		border-radius: 0.75rem;
+		padding: 1rem 1.25rem;
+		overflow-x: auto;
+		font-size: 0.875rem;
+		margin: 0 0 1rem;
+	}
+
+	html[data-theme='dark'] .gs-content pre {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	html[data-theme='light'] .gs-content pre {
+		background: #f5f6f8;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	.gs-section {
+		margin-bottom: 3rem;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.gs-next-steps {
+		margin-top: 2rem;
+	}
+
+	.gs-cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.gs-card {
+		display: block;
+		padding: 1.25rem;
+		border-radius: 0.75rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	html[data-theme='dark'] .gs-card {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	html[data-theme='light'] .gs-card {
+		background: #f5f6f8;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	.gs-card:hover {
+		transform: translateY(-2px);
+		border-color: var(--color-accent);
+	}
+
+	.gs-card strong {
+		display: block;
+		color: var(--color-text);
+		margin-bottom: 0.25rem;
+	}
+
+	.gs-card span {
+		font-size: 0.8125rem;
+		color: var(--color-text-subtle);
+	}
+
+	@media (max-width: 40rem) {
+		.gs-cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

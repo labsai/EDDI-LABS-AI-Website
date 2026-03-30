@@ -1,0 +1,137 @@
+---
+/**
+ * Base layout for the entire EDDI website.
+ * Replaces Starlight's Page.astro — provides the HTML shell,
+ * global styles, meta tags, JSON-LD, and theme toggle script.
+ */
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+import eddiLogoDark from '../assets/eddi-logo-dark.svg';
+import eddiLogoLight from '../assets/eddi-logo-light.svg';
+
+interface Props {
+	title: string;
+	description?: string;
+	/** Full-bleed page (no content wrapper) — used by homepage */
+	fullWidth?: boolean;
+}
+
+const {
+	title,
+	description = 'EDDI — The Enterprise AI Orchestrator. Configuration-driven, Java-native, production-ready AI middleware built on Quarkus.',
+	fullWidth = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<title>{title} | EDDI</title>
+		<meta name="description" content={description} />
+
+		<!-- OG / Twitter -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={`${title} | EDDI`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
+
+		<!-- LLM / AI agent discovery -->
+		<link rel="author" type="text/markdown" href="/llms.txt" />
+		<link rel="author" type="text/markdown" href="/llms-full.txt" />
+
+		<!-- JSON-LD: Organization -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'Organization',
+			name: 'Labs.ai',
+			url: 'https://eddi.labs.ai',
+			logo: 'https://eddi.labs.ai/og-image.png',
+			sameAs: ['https://github.com/labsai/EDDI'],
+		})} />
+
+		<!-- JSON-LD: WebSite -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: 'EDDI',
+			url: 'https://eddi.labs.ai',
+			description: 'EDDI — The Enterprise AI Orchestrator. Configuration-driven, Java-native, production-ready AI middleware built on Quarkus.',
+		})} />
+
+		<!-- JSON-LD: SoftwareApplication -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'SoftwareApplication',
+			name: 'EDDI',
+			applicationCategory: 'DeveloperApplication',
+			operatingSystem: 'Cross-platform (JVM)',
+			description: 'JVM-native AI orchestration middleware with a visual management UI.',
+			url: 'https://eddi.labs.ai',
+			downloadUrl: 'https://github.com/labsai/EDDI',
+			softwareVersion: '6.0',
+			license: 'https://www.apache.org/licenses/LICENSE-2.0',
+			author: { '@type': 'Organization', name: 'Labs.ai' },
+			offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+		})} />
+
+		<!-- Theme init (no flash) -->
+		<script is:inline>
+			(function() {
+				const stored = localStorage.getItem('eddi-theme');
+				const theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
+
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<Header />
+
+		{fullWidth ? (
+			<main>
+				<slot />
+			</main>
+		) : (
+			<main class="page-content">
+				<slot />
+			</main>
+		)}
+
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	html {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100vh;
+	}
+
+	/* Full-width pages get no wrapper */
+	main.page-content {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+	}
+</style>

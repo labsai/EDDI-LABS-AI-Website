@@ -1,0 +1,29 @@
+---
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_why_eddi.jpg';
+---
+<FeaturePage title="Why EDDI?" description="The only JVM-native visual AI orchestration middleware. Configuration-driven agent logic, a complete management UI, and enterprise-grade security — all in one deployable platform." heroImage={heroImage}>
+
+<h2>The Gap in Enterprise Java</h2>
+<p>Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams either prototype with Python/Node.js tools and rewrite for production, or build everything from scratch using libraries like Spring AI or LangChain4j.</p>
+
+<h2>EDDI Fills This Void</h2>
+<p>EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides everything teams need out of the box:</p>
+<ul>
+<li><strong>Visual Management UI</strong> — The EDDI Manager for building and monitoring agents</li>
+<li><strong>Configuration-as-Code</strong> — Agent logic is JSON, not compiled Java</li>
+<li><strong>39 MCP Tools</strong> — Full AI-native control via Model Context Protocol</li>
+<li><strong>Enterprise Security</strong> — OIDC, vault, audit trails, no eval()</li>
+<li><strong>Production Infrastructure</strong> — REST APIs, conversation state management, Prometheus metrics</li>
+<li><strong>Horizontal Scaling</strong> — NATS JetStream for distributed architectures</li>
+</ul>
+
+<h2>Who Should Use EDDI?</h2>
+<ul>
+<li><strong>Enterprise Java teams</strong> who need AI orchestration without leaving the JVM</li>
+<li><strong>Prompt engineers</strong> who want to iterate without recompiling Java</li>
+<li><strong>Regulated industries</strong> that require audit trails and EU AI Act compliance</li>
+<li><strong>Platform teams</strong> building internal AI services for multiple departments</li>
+</ul>
+
+</FeaturePage>

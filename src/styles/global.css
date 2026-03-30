@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
-@layer base, starlight, theme, components, utilities;
-
-@import '@astrojs/starlight-tailwind';
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tailwindcss/theme.css';
+@import 'tailwindcss/utilities.css';
 
 @theme {
 	/* Premium EDDI Brand: Black & Gold — matching EDDI Manager */
@@ -15,16 +12,16 @@
 	--color-accent-50: oklch(0.97 0.04 85);
 	--color-accent-100: oklch(0.93 0.07 83);
 	--color-accent-200: oklch(0.88 0.12 82);
-	--color-accent-300: oklch(0.82 0.16 80);  /* Warm Gold */
-	--color-accent-400: oklch(0.78 0.17 78);  /* #fbbf24 equivalent */
-	--color-accent-500: oklch(0.75 0.18 75);  /* Brand Primary — #f59e0b */
+	--color-accent-300: oklch(0.82 0.16 80);
+	--color-accent-400: oklch(0.78 0.17 78);
+	--color-accent-500: oklch(0.75 0.18 75);
 	--color-accent-600: oklch(0.62 0.16 70);
-	--color-accent-700: oklch(0.50 0.14 65);  /* Deep Amber */
+	--color-accent-700: oklch(0.50 0.14 65);
 	--color-accent-800: oklch(0.40 0.11 60);
 	--color-accent-900: oklch(0.30 0.08 55);
 	--color-accent-950: oklch(0.22 0.06 50);
 
-	/* Gray: Warm charcoal tones — matching EDDI Manager's zinc */
+	/* Gray: Warm charcoal tones */
 	--color-gray-50: oklch(0.98 0.005 75);
 	--color-gray-100: oklch(0.94 0.005 75);
 	--color-gray-200: oklch(0.88 0.008 60);
@@ -34,133 +31,88 @@
 	--color-gray-600: oklch(0.40 0.01 50);
 	--color-gray-700: oklch(0.30 0.01 50);
 	--color-gray-800: oklch(0.22 0.01 50);
-	--color-gray-900: oklch(0.15 0.008 50); /* Background near black */
-	--color-gray-950: oklch(0.11 0.005 50); /* Maximum depth */
+	--color-gray-900: oklch(0.15 0.008 50);
+	--color-gray-950: oklch(0.11 0.005 50);
 }
 
-/* ===== RESPONSIVE CARD GRIDS ===== */
-/* Ensure card grids stack properly on small screens */
-@media (max-width: 30rem) {
-	:global(.sl-link-card) {
-		padding: 0.75rem !important;
-	}
+/* ==========================================================================
+   DESIGN TOKENS — custom properties used by all components.
+   Theme-aware: swap on data-theme="light".
+   ========================================================================== */
 
-	:global(h1) {
-		font-size: 1.75rem !important;
-	}
+:root,
+html[data-theme='dark'] {
+	--nav-height: 4rem;
 
-	:global(h2) {
-		font-size: 1.25rem !important;
-	}
+	/* Semantic colors */
+	--color-bg: #030305;
+	--color-bg-elevated: #0f0f15;
+	--color-surface: rgba(255, 255, 255, 0.06);
+	--color-border: rgba(255, 255, 255, 0.08);
 
-	/* Force single-column cards on mobile */
-	:global(.card-grid) {
-		grid-template-columns: 1fr !important;
-	}
+	--color-text: #f0f0f0;
+	--color-text-muted: #a0a0a8;
+	--color-text-subtle: #686870;
+
+	--color-accent: #f59e0b;
 }
 
-/* Global overflow protection */
-body {
-	overflow-x: hidden;
-	width: 100%;
+html[data-theme='light'] {
+	--color-bg: #ffffff;
+	--color-bg-elevated: #f8f9fb;
+	--color-surface: rgba(0, 0, 0, 0.04);
+	--color-border: rgba(0, 0, 0, 0.08);
+
+	--color-text: #111111;
+	--color-text-muted: #444444;
+	--color-text-subtle: #888888;
+
+	--color-accent: #d97706;
 }
 
-@media (min-width: 30rem) and (max-width: 50rem) {
-	:global(h1) {
-		font-size: 2rem !important;
-	}
-}
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
 
-/* ===== SPLASH PAGE RESPONSIVE ===== */
-@media (max-width: 50rem) {
-	/* Hero section responsive adjustments */
-	:global([data-page-template="splash"] .hero) {
-		padding: 2rem 1rem !important;
-	}
-
-	:global([data-page-template="splash"] .hero .hero-html) {
-		text-align: center;
-	}
-
-	/* Reduce section spacing on mobile to eliminate scroll dead-zones */
-	:global([data-page-template="splash"] .sl-markdown-content section) {
-		padding-top: 3rem !important;
-		padding-bottom: 3rem !important;
-	}
-
-	/* Tighten section heading margins on mobile */
-	:global([data-page-template="splash"] .sl-markdown-content section .text-center.mb-16) {
-		margin-bottom: 2rem !important;
-	}
-}
-
-/* ===== SMOOTH SCROLL ===== */
 html {
 	scroll-behavior: smooth;
+	font-family: var(--font-sans, 'Outfit', system-ui, sans-serif);
 }
 
-/* ===== HOMEPAGE GRID CARD UNIFORM HEIGHTS ===== */
-/* Force all direct children of CSS grids inside homepage sections
-   to stretch their visible backgrounds to fill the entire row height.
-   This ensures cards with less content still expand to match the tallest card. */
-.sl-markdown-content section .grid > div {
+body {
+	margin: 0;
+	min-height: 100vh;
+	overflow-x: hidden;
+	background: var(--color-bg);
+	color: var(--color-text);
+	transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   HOMEPAGE SECTION STYLES (used in index.astro)
+   ========================================================================== */
+
+/* Force uniform card heights in grid layouts */
+section .grid > div {
 	display: flex !important;
 	flex-direction: column !important;
 	height: 100% !important;
 }
 
-/* Make the last block-level child (typically the <p>) grow to fill remaining space */
-.sl-markdown-content section .grid > div > p:last-child {
+section .grid > div > p:last-child {
 	flex-grow: 1 !important;
 }
 
-/* ===== GLASSMORPHISM & CARD ENHANCEMENTS ===== */
-/* Override Starlight default cards for a premium feel */
-:global(.sl-markdown-content .card),
-:global(.sl-link-card) {
-	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent) !important;
-	backdrop-filter: blur(12px) !important;
-	-webkit-backdrop-filter: blur(12px) !important;
-	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
-	border-radius: 0.75rem !important;
-	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease !important;
-	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
-	overflow: hidden;
-	height: 100% !important;
-	display: flex !important;
-	flex-direction: column !important;
-}
+/* ==========================================================================
+   ANIMATED GRADIENTS & EFFECTS
+   ========================================================================== */
 
-:global(.sl-markdown-content .card .body) {
-	flex: 1 1 auto;
-}
-
-html[data-theme='light'] :global(.sl-markdown-content .card),
-html[data-theme='light'] :global(.sl-link-card) {
-	background: color-mix(in srgb, var(--sl-color-white) 80%, transparent) !important;
-	border-color: color-mix(in srgb, var(--sl-color-gray-5) 20%, transparent) !important;
-}
-
-:global(.sl-markdown-content .card:hover),
-:global(.sl-link-card:hover) {
-	transform: translateY(-4px) scale(1.01) !important;
-	border-color: color-mix(in srgb, var(--sl-color-accent) 50%, transparent) !important;
-	box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--sl-color-accent) 15%, transparent), 0 8px 10px -6px color-mix(in srgb, var(--sl-color-accent) 10%, transparent) !important;
-}
-
-/* Make card icons glow slightly */
-:global(.sl-markdown-content .card .icon) {
-	color: var(--sl-color-accent-400) !important;
-	filter: drop-shadow(0 0 8px color-mix(in srgb, var(--sl-color-accent-400) 50%, transparent));
-}
-
-/* ===== HERO SECTION ENHANCEMENTS ===== */
+/* Ambient hero background glow */
 .hero-gradient {
 	position: relative;
 	overflow: hidden;
 }
 
-/* Main animated ambient background for the premium feel */
 .hero-gradient::before {
 	content: '';
 	position: absolute;
@@ -176,26 +128,17 @@ html[data-theme='light'] :global(.sl-link-card) {
 	animation: pulse-ambient 15s ease-in-out infinite alternate;
 }
 
+html[data-theme='light'] .hero-gradient::before {
+	opacity: 0.4;
+}
+
 @keyframes pulse-ambient {
-	0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
-	50% { transform: scale(1.05) translate(2%, 2%); opacity: 1; }
-	100% { transform: scale(1) translate(-2%, 1%); opacity: 0.9; }
+	0% { opacity: 0.8; }
+	50% { opacity: 1; }
+	100% { opacity: 0.9; }
 }
 
-/* Glow effect for CTAs */
-.glow-accent {
-	position: relative;
-	transition: all 0.3s ease;
-	background: linear-gradient(135deg, var(--sl-color-accent-500), var(--sl-color-accent-700));
-	border: none !important;
-}
-.glow-accent:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 0 20px color-mix(in srgb, var(--sl-color-accent) 40%, transparent),
-				0 0 40px color-mix(in srgb, var(--sl-color-accent) 20%, transparent);
-}
-
-/* Fluid dynamic text gradient */
+/* Dynamic text gradient (e.g. "AI Orchestrator" in hero) */
 .text-gradient-dynamic {
 	background: linear-gradient(135deg, var(--color-accent-300), var(--color-accent-500), var(--color-accent-300));
 	background-size: 200% 200%;
@@ -211,10 +154,26 @@ html[data-theme='light'] :global(.sl-link-card) {
 	100% { background-position: 0% 50%; }
 }
 
-/* ===== DETAILS/FAQ STYLING ===== */
-:global(details) {
-	border: 1px solid var(--sl-color-gray-5);
-	background: color-mix(in srgb, var(--sl-color-gray-6) 20%, transparent);
+/* CTA glow effect */
+.glow-accent {
+	position: relative;
+	transition: all 0.3s ease;
+	background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
+	border: none !important;
+}
+.glow-accent:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 40%, transparent),
+				0 0 40px color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+/* ==========================================================================
+   DETAILS / FAQ STYLING
+   ========================================================================== */
+
+details {
+	border: 1px solid var(--color-border);
+	background: var(--color-surface);
 	backdrop-filter: blur(8px);
 	border-radius: 0.5rem;
 	padding: 1rem 1.25rem;
@@ -222,31 +181,53 @@ html[data-theme='light'] :global(.sl-link-card) {
 	transition: all 0.3s ease;
 }
 
-:global(details:hover) {
-	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent);
-	border-color: color-mix(in srgb, var(--sl-color-gray-4) 50%, transparent);
+details:hover {
+	background: color-mix(in srgb, var(--color-surface) 150%, transparent);
 }
 
-:global(details summary) {
+details summary {
 	cursor: pointer;
 	font-weight: 600;
 	padding: 0;
 	font-size: 1.05rem;
-	color: var(--sl-color-white);
+	color: var(--color-text);
 }
 
-:global(details[open]) {
-	border-left: 3px solid var(--sl-color-accent-500);
+details[open] {
+	border-left: 3px solid var(--color-accent);
 }
 
-:global(details[open] summary) {
+details[open] summary {
 	margin-bottom: 0.75rem;
-	color: var(--sl-color-accent-300);
+	color: var(--color-accent);
 }
 
-/* ===== TABLE RESPONSIVE ===== */
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
 @media (max-width: 50rem) {
-	:global(table) {
+	section {
+		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
+	}
+}
+
+@media (max-width: 30rem) {
+	h1 { font-size: 1.75rem !important; }
+	h2 { font-size: 1.25rem !important; }
+}
+
+@media (min-width: 30rem) and (max-width: 50rem) {
+	h1 { font-size: 2rem !important; }
+}
+
+/* ==========================================================================
+   TABLE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 50rem) {
+	table {
 		display: block;
 		overflow-x: auto;
 		-webkit-overflow-scrolling: touch;
@@ -254,98 +235,35 @@ html[data-theme='light'] :global(.sl-link-card) {
 	}
 }
 
-/* ===== CODE BLOCKS ===== */
-:global(pre) {
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
+
+pre {
 	border-radius: 0.5rem !important;
-	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent);
+	border: 1px solid var(--color-border);
 }
 
-/* Inline code pill styling — polished look for tool names in cards */
-:global(.sl-markdown-content code:not(pre code)) {
-	background: color-mix(in srgb, var(--sl-color-gray-6) 60%, transparent) !important;
-	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 40%, transparent) !important;
+code:not(pre code) {
+	background: var(--color-surface) !important;
+	border: 1px solid var(--color-border) !important;
 	border-radius: 0.375rem !important;
 	padding: 0.125rem 0.4rem !important;
 	font-size: 0.85em !important;
-	white-space: nowrap !important;
 }
 
-/* ===== STARLIGHT OVERRIDES ===== */
-html[data-theme='dark'], :root {
-	--sl-color-bg-nav: #030305 !important;
-	--sl-nav-height: 5rem !important;
-}
+/* ==========================================================================
+   LIGHT MODE — TAILWIND CLASS OVERRIDES
+   Used on homepage sections that have hardcoded dark-mode Tailwind classes.
+   ========================================================================== */
+
 html[data-theme='light'] {
-	--sl-color-bg-nav: #ffffff !important;
-	--sl-nav-height: 5rem !important;
-}
-
-/* Ensure Logo and Buttons have breathing room */
-:global(.site-title svg), :global(.site-title img) {
-	height: 1.8rem !important;
-	width: auto !important;
-	margin-top: 0.25rem;
-}
-
-/* ===== HERO CTA PRIMARY BUTTON FIX ===== */
-/* Starlight's variant:primary button needs a visible gold gradient background */
-:global(.hero .sl-link-button.primary),
-:global(.sl-link-button.primary) {
-	background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700)) !important;
-	border: 1px solid var(--color-accent-400) !important;
-	color: var(--sl-color-black) !important;
-	font-weight: 600 !important;
-	box-shadow: 0 0 15px color-mix(in srgb, var(--sl-color-accent) 25%, transparent) !important;
-	transition: all 0.3s ease !important;
-}
-:global(.hero .sl-link-button.primary:hover),
-:global(.sl-link-button.primary:hover) {
-	transform: translateY(-2px) !important;
-	box-shadow: 0 0 25px color-mix(in srgb, var(--sl-color-accent) 45%, transparent),
-				0 0 50px color-mix(in srgb, var(--sl-color-accent) 20%, transparent) !important;
-}
-
-/* ===== PAGINATION (PREV/NEXT) GLASSMORPHISM ===== */
-:global(.pagination-links a) {
-	background: color-mix(in srgb, var(--sl-color-gray-6) 40%, transparent) !important;
-	backdrop-filter: blur(12px) !important;
-	-webkit-backdrop-filter: blur(12px) !important;
-	border: 1px solid color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
-	border-radius: 0.75rem !important;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-:global(.pagination-links a:hover) {
-	transform: translateY(-2px) !important;
-	border-color: color-mix(in srgb, var(--sl-color-accent) 50%, transparent) !important;
-	box-shadow: 0 8px 20px -5px color-mix(in srgb, var(--sl-color-accent) 15%, transparent) !important;
-}
-:global(.pagination-links .link-title) {
-	color: var(--sl-color-white) !important;
-}
-
-/* ===== EDIT PAGE LINK — REDUCE FLOATING GAP ===== */
-:global(.sl-markdown-content + .meta) {
-	margin-top: 1rem !important;
-	padding-top: 0 !important;
-}
-/* Target the edit-page container specifically */
-:global([data-edit-url]) {
-	margin-top: 1.5rem !important;
-	margin-bottom: 0.5rem !important;
-}
-
-/* ===================================================================
-   LIGHT MODE — GLOBAL OVERRIDES
-   Remap all hardcoded dark-mode Tailwind classes used across MDX pages
-   so every page is readable in both themes without editing content.
-   =================================================================== */
-html[data-theme='light'] {
-	/* ---- Card backgrounds ---- */
+	/* Card backgrounds */
 	& .bg-gray-900\/40,
 	& .bg-gray-900\/60,
 	& .bg-gray-900\/30,
 	& .bg-gray-900\/20 {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
+		background: color-mix(in srgb, var(--color-bg-elevated) 80%, white) !important;
 	}
 
 	/* Gradient card variants */
@@ -353,113 +271,41 @@ html[data-theme='light'] {
 		--tw-gradient-from: color-mix(in srgb, var(--color-accent-200) 15%, transparent) !important;
 	}
 	& .to-gray-900\/60 {
-		--tw-gradient-to: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
+		--tw-gradient-to: color-mix(in srgb, var(--color-bg-elevated) 20%, white) !important;
 	}
 
-	/* ---- Text colors ---- */
+	/* Text colors */
 	& .text-white,
 	& .text-white\! {
-		color: var(--sl-color-black) !important;
+		color: var(--color-text) !important;
 	}
 
 	& .text-gray-400 {
-		color: var(--sl-color-gray-2) !important;
+		color: var(--color-text-muted) !important;
 	}
 
 	& .text-gray-300 {
-		color: var(--sl-color-gray-2) !important;
+		color: var(--color-text-muted) !important;
 	}
 
 	& .text-gray-500 {
-		color: var(--sl-color-gray-3) !important;
+		color: var(--color-text-subtle) !important;
 	}
 
-	/* ---- Borders ---- */
+	/* Borders */
 	& .border-gray-700\/50,
 	& .border-gray-800,
 	& .border-gray-800\/60 {
-		border-color: color-mix(in srgb, var(--sl-color-gray-5) 40%, transparent) !important;
+		border-color: var(--color-border) !important;
 	}
 
-	/* ---- Icon containers (bg-linear gradients) ---- */
+	/* Icon containers */
 	& [class*="from-accent-500\/20"][class*="to-accent-900\/40"] {
 		background: color-mix(in srgb, var(--color-accent-200) 30%, white) !important;
 	}
 
-	/* ---- Ambient glow backgrounds ---- */
+	/* Ambient glow */
 	& .bg-accent-500\/5 {
 		background: color-mix(in srgb, var(--color-accent-200) 8%, transparent) !important;
-	}
-
-	/* ---- Hero section ---- */
-	& .hero-title {
-		color: var(--sl-color-black) !important;
-	}
-
-	& .hero-tagline {
-		color: var(--sl-color-gray-2) !important;
-	}
-
-	& .hero-btn-minimal {
-		background: color-mix(in srgb, var(--sl-color-gray-5) 20%, white) !important;
-		color: var(--sl-color-gray-1) !important;
-		border-color: var(--sl-color-gray-4) !important;
-	}
-
-	/* Hero visual container */
-	& .hero-visual {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
-		border-color: color-mix(in srgb, var(--sl-color-gray-5) 50%, transparent) !important;
-	}
-
-	/* ---- Hero gradient ambient glow — tone down for light ---- */
-	& .hero-gradient::before {
-		opacity: 0.4;
-	}
-
-	/* ---- FAQ / details ---- */
-	& :global(details summary) {
-		color: var(--sl-color-black) !important;
-	}
-
-	& :global(details[open] summary) {
-		color: var(--color-accent-700) !important;
-	}
-
-	& :global(details) {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 15%, white) !important;
-		border-color: var(--sl-color-gray-5) !important;
-	}
-
-	& :global(details:hover) {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 30%, white) !important;
-	}
-
-	/* ---- Inline code pills ---- */
-	& :global(.sl-markdown-content code:not(pre code)) {
-		background: color-mix(in srgb, var(--sl-color-gray-5) 20%, white) !important;
-		border-color: color-mix(in srgb, var(--sl-color-gray-4) 40%, transparent) !important;
-	}
-
-	/* ---- Pagination links ---- */
-	& :global(.pagination-links a) {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
-	}
-
-	& :global(.pagination-links .link-title) {
-		color: var(--sl-color-black) !important;
-	}
-
-	/* ---- Footer ---- */
-	& .eddi-site-footer {
-		background: color-mix(in srgb, var(--sl-color-gray-6) 20%, white) !important;
-	}
-
-	& .eddi-logo-text {
-		color: var(--sl-color-black) !important;
-	}
-
-	& .eddi-footer-tagline {
-		color: var(--sl-color-gray-1) !important;
 	}
 }

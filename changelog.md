@@ -4,6 +4,21 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🚀 Starlight → Regular Astro Migration
+
+- `feat(website)`: **Complete Starlight Removal** — Migrated the entire website from the Starlight documentation framework to a standard Astro marketing site. Removed `@astrojs/starlight` and `@astrojs/starlight-tailwind` dependencies. The site is now a standalone Astro project with Tailwind CSS v4.
+- `feat(website)`: **Custom Layout System** — Created `BaseLayout.astro` (HTML shell with meta, fonts, theme script), `FeaturePage.astro` (reusable hero + content layout for feature/enterprise pages), and `PageLayout.astro` (centered content pages).
+- `feat(website)`: **Standalone Components** — Rewrote `Header.astro` and `Footer.astro` as fully standalone components with zero Starlight dependencies. Removed old `Hero.astro` (Starlight-dependent). All components use custom `--color-*` design tokens instead of `--sl-*` variables.
+- `feat(website)`: **Page Conversion (16 pages)** — Converted all pages from Starlight MDX content collections to regular Astro pages in `src/pages/`:
+  - Homepage (`/`), Getting Started (`/getting-started/`)
+  - Features: Overview, Manager, MCP Server, Config-as-Code, Security, Performance, Multi-Agent, Observability, Code Quality, AI-Ready
+  - Enterprise: Why EDDI?, vs. Alternatives, EU AI Act Compliance
+  - Use Cases
+- `feat(website)`: **Custom Design Token System** — Replaced all Starlight `var(--sl-*)` CSS variables with a custom `var(--color-*)` system supporting dark/light mode via `[data-theme]` selectors.
+- `fix(website)`: **Build Verification** — All 16 pages build successfully with zero errors. Production bundle generates in ~24s.
+
+---
+
 - `feat(website)`: **llms.txt + llms-full.txt** — Added AI discoverability files following the [llmstxt.org](https://llmstxt.org) standard. `llms.txt` is a curated table-of-contents, `llms-full.txt` is a comprehensive single-pass ingest document. Both discoverable via `<link>` tags in HTML head and referenced in `robots.txt`.
 - `fix(website)`: **Comparison Table Column Reorder** — Moved EDDI column to 2nd position (right after Factor/Capability) in both `vs-alternatives.mdx` and `why-eddi.mdx`. On mobile, users now see EDDI's advantages immediately without horizontal scrolling.
 - `fix(website)`: **Mobile Section Spacing** — Reduced `py-24` to `py-12` (3rem) on splash pages at `<50rem` viewports to eliminate excessive whitespace dead zones between sections. Also tightened section heading margins.
@@ -76,8 +91,10 @@ All notable changes to the EDDI website will be documented in this file.
 - Overrode Starlight's default hero behavior by registering the custom component in `astro.config.mjs`.
 
 ### Decisions
-- We chose to heavily style Starlight's global classes and build a custom Hero, rather than abandoning Starlight, to keep the deep compatibility with Astro Content Collections and Markdown/MDX built-ins.
+- Completed the full migration from Starlight to a custom Astro site. The original decision to stay with Starlight (for Content Collections compatibility) was reversed because the marketing site needed full layout control that Starlight's opinionated structure couldn't provide.
+- All documentation now lives at `docs.labs.ai` (separate deployment). The marketing site links to it but does not embed documentation content.
 
 ### Next Steps
-- Further refine internal documentation pages (`/docs/*`) to ensure the glassmorphism aesthetic translates well to dense text pages.
-- Integrate search components with the new visual aesthetic.
+- Implement i18n routing (`/en/`, `/de/`, `/ar/`) with Astro's built-in i18n support.
+- Add RTL support for Arabic locale.
+- Set up GitHub Actions for automated deployment to GitHub Pages.
