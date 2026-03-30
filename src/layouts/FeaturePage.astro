@@ -17,14 +17,14 @@ const { title, description, heroImage } = Astro.props;
 
 <BaseLayout title={title} description={description} fullWidth={true}>
 
-<section class="fp-hero hero-gradient">
+<section class="fp-hero hero-gradient hero-gradient-bg">
 	<div class="fp-hero-inner">
 		<div class="fp-hero-text">
 			<h1>{title}</h1>
 			<p class="fp-hero-tagline">{description}</p>
 			<div class="fp-hero-actions">
-				<a href="/getting-started/" class="fp-btn-primary">Get Started →</a>
-				<a href="https://github.com/labsai/EDDI" class="fp-btn-minimal" target="_blank" rel="noopener">View on GitHub ↗</a>
+				<a href="/getting-started/" class="btn-cta-primary">Get Started →</a>
+				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">View on GitHub ↗</a>
 			</div>
 		</div>
 		{heroImage && (
@@ -44,13 +44,6 @@ const { title, description, heroImage } = Astro.props;
 <style>
 	.fp-hero {
 		padding: calc(var(--nav-height, 4rem) + 3rem) 1.5rem 3rem;
-	}
-
-	html[data-theme='dark'] .fp-hero {
-		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
-	}
-	html[data-theme='light'] .fp-hero {
-		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
 	}
 
 	.fp-hero-inner {
@@ -85,43 +78,6 @@ const { title, description, heroImage } = Astro.props;
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
-	}
-
-	.fp-btn-primary {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.625rem 1.5rem;
-		font-size: 0.9375rem;
-		font-weight: 600;
-		color: #111 !important;
-		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
-		border-radius: 0.5rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-		box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent);
-	}
-
-	.fp-btn-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent);
-	}
-
-	.fp-btn-minimal {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.625rem 1.5rem;
-		font-size: 0.9375rem;
-		font-weight: 500;
-		border-radius: 0.5rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-		color: var(--color-text-muted);
-		border: 1px solid var(--color-border);
-	}
-
-	.fp-btn-minimal:hover {
-		transform: translateY(-2px);
-		color: var(--color-text);
 	}
 
 	.fp-hero-image {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Google Fonts are loaded via <link> tags in BaseLayout.astro */
 
 @import 'tailwindcss/theme.css';
 @import 'tailwindcss/utilities.css';
@@ -86,6 +86,60 @@ body {
 	background: var(--color-bg);
 	color: var(--color-text);
 	transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   SHARED HERO STYLES — used by all hero sections
+   ========================================================================== */
+
+.hero-gradient-bg {
+	position: relative;
+}
+
+html[data-theme='dark'] .hero-gradient-bg {
+	background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
+}
+
+html[data-theme='light'] .hero-gradient-bg {
+	background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
+}
+
+/* Shared CTA button styles */
+.btn-cta-primary {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.625rem 1.5rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #111 !important;
+	background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+	border-radius: 0.5rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.btn-cta-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+
+.btn-cta-outline {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.625rem 1.5rem;
+	font-size: 0.9375rem;
+	font-weight: 500;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	color: var(--color-text-muted);
+	border: 1px solid var(--color-border);
+}
+
+.btn-cta-outline:hover {
+	transform: translateY(-2px);
+	color: var(--color-text);
 }
 
 /* ==========================================================================

@@ -6,14 +6,14 @@ import heroImage from '../../assets/hero_features_overview.jpg';
 
 <BaseLayout title="Features at a Glance" description="Every capability that makes EDDI the enterprise AI orchestrator — EDDI Manager UI, config-as-code, 39 MCP tools, security-first architecture, and more." fullWidth={true}>
 
-<section class="fo-hero hero-gradient">
+<section class="fo-hero hero-gradient hero-gradient-bg">
 	<div class="fo-hero-inner">
 		<div class="fo-hero-text">
 			<h1>Everything You Need to <span class="text-gradient-dynamic">Orchestrate AI</span></h1>
 			<p>EDDI provides a complete, production-ready platform for building, deploying, and managing AI agents — without writing boilerplate.</p>
 			<div class="fo-hero-actions">
-				<a href="/getting-started/" class="fo-btn-primary">Get Started →</a>
-				<a href="https://github.com/labsai/EDDI" class="fo-btn-minimal" target="_blank" rel="noopener">View on GitHub ↗</a>
+				<a href="/getting-started/" class="btn-cta-primary">Get Started →</a>
+				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">View on GitHub ↗</a>
 			</div>
 		</div>
 		<div class="fo-hero-image">
@@ -86,13 +86,6 @@ import heroImage from '../../assets/hero_features_overview.jpg';
 		padding: calc(var(--nav-height, 4rem) + 3rem) 1.5rem 3rem;
 	}
 
-	html[data-theme='dark'] .fo-hero {
-		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
-	}
-	html[data-theme='light'] .fo-hero {
-		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
-	}
-
 	.fo-hero-inner {
 		max-width: 72rem;
 		margin: 0 auto;
@@ -120,32 +113,6 @@ import heroImage from '../../assets/hero_features_overview.jpg';
 	}
 
 	.fo-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-	.fo-btn-primary {
-		display: inline-flex;
-		padding: 0.625rem 1.5rem;
-		font-weight: 600;
-		color: #111 !important;
-		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
-		border-radius: 0.5rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-
-	.fo-btn-primary:hover { transform: translateY(-2px); }
-
-	.fo-btn-minimal {
-		display: inline-flex;
-		padding: 0.625rem 1.5rem;
-		font-weight: 500;
-		border-radius: 0.5rem;
-		text-decoration: none;
-		transition: all 0.3s ease;
-		color: var(--color-text-muted);
-		border: 1px solid var(--color-border);
-	}
-
-	.fo-btn-minimal:hover { transform: translateY(-2px); }
 
 	.fo-hero-image {
 		flex-shrink: 0;

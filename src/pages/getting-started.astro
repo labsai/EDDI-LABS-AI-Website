@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Getting Started" description="Install EDDI, create your first agent, and start chatting in 5 minutes.">
+<BaseLayout title="Getting Started" description="Install EDDI, create your first agent, and start chatting in 5 minutes." fullWidth={true}>
 
-<section class="gs-hero">
+<section class="gs-hero hero-gradient-bg">
 	<div class="gs-hero-inner">
 		<h1>Get Started with EDDI</h1>
 		<p class="gs-subtitle">Install EDDI, create your first agent, and start chatting in 5 minutes.</p>
@@ -93,13 +93,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.gs-hero {
 		padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem;
 		text-align: center;
-	}
-
-	html[data-theme='dark'] .gs-hero {
-		background: linear-gradient(180deg, rgba(3, 3, 5, 1) 0%, rgba(10, 10, 18, 1) 100%);
-	}
-	html[data-theme='light'] .gs-hero {
-		background: linear-gradient(180deg, #f8f9fb 0%, #eef0f4 100%);
 	}
 
 	.gs-hero-inner {
