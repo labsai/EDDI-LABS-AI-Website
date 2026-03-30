@@ -7,7 +7,7 @@ All notable changes to the EDDI website will be documented in this file.
 ### 🚀 Starlight → Regular Astro Migration
 
 - `feat(website)`: **Complete Starlight Removal** — Migrated the entire website from the Starlight documentation framework to a standard Astro marketing site. Removed `@astrojs/starlight` and `@astrojs/starlight-tailwind` dependencies. The site is now a standalone Astro project with Tailwind CSS v4.
-- `feat(website)`: **Custom Layout System** — Created `BaseLayout.astro` (HTML shell with meta, fonts, theme script), `FeaturePage.astro` (reusable hero + content layout for feature/enterprise pages), and `PageLayout.astro` (centered content pages).
+- `feat(website)`: **Custom Layout System** — Created `BaseLayout.astro` (HTML shell with meta, fonts, theme script) and `FeaturePage.astro` (reusable hero + content layout for feature/enterprise pages).
 - `feat(website)`: **Standalone Components** — Rewrote `Header.astro` and `Footer.astro` as fully standalone components with zero Starlight dependencies. Removed old `Hero.astro` (Starlight-dependent). All components use custom `--color-*` design tokens instead of `--sl-*` variables.
 - `feat(website)`: **Page Conversion (16 pages)** — Converted all pages from Starlight MDX content collections to regular Astro pages in `src/pages/`:
   - Homepage (`/`), Getting Started (`/getting-started/`)
@@ -15,7 +15,20 @@ All notable changes to the EDDI website will be documented in this file.
   - Enterprise: Why EDDI?, vs. Alternatives, EU AI Act Compliance
   - Use Cases
 - `feat(website)`: **Custom Design Token System** — Replaced all Starlight `var(--sl-*)` CSS variables with a custom `var(--color-*)` system supporting dark/light mode via `[data-theme]` selectors.
-- `fix(website)`: **Build Verification** — All 16 pages build successfully with zero errors. Production bundle generates in ~24s.
+- `fix(website)`: **Build Verification** — All 16 pages build successfully with zero errors. Production bundle generates in ~4s.
+
+### 🔧 Code Review Fixes
+
+- `fix(website)`: **Font Loading Cleanup** — Removed unused Inter font (was loading ~50KB via `<link>` but never used). Outfit is the canonical font, now loaded via `<link>` tags in `<head>` instead of render-blocking CSS `@import`.
+- `fix(website)`: **Broken CSS Variable** — Replaced undefined `rgba(var(--color-accent-500-rgb))` with `color-mix(in srgb, var(--color-accent))` pattern on 3 icon glow effects in "The Problem" section.
+- `fix(website)`: **CNAME Deployment Fix** — Moved `CNAME` from repo root to `public/` so Astro copies it to `dist/` during build. Without this, GitHub Pages custom domain would break on deploy.
+- `feat(website)`: **Sitemap Generation** — Installed `@astrojs/sitemap`. `sitemap-index.xml` now auto-generated, resolving the 404 referenced in `robots.txt`.
+- `fix(website)`: **Dead Code Removal** — Removed unused `PageLayout.astro`, unused logo imports from `BaseLayout`, and orphaned assets (`houston.webp` 98KB, `eddi-logo-dark.png` 2KB).
+- `feat(website)`: **Mobile Theme Toggle** — Added labeled "Switch to Light/Dark Mode" button in the mobile menu. Removed `desktop-only` restriction from header theme toggle so it's visible on all viewports.
+- `feat(website)`: **Mobile Active Page Highlighting** — Mobile menu links now highlight the current page with accent color and subtle background.
+- `feat(website)`: **Shared CSS Design System** — Extracted `hero-gradient-bg`, `btn-cta-primary`, and `btn-cta-outline` utilities to `global.css`, eliminating 6× duplicated hero gradient and 3× duplicated button CSS across pages/layouts.
+- `fix(website)`: **Hero Full-Width Fix** — Getting Started and Use Cases pages now use `fullWidth={true}`, fixing hero gradient clipping by the content wrapper.
+- `fix(website)`: **Image Optimization** — Compressed `hero_manager.jpg` from 723KB to 130KB via sharp resize (5.5× reduction).
 
 ---
 
