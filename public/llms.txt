@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 39 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 48 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -13,7 +13,7 @@
 - [Features Overview](https://eddi.labs.ai/features/overview/): Complete platform capabilities summary
 - [EDDI Manager UI](https://eddi.labs.ai/features/manager/): Visual agent lifecycle management with 11-locale i18n
 - [Configuration-as-Code](https://eddi.labs.ai/features/config-as-code/): JSON-based agent configuration without recompilation
-- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 39 Model Context Protocol tools for AI-native integration
+- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 48 Model Context Protocol tools for AI-native integration
 - [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration
 - Stateful Agentic Memory: IUserMemoryStore with 2D property scopes
 - [Performance](https://eddi.labs.ai/features/performance/): Java 25 virtual threads and JVM-native throughput
@@ -43,7 +43,7 @@
 ## API & MCP
 
 - [REST API](https://eddi.labs.ai/docs/api/rest/): RESTful endpoints for all resources
-- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 39 MCP tools
+- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 48 MCP tools
 
 ## Use Cases
 

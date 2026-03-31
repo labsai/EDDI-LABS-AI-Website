@@ -30,7 +30,7 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Dark/light theme, interactive onboarding tours
 
 ### MCP (Model Context Protocol) Server
-- 39 MCP tools exposing all EDDI capabilities to external AI agents
+- 48 MCP tools exposing all EDDI capabilities to external AI agents
 - Claude Desktop, Cursor, and other MCP clients can manage EDDI agents programmatically
 - EDDI agents can also consume external MCP tools as part of their pipelines
 
@@ -106,7 +106,7 @@ Full CRUD operations for all resources:
 - `/conversationstore` — Conversation management
 - `/propertiesstore` — Key-value property storage
 
-### MCP Tools (39 total)
+### MCP Tools (48 total)
 Organized by domain:
 - Bot management (create, read, update, deploy, undeploy)
 - Package management (create, read, update, add/remove resources)
@@ -123,7 +123,7 @@ Organized by domain:
 | User Code Execution | ❌ None | Yes (eval/sandbox) | N/A (library) | Scripts |
 | Critical CVEs (2024-25) | 0 | 3+ (CVSS 9.8-10.0) | 0 | 0 |
 | Config-as-Code | Full JSON | Partial | ❌ | BPMN |
-| MCP Support | 39 Tools | ❌ | ❌ | ❌ |
+| MCP Support | 48 Tools | ❌ | ❌ | ❌ |
 | Concurrency | Virtual threads | Event loop / GIL | Platform threads | Platform threads |
 | Audit Trail | Cryptographic | Basic logging | DIY | Process history |
 | Management UI | ✅ (11 languages) | ✅ | ❌ | ✅ |
