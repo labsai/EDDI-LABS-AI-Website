@@ -18,13 +18,13 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
 				The Enterprise<br/>
 				<span class="text-gradient-dynamic">AI Orchestrator</span>
 			</h1>
-			<p class="hero-tagline">Configuration-driven. Java-native. Visually managed. Production-ready. The only AI middleware built natively on the JVM — with a complete management UI.</p>
+			<p class="hero-tagline">Configuration-driven. Java-native. Visually managed. The only AI middleware built natively on the JVM — currently in <strong>v6.0.0-RC1 Preview</strong>.</p>
 			<div class="hero-actions">
 				<a href="/getting-started/" class="hero-btn-primary">Get Started →</a>
 				<a href="https://github.com/labsai/EDDI" class="hero-btn-minimal" target="_blank" rel="noopener">View on GitHub ↗</a>
 			</div>
 		</div>
-		<div class="hero-visual">
+		<div class="hero-visual premium-image-wrapper">
 			<Image src={heroImage} alt="EDDI AI Orchestrator" width={500} height={500} loading="eager" decoding="async" />
 		</div>
 	</div>
@@ -34,39 +34,39 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
 <section class="py-24 max-w-7xl mx-auto px-6">
 	<div class="text-center mb-16">
 		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Problem</h2>
-		<p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams are stuck in a painful, fractured lifecycle:</p>
+		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams are stuck in a painful, fractured lifecycle:</p>
 	</div>
 
 	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
 				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
 			</div>
 			<h3 class="text-xl font-bold text-white mb-3">The Prototype Trap</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">Teams prototype with Python/Flowise/n8n — then <strong>rewrite everything from scratch</strong> in Java for production. Visual prototypes are discarded entirely.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">Teams prototype with Python/Flowise/n8n — then <strong>rewrite everything from scratch</strong> in Java for production. Visual prototypes are discarded entirely.</p>
 		</div>
-		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
 				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
 			</div>
 			<h3 class="text-xl font-bold text-white mb-3">Boilerplate Fatigue</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires recompilation.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires recompilation.</p>
 		</div>
-		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 right-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
 				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
 			</div>
 			<h3 class="text-xl font-bold text-white mb-3">BPMN Friction</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates <strong>severe impedance mismatches</strong> and brittle architectures.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates <strong>severe impedance mismatches</strong> and brittle architectures.</p>
 		</div>
 	</div>
 </section>
@@ -77,159 +77,159 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
 
 	<div class="text-center mb-16">
 		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">The Solution</h2>
-		<p class="text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">EDDI fills an <strong>absolute void</strong> in the Java ecosystem — a deployable middleware platform with a visual management UI:</p>
+		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">EDDI fills an <strong>absolute void</strong> in the Java ecosystem — a deployable middleware platform with a visual management UI:</p>
 	</div>
 
 	<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">01</div>
 			<h3 class="text-xl font-bold text-white mb-3">Configuration-as-Code</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.</p>
 		</div>
 
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">02</div>
 			<h3 class="text-xl font-bold text-white mb-3">39 MCP Tools</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.</p>
 		</div>
 
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">03</div>
 			<h3 class="text-xl font-bold text-white mb-3">Security-First</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">No <code>eval()</code>, no escapes. Vault integration, URL validation, and cryptographic audit trails are <strong>architectural foundations</strong>.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">No <code>eval()</code>, no escapes. Vault integration, URL validation, and cryptographic audit trails are <strong>architectural foundations</strong>.</p>
 		</div>
 
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">04</div>
 			<h3 class="text-xl font-bold text-white mb-3">Observability</h3>
-			<p class="text-gray-400 text-sm leading-relaxed grow">Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.</p>
+			<p class="text-zinc-400 text-sm leading-relaxed grow">Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.</p>
 		</div>
 
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">05</div>
 			<h3 class="text-xl font-bold text-white mb-3">Enterprise Concurrency</h3>
-			<p class="text-gray-300 text-sm leading-relaxed grow">Java 25 Virtual Threads on Quarkus. <strong>Millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.</p>
+			<p class="text-zinc-300 text-sm leading-relaxed grow">Java 25 Virtual Threads on Quarkus. <strong>Millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.</p>
 		</div>
 
-		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-gray-900/60 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
+		<div class="relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl bg-linear-to-tl from-accent-900/10 to-zinc-900/60 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
 			<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">06</div>
 			<h3 class="text-xl font-bold text-white mb-3">Multi-Agent Orchestration</h3>
-			<p class="text-gray-300 text-sm leading-relaxed grow">Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. <strong>One conversation per intent+user</strong>, auto-created and auto-managed.</p>
+			<p class="text-zinc-300 text-sm leading-relaxed grow">Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. <strong>One conversation per intent+user</strong>, auto-created and auto-managed.</p>
 		</div>
 	</div>
 </section>
 
 <!-- Trusted & Certified -->
-<section class="py-24 max-w-7xl mx-auto px-6 border-t border-gray-800/60">
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
 	<div class="text-center mb-12">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">Trusted & Certified</h2>
 	</div>
 
 	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
 			<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
 				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 			</div>
 			<div class="text-center sm:text-left">
 				<strong class="block text-white mb-1">Red Hat Certified Container</strong>
-				<span class="text-sm text-gray-400">Docker image certified by IBM</span>
+				<span class="text-sm text-zinc-400">Docker image certified by IBM</span>
 			</div>
 		</div>
 
-		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
 			<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
 				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
 			</div>
 			<div class="text-center sm:text-left">
 				<strong class="block text-white mb-1">Apache 2.0 Licensed</strong>
-				<span class="text-sm text-gray-400">100% open-source & enterprise-ready</span>
+				<span class="text-sm text-zinc-400">100% open-source & enterprise-ready</span>
 			</div>
 		</div>
 
-		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+		<div class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
 			<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
 				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
 			</div>
 			<div class="text-center sm:text-left">
 				<strong class="block text-white mb-1">1,500+ Tests · 0 Failures</strong>
-				<span class="text-sm text-gray-400">Rigorous CI/CD & code coverage</span>
+				<span class="text-sm text-zinc-400">Rigorous CI/CD & code coverage</span>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- Built on Proven Technology -->
-<section class="py-24 max-w-7xl mx-auto px-6 relative border-t border-gray-800/60">
+<section class="py-24 max-w-7xl mx-auto px-6 relative border-t border-zinc-800/60">
 	<div class="text-center mb-16">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">Built on Proven Technology</h2>
 	</div>
 
 	<div class="not-content grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
 			<strong class="text-white text-sm mb-1">Java 25</strong>
-			<span class="text-xs text-gray-500">Enterprise runtime</span>
+			<span class="text-xs text-zinc-500">Enterprise runtime</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
 			<strong class="text-white text-sm mb-1">Quarkus</strong>
-			<span class="text-xs text-gray-500">Cloud-native, fast</span>
+			<span class="text-xs text-zinc-500">Cloud-native, fast</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
 			<strong class="text-white text-sm mb-1">LangChain4j</strong>
-			<span class="text-xs text-gray-500">20+ LLM providers</span>
+			<span class="text-xs text-zinc-500">20+ LLM providers</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
 			<strong class="text-white text-sm mb-1">MongoDB</strong>
-			<span class="text-xs text-gray-500">Document store</span>
+			<span class="text-xs text-zinc-500">Document store</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
 			<strong class="text-white text-sm mb-1">PostgreSQL</strong>
-			<span class="text-xs text-gray-500">Relational store</span>
+			<span class="text-xs text-zinc-500">Relational store</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
 			<strong class="text-white text-sm mb-1">Docker</strong>
-			<span class="text-xs text-gray-500">Container-ready</span>
+			<span class="text-xs text-zinc-500">Container-ready</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
 			<strong class="text-white text-sm mb-1">Kubernetes</strong>
-			<span class="text-xs text-gray-500">Orchestration</span>
+			<span class="text-xs text-zinc-500">Orchestration</span>
 		</div>
-		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-gray-900/30 backdrop-blur border border-gray-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
-			<svg class="w-8 h-8 mb-3 text-gray-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+		<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+			<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
 			<strong class="text-white text-sm mb-1">OpenShift</strong>
-			<span class="text-xs text-gray-500">Red Hat certified</span>
+			<span class="text-xs text-zinc-500">Red Hat certified</span>
 		</div>
 	</div>
 </section>
 
 <!-- Next Steps -->
-<section class="py-24 max-w-7xl mx-auto px-6 border-t border-gray-800/60">
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
 	<div class="text-center mb-12">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">Next Steps</h2>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-		<a href="/getting-started/" class="block p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+		<a href="/getting-started/" class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
 			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">Get Started in 5 Minutes</strong>
-			<span class="text-sm text-gray-400">Install EDDI, create your first agent, and start a conversation.</span>
+			<span class="text-sm text-zinc-400">Install EDDI, create your first agent, and start a conversation.</span>
 		</a>
-		<a href="/features/overview/" class="block p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+		<a href="/features/overview/" class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
 			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">Explore All Features</strong>
-			<span class="text-sm text-gray-400">Config-as-Code, MCP tools, security, observability, and more.</span>
+			<span class="text-sm text-zinc-400">Config-as-Code, MCP tools, security, observability, and more.</span>
 		</a>
-		<a href="/enterprise/why-eddi/" class="block p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+		<a href="/enterprise/why-eddi/" class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
 			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">Why EDDI?</strong>
-			<span class="text-sm text-gray-400">Learn why configuration-driven AI orchestration beats code-first approaches.</span>
+			<span class="text-sm text-zinc-400">Learn why configuration-driven AI orchestration beats code-first approaches.</span>
 		</a>
-		<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="block p-6 rounded-2xl bg-gray-900/40 backdrop-blur border border-gray-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+		<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
 			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">Browse Documentation ↗</strong>
-			<span class="text-sm text-gray-400">Architecture, MCP tools, REST API, deployment guides, and more.</span>
+			<span class="text-sm text-zinc-400">Architecture, MCP tools, REST API, deployment guides, and more.</span>
 		</a>
 	</div>
 </section>
@@ -238,7 +238,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
 <NewsletterSignup variant="section" />
 
 <!-- FAQ -->
-<section class="py-24 max-w-5xl mx-auto px-6 border-t border-gray-800/60 mb-20">
+<section class="py-24 max-w-5xl mx-auto px-6 border-t border-zinc-800/60 mb-20">
 	<div class="text-center mb-12">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">Frequently Asked Questions</h2>
 	</div>
@@ -390,3 +390,4 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
 		.hero-visual { max-width: 20rem; }
 	}
 </style>
+

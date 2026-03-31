@@ -17,6 +17,16 @@ All notable changes to the EDDI website will be documented in this file.
 - `feat(website)`: **Custom Design Token System** — Replaced all Starlight `var(--sl-*)` CSS variables with a custom `var(--color-*)` system supporting dark/light mode via `[data-theme]` selectors.
 - `fix(website)`: **Build Verification** — All 16 pages build successfully with zero errors. Production bundle generates in ~4s.
 
+### 🎨 UI Alignment & Asset Overhaul (EDDI Manager Identity)
+
+- `feat(website)`: **Color System Synchronization** — Replaced legacy `gray`/`cyan` token overrides globally mapped to Tailwind `zinc` (`#18181b`, `#09090b`) and `amber` (`#f59e0b`) core semantics, achieving pristine visual parity with the EDDI Manager React application.
+- `feat(website)`: **RTL/LTR Internationalization** — Systematically extracted physical CSS directives (`left`, `right`, `margin-left`, `padding-right`) and swapped them for CSS logical properties (`margin-inline-start`, `padding-inline-end`) to natively brace the interface for Arabic (dir="rtl") locale deployments.
+- `feat(website)`: **Concrete 3D Illustration System** — Exchanged 14 generic legacy abstract `.jpg` visualizations across all feature and enterprise pages with precise, feature-locked `.png` 3D renderings showcasing specific architectural value props (e.g. MCP Server, Code Quality, Multi-Agent routing).
+- `feat(website)`: **Premium Image Enclosure** — Established a unified `.premium-image-wrapper` utility class enveloping all hero-level imagery in a cohesive glassmorphism shadow, padding, and hover elevation to broadcast enterprise quality.
+- `feat(website)`: **Copy-To-Clipboard Tooling** — Automatically injected a lightweight, vanilla JS script into the foundational `BaseLayout` to parse all `<pre><code>` nodes with a stylized clipboard-copy action trigger.
+- `feat(website)`: **Onboarding UX Enriched** — Injected a high-fidelity visual rendering of the Manager Dashboard precisely into the Step 5 flow of `/getting-started` to dramatically increase install-motivation, closing the text-heavy gap.
+- `fix(website)`: **SEO Lifecycle Messaging Validation** — Actively scoped down `production-ready` claims dynamically injected into `<head>`, JSON-LD mappings, visual home tagline, and `.txt` ingestion docs mapping them accurately to the prevailing `v6.0.0-RC1 (Preview)` timeline instead of GA.
+
 ### 🔧 Code Review Fixes
 
 - `fix(website)`: **Font Loading Cleanup** — Removed unused Inter font (was loading ~50KB via `<link>` but never used). Outfit is the canonical font, now loaded via `<link>` tags in `<head>` instead of render-blocking CSS `@import`.

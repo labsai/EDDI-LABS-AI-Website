@@ -28,7 +28,7 @@ const { title, description, heroImage } = Astro.props;
 			</div>
 		</div>
 		{heroImage && (
-			<div class="fp-hero-image">
+			<div class="fp-hero-image premium-image-wrapper">
 				<Image src={heroImage} alt={title} width={480} height={320} loading="eager" decoding="async" />
 			</div>
 		)}
@@ -130,7 +130,7 @@ const { title, description, heroImage } = Astro.props;
 	}
 
 	.fp-content :global(ul), .fp-content :global(ol) {
-		padding-left: 1.5rem;
+		padding-inline-start: 1.5rem;
 		margin: 0 0 1rem;
 	}
 

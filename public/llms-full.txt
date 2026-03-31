@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a production-grade, configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -38,6 +38,11 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Coordinator pattern for routing conversations to specialist agents
 - Agents can delegate to other agents within the same EDDI instance
 - Shared context and memory across coordinated conversations
+
+### Stateful Agentic Memory
+- Unified `IUserMemoryStore` handling isolated persistence paradigms
+- 2D Property Scopes (Conversation vs User bounds) mapped against Visibility logic
+- Native long-term memory retrieval without abstract vector orchestration
 
 ### Performance
 - Java 25 virtual threads (Project Loom) — millions of concurrent conversations

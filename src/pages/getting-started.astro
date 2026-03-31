@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import managerImage from '../assets/hero_manager.png';
 ---
 
 <BaseLayout title="Getting Started" description="Install EDDI, create your first agent, and start chatting in 5 minutes." fullWidth={true}>
@@ -58,9 +60,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		<pre><code>{`chat_with_agent(agentId: "<your-agent-id>", message: "Hello! What can you do?")`}</code></pre>
 	</section>
 
-	<section class="gs-section">
+	<section class="gs-section border-b-0 pb-0">
 		<h2>5. Open the Manager UI</h2>
 		<p>Navigate to <code>http://localhost:7070</code> to visually manage your agents, workflows, and conversations with the EDDI Manager.</p>
+		<div class="mt-8 mb-8 premium-image-wrapper mx-auto max-w-4xl shadow-2xl">
+			<Image src={managerImage} alt="EDDI Manager UI Dashboard Preview" width={1000} height={600} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
+		</div>
 	</section>
 
 	<section class="gs-next-steps">
@@ -133,7 +138,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.gs-content ul {
-		padding-left: 1.25rem;
+		padding-inline-start: 1.25rem;
 		margin: 0 0 1rem;
 	}
 
