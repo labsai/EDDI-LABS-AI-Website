@@ -5,6 +5,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroImage from '../assets/abstract_orchestrator.png';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 ---
 
 <BaseLayout title="The Enterprise AI Orchestrator" fullWidth={true}>
@@ -150,7 +151,7 @@ import heroImage from '../assets/abstract_orchestrator.png';
 				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
 			</div>
 			<div class="text-center sm:text-left">
-				<strong class="block text-white mb-1">1,000+ Tests · 0 Failures</strong>
+				<strong class="block text-white mb-1">1,500+ Tests · 0 Failures</strong>
 				<span class="text-sm text-gray-400">Rigorous CI/CD & code coverage</span>
 			</div>
 		</div>
@@ -232,6 +233,9 @@ import heroImage from '../assets/abstract_orchestrator.png';
 		</a>
 	</div>
 </section>
+
+<!-- Newsletter Signup -->
+<NewsletterSignup variant="section" />
 
 <!-- FAQ -->
 <section class="py-24 max-w-5xl mx-auto px-6 border-t border-gray-800/60 mb-20">
