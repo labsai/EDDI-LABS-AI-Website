@@ -30,6 +30,13 @@ const dir = getDir(lang);
 const siteUrl = Astro.site?.toString() || 'https://eddi.labs.ai';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const pagePath = getPathWithoutLocale(Astro.url);
+
+// OG locale mapping (ISO 639-1 → Open Graph format)
+const OG_LOCALE_MAP: Record<string, string> = {
+	en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', pt: 'pt_BR',
+	ar: 'ar_SA', zh: 'zh_CN', ja: 'ja_JP', ko: 'ko_KR', hi: 'hi_IN', th: 'th_TH',
+};
+const ogLocale = OG_LOCALE_MAP[lang] || lang;
 ---
 
 <!doctype html>
@@ -55,7 +62,10 @@ const pagePath = getPathWithoutLocale(Astro.url);
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
-		<meta property="og:locale" content={lang} />
+		<meta property="og:locale" content={ogLocale} />
+		{LOCALE_CODES.filter(l => l !== lang).map(l => (
+			<meta property="og:locale:alternate" content={OG_LOCALE_MAP[l] || l} />
+		))}
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
 

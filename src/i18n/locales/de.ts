@@ -474,6 +474,6 @@ const de: TranslationSchema = {
 			para2: 'Gesundheitswesen, Finanzdienstleistungen, öffentlicher Sektor und andere regulierte Branchen können EDDI mit Vertrauen deployen, dass die Plattform die Transparenz, Auditierbarkeit und Kontrollmechanismen bietet, die der EU AI Act und ähnliche Regulierungen weltweit erfordern.',
 		},
 	},
-} as const;
+};
 
 export default de;

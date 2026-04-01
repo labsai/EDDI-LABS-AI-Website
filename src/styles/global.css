@@ -160,7 +160,7 @@ section .grid > div > p:last-child {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 50%;
+	inset-inline-start: 50%;
 	transform: translateX(-50%);
 	width: 100vw;
 	height: 100%;
@@ -237,7 +237,7 @@ details summary {
 }
 
 details[open] {
-	border-left: 3px solid var(--color-accent);
+	border-inline-start: 3px solid var(--color-accent);
 }
 
 details[open] summary {

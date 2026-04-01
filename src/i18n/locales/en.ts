@@ -514,7 +514,7 @@ const en = {
 			para2: 'Healthcare, financial services, government, and other regulated sectors can deploy EDDI with confidence that the platform provides the transparency, auditability, and control mechanisms required by the EU AI Act and similar regulations worldwide.',
 		},
 	},
-} as const;
+};
 
 export type TranslationSchema = typeof en;
 export default en;

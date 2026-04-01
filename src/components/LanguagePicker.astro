@@ -116,6 +116,7 @@ const pagePath = getPathWithoutLocale(Astro.url);
 	}
 
 	.lang-dropdown-item.active {
+		position: relative;
 		color: var(--color-accent);
 		font-weight: 600;
 	}
@@ -151,11 +152,10 @@ const pagePath = getPathWithoutLocale(Astro.url);
 	function initLangPicker() {
 		document.querySelectorAll('.lang-dropdown-item').forEach(link => {
 			link.addEventListener('click', () => {
-				const href = link.getAttribute('href') || '';
+				const href = link.getAttribute('href') || '/';
 				const segments = href.split('/').filter(Boolean);
-				if (segments.length > 0) {
-					localStorage.setItem('eddi-lang', segments[0]);
-				}
+				const code = segments.length > 0 ? segments[0] : 'en';
+				localStorage.setItem('eddi-lang', code);
 			});
 		});
 	}
