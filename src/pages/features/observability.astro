@@ -1,20 +1,10 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_observability.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.observability;
 ---
-<FeaturePage title="Observability & Audit Trails" description="Every pipeline step is logged with an immutable audit trail — tokens, cost, timing, tool calls. Full CQRS telemetry with Prometheus and Grafana integration." heroImage={heroImage}>
-
-<h2>Complete Visibility</h2>
-<p>EDDI provides <strong>end-to-end observability</strong> across every conversation, pipeline step, and tool invocation. The immutable audit trail captures tokens used, latency, costs, and outcomes — enabling both operational monitoring and regulatory compliance.</p>
-
-<h3>Observability Features</h3>
-<ul>
-<li><strong>Immutable Audit Trail</strong> — Cryptographically signed, tamper-evident operation logs</li>
-<li><strong>Token & Cost Tracking</strong> — Per-conversation and per-agent usage metrics</li>
-<li><strong>Pipeline Tracing</strong> — Full visibility into every step of the processing pipeline</li>
-<li><strong>Prometheus Metrics</strong> — Standard metrics endpoint for monitoring infrastructure</li>
-<li><strong>Grafana Dashboards</strong> — Pre-built dashboards for operations teams</li>
-<li><strong>CQRS Telemetry</strong> — Event-sourced ledger of all system operations</li>
-</ul>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

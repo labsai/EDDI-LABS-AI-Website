@@ -1,24 +1,11 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_mcp_server.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.mcpServer;
 ---
-<FeaturePage title="MCP Server — 48 Tools" description="EDDI exposes its full capabilities via the Model Context Protocol, enabling Claude Desktop, Cursor, and custom AI clients to manage agents programmatically." heroImage={heroImage}>
-
-<h2>AI-Native Control Plane</h2>
-<p>The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>48 tools</strong> spanning every aspect of the platform.</p>
-
-<h3>Tool Categories</h3>
-<ul>
-<li><strong>Conversation Tools</strong> — Chat with agents, manage conversations, read history</li>
-<li><strong>Admin Tools</strong> — List, inspect, and manage deployed agents</li>
-<li><strong>Setup Tools</strong> — Create complete agents in a single call with <code>setup_agent</code></li>
-<li><strong>Resource CRUD</strong> — Full create/read/update/delete for rules, workflows, LLM configs, connectors</li>
-<li><strong>Diagnostic Tools</strong> — Health checks, configuration inspection, environment diagnostics</li>
-<li><strong>Schedule Management</strong> — Manage periodic agent tasks and triggers</li>
-</ul>
-
-<h3>MCP Client Support</h3>
-<p>EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context — powered by LangChain4j's MCP client integration.</p>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h3>{p.heading3}</h3><p set:html={p.para2} />
 </FeaturePage>
-

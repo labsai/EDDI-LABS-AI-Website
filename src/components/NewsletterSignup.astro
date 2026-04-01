@@ -2,16 +2,22 @@
 /**
  * Newsletter Signup — HubSpot embedded form.
  * Renders a styled section with the HubSpot newsletter form.
+ * i18n-aware: title and description from translations.
  *
  * Props:
  *   variant: 'section' (full CTA block for pages) | 'compact' (for footer/sidebar)
  */
+import { getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
+
 interface Props {
 	variant?: 'section' | 'compact';
 	id?: string;
+	lang?: Locale;
 }
 
-const { variant = 'section', id = 'newsletter' } = Astro.props;
+const { variant = 'section', id = 'newsletter', lang: langProp } = Astro.props;
+const lang = langProp ?? getLocaleFromUrl(Astro.url);
+const t = await getTranslations(lang);
 ---
 
 {variant === 'section' ? (
@@ -25,16 +31,16 @@ const { variant = 'section', id = 'newsletter' } = Astro.props;
 						<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
 					</svg>
 				</div>
-				<h2 class="newsletter-title">Stay in the Loop</h2>
-				<p class="newsletter-desc">Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.</p>
+				<h2 class="newsletter-title">{t.newsletter.title}</h2>
+				<p class="newsletter-desc">{t.newsletter.description}</p>
 			</div>
 			<div class="newsletter-form-wrapper" id={`hs-form-${id}`}></div>
 		</div>
 	</section>
 ) : (
 	<div class="newsletter-compact" id={id}>
-		<h3 class="newsletter-compact-title">Newsletter</h3>
-		<p class="newsletter-compact-desc">Stay updated on EDDI releases and AI orchestration insights.</p>
+		<h3 class="newsletter-compact-title">{t.newsletter.compactTitle}</h3>
+		<p class="newsletter-compact-desc">{t.newsletter.compactDescription}</p>
 		<div class="newsletter-form-wrapper newsletter-form-compact" id={`hs-form-${id}`}></div>
 	</div>
 )}

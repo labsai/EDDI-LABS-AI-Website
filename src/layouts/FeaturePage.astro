@@ -2,20 +2,25 @@
 /**
  * Feature page layout — used by all /features/* and /enterprise/* pages.
  * Provides a hero section with image, title, and a full content slot.
+ * i18n-aware: uses locale-prefixed links for CTAs.
  */
 import BaseLayout from './BaseLayout.astro';
 import { Image } from 'astro:assets';
+import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 
 interface Props {
 	title: string;
 	description: string;
 	heroImage?: ImageMetadata;
+	lang?: Locale;
 }
 
-const { title, description, heroImage } = Astro.props;
+const { title, description, heroImage, lang: langProp } = Astro.props;
+const lang = langProp ?? getLocaleFromUrl(Astro.url);
+const t = await getTranslations(lang);
 ---
 
-<BaseLayout title={title} description={description} fullWidth={true}>
+<BaseLayout title={title} description={description} fullWidth={true} lang={lang}>
 
 <section class="fp-hero hero-gradient hero-gradient-bg">
 	<div class="fp-hero-inner">
@@ -23,8 +28,8 @@ const { title, description, heroImage } = Astro.props;
 			<h1>{title}</h1>
 			<p class="fp-hero-tagline">{description}</p>
 			<div class="fp-hero-actions">
-				<a href="/getting-started/" class="btn-cta-primary">Get Started →</a>
-				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">View on GitHub ↗</a>
+				<a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{t.common.getStartedCta}</a>
+				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">{t.common.viewOnGithub}</a>
 			</div>
 		</div>
 		{heroImage && (

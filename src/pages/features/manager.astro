@@ -1,25 +1,11 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_manager.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.manager;
 ---
-<FeaturePage title="EDDI Manager" description="A production-ready React management UI for building, deploying, and monitoring AI agents visually — with 11-locale i18n, live chat debugging, and audit dashboards." heroImage={heroImage}>
-
-<h2>Visual Agent Management</h2>
-<p>The EDDI Manager is a comprehensive React-based management interface that provides visual control over every aspect of the EDDI platform — from agent configuration to real-time conversation monitoring.</p>
-
-<h3>Key Capabilities</h3>
-<ul>
-<li><strong>Visual Agent Builder</strong> — Create and configure agents through an intuitive drag-and-drop interface</li>
-<li><strong>Live Chat Debugging</strong> — Test agents in real-time with full conversation inspection</li>
-<li><strong>Audit Dashboards</strong> — Monitor token usage, costs, and performance across all agents</li>
-<li><strong>11-Locale i18n</strong> — Full internationalization with RTL support for Arabic</li>
-<li><strong>Interactive Onboarding</strong> — Guided tours that introduce new users to the platform</li>
-<li><strong>Resource Management</strong> — CRUD operations for rules, workflows, LLM configs, and connectors</li>
-<li><strong>Secrets Vault</strong> — Secure API key management with masked display</li>
-</ul>
-
-<h3>Built for Teams</h3>
-<p>The Manager enables non-developers to iterate on agent behavior without touching Java code. Prompt engineers can modify rules, test conversations, and deploy changes — all from the browser.</p>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p>{p.para1}</p>
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h3>{p.heading3}</h3><p>{p.para2}</p>
 </FeaturePage>
-

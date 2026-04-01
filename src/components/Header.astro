@@ -1,17 +1,27 @@
 ---
 /**
  * Custom EDDI header — standalone (no Starlight dependencies).
- * Includes: logo, navigation, theme toggle, mobile menu.
+ * Includes: logo, navigation, language picker, theme toggle, mobile menu.
+ * i18n-aware: all text from translations, all links locale-prefixed.
  */
 import eddiLogoDark from '../assets/eddi-logo-dark.svg';
 import eddiLogoLight from '../assets/eddi-logo-light.svg';
+import LanguagePicker from './LanguagePicker.astro';
+import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
+
+interface Props {
+	lang?: Locale;
+}
+
+const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
+const t = await getTranslations(lang);
 ---
 
 <header class="eddi-header">
 	<div class="eddi-header-inner">
 		<!-- Logo -->
 		<div class="eddi-header-left">
-			<a href="/" class="eddi-logo" aria-label="EDDI Home">
+			<a href={localePath(lang, '/')} class="eddi-logo" aria-label="EDDI Home">
 				<img src={eddiLogoDark.src} alt="EDDI" class="eddi-logo-img eddi-logo-dark" width="80" height="20" />
 				<img src={eddiLogoLight.src} alt="EDDI" class="eddi-logo-img eddi-logo-light" width="80" height="20" />
 			</a>
@@ -21,113 +31,113 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		<nav class="eddi-nav desktop-only" aria-label="Main navigation">
 			<div class="eddi-nav-item has-dropdown">
 				<button class="eddi-nav-link" aria-expanded="false" aria-haspopup="true">
-					Features <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+					{t.nav.features} <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
 				</button>
 				<div class="eddi-dropdown features-dropdown">
 					<div class="eddi-dropdown-grid">
-						<a href="/features/manager/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/manager/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🖥️</span>
 							<div>
-								<strong>EDDI Manager</strong>
-								<span>Visual agent management UI</span>
+								<strong>{t.nav.eddiManager}</strong>
+								<span>{t.nav.eddiManagerDesc}</span>
 							</div>
 						</a>
-						<a href="/features/mcp-server/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/mcp-server/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🔌</span>
 							<div>
-								<strong>MCP Server</strong>
-								<span>48 tools for AI-native control</span>
+								<strong>{t.nav.mcpServer}</strong>
+								<span>{t.nav.mcpServerDesc}</span>
 							</div>
 						</a>
-						<a href="/features/config-as-code/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/config-as-code/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">⚙️</span>
 							<div>
-								<strong>Config-as-Code</strong>
-								<span>JSON config, not compiled Java</span>
+								<strong>{t.nav.configAsCode}</strong>
+								<span>{t.nav.configAsCodeDesc}</span>
 							</div>
 						</a>
-						<a href="/features/security/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/security/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🔐</span>
 							<div>
-								<strong>Security-First</strong>
-								<span>Vault, audit trails, no eval()</span>
+								<strong>{t.nav.securityFirst}</strong>
+								<span>{t.nav.securityFirstDesc}</span>
 							</div>
 						</a>
-						<a href="/features/performance/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/performance/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🚀</span>
 							<div>
-								<strong>Performance</strong>
-								<span>Java 25 Virtual Threads</span>
+								<strong>{t.nav.performance}</strong>
+								<span>{t.nav.performanceDesc}</span>
 							</div>
 						</a>
-						<a href="/features/multi-agent/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/multi-agent/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🤖</span>
 							<div>
-								<strong>Multi-Agent</strong>
-								<span>Intent routing & discovery</span>
+								<strong>{t.nav.multiAgent}</strong>
+								<span>{t.nav.multiAgentDesc}</span>
 							</div>
 						</a>
-						<a href="/features/observability/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/observability/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">📊</span>
 							<div>
-								<strong>Observability</strong>
-								<span>Pipeline logs & audit trails</span>
+								<strong>{t.nav.observability}</strong>
+								<span>{t.nav.observabilityDesc}</span>
 							</div>
 						</a>
-						<a href="/features/code-quality/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/code-quality/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🧪</span>
 							<div>
-								<strong>Code Quality</strong>
-								<span>1,500+ tests, zero failures</span>
+								<strong>{t.nav.codeQuality}</strong>
+								<span>{t.nav.codeQualityDesc}</span>
 							</div>
 						</a>
-						<a href="/features/ai-ready/" class="eddi-dropdown-item">
+						<a href={localePath(lang, '/features/ai-ready/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🧩</span>
 							<div>
-								<strong>AI-Ready</strong>
-								<span>Built for coding agents</span>
+								<strong>{t.nav.aiReady}</strong>
+								<span>{t.nav.aiReadyDesc}</span>
 							</div>
 						</a>
 					</div>
 					<div class="eddi-dropdown-footer">
-						<a href="/features/overview/">View all features →</a>
+						<a href={localePath(lang, '/features/overview/')}>{t.nav.viewAllFeatures}</a>
 					</div>
 				</div>
 			</div>
 
-			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">Docs <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-start:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">{t.nav.docs} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-start:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 
 			<div class="eddi-nav-item has-dropdown">
 				<button class="eddi-nav-link" aria-expanded="false" aria-haspopup="true">
-					Solutions <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+					{t.nav.solutions} <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
 				</button>
 				<div class="eddi-dropdown solutions-dropdown">
-					<a href="/enterprise/why-eddi/" class="eddi-dropdown-item">
+					<a href={localePath(lang, '/enterprise/why-eddi/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">💡</span>
 						<div>
-							<strong>Why EDDI?</strong>
-							<span>The only JVM-native visual AI middleware</span>
+							<strong>{t.nav.whyEddi}</strong>
+							<span>{t.nav.whyEddiDesc}</span>
 						</div>
 					</a>
-					<a href="/enterprise/vs-alternatives/" class="eddi-dropdown-item">
+					<a href={localePath(lang, '/enterprise/vs-alternatives/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">⚖️</span>
 						<div>
-							<strong>vs. Alternatives</strong>
-							<span>Compare with Spring AI, Flowise, n8n</span>
+							<strong>{t.nav.vsAlternatives}</strong>
+							<span>{t.nav.vsAlternativesDesc}</span>
 						</div>
 					</a>
-					<a href="/enterprise/compliance/" class="eddi-dropdown-item">
+					<a href={localePath(lang, '/enterprise/compliance/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">🏛️</span>
 						<div>
-							<strong>EU AI Act</strong>
-							<span>Compliance & governance</span>
+							<strong>{t.nav.euAiAct}</strong>
+							<span>{t.nav.euAiActDesc}</span>
 						</div>
 					</a>
-					<a href="/use-cases/" class="eddi-dropdown-item">
+					<a href={localePath(lang, '/use-cases/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">📋</span>
 						<div>
-							<strong>Use Cases</strong>
-							<span>Real-world deployment patterns</span>
+							<strong>{t.nav.useCases}</strong>
+							<span>{t.nav.useCasesDesc}</span>
 						</div>
 					</a>
 				</div>
@@ -136,10 +146,11 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 
 		<!-- Right side -->
 		<div class="eddi-header-right">
-			<a href="/getting-started/" class="eddi-cta desktop-only">Get Started</a>
+			<a href={localePath(lang, '/getting-started/')} class="eddi-cta desktop-only">{t.nav.getStarted}</a>
 			<a href="https://github.com/labsai/EDDI" class="eddi-icon-link desktop-only" aria-label="GitHub" target="_blank" rel="noopener">
 				<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 			</a>
+			<LanguagePicker lang={lang} />
 			<button class="eddi-theme-toggle" aria-label="Toggle theme" title="Toggle theme">
 				<svg class="eddi-theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 				<svg class="eddi-theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -157,39 +168,39 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 <div class="eddi-mobile-menu" id="eddi-mobile-menu" aria-hidden="true">
 	<div class="eddi-mobile-inner">
 		<div class="eddi-mobile-section">
-			<h3>Features</h3>
-			<a href="/features/overview/">All Features</a>
-			<a href="/features/manager/">EDDI Manager</a>
-			<a href="/features/mcp-server/">MCP Server (48 Tools)</a>
-			<a href="/features/config-as-code/">Config-as-Code</a>
-			<a href="/features/security/">Security-First</a>
-			<a href="/features/performance/">Performance</a>
-			<a href="/features/multi-agent/">Multi-Agent</a>
-			<a href="/features/observability/">Observability</a>
-			<a href="/features/code-quality/">Code Quality</a>
-			<a href="/features/ai-ready/">AI-Ready</a>
+			<h3>{t.nav.features}</h3>
+			<a href={localePath(lang, '/features/overview/')}>{t.nav.allFeatures}</a>
+			<a href={localePath(lang, '/features/manager/')}>{t.nav.eddiManager}</a>
+			<a href={localePath(lang, '/features/mcp-server/')}>{t.nav.mcpServerMobile}</a>
+			<a href={localePath(lang, '/features/config-as-code/')}>{t.nav.configAsCode}</a>
+			<a href={localePath(lang, '/features/security/')}>{t.nav.securityFirst}</a>
+			<a href={localePath(lang, '/features/performance/')}>{t.nav.performance}</a>
+			<a href={localePath(lang, '/features/multi-agent/')}>{t.nav.multiAgent}</a>
+			<a href={localePath(lang, '/features/observability/')}>{t.nav.observability}</a>
+			<a href={localePath(lang, '/features/code-quality/')}>{t.nav.codeQuality}</a>
+			<a href={localePath(lang, '/features/ai-ready/')}>{t.nav.aiReady}</a>
 		</div>
 		<div class="eddi-mobile-section">
-			<h3>Solutions</h3>
-			<a href="/enterprise/why-eddi/">Why EDDI?</a>
-			<a href="/enterprise/vs-alternatives/">vs. Alternatives</a>
-			<a href="/enterprise/compliance/">EU AI Act</a>
-			<a href="/use-cases/">Use Cases</a>
+			<h3>{t.nav.solutions}</h3>
+			<a href={localePath(lang, '/enterprise/why-eddi/')}>{t.nav.whyEddi}</a>
+			<a href={localePath(lang, '/enterprise/vs-alternatives/')}>{t.nav.vsAlternatives}</a>
+			<a href={localePath(lang, '/enterprise/compliance/')}>{t.nav.euAiAct}</a>
+			<a href={localePath(lang, '/use-cases/')}>{t.nav.useCases}</a>
 		</div>
 		<div class="eddi-mobile-section">
-			<h3>Resources</h3>
-			<a href="https://docs.labs.ai" target="_blank" rel="noopener">Documentation ↗</a>
-			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">GitHub ↗</a>
+			<h3>{t.nav.resources}</h3>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener">{t.nav.documentation}</a>
+			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">{t.nav.github}</a>
 		</div>
 		<div class="eddi-mobile-cta">
-			<a href="/getting-started/" class="eddi-cta">Get Started</a>
+			<a href={localePath(lang, '/getting-started/')} class="eddi-cta">{t.nav.getStarted}</a>
 		</div>
 		<div class="eddi-mobile-theme">
 			<button class="eddi-theme-toggle eddi-mobile-theme-btn" aria-label="Toggle theme" title="Toggle theme">
 				<svg class="eddi-theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 				<svg class="eddi-theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-				<span class="eddi-theme-label-dark">Switch to Light Mode</span>
-				<span class="eddi-theme-label-light">Switch to Dark Mode</span>
+				<span class="eddi-theme-label-dark">{t.nav.switchToLightMode}</span>
+				<span class="eddi-theme-label-light">{t.nav.switchToDarkMode}</span>
 			</button>
 		</div>
 	</div>
@@ -508,6 +519,10 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 		z-index: 99;
 	}
 
+	html[dir="rtl"] .eddi-mobile-menu {
+		transform: translateX(-100%);
+	}
+
 	.eddi-mobile-menu[aria-hidden="false"] {
 		transform: translateX(0);
 	}
@@ -671,8 +686,8 @@ import eddiLogoLight from '../assets/eddi-logo-light.svg';
 
 			const checkHref = href || firstDropdownHref;
 			if (
-				(checkHref.startsWith('/features/') && path.startsWith('/features/')) ||
-				((checkHref.startsWith('/enterprise/') || checkHref.startsWith('/use-cases/')) && (path.startsWith('/enterprise/') || path.startsWith('/use-cases/')))
+				(checkHref.includes('/features/') && path.includes('/features/')) ||
+				((checkHref.includes('/enterprise/') || checkHref.includes('/use-cases/')) && (path.includes('/enterprise/') || path.includes('/use-cases/')))
 			) {
 				link.classList.add('eddi-nav-active');
 			}

@@ -1,10 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import managerImage from '../assets/hero_manager.png';
-import { enTranslations as t, localePath } from '../i18n';
+import managerImage from '../../assets/hero_manager.png';
+import { NON_DEFAULT_LOCALES, getTranslations, localePath, type Locale } from '../../i18n';
 
-const lang = 'en' as const;
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = await getTranslations(lang);
 ---
 
 <BaseLayout title={t.gettingStarted.title} description={t.gettingStarted.description} fullWidth={true} lang={lang}>
@@ -17,6 +22,7 @@ const lang = 'en' as const;
 </section>
 
 <article class="gs-content">
+
 	<section class="gs-section">
 		<h2>{t.gettingStarted.prerequisitesTitle}</h2>
 		<ul>
@@ -24,12 +30,14 @@ const lang = 'en' as const;
 			<li>{t.gettingStarted.prereq2}</li>
 		</ul>
 	</section>
+
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step1Title}</h2>
 		<p set:html={t.gettingStarted.step1Desc} />
 		<pre><code>docker run -p 7070:7070 labsai/eddi:latest</code></pre>
 		<p set:html={t.gettingStarted.step1After} />
 	</section>
+
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step2Title}</h2>
 		<p set:html={t.gettingStarted.step2Desc} />
@@ -42,6 +50,7 @@ const lang = 'en' as const;
 }`}</code></pre>
 		<p>{t.gettingStarted.step2After}</p>
 	</section>
+
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step3Title}</h2>
 		<p set:html={t.gettingStarted.step3Desc} />
@@ -53,10 +62,12 @@ const lang = 'en' as const;
 )`}</code></pre>
 		<p>{t.gettingStarted.step3After}</p>
 	</section>
+
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step4Title}</h2>
 		<pre><code>{`chat_with_agent(agentId: "<your-agent-id>", message: "Hello! What can you do?")`}</code></pre>
 	</section>
+
 	<section class="gs-section border-b-0 pb-0">
 		<h2>{t.gettingStarted.step5Title}</h2>
 		<p set:html={t.gettingStarted.step5Desc} />
@@ -64,15 +75,29 @@ const lang = 'en' as const;
 			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1000} height={600} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
 		</div>
 	</section>
+
 	<section class="gs-next-steps">
 		<h2>{t.gettingStarted.whatsNextTitle}</h2>
 		<div class="gs-cards">
-			<a href={localePath(lang, '/features/overview/')} class="gs-card"><strong>{t.gettingStarted.nextAllFeatures}</strong><span>{t.gettingStarted.nextAllFeaturesDesc}</span></a>
-			<a href={localePath(lang, '/features/mcp-server/')} class="gs-card"><strong>{t.gettingStarted.nextMcpServer}</strong><span>{t.gettingStarted.nextMcpServerDesc}</span></a>
-			<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="gs-card"><strong>{t.gettingStarted.nextDocs}</strong><span>{t.gettingStarted.nextDocsDesc}</span></a>
-			<a href={localePath(lang, '/enterprise/why-eddi/')} class="gs-card"><strong>{t.gettingStarted.nextWhyEddi}</strong><span>{t.gettingStarted.nextWhyEddiDesc}</span></a>
+			<a href={localePath(lang, '/features/overview/')} class="gs-card">
+				<strong>{t.gettingStarted.nextAllFeatures}</strong>
+				<span>{t.gettingStarted.nextAllFeaturesDesc}</span>
+			</a>
+			<a href={localePath(lang, '/features/mcp-server/')} class="gs-card">
+				<strong>{t.gettingStarted.nextMcpServer}</strong>
+				<span>{t.gettingStarted.nextMcpServerDesc}</span>
+			</a>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="gs-card">
+				<strong>{t.gettingStarted.nextDocs}</strong>
+				<span>{t.gettingStarted.nextDocsDesc}</span>
+			</a>
+			<a href={localePath(lang, '/enterprise/why-eddi/')} class="gs-card">
+				<strong>{t.gettingStarted.nextWhyEddi}</strong>
+				<span>{t.gettingStarted.nextWhyEddiDesc}</span>
+			</a>
 		</div>
 	</section>
+
 </article>
 
 </BaseLayout>

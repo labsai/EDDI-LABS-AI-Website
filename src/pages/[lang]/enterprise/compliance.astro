@@ -1,0 +1,22 @@
+---
+import FeaturePage from '../../../layouts/FeaturePage.astro';
+import heroImage from '../../../assets/hero_compliance.png';
+import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../../i18n';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: Locale };
+const t = await getTranslations(lang);
+const p = t.pages.compliance;
+---
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
+<h2>{p.heading1}</h2>
+<p set:html={p.para1} />
+<h3>{p.heading2}</h3>
+<ul>
+{p.items.map((item) => <li set:html={item} />)}
+</ul>
+<h3>{p.heading3}</h3>
+<p>{p.para2}</p>
+</FeaturePage>

@@ -1,21 +1,10 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_security.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.security;
 ---
-<FeaturePage title="Security-First Architecture" description="No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication — security is an architectural foundation." heroImage={heroImage}>
-
-<h2>Enterprise Security by Design</h2>
-<p>EDDI eliminates entire classes of security vulnerabilities by design. There is <strong>no eval()</strong>, no code execution blocks, and no dynamic code injection — agent behavior is defined through declarative JSON configuration only.</p>
-
-<h3>Security Features</h3>
-<ul>
-<li><strong>Zero eval()</strong> — No dynamic code execution (eliminates CVSS 10.0 RCE risks)</li>
-<li><strong>OIDC/Keycloak</strong> — Enterprise authentication and authorization</li>
-<li><strong>Vault Integration</strong> — Secure secret management for API keys</li>
-<li><strong>Path Traversal Protection</strong> — Input validation at every boundary</li>
-<li><strong>URL Validation</strong> — Prevent SSRF and redirect attacks</li>
-<li><strong>Cryptographic Audit Trails</strong> — Immutable, tamper-evident operation logs</li>
-<li><strong>EU AI Act Ready</strong> — Built-in governance capabilities for regulatory compliance</li>
-</ul>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

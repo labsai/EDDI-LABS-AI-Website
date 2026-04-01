@@ -1,29 +1,12 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_why_eddi.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.whyEddi;
 ---
-<FeaturePage title="Why EDDI?" description="The only JVM-native visual AI orchestration middleware. Configuration-driven agent logic, a complete management UI, and enterprise-grade security — all in one deployable platform." heroImage={heroImage}>
-
-<h2>The Gap in Enterprise Java</h2>
-<p>Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams either prototype with Python/Node.js tools and rewrite for production, or build everything from scratch using libraries like Spring AI or LangChain4j.</p>
-
-<h2>EDDI Fills This Void</h2>
-<p>EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides everything teams need out of the box:</p>
-<ul>
-<li><strong>Visual Management UI</strong> — The EDDI Manager for building and monitoring agents</li>
-<li><strong>Configuration-as-Code</strong> — Agent logic is JSON, not compiled Java</li>
-<li><strong>48 MCP Tools</strong> — Full AI-native control via Model Context Protocol</li>
-<li><strong>Enterprise Security</strong> — OIDC, vault, audit trails, no eval()</li>
-<li><strong>Production Infrastructure</strong> — REST APIs, conversation state management, Prometheus metrics</li>
-<li><strong>Horizontal Scaling</strong> — NATS JetStream for distributed architectures</li>
-</ul>
-
-<h2>Who Should Use EDDI?</h2>
-<ul>
-<li><strong>Enterprise Java teams</strong> who need AI orchestration without leaving the JVM</li>
-<li><strong>Prompt engineers</strong> who want to iterate without recompiling Java</li>
-<li><strong>Regulated industries</strong> that require audit trails and EU AI Act compliance</li>
-<li><strong>Platform teams</strong> building internal AI services for multiple departments</li>
-</ul>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h2>{p.heading2}</h2><p set:html={p.para2} />
+<ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h2>{p.heading3}</h2><ul>{p.items2.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

@@ -1,19 +1,10 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_ai_ready.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.aiReady;
 ---
-<FeaturePage title="AI-Ready Architecture" description="48 MCP tools, predictable CRUD patterns, self-documenting APIs. Built from the ground up for coding agents to work with." heroImage={heroImage}>
-
-<h2>Designed for AI Collaboration</h2>
-<p>EDDI is built with the assumption that <strong>coding agents will manage it</strong>. Every API follows predictable patterns, every resource has consistent CRUD operations, and the MCP server enables full programmatic control.</p>
-
-<h3>AI-Friendly Design</h3>
-<ul>
-<li><strong>Predictable Patterns</strong> — Consistent resource naming, CRUD conventions, and error handling</li>
-<li><strong>Self-Documenting APIs</strong> — OpenAPI specs and MCP tool descriptions auto-generated</li>
-<li><strong>LLMs.txt Support</strong> — AI-discoverable site content via llms.txt and llms-full.txt</li>
-<li><strong>MCP-First</strong> — 48 tools designed for AI assistant integration</li>
-<li><strong>Setup Automation</strong> — Single-call agent creation with <code>setup_agent</code></li>
-</ul>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

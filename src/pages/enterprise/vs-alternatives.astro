@@ -1,28 +1,14 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_vs_alternatives.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.vsAlternatives;
 ---
-<FeaturePage title="EDDI vs. Alternatives" description="How EDDI compares with Spring AI, LangChain4j, Flowise, n8n, and other AI orchestration approaches." heroImage={heroImage}>
-
-<h2>Platform vs. Library</h2>
-<p>The fundamental difference: EDDI is a <strong>deployable middleware platform</strong>, not a library. While libraries give you building blocks, EDDI gives you the entire building — ready to deploy.</p>
-
-<h2>Comparison</h2>
-
-<h3>vs. Spring AI / LangChain4j</h3>
-<p>Spring AI and LangChain4j are excellent <strong>libraries</strong> (EDDI uses LangChain4j internally). But with libraries, you still need to build REST controllers, authentication, conversation management, audit logging, and management UIs yourself. EDDI provides all of this out of the box.</p>
-
-<h3>vs. Flowise / n8n</h3>
-<p>Flowise and n8n are Node.js-based visual builders. EDDI serves a similar purpose but on the JVM:</p>
-<ul>
-<li><strong>No eval()</strong> — Eliminates CVSS 10.0 remote code execution risks</li>
-<li><strong>Java 25 Virtual Threads</strong> — Enterprise-grade concurrency vs. single-threaded Node.js</li>
-<li><strong>OIDC/Keycloak</strong> — Enterprise authentication vs. basic auth</li>
-<li><strong>MongoDB/PostgreSQL</strong> — Production databases vs. SQLite</li>
-</ul>
-
-<h3>vs. AWS Bedrock / Azure AI Studio</h3>
-<p>Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, in any cloud, or in air-gapped environments.</p>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h2>{p.heading2}</h2>
+<h3>{p.heading3a}</h3><p set:html={p.para2} />
+<h3>{p.heading3b}</h3><p>{p.para3}</p>
+<ul>{p.vsItems.map((item) => <li set:html={item} />)}</ul>
+<h3>{p.heading3c}</h3><p set:html={p.para4} />
 </FeaturePage>
-

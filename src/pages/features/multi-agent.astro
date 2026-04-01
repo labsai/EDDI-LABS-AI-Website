@@ -1,19 +1,10 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_multi_agent.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.multiAgent;
 ---
-<FeaturePage title="Multi-Agent Orchestration" description="Intent-based agent discovery, managed conversations, agent triggers, and A/B routing — one conversation per intent+user, auto-created and auto-managed." heroImage={heroImage}>
-
-<h2>Intelligent Agent Routing</h2>
-<p>EDDI's multi-agent system goes beyond simple load balancing. It provides <strong>intent-based agent discovery</strong> that automatically routes user requests to the most appropriate agent based on declared capabilities.</p>
-
-<h3>Orchestration Features</h3>
-<ul>
-<li><strong>Agent Discovery</strong> — Agents declare intents and are auto-matched to user requests</li>
-<li><strong>Managed Conversations</strong> — One conversation per intent+user, auto-created</li>
-<li><strong>Agent Triggers</strong> — Automated agent activation based on events</li>
-<li><strong>A/B Routing</strong> — Test different agents against the same traffic</li>
-<li><strong>Coordinator Pattern</strong> — Agents delegate to specialized sub-agents</li>
-</ul>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

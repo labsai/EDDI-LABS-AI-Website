@@ -1,33 +1,39 @@
 ---
 /**
  * Base layout for the entire EDDI website.
- * Replaces Starlight's Page.astro — provides the HTML shell,
- * global styles, meta tags, JSON-LD, and theme toggle script.
+ * Provides the HTML shell, global styles, meta tags, JSON-LD,
+ * theme toggle script, and i18n hreflang alternates.
  */
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-
-
+import { LOCALE_CODES, LOCALES, getLocaleFromUrl, getPathWithoutLocale, getDir, localePath, type Locale } from '../i18n';
 
 interface Props {
 	title: string;
 	description?: string;
 	/** Full-bleed page (no content wrapper) — used by homepage */
 	fullWidth?: boolean;
+	/** Explicit locale override (otherwise derived from URL) */
+	lang?: Locale;
 }
 
 const {
 	title,
 	description = 'EDDI — The Enterprise AI Orchestrator. Configuration-driven, Java-native AI middleware built on Quarkus (v6.0.0-RC1 Preview).',
 	fullWidth = false,
+	lang: langProp,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const lang = langProp ?? getLocaleFromUrl(Astro.url);
+const dir = getDir(lang);
+const siteUrl = Astro.site?.toString() || 'https://eddi.labs.ai';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const pagePath = getPathWithoutLocale(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang={lang} dir={dir} data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,12 +43,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<title>{title} | EDDI</title>
 		<meta name="description" content={description} />
 
+		<!-- Hreflang alternates for all locales -->
+		{LOCALE_CODES.map((loc) => (
+			<link rel="alternate" hreflang={loc} href={new URL(localePath(loc, pagePath), siteUrl)} />
+		))}
+		<link rel="alternate" hreflang="x-default" href={new URL(pagePath, siteUrl)} />
+
 		<!-- OG / Twitter -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={`${title} | EDDI`} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
+		<meta property="og:locale" content={lang} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
 
@@ -100,7 +113,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<Header />
+		<Header lang={lang} />
 
 		{fullWidth ? (
 			<main>
@@ -112,7 +125,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			</main>
 		)}
 
-		<Footer />
+		<Footer lang={lang} />
 		
 		<!-- Global Copy Button Script for pre elements -->
 		<script is:inline>

@@ -1,14 +1,20 @@
 ---
 /**
- * EDDI Homepage — English (default locale, root path)
+ * EDDI Homepage — [lang] dynamic route
+ * Generates pages for all 11 locales.
  */
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import heroImage from '../assets/abstract_orchestrator.png';
-import NewsletterSignup from '../components/NewsletterSignup.astro';
-import { enTranslations as t, localePath } from '../i18n';
+import heroImage from '../../assets/abstract_orchestrator.png';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { NON_DEFAULT_LOCALES, getTranslations, localePath, type Locale } from '../../i18n';
 
-const lang = 'en' as const;
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = await getTranslations(lang);
 ---
 
 <BaseLayout title={t.home.title} fullWidth={true} lang={lang}>
@@ -39,9 +45,10 @@ const lang = 'en' as const;
 		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.home.problemTitle}</h2>
 		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.home.problemDesc} />
 	</div>
+
 	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 inset-e-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
@@ -51,7 +58,7 @@ const lang = 'en' as const;
 			<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={t.home.problemCard1Desc} />
 		</div>
 		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 inset-e-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
@@ -61,7 +68,7 @@ const lang = 'en' as const;
 			<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={t.home.problemCard2Desc} />
 		</div>
 		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
-			<div class="absolute top-2 inset-e-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
 			</div>
 			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
@@ -197,27 +204,119 @@ const lang = 'en' as const;
 </BaseLayout>
 
 <style>
-	.hero-section { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 5rem; width: 100%; }
-	.hero-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
-	.hero-text { flex: 1; }
-	.hero-text h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin: 0 0 1.5rem; }
+	/* Hero Section */
+	.hero-section {
+		padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 5rem;
+		width: 100%;
+	}
+
+	.hero-inner {
+		max-width: 72rem;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		gap: 4rem;
+	}
+
+	.hero-text {
+		flex: 1;
+	}
+
+	.hero-text h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 800;
+		line-height: 1.1;
+		margin: 0 0 1.5rem;
+	}
+
 	html[data-theme='dark'] .hero-text h1 { color: #fff; }
 	html[data-theme='light'] .hero-text h1 { color: #111; }
-	.hero-tagline { font-size: 1.125rem; line-height: 1.65; max-width: 36rem; margin: 0 0 2rem; }
+
+	.hero-tagline {
+		font-size: 1.125rem;
+		line-height: 1.65;
+		max-width: 36rem;
+		margin: 0 0 2rem;
+	}
+
 	html[data-theme='dark'] .hero-tagline { color: rgba(255, 255, 255, 0.6); }
 	html[data-theme='light'] .hero-tagline { color: rgba(0, 0, 0, 0.6); }
-	.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-	.hero-btn-primary { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600; color: #111 !important; background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
-	.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent); }
-	.hero-btn-minimal { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 500; border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; }
-	html[data-theme='dark'] .hero-btn-minimal { color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.15); }
-	html[data-theme='light'] .hero-btn-minimal { color: #333; border: 1px solid rgba(0, 0, 0, 0.15); }
-	.hero-btn-minimal:hover { transform: translateY(-2px); }
-	.hero-visual { flex-shrink: 0; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); }
-	html[data-theme='light'] .hero-visual { background: #f0f1f3; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); }
-	.hero-visual img { display: block; width: 100%; height: auto; max-width: 28rem; }
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.hero-btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.75rem 1.75rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: #111 !important;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		border-radius: 0.5rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent);
+	}
+
+	.hero-btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent);
+	}
+
+	.hero-btn-minimal {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.75rem 1.75rem;
+		font-size: 1rem;
+		font-weight: 500;
+		border-radius: 0.5rem;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	html[data-theme='dark'] .hero-btn-minimal {
+		color: rgba(255, 255, 255, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	html[data-theme='light'] .hero-btn-minimal {
+		color: #333;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+	}
+
+	.hero-btn-minimal:hover {
+		transform: translateY(-2px);
+	}
+
+	.hero-visual {
+		flex-shrink: 0;
+		border-radius: 1.25rem;
+		overflow: hidden;
+		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+	}
+
+	html[data-theme='light'] .hero-visual {
+		background: #f0f1f3;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+	}
+
+	.hero-visual img {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: 28rem;
+	}
+
 	@media (max-width: 50rem) {
-		.hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
+		.hero-inner {
+			flex-direction: column;
+			text-align: center;
+			gap: 2.5rem;
+		}
 		.hero-tagline { max-width: none; }
 		.hero-actions { justify-content: center; }
 		.hero-visual { max-width: 20rem; }

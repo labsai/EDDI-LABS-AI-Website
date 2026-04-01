@@ -1,23 +1,11 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_config_as_code.png';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.configAsCode;
 ---
-<FeaturePage title="Configuration-as-Code" description="Agent logic, pipelines, and tool definitions are JSON configurations — not compiled Java. Iterate instantly without recompilation." heroImage={heroImage}>
-
-<h2>JSON-Driven Agent Logic</h2>
-<p>In EDDI, everything that defines an agent's behavior is a <strong>JSON configuration resource</strong>: rules (system prompts), LLM connector settings, workflow pipelines, tool configurations, and deployment descriptors.</p>
-
-<h3>Why This Matters</h3>
-<ul>
-<li><strong>No recompilation</strong> — Change agent behavior by updating JSON, not Java code</li>
-<li><strong>Prompt engineer friendly</strong> — Non-developers modify rules via UI or REST API</li>
-<li><strong>Version controlled</strong> — JSON configs live in Git alongside infrastructure-as-code</li>
-<li><strong>Hot-reloadable</strong> — Changes take effect immediately, no server restart needed</li>
-<li><strong>Auditable</strong> — Every configuration change is tracked in the immutable audit trail</li>
-</ul>
-
-<h3>Resource Types</h3>
-<p>EDDI manages these configuration resources: <strong>Rules</strong> (system prompts), <strong>Workflows</strong> (pipeline definitions), <strong>LLM Connectors</strong> (provider settings), <strong>HTTP Connectors</strong> (external API integrations), <strong>Agents</strong> (deployment descriptors), and <strong>Environments</strong> (deployment targets).</p>
-
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h3>{p.heading3}</h3><p set:html={p.para2} />
 </FeaturePage>
-
