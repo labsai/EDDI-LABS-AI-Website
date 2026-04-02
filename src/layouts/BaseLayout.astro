@@ -7,7 +7,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { LOCALE_CODES, LOCALES, getLocaleFromUrl, getPathWithoutLocale, getDir, localePath, type Locale } from '../i18n';
+import { LOCALE_CODES, getLocaleFromUrl, getPathWithoutLocale, getDir, localePath, type Locale } from '../i18n';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -20,13 +21,18 @@ interface Props {
 
 const {
 	title,
-	description = 'EDDI — The Enterprise AI Orchestrator. Configuration-driven, Java-native AI middleware built on Quarkus (v6.0.0-RC1 Preview).',
+	description: descProp,
 	fullWidth = false,
 	lang: langProp,
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
 const dir = getDir(lang);
+
+// Use locale-aware description fallback instead of hardcoded English
+import { getTranslations } from '../i18n';
+const tMeta = await getTranslations(lang);
+const description = descProp ?? tMeta.meta.siteDescription;
 const siteUrl = Astro.site?.toString() || 'https://eddi.labs.ai';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const pagePath = getPathWithoutLocale(Astro.url);
@@ -43,6 +49,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 <html lang={lang} dir={dir} data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
+		<ClientRouter />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonicalURL} />
@@ -74,7 +81,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		<link rel="author" type="text/markdown" href="/llms-full.txt" />
 
 		<!-- JSON-LD: Organization -->
-		<script type="application/ld+json" set:html={JSON.stringify({
+		<script is:inline type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'Organization',
 			name: 'Labs.ai',
@@ -84,7 +91,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		})} />
 
 		<!-- JSON-LD: WebSite -->
-		<script type="application/ld+json" set:html={JSON.stringify({
+		<script is:inline type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'WebSite',
 			name: 'EDDI',
@@ -93,7 +100,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		})} />
 
 		<!-- JSON-LD: SoftwareApplication -->
-		<script type="application/ld+json" set:html={JSON.stringify({
+		<script is:inline type="application/ld+json" set:html={JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'SoftwareApplication',
 			name: 'EDDI',
@@ -123,14 +130,15 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+		<a href="#main-content" class="skip-to-content">Skip to content</a>
 		<Header lang={lang} />
 
 		{fullWidth ? (
-			<main>
+			<main id="main-content">
 				<slot />
 			</main>
 		) : (
-			<main class="page-content">
+			<main id="main-content" class="page-content">
 				<slot />
 			</main>
 		)}
@@ -139,7 +147,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		
 		<!-- Global Copy Button Script for pre elements -->
 		<script is:inline>
-			document.addEventListener('DOMContentLoaded', () => {
+			document.addEventListener('astro:page-load', () => {
 				document.querySelectorAll('pre').forEach((pre) => {
 					const button = document.createElement('button');
 					button.className = 'eddi-copy-btn';
@@ -180,6 +188,24 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 	body {
 		margin: 0;
 		min-height: 100vh;
+	}
+
+	/* Skip to Content for Screen Readers */
+	.skip-to-content {
+		position: absolute;
+		top: -100%;
+		inset-inline-start: 50%;
+		transform: translateX(-50%);
+		background: var(--color-accent-500);
+		color: #000;
+		padding: 0.5rem 1rem;
+		border-radius: 0 0 0.5rem 0.5rem;
+		z-index: 9999;
+		transition: top 0.2s ease;
+		font-weight: 600;
+	}
+	.skip-to-content:focus {
+		top: 0;
 	}
 
 	/* Full-width pages get no wrapper */

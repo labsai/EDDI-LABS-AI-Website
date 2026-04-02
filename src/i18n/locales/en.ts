@@ -60,6 +60,14 @@ const en = {
 	common: {
 		getStartedCta: 'Get Started →',
 		viewOnGithub: 'View on GitHub ↗',
+		// Announcement Banner
+		bannerBadge: 'New',
+		bannerText: 'EDDI v6.0.0-RC1 is now available for developer preview!',
+		bannerLink: 'Get started',
+		// 404 Page
+		notFoundTitle: 'Page Not Found',
+		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',
+		notFoundCta: 'Return to System Core',
 	},
 
 	// ─── Footer ─────────────────────────────────────────────────

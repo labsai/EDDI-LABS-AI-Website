@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404: Not Found">
+	<div class="not-found-container">
+		<div class="not-found-content">
+			<h1 class="error-code">404</h1>
+			<h2 class="error-title">Page Not Found</h2>
+			<p class="error-desc">The AI orchestration route you are looking for has been disconnected or relocated.</p>
+			<a href="/" class="btn-cta-primary">
+				Return to System Core
+				<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M5 12h14"></path>
+					<path d="m12 5 7 7-7 7"></path>
+				</svg>
+			</a>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.not-found-container {
+		min-height: calc(100vh - var(--nav-height, 4rem) - 200px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.not-found-content {
+		max-width: 32rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.error-code {
+		font-size: 8rem;
+		line-height: 1;
+		font-weight: 800;
+		color: var(--color-accent-500);
+		margin: 0;
+		background: linear-gradient(135deg, var(--color-accent-300), var(--color-accent-600));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		opacity: 0.9;
+	}
+
+	.error-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin: 0;
+		color: var(--color-text);
+	}
+
+	.error-desc {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		margin: 0;
+		margin-bottom: 1rem;
+	}
+
+	html[data-theme="light"] .error-code {
+		background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
+		-webkit-background-clip: text;
+	}
+</style>

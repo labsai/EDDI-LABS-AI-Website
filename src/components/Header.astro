@@ -7,6 +7,7 @@
 import eddiLogoDark from '../assets/eddi-logo-dark.svg';
 import eddiLogoLight from '../assets/eddi-logo-light.svg';
 import LanguagePicker from './LanguagePicker.astro';
+import AnnouncementBanner from './AnnouncementBanner.astro';
 import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 
 interface Props {
@@ -17,6 +18,7 @@ const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
 ---
 
+<AnnouncementBanner />
 <header class="eddi-header">
 	<div class="eddi-header-inner">
 		<!-- Logo -->
@@ -211,8 +213,8 @@ const t = await getTranslations(lang);
 	.eddi-header {
 		position: fixed;
 		top: 0;
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		z-index: 100;
 		height: var(--nav-height, 4rem);
 		border-bottom: 1px solid var(--color-border);
@@ -322,17 +324,20 @@ const t = await getTranslations(lang);
 	}
 
 	.has-dropdown:hover .eddi-dropdown,
-	.has-dropdown:focus-within .eddi-dropdown {
+	.has-dropdown:focus-within .eddi-dropdown,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] + .eddi-dropdown {
 		opacity: 1;
 		visibility: visible;
 		transform: translateX(-50%) translateY(0);
 	}
 
-	.has-dropdown:hover .eddi-chevron {
+	.has-dropdown:hover .eddi-chevron,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] .eddi-chevron {
 		transform: rotate(180deg);
 	}
 
-	.has-dropdown:hover > .eddi-nav-link {
+	.has-dropdown:hover > .eddi-nav-link,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] {
 		color: var(--color-text);
 		background: var(--color-surface);
 	}
@@ -508,8 +513,8 @@ const t = await getTranslations(lang);
 		display: none;
 		position: fixed;
 		top: var(--nav-height, 4rem);
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		bottom: 0;
 		background: var(--color-bg);
 		overflow-y: auto;
@@ -642,6 +647,46 @@ const t = await getTranslations(lang);
 		box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
 	}
 </style>
+
+<script is:inline>
+	document.addEventListener('astro:page-load', () => {
+		// Keyboard navigation for dropdowns
+		const dropdownToggles = document.querySelectorAll('.eddi-nav-link');
+		
+		dropdownToggles.forEach(toggle => {
+			toggle.addEventListener('click', () => {
+				const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+				// Close all others
+				dropdownToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+				// Toggle current
+				toggle.setAttribute('aria-expanded', !isExpanded);
+			});
+
+			toggle.addEventListener('keydown', (e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggle.click();
+				}
+			});
+		});
+
+		// Close dropdowns on outside click or Escape
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.eddi-nav-item')) {
+				dropdownToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				dropdownToggles.forEach(t => {
+					t.setAttribute('aria-expanded', 'false');
+					t.blur();
+				});
+			}
+		});
+	});
+</script>
 
 <script>
 	function initEddiHeader() {

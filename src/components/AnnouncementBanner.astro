@@ -1,0 +1,90 @@
+---
+/**
+ * Promotional Announcement Banner
+ * Displays across the top of the header.
+ * i18n-aware: all text from translations.
+ */
+import { localePath, getLocaleFromUrl, getTranslations } from '../i18n';
+
+const lang = getLocaleFromUrl(Astro.url);
+const t = await getTranslations(lang);
+---
+<div class="announcement-banner">
+	<div class="announcement-content">
+		<span class="announcement-badge">{t.common.bannerBadge}</span>
+		<p class="announcement-text">
+			{t.common.bannerText}
+			<a href={localePath(lang, '/getting-started/')} class="announcement-link">
+				{t.common.bannerLink} <span aria-hidden="true">&rarr;</span>
+			</a>
+		</p>
+	</div>
+</div>
+
+<style>
+	.announcement-banner {
+		background: linear-gradient(90deg, var(--color-accent-800), var(--color-accent-600));
+		color: #ffffff;
+		padding: 0.5rem 1rem;
+		text-align: center;
+		font-size: 0.875rem;
+		position: relative;
+		z-index: 100;
+	}
+
+	html[data-theme='light'] .announcement-banner {
+		background: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-400));
+	}
+
+	.announcement-content {
+		max-width: 72rem;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.announcement-badge {
+		background: rgba(0, 0, 0, 0.2);
+		padding: 0.125rem 0.5rem;
+		border-radius: 9999px;
+		font-weight: 700;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.announcement-text {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.announcement-text strong {
+		font-weight: 700;
+	}
+
+	.announcement-link {
+		color: #ffffff;
+		font-weight: 600;
+		text-decoration: underline;
+		text-decoration-color: rgba(255, 255, 255, 0.4);
+		text-underline-offset: 4px;
+		transition: text-decoration-color 0.2s;
+	}
+
+	.announcement-link:hover {
+		text-decoration-color: #ffffff;
+	}
+
+	@media (max-width: 640px) {
+		.announcement-text {
+			gap: 0.25rem;
+		}
+	}
+</style>

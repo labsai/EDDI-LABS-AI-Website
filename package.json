@@ -1,22 +1,29 @@
 {
   "name": "eddi-website",
   "type": "module",
-  "version": "1.0.0",
+  "version": "6.0.0-rc1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
+    "check": "astro check",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.8",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^6.0.8",
     "sharp": "^0.34.2",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "overrides": {
     "vite": "^7"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }

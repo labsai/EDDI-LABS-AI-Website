@@ -49,6 +49,14 @@ const de: TranslationSchema = {
 	common: {
 		getStartedCta: 'Jetzt Starten →',
 		viewOnGithub: 'Auf GitHub ansehen ↗',
+		// Announcement Banner
+		bannerBadge: 'Neu',
+		bannerText: 'EDDI v6.0.0-RC1 ist jetzt als Developer Preview verfügbar!',
+		bannerLink: 'Jetzt starten',
+		// 404 Page
+		notFoundTitle: 'Seite nicht gefunden',
+		notFoundDesc: 'Die gesuchte KI-Orchestrierungsroute wurde getrennt oder verschoben.',
+		notFoundCta: 'Zurück zum System',
 	},
 	footer: {
 		tagline: 'Der Enterprise-KI-Orchestrator',
