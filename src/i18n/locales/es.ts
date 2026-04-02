@@ -87,8 +87,6 @@ const es: TranslationSchema = {
 		title: 'Manténgase al día',
 		description:
 			'Reciba actualizaciones sobre nuevos lanzamientos, características y mejores prácticas de orquestación de IA empresarial. Sin spam — solo información valiosa.',
-		compactTitle: 'Boletín informativo',
-		compactDescription: 'Manténgase actualizado sobre los lanzamientos de EDDI y la orquestación de IA.',
 	},
 	home: {
 		title: 'El orquestador de IA para empresas',

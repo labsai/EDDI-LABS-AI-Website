@@ -84,8 +84,6 @@ const pt: TranslationSchema = {
 	newsletter: {
 		title: 'Fique Por Dentro',
 		description: 'Receba atualizações sobre novos lançamentos, funcionalidades e melhores práticas de orquestração de IA empresarial. Sem spam — apenas conteúdo relevante.',
-		compactTitle: 'Newsletter',
-		compactDescription: 'Mantenha-se atualizado sobre lançamentos do EDDI e insights de orquestração de IA.',
 	},
 	home: {
 		title: 'O Orquestrador de IA Empresarial',

@@ -87,8 +87,6 @@ const fr: TranslationSchema = {
 		title: 'Restez informé',
 		description:
 			'Recevez des mises à jour sur les nouvelles fonctionnalités et les meilleures pratiques de l\'orchestration de l\'IA en entreprise. Pas de spam, uniquement de la pertinence.',
-		compactTitle: 'Newsletter',
-		compactDescription: 'Restez informé sur les versions d\'EDDI et l\'orchestration de l\'IA.',
 	},
 	home: {
 		title: 'L\'orchestrateur d\'IA d\'entreprise',

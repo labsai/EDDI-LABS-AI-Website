@@ -84,8 +84,6 @@ const ja: TranslationSchema = {
 	newsletter: {
 		title: '最新情報をキャッチ',
 		description: '新リリース、機能、エンタープライズAIオーケストレーションのベストプラクティスに関する更新を受け取れます。スパムなし — シグナルのみ。',
-		compactTitle: 'ニュースレター',
-		compactDescription: 'EDDIのリリースとAIオーケストレーションのインサイトを入手。',
 	},
 	home: {
 		title: 'エンタープライズAIオーケストレーター',

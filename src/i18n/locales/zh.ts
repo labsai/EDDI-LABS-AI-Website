@@ -84,8 +84,6 @@ const zh: TranslationSchema = {
 	newsletter: {
 		title: '保持关注',
 		description: '获取新版本、功能和企业AI编排最佳实践的更新。无垃圾邮件——只有有价值的信息。',
-		compactTitle: '新闻通讯',
-		compactDescription: '了解EDDI发布动态和AI编排洞察。',
 	},
 	home: {
 		title: '企业级AI编排器',

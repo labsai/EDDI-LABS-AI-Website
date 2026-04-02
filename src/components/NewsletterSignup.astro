@@ -3,61 +3,52 @@
  * Newsletter Signup — HubSpot embedded form.
  * Renders a styled section with the HubSpot newsletter form.
  * i18n-aware: title and description from translations.
- *
- * Props:
- *   variant: 'section' (full CTA block for pages) | 'compact' (for footer/sidebar)
  */
 import { getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 
 interface Props {
-	variant?: 'section' | 'compact';
 	id?: string;
 	lang?: Locale;
 }
 
-const { variant = 'section', id = 'newsletter', lang: langProp } = Astro.props;
+const { id = 'newsletter', lang: langProp } = Astro.props;
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
 ---
 
-{variant === 'section' ? (
-	<section class="newsletter-section" id={id}>
-		<div class="newsletter-glow"></div>
-		<div class="newsletter-inner">
-			<div class="newsletter-content">
-				<div class="newsletter-icon">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-						<rect x="2" y="4" width="20" height="16" rx="2"/>
-						<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-					</svg>
-				</div>
-				<h2 class="newsletter-title">{t.newsletter.title}</h2>
-				<p class="newsletter-desc">{t.newsletter.description}</p>
+<section class="newsletter-section" id={id}>
+	<div class="newsletter-glow"></div>
+	<div class="newsletter-inner">
+		<div class="newsletter-content">
+			<div class="newsletter-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+					<rect x="2" y="4" width="20" height="16" rx="2"/>
+					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+				</svg>
 			</div>
-			<div class="newsletter-form-wrapper" id={`hs-form-${id}`}></div>
+			<h2 class="newsletter-title">{t.newsletter.title}</h2>
+			<p class="newsletter-desc">{t.newsletter.description}</p>
 		</div>
-	</section>
-) : (
-	<div class="newsletter-compact" id={id}>
-		<h3 class="newsletter-compact-title">{t.newsletter.compactTitle}</h3>
-		<p class="newsletter-compact-desc">{t.newsletter.compactDescription}</p>
-		<div class="newsletter-form-wrapper newsletter-form-compact" id={`hs-form-${id}`}></div>
+		<div class="newsletter-form-wrapper" id={`hs-form-${id}`}></div>
 	</div>
-)}
+</section>
 
 <script>
+	// Track active observers so we can clean them up on re-init
+	let formObservers: MutationObserver[] = [];
+	let themeObserver: MutationObserver | null = null;
+
 	function applyThemeToForms() {
 		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
 		// Style all form labels
 		document.querySelectorAll('.newsletter-form-wrapper label').forEach((el) => {
 			const label = el as HTMLElement;
-			// Check if this is a consent/legal label (inside boolean checkbox)
 			const isConsent = label.closest('.legal-consent-container') || label.closest('.hs-form-booleancheckbox');
 			if (isConsent) {
-				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.45)', 'important');
+				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
 			} else {
-				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.65)', 'important');
+				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(0, 0, 0, 0.65)', 'important');
 				label.style.fontSize = '0.8125rem';
 				label.style.fontWeight = '500';
 				label.style.marginBottom = '0.375rem';
@@ -65,23 +56,23 @@ const t = await getTranslations(lang);
 			}
 		});
 
-		// Style all consent/legal text
+		// Style all consent/legal text — higher contrast for readability
 		document.querySelectorAll('.newsletter-form-wrapper .legal-consent-container p, .newsletter-form-wrapper .legal-consent-container span, .newsletter-form-wrapper .hs-richtext p').forEach((el) => {
-			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.45)', 'important');
+			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
 		});
 
 		// Style consent checkbox text
 		document.querySelectorAll('.newsletter-form-wrapper .hs-form-booleancheckbox-display span').forEach((el) => {
-			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.45)', 'important');
+			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
 		});
 
 		// Style inputs
 		document.querySelectorAll('.newsletter-form-wrapper .hs-input').forEach((el) => {
 			const input = el as HTMLElement;
 			if (input.tagName === 'INPUT' && (input as HTMLInputElement).type === 'checkbox') return;
-			input.style.setProperty('background', isDark ? 'rgba(255, 255, 255, 0.05)' : '#fff', 'important');
+			input.style.setProperty('background', isDark ? 'rgba(255, 255, 255, 0.06)' : '#fff', 'important');
 			input.style.setProperty('color', isDark ? '#fff' : '#111', 'important');
-			input.style.setProperty('border-color', isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.15)', 'important');
+			input.style.setProperty('border-color', isDark ? 'rgba(255, 255, 255, 0.18)' : 'rgba(0, 0, 0, 0.15)', 'important');
 			input.style.width = '100%';
 			input.style.padding = '0.75rem 1rem';
 			input.style.fontSize = '0.9375rem';
@@ -109,33 +100,62 @@ const t = await getTranslations(lang);
 			btn.style.boxShadow = '0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent)';
 		});
 
-		// Hide HubSpot branding in dark mode
+		// Hide HubSpot branding
 		document.querySelectorAll('.newsletter-form-wrapper .hubspot-link__container').forEach((el) => {
-			(el as HTMLElement).style.display = isDark ? 'none' : '';
+			(el as HTMLElement).style.display = 'none';
 		});
 
 		// Style legal links
 		document.querySelectorAll('.newsletter-form-wrapper .legal-consent-container a').forEach((el) => {
 			(el as HTMLElement).style.setProperty('color', 'var(--color-accent)', 'important');
 		});
+
+		// Style required asterisks
+		document.querySelectorAll('.newsletter-form-wrapper .hs-form-required').forEach((el) => {
+			(el as HTMLElement).style.setProperty('color', isDark ? 'var(--color-accent)' : '#e53e3e', 'important');
+		});
+
+		// Style error messages
+		document.querySelectorAll('.newsletter-form-wrapper .hs-error-msg, .newsletter-form-wrapper .hs-error-msgs label').forEach((el) => {
+			(el as HTMLElement).style.setProperty('color', '#f56565', 'important');
+		});
+	}
+
+	function cleanupObservers() {
+		formObservers.forEach((obs) => obs.disconnect());
+		formObservers = [];
+
+		if (themeObserver) {
+			themeObserver.disconnect();
+			themeObserver = null;
+		}
 	}
 
 	function observeFormContainers() {
 		document.querySelectorAll('.newsletter-form-wrapper').forEach((container) => {
 			const observer = new MutationObserver(() => {
-				// Apply styles whenever HubSpot adds/modifies elements
 				applyThemeToForms();
 			});
 			observer.observe(container, { childList: true, subtree: true });
+			formObservers.push(observer);
 		});
 	}
 
 	function loadHubSpotForm() {
+		// Clean up any stale observers from previous page loads
+		cleanupObservers();
+
 		const containers = document.querySelectorAll('.newsletter-form-wrapper');
 		if (containers.length === 0) return;
 
-		// Start observing for HubSpot form injection
+		// Set up fresh observers
 		observeFormContainers();
+
+		themeObserver = new MutationObserver(() => applyThemeToForms());
+		themeObserver.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ['data-theme'],
+		});
 
 		if (typeof (window as any).hbspt !== 'undefined') {
 			containers.forEach((container) => {
@@ -167,19 +187,11 @@ const t = await getTranslations(lang);
 		document.head.appendChild(script);
 	}
 
-	// Watch for theme changes and re-apply
-	const themeObserver = new MutationObserver(() => applyThemeToForms());
-	themeObserver.observe(document.documentElement, {
-		attributes: true,
-		attributeFilter: ['data-theme'],
-	});
-
 	loadHubSpotForm();
 	document.addEventListener('astro:page-load', loadHubSpotForm);
 </script>
 
 <style>
-	/* ===== SECTION VARIANT ===== */
 	.newsletter-section {
 		position: relative;
 		padding: 5rem 1.5rem;
@@ -191,7 +203,7 @@ const t = await getTranslations(lang);
 	.newsletter-glow {
 		position: absolute;
 		top: 50%;
-		left: 50%;
+		inset-inline-start: 50%;
 		transform: translate(-50%, -50%);
 		width: 60%;
 		height: 60%;
@@ -257,33 +269,53 @@ const t = await getTranslations(lang);
 		max-width: 28rem;
 		margin: 0 auto;
 		text-align: start;
+		padding: 2rem;
+		border-radius: 1rem;
 	}
 
-	/* ===== COMPACT VARIANT ===== */
-	.newsletter-compact {
-		padding: 0;
+	html[data-theme='dark'] .newsletter-form-wrapper {
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	html[data-theme='light'] .newsletter-form-wrapper {
+		background: rgba(0, 0, 0, 0.02);
+		border: 1px solid rgba(0, 0, 0, 0.06);
 	}
 
-	.newsletter-compact-title {
-		font-size: 0.6875rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-text-muted);
-		margin: 0 0 0.625rem;
+	/*
+	 * CSS-level dark mode overrides for HubSpot form elements.
+	 * These act as a safety net — the JS theming handles most styling,
+	 * but HubSpot sometimes re-injects elements after MutationObserver fires.
+	 * Keep these values in sync with applyThemeToForms() above.
+	 */
+	html[data-theme='dark'] .newsletter-form-wrapper :global(label) {
+		color: rgba(255, 255, 255, 0.85) !important;
 	}
-
-	.newsletter-compact-desc {
-		font-size: 0.8125rem;
-		color: var(--color-text-subtle);
-		margin: 0 0 0.75rem;
-		line-height: 1.4;
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container label),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-form-booleancheckbox label) {
+		color: rgba(255, 255, 255, 0.55) !important;
 	}
-
-	.newsletter-form-compact {
-		max-width: unset;
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container p),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container span),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-richtext p),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-form-booleancheckbox-display span) {
+		color: rgba(255, 255, 255, 0.55) !important;
 	}
-
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-input:not([type="checkbox"])) {
+		background: rgba(255, 255, 255, 0.06) !important;
+		color: #fff !important;
+		border-color: rgba(255, 255, 255, 0.18) !important;
+	}
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container a) {
+		color: var(--color-accent) !important;
+	}
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hubspot-link__container),
+	html[data-theme='light'] .newsletter-form-wrapper :global(.hubspot-link__container) {
+		display: none !important;
+	}
+	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-form-required) {
+		color: var(--color-accent) !important;
+	}
 
 	@media (max-width: 30rem) {
 		.newsletter-section {
@@ -292,6 +324,10 @@ const t = await getTranslations(lang);
 
 		.newsletter-title {
 			font-size: 1.5rem;
+		}
+
+		.newsletter-form-wrapper {
+			padding: 1.25rem;
 		}
 	}
 </style>

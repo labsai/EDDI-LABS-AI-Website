@@ -108,8 +108,6 @@ const en = {
 		title: 'Stay in the Loop',
 		description:
 			'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.',
-		compactTitle: 'Newsletter',
-		compactDescription: 'Stay updated on EDDI releases and AI orchestration insights.',
 	},
 
 	// ─── Homepage ───────────────────────────────────────────────

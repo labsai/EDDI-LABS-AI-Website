@@ -87,8 +87,6 @@ const de: TranslationSchema = {
 		title: 'Bleiben Sie informiert',
 		description:
 			'Erhalten Sie Updates zu neuen Releases, Features und Best Practices für Enterprise-KI-Orchestrierung. Kein Spam — nur Relevantes.',
-		compactTitle: 'Newsletter',
-		compactDescription: 'Aktuelle Infos zu EDDI-Releases und KI-Orchestrierung.',
 	},
 	home: {
 		title: 'Der Enterprise-KI-Orchestrator',
