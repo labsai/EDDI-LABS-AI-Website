@@ -4,6 +4,9 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### ⚙️ CI/CD & Deployment
+- `feat(website)`: **Astro Version** — Upgraded Astro to version 6.1.3 dependencies.
+
 ### 🌐 Internationalization & RTL
 - `feat(website)`: **11-Locale Deployment** — Fully translated the entire EDDI marketing site into 11 languages (en, de, es, fr, pt, ar, zh, ja, ko, hi, th) with industry-standard SaaS terminology.
 - `feat(website)`: **Hindi & Thai Full Translation** — Replaced English stub content in `hi.ts` and `th.ts` with complete native translations covering all schema keys (nav, common, footer, newsletter, home, gettingStarted, useCases, featuresOverview, and all 11 feature pages).
@@ -33,9 +36,14 @@ All notable changes to the EDDI website will be documented in this file.
 - `fix(website)`: **Font Loading Cleanup** — Removed unused Inter font and fixed broken CSS variables.
 - `feat(website)`: **Light/Dark Mode Optimization** — Added comprehensive light mode support via CSS-level overrides.
 
+### ⚙️ CI/CD & Deployment
+- `feat(website)`: **Automated GitHub Pages Deployment** — Configured an official Astro GitHub Actions workflow (`deploy.yml`) to automatically build and deploy the website via GitHub Pages artifacts upon pushing to `main`.
+
 ### Decisions
 - Completed the full migration from Starlight to a custom Astro site to achieve full layout control.
 - Established a root-English i18n strategy to preserve inbound SEO link juice while offering expanded global reach.
+- Adopted GitHub Actions native artifact deployment (`actions/deploy-pages`) over the legacy `gh-pages` branch push.
 
 ### Next Steps
-- Set up GitHub Actions for automated deployment to GitHub Pages.
+- Final review prior to official launch.
+
