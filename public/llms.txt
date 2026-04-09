@@ -30,9 +30,9 @@
 
 ## Enterprise
 
-- [Why EDDI](https://eddi.labs.ai/enterprise/why-eddi/): Blue Ocean positioning — the only JVM-native + visual + config-driven AI middleware
+- [Why EDDI](https://eddi.labs.ai/enterprise/why-eddi/): The self-hosted enterprise AI platform — the only JVM-native + visual + config-driven AI middleware
 - [vs. Alternatives](https://eddi.labs.ai/enterprise/vs-alternatives/): Comparison with Flowise, n8n, Dify, Spring AI, LangChain4j, Camunda
-- [Compliance](https://eddi.labs.ai/enterprise/compliance/): GDPR, SOC 2, ISO 27001 readiness
+- [Compliance](https://eddi.labs.ai/enterprise/compliance/): Global Privacy & Regulatory Compliance — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, NIST AI RMF, ISO 42001, SOC 2 & more (15+ frameworks)
 
 ## Integrations & Deployment
 
@@ -47,7 +47,7 @@
 
 ## Use Cases
 
-- [Use Cases](https://eddi.labs.ai/docs/use-cases/): Customer support, internal ops, compliance, and more
+- [Use Cases](https://eddi.labs.ai/use-cases/): Healthcare, financial services, e-commerce, manufacturing, government, and developer platforms
 
 ## Additional
 

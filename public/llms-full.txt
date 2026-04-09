@@ -26,7 +26,7 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Side-panel live chat with integrated DebugDrawer (real-time tool calls, token usage, pipeline timing)
 - Audit & Logs dashboards for per-task LLM details, cost tracking, and error analysis
 - Coordinator events dashboard for multi-agent orchestration tracking
-- 11-locale i18n: English, German, French, Spanish, Portuguese, Italian, Turkish, Arabic (RTL), Japanese, Korean, Chinese
+- 11-locale i18n: English, German, French, Spanish, Portuguese, Arabic (RTL), Chinese, Japanese, Korean, Hindi, Thai
 - Dark/light theme, interactive onboarding tours
 
 ### MCP (Model Context Protocol) Server
@@ -52,10 +52,19 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 
 ### Security
 - Zero user code execution — no eval(), no sandbox escapes, no template injection
-- Cryptographic audit trails with SHA-256 hashing
-- 0 critical CVEs (compared to 3+ CVSS 9.8-10.0 in Flowise/n8n/Dify ecosystem)
-- RBAC-ready architecture
-- GDPR-compliant data handling
+- Cryptographic audit trails with HMAC-SHA256 integrity verification
+- OIDC/Keycloak authentication with RBAC (eddi-admin, eddi-editor, eddi-viewer)
+- Secrets Vault with AES-256-GCM envelope encryption
+- Path traversal protection, URL validation, SSRF prevention
+- PII-safe logging with SHA-256 pseudonymization
+
+### Global Privacy & Regulatory Compliance
+- **AI Governance**: EU AI Act (Art. 9-17), NIST AI RMF, ISO/IEC 42001
+- **Data Privacy**: GDPR, CCPA/CPRA, PIPEDA, LGPD, APPI, POPIA, PDPA (Singapore & Thailand), UK GDPR, PIPA (South Korea), DPDPA (India), Australian Privacy Act
+- **Industry**: HIPAA (US Healthcare), SOC 2 readiness
+- **Unified API**: `DELETE /admin/gdpr/{userId}` (cascade erasure across 5 data stores), `GET /admin/gdpr/{userId}/export` (full data export), `POST /admin/gdpr/{userId}/restrict` (processing freeze)
+- **MCP Tools**: `delete_user_data` and `export_user_data` for AI-orchestrated compliance workflows
+- 15+ regulatory frameworks supported through one API
 
 ### Observability
 - Native Prometheus metrics endpoint
@@ -121,11 +130,11 @@ Organized by domain:
 | Runtime | JVM (Java 25) | Node.js / Python | JVM | JVM |
 | Visual Builder | ✅ | ✅ | ❌ | ✅ |
 | User Code Execution | ❌ None | Yes (eval/sandbox) | N/A (library) | Scripts |
-| Critical CVEs (2024-25) | 0 | 3+ (CVSS 9.8-10.0) | 0 | 0 |
 | Config-as-Code | Full JSON | Partial | ❌ | BPMN |
 | MCP Support | 48 Tools | ❌ | ❌ | ❌ |
 | Concurrency | Virtual threads | Event loop / GIL | Platform threads | Platform threads |
-| Audit Trail | Cryptographic | Basic logging | DIY | Process history |
+| Audit Trail | Cryptographic (HMAC) | Basic logging | DIY | Process history |
+| Compliance | 15+ frameworks (EU AI Act, GDPR, HIPAA, etc.) | DIY | DIY | Partial |
 | Management UI | ✅ (11 languages) | ✅ | ❌ | ✅ |
 | Prometheus/Grafana | 45 panels | ❌ | DIY | ✅ |
 | License | Apache 2.0 | Mixed (SEE/AGPL) | Apache 2.0 | Dual (CE/EE) |
@@ -156,11 +165,13 @@ Organized by domain:
 
 ## Use Cases
 
-- **Enterprise Customer Support** — Multi-tenant AI agents with audit trails
-- **Internal Operations Automation** — Tool-calling agents for business processes
-- **Compliance & Regulated Industries** — Cryptographic audit trails, no code execution
-- **Multi-Agent Systems** — Coordinator-based specialist agent routing
-- **AI-Powered APIs** — Headless LLM orchestration via REST/MCP
+- **Healthcare** — Patient intake agents, medical FAQ bots with HIPAA-compliant audit trails
+- **Financial Services** — Customer support agents with compliance logging and fraud detection assistants
+- **E-Commerce** — Product recommendation agents with multi-language support and intent-based routing
+- **Manufacturing** — Equipment maintenance assistants running on-premises or in private clouds
+- **Government** — Citizen inquiry agents in air-gapped environments with no cloud dependency
+- **Developer Platforms** — Internal AI services integrating into CI/CD pipelines and code review workflows
+- **Compliance & Regulated Industries** — Built-in support for 15+ regulatory frameworks (EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, etc.)
 
 ## Links
 
