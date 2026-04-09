@@ -42,7 +42,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ### 🎨 UI Alignment & Asset Overhaul
 - `fix(website)`: **Newsletter Dark Mode Contrast** — Fixed HubSpot newsletter form labels and consent text being unreadable in dark mode. The form renders inside a cross-origin iframe, so parent-page CSS cannot reach it. Solved by injecting theme-aware CSS via HubSpot's `css` parameter at form creation time, and re-creating the form on theme toggle to apply updated styles.
-- `fix(website)`: **Checkstyle 0 Warnings** — Updated all 11 locale files to reflect the achievement of 0 Checkstyle warnings (previously "reduced from 697 to 81") across the features overview card, code quality page description, and code quality page items list.
+- `fix(website)`: **Checkstyle Copy Reframe** — Removed all "reduced from 697 to 0" historical messaging from all 11 locale files. Replaced with present-state framing ("zero warnings, strict rules enforced on every build"). Marketing copy should describe what IS, not what WAS.
 - `feat(website)`: **Graphical Logo Replacement** — Replaced text-based "EDDI" SVG logos (styled `<text>` elements) in the Header and Footer with the actual EDDI graphical logo. Created a white variant for dark mode and a dark (#0f172a) variant for light mode, both theme-switching automatically.
 - `feat(website)`: **Color System Synchronization** — Replaced legacy cyan tokens with Tailwind `zinc` and `amber` core semantics to match the EDDI Manager React application.
 - `feat(website)`: **Concrete 3D Illustration System** — Exchanged 14 generic legacy abstract images with precise, feature-locked 3D renderings showcasing architectural value props.
