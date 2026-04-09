@@ -7,7 +7,7 @@ const en = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — The Enterprise AI Orchestrator. Configuration-driven, Java-native AI middleware built on Quarkus (v6.0.0-RC1 Preview).',
+			'EDDI — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance (v6.0.0-RC1 Preview).',
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
@@ -22,11 +22,11 @@ const en = {
 		mcpServer: 'MCP Server',
 		mcpServerDesc: '48 tools for AI-native control',
 		configAsCode: 'Config-as-Code',
-		configAsCodeDesc: 'JSON config, not compiled Java',
+		configAsCodeDesc: 'JSON config, zero boilerplate',
 		securityFirst: 'Security-First',
 		securityFirstDesc: 'Vault, audit trails, no eval()',
 		performance: 'Performance',
-		performanceDesc: 'Java 25 Virtual Threads',
+		performanceDesc: 'Millions of concurrent threads',
 		multiAgent: 'Multi-Agent',
 		multiAgentDesc: 'Intent routing & discovery',
 		observability: 'Observability',
@@ -38,7 +38,7 @@ const en = {
 		viewAllFeatures: 'View all features →',
 		// Solutions dropdown
 		whyEddi: 'Why EDDI?',
-		whyEddiDesc: 'The only JVM-native visual AI middleware',
+		whyEddiDesc: 'The self-hosted enterprise AI platform',
 		vsAlternatives: 'vs. Alternatives',
 		vsAlternativesDesc: 'Compare with Spring AI, Flowise, n8n',
 		euAiAct: 'Compliance',
@@ -73,7 +73,7 @@ const en = {
 	// ─── Footer ─────────────────────────────────────────────────
 	footer: {
 		tagline: 'The Enterprise AI Orchestrator',
-		subtitle: 'Configuration-driven. Java-native. Production-ready.',
+		subtitle: 'Configuration-driven. Self-hosted. Production-ready.',
 		// Trust bar
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Licensed',
@@ -116,27 +116,27 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			'Configuration-driven. Java-native. Visually managed. The only AI middleware built natively on the JVM — currently in <strong>v6.0.0-RC1 Preview</strong>.',
+			'Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Currently in <strong>v6.0.0-RC1 Preview</strong>.',
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
-			'Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams are stuck in a painful, fractured lifecycle:',
+			'Enterprise AI orchestration is <strong>fragmented and painful</strong>. Teams are stuck in a broken lifecycle:',
 		problemCard1Title: 'The Prototype Trap',
 		problemCard1Desc:
-			'Teams prototype with Python/Flowise/n8n — then <strong>rewrite everything from scratch</strong> in Java for production. Visual prototypes are discarded entirely.',
+			'Teams prototype with Flowise, n8n, or scripts — then <strong>rewrite everything from scratch</strong> for production. Visual prototypes are discarded entirely.',
 		problemCard2Title: 'Boilerplate Fatigue',
 		problemCard2Desc:
-			'Using Spring AI or LangChain4j means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires recompilation.',
+			'Using AI libraries means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires redeployment.',
 		problemCard3Title: 'BPMN Friction',
 		problemCard3Desc:
 			'Forcing non-deterministic AI agents into deterministic Camunda/Temporal workflows creates <strong>severe impedance mismatches</strong> and brittle architectures.',
 		// The Solution
 		solutionTitle: 'The Solution',
 		solutionDesc:
-			'EDDI fills an <strong>absolute void</strong> in the Java ecosystem — a deployable middleware platform with a visual management UI:',
+			'EDDI is a <strong>deployable AI orchestration platform</strong> — not a library. Visual management, config-as-code, and enterprise security, out of the box:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
-			'Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled Java. Prompt engineers iterate instantly via the React UI or REST API, without touching Java code.',
+			'Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled code. Prompt engineers iterate instantly via the React UI or REST API, without redeployment.',
 		sol2Title: '48 MCP Tools',
 		sol2Desc:
 			'EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.',
@@ -148,7 +148,7 @@ const en = {
 			'Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.',
 		sol5Title: 'Enterprise Concurrency',
 		sol5Desc:
-			'Java 25 Virtual Threads on Quarkus. <strong>Millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.',
+			'Built on an enterprise-grade runtime with <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.',
 		sol6Title: 'Multi-Agent Orchestration',
 		sol6Desc:
 			'Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. <strong>One conversation per intent+user</strong>, auto-created and auto-managed.',
@@ -191,15 +191,15 @@ const en = {
 		// FAQ
 		faqTitle: 'Frequently Asked Questions',
 		faq1Q: 'What is EDDI?',
-		faq1A: 'EDDI is an open-source, JVM-native AI orchestration middleware built on Quarkus and Java 25. It enables enterprise teams to build, configure, and deploy AI-powered agents using JSON configuration rather than compiled code. EDDI provides a complete platform with a <strong>production-ready React management UI</strong> (the EDDI Manager), built-in REST APIs, conversation state management, security (OIDC/Keycloak), immutable audit trails, and 48 MCP tools — all deployable via Docker or Kubernetes.',
-		faq2Q: 'How is EDDI different from Spring AI or LangChain4j?',
-		faq2A: 'Spring AI and LangChain4j are excellent <strong>libraries</strong> — EDDI actually uses LangChain4j internally. The key difference is that EDDI is a <strong>deployable middleware platform</strong>, not a library. With Spring AI, you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI provides all of this out of the box.',
+		faq1A: 'EDDI is an open-source, enterprise-grade AI orchestration platform. It enables teams to build, configure, and deploy AI-powered agents using JSON configuration rather than compiled code. EDDI provides a complete platform with a <strong>production-ready React management UI</strong> (the EDDI Manager), built-in REST APIs, conversation state management, security (OIDC/Keycloak), immutable audit trails, and 48 MCP tools — all deployable via Docker or Kubernetes.',
+		faq2Q: 'How is EDDI different from AI libraries and frameworks?',
+		faq2A: 'AI libraries like LangChain, Spring AI, and LangChain4j give you building blocks — but you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides all of this out of the box, ready to deploy via Docker.',
 		faq3Q: 'Is EDDI production-ready for enterprise use?',
-		faq3A: 'Yes. EDDI runs on Java 25 with Quarkus, leveraging Virtual Threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream.',
+		faq3A: 'Yes. EDDI is built on an enterprise-grade runtime with lightweight virtual threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream.',
 		faq4Q: 'What is the Model Context Protocol (MCP)?',
 		faq4A: 'The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes 48 MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics.',
 		faq5Q: 'Can EDDI replace Flowise or n8n for production workloads?',
-		faq5A: 'EDDI serves a similar visual-building purpose but on the JVM instead of Node.js. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs Java 25 Virtual Threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
+		faq5A: 'EDDI serves a similar visual-building purpose but with enterprise-grade architecture. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs millions of lightweight virtual threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
 	},
 
 	// ─── Getting Started ────────────────────────────────────────
@@ -281,7 +281,7 @@ const en = {
 			'A <strong>production-ready React UI</strong> for building, deploying, and monitoring agents visually — with 11-locale i18n, live chat debugging, and audit dashboards.',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
-			'Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly — <strong>no recompilation needed</strong>.',
+			'Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly — <strong>no redeployment needed</strong>.',
 		mcpCardTitle: '🔌 MCP Server (48 Tools)',
 		mcpCardDesc:
 			'Full AI-native control via the <strong>Model Context Protocol</strong>. Claude Desktop, Cursor, and custom clients manage agents programmatically.',
@@ -290,7 +290,7 @@ const en = {
 			'No <code>eval()</code>, vault integration, path traversal protection, OIDC/Keycloak, <strong>cryptographic audit trails</strong>.',
 		perfCardTitle: '🚀 Performance',
 		perfCardDesc:
-			'Java 25 Virtual Threads on Quarkus — <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads.',
+			'Enterprise-grade runtime with <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads.',
 		multiCardTitle: '🤖 Multi-Agent',
 		multiCardDesc:
 			'Intent-based agent discovery, managed conversations, agent triggers, and <strong>A/B routing</strong> across multiple agents.',
@@ -326,7 +326,7 @@ const en = {
 				'<strong>Secrets Vault</strong> — Secure API key management with masked display',
 			],
 			heading3: 'Built for Teams',
-			para2: 'The Manager enables non-developers to iterate on agent behavior without touching Java code. Prompt engineers can modify rules, test conversations, and deploy changes — all from the browser.',
+			para2: 'The Manager enables non-developers to iterate on agent behavior without touching source code. Prompt engineers can modify rules, test conversations, and deploy changes — all from the browser.',
 		},
 		mcpServer: {
 			title: 'MCP Server — 48 Tools',
@@ -349,12 +349,12 @@ const en = {
 		configAsCode: {
 			title: 'Configuration-as-Code',
 			description:
-				'Agent logic, pipelines, and tool definitions are JSON configurations — not compiled Java. Iterate instantly without recompilation.',
+				'Agent logic, pipelines, and tool definitions are JSON configurations — not compiled code. Iterate instantly without redeployment.',
 			heading1: 'JSON-Driven Agent Logic',
-			para1: "In EDDI, everything that defines an agent's behavior is a <strong>JSON configuration resource</strong>: rules (system prompts), LLM connector settings, workflow pipelines, tool configurations, and deployment descriptors.",
+			para1: "In EDDI, everything that defines an agent's behavior is a <strong>JSON configuration resource</strong>: rules (system prompts), LLM connector settings, workflow pipelines, tool configurations, and deployment descriptors. No code changes, no redeployment.",
 			heading2: 'Why This Matters',
 			items: [
-				'<strong>No recompilation</strong> — Change agent behavior by updating JSON, not Java code',
+				'<strong>No redeployment</strong> — Change agent behavior by updating JSON, not source code',
 				'<strong>Prompt engineer friendly</strong> — Non-developers modify rules via UI or REST API',
 				'<strong>Version controlled</strong> — JSON configs live in Git alongside infrastructure-as-code',
 				'<strong>Hot-reloadable</strong> — Changes take effect immediately, no server restart needed',
@@ -460,14 +460,14 @@ const en = {
 		whyEddi: {
 			title: 'Why EDDI?',
 			description:
-				'The only JVM-native visual AI orchestration middleware. Configuration-driven agent logic, a complete management UI, and enterprise-grade security — all in one deployable platform.',
-			heading1: 'The Gap in Enterprise Java',
-			para1: 'Enterprise Java has <strong>no visual AI orchestration middleware</strong>. Teams either prototype with Python/Node.js tools and rewrite for production, or build everything from scratch using libraries like Spring AI or LangChain4j.',
+				'The self-hosted enterprise AI orchestration platform. Configuration-driven agent logic, a complete management UI, and enterprise-grade security — all in one deployable platform.',
+			heading1: 'The Gap in Enterprise AI',
+			para1: 'Enterprise AI orchestration has <strong>no middle ground</strong>. Teams either prototype with fragile low-code tools and rewrite for production, or build everything from scratch using AI libraries and frameworks.',
 			heading2: 'EDDI Fills This Void',
 			para2: 'EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides everything teams need out of the box:',
 			items: [
 				'<strong>Visual Management UI</strong> — The EDDI Manager for building and monitoring agents',
-				'<strong>Configuration-as-Code</strong> — Agent logic is JSON, not compiled Java',
+				'<strong>Configuration-as-Code</strong> — Agent logic is JSON, not compiled code',
 				'<strong>48 MCP Tools</strong> — Full AI-native control via Model Context Protocol',
 				'<strong>Enterprise Security</strong> — OIDC, vault, audit trails, no eval()',
 				'<strong>Production Infrastructure</strong> — REST APIs, conversation state management, Prometheus metrics',
@@ -475,8 +475,8 @@ const en = {
 			],
 			heading3: 'Who Should Use EDDI?',
 			items2: [
-				'<strong>Enterprise Java teams</strong> who need AI orchestration without leaving the JVM',
-				'<strong>Prompt engineers</strong> who want to iterate without recompiling Java',
+				'<strong>Enterprise teams</strong> who need a production-ready AI orchestration platform',
+				'<strong>Prompt engineers</strong> who want to iterate without redeployment',
 				'<strong>Regulated industries</strong> that require audit trails and EU AI Act compliance',
 				'<strong>Platform teams</strong> building internal AI services for multiple departments',
 			],
@@ -488,13 +488,13 @@ const en = {
 			heading1: 'Platform vs. Library',
 			para1: 'The fundamental difference: EDDI is a <strong>deployable middleware platform</strong>, not a library. While libraries give you building blocks, EDDI gives you the entire building — ready to deploy.',
 			heading2: 'Comparison',
-			heading3a: 'vs. Spring AI / LangChain4j',
-			para2: 'Spring AI and LangChain4j are excellent <strong>libraries</strong> (EDDI uses LangChain4j internally). But with libraries, you still need to build REST controllers, authentication, conversation management, audit logging, and management UIs yourself. EDDI provides all of this out of the box.',
+			heading3a: 'vs. AI Libraries (Spring AI, LangChain, etc.)',
+			para2: 'AI libraries like Spring AI, LangChain, and LangChain4j are excellent <strong>building blocks</strong> (EDDI uses LangChain4j internally). But with libraries, you still need to build REST controllers, authentication, conversation management, audit logging, and management UIs yourself. EDDI provides all of this out of the box.',
 			heading3b: 'vs. Flowise / n8n',
-			para3: 'Flowise and n8n are Node.js-based visual builders. EDDI serves a similar purpose but on the JVM:',
+			para3: 'Flowise and n8n are Node.js-based visual builders. EDDI serves a similar purpose but with enterprise-grade architecture:',
 			vsItems: [
 				'<strong>No eval()</strong> — Eliminates CVSS 10.0 remote code execution risks',
-				'<strong>Java 25 Virtual Threads</strong> — Enterprise-grade concurrency vs. single-threaded Node.js',
+				'<strong>Millions of virtual threads</strong> — Enterprise-grade concurrency vs. single-threaded event loops',
 				'<strong>OIDC/Keycloak</strong> — Enterprise authentication vs. basic auth',
 				'<strong>MongoDB/PostgreSQL</strong> — Production databases vs. SQLite',
 			],

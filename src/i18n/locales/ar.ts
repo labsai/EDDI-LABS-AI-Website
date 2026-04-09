@@ -83,35 +83,46 @@ const ar: TranslationSchema = {
 	},
 	newsletter: {
 		title: 'ابقَ على اطلاع',
-		description: 'احصل على تحديثات حول الإصدارات الجديدة والميزات وأفضل ممارسات تنسيق الذكاء الاصطناعي للمؤسسات. بدون رسائل مزعجة — إشارات فقط.',
+		description:
+			'احصل على تحديثات حول الإصدارات الجديدة والميزات وأفضل ممارسات تنسيق الذكاء الاصطناعي للمؤسسات. بدون رسائل مزعجة — إشارات فقط.',
 	},
 	home: {
 		title: 'منسّق الذكاء الاصطناعي للمؤسسات',
 		heroTitle: 'منسّق',
 		heroHighlight: 'الذكاء الاصطناعي للمؤسسات',
-		heroTagline: 'قائم على التكوين. أصلي في Java. مُدار بصرياً. وسيط الذكاء الاصطناعي الوحيد المبني أصلياً على JVM — حالياً في <strong>معاينة v6.0.0-RC1</strong>.',
+		heroTagline:
+			'قائم على التكوين. أصلي في Java. مُدار بصرياً. وسيط الذكاء الاصطناعي الوحيد المبني أصلياً على JVM — حالياً في <strong>معاينة v6.0.0-RC1</strong>.',
 		problemTitle: 'المشكلة',
 		problemDesc: 'Java للمؤسسات <strong>يفتقر إلى وسيط مرئي لتنسيق الذكاء الاصطناعي</strong>. الفرق عالقة في دورة حياة مؤلمة ومفككة:',
 		problemCard1Title: 'فخ النموذج الأولي',
-		problemCard1Desc: 'تقوم الفرق بالنمذجة باستخدام Python/Flowise/n8n — ثم <strong>تعيد كتابة كل شيء من الصفر</strong> في Java للإنتاج. يتم التخلي عن النماذج الأولية المرئية بالكامل.',
+		problemCard1Desc:
+			'تقوم الفرق بالنمذجة باستخدام Python/Flowise/n8n — ثم <strong>تعيد كتابة كل شيء من الصفر</strong> في Java للإنتاج. يتم التخلي عن النماذج الأولية المرئية بالكامل.',
 		problemCard2Title: 'إرهاق النمط المتكرر',
-		problemCard2Desc: 'استخدام Spring AI أو LangChain4j يعني بناء وحدات تحكم REST وطبقات المصادقة وإدارة الحالة <strong>من الصفر</strong>. كل تعديل للموجه يتطلب إعادة التجميع.',
+		problemCard2Desc:
+			'استخدام Spring AI أو LangChain4j يعني بناء وحدات تحكم REST وطبقات المصادقة وإدارة الحالة <strong>من الصفر</strong>. كل تعديل للموجه يتطلب إعادة التجميع.',
 		problemCard3Title: 'احتكاك BPMN',
-		problemCard3Desc: 'إجبار وكلاء الذكاء الاصطناعي غير الحتمية على سير عمل حتمي في Camunda/Temporal يخلق <strong>عدم توافق شديد</strong> وبنى هشة.',
+		problemCard3Desc:
+			'إجبار وكلاء الذكاء الاصطناعي غير الحتمية على سير عمل حتمي في Camunda/Temporal يخلق <strong>عدم توافق شديد</strong> وبنى هشة.',
 		solutionTitle: 'الحل',
 		solutionDesc: 'يملأ EDDI <strong>فراغاً مطلقاً</strong> في نظام Java البيئي — منصة وسيطة قابلة للنشر مع واجهة إدارة مرئية:',
 		sol1Title: 'التكوين-كشفرة',
-		sol1Desc: 'منطق الوكلاء وخطوط الأنابيب وتعريفات الأدوات هي <strong>تكوينات JSON</strong> — وليس Java مجمعة. يكرر مهندسو الموجهات فوراً عبر واجهة React أو REST API، بدون لمس كود Java.',
+		sol1Desc:
+			'منطق الوكلاء وخطوط الأنابيب وتعريفات الأدوات هي <strong>تكوينات JSON</strong> — وليس Java مجمعة. يكرر مهندسو الموجهات فوراً عبر واجهة React أو REST API، بدون لمس كود Java.',
 		sol2Title: '48 أداة MCP',
-		sol2Desc: 'يكشف EDDI قدراته عبر <strong>بروتوكول سياق النموذج</strong> — مما يتيح تفاعل Claude Desktop. يمكن للوكلاء أيضاً <strong>استهلاك أدوات MCP خارجية</strong>.',
+		sol2Desc:
+			'يكشف EDDI قدراته عبر <strong>بروتوكول سياق النموذج</strong> — مما يتيح تفاعل Claude Desktop. يمكن للوكلاء أيضاً <strong>استهلاك أدوات MCP خارجية</strong>.',
 		sol3Title: 'الأمان أولاً',
-		sol3Desc: 'بدون <code>eval()</code>، بدون هروب. تكامل الخزنة والتحقق من URL ومسارات التدقيق المشفرة هي <strong>أسس معمارية</strong>.',
+		sol3Desc:
+			'بدون <code>eval()</code>، بدون هروب. تكامل الخزنة والتحقق من URL ومسارات التدقيق المشفرة هي <strong>أسس معمارية</strong>.',
 		sol4Title: 'المراقبة',
-		sol4Desc: 'يتم تسجيل كل خطوة في خط الأنابيب مع <strong>مسار تدقيق غير قابل للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات. دفتر أستاذ قياس CQRS كامل.',
+		sol4Desc:
+			'يتم تسجيل كل خطوة في خط الأنابيب مع <strong>مسار تدقيق غير قابل للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات. دفتر أستاذ قياس CQRS كامل.',
 		sol5Title: 'التزامن المؤسسي',
-		sol5Desc: 'Java 25 Virtual Threads على Quarkus. <strong>ملايين الخيوط الخفيفة</strong> لأحمال عمل LLM كثيفة الإدخال/الإخراج. بدون حظر حلقة الأحداث، بدون اختناقات الخيط الواحد.',
+		sol5Desc:
+			'Java 25 Virtual Threads على Quarkus. <strong>ملايين الخيوط الخفيفة</strong> لأحمال عمل LLM كثيفة الإدخال/الإخراج. بدون حظر حلقة الأحداث، بدون اختناقات الخيط الواحد.',
 		sol6Title: 'تنسيق متعدد الوكلاء',
-		sol6Desc: 'اكتشاف الوكلاء القائم على النية، والمحادثات المُدارة، ومشغلات الوكلاء، وتوجيه A/B. <strong>محادثة واحدة لكل نية+مستخدم</strong>، تُنشأ وتُدار تلقائياً.',
+		sol6Desc:
+			'اكتشاف الوكلاء القائم على النية، والمحادثات المُدارة، ومشغلات الوكلاء، وتوجيه A/B. <strong>محادثة واحدة لكل نية+مستخدم</strong>، تُنشأ وتُدار تلقائياً.',
 		trustedTitle: 'موثوق ومعتمد',
 		trustRedHat: 'حاوية معتمدة من Red Hat',
 		trustRedHatDesc: 'صورة Docker معتمدة من IBM',
@@ -147,15 +158,20 @@ const ar: TranslationSchema = {
 		nextDocsDesc: 'البنية المعمارية، أدوات MCP، REST API، أدلة النشر، والمزيد.',
 		faqTitle: 'الأسئلة المتكررة',
 		faq1Q: 'ما هو EDDI؟',
-		faq1A: 'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و48 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
+		faq1A:
+			'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و48 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
 		faq2Q: 'كيف يختلف EDDI عن Spring AI أو LangChain4j؟',
-		faq2A: 'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة — EDDI يستخدم LangChain4j داخلياً في الواقع. الفرق الجوهري أن EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. مع Spring AI، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة حالة المحادثة وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
+		faq2A:
+			'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة — EDDI يستخدم LangChain4j داخلياً في الواقع. الفرق الجوهري أن EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. مع Spring AI، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة حالة المحادثة وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
 		faq3Q: 'هل EDDI جاهز للاستخدام المؤسسي في الإنتاج؟',
-		faq3A: 'نعم. يعمل EDDI على Java 25 مع Quarkus، مستفيداً من Virtual Threads للتزامن الضخم في عمليات الإدخال/الإخراج. يدعم MongoDB و PostgreSQL، يتضمن مصادقة OIDC/Keycloak مدمجة، يوفر مسارات تدقيق مشفرة غير قابلة للتغيير للامتثال (بما في ذلك قانون الذكاء الاصطناعي الأوروبي)، ويتوسع أفقياً عبر NATS JetStream.',
+		faq3A:
+			'نعم. يعمل EDDI على Java 25 مع Quarkus، مستفيداً من Virtual Threads للتزامن الضخم في عمليات الإدخال/الإخراج. يدعم MongoDB و PostgreSQL، يتضمن مصادقة OIDC/Keycloak مدمجة، يوفر مسارات تدقيق مشفرة غير قابلة للتغيير للامتثال (بما في ذلك قانون الذكاء الاصطناعي الأوروبي)، ويتوسع أفقياً عبر NATS JetStream.',
 		faq4Q: 'ما هو بروتوكول سياق النموذج (MCP)؟',
-		faq4A: 'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 48 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
+		faq4A:
+			'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 48 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
 		faq5Q: 'هل يمكن لـ EDDI أن يحل محل Flowise أو n8n لأحمال العمل الإنتاجية؟',
-		faq5A: 'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
+		faq5A:
+			'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
 	},
 	gettingStarted: {
 		title: 'البدء',
@@ -194,7 +210,8 @@ const ar: TranslationSchema = {
 		heroTitle: 'حالات الاستخدام',
 		heroSubtitle: 'أنماط نشر واقعية لمنصة EDDI.',
 		healthcare: 'الرعاية الصحية',
-		healthcareDesc: 'وكلاء استقبال المرضى، روبوتات الأسئلة الشائعة الطبية، جدولة المواعيد — مع مسارات تدقيق كاملة للامتثال لـ HIPAA والجاهزية لقانون الذكاء الاصطناعي الأوروبي.',
+		healthcareDesc:
+			'وكلاء استقبال المرضى، روبوتات الأسئلة الشائعة الطبية، جدولة المواعيد — مع مسارات تدقيق كاملة للامتثال لـ HIPAA والجاهزية لقانون الذكاء الاصطناعي الأوروبي.',
 		finance: 'الخدمات المالية',
 		financeDesc: 'وكلاء دعم العملاء مع تسجيل الامتثال، مساعدو كشف الاحتيال، وروبوتات قاعدة المعرفة الداخلية مع مسارات تدقيق مشفرة.',
 		ecommerce: 'التجارة الإلكترونية',
@@ -204,22 +221,26 @@ const ar: TranslationSchema = {
 		government: 'الحكومة',
 		governmentDesc: 'وكلاء استفسارات المواطنين، أتمتة العمليات الداخلية، وتحليل المستندات — في بيئات معزولة بدون اعتماد على السحابة.',
 		devPlatforms: 'منصات المطورين',
-		devPlatformsDesc: 'خدمات ذكاء اصطناعي داخلية لفرق الهندسة — وكلاء يمكن الوصول إليهم عبر API يتكاملون مع خطوط أنابيب CI/CD ومراجعة الشفرة وسير عمل التوثيق.',
+		devPlatformsDesc:
+			'خدمات ذكاء اصطناعي داخلية لفرق الهندسة — وكلاء يمكن الوصول إليهم عبر API يتكاملون مع خطوط أنابيب CI/CD ومراجعة الشفرة وسير عمل التوثيق.',
 	},
 	featuresOverview: {
 		title: 'نظرة عامة على الميزات',
-		description: 'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 48 أداة MCP، بنية الأمان أولاً، والمزيد.',
+		description:
+			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 48 أداة MCP، بنية الأمان أولاً، والمزيد.',
 		heroTitle: 'كل ما تحتاجه',
 		heroHighlight: 'لتنسيق الذكاء الاصطناعي',
 		heroDesc: 'يوفر EDDI منصة كاملة جاهزة للإنتاج لبناء ونشر وإدارة وكلاء الذكاء الاصطناعي — بدون كتابة نمط متكرر.',
 		coreTitle: 'المنصة الأساسية',
 		coreDesc: 'القدرات الأساسية التي تجعل EDDI <strong>منصة كاملة لتنسيق الذكاء الاصطناعي</strong>.',
 		managerCardTitle: '🖥️ مدير EDDI',
-		managerCardDesc: '<strong>واجهة React جاهزة للإنتاج</strong> لبناء ونشر ومراقبة الوكلاء بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
+		managerCardDesc:
+			'<strong>واجهة React جاهزة للإنتاج</strong> لبناء ونشر ومراقبة الوكلاء بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
 		configCardTitle: '⚙️ التكوين-كشفرة',
 		configCardDesc: 'منطق الوكيل هو تكوين JSON، وليس شفرة مجمعة. يكرر مهندسو الموجهات فوراً — <strong>بدون حاجة لإعادة التجميع</strong>.',
 		mcpCardTitle: '🔌 خادم MCP (48 أداة)',
-		mcpCardDesc: 'تحكم أصلي كامل بالذكاء الاصطناعي عبر <strong>بروتوكول سياق النموذج</strong>. Claude Desktop و Cursor والعملاء المخصصون يديرون الوكلاء برمجياً.',
+		mcpCardDesc:
+			'تحكم أصلي كامل بالذكاء الاصطناعي عبر <strong>بروتوكول سياق النموذج</strong>. Claude Desktop و Cursor والعملاء المخصصون يديرون الوكلاء برمجياً.',
 		securityCardTitle: '🔐 الأمان أولاً',
 		securityCardDesc: 'بدون <code>eval()</code>، تكامل الخزنة، حماية من اجتياز المسار، OIDC/Keycloak، <strong>مسارات تدقيق مشفرة</strong>.',
 		perfCardTitle: '🚀 الأداء',
@@ -228,7 +249,8 @@ const ar: TranslationSchema = {
 		multiCardDesc: 'اكتشاف الوكلاء القائم على النية، محادثات مُدارة، مشغلات الوكلاء و<strong>توجيه A/B</strong> عبر وكلاء متعددين.',
 		engTitle: 'التميز الهندسي',
 		obsCardTitle: '📊 المراقبة',
-		obsCardDesc: 'كل خطوة في خط الأنابيب مسجلة مع <strong>مسارات تدقيق غير قابلة للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات.',
+		obsCardDesc:
+			'كل خطوة في خط الأنابيب مسجلة مع <strong>مسارات تدقيق غير قابلة للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات.',
 		cqCardTitle: '🧪 جودة الشفرة',
 		cqCardDesc: '<strong>+1,500 اختبار بصفر إخفاقات.</strong> تم تقليل Checkstyle من 697 إلى 0 تنبيهاً. CI/CD مطبق في كل دمج.',
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
@@ -237,9 +259,11 @@ const ar: TranslationSchema = {
 	pages: {
 		manager: {
 			title: 'مدير EDDI',
-			description: 'واجهة إدارة React جاهزة للإنتاج لبناء ونشر ومراقبة وكلاء الذكاء الاصطناعي بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
+			description:
+				'واجهة إدارة React جاهزة للإنتاج لبناء ونشر ومراقبة وكلاء الذكاء الاصطناعي بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
 			heading1: 'إدارة الوكلاء المرئية',
-			para1: 'مدير EDDI هو واجهة إدارة شاملة قائمة على React توفر تحكماً مرئياً في كل جانب من جوانب منصة EDDI — من تكوين الوكلاء إلى مراقبة المحادثات في الوقت الفعلي.',
+			para1:
+				'مدير EDDI هو واجهة إدارة شاملة قائمة على React توفر تحكماً مرئياً في كل جانب من جوانب منصة EDDI — من تكوين الوكلاء إلى مراقبة المحادثات في الوقت الفعلي.',
 			heading2: 'القدرات الرئيسية',
 			items: [
 				'<strong>بناء الوكلاء المرئي</strong> — أنشئ وكوّن الوكلاء من خلال واجهة سحب وإفلات بديهية',
@@ -251,13 +275,16 @@ const ar: TranslationSchema = {
 				'<strong>خزنة الأسرار</strong> — إدارة آمنة لمفاتيح API مع عرض مخفي',
 			],
 			heading3: 'مصمم للفرق',
-			para2: 'يمكّن المدير غير المطورين من تكرار سلوك الوكلاء بدون لمس كود Java. يمكن لمهندسي الموجهات تعديل القواعد واختبار المحادثات ونشر التغييرات — كل ذلك من المتصفح.',
+			para2:
+				'يمكّن المدير غير المطورين من تكرار سلوك الوكلاء بدون لمس كود Java. يمكن لمهندسي الموجهات تعديل القواعد واختبار المحادثات ونشر التغييرات — كل ذلك من المتصفح.',
 		},
 		mcpServer: {
 			title: 'خادم MCP — 48 أداة',
-			description: 'يكشف EDDI قدراته الكاملة عبر بروتوكول سياق النموذج، مما يتيح لـ Claude Desktop و Cursor والعملاء المخصصين إدارة الوكلاء برمجياً.',
+			description:
+				'يكشف EDDI قدراته الكاملة عبر بروتوكول سياق النموذج، مما يتيح لـ Claude Desktop و Cursor والعملاء المخصصين إدارة الوكلاء برمجياً.',
 			heading1: 'مستوى التحكم الأصلي بالذكاء الاصطناعي',
-			para1: 'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>48 أداة</strong> تغطي كل جانب من جوانب المنصة.',
+			para1:
+				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>48 أداة</strong> تغطي كل جانب من جوانب المنصة.',
 			heading2: 'فئات الأدوات',
 			items: [
 				'<strong>أدوات المحادثة</strong> — تحدث مع الوكلاء، أدر المحادثات، اقرأ السجل',
@@ -268,13 +295,15 @@ const ar: TranslationSchema = {
 				'<strong>إدارة الجداول</strong> — إدارة المهام الدورية للوكلاء والمشغلات',
 			],
 			heading3: 'دعم عملاء MCP',
-			para2: 'يمكن لوكلاء EDDI أيضاً <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. كوّن نقاط نهاية خادم MCP، ويكتشف الوكلاء الأدوات تلقائياً ويستدعونها بناءً على سياق المحادثة — مدعوماً بتكامل عميل MCP من LangChain4j.',
+			para2:
+				'يمكن لوكلاء EDDI أيضاً <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. كوّن نقاط نهاية خادم MCP، ويكتشف الوكلاء الأدوات تلقائياً ويستدعونها بناءً على سياق المحادثة — مدعوماً بتكامل عميل MCP من LangChain4j.',
 		},
 		configAsCode: {
 			title: 'التكوين-كشفرة',
 			description: 'منطق الوكلاء وخطوط الأنابيب وتعريفات الأدوات هي تكوينات JSON — وليس Java مجمعة. كرر فوراً بدون إعادة تجميع.',
 			heading1: 'منطق الوكلاء المدفوع بـ JSON',
-			para1: 'في EDDI، كل ما يحدد سلوك الوكيل هو <strong>مورد تكوين JSON</strong>: القواعد (موجهات النظام)، إعدادات موصل LLM، خطوط أنابيب سير العمل، تكوينات الأدوات، ووصفات النشر.',
+			para1:
+				'في EDDI، كل ما يحدد سلوك الوكيل هو <strong>مورد تكوين JSON</strong>: القواعد (موجهات النظام)، إعدادات موصل LLM، خطوط أنابيب سير العمل، تكوينات الأدوات، ووصفات النشر.',
 			heading2: 'لماذا هذا مهم',
 			items: [
 				'<strong>بدون إعادة تجميع</strong> — غيّر سلوك الوكيل بتحديث JSON، وليس كود Java',
@@ -284,13 +313,15 @@ const ar: TranslationSchema = {
 				'<strong>قابل للتدقيق</strong> — كل تغيير في التكوين يتم تتبعه في مسار التدقيق غير القابل للتغيير',
 			],
 			heading3: 'أنواع الموارد',
-			para2: 'يدير EDDI موارد التكوين التالية: <strong>القواعد</strong> (موجهات النظام)، <strong>سير العمل</strong> (تعريفات خط الأنابيب)، <strong>موصلات LLM</strong> (إعدادات المزود)، <strong>موصلات HTTP</strong> (تكامل API خارجي)، <strong>الوكلاء</strong> (وصفات النشر)، و<strong>البيئات</strong> (أهداف النشر).',
+			para2:
+				'يدير EDDI موارد التكوين التالية: <strong>القواعد</strong> (موجهات النظام)، <strong>سير العمل</strong> (تعريفات خط الأنابيب)، <strong>موصلات LLM</strong> (إعدادات المزود)، <strong>موصلات HTTP</strong> (تكامل API خارجي)، <strong>الوكلاء</strong> (وصفات النشر)، و<strong>البيئات</strong> (أهداف النشر).',
 		},
 		security: {
 			title: 'بنية الأمان أولاً',
 			description: 'بدون eval()، بدون كتل تنفيذ الشفرة. تكامل الخزنة، مسارات التدقيق المشفرة، ومصادقة OIDC/Keycloak — الأمان أساس معماري.',
 			heading1: 'أمان مؤسسي بالتصميم',
-			para1: 'يزيل EDDI فئات كاملة من الثغرات الأمنية بالتصميم. لا يوجد <strong>eval()</strong>، لا كتل تنفيذ شفرة، ولا حقن شفرة ديناميكي — سلوك الوكيل يُعرَّف من خلال تكوين JSON تصريحي فقط.',
+			para1:
+				'يزيل EDDI فئات كاملة من الثغرات الأمنية بالتصميم. لا يوجد <strong>eval()</strong>، لا كتل تنفيذ شفرة، ولا حقن شفرة ديناميكي — سلوك الوكيل يُعرَّف من خلال تكوين JSON تصريحي فقط.',
 			heading2: 'ميزات الأمان',
 			items: [
 				'<strong>صفر eval()</strong> — بدون تنفيذ شفرة ديناميكي (يزيل مخاطر RCE CVSS 10.0)',
@@ -304,9 +335,11 @@ const ar: TranslationSchema = {
 		},
 		performance: {
 			title: 'أداء المؤسسات',
-			description: 'Java 25 Virtual Threads على Quarkus — ملايين الخيوط الخفيفة لأحمال عمل LLM كثيفة الإدخال/الإخراج مع أوقات تشغيل أقل من ثانية.',
+			description:
+				'Java 25 Virtual Threads على Quarkus — ملايين الخيوط الخفيفة لأحمال عمل LLM كثيفة الإدخال/الإخراج مع أوقات تشغيل أقل من ثانية.',
 			heading1: 'مبني للتوسع',
-			para1: 'يعمل EDDI على <strong>Java 25 مع Quarkus</strong>، مستفيداً من Virtual Threads (Project Loom) للتزامن الضخم في عمليات الإدخال/الإخراج. على عكس حلقات أحداث Node.js، توفر Virtual Threads توازياً حقيقياً متعدد الخيوط مع الحد الأدنى من الحمل.',
+			para1:
+				'يعمل EDDI على <strong>Java 25 مع Quarkus</strong>، مستفيداً من Virtual Threads (Project Loom) للتزامن الضخم في عمليات الإدخال/الإخراج. على عكس حلقات أحداث Node.js، توفر Virtual Threads توازياً حقيقياً متعدد الخيوط مع الحد الأدنى من الحمل.',
 			heading2: 'أبرز نقاط الأداء',
 			items: [
 				'<strong>Virtual Threads</strong> — ملايين الخيوط الخفيفة لاستدعاءات LLM المتزامنة',
@@ -318,9 +351,11 @@ const ar: TranslationSchema = {
 		},
 		multiAgent: {
 			title: 'تنسيق متعدد الوكلاء',
-			description: 'اكتشاف الوكلاء القائم على النية، محادثات مُدارة، مشغلات الوكلاء وتوجيه A/B — محادثة واحدة لكل نية+مستخدم، تُنشأ وتُدار تلقائياً.',
+			description:
+				'اكتشاف الوكلاء القائم على النية، محادثات مُدارة، مشغلات الوكلاء وتوجيه A/B — محادثة واحدة لكل نية+مستخدم، تُنشأ وتُدار تلقائياً.',
 			heading1: 'توجيه ذكي للوكلاء',
-			para1: 'يتجاوز نظام EDDI متعدد الوكلاء موازنة الحمل البسيطة. يوفر <strong>اكتشاف الوكلاء القائم على النية</strong> الذي يوجه تلقائياً طلبات المستخدمين إلى الوكيل الأنسب بناءً على القدرات المعلنة.',
+			para1:
+				'يتجاوز نظام EDDI متعدد الوكلاء موازنة الحمل البسيطة. يوفر <strong>اكتشاف الوكلاء القائم على النية</strong> الذي يوجه تلقائياً طلبات المستخدمين إلى الوكيل الأنسب بناءً على القدرات المعلنة.',
 			heading2: 'ميزات التنسيق',
 			items: [
 				'<strong>اكتشاف الوكلاء</strong> — يعلن الوكلاء عن النوايا ويتم مطابقتهم تلقائياً لطلبات المستخدمين',
@@ -332,9 +367,11 @@ const ar: TranslationSchema = {
 		},
 		observability: {
 			title: 'المراقبة ومسارات التدقيق',
-			description: 'كل خطوة في خط الأنابيب تُسجَل مع مسار تدقيق غير قابل للتغيير — الرموز والتكلفة والتوقيت واستدعاءات الأدوات. قياس CQRS كامل مع تكامل Prometheus و Grafana.',
+			description:
+				'كل خطوة في خط الأنابيب تُسجَل مع مسار تدقيق غير قابل للتغيير — الرموز والتكلفة والتوقيت واستدعاءات الأدوات. قياس CQRS كامل مع تكامل Prometheus و Grafana.',
 			heading1: 'رؤية كاملة',
-			para1: 'يوفر EDDI <strong>مراقبة شاملة من البداية إلى النهاية</strong> عبر كل محادثة وخطوة في خط الأنابيب واستدعاء أداة. يلتقط مسار التدقيق غير القابل للتغيير الرموز المستخدمة والكمون والتكاليف والنتائج — مما يتيح المراقبة التشغيلية والامتثال التنظيمي.',
+			para1:
+				'يوفر EDDI <strong>مراقبة شاملة من البداية إلى النهاية</strong> عبر كل محادثة وخطوة في خط الأنابيب واستدعاء أداة. يلتقط مسار التدقيق غير القابل للتغيير الرموز المستخدمة والكمون والتكاليف والنتائج — مما يتيح المراقبة التشغيلية والامتثال التنظيمي.',
 			heading2: 'ميزات المراقبة',
 			items: [
 				'<strong>مسار تدقيق غير قابل للتغيير</strong> — سجلات عمليات موقعة بالتشفير ومقاومة للعبث',
@@ -349,7 +386,8 @@ const ar: TranslationSchema = {
 			title: 'جودة الشفرة',
 			description: '+1,500 اختبار بصفر إخفاقات. تم تقليل تنبيهات Checkstyle من 697 إلى 0. بوابات جودة CI/CD مطبقة في كل دمج.',
 			heading1: 'صرامة هندسية',
-			para1: 'يحافظ EDDI على <strong>جودة شفرة استثنائية</strong> من خلال الاختبارات الشاملة والتحليل الثابت وبوابات جودة CI/CD. كل طلب سحب يجب أن يجتاز مجموعة الاختبارات الكاملة قبل الدمج.',
+			para1:
+				'يحافظ EDDI على <strong>جودة شفرة استثنائية</strong> من خلال الاختبارات الشاملة والتحليل الثابت وبوابات جودة CI/CD. كل طلب سحب يجب أن يجتاز مجموعة الاختبارات الكاملة قبل الدمج.',
 			heading2: 'مقاييس الجودة',
 			items: [
 				'<strong>+1,500 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
@@ -363,7 +401,8 @@ const ar: TranslationSchema = {
 			title: 'بنية جاهزة للذكاء الاصطناعي',
 			description: '48 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. مصمم من الألف إلى الياء لوكلاء البرمجة.',
 			heading1: 'مصمم للتعاون مع الذكاء الاصطناعي',
-			para1: 'EDDI مبني على افتراض أن <strong>وكلاء البرمجة سيديرونه</strong>. كل واجهة API تتبع أنماطاً قابلة للتنبؤ، كل مورد له عمليات CRUD متسقة، وخادم MCP يتيح التحكم البرمجي الكامل.',
+			para1:
+				'EDDI مبني على افتراض أن <strong>وكلاء البرمجة سيديرونه</strong>. كل واجهة API تتبع أنماطاً قابلة للتنبؤ، كل مورد له عمليات CRUD متسقة، وخادم MCP يتيح التحكم البرمجي الكامل.',
 			heading2: 'تصميم صديق للذكاء الاصطناعي',
 			items: [
 				'<strong>أنماط قابلة للتنبؤ</strong> — تسمية موارد متسقة واتفاقيات CRUD ومعالجة الأخطاء',
@@ -375,9 +414,11 @@ const ar: TranslationSchema = {
 		},
 		whyEddi: {
 			title: 'لماذا EDDI؟',
-			description: 'وسيط تنسيق الذكاء الاصطناعي المرئي الوحيد الأصلي على JVM. منطق وكلاء قائم على التكوين، واجهة إدارة كاملة، وأمان على مستوى المؤسسات — كل ذلك في منصة واحدة قابلة للنشر.',
+			description:
+				'وسيط تنسيق الذكاء الاصطناعي المرئي الوحيد الأصلي على JVM. منطق وكلاء قائم على التكوين، واجهة إدارة كاملة، وأمان على مستوى المؤسسات — كل ذلك في منصة واحدة قابلة للنشر.',
 			heading1: 'الفجوة في Java المؤسسي',
-			para1: 'Java المؤسسي <strong>يفتقر إلى وسيط مرئي لتنسيق الذكاء الاصطناعي</strong>. الفرق إما تنمذج بأدوات Python/Node.js وتعيد الكتابة للإنتاج، أو تبني كل شيء من الصفر باستخدام مكتبات مثل Spring AI أو LangChain4j.',
+			para1:
+				'Java المؤسسي <strong>يفتقر إلى وسيط مرئي لتنسيق الذكاء الاصطناعي</strong>. الفرق إما تنمذج بأدوات Python/Node.js وتعيد الكتابة للإنتاج، أو تبني كل شيء من الصفر باستخدام مكتبات مثل Spring AI أو LangChain4j.',
 			heading2: 'EDDI يملأ هذا الفراغ',
 			para2: 'EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. يوفر كل ما تحتاجه الفرق جاهزاً:',
 			items: [
@@ -400,10 +441,12 @@ const ar: TranslationSchema = {
 			title: 'EDDI مقابل البدائل',
 			description: 'كيف يقارن EDDI مع Spring AI و LangChain4j و Flowise و n8n وأساليب تنسيق الذكاء الاصطناعي الأخرى.',
 			heading1: 'منصة مقابل مكتبة',
-			para1: 'الفرق الجوهري: EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. بينما توفر المكتبات لبنات البناء، يوفر EDDI المبنى بالكامل — جاهز للنشر.',
+			para1:
+				'الفرق الجوهري: EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. بينما توفر المكتبات لبنات البناء، يوفر EDDI المبنى بالكامل — جاهز للنشر.',
 			heading2: 'المقارنة',
 			heading3a: 'مقابل Spring AI / LangChain4j',
-			para2: 'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة (EDDI يستخدم LangChain4j داخلياً). لكن مع المكتبات، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة المحادثات وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
+			para2:
+				'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة (EDDI يستخدم LangChain4j داخلياً). لكن مع المكتبات، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة المحادثات وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
 			heading3b: 'مقابل Flowise / n8n',
 			para3: 'Flowise و n8n هما بنّاءان مرئيان قائمان على Node.js. يخدم EDDI غرضاً مشابهاً لكن على JVM:',
 			vsItems: [
@@ -413,148 +456,166 @@ const ar: TranslationSchema = {
 				'<strong>MongoDB/PostgreSQL</strong> — قواعد بيانات إنتاجية مقابل SQLite',
 			],
 			heading3c: 'مقابل AWS Bedrock / Azure AI Studio',
-			para4: 'منصات الذكاء الاصطناعي السحابية تقدم بنية تحتية مُدارة لكنها تخلق <strong>تقييد بالمُزوِّد</strong>. يعمل EDDI في أي مكان يعمل فيه Docker — محلياً، في أي سحابة، أو في بيئات معزولة.',
+			para4:
+				'منصات الذكاء الاصطناعي السحابية تقدم بنية تحتية مُدارة لكنها تخلق <strong>تقييد بالمُزوِّد</strong>. يعمل EDDI في أي مكان يعمل فيه Docker — محلياً، في أي سحابة، أو في بيئات معزولة.',
 		},
 		compliance: {
-			title: 'Global Privacy & Regulatory Compliance',
+			title: 'الخصوصية العالمية والامتثال التنظيمي',
 			description:
-				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, and 6 more frameworks — with cascade data erasure, cryptographic audit trails, and one unified API.',
-			heading1: 'Compliance by Architecture',
-			para1: 'Regulated industries cannot bolt compliance onto AI systems after the fact. EDDI embeds the <strong>technical foundations for global regulatory compliance</strong> into the platform architecture itself — immutable audit trails, cascade data erasure, processing restrictions, cryptographic integrity, and role-based access control are core capabilities, not add-ons. One unified API covers data subject rights for every jurisdiction.',
-			aiGovHeading: 'AI Governance Frameworks',
-			aiGovIntro: 'As governments worldwide introduce AI-specific legislation, organizations need platforms that provide <strong>transparency, traceability, and human oversight</strong> from day one. EDDI\'s architecture addresses the core technical requirements of major AI governance frameworks.',
-			euAiActHeading: 'EU AI Act — European Union',
-			euAiActPara: 'The EU AI Act (Regulation 2024/1689) is the world\'s first comprehensive AI law, establishing risk-based requirements for AI systems. EDDI provides the <strong>technical foundations</strong> for compliance with its high-risk AI system requirements:',
+				'يوفر EDDI امتثالاً مدمجاً لـ GDPR و CCPA وقانون الذكاء الاصطناعي الأوروبي و HIPAA و PIPEDA و LGPD و APPI و POPIA و PDPA و6 أطر عمل إضافية — مع حذف البيانات المتتالي ومسارات التدقيق المشفرة وواجهة API موحدة.',
+			heading1: 'الامتثال بالتصميم المعماري',
+			para1:
+				'لا يمكن للصناعات المنظمة إضافة الامتثال إلى أنظمة الذكاء الاصطناعي بعد وقوعها. يُدمج EDDI <strong>الأسس التقنية للامتثال التنظيمي العالمي</strong> في بنية المنصة ذاتها — مسارات التدقيق غير القابلة للتغيير، وحذف البيانات المتتالي، وقيود المعالجة، والسلامة التشفيرية، والتحكم في الوصول القائم على الأدوار هي قدرات أساسية وليست إضافات. واجهة API موحدة واحدة تغطي حقوق أصحاب البيانات في كل ولاية قضائية.',
+			aiGovHeading: 'أطر حوكمة الذكاء الاصطناعي',
+			aiGovIntro:
+				'مع قيام الحكومات في جميع أنحاء العالم بتقديم تشريعات خاصة بالذكاء الاصطناعي، تحتاج المؤسسات إلى منصات توفر <strong>الشفافية والتتبع والرقابة البشرية</strong> من اليوم الأول. تلبي بنية EDDI المتطلبات التقنية الأساسية لأطر حوكمة الذكاء الاصطناعي الرئيسية.',
+			euAiActHeading: 'قانون الذكاء الاصطناعي الأوروبي — الاتحاد الأوروبي',
+			euAiActPara:
+				'قانون الذكاء الاصطناعي الأوروبي (اللائحة 2024/1689) هو أول قانون شامل للذكاء الاصطناعي في العالم، يُرسي متطلبات قائمة على المخاطر لأنظمة الذكاء الاصطناعي. يوفر EDDI <strong>الأسس التقنية</strong> للامتثال لمتطلبات أنظمة الذكاء الاصطناعي عالية المخاطر:',
 			euAiActItems: [
-				'<strong>Immutable Audit Trails</strong> — Every operation recorded with HMAC-SHA256 cryptographic integrity (Art. 12 — Record-Keeping)',
-				'<strong>Decision Transparency</strong> — Full pipeline tracing shows how AI decisions were made, including model name, prompt, and response (Art. 13 — Transparency)',
-				'<strong>Human Oversight</strong> — Management UI enables human review, intervention, and emergency stop (Art. 14 — Human Oversight)',
-				'<strong>Risk Classification</strong> — Architecture supports high-risk AI system requirements with configurable controls (Art. 9 — Risk Management)',
-				'<strong>Reproducibility</strong> — Configuration-as-code enables exact reproduction of AI behavior for regulatory audits (Art. 17 — Quality Management)',
-				'<strong>Data Governance</strong> — OIDC/Keycloak RBAC, vault-based secret management, input/output logging (Art. 10 — Data Governance)',
+				'<strong>مسارات تدقيق غير قابلة للتغيير</strong> — كل عملية مسجلة بسلامة تشفيرية HMAC-SHA256 (المادة 12 — حفظ السجلات)',
+				'<strong>شفافية القرار</strong> — تتبع كامل لخط الأنابيب يوضح كيفية اتخاذ قرارات الذكاء الاصطناعي، بما في ذلك اسم النموذج والموجه والاستجابة (المادة 13 — الشفافية)',
+				'<strong>الرقابة البشرية</strong> — تتيح واجهة الإدارة المراجعة البشرية والتدخل والإيقاف الطارئ (المادة 14 — الرقابة البشرية)',
+				'<strong>تصنيف المخاطر</strong> — تدعم البنية متطلبات أنظمة الذكاء الاصطناعي عالية المخاطر مع ضوابط قابلة للتكوين (المادة 9 — إدارة المخاطر)',
+				'<strong>قابلية التكرار</strong> — يتيح التكوين-كشفرة التكرار الدقيق لسلوك الذكاء الاصطناعي للتدقيق التنظيمي (المادة 17 — إدارة الجودة)',
+				'<strong>حوكمة البيانات</strong> — OIDC/Keycloak RBAC، إدارة الأسرار القائمة على الخزنة، تسجيل المدخلات/المخرجات (المادة 10 — حوكمة البيانات)',
 			],
-			nistHeading: 'NIST AI Risk Management Framework — United States',
-			nistPara: 'The NIST AI RMF (AI 100-1) provides a voluntary framework for managing AI risks across four functions: Govern, Map, Measure, and Manage. EDDI\'s architecture provides technical capabilities that support organizations pursuing NIST AI RMF alignment:',
+			nistHeading: 'إطار إدارة مخاطر الذكاء الاصطناعي NIST — الولايات المتحدة',
+			nistPara:
+				'يوفر إطار NIST AI RMF (AI 100-1) إطاراً طوعياً لإدارة مخاطر الذكاء الاصطناعي عبر أربع وظائف: الحوكمة والتخطيط والقياس والإدارة. توفر بنية EDDI القدرات التقنية التي تدعم المؤسسات في سعيها لمواءمة NIST AI RMF:',
 			nistItems: [
-				'<strong>Govern</strong> — RBAC roles (eddi-admin, eddi-editor, eddi-viewer), immutable audit ledger, and documented data flows support AI governance structures',
-				'<strong>Map</strong> — Pipeline tracing and conversation logging enable comprehensive AI risk identification and documentation',
-				'<strong>Measure</strong> — Prometheus metrics, token/cost tracking, and per-agent usage analytics provide measurable AI performance and risk indicators',
-				'<strong>Manage</strong> — Processing restriction API, human oversight via Manager UI, and configurable retention policies enable risk mitigation controls',
+				'<strong>الحوكمة (Govern)</strong> — أدوار RBAC (eddi-admin, eddi-editor, eddi-viewer)، دفتر أستاذ تدقيق غير قابل للتغيير، وتدفقات بيانات موثقة تدعم هياكل حوكمة الذكاء الاصطناعي',
+				'<strong>التخطيط (Map)</strong> — تتبع خط الأنابيب وتسجيل المحادثات يتيحان تحديد وتوثيق شامل لمخاطر الذكاء الاصطناعي',
+				'<strong>القياس (Measure)</strong> — مقاييس Prometheus وتتبع الرموز/التكاليف وتحليلات الاستخدام لكل وكيل توفر مؤشرات قابلة للقياس لأداء ومخاطر الذكاء الاصطناعي',
+				'<strong>الإدارة (Manage)</strong> — واجهة API لتقييد المعالجة، والرقابة البشرية عبر واجهة المدير، وسياسات الاحتفاظ القابلة للتكوين تتيح ضوابط تخفيف المخاطر',
 			],
-			isoHeading: 'ISO/IEC 42001 — AI Management Systems',
-			isoPara: 'ISO/IEC 42001:2023 establishes requirements for an AI Management System (AIMS). EDDI provides technical capabilities that support organizations pursuing ISO 42001 certification:',
+			isoHeading: 'ISO/IEC 42001 — أنظمة إدارة الذكاء الاصطناعي',
+			isoPara:
+				'يحدد معيار ISO/IEC 42001:2023 متطلبات نظام إدارة الذكاء الاصطناعي (AIMS). يوفر EDDI القدرات التقنية التي تدعم المؤسسات في سعيها للحصول على شهادة ISO 42001:',
 			isoItems: [
-				'<strong>Documented AI Policies</strong> — Configuration-as-code means all agent behavior is defined in auditable JSON — rules, workflows, LLM configurations, and deployment descriptors',
-				'<strong>Risk Assessment</strong> — Audit trails capture complete decision histories for risk evaluation and impact assessments',
-				'<strong>Operational Controls</strong> — RBAC, vault-based secret management, and processing restrictions provide operational governance',
-				'<strong>Performance Monitoring</strong> — Prometheus metrics, Grafana dashboards, and CQRS telemetry enable continuous AI performance evaluation',
+				'<strong>سياسات ذكاء اصطناعي موثقة</strong> — التكوين-كشفرة يعني أن جميع سلوكيات الوكيل محددة في JSON قابل للتدقيق — القواعد وسير العمل وتكوينات LLM ووصفات النشر',
+				'<strong>تقييم المخاطر</strong> — تلتقط مسارات التدقيق تاريخ القرارات الكامل لتقييم المخاطر وتحليل الأثر',
+				'<strong>الضوابط التشغيلية</strong> — RBAC وإدارة الأسرار القائمة على الخزنة وقيود المعالجة توفر الحوكمة التشغيلية',
+				'<strong>مراقبة الأداء</strong> — مقاييس Prometheus ولوحات Grafana وقياس CQRS تتيح التقييم المستمر لأداء الذكاء الاصطناعي',
 			],
-			privacyHeading: 'Data Privacy Regulations',
-			privacyIntro: 'EDDI provides <strong>unified data subject rights endpoints</strong> that satisfy the technical requirements of every major privacy regulation worldwide. One API covers cascade erasure, full data export, and processing restriction — regardless of jurisdiction.',
-			gdprHeading: 'GDPR — European Union / EEA',
-			gdprPara: 'The General Data Protection Regulation (EU 2016/679) is the gold standard for data privacy. EDDI implements GDPR data subject rights as <strong>first-class API endpoints</strong> backed by cascade operations across all 5 data stores:',
+			privacyHeading: 'لوائح خصوصية البيانات',
+			privacyIntro:
+				'يوفر EDDI <strong>نقاط نهاية موحدة لحقوق أصحاب البيانات</strong> تلبي المتطلبات التقنية لكل لائحة خصوصية رئيسية في العالم. واجهة API واحدة تغطي الحذف المتتالي والتصدير الكامل للبيانات وتقييد المعالجة — بغض النظر عن الولاية القضائية.',
+			gdprHeading: 'GDPR — الاتحاد الأوروبي / المنطقة الاقتصادية الأوروبية',
+			gdprPara:
+				'اللائحة العامة لحماية البيانات (EU 2016/679) هي المعيار الذهبي لخصوصية البيانات. ينفذ EDDI حقوق أصحاب البيانات وفق GDPR كـ<strong>نقاط نهاية API من الدرجة الأولى</strong> مدعومة بعمليات متتالية عبر جميع مخازن البيانات الخمسة:',
 			gdprItems: [
-				'<strong>Right to Erasure (Art. 17)</strong> — <code>DELETE /admin/gdpr/{userId}</code> cascades across user memories, conversations, managed conversation mappings, database logs (SHA-256 pseudonymized), and audit ledger (SHA-256 pseudonymized)',
-				'<strong>Right of Access / Portability (Art. 15/20)</strong> — <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured, machine-readable JSON',
-				'<strong>Right to Restriction (Art. 18)</strong> — <code>POST /admin/gdpr/{userId}/restrict</code> freezes processing while preserving data, blocking new conversations and message processing',
-				'<strong>PII-Safe Logging</strong> — GDPR operations log SHA-256 pseudonyms, never raw user IDs',
-				'<strong>Configurable Retention</strong> — Per-category retention policies for conversations (365 days default), user memories (manual), and audit entries (indefinite for EU AI Act)',
-				'<strong>MCP Tools</strong> — <code>delete_user_data</code> and <code>export_user_data</code> enable AI-orchestrated compliance workflows',
+				'<strong>حق المحو (المادة 17)</strong> — <code>DELETE /admin/gdpr/{userId}</code> يحذف بشكل متتالي عبر ذاكرة المستخدم والمحادثات وتعيينات المحادثات المُدارة وسجلات قاعدة البيانات (مُستعار بـ SHA-256) ودفتر أستاذ التدقيق (مُستعار بـ SHA-256)',
+				'<strong>حق الوصول / قابلية النقل (المادة 15/20)</strong> — <code>GET /admin/gdpr/{userId}/export</code> يُرجع جميع بيانات المستخدم بصيغة JSON منظمة وقابلة للقراءة آلياً',
+				'<strong>حق التقييد (المادة 18)</strong> — <code>POST /admin/gdpr/{userId}/restrict</code> يُجمّد المعالجة مع الحفاظ على البيانات، ويمنع المحادثات الجديدة ومعالجة الرسائل',
+				'<strong>تسجيل آمن لـ PII</strong> — عمليات GDPR تسجل أسماء مستعارة SHA-256، ولا تسجل أبداً معرّفات المستخدم الأصلية',
+				'<strong>احتفاظ قابل للتكوين</strong> — سياسات احتفاظ لكل فئة للمحادثات (365 يوماً افتراضياً) وذاكرة المستخدم (يدوي) وإدخالات التدقيق (غير محدد لقانون الذكاء الاصطناعي الأوروبي)',
+				'<strong>أدوات MCP</strong> — <code>delete_user_data</code> و <code>export_user_data</code> تتيح سير عمل الامتثال المُنسق بالذكاء الاصطناعي',
 			],
-			ccpaHeading: 'CCPA / CPRA — California, United States',
-			ccpaPara: 'The California Consumer Privacy Act and California Privacy Rights Act grant consumers rights to know, delete, and opt out of data sales. EDDI satisfies CCPA\'s technical requirements through its GDPR-compatible API:',
+			ccpaHeading: 'CCPA / CPRA — كاليفورنيا، الولايات المتحدة',
+			ccpaPara:
+				'يمنح قانون خصوصية المستهلك في كاليفورنيا وقانون حقوق الخصوصية في كاليفورنيا المستهلكين حقوق المعرفة والحذف وإلغاء الاشتراك في بيع البيانات. يلبي EDDI المتطلبات التقنية لـ CCPA من خلال واجهة API المتوافقة مع GDPR:',
 			ccpaItems: [
-				'<strong>Right to Know (§1798.100)</strong> — The GDPR export endpoint provides all personal information in a structured, machine-readable format',
-				'<strong>Right to Delete (§1798.105)</strong> — The GDPR erasure endpoint provides cascade deletion across all data stores',
-				'<strong>Do Not Sell (§1798.120)</strong> — EDDI architecturally cannot sell personal information — it is middleware infrastructure that processes data exclusively on behalf of the deployer',
+				'<strong>حق المعرفة (§1798.100)</strong> — توفر نقطة نهاية التصدير الخاصة بـ GDPR جميع المعلومات الشخصية بصيغة منظمة وقابلة للقراءة آلياً',
+				'<strong>حق الحذف (§1798.105)</strong> — توفر نقطة نهاية المحو الخاصة بـ GDPR حذفاً متتالياً عبر جميع مخازن البيانات',
+				'<strong>عدم البيع (§1798.120)</strong> — لا يستطيع EDDI معمارياً بيع المعلومات الشخصية — فهو بنية وسيطة تحتية تعالج البيانات حصرياً نيابة عن المُنشر',
 			],
-			pipedaHeading: 'PIPEDA — Canada',
-			pipedaPara: 'Canada\'s Personal Information Protection and Electronic Documents Act (2000, amended 2023) governs commercial data processing through 10 Fair Information Principles. EDDI\'s architecture maps directly to each principle:',
+			pipedaHeading: 'PIPEDA — كندا',
+			pipedaPara:
+				'يحكم قانون حماية المعلومات الشخصية والوثائق الإلكترونية الكندي (2000، مُعدّل 2023) معالجة البيانات التجارية من خلال 10 مبادئ للمعلومات العادلة. تتوافق بنية EDDI مباشرة مع كل مبدأ:',
 			pipedaItems: [
-				'<strong>Accountability</strong> — Immutable HMAC-signed audit ledger traces all operations',
-				'<strong>Limiting Collection</strong> — Token-aware windowing limits data sent to LLMs; configurable retention auto-deletes old conversations',
-				'<strong>Limiting Use/Disclosure</strong> — Data used only for configured agent interactions; audit trail logs every LLM invocation',
-				'<strong>Safeguards</strong> — AES-256-GCM envelope encryption (Secrets Vault), HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC',
-				'<strong>Individual Access</strong> — Full data export via REST API returns all memories, conversations, and managed conversation mappings as JSON',
-				'<strong>Challenging Compliance</strong> — Cascade deletion across all 5 data stores; audit trail pseudonymized (not deleted) for legal retention obligations',
+				'<strong>المساءلة</strong> — دفتر أستاذ تدقيق موقع بـ HMAC غير قابل للتغيير يتتبع جميع العمليات',
+				'<strong>تحديد الجمع</strong> — النوافذ المدركة للرموز تحد من البيانات المرسلة إلى LLMs؛ الاحتفاظ القابل للتكوين يحذف تلقائياً المحادثات القديمة',
+				'<strong>تحديد الاستخدام/الإفصاح</strong> — تُستخدم البيانات فقط لتفاعلات الوكيل المكوّنة؛ يسجل مسار التدقيق كل استدعاء لـ LLM',
+				'<strong>الضمانات</strong> — تشفير مغلف AES-256-GCM (خزنة الأسرار)، سلامة تدقيق HMAC-SHA256، Keycloak OIDC، RBAC',
+				'<strong>الوصول الفردي</strong> — تصدير بيانات كامل عبر REST API يُرجع جميع الذكريات والمحادثات وتعيينات المحادثات المُدارة بصيغة JSON',
+				'<strong>الطعن في الامتثال</strong> — حذف متتالي عبر جميع مخازن البيانات الخمسة؛ مسار التدقيق مُستعار (غير محذوف) لالتزامات الاحتفاظ القانوني',
 			],
-			lgpdHeading: 'LGPD — Brazil',
-			lgpdPara: 'Brazil\'s Lei Geral de Proteção de Dados (2018, effective 2020) grants extensive data subject rights closely mirroring GDPR. EDDI covers all Article 18 rights with built-in technical capabilities:',
+			lgpdHeading: 'LGPD — البرازيل',
+			lgpdPara:
+				'يمنح القانون العام لحماية البيانات البرازيلي (2018، ساري 2020) حقوقاً واسعة لأصحاب البيانات تعكس GDPR بشكل وثيق. يغطي EDDI جميع حقوق المادة 18 بقدرات تقنية مدمجة:',
 			lgpdItems: [
-				'<strong>Access to Data (Art. 18, II)</strong> — Full JSON data export',
-				'<strong>Correction (Art. 18, III)</strong> — User memories updatable via <code>PUT /usermemorystore/memories</code>',
-				'<strong>Anonymization/Deletion (Art. 18, IV)</strong> — Cascade deletion with SHA-256 pseudonymization of audit records',
-				'<strong>Data Portability (Art. 18, V)</strong> — Machine-readable JSON export includes all user data',
-				'<strong>Deletion of Unnecessary Data (Art. 18, VI)</strong> — Configurable retention policies with automatic cleanup',
-				'<strong>Consent Revocation (Art. 18, IX)</strong> — End conversation and cascade delete endpoints provide the technical mechanism',
+				'<strong>الوصول إلى البيانات (المادة 18، II)</strong> — تصدير بيانات JSON كامل',
+				'<strong>التصحيح (المادة 18، III)</strong> — ذاكرة المستخدم قابلة للتحديث عبر <code>PUT /usermemorystore/memories</code>',
+				'<strong>إخفاء الهوية/الحذف (المادة 18، IV)</strong> — حذف متتالي مع استعارة SHA-256 لسجلات التدقيق',
+				'<strong>قابلية نقل البيانات (المادة 18، V)</strong> — تصدير JSON قابل للقراءة آلياً يشمل جميع بيانات المستخدم',
+				'<strong>حذف البيانات غير الضرورية (المادة 18، VI)</strong> — سياسات احتفاظ قابلة للتكوين مع تنظيف تلقائي',
+				'<strong>سحب الموافقة (المادة 18، IX)</strong> — نقاط نهاية إنهاء المحادثة والحذف المتتالي توفر الآلية التقنية',
 			],
-			appiHeading: 'APPI — Japan',
-			appiPara: 'Japan\'s Act on the Protection of Personal Information (2003, significantly amended 2022) is one of Asia\'s most mature data protection laws. Japan holds an EU adequacy decision, facilitating cross-border data flows. EDDI provides:',
+			appiHeading: 'APPI — اليابان',
+			appiPara:
+				'قانون حماية المعلومات الشخصية الياباني (2003، مُعدّل بشكل كبير 2022) هو أحد أنضج قوانين حماية البيانات في آسيا. تمتلك اليابان قرار كفاية من الاتحاد الأوروبي. يوفر EDDI:',
 			appiItems: [
-				'<strong>Security Measures (Art. 23)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
-				'<strong>Disclosure to Data Subjects (Art. 33)</strong> — Full data export via REST API',
-				'<strong>Correction and Deletion (Art. 34-35)</strong> — Memory updates for correction; cascade deletion for erasure',
-				'<strong>Pseudonymized Information (2022 amendment)</strong> — GDPR erasure uses SHA-256 pseudonymization, satisfying APPI\'s pseudonymized information category',
-				'<strong>Cross-Border Transfer Documentation (Art. 28)</strong> — LLM provider data flows documented; audit trail records which model/provider processed each turn',
+				'<strong>التدابير الأمنية (المادة 23)</strong> — تشفير خزنة AES-256-GCM، سلامة تدقيق HMAC-SHA256، Keycloak OIDC، RBAC، حماية SSRF',
+				'<strong>الإفصاح لأصحاب البيانات (المادة 33)</strong> — تصدير بيانات كامل عبر REST API',
+				'<strong>التصحيح والحذف (المادة 34-35)</strong> — تحديثات الذاكرة للتصحيح؛ حذف متتالي للمحو',
+				'<strong>المعلومات المُستعارة (تعديل 2022)</strong> — يستخدم محو GDPR استعارة SHA-256، مما يلبي فئة المعلومات المُستعارة في APPI',
+				'<strong>توثيق النقل عبر الحدود (المادة 28)</strong> — تدفقات بيانات مزود LLM موثقة؛ يسجل مسار التدقيق أي نموذج/مزود عالج كل جولة',
 			],
-			popiaHeading: 'POPIA — South Africa',
-			popiaPara: 'South Africa\'s Protection of Personal Information Act (2013, effective 2021) establishes 8 data processing conditions aligned with EU standards. EDDI provides built-in technical capabilities for each condition:',
+			popiaHeading: 'POPIA — جنوب أفريقيا',
+			popiaPara:
+				'يُرسي قانون حماية المعلومات الشخصية في جنوب أفريقيا (2013، ساري 2021) 8 شروط لمعالجة البيانات متوافقة مع المعايير الأوروبية. يوفر EDDI قدرات تقنية مدمجة لكل شرط:',
 			popiaItems: [
-				'<strong>Accountability (Condition 1)</strong> — HMAC-signed audit ledger, documented data flows, Apache 2.0 open-source code',
-				'<strong>Processing Limitation (Condition 2)</strong> — Token-aware windowing, configurable retention, idle conversation auto-end',
-				'<strong>Information Quality (Condition 5)</strong> — Timestamped, versioned conversation state; user memories updatable via REST API',
-				'<strong>Security Safeguards (Condition 7)</strong> — AES-256-GCM encryption, HMAC integrity, Keycloak OIDC, RBAC, SSRF protection',
-				'<strong>Data Subject Participation (Condition 8)</strong> — Full data export and cascade deletion endpoints',
+				'<strong>المساءلة (الشرط 1)</strong> — دفتر أستاذ تدقيق موقع بـ HMAC، تدفقات بيانات موثقة، شفرة مفتوحة المصدر Apache 2.0',
+				'<strong>تحديد المعالجة (الشرط 2)</strong> — نوافذ مدركة للرموز، احتفاظ قابل للتكوين، إنهاء تلقائي للمحادثات الخاملة',
+				'<strong>جودة المعلومات (الشرط 5)</strong> — حالة محادثة مؤرخة ومُرقّمة الإصدارات؛ ذاكرة المستخدم قابلة للتحديث عبر REST API',
+				'<strong>الضمانات الأمنية (الشرط 7)</strong> — تشفير AES-256-GCM، سلامة HMAC، Keycloak OIDC، RBAC، حماية SSRF',
+				'<strong>مشاركة أصحاب البيانات (الشرط 8)</strong> — نقاط نهاية تصدير البيانات الكامل والحذف المتتالي',
 			],
-			pdpaHeading: 'PDPA — Singapore & Thailand',
-			pdpaPara: 'The Personal Data Protection Acts in Singapore (2012, amended 2021) and Thailand (2019, effective 2022) are Southeast Asia\'s most mature privacy frameworks. EDDI covers the technical obligations of both jurisdictions:',
+			pdpaHeading: 'PDPA — سنغافورة وتايلاند',
+			pdpaPara:
+				'تُعد قوانين حماية البيانات الشخصية في سنغافورة (2012، مُعدّل 2021) وتايلاند (2019، ساري 2022) أنضج أطر الخصوصية في جنوب شرق آسيا. يغطي EDDI الالتزامات التقنية لكلا الولايتين القضائيتين:',
 			pdpaItems: [
-				'<strong>Access Obligation</strong> — Full data export via REST API and MCP tools',
-				'<strong>Correction Obligation</strong> — User memories updatable via REST API',
-				'<strong>Protection Obligation</strong> — AES-256-GCM encryption, HMAC audit integrity, Keycloak OIDC, RBAC',
-				'<strong>Retention Limitation</strong> — Configurable auto-cleanup with idle conversation timeout',
-				'<strong>Data Breach Notification</strong> — Incident response runbook template included in EDDI documentation',
+				'<strong>التزام الوصول</strong> — تصدير بيانات كامل عبر REST API وأدوات MCP',
+				'<strong>التزام التصحيح</strong> — ذاكرة المستخدم قابلة للتحديث عبر REST API',
+				'<strong>التزام الحماية</strong> — تشفير AES-256-GCM، سلامة تدقيق HMAC، Keycloak OIDC، RBAC',
+				'<strong>تحديد الاحتفاظ</strong> — تنظيف تلقائي قابل للتكوين مع مهلة المحادثات الخاملة',
+				'<strong>إشعار خرق البيانات</strong> — قالب كتاب تشغيل الاستجابة للحوادث مضمن في وثائق EDDI',
 			],
-			otherRegionsHeading: 'Additional Jurisdictions',
-			otherRegionsPara: 'EDDI\'s data protection infrastructure meets international standards. The following jurisdictions are also supported through the same unified API:',
+			otherRegionsHeading: 'ولايات قضائية إضافية',
+			otherRegionsPara: 'تلبي بنية حماية البيانات في EDDI المعايير الدولية. الولايات القضائية التالية مدعومة أيضاً من خلال نفس واجهة API الموحدة:',
 			otherRegionsItems: [
-				'<strong>UK GDPR</strong> (United Kingdom) — Substantially mirrors EU GDPR; EDDI\'s GDPR endpoints satisfy all UK GDPR data subject rights. ICO oversight.',
-				'<strong>PIPA</strong> (South Korea) — Strict consent requirements, mandatory DPO, 72-hour breach notification. EDDI provides the technical audit and erasure infrastructure.',
-				'<strong>DPDPA</strong> (India, 2023) — Consent-based framework with cross-border restrictions. EDDI\'s export and erasure endpoints satisfy the Digital Personal Data Protection Act requirements.',
-				'<strong>Privacy Act + APPs</strong> (Australia) — 13 Australian Privacy Principles; notifiable data breach scheme. EDDI\'s audit trail and data export cover the technical obligations.',
-				'<strong>CCPA-style state laws</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA, etc.) — The GDPR/CCPA-compatible API satisfies all emerging US state privacy laws.',
+				'<strong>UK GDPR</strong> (المملكة المتحدة) — يعكس بشكل جوهري GDPR الأوروبي؛ تلبي نقاط نهاية GDPR في EDDI جميع حقوق أصحاب البيانات وفق UK GDPR. إشراف ICO.',
+				'<strong>PIPA</strong> (كوريا الجنوبية) — متطلبات موافقة صارمة، DPO إلزامي، إشعار بالخرق خلال 72 ساعة. يوفر EDDI البنية التحتية التقنية للتدقيق والمحو.',
+				'<strong>DPDPA</strong> (الهند، 2023) — إطار قائم على الموافقة مع قيود عبر الحدود. تلبي نقاط نهاية التصدير والمحو في EDDI متطلبات قانون حماية البيانات الشخصية الرقمية.',
+				'<strong>Privacy Act + APPs</strong> (أستراليا) — 13 مبدأً أسترالياً للخصوصية. تغطي مسارات التدقيق وتصدير البيانات في EDDI الالتزامات التقنية.',
+				'<strong>قوانين الولايات على نمط CCPA</strong> (فرجينيا VCDPA، كولورادو CPA، كونيتيكت CTDPA، إلخ) — تلبي واجهة API المتوافقة مع GDPR/CCPA جميع قوانين الخصوصية الناشئة في الولايات الأمريكية.',
 			],
-			industryHeading: 'Industry-Specific Compliance',
-			hipaaHeading: 'HIPAA — US Healthcare',
-			hipaaPara: 'The Health Insurance Portability and Accountability Act establishes safeguards for Protected Health Information (PHI). EDDI provides the technical infrastructure for HIPAA-compliant AI deployments:',
+			industryHeading: 'الامتثال الخاص بالصناعة',
+			hipaaHeading: 'HIPAA — الرعاية الصحية في الولايات المتحدة',
+			hipaaPara:
+				'يُرسي قانون قابلية نقل التأمين الصحي والمساءلة ضمانات للمعلومات الصحية المحمية (PHI). يوفر EDDI البنية التحتية التقنية لعمليات نشر الذكاء الاصطناعي المتوافقة مع HIPAA:',
 			hipaaItems: [
-				'<strong>Access Controls (§164.312(a))</strong> — Keycloak OIDC with role-based access (eddi-admin, eddi-editor, eddi-viewer)',
-				'<strong>Audit Controls (§164.312(b))</strong> — HMAC-signed, immutable audit ledger records every operation with timestamps, user IDs, and outcomes',
-				'<strong>Integrity Controls (§164.312(c))</strong> — HMAC-SHA256 tamper detection on all audit entries',
-				'<strong>Transmission Security (§164.312(e))</strong> — TLS for transit; AES-256-GCM for secrets at rest via Secrets Vault',
-				'<strong>Data Disposal (§164.310(d)(2)(i))</strong> — GDPR cascade deletion endpoint permanently removes PHI across all data stores',
-				'<strong>BAA Template</strong> — Business Associate Agreement template included in EDDI documentation for healthcare deployments',
+				'<strong>ضوابط الوصول (§164.312(a))</strong> — Keycloak OIDC مع وصول قائم على الأدوار (eddi-admin, eddi-editor, eddi-viewer)',
+				'<strong>ضوابط التدقيق (§164.312(b))</strong> — دفتر أستاذ تدقيق غير قابل للتغيير موقع بـ HMAC يسجل كل عملية مع الطوابع الزمنية ومعرّفات المستخدمين والنتائج',
+				'<strong>ضوابط السلامة (§164.312(c))</strong> — كشف التلاعب HMAC-SHA256 على جميع إدخالات التدقيق',
+				'<strong>أمن النقل (§164.312(e))</strong> — TLS للنقل؛ AES-256-GCM للأسرار في حالة السكون عبر خزنة الأسرار',
+				'<strong>التخلص من البيانات (§164.310(d)(2)(i))</strong> — نقطة نهاية الحذف المتتالي لـ GDPR تزيل PHI نهائياً عبر جميع مخازن البيانات',
+				'<strong>قالب BAA</strong> — قالب اتفاقية شريك الأعمال مضمن في وثائق EDDI لعمليات نشر الرعاية الصحية',
 			],
-			soc2Heading: 'SOC 2 Readiness',
-			soc2Para: 'SOC 2 Type II evaluates systems against Trust Services Criteria. EDDI\'s architecture provides technical controls that support organizations pursuing SOC 2 attestation:',
+			soc2Heading: 'جاهزية SOC 2',
+			soc2Para:
+				'يقيّم SOC 2 Type II الأنظمة وفق معايير خدمات الثقة. توفر بنية EDDI ضوابط تقنية تدعم المؤسسات في سعيها للحصول على شهادة SOC 2:',
 			soc2Items: [
-				'<strong>Security</strong> — OIDC/Keycloak authentication, RBAC, Secrets Vault (AES-256-GCM), zero eval(), path traversal protection, URL validation',
-				'<strong>Availability</strong> — Horizontal scaling via NATS JetStream, dual database support (MongoDB/PostgreSQL), Kubernetes-native deployment',
-				'<strong>Processing Integrity</strong> — Immutable HMAC-signed audit ledger with per-operation cryptographic integrity verification',
-				'<strong>Confidentiality</strong> — Secret redaction filter scrubs API keys and vault references from audit entries; PII-safe logging with SHA-256 pseudonyms',
-				'<strong>Privacy</strong> — Full data subject rights API (erasure, export, restriction), configurable retention, processing restriction controls',
+				'<strong>الأمان</strong> — مصادقة OIDC/Keycloak، RBAC، خزنة الأسرار (AES-256-GCM)، صفر eval()، حماية اجتياز المسار، التحقق من URL',
+				'<strong>التوافر</strong> — توسع أفقي عبر NATS JetStream، دعم قاعدة بيانات مزدوجة (MongoDB/PostgreSQL)، نشر أصلي على Kubernetes',
+				'<strong>سلامة المعالجة</strong> — دفتر أستاذ تدقيق غير قابل للتغيير موقع بـ HMAC مع التحقق من السلامة التشفيرية لكل عملية',
+				'<strong>السرية</strong> — مرشح تنقيح الأسرار يزيل مفاتيح API ومراجع الخزنة من إدخالات التدقيق؛ تسجيل آمن لـ PII مع أسماء مستعارة SHA-256',
+				'<strong>الخصوصية</strong> — واجهة API كاملة لحقوق أصحاب البيانات (المحو، التصدير، التقييد)، احتفاظ قابل للتكوين، ضوابط تقييد المعالجة',
 			],
-			apiHeading: 'One API for Global Compliance',
-			apiPara: 'Every privacy regulation listed above is served by the <strong>same unified REST API and MCP tools</strong>. Whether you are responding to a GDPR erasure request in Germany, a CCPA deletion request in California, or a PDPA access request in Singapore — the same endpoints handle it all:',
+			apiHeading: 'واجهة API واحدة للامتثال العالمي',
+			apiPara:
+				'كل لائحة خصوصية مذكورة أعلاه تُخدم بواسطة <strong>نفس واجهة REST API الموحدة وأدوات MCP</strong>. سواء كنت تستجيب لطلب محو GDPR في ألمانيا، أو طلب حذف CCPA في كاليفورنيا، أو طلب وصول PDPA في سنغافورة — نفس النقاط النهائية تتعامل مع كل شيء:',
 			apiItems: [
-				'<strong><code>DELETE /admin/gdpr/{userId}</code></strong> — Cascade erasure across 5 data stores (user memories, conversations, managed mappings, logs, audit entries)',
-				'<strong><code>GET /admin/gdpr/{userId}/export</code></strong> — Full user data export as structured JSON (memories, conversations, audit records)',
-				'<strong><code>POST /admin/gdpr/{userId}/restrict</code></strong> — Freeze processing while preserving data for dispute resolution',
-				'<strong>MCP: <code>delete_user_data</code></strong> — AI-orchestrated cascade erasure (requires explicit confirmation)',
-				'<strong>MCP: <code>export_user_data</code></strong> — AI-orchestrated data export for automated DSAR workflows',
+				'<strong><code>DELETE /admin/gdpr/{userId}</code></strong> — حذف متتالي عبر 5 مخازن بيانات (ذاكرة المستخدم، المحادثات، التعيينات المُدارة، السجلات، إدخالات التدقيق)',
+				'<strong><code>GET /admin/gdpr/{userId}/export</code></strong> — تصدير بيانات المستخدم الكاملة بصيغة JSON منظمة (الذكريات، المحادثات، سجلات التدقيق)',
+				'<strong><code>POST /admin/gdpr/{userId}/restrict</code></strong> — تجميد المعالجة مع الحفاظ على البيانات لحل النزاعات',
+				'<strong>MCP: <code>delete_user_data</code></strong> — حذف متتالي مُنسق بالذكاء الاصطناعي (يتطلب تأكيداً صريحاً)',
+				'<strong>MCP: <code>export_user_data</code></strong> — تصدير بيانات مُنسق بالذكاء الاصطناعي لسير عمل DSAR الآلي',
 			],
-			heading3: 'Built for Regulated Industries Worldwide',
-			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 15+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, and PDPA in Southeast Asia. Compliance is not an afterthought — it is an architectural foundation.',
+			heading3: 'مبني للصناعات المنظمة في جميع أنحاء العالم',
+			para2:
+				'يمكن لقطاعات الرعاية الصحية والخدمات المالية والحكومة والتصنيع والقطاعات المنظمة الأخرى نشر EDDI بثقة. توفر المنصة الشفافية والقابلية للتدقيق وآليات التحكم المطلوبة من أكثر من 15 إطاراً تنظيمياً — من قانون الذكاء الاصطناعي الأوروبي وGDPR في أوروبا إلى HIPAA في الولايات المتحدة وPIPEDA في كندا وLGPD في البرازيل وAPPI في اليابان وPOPIA في جنوب أفريقيا وPDPA في جنوب شرق آسيا. الامتثال ليس فكرة لاحقة — إنه أساس معماري.',
 		},
 	},
 };
