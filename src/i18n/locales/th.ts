@@ -244,7 +244,7 @@ const th: TranslationSchema = {
 		obsCardTitle: '📊 Observability',
 		obsCardDesc: 'ทุกขั้นตอนถูกบันทึกใน <strong>immutable audit trails</strong>',
 		cqCardTitle: '🧪 คุณภาพโค้ด',
-		cqCardDesc: '<strong>1,500+ เทสต์ ไม่มีข้อผิดพลาด</strong> Checkstyle ลดจาก 697 เหลือ 0',
+		cqCardDesc: '<strong>1,500+ เทสต์ ไม่มีข้อผิดพลาด</strong> Checkstyle ศูนย์คำเตือน',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc: '48 MCP tools, CRUD patterns ที่คาดเดาได้ <strong>สร้างสำหรับ coding agents</strong>',
 	},
@@ -369,7 +369,7 @@ const th: TranslationSchema = {
 			items: [
 				'<strong>1,500+ เทสต์</strong> — unit, integration, E2E',
 				'<strong>ไม่มีข้อผิดพลาด</strong> — CI สะอาดทุก build',
-				'<strong>Checkstyle Enforcement</strong> — ลดจาก 697 เหลือ 0',
+				'<strong>Checkstyle Enforcement</strong> — ศูนย์คำเตือน กฎเข้มงวดทุกบิลด์',
 				'<strong>MCP Tool Tests</strong> — coverage ครบ 48 tools',
 				'<strong>CI/CD Quality Gates</strong> — ป้องกัน regression',
 			],

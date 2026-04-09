@@ -265,7 +265,7 @@ const de: TranslationSchema = {
 			'Jeder Pipeline-Schritt wird mit <strong>unveränderlichen Audit-Trails</strong> protokolliert — Tokens, Kosten, Timing und Tool-Aufrufe.',
 		cqCardTitle: '🧪 Code-Qualität',
 		cqCardDesc:
-			'<strong>1.500+ Tests mit null Fehlern.</strong> Checkstyle-Warnungen von 697 auf 0 reduziert. CI/CD-Qualitätskontrolle bei jedem Merge.',
+			'<strong>1.500+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. CI/CD-Qualitätskontrolle bei jedem Merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc: '48 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. <strong>Für Coding-Agents entwickelt</strong>.',
 	},
@@ -400,7 +400,7 @@ const de: TranslationSchema = {
 		codeQuality: {
 			title: 'Code-Qualität',
 			description:
-				'1.500+ Tests mit null Fehlern. Checkstyle-Warnungen von 697 auf 0 reduziert. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
+				'1.500+ Tests mit null Fehlern. Null Checkstyle-Warnungen. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
 			heading1: 'Engineering-Rigorosität',
 			para1:
 				'EDDI pflegt <strong>außergewöhnliche Code-Qualität</strong> durch umfassende Tests, statische Analyse und CI/CD-Qualitätskontrolle. Jeder Pull Request muss die vollständige Test-Suite bestehen, bevor er gemergt wird.',
@@ -408,7 +408,7 @@ const de: TranslationSchema = {
 			items: [
 				'<strong>1.500+ Tests</strong> — Unit-, Integrations- und End-to-End-Coverage',
 				'<strong>Null Fehler</strong> — Sauberes CI bei jedem Build',
-				'<strong>Checkstyle-Enforcement</strong> — Von 697 auf 0 Warnungen reduziert',
+				'<strong>Checkstyle-Enforcement</strong> — Null Warnungen, strikte Regeln bei jedem Build erzwungen',
 				'<strong>MCP-Tool-Tests</strong> — Umfassende Coverage aller 48 MCP-Tools',
 				'<strong>CI/CD-Qualitätskontrolle</strong> — Automatisierte Checks verhindern Regressionen',
 			],

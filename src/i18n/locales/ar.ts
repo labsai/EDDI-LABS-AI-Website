@@ -252,7 +252,7 @@ const ar: TranslationSchema = {
 		obsCardDesc:
 			'كل خطوة في خط الأنابيب مسجلة مع <strong>مسارات تدقيق غير قابلة للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات.',
 		cqCardTitle: '🧪 جودة الشفرة',
-		cqCardDesc: '<strong>+1,500 اختبار بصفر إخفاقات.</strong> تم تقليل Checkstyle من 697 إلى 0 تنبيهاً. CI/CD مطبق في كل دمج.',
+		cqCardDesc: '<strong>+1,500 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. CI/CD مطبق في كل دمج.',
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
 		aiCardDesc: '48 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
 	},
@@ -384,7 +384,7 @@ const ar: TranslationSchema = {
 		},
 		codeQuality: {
 			title: 'جودة الشفرة',
-			description: '+1,500 اختبار بصفر إخفاقات. تم تقليل تنبيهات Checkstyle من 697 إلى 0. بوابات جودة CI/CD مطبقة في كل دمج.',
+			description: '+1,500 اختبار بصفر إخفاقات. صفر تنبيهات Checkstyle. بوابات جودة CI/CD مطبقة في كل دمج.',
 			heading1: 'صرامة هندسية',
 			para1:
 				'يحافظ EDDI على <strong>جودة شفرة استثنائية</strong> من خلال الاختبارات الشاملة والتحليل الثابت وبوابات جودة CI/CD. كل طلب سحب يجب أن يجتاز مجموعة الاختبارات الكاملة قبل الدمج.',
@@ -392,7 +392,7 @@ const ar: TranslationSchema = {
 			items: [
 				'<strong>+1,500 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
 				'<strong>صفر إخفاقات</strong> — CI نظيف في كل بناء',
-				'<strong>تطبيق Checkstyle</strong> — تقليل من 697 إلى 0 تنبيه',
+				'<strong>تطبيق Checkstyle</strong> — صفر تنبيهات، قواعد صارمة مطبقة في كل بناء',
 				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 48',
 				'<strong>بوابات جودة CI/CD</strong> — فحوصات آلية تمنع التراجع',
 			],

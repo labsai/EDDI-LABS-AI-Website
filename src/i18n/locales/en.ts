@@ -301,7 +301,7 @@ const en = {
 			'Every pipeline step logged with <strong>immutable audit trails</strong> — tokens, cost, timing, and tool calls.',
 		cqCardTitle: '🧪 Code Quality',
 		cqCardDesc:
-			'<strong>1,500+ tests with zero failures.</strong> Checkstyle warnings reduced from 697 to 0. CI/CD enforced on every merge.',
+			'<strong>1,500+ tests with zero failures.</strong> Zero Checkstyle warnings. CI/CD enforced on every merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc:
 			'48 MCP tools, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.',
@@ -429,14 +429,14 @@ const en = {
 		codeQuality: {
 			title: 'Code Quality',
 			description:
-				'1,500+ tests with zero failures. Checkstyle warnings reduced from 697 to 0. CI/CD enforced quality gates on every merge.',
+				'1,500+ tests with zero failures. Zero Checkstyle warnings. CI/CD enforced quality gates on every merge.',
 			heading1: 'Engineering Rigor',
 			para1: 'EDDI maintains <strong>exceptional code quality</strong> through comprehensive testing, static analysis, and CI/CD quality gates. Every pull request must pass the full test suite before merge.',
 			heading2: 'Quality Metrics',
 			items: [
 				'<strong>1,500+ Tests</strong> — Unit, integration, and end-to-end coverage',
 				'<strong>Zero Failures</strong> — Clean CI on every build',
-				'<strong>Checkstyle Enforcement</strong> — Reduced from 697 to 0 warnings',
+				'<strong>Checkstyle Enforcement</strong> — Zero warnings, strict rules enforced on every build',
 				'<strong>MCP Tool Tests</strong> — Comprehensive coverage of all 48 MCP tools',
 				'<strong>CI/CD Quality Gates</strong> — Automated checks prevent regressions',
 			],

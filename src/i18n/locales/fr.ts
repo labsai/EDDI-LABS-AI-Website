@@ -265,7 +265,7 @@ const fr: TranslationSchema = {
 			'Chaque étape du pipeline est journalisée avec des <strong>pistes d\'audit immuables</strong> — tokens, coûts, durées et appels d\'outils.',
 		cqCardTitle: '🧪 Qualité du code',
 		cqCardDesc:
-			'<strong>Plus de 1 500 tests sans aucun échec.</strong> Avertissements Checkstyle réduits de 697 à 0. CI/CD appliqué à chaque merge.',
+			'<strong>Plus de 1 500 tests sans aucun échec.</strong> Zéro avertissement Checkstyle. CI/CD appliqué à chaque merge.',
 		aiCardTitle: '🧩 Prêt pour l\'IA',
 		aiCardDesc:
 			'48 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. <strong>Conçu pour que les agents de codage travaillent avec</strong>.',
@@ -401,7 +401,7 @@ const fr: TranslationSchema = {
 		codeQuality: {
 			title: 'Qualité du code',
 			description:
-				'Plus de 1 500 tests sans aucun échec. Avertissements Checkstyle réduits de 697 à 0. Contrôle qualité CI/CD appliqué à chaque merge.',
+				'Plus de 1 500 tests sans aucun échec. Zéro avertissement Checkstyle. Contrôle qualité CI/CD appliqué à chaque merge.',
 			heading1: 'Rigueur d\'ingénierie',
 			para1:
 				'EDDI maintient une <strong>qualité de code exceptionnelle</strong> grâce à des tests exhaustifs, l\'analyse statique et des contrôles qualité CI/CD. Chaque pull request doit passer la suite de tests complète avant d\'être fusionnée.',
@@ -409,7 +409,7 @@ const fr: TranslationSchema = {
 			items: [
 				'<strong>Plus de 1 500 tests</strong> — Couverture unitaire, d\'intégration et de bout en bout',
 				'<strong>Zéro échec</strong> — CI propre à chaque build',
-				'<strong>Application de Checkstyle</strong> — Avertissements réduits de 697 à 0',
+				'<strong>Application de Checkstyle</strong> — Zéro avertissement, règles strictes appliquées à chaque build',
 				'<strong>Tests des outils MCP</strong> — Couverture complète des 48 outils MCP',
 				'<strong>Contrôle qualité CI/CD</strong> — Les vérifications automatisées préviennent les régressions',
 			],

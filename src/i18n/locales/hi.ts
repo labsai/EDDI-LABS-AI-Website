@@ -376,7 +376,7 @@ const hi: TranslationSchema = {
 			items: [
 				'<strong>1,500+ टेस्ट</strong> — यूनिट, इंटीग्रेशन और E2E कवरेज',
 				'<strong>शून्य विफलताएँ</strong> — हर बिल्ड में क्लीन CI',
-				'<strong>Checkstyle एनफ़ोर्समेंट</strong> — 697 से 0 चेतावनियों तक कम',
+				'<strong>Checkstyle एनफ़ोर्समेंट</strong> — शून्य चेतावनियाँ, हर बिल्ड में सख्त नियम लागू',
 				'<strong>MCP टूल टेस्ट</strong> — सभी 48 MCP टूल्स का कवरेज',
 				'<strong>CI/CD क्वालिटी गेट्स</strong> — ऑटोमेटेड चेक्स',
 			],
