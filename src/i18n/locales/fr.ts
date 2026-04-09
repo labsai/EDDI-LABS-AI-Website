@@ -1,4 +1,4 @@
-import type { TranslationSchema } from './en';
+﻿import type { TranslationSchema } from './en';
 
 const fr: TranslationSchema = {
 	meta: {
@@ -14,7 +14,7 @@ const fr: TranslationSchema = {
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Interface visuelle de gestion des agents',
 		mcpServer: 'Serveur MCP',
-		mcpServerDesc: '48 outils pour le contrôle natif de l\'IA',
+		mcpServerDesc: '58 outils pour le contrôle natif de l\'IA',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'Configuration JSON, zéro boilerplate',
 		securityFirst: 'Sécurité intrinsèque',
@@ -26,9 +26,18 @@ const fr: TranslationSchema = {
 		observability: 'Observabilité',
 		observabilityDesc: 'Logs de pipeline et traces d\'audit',
 		codeQuality: 'Qualité du code',
-		codeQualityDesc: 'Plus de 1 500 tests, zéro échec',
+		codeQualityDesc: 'Plus de 1 700 tests, zéro échec',
 		aiReady: 'Prêt pour l\'IA',
 		aiReadyDesc: 'Conçu pour les agents de codage',
+
+		memory: 'Memory & Context',
+		memoryDesc: 'Persistent memory & dream consolidation',
+		rag: 'RAG',
+		ragDesc: '7 embedding providers, 5 vector stores',
+		modelCascading: 'Model Cascading',
+		modelCascadingDesc: 'Cost-optimized multi-model routing',
+		scheduling: 'Scheduling',
+		schedulingDesc: 'Heartbeats, cron & dream cycles',
 		viewAllFeatures: 'Voir toutes les fonctionnalités →',
 		whyEddi: 'Pourquoi EDDI ?',
 		whyEddiDesc: 'La plateforme IA d\'entreprise auto-hébergée',
@@ -39,7 +48,7 @@ const fr: TranslationSchema = {
 		useCases: 'Cas d\'usage',
 		useCasesDesc: 'Modèles de déploiement d\'entreprise',
 		allFeatures: 'Toutes les fonctionnalités',
-		mcpServerMobile: 'Serveur MCP (48 Outils)',
+		mcpServerMobile: 'Serveur MCP (58 Outils)',
 		resources: 'Ressources',
 		documentation: 'Documentation ↗',
 		github: 'GitHub ↗',
@@ -61,7 +70,7 @@ const fr: TranslationSchema = {
 		subtitle: 'Basé sur la configuration. Auto-hébergé. Prêt pour la production.',
 		redHatCertified: 'Conteneur certifié Red Hat',
 		apache2: 'Licence Apache 2.0',
-		tests: '1 500+ Tests · 0 Échecs',
+		tests: '1 700+ Tests · 0 Échecs',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		platform: 'Plateforme',
 		develop: 'Développement',
@@ -72,6 +81,11 @@ const fr: TranslationSchema = {
 		securityFirst: 'Sécurité intrinsèque',
 		performanceLink: 'Performance',
 		multiAgent: 'Multi-agents',
+
+		memoryLink: 'Memory & Context',
+		ragLink: 'RAG',
+		modelCascadingLink: 'Model Cascading',
+		schedulingLink: 'Scheduling',
 		gettingStarted: 'Premiers pas',
 		documentation: 'Documentation ↗',
 		githubLink: 'GitHub ↗',
@@ -110,7 +124,7 @@ const fr: TranslationSchema = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'La logique de l\'agent, les pipelines et les définitions d\'outils sont des <strong>configurations JSON</strong>, et non du code compilé. Les Prompt Engineers itèrent instantanément via l\'UI React ou l\'API REST, sans redéploiement.',
-		sol2Title: '48 Outils MCP',
+		sol2Title: '58 Outils MCP',
 		sol2Desc:
 			'EDDI expose ses capacités via le <strong>Model Context Protocol</strong> (permettant aux interfaces externes comme Claude Desktop d\'interagir). Les agents peuvent également <strong>consommer des outils MCP externes</strong>.',
 		sol3Title: 'Sécurité en priorité',
@@ -130,7 +144,7 @@ const fr: TranslationSchema = {
 		trustRedHatDesc: 'Image Docker validée par IBM',
 		trustApache: 'Sous Licence Apache 2.0',
 		trustApacheDesc: '100% open-source et Enterprise-ready',
-		trustTests: 'Plus de 1 500 tests · 0 Échecs',
+		trustTests: 'Plus de 1 700 tests · 0 Échecs',
 		trustTestsDesc: 'Procédures de tests automatisés (CI/CD) exhaustives',
 		techTitle: 'Construit sur des Technologies Éprouvées',
 		techJava: 'Java 25',
@@ -161,7 +175,7 @@ const fr: TranslationSchema = {
 		faqTitle: 'Questions fréquentes (FAQ)',
 		faq1Q: 'Qu\'est-ce qu\'EDDI ?',
 		faq1A:
-			'EDDI est une plateforme d\'orchestration d\'IA d\'entreprise open-source. Elle permet aux équipes de créer, configurer et déployer des agents IA via une configuration JSON, sans code compilé. EDDI fournit une <strong>interface d\'administration React prête pour la production</strong> (l\'EDDI Manager), des APIs REST intégrées, la gestion des conversations, la sécurité (OIDC/Keycloak), des pistes d\'audit immuables et 48 outils MCP — le tout déployable via Docker ou Kubernetes.',
+			'EDDI est une plateforme d\'orchestration d\'IA d\'entreprise open-source. Elle permet aux équipes de créer, configurer et déployer des agents IA via une configuration JSON, sans code compilé. EDDI fournit une <strong>interface d\'administration React prête pour la production</strong> (l\'EDDI Manager), des APIs REST intégrées, la gestion des conversations, la sécurité (OIDC/Keycloak), des pistes d\'audit immuables et 58 outils MCP — le tout déployable via Docker ou Kubernetes.',
 		faq2Q: 'Quelle est la différence entre EDDI et les bibliothèques et frameworks d\'IA ?',
 		faq2A:
 			'Les bibliothèques d\'IA comme LangChain, Spring AI et LangChain4j fournissent des briques de construction — mais vous devez encore construire les contrôleurs REST, l\'authentification, la gestion des conversations, la journalisation d\'audit et les interfaces d\'administration vous-même. EDDI est une <strong>plateforme middleware déployable</strong>, pas une bibliothèque. Il fournit tout cela clé en main, prêt à déployer via Docker.',
@@ -170,7 +184,7 @@ const fr: TranslationSchema = {
 			'Oui. EDDI est construit sur un runtime d\'entreprise avec des threads virtuels légers pour une concurrence massive liée aux E/S. Il supporte MongoDB et PostgreSQL, intègre l\'authentification OIDC/Keycloak, fournit des pistes d\'audit cryptographiques immuables pour la conformité réglementaire (y compris le Règlement européen sur l\'IA) et évolue horizontalement via NATS JetStream.',
 		faq4Q: 'Qu\'est-ce que le Model Context Protocol (MCP) ?',
 		faq4A:
-			'Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants IA comme Claude Desktop, aux plugins d\'IDE et aux clients personnalisés d\'interagir avec des outils externes de manière programmatisée. EDDI expose 48 outils MCP couvrant la gestion des conversations, l\'administration des agents, l\'automatisation de la configuration, la planification des tâches et le diagnostic.',
+			'Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants IA comme Claude Desktop, aux plugins d\'IDE et aux clients personnalisés d\'interagir avec des outils externes de manière programmatisée. EDDI expose 58 outils MCP couvrant la gestion des conversations, l\'administration des agents, l\'automatisation de la configuration, la planification des tâches et le diagnostic.',
 		faq5Q: 'EDDI peut-il remplacer Flowise ou n8n pour des charges de production ?',
 		faq5A:
 			'EDDI remplit un rôle similaire de construction visuelle, mais avec une architecture de niveau entreprise. Contrairement à Flowise et n8n, EDDI n\'utilise aucun <code>eval()</code> ni bloc d\'exécution de code, exécute des millions de threads virtuels légers pour une concurrence de niveau entreprise, supporte l\'authentification OIDC/Keycloak et stocke les données dans MongoDB ou PostgreSQL. Il est conçu pour les industries réglementées.',
@@ -188,7 +202,7 @@ const fr: TranslationSchema = {
 		step1After: 'EDDI sera disponible à l\'adresse <code>http://localhost:7070</code>.',
 		step2Title: '2. Connectez-vous via MCP',
 		step2Desc: 'Si vous utilisez <strong>Claude Desktop</strong> ou tout client compatible MCP, ajoutez EDDI comme serveur MCP :',
-		step2After: 'Vous pouvez désormais interagir avec les 48 outils MCP d\'EDDI directement depuis votre assistant IA.',
+		step2After: 'Vous pouvez désormais interagir avec les 58 outils MCP d\'EDDI directement depuis votre assistant IA.',
 		step3Title: '3. Créez votre premier agent',
 		step3Desc: 'Utilisez l\'outil MCP <code>setup_agent</code> pour créer un agent opérationnel en un seul appel :',
 		step3After: 'Cette commande crée les règles, la configuration LLM, le workflow, l\'agent et le déploie — le tout en une seule étape.',
@@ -201,7 +215,7 @@ const fr: TranslationSchema = {
 		nextAllFeatures: 'Toutes les fonctionnalités',
 		nextAllFeaturesDesc: 'Explorez tout ce qu\'EDDI propose',
 		nextMcpServer: 'Serveur MCP',
-		nextMcpServerDesc: 'Parcourez les 48 outils MCP',
+		nextMcpServerDesc: 'Parcourez les 58 outils MCP',
 		nextDocs: 'Documentation ↗',
 		nextDocsDesc: 'Approfondissez l\'architecture et les APIs',
 		nextWhyEddi: 'Pourquoi EDDI ?',
@@ -234,7 +248,7 @@ const fr: TranslationSchema = {
 	featuresOverview: {
 		title: 'Vue d\'ensemble des fonctionnalités',
 		description:
-			'Toutes les capacités qui font d\'EDDI l\'orchestrateur d\'IA d\'entreprise — EDDI Manager, config-as-code, 48 outils MCP, architecture sécurité intrinsèque, et plus encore.',
+			'Toutes les capacités qui font d\'EDDI l\'orchestrateur d\'IA d\'entreprise — EDDI Manager, config-as-code, 58 outils MCP, architecture sécurité intrinsèque, et plus encore.',
 		heroTitle: 'Tout ce dont vous avez besoin pour',
 		heroHighlight: 'orchestrer l\'IA',
 		heroDesc:
@@ -247,7 +261,7 @@ const fr: TranslationSchema = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'La logique de l\'agent est une configuration JSON, pas du code compilé. Les ingénieurs de prompts itèrent instantanément — <strong>aucun redéploiement nécessaire</strong>.',
-		mcpCardTitle: '🔌 Serveur MCP (48 outils)',
+		mcpCardTitle: '🔌 Serveur MCP (58 outils)',
 		mcpCardDesc:
 			'Contrôle natif complet de l\'IA via le <strong>Model Context Protocol</strong>. Claude Desktop, Cursor et les clients personnalisés gèrent les agents de manière programmatique.',
 		securityCardTitle: '🔐 Sécurité intrinsèque',
@@ -259,16 +273,27 @@ const fr: TranslationSchema = {
 		multiCardTitle: '🤖 Multi-agents',
 		multiCardDesc:
 			'Découverte d\'agents basée sur les intentions, conversations gérées, déclencheurs d\'agents et <strong>routage A/B</strong> entre plusieurs agents.',
+
+		aiCapTitle: 'AI Capabilities',
+		aiCapDesc: 'Advanced AI features that make EDDI agents <strong>smarter, faster, and more cost-efficient</strong>.',
+		memoryCardTitle: '🧠 Memory & Context',
+		memoryCardDesc: 'Persistent memory, dream consolidation, rolling summaries, and token-aware windowing. <strong>Agents that remember</strong>.',
+		ragCardTitle: '📚 RAG',
+		ragCardDesc: '7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+		cascadingCardTitle: '📈 Model Cascading',
+		cascadingCardDesc: 'Cost-optimized multi-model routing with confidence strategies. <strong>Reduce LLM costs 60-80%</strong>.',
+		schedulingCardTitle: '⏰ Scheduling & Heartbeats',
+		schedulingCardDesc: 'Cron triggers, heartbeat wake-ups, dream cycles. <strong>Proactive agents</strong> that act on their own.',
 		engTitle: 'Excellence d\'ingénierie',
 		obsCardTitle: '📊 Observabilité',
 		obsCardDesc:
 			'Chaque étape du pipeline est journalisée avec des <strong>pistes d\'audit immuables</strong> — tokens, coûts, durées et appels d\'outils.',
 		cqCardTitle: '🧪 Qualité du code',
 		cqCardDesc:
-			'<strong>Plus de 1 500 tests sans aucun échec.</strong> Zéro avertissement Checkstyle. CI/CD appliqué à chaque merge.',
+			'<strong>Plus de 1 700 tests sans aucun échec.</strong> Zéro avertissement Checkstyle. CI/CD appliqué à chaque merge.',
 		aiCardTitle: '🧩 Prêt pour l\'IA',
 		aiCardDesc:
-			'48 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. <strong>Conçu pour que les agents de codage travaillent avec</strong>.',
+			'58 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. <strong>Conçu pour que les agents de codage travaillent avec</strong>.',
 	},
 	pages: {
 		manager: {
@@ -293,12 +318,12 @@ const fr: TranslationSchema = {
 				'Le Manager permet aux non-développeurs d\'itérer sur le comportement des agents sans toucher au code source. Les ingénieurs de prompts peuvent modifier les règles, tester les conversations et déployer des changements — le tout depuis le navigateur.',
 		},
 		mcpServer: {
-			title: 'Serveur MCP — 48 outils',
+			title: 'Serveur MCP — 58 outils',
 			description:
 				'EDDI expose l\'intégralité de ses capacités via le Model Context Protocol, permettant à Claude Desktop, Cursor et aux clients IA personnalisés de gérer les agents de manière programmatique.',
 			heading1: 'Plan de contrôle natif IA',
 			para1:
-				'Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants IA d\'interagir avec des outils externes. EDDI implémente un serveur MCP complet avec <strong>48 outils</strong> couvrant tous les aspects de la plateforme.',
+				'Le Model Context Protocol (MCP) est un standard ouvert qui permet aux assistants IA d\'interagir avec des outils externes. EDDI implémente un serveur MCP complet avec <strong>58 outils</strong> couvrant tous les aspects de la plateforme.',
 			heading2: 'Catégories d\'outils',
 			items: [
 				'<strong>Outils de conversation</strong> — Dialoguez avec les agents, gérez les conversations, consultez l\'historique',
@@ -359,7 +384,6 @@ const fr: TranslationSchema = {
 			heading2: 'Points forts en performance',
 			items: [
 				'<strong>Threads virtuels</strong> — Des millions de threads légers pour les appels LLM concurrents',
-				'<strong>GraalVM Native Image</strong> — Temps de démarrage inférieur à la seconde, empreinte mémoire minimale',
 				'<strong>Runtime Quarkus</strong> — Cloud-native, rechargement à chaud en mode développement, optimisé pour les conteneurs',
 				'<strong>NATS JetStream</strong> — Scalabilité horizontale avec une architecture événementielle',
 				'<strong>Double base de données</strong> — MongoDB ou PostgreSQL avec couche d\'abstraction de base de données',
@@ -380,6 +404,15 @@ const fr: TranslationSchema = {
 				'<strong>Routage A/B</strong> — Testez différents agents sur le même trafic',
 				'<strong>Pattern coordinateur</strong> — Les agents délèguent à des sous-agents spécialisés',
 			],
+		heading3: 'Group Conversations & Advanced Orchestration',
+		para2: 'EDDI supports <strong>multi-agent group conversations</strong> with 5 built-in discussion styles, nested group structures, and a meta-agent that creates other agents through conversation:',
+		items2: [
+			'<strong>5 Discussion Styles</strong> — Round Table, Peer Review, Devil\'s Advocate, Delphi, and Debate',
+			'<strong>Nested Groups</strong> — Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
+			'<strong>Agent Father</strong> — A meta-agent that creates other agents through conversation (ships out of the box)',
+			'<strong>A2A Protocol</strong> — Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
+			'<strong>Capability Matching</strong> — Discover and route to agents by skill, confidence score, and custom attributes',
+		],
 		},
 		observability: {
 			title: 'Observabilité et pistes d\'audit',
@@ -401,23 +434,23 @@ const fr: TranslationSchema = {
 		codeQuality: {
 			title: 'Qualité du code',
 			description:
-				'Plus de 1 500 tests sans aucun échec. Zéro avertissement Checkstyle. Contrôle qualité CI/CD appliqué à chaque merge.',
+				'Plus de 1 700 tests sans aucun échec. Zéro avertissement Checkstyle. Contrôle qualité CI/CD appliqué à chaque merge.',
 			heading1: 'Rigueur d\'ingénierie',
 			para1:
 				'EDDI maintient une <strong>qualité de code exceptionnelle</strong> grâce à des tests exhaustifs, l\'analyse statique et des contrôles qualité CI/CD. Chaque pull request doit passer la suite de tests complète avant d\'être fusionnée.',
 			heading2: 'Métriques de qualité',
 			items: [
-				'<strong>Plus de 1 500 tests</strong> — Couverture unitaire, d\'intégration et de bout en bout',
+				'<strong>Plus de 1 700 tests</strong> — Couverture unitaire, d\'intégration et de bout en bout',
 				'<strong>Zéro échec</strong> — CI propre à chaque build',
 				'<strong>Application de Checkstyle</strong> — Zéro avertissement, règles strictes appliquées à chaque build',
-				'<strong>Tests des outils MCP</strong> — Couverture complète des 48 outils MCP',
+				'<strong>Tests des outils MCP</strong> — Couverture complète des 58 outils MCP',
 				'<strong>Contrôle qualité CI/CD</strong> — Les vérifications automatisées préviennent les régressions',
 			],
 		},
 		aiReady: {
 			title: 'Architecture prête pour l\'IA',
 			description:
-				'48 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. Conçu dès le départ pour que les agents de codage puissent travailler avec.',
+				'58 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. Conçu dès le départ pour que les agents de codage puissent travailler avec.',
 			heading1: 'Conçu pour la collaboration avec l\'IA',
 			para1:
 				'EDDI est construit avec l\'hypothèse que <strong>les agents de codage le géreront</strong>. Chaque API suit des patterns prévisibles, chaque ressource dispose d\'opérations CRUD cohérentes et le serveur MCP permet un contrôle programmatique complet.',
@@ -426,11 +459,79 @@ const fr: TranslationSchema = {
 				'<strong>Patterns prévisibles</strong> — Nommage de ressources cohérent, conventions CRUD et gestion d\'erreurs',
 				'<strong>APIs auto-documentées</strong> — Spécifications OpenAPI et descriptions d\'outils MCP générées automatiquement',
 				'<strong>Support LLMs.txt</strong> — Contenu du site découvrable par l\'IA via llms.txt et llms-full.txt',
-				'<strong>MCP-First</strong> — 48 outils conçus pour l\'intégration avec les assistants IA',
+				'<strong>MCP-First</strong> — 58 outils conçus pour l\'intégration avec les assistants IA',
 				'<strong>Automatisation de la configuration</strong> — Création d\'agent en un seul appel avec <code>setup_agent</code>',
 			],
 		},
-		whyEddi: {
+// ─── New Feature Pages ────────────────────────────────────
+
+		memory: {
+			title: 'Memory & Context Management',
+			description: 'Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing — agents that remember, learn, and forget intelligently.',
+			heading1: 'Agents That Remember',
+			para1: 'EDDI provides a comprehensive <strong>persistent memory system</strong> that enables agents to remember facts, preferences, and context across conversations. Memory entries are structured key-value pairs with visibility scoping — giving agents the right context at the right time.',
+			heading2: 'Memory Capabilities',
+			items: [
+				'<strong>Persistent User Memory</strong> — Key-value entries with <code>global</code>, <code>agent</code>, and <code>group</code> visibility scoping across conversations',
+				'<strong>LLM Memory Tools</strong> — Built-in tools agents can call to read, write, and search their own persistent memory',
+				'<strong>Dream Consolidation</strong> — Background memory maintenance: stale entry pruning, contradiction detection, and fact summarization',
+				'<strong>Token-Aware Windowing</strong> — Intelligent context packing with model-specific tokenizer support and anchored opening steps',
+				'<strong>Rolling Summary</strong> — Incremental LLM-powered summarization of older turns with a Conversation Recall Tool for drill-back',
+				'<strong>Property Extraction</strong> — Config-driven slot-filling with <code>longTerm</code> / <code>conversation</code> / <code>step</code> scoping',
+				'<strong>Conversation State</strong> — Full history with undo/redo support',
+			],
+			heading3: 'How Dream Consolidation Works',
+			para2: "Inspired by Anthropic's research on background memory consolidation, EDDI's Dream Cycles run on a <strong>configurable schedule</strong> to maintain memory quality. Stale entries are pruned, contradictions are detected and resolved, and facts are summarized — all with cost ceilings per run.",
+		},
+		rag: {
+			title: 'RAG — Retrieval-Augmented Generation',
+			description: '7 embedding providers, 5 vector stores, httpCall RAG, and async document ingestion — enterprise-grade knowledge retrieval for AI agents.',
+			heading1: 'Enterprise Knowledge Retrieval',
+			para1: 'EDDI provides a complete <strong>Retrieval-Augmented Generation</strong> pipeline with native support for multiple embedding providers, vector stores, and a zero-infrastructure RAG option via HTTP calls.',
+			heading2: 'RAG Capabilities',
+			items: [
+				'<strong>7 Embedding Providers</strong> — OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
+				'<strong>5 Vector Stores</strong> — pgvector, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
+				'<strong>httpCall RAG</strong> — Zero-infrastructure RAG via any search API (BM25, Elasticsearch, custom endpoints)',
+				'<strong>REST Ingestion API</strong> — Async document ingestion with status tracking and batch processing',
+				'<strong>Hybrid Search</strong> — Combine dense vector retrieval with sparse keyword matching for optimal recall',
+			],
+			heading3: 'Flexible Deployment',
+			para2: 'RAG is fully configuration-driven. Choose your embedding provider and vector store via JSON configuration — no code changes needed. The <code>httpCall RAG</code> option lets you use <strong>any existing search infrastructure</strong> (Elasticsearch, Solr, custom APIs) without deploying a separate vector database.',
+		},
+		modelCascading: {
+			title: 'Smart Model Cascading',
+			description: 'Cost-optimized multi-model routing — try cheap models first, escalate on low confidence. Per-conversation budgets and tenant cost ceilings.',
+			heading1: 'Intelligent Cost Optimization',
+			para1: "EDDI's Model Cascading system enables <strong>cost-aware multi-model routing</strong>. Start with fast, inexpensive models and automatically escalate to more powerful (and expensive) models only when confidence is low — reducing AI costs without sacrificing quality.",
+			heading2: 'Cascading Features',
+			items: [
+				'<strong>Cost Optimization</strong> — Try cheap/fast models first, escalate to powerful models only when confidence is low',
+				'<strong>4 Confidence Strategies</strong> — Structured output, heuristic, judge model, or none — choose the evaluation method that fits your use case',
+				'<strong>Per-Conversation Budgets</strong> — Automatic cost tracking with budget caps and conversation eviction when exceeded',
+				'<strong>Tenant Cost Ceilings</strong> — Monthly cost budgets per tenant with automatic enforcement in multi-tenant deployments',
+				'<strong>12 LLM Providers</strong> — OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Vertex AI, Ollama, Jlama, Hugging Face, and any OpenAI-compatible endpoint',
+			],
+			heading3: 'How It Works',
+			para2: 'Configure a cascade chain of models ordered by cost. For each user message, EDDI tries the cheapest model first and evaluates confidence. If confidence falls below the threshold, it automatically escalates to the next model in the chain. This approach can <strong>reduce LLM costs by 60-80%</strong> for typical workloads where most queries are simple enough for smaller models.',
+		},
+		scheduling: {
+			title: 'Scheduling & Heartbeats',
+			description: 'Cron-triggered agent execution, heartbeat wake-ups for proactive behavior, dream cycles for memory maintenance, and complete fire logging.',
+			heading1: 'Proactive Agent Behavior',
+			para1: "EDDI agents don't just respond to messages — they can <strong>proactively execute on schedules</strong>. Heartbeat triggers wake agents at configurable intervals, cron expressions provide precise timing, and dream cycles maintain memory quality in the background.",
+			heading2: 'Scheduling Features',
+			items: [
+				'<strong>Heartbeat Triggers</strong> — Periodic agent wake-ups at configurable intervals for proactive behavior (e.g., daily check-ins, periodic summaries)',
+				'<strong>Cron Scheduling</strong> — Standard cron expressions for precise timed agent execution',
+				'<strong>Conversation Strategies</strong> — <code>persistent</code> (reuse same conversation across fires) or <code>new</code> (fresh context each time)',
+				'<strong>Fire Logging</strong> — Complete execution history with status, duration, cost tracking, and retry logic',
+				'<strong>Dream Cycles</strong> — Scheduled background memory consolidation with cost ceilings per run',
+			],
+			heading3: 'Use Cases',
+			para2: 'Scheduled agents enable powerful proactive workflows: <strong>daily report summaries</strong>, periodic data quality checks, automated customer follow-ups, memory maintenance via dream consolidation, and time-triggered escalation workflows. Each scheduled execution is fully logged with cost tracking and retry support.',
+		},
+				whyEddi: {
 			title: 'Pourquoi EDDI ?',
 			description:
 				'La plateforme d\'orchestration d\'IA d\'entreprise auto-hébergée. Logique d\'agent pilotée par la configuration, une interface de gestion complète et une sécurité de niveau entreprise — le tout dans une plateforme déployable.',
@@ -443,7 +544,7 @@ const fr: TranslationSchema = {
 			items: [
 				'<strong>Interface de gestion visuelle</strong> — L\'EDDI Manager pour construire et superviser les agents',
 				'<strong>Configuration-as-Code</strong> — La logique de l\'agent est du JSON, pas du code compilé',
-				'<strong>48 outils MCP</strong> — Contrôle natif IA complet via le Model Context Protocol',
+				'<strong>58 outils MCP</strong> — Contrôle natif IA complet via le Model Context Protocol',
 				'<strong>Sécurité d\'entreprise</strong> — OIDC, vault, pistes d\'audit, aucun eval()',
 				'<strong>Infrastructure de production</strong> — APIs REST, gestion d\'état des conversations, métriques Prometheus',
 				'<strong>Scalabilité horizontale</strong> — NATS JetStream pour les architectures distribuées',

@@ -22,6 +22,15 @@ const lang = 'en' as const;
 	{ href: localePath(lang, '/features/multi-agent/'), title: t.featuresOverview.multiCardTitle, desc: t.featuresOverview.multiCardDesc },
 ].map((card) => (<a href={card.href} class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group no-underline"><h3 class="text-xl font-bold text-white mb-3">{card.title}</h3><p class="text-zinc-400 text-sm leading-relaxed grow" set:html={card.desc} /></a>))}
 </div></section>
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60"><div class="text-center mb-16"><h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.aiCapTitle}</h2><p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.featuresOverview.aiCapDesc} /></div>
+<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+{[
+	{ href: localePath(lang, '/features/memory/'), title: t.featuresOverview.memoryCardTitle, desc: t.featuresOverview.memoryCardDesc },
+	{ href: localePath(lang, '/features/rag/'), title: t.featuresOverview.ragCardTitle, desc: t.featuresOverview.ragCardDesc },
+	{ href: localePath(lang, '/features/model-cascading/'), title: t.featuresOverview.cascadingCardTitle, desc: t.featuresOverview.cascadingCardDesc },
+	{ href: localePath(lang, '/features/scheduling/'), title: t.featuresOverview.schedulingCardTitle, desc: t.featuresOverview.schedulingCardDesc },
+].map((card) => (<a href={card.href} class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group no-underline"><h3 class="text-xl font-bold text-white mb-3">{card.title}</h3><p class="text-zinc-400 text-sm leading-relaxed grow" set:html={card.desc} /></a>))}
+</div></section>
 <section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60"><div class="text-center mb-16"><h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.engTitle}</h2></div>
 <div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 {[

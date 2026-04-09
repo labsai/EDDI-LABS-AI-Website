@@ -100,6 +100,34 @@ const t = await getTranslations(lang);
 								<span>{t.nav.aiReadyDesc}</span>
 							</div>
 						</a>
+						<a href={localePath(lang, '/features/memory/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🧠</span>
+							<div>
+								<strong>{t.nav.memory}</strong>
+								<span>{t.nav.memoryDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/rag/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">📚</span>
+							<div>
+								<strong>{t.nav.rag}</strong>
+								<span>{t.nav.ragDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/model-cascading/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">📈</span>
+							<div>
+								<strong>{t.nav.modelCascading}</strong>
+								<span>{t.nav.modelCascadingDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/scheduling/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">⏰</span>
+							<div>
+								<strong>{t.nav.scheduling}</strong>
+								<span>{t.nav.schedulingDesc}</span>
+							</div>
+						</a>
 					</div>
 					<div class="eddi-dropdown-footer">
 						<a href={localePath(lang, '/features/overview/')}>{t.nav.viewAllFeatures}</a>
@@ -181,6 +209,10 @@ const t = await getTranslations(lang);
 			<a href={localePath(lang, '/features/observability/')}>{t.nav.observability}</a>
 			<a href={localePath(lang, '/features/code-quality/')}>{t.nav.codeQuality}</a>
 			<a href={localePath(lang, '/features/ai-ready/')}>{t.nav.aiReady}</a>
+			<a href={localePath(lang, '/features/memory/')}>{t.nav.memory}</a>
+			<a href={localePath(lang, '/features/rag/')}>{t.nav.rag}</a>
+			<a href={localePath(lang, '/features/model-cascading/')}>{t.nav.modelCascading}</a>
+			<a href={localePath(lang, '/features/scheduling/')}>{t.nav.scheduling}</a>
 		</div>
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.solutions}</h3>
