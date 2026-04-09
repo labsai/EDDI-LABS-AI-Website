@@ -38,7 +38,55 @@ const t = await getTranslations(lang);
 	let formObservers: MutationObserver[] = [];
 	let themeObserver: MutationObserver | null = null;
 
+	// Inject a global stylesheet that beats HubSpot's own injected styles
+	function ensureHubSpotOverrideStyle() {
+		if (document.getElementById('eddi-hs-override')) return;
+		const style = document.createElement('style');
+		style.id = 'eddi-hs-override';
+		style.textContent = `
+			/* Dark mode: force all HubSpot form text to be light */
+			html[data-theme='dark'] .newsletter-form-wrapper label,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-form label,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-form-field > label,
+			html[data-theme='dark'] .newsletter-form-wrapper [class*='hs-'] label {
+				color: rgba(255, 255, 255, 0.9) !important;
+			}
+			html[data-theme='dark'] .newsletter-form-wrapper .legal-consent-container label,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-form-booleancheckbox label,
+			html[data-theme='dark'] .newsletter-form-wrapper .legal-consent-container p,
+			html[data-theme='dark'] .newsletter-form-wrapper .legal-consent-container span,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-richtext p,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-form-booleancheckbox-display span,
+			html[data-theme='dark'] .newsletter-form-wrapper p,
+			html[data-theme='dark'] .newsletter-form-wrapper span:not(.hs-form-required),
+			html[data-theme='dark'] .newsletter-form-wrapper li {
+				color: rgba(255, 255, 255, 0.7) !important;
+			}
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-input:not([type='checkbox']),
+			html[data-theme='dark'] .newsletter-form-wrapper input:not([type='checkbox']):not([type='submit']):not([type='hidden']) {
+				background: rgba(255, 255, 255, 0.06) !important;
+				color: #fff !important;
+				border-color: rgba(255, 255, 255, 0.18) !important;
+			}
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-form-required {
+				color: var(--color-accent) !important;
+			}
+			html[data-theme='dark'] .newsletter-form-wrapper .legal-consent-container a {
+				color: var(--color-accent) !important;
+			}
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-error-msg,
+			html[data-theme='dark'] .newsletter-form-wrapper .hs-error-msgs label {
+				color: #f56565 !important;
+			}
+			.newsletter-form-wrapper .hubspot-link__container {
+				display: none !important;
+			}
+		`;
+		document.head.appendChild(style);
+	}
+
 	function applyThemeToForms() {
+		ensureHubSpotOverrideStyle();
 		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
 		// Style all form labels
@@ -46,9 +94,9 @@ const t = await getTranslations(lang);
 			const label = el as HTMLElement;
 			const isConsent = label.closest('.legal-consent-container') || label.closest('.hs-form-booleancheckbox');
 			if (isConsent) {
-				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
+				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.45)', 'important');
 			} else {
-				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(0, 0, 0, 0.65)', 'important');
+				label.style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.65)', 'important');
 				label.style.fontSize = '0.8125rem';
 				label.style.fontWeight = '500';
 				label.style.marginBottom = '0.375rem';
@@ -58,12 +106,12 @@ const t = await getTranslations(lang);
 
 		// Style all consent/legal text — higher contrast for readability
 		document.querySelectorAll('.newsletter-form-wrapper .legal-consent-container p, .newsletter-form-wrapper .legal-consent-container span, .newsletter-form-wrapper .hs-richtext p').forEach((el) => {
-			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
+			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.45)', 'important');
 		});
 
 		// Style consent checkbox text
 		document.querySelectorAll('.newsletter-form-wrapper .hs-form-booleancheckbox-display span').forEach((el) => {
-			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(0, 0, 0, 0.45)', 'important');
+			(el as HTMLElement).style.setProperty('color', isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.45)', 'important');
 		});
 
 		// Style inputs
@@ -151,21 +199,131 @@ const t = await getTranslations(lang);
 		// Set up fresh observers
 		observeFormContainers();
 
-		themeObserver = new MutationObserver(() => applyThemeToForms());
+		themeObserver = new MutationObserver(() => {
+			applyThemeToForms();
+			// Re-create forms with updated CSS when theme changes (iframe content can't be restyled from parent)
+			containers.forEach((container) => {
+				const el = container as HTMLElement;
+				// Remove old form content
+				el.innerHTML = '';
+				// Re-create with fresh theme CSS
+				(window as any).hbspt?.forms?.create(createFormConfig(el.id));
+			});
+		});
 		themeObserver.observe(document.documentElement, {
 			attributes: true,
 			attributeFilter: ['data-theme'],
 		});
 
+		// Generate CSS for HubSpot iframe based on current theme
+		function getHubSpotIframeCss(): string {
+			const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+			if (isDark) {
+				return `
+					body { background: transparent !important; }
+					label { color: rgba(255, 255, 255, 0.9) !important; font-size: 0.8125rem !important; font-weight: 500 !important; }
+					.legal-consent-container label,
+					.hs-form-booleancheckbox label { color: rgba(255, 255, 255, 0.7) !important; }
+					.legal-consent-container p,
+					.legal-consent-container span,
+					.hs-richtext p,
+					.hs-form-booleancheckbox-display span,
+					p, li { color: rgba(255, 255, 255, 0.7) !important; }
+					.hs-input:not([type='checkbox']):not([type='submit']) {
+						background: rgba(255, 255, 255, 0.06) !important;
+						color: #fff !important;
+						border-color: rgba(255, 255, 255, 0.18) !important;
+						border-radius: 0.5rem !important;
+						padding: 0.75rem 1rem !important;
+						font-size: 0.9375rem !important;
+						font-family: 'Outfit', sans-serif !important;
+					}
+					.hs-input:not([type='checkbox']):not([type='submit']):focus {
+						border-color: rgba(255, 255, 255, 0.35) !important;
+						outline: none !important;
+					}
+					.hs-form-required { color: #f0a030 !important; }
+					.legal-consent-container a { color: #f0a030 !important; }
+					.hs-error-msg, .hs-error-msgs label { color: #f56565 !important; }
+					.hs-submit input[type='submit'] {
+						background: linear-gradient(135deg, #f0a030, #e88d1a) !important;
+						color: #111 !important;
+						border: none !important;
+						padding: 0.75rem 2rem !important;
+						border-radius: 0.5rem !important;
+						font-weight: 600 !important;
+						cursor: pointer !important;
+					}
+				`;
+			}
+			return `
+				body { background: transparent !important; }
+				label { color: rgba(0, 0, 0, 0.65) !important; font-size: 0.8125rem !important; font-weight: 500 !important; }
+				.legal-consent-container label,
+				.hs-form-booleancheckbox label { color: rgba(0, 0, 0, 0.45) !important; }
+				.legal-consent-container p,
+				.legal-consent-container span,
+				.hs-richtext p,
+				.hs-form-booleancheckbox-display span,
+				p, li { color: rgba(0, 0, 0, 0.45) !important; }
+				.hs-input:not([type='checkbox']):not([type='submit']) {
+					background: #fff !important;
+					color: #111 !important;
+					border-color: rgba(0, 0, 0, 0.15) !important;
+					border-radius: 0.5rem !important;
+					padding: 0.75rem 1rem !important;
+					font-size: 0.9375rem !important;
+					font-family: 'Outfit', sans-serif !important;
+				}
+				.hs-form-required { color: #f0a030 !important; }
+				.legal-consent-container a { color: #f0a030 !important; }
+				.hs-submit input[type='submit'] {
+					background: linear-gradient(135deg, #f0a030, #e88d1a) !important;
+					color: #111 !important;
+					border: none !important;
+					padding: 0.75rem 2rem !important;
+					border-radius: 0.5rem !important;
+					font-weight: 600 !important;
+					cursor: pointer !important;
+				}
+			`;
+		}
+
+		// Shared form config with theme-aware CSS injection into iframe
+		const createFormConfig = (targetId: string) => ({
+			portalId: '4269433',
+			formId: '956ea893-2ec8-43b0-a44e-a31b199800f3',
+			region: 'na1',
+			target: `#${targetId}`,
+			css: getHubSpotIframeCss(),
+			onFormReady: () => {
+				// Also try to style content rendered outside the iframe
+				applyThemeToForms();
+				setTimeout(applyThemeToForms, 100);
+				setTimeout(applyThemeToForms, 500);
+
+				// Try to inject styles into iframe contentDocument (if same-origin)
+				try {
+					const wrapper = document.getElementById(targetId);
+					const iframe = wrapper?.querySelector('iframe.hs-form-iframe') as HTMLIFrameElement;
+					if (iframe?.contentDocument) {
+						const iframeDoc = iframe.contentDocument;
+						let styleEl = iframeDoc.getElementById('eddi-theme-override');
+						if (!styleEl) {
+							styleEl = iframeDoc.createElement('style');
+							styleEl.id = 'eddi-theme-override';
+							iframeDoc.head.appendChild(styleEl);
+						}
+						styleEl.textContent = getHubSpotIframeCss();
+					}
+				} catch (_e) { /* cross-origin — css param handles this */ }
+			},
+		});
+
 		if (typeof (window as any).hbspt !== 'undefined') {
 			containers.forEach((container) => {
 				if (!container.querySelector('form') && !container.querySelector('.hs-form-iframe')) {
-					(window as any).hbspt.forms.create({
-						portalId: '4269433',
-						formId: '956ea893-2ec8-43b0-a44e-a31b199800f3',
-						region: 'na1',
-						target: `#${container.id}`,
-					});
+					(window as any).hbspt.forms.create(createFormConfig(container.id));
 				}
 			});
 			return;
@@ -176,12 +334,7 @@ const t = await getTranslations(lang);
 		script.async = true;
 		script.onload = () => {
 			containers.forEach((container) => {
-				(window as any).hbspt.forms.create({
-					portalId: '4269433',
-					formId: '956ea893-2ec8-43b0-a44e-a31b199800f3',
-					region: 'na1',
-					target: `#${container.id}`,
-				});
+				(window as any).hbspt.forms.create(createFormConfig(container.id));
 			});
 		};
 		document.head.appendChild(script);
@@ -289,17 +442,23 @@ const t = await getTranslations(lang);
 	 * Keep these values in sync with applyThemeToForms() above.
 	 */
 	html[data-theme='dark'] .newsletter-form-wrapper :global(label) {
-		color: rgba(255, 255, 255, 0.85) !important;
+		color: rgba(255, 255, 255, 0.9) !important;
 	}
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container label),
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-form-booleancheckbox label) {
-		color: rgba(255, 255, 255, 0.55) !important;
+		color: rgba(255, 255, 255, 0.7) !important;
 	}
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container p),
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.legal-consent-container span),
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-richtext p),
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-form-booleancheckbox-display span) {
-		color: rgba(255, 255, 255, 0.55) !important;
+		color: rgba(255, 255, 255, 0.7) !important;
+	}
+	/* Blanket catch-all for any HubSpot-injected text nodes */
+	html[data-theme='dark'] .newsletter-form-wrapper :global(p),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(span:not(.hs-form-required)),
+	html[data-theme='dark'] .newsletter-form-wrapper :global(li) {
+		color: rgba(255, 255, 255, 0.7) !important;
 	}
 	html[data-theme='dark'] .newsletter-form-wrapper :global(.hs-input:not([type="checkbox"])) {
 		background: rgba(255, 255, 255, 0.06) !important;
