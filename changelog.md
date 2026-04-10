@@ -4,6 +4,16 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔍 Website Audit & Hardening
+- `fix(website)`: **JSON-LD Positioning Fix** — Updated `WebSite` and `SoftwareApplication` JSON-LD schema descriptions from stale "Java-native AI middleware" to "self-hosted enterprise AI orchestration platform" to match the documented positioning reframe.
+- `feat(website)`: **Page Deduplication** — Extracted 5 shared content components (`HomeContent`, `GettingStartedContent`, `UseCasesContent`, `FeaturesOverviewContent`, `ComplianceContent`) to eliminate ~3,680 lines of duplication between root and `[lang]/` page files. All page files are now thin wrappers (~5-12 lines) that delegate to shared components.
+- `fix(website)`: **Features Overview Content Drift** — Fixed bug where `[lang]/features/overview.astro` was missing the entire "AI Capabilities" section (Memory, RAG, Model Cascading, Scheduling) that existed in the root English version.
+- `fix(website)`: **WCAG AA Text Contrast** — Raised `--color-text-subtle` from `#686870` (~3.5:1 contrast) to `#8a8a92` (~5:1 contrast) for WCAG AA compliance.
+- `fix(website)`: **RTL Class Normalization** — Standardized `inset-e-2` to `end-2` across all templates for consistent RTL support.
+- `chore(website)`: **Legacy File Cleanup** — Deleted pre-migration artifacts: `index.html` (62KB), `privacy.html` (30KB), `404.html` (62KB) from repo root.
+- `feat(website)`: **PR Build Validation** — Added `.github/workflows/ci.yml` to run `npm run build` on pull requests, catching build failures before merge.
+- `fix(website)`: **Emoji Accessibility** — Added `aria-hidden="true"` to decorative emoji icons in use cases cards.
+
 ### 📋 Global Compliance Hub
 - `feat(website)`: **15+ Regulatory Frameworks** — Expanded the EU AI Act compliance page into a comprehensive Global Privacy & Regulatory Compliance hub covering GDPR, CCPA/CPRA, PIPEDA (Canada), LGPD (Brazil), APPI (Japan), POPIA (South Africa), PDPA (Singapore/Thailand), HIPAA, SOC 2, NIST AI RMF, ISO 42001, UK GDPR, PIPA (South Korea), DPDPA (India), and Australian Privacy Act.
 - `feat(website)`: **Compliance-by-Architecture Positioning** — Mapped EDDI's technical platform capabilities (cascade erasure via `DELETE /admin/gdpr/{userId}`, data export, processing restriction, HMAC-SHA256 audit trails, OIDC/Keycloak RBAC) to specific regulatory articles across all 15+ frameworks.
