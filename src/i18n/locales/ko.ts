@@ -528,7 +528,7 @@ const ko: TranslationSchema = {
 		compliance: {
 			title: '글로벌 개인정보 보호 및 규정 준수',
 			description:
-				'EDDI는 GDPR, CCPA, EU AI법, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA 및 6개 추가 프레임워크에 대한 내장 규정 준수를 제공합니다 — 캐스케이드 데이터 삭제, 암호화 감사 추적 및 통합 API와 함께.',
+				'EDDI는 GDPR, CCPA, EU AI법, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA 말레이시아 PDPA, PIPL 등에 대한 내장 규정 준수를 제공합니다 — 캐스케이드 데이터 삭제, 암호화 감사 추적 및 통합 API와 함께.',
 			heading1: '아키텍처에 의한 규정 준수',
 			para1:
 				'규제 산업은 AI 시스템에 사후적으로 규정 준수를 추가할 수 없습니다. EDDI는 <strong>글로벌 규제 준수를 위한 기술적 기반</strong>을 플랫폼 아키텍처 자체에 내장합니다 — 불변 감사 추적, 캐스케이드 데이터 삭제, 처리 제한, 암호화 무결성 및 역할 기반 접근 제어는 추가 기능이 아닌 핵심 역량입니다. 하나의 통합 API가 모든 관할권의 데이터 주체 권리를 다룹니다.',
@@ -630,6 +630,26 @@ const ko: TranslationSchema = {
 				'<strong>보호 의무</strong> — AES-256-GCM 암호화, HMAC 감사 무결성, Keycloak OIDC, RBAC',
 				'<strong>보존 제한</strong> — 유휴 대화 타임아웃이 포함된 구성 가능한 자동 정리',
 				'<strong>데이터 침해 통지</strong> — EDDI 문서에 인시던트 대응 런북 템플릿 포함',
+			],
+			pdpaMYHeading: 'PDPA — 말레이시아',
+			pdpaMYPara: '말레이시아의 2010년 개인정보보호법(법률 709, 2024년 개정)은 7가지 데이터 보호 원칙을 통해 상업적 개인정보 처리를 규율합니다. EDDI는 배포자 규정 준수를 지원하는 기술적 제어를 제공합니다:',
+			pdpaMYItems: [
+				'<strong>일반 원칙 (§6)</strong> — 구성 가능한 보존 정책과 처리 제한 엔드포인트가 목적 제한적, 동의 기반 처리 지원',
+				'<strong>보안 원칙 (§9)</strong> — AES-256-GCM 볼트 암호화, HMAC-SHA256 감사 무결성, Keycloak OIDC, RBAC, SSRF 보호',
+				'<strong>보존 원칙 (§10)</strong> — 카테고리별 구성 가능한 보존과 자동 정리; 유휴 대화 자동 종료',
+				'<strong>데이터 무결성 원칙 (§11)</strong> — 타임스탬프가 있는 버전 관리 대화 상태; REST API를 통해 사용자 메모리 업데이트 가능',
+				'<strong>접근 원칙 (§12)</strong> — <code>GET /admin/gdpr/{userId}/export</code>를 통한 전체 데이터 내보내기가 모든 사용자 데이터를 구조화된 JSON으로 반환',
+				'<strong>국경 간 이전 (§129)</strong> — 자체 호스팅 아키텍처로 배포자가 데이터 거주지 제어 가능; 감사 추적이 모든 LLM 제공자 데이터 흐름 문서화',
+			],
+			piplHeading: 'PIPL — 중국',
+			piplPara: '중국의 개인정보보호법(2021)은 세계에서 가장 포괄적인 데이터 보호법 중 하나로, 중국 내 개인의 개인정보 처리를 규율합니다. EDDI는 PIPL 준수 배포를 위한 기술 인프라를 제공합니다:',
+			piplItems: [
+				'<strong>합법적 처리 (제13조)</strong> — 구성 기반 에이전트 동작이 처리를 정의된 목적 범위 내로 유지; 처리 제한 API가 요청 시 활동 동결',
+				'<strong>개인 권리 (제44-49조)</strong> — 전체 데이터 내보내기, 캐스케이드 삭제, 처리 제한 엔드포인트가 알 권리, 복사권, 정정권, 삭제권, 제한권 충족',
+				'<strong>데이터 보안 (제51조)</strong> — AES-256-GCM 볼트 암호화, HMAC-SHA256 감사 무결성, Keycloak OIDC, RBAC, 제로 <code>eval()</code>',
+				'<strong>국경 간 이전 (제38-39조)</strong> — 자체 호스팅 아키텍처로 중국 내 온프레미스 배포 가능; 감사 추적이 보안 평가를 위해 모든 외부 데이터 흐름 문서화',
+				'<strong>자동화된 의사결정 (제24조)</strong> — 전체 파이프라인 추적이 포함된 불변 감사 추적이 AI 의사결정 투명성 제공; 관리 UI를 통한 인간 감독',
+				'<strong>데이터 보존 (제19조)</strong> — 자동 정리가 포함된 구성 가능한 보존 정책이 최소 필요 저장 기간 시행',
 			],
 			otherRegionsHeading: '추가 관할권',
 			otherRegionsPara: 'EDDI의 데이터 보호 인프라는 국제 표준을 충족합니다. 다음 관할권도 동일한 통합 API를 통해 지원됩니다:',

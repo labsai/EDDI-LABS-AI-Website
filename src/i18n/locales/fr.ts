@@ -1,4 +1,4 @@
-﻿import type { TranslationSchema } from './en';
+import type { TranslationSchema } from './en';
 
 const fr: TranslationSchema = {
 	meta: {
@@ -583,7 +583,7 @@ const fr: TranslationSchema = {
 		compliance: {
 			title: 'Confidentialité mondiale et conformité réglementaire',
 			description:
-				'EDDI offre une conformité intégrée pour le RGPD, le CCPA, l\'EU AI Act, l\'HIPAA, la PIPEDA, la LGPD, l\'APPI, le POPIA, le PDPA et 6 autres cadres — avec suppression en cascade des données, pistes d\'audit cryptographiques et une API unifiée.',
+				'EDDI offre une conformité intégrée pour le RGPD, le CCPA, l\'EU AI Act, l\'HIPAA, la PIPEDA, la LGPD, l\'APPI, le POPIA, le PDPA Malaysia PDPA, PIPL et autres — avec suppression en cascade des données, pistes d\'audit cryptographiques et une API unifiée.',
 			heading1: 'Conformité par l\'architecture',
 			para1:
 				'Les industries réglementées ne peuvent pas ajouter la conformité aux systèmes d\'IA après coup. EDDI intègre les <strong>fondations techniques de la conformité réglementaire mondiale</strong> directement dans l\'architecture de la plateforme — pistes d\'audit immuables, suppression en cascade des données, restrictions de traitement, intégrité cryptographique et contrôle d\'accès basé sur les rôles sont des capacités fondamentales, pas des modules complémentaires. Une API unifiée couvre les droits des personnes concernées pour chaque juridiction.',
@@ -693,6 +693,26 @@ const fr: TranslationSchema = {
 				'<strong>Limitation de la rétention</strong> — Nettoyage automatique configurable avec délai d\'expiration des conversations inactives',
 				'<strong>Notification de violation de données</strong> — Modèle de runbook de réponse aux incidents inclus dans la documentation EDDI',
 			],
+			pdpaMYHeading: 'PDPA — Malaisie',
+			pdpaMYPara: 'La loi malaisienne sur la protection des données personnelles de 2010 (Loi 709, modifiée en 2024) régit le traitement commercial des données personnelles à travers 7 principes de protection des données. EDDI fournit les contrôles techniques pour soutenir la conformité du déployeur :',
+			pdpaMYItems: [
+				'<strong>Principe Général (§6)</strong> — Politiques de rétention configurables et endpoint de restriction de traitement soutiennent le traitement limité par finalité et basé sur le consentement',
+				'<strong>Principe de Sécurité (§9)</strong> — Chiffrement de coffre AES-256-GCM, intégrité d\'audit HMAC-SHA256, Keycloak OIDC, RBAC, protection SSRF',
+				'<strong>Principe de Rétention (§10)</strong> — Rétention configurable par catégorie avec nettoyage automatique ; fin automatique des conversations inactives',
+				'<strong>Principe d\'Intégrité des Données (§11)</strong> — État de conversation versionné et horodaté ; mémoires utilisateur modifiables via API REST',
+				'<strong>Principe d\'Accès (§12)</strong> — Export complet des données via <code>GET /admin/gdpr/{userId}/export</code> retourne toutes les données utilisateur en JSON structuré',
+				'<strong>Transferts Transfrontaliers (§129)</strong> — L\'architecture auto-hébergée permet aux déployeurs de contrôler la résidence des données ; la piste d\'audit documente tous les flux de données des fournisseurs LLM',
+			],
+			piplHeading: 'PIPL — Chine',
+			piplPara: 'La loi chinoise sur la protection des informations personnelles (2021) est l\'une des lois de protection des données les plus complètes au monde, régissant le traitement des informations personnelles des individus en Chine. EDDI fournit l\'infrastructure technique pour des déploiements conformes au PIPL :',
+			piplItems: [
+				'<strong>Traitement Licite (Art. 13)</strong> — Le comportement d\'agent piloté par configuration assure que le traitement reste dans les finalités définies ; l\'API de restriction de traitement gèle l\'activité sur demande',
+				'<strong>Droits Individuels (Art. 44–49)</strong> — Export complet des données, suppression en cascade et endpoints de restriction de traitement couvrent les droits de connaître, copier, corriger, supprimer et restreindre',
+				'<strong>Sécurité des Données (Art. 51)</strong> — Chiffrement de coffre AES-256-GCM, intégrité d\'audit HMAC-SHA256, Keycloak OIDC, RBAC, zéro <code>eval()</code>',
+				'<strong>Transferts Transfrontaliers (Art. 38–39)</strong> — L\'architecture auto-hébergée permet le déploiement sur site en Chine ; la piste d\'audit documente tous les flux de données externes pour les évaluations de sécurité',
+				'<strong>Prise de Décision Automatisée (Art. 24)</strong> — Pistes d\'audit immuables avec traçabilité complète du pipeline offrent la transparence dans la prise de décision IA ; supervision humaine via l\'interface de gestion',
+				'<strong>Conservation des Données (Art. 19)</strong> — Politiques de rétention configurables avec nettoyage automatique imposent des durées de stockage minimales nécessaires',
+			],
 			otherRegionsHeading: 'Juridictions supplémentaires',
 			otherRegionsPara:
 				'L\'infrastructure de protection des données d\'EDDI répond aux standards internationaux. Les juridictions suivantes sont également prises en charge via la même API unifiée :',
@@ -737,7 +757,7 @@ const fr: TranslationSchema = {
 			],
 			heading3: 'Conçu pour les industries réglementées du monde entier',
 			para2:
-				'La santé, les services financiers, le gouvernement, l\'industrie manufacturière et d\'autres secteurs réglementés peuvent déployer EDDI en toute confiance. La plateforme fournit la transparence, l\'auditabilité et les mécanismes de contrôle exigés par plus de 15 cadres réglementaires — de l\'EU AI Act et du RGPD en Europe à l\'HIPAA aux États-Unis, en passant par la PIPEDA au Canada, la LGPD au Brésil, l\'APPI au Japon, le POPIA en Afrique du Sud et le PDPA en Asie du Sud-Est. La conformité n\'est pas une réflexion après coup — c\'est une fondation architecturale.',
+				'La santé, les services financiers, le gouvernement, l\'industrie manufacturière et d\'autres secteurs réglementés peuvent déployer EDDI en toute confiance. La plateforme fournit la transparence, l\'auditabilité et les mécanismes de contrôle exigés par plus de 17 cadres réglementaires — de l\'EU AI Act et du RGPD en Europe à l\'HIPAA aux États-Unis, en passant par la PIPEDA au Canada, la LGPD au Brésil, l\'APPI au Japon, le POPIA en Afrique du Sud, le PDPA en Asie du Sud-Est, le PDPA malaisien et le PIPL chinois. La conformité n\'est pas une réflexion après coup — c\'est une fondation architecturale.',
 		},
 	},
 };

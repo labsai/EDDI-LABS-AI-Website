@@ -1,4 +1,4 @@
-﻿import type { TranslationSchema } from './en';
+import type { TranslationSchema } from './en';
 
 const zh: TranslationSchema = {
 	meta: {
@@ -522,7 +522,7 @@ const zh: TranslationSchema = {
 		},
 		compliance: {
 			title: '全球隐私与合规',
-			description: 'EDDI 为 GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPA 及另外 6 个框架提供内置合规——支持级联数据删除、加密审计追踪和统一 API。',
+			description: 'EDDI 为 GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPA、马来西亚 PDPA、PIPL 等框架提供内置合规——支持级联数据删除、加密审计追踪和统一 API。',
 			heading1: '架构级合规',
 			para1:
 				'受监管行业不能事后将合规添加到 AI 系统中。EDDI 将<strong>全球监管合规的技术基础</strong>直接嵌入平台架构——不可变审计追踪、级联数据删除、处理限制、加密完整性和基于角色的访问控制是核心能力，而非附加模块。一个统一 API 覆盖每个司法管辖区的数据主体权利。',
@@ -620,6 +620,26 @@ const zh: TranslationSchema = {
 				'<strong>保留限制</strong> — 可配置的自动清理，支持空闲对话超时',
 				'<strong>数据泄露通知</strong> — EDDI 文档中包含事件响应运行手册模板',
 			],
+			pdpaMYHeading: 'PDPA — 马来西亚',
+			pdpaMYPara: '马来西亚的《2010年个人数据保护法》（第709号法令，2024年修订）通过7项数据保护原则管理商业个人数据处理。EDDI提供技术控制以支持部署者合规：',
+			pdpaMYItems: [
+				'<strong>一般原则（第6条）</strong> — 可配置的保留策略和处理限制端点支持目的限定、基于同意的处理',
+				'<strong>安全原则（第9条）</strong> — AES-256-GCM 保险库加密、HMAC-SHA256 审计完整性、Keycloak OIDC、RBAC、SSRF 防护',
+				'<strong>保留原则（第10条）</strong> — 可配置的按类别保留策略支持自动清理；空闲对话自动结束',
+				'<strong>数据完整性原则（第11条）</strong> — 带时间戳的版本化对话状态；用户记忆可通过 REST API 更新',
+				'<strong>访问原则（第12条）</strong> — 通过 <code>GET /admin/gdpr/{userId}/export</code> 的完整数据导出返回结构化 JSON 格式的所有用户数据',
+				'<strong>跨境传输（第129条）</strong> — 自托管架构使部署者能控制数据驻留；审计追踪记录所有 LLM 提供商数据流',
+			],
+			piplHeading: 'PIPL — 中国',
+			piplPara: '中国的《个人信息保护法》（2021年）是全球最全面的数据保护法之一，管辖中国境内个人信息的处理。EDDI提供符合PIPL合规部署的技术基础设施：',
+			piplItems: [
+				'<strong>合法处理（第13条）</strong> — 配置驱动的代理行为确保处理在定义的目的范围内；处理限制API可按需冻结活动',
+				'<strong>个人权利（第44-49条）</strong> — 完整的数据导出、级联删除和处理限制端点覆盖知情权、复制权、更正权、删除权和限制权',
+				'<strong>数据安全（第51条）</strong> — AES-256-GCM 保险库加密、HMAC-SHA256 审计完整性、Keycloak OIDC、RBAC、零 <code>eval()</code>',
+				'<strong>跨境传输（第38-39条）</strong> — 自托管架构支持在中国境内本地部署；审计追踪记录所有外部数据流以用于安全评估',
+				'<strong>自动化决策（第24条）</strong> — 不可变审计追踪与完整管道追踪提供AI决策透明度；通过管理界面实现人工监督',
+				'<strong>数据保留（第19条）</strong> — 可配置的保留策略支持自动清理，强制执行最小必要存储期限',
+			],
 			otherRegionsHeading: '其他司法管辖区',
 			otherRegionsPara: 'EDDI 的数据保护基础设施符合国际标准。以下司法管辖区也通过相同的统一 API 获得支持：',
 			otherRegionsItems: [
@@ -661,7 +681,7 @@ const zh: TranslationSchema = {
 			],
 			heading3: '为全球受监管行业而构建',
 			para2:
-				'医疗保健、金融服务、政府、制造业和其他受监管行业可以放心地部署 EDDI。该平台提供超过 15 个监管框架所要求的透明度、可审计性和控制机制——从欧洲的 EU AI Act 和 GDPR 到美国的 HIPAA、加拿大的 PIPEDA、巴西的 LGPD、日本的 APPI、南非的 POPIA 和东南亚的 PDPA。合规不是事后考虑——它是架构基础。',
+				'医疗保健、金融服务、政府、制造业和其他受监管行业可以放心地部署 EDDI。该平台提供超过 17 个监管框架所要求的透明度、可审计性和控制机制——从欧洲的 EU AI Act 和 GDPR 到美国的 HIPAA、加拿大的 PIPEDA、巴西的 LGPD、日本的 APPI、南非的 POPIA、东南亚的 PDPA、马来西亚的 PDPA 和中国的 PIPL。合规不是事后考虑——它是架构基础。',
 		},
 	},
 };

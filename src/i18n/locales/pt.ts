@@ -581,7 +581,7 @@ const pt: TranslationSchema = {
 		compliance: {
 			title: 'Privacidade global e conformidade regulatória',
 			description:
-				'O EDDI oferece conformidade integrada para RGPD, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA e mais 6 frameworks — com exclusão em cascata de dados, trilhas de auditoria criptográficas e uma API unificada.',
+				'O EDDI oferece conformidade integrada para RGPD, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA PDPA da Malásia, PIPL e mais — com exclusão em cascata de dados, trilhas de auditoria criptográficas e uma API unificada.',
 			heading1: 'Conformidade por arquitetura',
 			para1:
 				'Indústrias regulamentadas não podem adicionar conformidade aos sistemas de IA após o fato. O EDDI incorpora os <strong>fundamentos técnicos para a conformidade regulatória global</strong> diretamente na arquitetura da plataforma — trilhas de auditoria imutáveis, exclusão em cascata de dados, restrições de processamento, integridade criptográfica e controle de acesso baseado em funções são capacidades fundamentais, não complementos. Uma API unificada cobre os direitos dos titulares de dados para cada jurisdição.',
@@ -690,6 +690,26 @@ const pt: TranslationSchema = {
 				'<strong>Obrigação de proteção</strong> — Criptografia AES-256-GCM, integridade de auditoria HMAC, Keycloak OIDC, RBAC',
 				'<strong>Limitação de retenção</strong> — Limpeza automática configurável com timeout de conversas inativas',
 				'<strong>Notificação de violação de dados</strong> — Modelo de runbook de resposta a incidentes incluído na documentação do EDDI',
+			],
+			pdpaMYHeading: 'PDPA — Malásia',
+			pdpaMYPara: 'A Lei de Proteção de Dados Pessoais da Malásia de 2010 (Lei 709, alterada em 2024) rege o processamento comercial de dados pessoais através de 7 princípios de proteção de dados. O EDDI fornece os controles técnicos para apoiar a conformidade do implantador:',
+			pdpaMYItems: [
+				'<strong>Princípio Geral (§6)</strong> — Políticas de retenção configuráveis e endpoint de restrição de processamento suportam processamento baseado em consentimento e limitado por finalidade',
+				'<strong>Princípio de Segurança (§9)</strong> — Criptografia de cofre AES-256-GCM, integridade de auditoria HMAC-SHA256, Keycloak OIDC, RBAC, proteção SSRF',
+				'<strong>Princípio de Retenção (§10)</strong> — Retenção configurável por categoria com limpeza automática; encerramento automático de conversas inativas',
+				'<strong>Princípio de Integridade dos Dados (§11)</strong> — Estado de conversa versionado com carimbo de data/hora; memórias de utilizador atualizáveis via REST API',
+				'<strong>Princípio de Acesso (§12)</strong> — Exportação completa dos dados via <code>GET /admin/gdpr/{userId}/export</code> retorna todos os dados do utilizador como JSON estruturado',
+				'<strong>Transferências Transfronteiriças (§129)</strong> — A arquitetura autoalojada permite que os implantadores controlem a residência dos dados; trilha de auditoria documenta todos os fluxos de dados dos fornecedores LLM',
+			],
+			piplHeading: 'PIPL — China',
+			piplPara: 'A Lei de Proteção de Informações Pessoais da China (2021) é uma das leis de proteção de dados mais abrangentes do mundo, regendo o processamento de informações pessoais de indivíduos na China. O EDDI fornece a infraestrutura técnica para implantações em conformidade com o PIPL:',
+			piplItems: [
+				'<strong>Processamento Lícito (Art. 13)</strong> — O comportamento de agente orientado por configuração garante que o processamento permaneça dentro dos propósitos definidos; a API de restrição de processamento congela a atividade sob demanda',
+				'<strong>Direitos Individuais (Art. 44–49)</strong> — Endpoints de exportação completa de dados, exclusão em cascata e restrição de processamento cobrem os direitos de conhecer, copiar, corrigir, excluir e restringir',
+				'<strong>Segurança dos Dados (Art. 51)</strong> — Criptografia de cofre AES-256-GCM, integridade de auditoria HMAC-SHA256, Keycloak OIDC, RBAC, zero <code>eval()</code>',
+				'<strong>Transferências Transfronteiriças (Art. 38–39)</strong> — A arquitetura autoalojada permite a implantação local na China; trilha de auditoria documenta todos os fluxos de dados externos para avaliações de segurança',
+				'<strong>Tomada de Decisão Automatizada (Art. 24)</strong> — Trilhas de auditoria imutáveis com rastreabilidade completa do pipeline fornecem transparência na tomada de decisão de IA; supervisão humana via interface de gestão',
+				'<strong>Retenção de Dados (Art. 19)</strong> — Políticas de retenção configuráveis com limpeza automática impõem períodos de armazenamento mínimos necessários',
 			],
 			otherRegionsHeading: 'Jurisdições adicionais',
 			otherRegionsPara:

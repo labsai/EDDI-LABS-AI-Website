@@ -582,7 +582,7 @@ const es: TranslationSchema = {
 		compliance: {
 			title: 'Privacidad global y cumplimiento normativo',
 			description:
-				'EDDI ofrece cumplimiento integrado para RGPD, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA y 6 marcos más — con eliminación en cascada de datos, pistas de auditoría criptográficas y una API unificada.',
+				'EDDI ofrece cumplimiento integrado para RGPD, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA Malaysia PDPA, PIPL y más — con eliminación en cascada de datos, pistas de auditoría criptográficas y una API unificada.',
 			heading1: 'Cumplimiento por arquitectura',
 			para1:
 				'Las industrias reguladas no pueden agregar cumplimiento a los sistemas de IA después del hecho. EDDI integra los <strong>fundamentos técnicos para el cumplimiento normativo global</strong> directamente en la arquitectura de la plataforma — pistas de auditoría inmutables, eliminación en cascada de datos, restricciones de procesamiento, integridad criptográfica y control de acceso basado en roles son capacidades fundamentales, no complementos. Una API unificada cubre los derechos de los interesados para cada jurisdicción.',
@@ -691,6 +691,26 @@ const es: TranslationSchema = {
 				'<strong>Obligación de protección</strong> — Cifrado AES-256-GCM, integridad de auditoría HMAC, Keycloak OIDC, RBAC',
 				'<strong>Limitación de retención</strong> — Limpieza automática configurable con tiempo de espera de conversaciones inactivas',
 				'<strong>Notificación de violación de datos</strong> — Plantilla de runbook de respuesta a incidentes incluida en la documentación de EDDI',
+			],
+			pdpaMYHeading: 'PDPA — Malasia',
+			pdpaMYPara: 'La Ley de Protección de Datos Personales de Malasia 2010 (Ley 709, enmendada 2024) rige el procesamiento comercial de datos personales a través de 7 principios de protección de datos. EDDI proporciona los controles técnicos para respaldar el cumplimiento del implementador:',
+			pdpaMYItems: [
+				'<strong>Principio General (§6)</strong> — Políticas de retención configurables y endpoint de restricción de procesamiento soportan procesamiento limitado por propósito y basado en consentimiento',
+				'<strong>Principio de Seguridad (§9)</strong> — Cifrado de bóveda AES-256-GCM, integridad de auditoría HMAC-SHA256, Keycloak OIDC, RBAC, protección SSRF',
+				'<strong>Principio de Retención (§10)</strong> — Retención configurable por categoría con limpieza automática; finalización automática de conversaciones inactivas',
+				'<strong>Principio de Integridad de Datos (§11)</strong> — Estado de conversación versionado con marca de tiempo; memorias de usuario actualizables via REST API',
+				'<strong>Principio de Acceso (§12)</strong> — Exportación completa de datos via <code>GET /admin/gdpr/{userId}/export</code> devuelve todos los datos de usuario como JSON estructurado',
+				'<strong>Transferencias Transfronterizas (§129)</strong> — La arquitectura autoalojada permite a los implementadores controlar la residencia de datos; el registro de auditoría documenta todos los flujos de datos de proveedores LLM',
+			],
+			piplHeading: 'PIPL — China',
+			piplPara: 'La Ley de Protección de la Información Personal de China (2021) es una de las leyes de protección de datos más completas del mundo, que rige el procesamiento de información personal de individuos dentro de China. EDDI proporciona la infraestructura técnica para despliegues conformes con PIPL:',
+			piplItems: [
+				'<strong>Procesamiento Lícito (Art. 13)</strong> — El comportamiento de agentes dirigido por configuración asegura que el procesamiento se mantenga dentro de los propósitos definidos; la API de restricción de procesamiento congela la actividad a demanda',
+				'<strong>Derechos Individuales (Art. 44–49)</strong> — Endpoints de exportación completa de datos, eliminación en cascada y restricción de procesamiento cubren los derechos de conocer, copiar, corregir, eliminar y restringir',
+				'<strong>Seguridad de Datos (Art. 51)</strong> — Cifrado de bóveda AES-256-GCM, integridad de auditoría HMAC-SHA256, Keycloak OIDC, RBAC, cero <code>eval()</code>',
+				'<strong>Transferencias Transfronterizas (Art. 38–39)</strong> — La arquitectura autoalojada permite el despliegue local dentro de China; el registro de auditoría documenta todos los flujos de datos externos para evaluaciones de seguridad',
+				'<strong>Toma de Decisiones Automatizada (Art. 24)</strong> — Registros de auditoría inmutables con trazabilidad completa del pipeline proporcionan transparencia en la toma de decisiones de IA; supervisión humana via UI de gestión',
+				'<strong>Retención de Datos (Art. 19)</strong> — Políticas de retención configurables con limpieza automática imponen períodos de almacenamiento mínimos necesarios',
 			],
 			otherRegionsHeading: 'Jurisdicciones adicionales',
 			otherRegionsPara:

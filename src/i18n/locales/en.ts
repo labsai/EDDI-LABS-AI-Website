@@ -613,7 +613,7 @@ const en = {
 		compliance: {
 			title: 'Global Privacy & Regulatory Compliance',
 			description:
-				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, and 6 more frameworks — with cascade data erasure, cryptographic audit trails, and one unified API.',
+				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, Malaysia PDPA, PIPL, and more — with cascade data erasure, cryptographic audit trails, and one unified API.',
 
 			// ── Section 1: Intro ─────────────────────────────────
 			heading1: 'Compliance by Architecture',
@@ -727,6 +727,28 @@ const en = {
 				'<strong>Data Breach Notification</strong> — Incident response runbook template included in EDDI documentation',
 			],
 
+			pdpaMYHeading: 'PDPA — Malaysia',
+			pdpaMYPara: 'Malaysia\'s Personal Data Protection Act 2010 (Act 709, amended 2024) governs commercial processing of personal data through 7 data protection principles. EDDI provides the technical controls to support deployer compliance:',
+			pdpaMYItems: [
+				'<strong>General Principle (§6)</strong> — Configurable retention policies and processing-restriction endpoint support purpose-limited, consent-based processing',
+				'<strong>Security Principle (§9)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
+				'<strong>Retention Principle (§10)</strong> — Configurable per-category retention with automatic cleanup; idle conversation auto-end',
+				'<strong>Data Integrity Principle (§11)</strong> — Timestamped, versioned conversation state; user memories updatable via REST API',
+				'<strong>Access Principle (§12)</strong> — Full data export via <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured JSON',
+				'<strong>Cross-Border Transfers (§129)</strong> — Self-hosted architecture enables deployers to control data residency; audit trail documents all LLM provider data flows',
+			],
+
+			piplHeading: 'PIPL — China',
+			piplPara: 'China\'s Personal Information Protection Law (2021) is one of the world\'s most comprehensive data protection laws, governing the processing of personal information of individuals within China. EDDI provides the technical infrastructure for PIPL-compliant deployments:',
+			piplItems: [
+				'<strong>Lawful Processing (Art. 13)</strong> — Configuration-driven agent behavior ensures processing stays within defined purposes; processing restriction API freezes activity on demand',
+				'<strong>Individual Rights (Art. 44–49)</strong> — Full data export, cascade deletion, and processing restriction endpoints cover right to know, copy, correct, delete, and restrict',
+				'<strong>Data Security (Art. 51)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, zero <code>eval()</code>',
+				'<strong>Cross-Border Transfers (Art. 38–39)</strong> — Self-hosted architecture enables on-premises deployment within China; audit trail documents all external data flows for security assessments',
+				'<strong>Automated Decision-Making (Art. 24)</strong> — Immutable audit trails with full pipeline tracing provide transparency into AI decision-making; human oversight via Management UI',
+				'<strong>Data Retention (Art. 19)</strong> — Configurable retention policies with automatic cleanup enforce minimum-necessary storage periods',
+			],
+
 			otherRegionsHeading: 'Additional Jurisdictions',
 			otherRegionsPara: 'EDDI\'s data protection infrastructure meets international standards. The following jurisdictions are also supported through the same unified API:',
 			otherRegionsItems: [
@@ -774,7 +796,7 @@ const en = {
 
 			// ── Section 6: Closing ───────────────────────────────
 			heading3: 'Built for Regulated Industries Worldwide',
-			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 15+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, and PDPA in Southeast Asia. Compliance is not an afterthought — it is an architectural foundation.',
+			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 17+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia\'s PDPA, and China\'s PIPL. Compliance is not an afterthought — it is an architectural foundation.',
 		},
 	},
 };
