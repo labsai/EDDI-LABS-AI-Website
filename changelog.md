@@ -4,6 +4,11 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🏛️ FOSS Compliance (OpenSSF Badge Readiness)
+- `feat(website)`: **Community Footer Column** — Added a 5th footer column ("Community") linking to Contributing guide, Bug Report template, Security Policy, Code of Conduct, and Discussions — all pointing to the EDDI repo. Propagated native translations across all 11 locales. Footer grid updated to 5-column layout.
+- `feat(website)`: **Apache 2.0 LICENSE** — Added LICENSE file to the website repository (previously only in the main EDDI repo).
+- `fix(website)`: **README Modernization** — Rewrote README.md to reflect current Astro architecture (removed stale Starlight references, updated project structure and tech stack).
+
 ### 🔍 Website Audit & Hardening
 - `fix(website)`: **JSON-LD Positioning Fix** — Updated `WebSite` and `SoftwareApplication` JSON-LD schema descriptions from stale "Java-native AI middleware" to "self-hosted enterprise AI orchestration platform" to match the documented positioning reframe.
 - `feat(website)`: **Page Deduplication** — Extracted 5 shared content components (`HomeContent`, `GettingStartedContent`, `UseCasesContent`, `FeaturesOverviewContent`, `ComplianceContent`) to eliminate ~3,680 lines of duplication between root and `[lang]/` page files. All page files are now thin wrappers (~5-12 lines) that delegate to shared components.
