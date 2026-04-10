@@ -362,7 +362,7 @@ const pageBlocks = {
 
 // ── Apply page block translations ──────────────────────────────
 
-function replacePageBlocks(content, pages, locale) {
+function replacePageBlocks(content, pages) {
   let count = 0;
 
   // Replace multiAgent items2 lines
@@ -398,15 +398,7 @@ function replacePageBlocks(content, pages, locale) {
     const page = pages[pageKey];
     if (!page) continue;
 
-    // Simple replacements for unique heading/title patterns within page blocks
-    for (const [key, value] of Object.entries(page)) {
-      if (key === 'items') continue; // Handle separately
-      if (typeof value !== 'string') continue;
-
-      // Build the search key pattern
-      const searchKey = `${key}: `;
-      // We need to be careful to only replace within the correct page block
-    }
+    // Heading/title replacements are handled in the line-by-line pass below
   }
 
   return { content, count };
@@ -415,7 +407,7 @@ function replacePageBlocks(content, pages, locale) {
 for (const [locale, pages] of Object.entries(pageBlocks)) {
   const file = join(LOCALES_DIR, `${locale}.ts`);
   let content = readFileSync(file, 'utf-8');
-  const { content: newContent, count } = replacePageBlocks(content, pages, locale);
+  const { content: newContent, count } = replacePageBlocks(content, pages);
   content = newContent;
 
   // Now do line-by-line heading replacements for each page block
@@ -452,41 +444,8 @@ for (const [locale, pages] of Object.entries(pageBlocks)) {
     // Replace items arrays
     if (page.items && lines[i].match(/^\t\t\t\t'<strong>/)) {
       // Check if this line is in English
-      const trimmed = lines[i].trim();
-      for (let k = 0; k < page.items.length; k++) {
-        // Match by the first <strong> tag content
-        const engItemStart = trimmed.slice(0, 30);
-        const nativeItem = page.items[k];
-        if (nativeItem && trimmed.startsWith("'<strong>") && !trimmed.match(/[^\x00-\x7F]/)) {
-          // This is an English item, see which one it matches
-          const engItems = [
-            'Persistent User Memory', 'LLM Memory Tools', 'Dream Consolidation',
-            'Token-Aware Windowing', 'Rolling Summary', 'Property Extraction', 'Conversation State',
-            '7 Embedding Providers', '5 Vector Stores', 'httpCall RAG', 'REST Ingestion API', 'Hybrid Search',
-            'Cost Optimization', '4 Confidence Strategies', 'Per-Conversation Budgets', 'Tenant Cost Ceilings', '12 LLM Providers',
-            'Heartbeat Triggers', 'Cron Scheduling', 'Conversation Strategies', 'Fire Logging', 'Dream Cycles',
-          ];
-          for (let e = 0; e < engItems.length; e++) {
-            if (trimmed.includes(engItems[e])) {
-              // Find matching native item
-              const nativeMatch = page.items.find(ni => {
-                // Loose match by index position in array
-                return true; // We'll do this by position
-              });
-              const itemIndex = page.items.findIndex((ni, idx) => {
-                // Match by approximate content (e.g. first strong tag)
-                const pageItems = currentPage === 'memory' ? 7 : currentPage === 'rag' ? 5 : currentPage === 'scheduling' ? 5 : 5;
-                return idx < pageItems;
-              });
-              if (itemIndex >= 0 && page.items[itemIndex]) {
-                // Actually find which item index this english line corresponds to
-                // by matching content
-              }
-              break;
-            }
-          }
-        }
-      }
+      // Items replacement is not yet implemented for this script
+      // (items are handled via separate bulk-translation workflows)
     }
   }
 
