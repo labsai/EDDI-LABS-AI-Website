@@ -1,93 +1,11 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
-import heroImage from '../../../assets/hero_features_overview.png';
-import { NON_DEFAULT_LOCALES, getTranslations, localePath, type Locale } from '../../../i18n';
+import FeaturesOverviewContent from '../../../components/pages/FeaturesOverviewContent.astro';
+import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../../i18n';
 
 export async function getStaticPaths() {
 	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
 }
-
 const { lang } = Astro.params as { lang: Locale };
 const t = await getTranslations(lang);
 ---
-
-<BaseLayout title={t.featuresOverview.title} description={t.featuresOverview.description} fullWidth={true} lang={lang}>
-
-<section class="fo-hero hero-gradient hero-gradient-bg">
-	<div class="fo-hero-inner">
-		<div class="fo-hero-text">
-			<h1>{t.featuresOverview.heroTitle} <span class="text-gradient-dynamic">{t.featuresOverview.heroHighlight}</span></h1>
-			<p>{t.featuresOverview.heroDesc}</p>
-			<div class="fo-hero-actions">
-				<a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{t.common.getStartedCta}</a>
-				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">{t.common.viewOnGithub}</a>
-			</div>
-		</div>
-		<div class="fo-hero-image">
-			<Image src={heroImage} alt="EDDI Features" width={480} height={320} loading="eager" decoding="async" />
-		</div>
-	</div>
-</section>
-
-<!-- Core Platform -->
-<section class="py-24 max-w-7xl mx-auto px-6">
-	<div class="text-center mb-16">
-		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.coreTitle}</h2>
-		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.featuresOverview.coreDesc} />
-	</div>
-
-	<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-		{[
-			{ href: localePath(lang, '/features/manager/'), title: t.featuresOverview.managerCardTitle, desc: t.featuresOverview.managerCardDesc },
-			{ href: localePath(lang, '/features/config-as-code/'), title: t.featuresOverview.configCardTitle, desc: t.featuresOverview.configCardDesc },
-			{ href: localePath(lang, '/features/mcp-server/'), title: t.featuresOverview.mcpCardTitle, desc: t.featuresOverview.mcpCardDesc },
-			{ href: localePath(lang, '/features/security/'), title: t.featuresOverview.securityCardTitle, desc: t.featuresOverview.securityCardDesc },
-			{ href: localePath(lang, '/features/performance/'), title: t.featuresOverview.perfCardTitle, desc: t.featuresOverview.perfCardDesc },
-			{ href: localePath(lang, '/features/multi-agent/'), title: t.featuresOverview.multiCardTitle, desc: t.featuresOverview.multiCardDesc },
-		].map((card) => (
-			<a href={card.href} class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group no-underline">
-				<h3 class="text-xl font-bold text-white mb-3">{card.title}</h3>
-				<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={card.desc} />
-			</a>
-		))}
-	</div>
-</section>
-
-<!-- Engineering -->
-<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
-	<div class="text-center mb-16">
-		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.engTitle}</h2>
-	</div>
-
-	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-		{[
-			{ href: localePath(lang, '/features/observability/'), title: t.featuresOverview.obsCardTitle, desc: t.featuresOverview.obsCardDesc },
-			{ href: localePath(lang, '/features/code-quality/'), title: t.featuresOverview.cqCardTitle, desc: t.featuresOverview.cqCardDesc },
-			{ href: localePath(lang, '/features/ai-ready/'), title: t.featuresOverview.aiCardTitle, desc: t.featuresOverview.aiCardDesc },
-		].map((card) => (
-			<a href={card.href} class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group no-underline">
-				<h3 class="text-xl font-bold text-white mb-3">{card.title}</h3>
-				<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={card.desc} />
-			</a>
-		))}
-	</div>
-</section>
-
-</BaseLayout>
-
-<style>
-	.fo-hero { padding: calc(var(--nav-height, 4rem) + 3rem) 1.5rem 3rem; }
-	.fo-hero-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 3rem; }
-	.fo-hero-text { flex: 1; }
-	.fo-hero-text h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin: 0 0 1rem; color: var(--color-text); }
-	.fo-hero-text p { font-size: 1.125rem; line-height: 1.65; margin: 0 0 2rem; max-width: 36rem; color: var(--color-text-muted); }
-	.fo-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-	.fo-hero-image { flex-shrink: 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); }
-	.fo-hero-image img { display: block; width: 100%; height: auto; max-width: 28rem; }
-	@media (max-width: 50rem) {
-		.fo-hero-inner { flex-direction: column; text-align: center; }
-		.fo-hero-actions { justify-content: center; }
-		.fo-hero-image { max-width: 20rem; }
-	}
-</style>
+<FeaturesOverviewContent lang={lang} t={t} />

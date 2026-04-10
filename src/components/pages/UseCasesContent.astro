@@ -1,0 +1,43 @@
+---
+/**
+ * Shared Use Cases content — used by both root and [lang] versions.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Locale } from '../../i18n';
+import type { TranslationSchema } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const cards = [
+	{ icon: '🏥', title: t.useCases.healthcare, desc: t.useCases.healthcareDesc },
+	{ icon: '🏦', title: t.useCases.finance, desc: t.useCases.financeDesc },
+	{ icon: '🛒', title: t.useCases.ecommerce, desc: t.useCases.ecommerceDesc },
+	{ icon: '🏭', title: t.useCases.manufacturing, desc: t.useCases.manufacturingDesc },
+	{ icon: '🏛️', title: t.useCases.government, desc: t.useCases.governmentDesc },
+	{ icon: '🧑‍💻', title: t.useCases.devPlatforms, desc: t.useCases.devPlatformsDesc },
+];
+---
+<BaseLayout title={t.useCases.title} description={t.useCases.description} fullWidth={true} lang={lang}>
+<section class="uc-hero hero-gradient-bg"><div class="uc-hero-inner"><h1>{t.useCases.heroTitle}</h1><p>{t.useCases.heroSubtitle}</p></div></section>
+<article class="uc-content"><div class="uc-grid">
+{cards.map((c) => (<div class="uc-card"><span class="uc-icon" aria-hidden="true">{c.icon}</span><h3>{c.title}</h3><p>{c.desc}</p></div>))}
+</div></article>
+</BaseLayout>
+<style>
+	.uc-hero { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem; text-align: center; }
+	.uc-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.uc-hero p { color: var(--color-text-muted); font-size: 1.125rem; margin: 0; }
+	.uc-content { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+	.uc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; }
+	.uc-card { padding: 2rem; border-radius: 1rem; transition: all 0.3s ease; }
+	html[data-theme='dark'] .uc-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .uc-card { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
+	.uc-card:hover { transform: translateY(-4px); border-color: var(--color-accent); }
+	.uc-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+	.uc-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+	.uc-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+</style>
