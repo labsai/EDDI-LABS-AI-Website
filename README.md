@@ -1,16 +1,15 @@
 # EDDI Website
 
-> Marketing and documentation site for [EDDI](https://github.com/labsai/EDDI) — the multi-agent orchestration middleware for conversational AI.
+> Marketing site for [EDDI](https://github.com/labsai/EDDI) — the self-hosted Enterprise AI Orchestrator.
 
 **Live at:** [eddi.labs.ai](https://eddi.labs.ai)
 
 ## Tech Stack
 
-| Technology   | Purpose              |
-| ------------ | -------------------- |
+| Technology   | Purpose               |
+| ------------ | --------------------- |
 | Astro        | Static site framework |
-| Starlight    | Documentation theme  |
-| Tailwind CSS | Styling              |
+| Tailwind CSS | Styling (v4, Vite)    |
 
 ## Development
 
@@ -29,15 +28,24 @@ The site is deployed to **GitHub Pages** at `eddi.labs.ai` (configured via the `
 
 ```
 src/
-├── assets/          # Images and media
-├── content/
-│   └── docs/        # Documentation pages (.md / .mdx)
-│       ├── docs/    # Technical documentation
-│       └── features/ # Feature showcase pages
-├── styles/
-│   └── global.css   # Custom styles
-└── content.config.ts
+├── assets/          # Images, logos, SVGs
+├── components/      # Shared Astro components (Nav, Footer, etc.)
+├── i18n/
+│   ├── index.ts     # i18n routing utilities
+│   └── locales/     # 11 locale files (en, de, es, fr, pt, ar, zh, ja, ko, hi, th)
+├── layouts/         # Page layouts
+├── pages/           # Astro pages (features/, enterprise/, use-cases/, etc.)
+└── styles/          # Global CSS
+public/
+├── CNAME            # GitHub Pages custom domain
+├── robots.txt       # Crawl directives + sitemap
+├── llms.txt         # LLM-discoverable content (llmstxt.org)
+└── llms-full.txt    # Full-text documentation for AI agents
 ```
+
+## i18n
+
+11 locales with root-English routing (`/` = English, `/de/`, `/es/`, `/ar/`, etc.). Arabic has full RTL support.
 
 ## Related Repos
 
@@ -47,4 +55,4 @@ src/
 
 ## License
 
-See [EDDI License](https://github.com/labsai/EDDI/blob/master/LICENSE) for details.
+This website is part of the EDDI project — see [EDDI License (Apache 2.0)](https://github.com/labsai/EDDI/blob/main/LICENSE).

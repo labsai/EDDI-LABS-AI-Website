@@ -92,6 +92,12 @@ const zh: TranslationSchema = {
 		vsAlternatives: '与替代方案对比',
 		euAiAct: '欧盟AI法案',
 		useCases: '应用场景',
+		communityCol: '社区',
+		contributing: '参与贡献 ↗',
+		reportBug: '报告问题 ↗',
+		securityPolicy: '安全政策 ↗',
+		codeOfConduct: '行为准则 ↗',
+		discussions: '讨论区 ↗',
 		initiated: '起源于维也纳。用❤️在欧洲开发。为全世界打造。',
 	},
 	newsletter: {

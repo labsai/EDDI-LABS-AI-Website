@@ -93,6 +93,12 @@ const fr: TranslationSchema = {
 		vsAlternatives: 'vs. Alternatives',
 		euAiAct: 'Législation sur l\'IA (UE)',
 		useCases: 'Cas d\'usage',
+		communityCol: 'Communauté',
+		contributing: 'Contribuer ↗',
+		reportBug: 'Signaler un Bug ↗',
+		securityPolicy: 'Politique de Sécurité ↗',
+		codeOfConduct: 'Code de Conduite ↗',
+		discussions: 'Discussions ↗',
 		initiated: 'Initié à Vienne. Développé avec ❤️ en Europe. Fait pour le monde.',
 	},
 	newsletter: {

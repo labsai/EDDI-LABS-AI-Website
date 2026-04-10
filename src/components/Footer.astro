@@ -88,6 +88,16 @@ const t = await getTranslations(lang);
 				<a href={localePath(lang, '/enterprise/compliance/')}>{t.footer.euAiAct}</a>
 				<a href={localePath(lang, '/use-cases/')}>{t.footer.useCases}</a>
 			</div>
+
+			<!-- Community column -->
+			<div class="eddi-footer-col">
+				<h3>{t.footer.communityCol}</h3>
+				<a href="https://github.com/labsai/EDDI/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">{t.footer.contributing}</a>
+				<a href="https://github.com/labsai/EDDI/issues/new?template=bug_report.yml" target="_blank" rel="noopener">{t.footer.reportBug}</a>
+				<a href="https://github.com/labsai/EDDI/blob/main/SECURITY.md" target="_blank" rel="noopener">{t.footer.securityPolicy}</a>
+				<a href="https://github.com/labsai/EDDI/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">{t.footer.codeOfConduct}</a>
+				<a href="https://github.com/labsai/EDDI/discussions" target="_blank" rel="noopener">{t.footer.discussions}</a>
+			</div>
 		</div>
 
 		<div class="eddi-footer-divider"></div>
@@ -152,7 +162,7 @@ const t = await getTranslations(lang);
 	/* ===== FOOTER GRID ===== */
 	.eddi-footer-grid {
 		display: grid;
-		grid-template-columns: 1.5fr 1fr 1fr 1fr;
+		grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 		gap: 2rem;
 		padding: 2rem 0;
 	}

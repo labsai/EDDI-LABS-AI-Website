@@ -111,6 +111,13 @@ const en = {
 		vsAlternatives: 'vs. Alternatives',
 		euAiAct: 'Compliance',
 		useCases: 'Use Cases',
+		// Community column
+		communityCol: 'Community',
+		contributing: 'Contributing ↗',
+		reportBug: 'Report a Bug ↗',
+		securityPolicy: 'Security Policy ↗',
+		codeOfConduct: 'Code of Conduct ↗',
+		discussions: 'Discussions ↗',
 		// Bottom
 		initiated: 'Initiated in Vienna. Developed with ❤️ in Europe. Made for the World.',
 	},

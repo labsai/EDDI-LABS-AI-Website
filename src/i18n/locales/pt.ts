@@ -1,4 +1,4 @@
-﻿import type { TranslationSchema } from './en';
+import type { TranslationSchema } from './en';
 
 const pt: TranslationSchema = {
 	meta: {
@@ -93,6 +93,12 @@ const pt: TranslationSchema = {
 		vsAlternatives: 'vs. Alternativas',
 		euAiAct: 'Lei de IA da UE',
 		useCases: 'Casos de Uso',
+		communityCol: 'Comunidade',
+		contributing: 'Contribuir ↗',
+		reportBug: 'Reportar Bug ↗',
+		securityPolicy: 'Política de Segurança ↗',
+		codeOfConduct: 'Código de Conduta ↗',
+		discussions: 'Discussões ↗',
 		initiated: 'Iniciado em Viena. Desenvolvido com ❤️ na Europa. Feito para o Mundo.',
 	},
 	newsletter: {
