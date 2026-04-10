@@ -393,13 +393,8 @@ function replacePageBlocks(content, pages) {
     }
   }
 
-  // Replace feature page headings/titles that are page-specific
-  for (const pageKey of ['memory', 'rag', 'modelCascading', 'scheduling']) {
-    const page = pages[pageKey];
-    if (!page) continue;
-
-    // Heading/title replacements are handled in the line-by-line pass below
-  }
+  // Note: Feature page heading/title replacements are handled in the
+  // line-by-line pass below (not in this function).
 
   return { content, count };
 }
