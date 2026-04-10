@@ -17,5 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# IDE / editor
+.idea/
+.vscode/
+
 # macOS-specific files
 .DS_Store
