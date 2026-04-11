@@ -258,7 +258,7 @@ const ko: TranslationSchema = {
 		memoryCardTitle: '🧠 메모리 & 컨텍스트',
 		memoryCardDesc: '영구 메모리, 드림 통합, 롤링 요약, 토큰 인식 윈도잉. <strong>기억하는 에이전트</strong>.',
 		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+		ragCardDesc: '7개 임베딩 제공자, 5개 벡터 스토어, httpCall RAG. <strong>엔터프라이즈 지식 검색</strong> 즉시 사용 가능.',
 		cascadingCardTitle: '📈 모델 캐스케이딩',
 		cascadingCardDesc: '신뢰도 전략을 포함한 비용 최적화 멀티모델 라우팅. <strong>LLM 비용 60-80% 절감</strong>.',
 		schedulingCardTitle: '⏰ 스케줄링 & 하트비트',

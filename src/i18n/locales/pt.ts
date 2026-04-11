@@ -284,7 +284,7 @@ const pt: TranslationSchema = {
 		memoryCardTitle: '🧠 Memória e Contexto',
 		memoryCardDesc: 'Memória persistente, consolidação onírica, resumos contínuos e janelamento consciente de tokens. <strong>Agentes que lembram</strong>.',
 		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+		ragCardDesc: '7 provedores de embedding, 5 armazéns vetoriais, httpCall RAG. <strong>Recuperação de conhecimento empresarial</strong> pronta para uso.',
 		cascadingCardTitle: '📈 Cascata de Modelos',
 		cascadingCardDesc: 'Roteamento multi-modelo otimizado com estratégias de confiança. <strong>Reduza custos de LLM em 60-80%</strong>.',
 		schedulingCardTitle: '⏰ Agendamento e Heartbeats',

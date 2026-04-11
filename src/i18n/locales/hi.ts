@@ -272,7 +272,7 @@ const hi: TranslationSchema = {
 		memoryCardTitle: '🧠 मेमोरी और संदर्भ',
 		memoryCardDesc: 'स्थायी मेमोरी, ड्रीम समेकन, रोलिंग सारांश और टोकन-जागरूक विंडोइंग। <strong>याद रखने वाले एजेंट</strong>।',
 		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+		ragCardDesc: '7 एम्बेडिंग प्रदाता, 5 वेक्टर स्टोर, httpCall RAG। <strong>एंटरप्राइज़ ज्ञान पुनर्प्राप्ति</strong> बॉक्स से बाहर।',
 		cascadingCardTitle: '📈 मॉडल कैस्केडिंग',
 		cascadingCardDesc: 'विश्वास रणनीतियों के साथ लागत-अनुकूलित मल्टी-मॉडल रूटिंग। <strong>LLM लागत 60-80% कम करें</strong>।',
 		schedulingCardTitle: '⏰ शेड्यूलिंग और हार्टबीट',

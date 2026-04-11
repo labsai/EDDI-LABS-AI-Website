@@ -255,7 +255,7 @@ const zh: TranslationSchema = {
 		memoryCardTitle: '🧠 记忆与上下文',
 		memoryCardDesc: '持久记忆、梦境整合、滚动摘要和令牌感知窗口。<strong>会记忆的代理</strong>。',
 		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+		ragCardDesc: '7个嵌入提供商、5个向量存储、httpCall RAG。<strong>企业知识检索</strong>开箱即用。',
 		cascadingCardTitle: '📈 模型级联',
 		cascadingCardDesc: '基于置信策略的成本优化多模型路由。<strong>降低LLM成本60-80%</strong>。',
 		schedulingCardTitle: '⏰ 调度与心跳',
