@@ -202,6 +202,7 @@
 		var initial = getConsent();
 		if (!initial) {
 			banner.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
 		} else {
 			if (initial.analytics) enableGoogleAnalytics();
 		}
@@ -211,6 +212,7 @@
 			var data = { necessary: true, analytics: true, marketing: true, timestamp: new Date().toISOString() };
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			banner.classList.add('hidden');
+			document.body.style.overflow = '';
 			enableGoogleAnalytics();
 		});
 
@@ -220,6 +222,7 @@
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			closeModal();
 			banner.classList.add('hidden');
+			document.body.style.overflow = '';
 		});
 
 		// Open settings
@@ -262,12 +265,12 @@
 		inset: 0;
 		z-index: 9998;
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: center;
 		padding: 1.5rem;
-		pointer-events: none;
+		background: rgba(0, 0, 0, 0.4);
+		backdrop-filter: blur(2px);
 	}
-	.cookie-banner > * { pointer-events: auto; }
 
 	.cookie-modal {
 		position: fixed;
@@ -503,13 +506,10 @@
 		pointer-events: none;
 	}
 
-	/* Banner slide-in animation */
-	.cookie-banner:not(.hidden) .cookie-card {
-		animation: cookie-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-
+	/* Banner + Modal entrance animations */
+	.cookie-banner:not(.hidden) .cookie-card,
 	.cookie-modal:not(.hidden) .cookie-card {
-		animation: cookie-scale-in 0.2s ease-out;
+		animation: cookie-scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	@keyframes cookie-slide-up {
