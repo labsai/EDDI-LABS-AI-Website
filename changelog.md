@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 📊 Analytics & Cookie Consent
+- `feat(website)`: **Cookie Consent Banner** — Ported the cookie consent system from the original `index.html` into a standalone `CookieConsent.astro` component. Features Accept All / Manage Cookies flow, settings modal with Necessary / Analytics / Marketing toggles, focus trap for keyboard accessibility, Escape to close, and localStorage-persisted consent.
+- `feat(website)`: **Google Analytics (GA4)** — Consent-gated GA4 integration (`G-L1011GL1PY`). Only loads the gtag script after the user explicitly consents to analytics cookies.
+- `feat(website)`: **Umami Analytics** — Added Umami cloud tracking (`cloud.umami.is`) as a cookieless, GDPR-safe analytics layer. Loads unconditionally — no consent banner required.
+- Design follows the EDDI design-system tokens (dark/light theme-aware), includes slide-up and scale-in animations.
+
 ### 🏛️ FOSS Compliance (OpenSSF Badge Readiness)
 - `feat(website)`: **Community Footer Column** — Added a 5th footer column ("Community") linking to Contributing guide, Bug Report template, Security Policy, Code of Conduct, and Discussions — all pointing to the EDDI repo. Propagated native translations across all 11 locales. Footer grid updated to 5-column layout.
 - `feat(website)`: **Apache 2.0 LICENSE** — Added LICENSE file to the website repository (previously only in the main EDDI repo).
