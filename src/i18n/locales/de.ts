@@ -799,7 +799,7 @@ const de: TranslationSchema = {
 		newsletterDesc: 'Erhalten Sie Updates zu neuen Releases, Features und Best Practices für Enterprise-AI-Orchestrierung. Kein Spam — nur relevante Inhalte.',
 		directContactTitle: 'Direkter Kontakt',
 		directContactDesc: 'Bevorzugen Sie E-Mail? Erreichen Sie uns direkt unter:',
-		email: 'office@labs.ai',
+		email: 'contact@labs.ai',
 		githubTitle: 'Open-Source-Community',
 		githubDesc: 'Beteiligen Sie sich auf GitHub — melden Sie Probleme, fordern Sie Features an oder tragen Sie Code bei.',
 		githubLink: 'EDDI auf GitHub besuchen',
@@ -825,7 +825,7 @@ const de: TranslationSchema = {
 
 			contactHeading: 'Kontakt',
 			emailLabel: 'E-Mail',
-			email: 'office@labs.ai',
+			email: 'contact@labs.ai',
 
 			projectHeading: 'Open-Source-Projekt',
 			projectMaintainers: 'EDDI wird von Gregor Jarisch und Franz Weber betreut.',
@@ -861,7 +861,7 @@ const de: TranslationSchema = {
 			controllerText: 'Der für die Datenverarbeitung auf dieser Website Verantwortliche ist:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
 			controllerAddress: 'Lindengasse 58/6, 1070 Wien, Österreich',
-			controllerEmail: 'office@labs.ai',
+			controllerEmail: 'contact@labs.ai',
 			controllerVat: 'ATU65272778',
 
 			collectionHeading: '2. Welche Daten wir erheben',
@@ -927,7 +927,7 @@ const de: TranslationSchema = {
 				'<strong>Widerspruchsrecht</strong> (Art. 21) — Der Verarbeitung auf Grundlage berechtigter Interessen widersprechen',
 				'<strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3) — Einwilligung jederzeit widerrufen (z.B. über Cookie-Einstellungen)',
 			],
-			rightsContact: 'Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter <a href="mailto:office@labs.ai">office@labs.ai</a>. Wir werden Ihre Anfrage innerhalb eines Monats beantworten.',
+			rightsContact: 'Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter <a href="mailto:contact@labs.ai">contact@labs.ai</a>. Wir werden Ihre Anfrage innerhalb eines Monats beantworten.',
 
 			securityHeading: '9. Datensicherheit',
 			securityText: 'Wir setzen geeignete technische und organisatorische Maßnahmen zum Schutz Ihrer personenbezogenen Daten ein, einschließlich HTTPS-Verschlüsselung für alle Daten während der Übertragung und Zugangskontrollen für administrative Systeme.',
@@ -945,7 +945,7 @@ const de: TranslationSchema = {
 
 			contactHeading: '13. Kontakt',
 			contactText: 'Bei Fragen zu dieser Datenschutzerklärung oder unserer Datenverarbeitung kontaktieren Sie uns bitte:',
-			contactDetails: 'LABS.AI — Datenschutz<br>Wien, Österreich<br>E-Mail: <a href="mailto:office@labs.ai">office@labs.ai</a>',
+			contactDetails: 'LABS.AI — Datenschutz<br>Wien, Österreich<br>E-Mail: <a href="mailto:contact@labs.ai">contact@labs.ai</a>',
 		},
 	},
 };

@@ -837,7 +837,7 @@ const en = {
 		newsletterDesc: 'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.',
 		directContactTitle: 'Direct Contact',
 		directContactDesc: 'Prefer email? Reach us directly at:',
-		email: 'office@labs.ai',
+		email: 'contact@labs.ai',
 		githubTitle: 'Open Source Community',
 		githubDesc: 'Join the conversation on GitHub — report issues, request features, or contribute code.',
 		githubLink: 'Visit EDDI on GitHub',
@@ -867,7 +867,7 @@ const en = {
 
 			contactHeading: 'Contact',
 			emailLabel: 'Email',
-			email: 'office@labs.ai',
+			email: 'contact@labs.ai',
 
 			projectHeading: 'Open Source Project',
 			projectMaintainers: 'EDDI is maintained by Gregor Jarisch and Franz Weber.',
@@ -905,7 +905,7 @@ const en = {
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
 			controllerAddress: 'Lindengasse 58/6, 1070 Vienna, Austria',
-			controllerEmail: 'office@labs.ai',
+			controllerEmail: 'contact@labs.ai',
 			controllerVat: 'ATU65272778',
 
 			// 2. Data Collection
@@ -978,7 +978,7 @@ const en = {
 				'<strong>Right to object</strong> (Art. 21) — Object to processing based on legitimate interests',
 				'<strong>Right to withdraw consent</strong> (Art. 7(3)) — Withdraw consent at any time (e.g., via cookie settings)',
 			],
-			rightsContact: 'To exercise any of these rights, please contact us at <a href="mailto:office@labs.ai">office@labs.ai</a>. We will respond to your request within one month.',
+			rightsContact: 'To exercise any of these rights, please contact us at <a href="mailto:contact@labs.ai">contact@labs.ai</a>. We will respond to your request within one month.',
 
 			// 9. Data Security
 			securityHeading: '9. Data Security',
@@ -1001,7 +1001,7 @@ const en = {
 			// 13. Contact
 			contactHeading: '13. Contact',
 			contactText: 'If you have questions about this Privacy Policy or our data practices, please contact us:',
-			contactDetails: 'LABS.AI — Data Protection<br>Vienna, Austria<br>Email: <a href="mailto:office@labs.ai">office@labs.ai</a>',
+			contactDetails: 'LABS.AI — Data Protection<br>Vienna, Austria<br>Email: <a href="mailto:contact@labs.ai">contact@labs.ai</a>',
 		},
 	},
 };
