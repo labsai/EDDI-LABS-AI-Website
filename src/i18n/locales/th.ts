@@ -99,6 +99,7 @@ const th: TranslationSchema = {
 		securityPolicy: 'นโยบายความปลอดภัย ↗',
 		codeOfConduct: 'จรรยาบรรณ ↗',
 		discussions: 'สนทนา ↗',
+		contactLink: 'Contact',
 		initiated: 'เริ่มต้นที่เวียนนา พัฒนาด้วย ❤️ ในยุโรป สร้างเพื่อโลก',
 	},
 	newsletter: {
@@ -722,6 +723,42 @@ const th: TranslationSchema = {
 		},
 	},
 
+
+	// ─── Cookie Consent Banner ──────────────────────────────────
+	cookieBanner: {
+		title: 'We Value Your Privacy',
+		text: 'We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
+		privacyNote: 'For more information, see our',
+		acceptAll: 'Accept All',
+		manageCookies: 'Manage Cookies',
+		modalTitle: 'Manage Your Preferences',
+		modalDesc: 'You can adjust your cookie settings below. Necessary cookies cannot be disabled.',
+		necessaryLabel: 'Necessary Cookies',
+		necessaryDesc: 'Required for the website to function properly.',
+		analyticsLabel: 'Analytics & Performance',
+		analyticsDesc: 'Help us understand how visitors interact with our website.',
+		marketingLabel: 'Marketing Cookies',
+		marketingDesc: 'Used to track visitors across websites to display relevant advertisements.',
+		rejectAll: 'Reject All',
+		savePreferences: 'Save Preferences',
+	},
+
+	// ─── Contact Page ───────────────────────────────────────────
+	contact: {
+		title: 'Contact Us',
+		description: 'Get in touch with the EDDI team — stay informed about releases, features, and enterprise AI orchestration.',
+		heading: 'Get in Touch',
+		subheading: 'Have questions? Want to learn more about EDDI for your organization? Reach out to us.',
+		newsletterTitle: 'Stay in the Loop',
+		newsletterDesc: 'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.',
+		directContactTitle: 'Direct Contact',
+		directContactDesc: 'Prefer email? Reach us directly at:',
+		email: 'office@labs.ai',
+		githubTitle: 'Open Source Community',
+		githubDesc: 'Join the conversation on GitHub — report issues, request features, or contribute code.',
+		githubLink: 'Visit EDDI on GitHub',
+	},
+
 	// ─── Legal Pages ────────────────────────────────────────────
 	legal: {
 		imprintLink: 'Imprint',
@@ -809,7 +846,6 @@ const th: TranslationSchema = {
 				'<strong>Umami Analytics</strong> (Umami Software Inc.)',
 				'<strong>HubSpot</strong> (HubSpot Inc., USA)',
 				'<strong>GitHub Pages</strong> (GitHub Inc., USA)',
-				'<strong>Google Fonts</strong> (Google LLC, USA)',
 			],
 			transferHeading: '6. International Data Transfers',
 			transferText: 'Some service providers are based outside the EEA. We ensure appropriate safeguards are in place.',

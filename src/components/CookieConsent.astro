@@ -8,6 +8,17 @@
  * Ported from the original index.html cookie consent implementation,
  * adapted to match the current EDDI design-system tokens & theme toggle.
  */
+import { localePath, type Locale } from '../i18n';
+import type { TranslationSchema } from '../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const cb = t.cookieBanner;
+const privacyUrl = localePath(lang, '/privacy/');
 ---
 
 <!-- Analytics Scripts (skipped on localhost) -->
@@ -61,18 +72,17 @@
 	aria-modal="false"
 >
 	<div class="cookie-card">
-		<h2 class="cookie-title">We Value Your Privacy</h2>
+		<h2 class="cookie-title">{cb.title}</h2>
 		<p class="cookie-text">
-			We use cookies to enhance your browsing experience and analyze our traffic.
-			By clicking "Accept All", you consent to our use of cookies.
-			For more information, see our <a href="/privacy/" class="cookie-privacy-link">Privacy Policy</a>.
+			{cb.text}
+			{cb.privacyNote} <a href={privacyUrl} class="cookie-privacy-link">{t.legal.privacyLink}</a>.
 		</p>
 		<div class="cookie-actions">
 			<button id="cookie-settings" type="button" class="cookie-btn cookie-btn-secondary">
-				Manage Cookies
+				{cb.manageCookies}
 			</button>
 			<button id="cookie-accept-all" type="button" class="cookie-btn cookie-btn-primary">
-				Accept All
+				{cb.acceptAll}
 			</button>
 		</div>
 	</div>
@@ -88,7 +98,7 @@
 >
 	<div class="cookie-card cookie-card-modal">
 		<div class="cookie-modal-header">
-			<h3 class="cookie-title">Manage Your Preferences</h3>
+			<h3 class="cookie-title">{cb.modalTitle}</h3>
 			<button
 				id="close-cookie-settings"
 				type="button"
@@ -103,52 +113,52 @@
 		</div>
 
 		<p class="cookie-text">
-			You can adjust your cookie settings below. Necessary cookies cannot be disabled.
+			{cb.modalDesc}
 		</p>
 
 		<div class="cookie-preferences">
 			<!-- Necessary (always on) -->
 			<div class="cookie-pref-item">
 				<div class="cookie-pref-header">
-					<span class="cookie-pref-label">Necessary Cookies</span>
+					<span class="cookie-pref-label">{cb.necessaryLabel}</span>
 					<div class="cookie-toggle cookie-toggle-locked">
 						<div class="cookie-toggle-track active"><div class="cookie-toggle-thumb"></div></div>
 					</div>
 				</div>
-				<p class="cookie-pref-desc">Required for the website to function properly.</p>
+				<p class="cookie-pref-desc">{cb.necessaryDesc}</p>
 			</div>
 
 			<!-- Analytics -->
 			<div class="cookie-pref-item">
 				<div class="cookie-pref-header">
-					<label class="cookie-pref-label" for="analytics-cookies">Analytics &amp; Performance</label>
+					<label class="cookie-pref-label" for="analytics-cookies">{cb.analyticsLabel}</label>
 					<label class="cookie-toggle">
 						<input id="analytics-cookies" name="analytics-cookies" type="checkbox" class="cookie-toggle-input" />
 						<div class="cookie-toggle-track"><div class="cookie-toggle-thumb"></div></div>
 					</label>
 				</div>
-				<p class="cookie-pref-desc">Help us understand how visitors interact with our website.</p>
+				<p class="cookie-pref-desc">{cb.analyticsDesc}</p>
 			</div>
 
 			<!-- Marketing -->
 			<div class="cookie-pref-item">
 				<div class="cookie-pref-header">
-					<label class="cookie-pref-label" for="marketing-cookies">Marketing Cookies</label>
+					<label class="cookie-pref-label" for="marketing-cookies">{cb.marketingLabel}</label>
 					<label class="cookie-toggle">
 						<input id="marketing-cookies" name="marketing-cookies" type="checkbox" class="cookie-toggle-input" />
 						<div class="cookie-toggle-track"><div class="cookie-toggle-thumb"></div></div>
 					</label>
 				</div>
-				<p class="cookie-pref-desc">Used to track visitors across websites to display relevant advertisements.</p>
+				<p class="cookie-pref-desc">{cb.marketingDesc}</p>
 			</div>
 		</div>
 
 		<div class="cookie-actions">
 			<button id="cookie-accept-necessary" type="button" class="cookie-btn cookie-btn-secondary">
-				Reject All
+				{cb.rejectAll}
 			</button>
 			<button id="save-cookie-preferences" type="button" class="cookie-btn cookie-btn-primary">
-				Save Preferences
+				{cb.savePreferences}
 			</button>
 		</div>
 	</div>

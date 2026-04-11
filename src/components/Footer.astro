@@ -97,6 +97,7 @@ const t = await getTranslations(lang);
 				<a href="https://github.com/labsai/EDDI/blob/main/SECURITY.md" target="_blank" rel="noopener">{t.footer.securityPolicy}</a>
 				<a href="https://github.com/labsai/EDDI/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">{t.footer.codeOfConduct}</a>
 				<a href="https://github.com/labsai/EDDI/discussions" target="_blank" rel="noopener">{t.footer.discussions}</a>
+				<a href={localePath(lang, '/contact/')}>{t.footer.contactLink}</a>
 				<a href={localePath(lang, '/imprint/')}>{t.legal.imprintLink}</a>
 				<a href={localePath(lang, '/privacy/')}>{t.legal.privacyLink}</a>
 			</div>

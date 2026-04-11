@@ -99,6 +99,7 @@ const de: TranslationSchema = {
 		securityPolicy: 'Sicherheitsrichtlinie ↗',
 		codeOfConduct: 'Verhaltenskodex ↗',
 		discussions: 'Diskussionen ↗',
+		contactLink: 'Kontakt',
 		initiated: 'Initiiert in Wien. Mit ❤️ in Europa entwickelt. Gemacht für die Welt.',
 	},
 	newsletter: {
@@ -769,6 +770,41 @@ const de: TranslationSchema = {
 		},
 	},
 
+	// ─── Cookie Consent Banner ──────────────────────────────────
+	cookieBanner: {
+		title: 'Wir schätzen Ihre Privatsphäre',
+		text: 'Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern und unseren Datenverkehr zu analysieren. Durch Klicken auf „Alle akzeptieren" stimmen Sie der Verwendung von Cookies zu.',
+		privacyNote: 'Weitere Informationen finden Sie in unserer',
+		acceptAll: 'Alle akzeptieren',
+		manageCookies: 'Cookies verwalten',
+		modalTitle: 'Einstellungen verwalten',
+		modalDesc: 'Sie können Ihre Cookie-Einstellungen unten anpassen. Notwendige Cookies können nicht deaktiviert werden.',
+		necessaryLabel: 'Notwendige Cookies',
+		necessaryDesc: 'Erforderlich für die ordnungsgemäße Funktion der Website.',
+		analyticsLabel: 'Analyse & Leistung',
+		analyticsDesc: 'Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.',
+		marketingLabel: 'Marketing-Cookies',
+		marketingDesc: 'Werden verwendet, um Besucher über Websites hinweg zu verfolgen und relevante Werbung anzuzeigen.',
+		rejectAll: 'Alle ablehnen',
+		savePreferences: 'Einstellungen speichern',
+	},
+
+	// ─── Contact Page ───────────────────────────────────────────
+	contact: {
+		title: 'Kontakt',
+		description: 'Kontaktieren Sie das EDDI-Team — bleiben Sie über Releases, Features und Enterprise-AI-Orchestrierung informiert.',
+		heading: 'Kontakt aufnehmen',
+		subheading: 'Haben Sie Fragen? Möchten Sie mehr über EDDI für Ihre Organisation erfahren? Kontaktieren Sie uns.',
+		newsletterTitle: 'Auf dem Laufenden bleiben',
+		newsletterDesc: 'Erhalten Sie Updates zu neuen Releases, Features und Best Practices für Enterprise-AI-Orchestrierung. Kein Spam — nur relevante Inhalte.',
+		directContactTitle: 'Direkter Kontakt',
+		directContactDesc: 'Bevorzugen Sie E-Mail? Erreichen Sie uns direkt unter:',
+		email: 'office@labs.ai',
+		githubTitle: 'Open-Source-Community',
+		githubDesc: 'Beteiligen Sie sich auf GitHub — melden Sie Probleme, fordern Sie Features an oder tragen Sie Code bei.',
+		githubLink: 'EDDI auf GitHub besuchen',
+	},
+
 	// ─── Legal Pages ────────────────────────────────────────────
 	legal: {
 		imprintLink: 'Impressum',
@@ -872,7 +908,6 @@ const de: TranslationSchema = {
 				'<strong>Umami Analytics</strong> (Umami Software Inc.) — Datenschutzfreundliche, cookielose Analyse. Es werden keine personenbezogenen Daten erfasst oder gespeichert.',
 				'<strong>HubSpot</strong> (HubSpot Inc., USA) — Newsletter-Anmeldeformular und Kontaktverwaltung. Daten werden unter Standardvertragsklauseln in die USA übermittelt. Nur mit Ihrer Einwilligung aktiviert.',
 				'<strong>GitHub Pages</strong> (GitHub Inc., USA) — Website-Hosting. Zugriffsprotokolle können von GitHub verarbeitet werden.',
-				'<strong>Google Fonts</strong> (Google LLC, USA) — Laden von Webschriftarten. Ihre IP-Adresse wird beim Laden der Schriftarten an Google-Server übermittelt.',
 			],
 
 			transferHeading: '6. Internationale Datenübermittlung',

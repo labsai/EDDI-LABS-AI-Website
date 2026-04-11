@@ -1,0 +1,8 @@
+---
+import ContactContent from '../components/pages/ContactContent.astro';
+import { getTranslations, type Locale } from '../i18n';
+const lang: Locale = 'en';
+const t = await getTranslations(lang);
+---
+
+<ContactContent lang={lang} t={t} />

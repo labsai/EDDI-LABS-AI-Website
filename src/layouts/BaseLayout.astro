@@ -125,10 +125,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 			})();
 		</script>
 
-		<!-- Google Fonts: Outfit + JetBrains Mono -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+		<!-- Fonts: self-hosted via fontsource (no Google CDN requests) -->
 	</head>
 	<body>
 		<a href="#main-content" class="skip-to-content">Skip to content</a>
@@ -179,7 +176,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 			});
 		</script>
 
-		<CookieConsent />
+		<CookieConsent lang={lang} t={tMeta} />
 	</body>
 </html>
 

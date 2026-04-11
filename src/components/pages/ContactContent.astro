@@ -1,0 +1,166 @@
+---
+/**
+ * Contact page content — newsletter signup, direct contact, and community links.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterSignup from '../NewsletterSignup.astro';
+import type { TranslationSchema, Locale } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const c = t.contact;
+---
+
+<BaseLayout title={c.title} description={c.description} lang={lang}>
+	<article class="contact-page">
+		<header class="contact-hero">
+			<h1>{c.heading}</h1>
+			<p class="contact-subheading">{c.subheading}</p>
+		</header>
+
+		<div class="contact-body">
+			<!-- Newsletter Section -->
+			<section class="contact-section">
+				<NewsletterSignup lang={lang} />
+			</section>
+
+			<!-- Direct Contact + GitHub -->
+			<div class="contact-grid">
+				<section class="contact-card">
+					<div class="contact-card-icon">
+						<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+							<polyline points="22,6 12,13 2,6"/>
+						</svg>
+					</div>
+					<h2>{c.directContactTitle}</h2>
+					<p>{c.directContactDesc}</p>
+					<a href={`mailto:${c.email}`} class="contact-email-link">{c.email}</a>
+				</section>
+
+				<section class="contact-card">
+					<div class="contact-card-icon">
+						<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+						</svg>
+					</div>
+					<h2>{c.githubTitle}</h2>
+					<p>{c.githubDesc}</p>
+					<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener" class="contact-github-link">{c.githubLink} →</a>
+				</section>
+			</div>
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.contact-page {
+		padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+		max-width: 60rem;
+		margin: 0 auto;
+	}
+
+	.contact-hero {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.contact-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		margin: 0 0 0.75rem;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.contact-subheading {
+		font-size: 1.125rem;
+		color: var(--color-text-muted);
+		max-width: 38rem;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.contact-body {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.5rem;
+	}
+
+	.contact-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		padding: 2rem;
+		transition: border-color 0.3s, transform 0.3s;
+	}
+
+	.contact-card:hover {
+		border-color: var(--color-accent-400);
+		transform: translateY(-2px);
+	}
+
+	.contact-card-icon {
+		width: 3.5rem;
+		height: 3.5rem;
+		border-radius: 0.75rem;
+		background: color-mix(in srgb, var(--color-accent-400) 15%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-accent-400) 25%, transparent);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-accent-400);
+		margin-bottom: 1.25rem;
+	}
+
+	.contact-card h2 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.5rem;
+		border: none;
+		padding: 0;
+	}
+
+	.contact-card p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		margin: 0 0 1rem;
+		font-size: 0.9375rem;
+	}
+
+	.contact-email-link,
+	.contact-github-link {
+		color: var(--color-accent-400);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1rem;
+		transition: color 0.2s;
+	}
+
+	.contact-email-link:hover,
+	.contact-github-link:hover {
+		color: var(--color-accent-300);
+		text-decoration: underline;
+	}
+
+	/* The newsletter section inherits its own styling from NewsletterSignup */
+	.contact-section :global(.newsletter-section) {
+		border-top: none;
+		padding-top: 0;
+	}
+</style>

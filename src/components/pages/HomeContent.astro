@@ -6,7 +6,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroImage from '../../assets/abstract_orchestrator.png';
-import NewsletterSignup from '../NewsletterSignup.astro';
+
 import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
 
@@ -179,8 +179,7 @@ const { lang, t } = Astro.props;
 	</div>
 </section>
 
-<!-- Newsletter Signup -->
-<NewsletterSignup lang={lang} />
+
 
 <!-- FAQ -->
 <section class="py-24 max-w-5xl mx-auto px-6 border-t border-zinc-800/60 mb-20">

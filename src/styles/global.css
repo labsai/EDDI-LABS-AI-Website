@@ -1,4 +1,7 @@
-/* Google Fonts are loaded via <link> tags in BaseLayout.astro */
+/* Self-hosted fonts via fontsource — no Google CDN requests (GDPR-safe) */
+@import '@fontsource-variable/outfit';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
 
 @import 'tailwindcss/theme.css';
 @import 'tailwindcss/utilities.css';
