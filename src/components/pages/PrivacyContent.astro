@@ -1,0 +1,306 @@
+---
+/**
+ * Privacy Policy page content — DSGVO Art. 13/14 + §165 TKG 2021.
+ * Full privacy policy covering all data processing on eddi.labs.ai.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { TranslationSchema, Locale } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const p = t.legal.privacy;
+---
+
+<BaseLayout title={p.title} description={p.description} lang={lang}>
+	<article class="legal-page">
+		<header class="legal-hero">
+			<h1>{p.heading}</h1>
+			<p class="legal-updated">{p.lastUpdated}</p>
+		</header>
+
+		<div class="legal-body">
+			<p class="legal-intro" set:html={p.intro} />
+
+			<!-- 1. Data Controller -->
+			<section class="legal-section">
+				<h2>{p.controllerHeading}</h2>
+				<p>{p.controllerText}</p>
+				<div class="legal-card">
+					<p class="legal-company-name">{p.controllerName}</p>
+					<p>{p.controllerAddress}</p>
+					<p>Email: <a href={`mailto:${p.controllerEmail}`}>{p.controllerEmail}</a></p>
+					<p>VAT: {p.controllerVat}</p>
+				</div>
+			</section>
+
+			<!-- 2. Data Collection -->
+			<section class="legal-section">
+				<h2>{p.collectionHeading}</h2>
+
+				<h3>{p.collectionProvidedHeading}</h3>
+				<ul>
+					{p.collectionProvidedItems.map((item) => <li>{item}</li>)}
+				</ul>
+
+				<h3>{p.collectionAutoHeading}</h3>
+				<ul>
+					{p.collectionAutoItems.map((item) => <li>{item}</li>)}
+				</ul>
+			</section>
+
+			<!-- 3. Purpose and Legal Basis -->
+			<section class="legal-section">
+				<h2>{p.purposeHeading}</h2>
+
+				<h3>{p.purposeConsentHeading}</h3>
+				<ul>
+					{p.purposeConsentItems.map((item) => <li>{item}</li>)}
+				</ul>
+
+				<h3>{p.purposeLegitHeading}</h3>
+				<ul>
+					{p.purposeLegitItems.map((item) => <li>{item}</li>)}
+				</ul>
+			</section>
+
+			<!-- 4. Cookies -->
+			<section class="legal-section">
+				<h2>{p.cookieHeading}</h2>
+				<p>{p.cookieIntro}</p>
+
+				<div class="legal-cookie-grid">
+					<div class="legal-card">
+						<h4>{p.cookieNecessaryHeading}</h4>
+						<p>{p.cookieNecessaryDesc}</p>
+					</div>
+					<div class="legal-card">
+						<h4>{p.cookieAnalyticsHeading}</h4>
+						<p>{p.cookieAnalyticsDesc}</p>
+					</div>
+					<div class="legal-card">
+						<h4>{p.cookieMarketingHeading}</h4>
+						<p>{p.cookieMarketingDesc}</p>
+					</div>
+					<div class="legal-card">
+						<h4>{p.cookieCookielessHeading}</h4>
+						<p>{p.cookieCookielessDesc}</p>
+					</div>
+				</div>
+
+				<p class="legal-note">{p.cookieManage}</p>
+			</section>
+
+			<!-- 5. Third-Party Services -->
+			<section class="legal-section">
+				<h2>{p.thirdPartyHeading}</h2>
+				<p>{p.thirdPartyIntro}</p>
+				<ul class="legal-processors">
+					{p.thirdPartyItems.map((item) => <li set:html={item} />)}
+				</ul>
+			</section>
+
+			<!-- 6. International Transfers -->
+			<section class="legal-section">
+				<h2>{p.transferHeading}</h2>
+				<p>{p.transferText}</p>
+			</section>
+
+			<!-- 7. Data Retention -->
+			<section class="legal-section">
+				<h2>{p.retentionHeading}</h2>
+				<p>{p.retentionText}</p>
+			</section>
+
+			<!-- 8. Your Rights -->
+			<section class="legal-section">
+				<h2>{p.rightsHeading}</h2>
+				<p>{p.rightsIntro}</p>
+				<ul class="legal-rights">
+					{p.rightsItems.map((item) => <li set:html={item} />)}
+				</ul>
+				<p set:html={p.rightsContact} />
+			</section>
+
+			<!-- 9. Data Security -->
+			<section class="legal-section">
+				<h2>{p.securityHeading}</h2>
+				<p>{p.securityText}</p>
+			</section>
+
+			<!-- 10. Children -->
+			<section class="legal-section">
+				<h2>{p.childrenHeading}</h2>
+				<p>{p.childrenText}</p>
+			</section>
+
+			<!-- 11. Changes -->
+			<section class="legal-section">
+				<h2>{p.changesHeading}</h2>
+				<p>{p.changesText}</p>
+			</section>
+
+			<!-- 12. Supervisory Authority -->
+			<section class="legal-section">
+				<h2>{p.authorityHeading}</h2>
+				<p>{p.authorityText}</p>
+				<div class="legal-card">
+					<p class="legal-company-name">{p.authorityName}</p>
+					<p><a href={p.authorityUrl} target="_blank" rel="noopener">{p.authorityUrl}</a></p>
+				</div>
+			</section>
+
+			<!-- 13. Contact -->
+			<section class="legal-section">
+				<h2>{p.contactHeading}</h2>
+				<p>{p.contactText}</p>
+				<div class="legal-card">
+					<p set:html={p.contactDetails} />
+				</div>
+			</section>
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.legal-page {
+		padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+		max-width: 52rem;
+		margin: 0 auto;
+	}
+
+	.legal-hero {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.legal-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		margin: 0 0 0.75rem;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.legal-updated {
+		font-size: 0.9375rem;
+		color: var(--color-text-subtle);
+		margin: 0;
+	}
+
+	.legal-intro {
+		font-size: 1.0625rem;
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		margin-bottom: 2rem;
+	}
+
+	.legal-body {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.legal-section h2 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.legal-section h3 {
+		font-size: 1.0625rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 1rem 0 0.5rem;
+	}
+
+	.legal-section h4 {
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 0 0 0.375rem;
+	}
+
+	.legal-section p {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		margin: 0 0 0.5rem;
+	}
+
+	.legal-section ul {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		padding-inline-start: 1.5rem;
+		margin: 0.5rem 0 1rem;
+	}
+
+	.legal-section li {
+		margin-bottom: 0.5rem;
+	}
+
+	.legal-section :global(a) {
+		color: var(--color-accent-400);
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--color-accent-400) 40%, transparent);
+		transition: text-decoration-color 0.2s;
+	}
+
+	.legal-section :global(a:hover) {
+		text-decoration-color: var(--color-accent-400);
+	}
+
+	.legal-section :global(strong) {
+		color: var(--color-text);
+		font-weight: 600;
+	}
+
+	.legal-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1.25rem 1.5rem;
+		margin: 0.75rem 0;
+	}
+
+	.legal-card p {
+		margin: 0.25rem 0;
+	}
+
+	.legal-company-name {
+		font-size: 1.0625rem;
+		font-weight: 700;
+		color: var(--color-text) !important;
+	}
+
+	.legal-note {
+		font-size: 0.875rem;
+		color: var(--color-text-subtle) !important;
+		font-style: italic;
+	}
+
+	.legal-cookie-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		gap: 0.75rem;
+		margin: 1rem 0;
+	}
+
+	.legal-cookie-grid .legal-card {
+		margin: 0;
+	}
+
+	.legal-processors li,
+	.legal-rights li {
+		margin-bottom: 0.75rem;
+	}
+</style>

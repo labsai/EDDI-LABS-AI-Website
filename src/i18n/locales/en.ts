@@ -806,6 +806,168 @@ const en = {
 			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 17+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia\'s PDPA, and China\'s PIPL. Compliance is not an afterthought — it is an architectural foundation.',
 		},
 	},
+
+	// ─── Legal Pages ────────────────────────────────────────────
+	legal: {
+		// Footer links
+		imprintLink: 'Imprint',
+		privacyLink: 'Privacy Policy',
+
+		// Cookie banner
+		cookiePrivacyNote: 'For more information, see our <a href="{privacyUrl}">Privacy Policy</a>.',
+
+		// ── Imprint (Impressum) ──────────────────────────────────
+		imprint: {
+			title: 'Imprint',
+			description: 'Legal notice and company information for EDDI by LABS.AI.',
+			heading: 'Imprint',
+			subheading: 'Information pursuant to §5 ECG (E-Commerce-Gesetz) and §25 MedienG (Mediengesetz)',
+
+			companyHeading: 'Company Information',
+			companyName: 'LABS.AI',
+			companyLegalForm: 'Ing. Gregor Jarisch',
+			address: 'Vienna, Austria',
+			vatId: 'ATU65272778',
+			managingPartners: 'Franz Weber, Gregor Jarisch',
+
+			contactHeading: 'Contact',
+			emailLabel: 'Email',
+			email: 'office@labs.ai',
+
+			managingPartnersHeading: 'Managing Partners',
+
+			vatHeading: 'VAT Identification Number',
+			vatNote: 'VAT ID pursuant to §27a UStG (Umsatzsteuergesetz)',
+
+			authorityHeading: 'Supervisory Authority',
+			authorityNote: 'Member of the Austrian Economic Chamber (WKÖ)',
+
+			disputeHeading: 'EU Dispute Resolution',
+			disputeText: 'The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. We are neither obligated nor willing to participate in a dispute resolution procedure before a consumer arbitration board.',
+
+			liabilityHeading: 'Liability for Content',
+			liabilityText: 'The contents of our pages were created with the greatest care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages according to §7 (1) ECG. However, according to §§8 to 10 ECG, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.',
+
+			linksHeading: 'Liability for Links',
+			linksText: 'Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot accept any liability for this third-party content. The respective provider or operator of the pages is always responsible for the content of the linked pages.',
+
+			copyrightHeading: 'Copyright',
+			copyrightText: 'The content and works created by the site operators on these pages are subject to Austrian copyright law. The reproduction, editing, distribution, and any kind of use outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected.',
+		},
+
+		// ── Privacy Policy ──────────────────────────────────────
+		privacy: {
+			title: 'Privacy Policy',
+			description: 'Privacy Policy for EDDI by LABS.AI — how we handle your data.',
+			heading: 'Privacy Policy',
+			lastUpdated: 'Last updated: April 11, 2026',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+
+			// 1. Data Controller
+			controllerHeading: '1. Data Controller',
+			controllerText: 'The data controller responsible for data processing on this website is:',
+			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
+			controllerAddress: 'Vienna, Austria',
+			controllerEmail: 'office@labs.ai',
+			controllerVat: 'ATU65272778',
+
+			// 2. Data Collection
+			collectionHeading: '2. What Data We Collect',
+			collectionProvidedHeading: '2.1 Information You Provide',
+			collectionProvidedItems: [
+				'Contact information (name, email) when you subscribe to our newsletter via HubSpot',
+				'Information you provide when contacting us',
+			],
+			collectionAutoHeading: '2.2 Information Collected Automatically',
+			collectionAutoItems: [
+				'Technical information: IP address (anonymized), browser type, operating system, referring URL',
+				'Usage data: pages viewed, time spent, navigation paths',
+				'This data is collected only with your consent via cookies, or without cookies via privacy-friendly analytics (Umami)',
+			],
+
+			// 3. Purpose and Legal Basis
+			purposeHeading: '3. Purpose and Legal Basis',
+			purposeConsentHeading: '3.1 Based on Consent (Art. 6(1)(a) GDPR)',
+			purposeConsentItems: [
+				'Google Analytics: website usage analysis (only after explicit cookie consent)',
+				'Newsletter: marketing communications via HubSpot (only after opt-in)',
+			],
+			purposeLegitHeading: '3.2 Based on Legitimate Interests (Art. 6(1)(f) GDPR)',
+			purposeLegitItems: [
+				'Umami Analytics: cookieless, privacy-friendly website analytics to improve our website (no personal data is stored)',
+				'Ensuring the security and functionality of our website',
+			],
+
+			// 4. Cookies
+			cookieHeading: '4. Cookies and Tracking Technologies',
+			cookieIntro: 'We use the following categories of cookies and tracking technologies:',
+			cookieNecessaryHeading: 'Necessary',
+			cookieNecessaryDesc: 'Essential for the website to function properly (e.g., cookie consent preference stored in localStorage). Cannot be disabled.',
+			cookieAnalyticsHeading: 'Analytics & Performance',
+			cookieAnalyticsDesc: 'Google Analytics (G-L1011GL1PY): Tracks website usage with cookies. Only activated after you explicitly consent via the cookie banner. Data is processed by Google LLC (USA) under Standard Contractual Clauses.',
+			cookieMarketingHeading: 'Marketing',
+			cookieMarketingDesc: 'Currently not used. The toggle is reserved for future use.',
+			cookieCookielessHeading: 'Cookieless Analytics',
+			cookieCookielessDesc: 'Umami Analytics: Privacy-friendly analytics that does not use cookies and does not collect personal data. Loaded without consent as it is GDPR-safe by design.',
+			cookieManage: 'You can manage your cookie preferences at any time via the "Manage Cookies" option in our cookie banner.',
+
+			// 5. Third-Party Services
+			thirdPartyHeading: '5. Third-Party Services and Data Processors',
+			thirdPartyIntro: 'We use the following third-party services to operate this website:',
+			thirdPartyItems: [
+				'<strong>Google Analytics</strong> (Google LLC, USA) — Website analytics. Data is transferred to the USA under Standard Contractual Clauses (Art. 46(2)(c) GDPR). Only activated with your consent.',
+				'<strong>Umami Analytics</strong> (Umami Software Inc.) — Privacy-friendly, cookieless analytics. No personal data is collected or stored.',
+				'<strong>HubSpot</strong> (HubSpot Inc., USA) — Newsletter signup form and contact management. Data is transferred to the USA under Standard Contractual Clauses. Only activated with your consent.',
+				'<strong>GitHub Pages</strong> (GitHub Inc., USA) — Website hosting. Access logs may be processed by GitHub.',
+				'<strong>Google Fonts</strong> (Google LLC, USA) — Web font loading. Your IP address is transmitted to Google servers when fonts are loaded.',
+			],
+
+			// 6. International Transfers
+			transferHeading: '6. International Data Transfers',
+			transferText: 'Some of our service providers are based outside the European Economic Area (EEA). When personal data is transferred to countries outside the EEA, we ensure appropriate safeguards are in place, including Standard Contractual Clauses approved by the European Commission or adequacy decisions.',
+
+			// 7. Data Retention
+			retentionHeading: '7. Data Retention',
+			retentionText: 'We retain your personal data only as long as necessary for the purposes for which it was collected. Newsletter subscriber data is retained until you unsubscribe. Analytics data is retained according to the respective service provider\'s retention policies (Google Analytics: 14 months; Umami: aggregated, non-personal).',
+
+			// 8. Your Rights
+			rightsHeading: '8. Your Rights',
+			rightsIntro: 'Under the GDPR, you have the following rights regarding your personal data:',
+			rightsItems: [
+				'<strong>Right of access</strong> (Art. 15) — Request a copy of your personal data',
+				'<strong>Right to rectification</strong> (Art. 16) — Request correction of inaccurate data',
+				'<strong>Right to erasure</strong> (Art. 17) — Request deletion of your personal data',
+				'<strong>Right to restrict processing</strong> (Art. 18) — Request restriction of processing',
+				'<strong>Right to data portability</strong> (Art. 20) — Receive your data in a machine-readable format',
+				'<strong>Right to object</strong> (Art. 21) — Object to processing based on legitimate interests',
+				'<strong>Right to withdraw consent</strong> (Art. 7(3)) — Withdraw consent at any time (e.g., via cookie settings)',
+			],
+			rightsContact: 'To exercise any of these rights, please contact us at <a href="mailto:office@labs.ai">office@labs.ai</a>. We will respond to your request within one month.',
+
+			// 9. Data Security
+			securityHeading: '9. Data Security',
+			securityText: 'We implement appropriate technical and organizational measures to protect your personal data, including HTTPS encryption for all data in transit, and access controls for administrative systems.',
+
+			// 10. Children
+			childrenHeading: '10. Children\'s Privacy',
+			childrenText: 'Our website is not intended for children under the age of 16. We do not knowingly collect personal data from children.',
+
+			// 11. Changes
+			changesHeading: '11. Changes to This Privacy Policy',
+			changesText: 'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the updated policy on this page and updating the "Last updated" date.',
+
+			// 12. Supervisory Authority
+			authorityHeading: '12. Supervisory Authority',
+			authorityText: 'You have the right to lodge a complaint with the competent supervisory authority. In Austria, this is:',
+			authorityName: 'Austrian Data Protection Authority (Datenschutzbehörde)',
+			authorityUrl: 'https://www.dsb.gv.at',
+
+			// 13. Contact
+			contactHeading: '13. Contact',
+			contactText: 'If you have questions about this Privacy Policy or our data practices, please contact us:',
+			contactDetails: 'LABS.AI — Data Protection<br>Vienna, Austria<br>Email: <a href="mailto:office@labs.ai">office@labs.ai</a>',
+		},
+	},
 };
 
 export type TranslationSchema = typeof en;

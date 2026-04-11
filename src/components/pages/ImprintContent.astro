@@ -1,0 +1,182 @@
+---
+/**
+ * Imprint (Impressum) page content — §5 ECG / §25 MedienG.
+ * Reuses the FeaturePage layout for consistent design.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { TranslationSchema, Locale } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const p = t.legal.imprint;
+---
+
+<BaseLayout title={p.title} description={p.description} lang={lang}>
+	<article class="legal-page">
+		<header class="legal-hero">
+			<h1>{p.heading}</h1>
+			<p class="legal-subheading">{p.subheading}</p>
+		</header>
+
+		<div class="legal-body">
+			<!-- Company Information -->
+			<section class="legal-section">
+				<h2>{p.companyHeading}</h2>
+				<div class="legal-card">
+					<p class="legal-company-name">{p.companyName}</p>
+					<p>{p.companyLegalForm}</p>
+					<p>{p.address}</p>
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section class="legal-section">
+				<h2>{p.contactHeading}</h2>
+				<div class="legal-card">
+					<p>{p.emailLabel}: <a href={`mailto:${p.email}`}>{p.email}</a></p>
+				</div>
+			</section>
+
+			<!-- Managing Partners -->
+			<section class="legal-section">
+				<h2>{p.managingPartnersHeading}</h2>
+				<div class="legal-card">
+					<p>{p.managingPartners}</p>
+				</div>
+			</section>
+
+			<!-- VAT -->
+			<section class="legal-section">
+				<h2>{p.vatHeading}</h2>
+				<div class="legal-card">
+					<p><strong>{p.vatId}</strong></p>
+					<p class="legal-note">{p.vatNote}</p>
+				</div>
+			</section>
+
+			<!-- Supervisory Authority -->
+			<section class="legal-section">
+				<h2>{p.authorityHeading}</h2>
+				<div class="legal-card">
+					<p>{p.authorityNote}</p>
+				</div>
+			</section>
+
+			<!-- EU Dispute Resolution -->
+			<section class="legal-section">
+				<h2>{p.disputeHeading}</h2>
+				<p set:html={p.disputeText} />
+			</section>
+
+			<!-- Liability for Content -->
+			<section class="legal-section">
+				<h2>{p.liabilityHeading}</h2>
+				<p>{p.liabilityText}</p>
+			</section>
+
+			<!-- Liability for Links -->
+			<section class="legal-section">
+				<h2>{p.linksHeading}</h2>
+				<p>{p.linksText}</p>
+			</section>
+
+			<!-- Copyright -->
+			<section class="legal-section">
+				<h2>{p.copyrightHeading}</h2>
+				<p>{p.copyrightText}</p>
+			</section>
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.legal-page {
+		padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+		max-width: 52rem;
+		margin: 0 auto;
+	}
+
+	.legal-hero {
+		text-align: center;
+		margin-bottom: 3rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.legal-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		margin: 0 0 0.75rem;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.legal-subheading {
+		font-size: 1rem;
+		color: var(--color-text-muted);
+		max-width: 38rem;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.legal-body {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.legal-section h2 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.75rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.legal-section p {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		margin: 0 0 0.5rem;
+	}
+
+	.legal-section :global(a) {
+		color: var(--color-accent-400);
+		text-decoration: underline;
+		text-decoration-color: color-mix(in srgb, var(--color-accent-400) 40%, transparent);
+		transition: text-decoration-color 0.2s;
+	}
+
+	.legal-section :global(a:hover) {
+		text-decoration-color: var(--color-accent-400);
+	}
+
+	.legal-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1.25rem 1.5rem;
+	}
+
+	.legal-card p {
+		margin: 0.25rem 0;
+	}
+
+	.legal-company-name {
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: var(--color-text) !important;
+	}
+
+	.legal-note {
+		font-size: 0.875rem;
+		color: var(--color-text-subtle) !important;
+		font-style: italic;
+	}
+</style>

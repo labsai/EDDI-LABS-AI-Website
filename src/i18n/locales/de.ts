@@ -768,6 +768,150 @@ const de: TranslationSchema = {
 				'Gesundheitswesen, Finanzdienstleistungen, Behörden, Fertigung und andere regulierte Sektoren können EDDI mit Zuversicht einsetzen. Die Plattform bietet die Transparenz, Auditierbarkeit und Kontrollmechanismen, die von über 15 regulatorischen Rahmenwerken gefordert werden — vom EU AI Act und der DSGVO in Europa über HIPAA in den USA, PIPEDA in Kanada, LGPD in Brasilien, APPI in Japan, POPIA in Südafrika bis hin zum PDPA in Südostasien. Compliance ist kein Nachgedanke — sie ist ein architektonisches Fundament.',
 		},
 	},
+
+	// ─── Legal Pages ────────────────────────────────────────────
+	legal: {
+		imprintLink: 'Impressum',
+		privacyLink: 'Datenschutzerklärung',
+		cookiePrivacyNote: 'Weitere Informationen finden Sie in unserer <a href="{privacyUrl}">Datenschutzerklärung</a>.',
+
+		imprint: {
+			title: 'Impressum',
+			description: 'Impressum und Firmeninformationen für EDDI von LABS.AI.',
+			heading: 'Impressum',
+			subheading: 'Angaben gemäß §5 ECG (E-Commerce-Gesetz) und §25 MedienG (Mediengesetz)',
+
+			companyHeading: 'Firmeninformationen',
+			companyName: 'LABS.AI',
+			companyLegalForm: 'Ing. Gregor Jarisch',
+			address: 'Wien, Österreich',
+			vatId: 'ATU65272778',
+			managingPartners: 'Franz Weber, Gregor Jarisch',
+
+			contactHeading: 'Kontakt',
+			emailLabel: 'E-Mail',
+			email: 'office@labs.ai',
+
+			managingPartnersHeading: 'Geschäftsführende Gesellschafter',
+
+			vatHeading: 'Umsatzsteuer-Identifikationsnummer',
+			vatNote: 'UID-Nummer gemäß §27a UStG (Umsatzsteuergesetz)',
+
+			authorityHeading: 'Aufsichtsbehörde',
+			authorityNote: 'Mitglied der Wirtschaftskammer Österreich (WKÖ)',
+
+			disputeHeading: 'EU-Streitbeilegung',
+			disputeText: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Wir sind weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+
+			liabilityHeading: 'Haftung für Inhalte',
+			liabilityText: 'Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß §7 Abs. 1 ECG für eigene Inhalte auf diesen Seiten verantwortlich. Nach §§8 bis 10 ECG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.',
+
+			linksHeading: 'Haftung für Links',
+			linksText: 'Unsere Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.',
+
+			copyrightHeading: 'Urheberrecht',
+			copyrightText: 'Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.',
+		},
+
+		privacy: {
+			title: 'Datenschutzerklärung',
+			description: 'Datenschutzerklärung für EDDI von LABS.AI — wie wir Ihre Daten verarbeiten.',
+			heading: 'Datenschutzerklärung',
+			lastUpdated: 'Letzte Aktualisierung: 11. April 2026',
+			intro: 'Bei LABS.AI setzen wir uns für den Schutz Ihrer Privatsphäre und die Sicherheit Ihrer personenbezogenen Daten ein. Diese Datenschutzerklärung erläutert, wie wir Ihre Informationen erfassen, verwenden und schützen, wenn Sie unsere EDDI-Website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>) nutzen.',
+
+			controllerHeading: '1. Verantwortlicher',
+			controllerText: 'Der für die Datenverarbeitung auf dieser Website Verantwortliche ist:',
+			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
+			controllerAddress: 'Wien, Österreich',
+			controllerEmail: 'office@labs.ai',
+			controllerVat: 'ATU65272778',
+
+			collectionHeading: '2. Welche Daten wir erheben',
+			collectionProvidedHeading: '2.1 Von Ihnen bereitgestellte Informationen',
+			collectionProvidedItems: [
+				'Kontaktdaten (Name, E-Mail), wenn Sie unseren Newsletter über HubSpot abonnieren',
+				'Informationen, die Sie bei der Kontaktaufnahme angeben',
+			],
+			collectionAutoHeading: '2.2 Automatisch erfasste Informationen',
+			collectionAutoItems: [
+				'Technische Informationen: IP-Adresse (anonymisiert), Browsertyp, Betriebssystem, Referrer-URL',
+				'Nutzungsdaten: besuchte Seiten, Verweildauer, Navigationspfade',
+				'Diese Daten werden nur mit Ihrer Einwilligung über Cookies oder ohne Cookies über datenschutzfreundliche Analysen (Umami) erhoben',
+			],
+
+			purposeHeading: '3. Zweck und Rechtsgrundlage',
+			purposeConsentHeading: '3.1 Auf Grundlage der Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)',
+			purposeConsentItems: [
+				'Google Analytics: Analyse der Websitenutzung (nur nach ausdrücklicher Cookie-Einwilligung)',
+				'Newsletter: Marketingkommunikation über HubSpot (nur nach Opt-in)',
+			],
+			purposeLegitHeading: '3.2 Auf Grundlage berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO)',
+			purposeLegitItems: [
+				'Umami Analytics: cookielose, datenschutzfreundliche Website-Analyse zur Verbesserung unserer Website (keine personenbezogenen Daten werden gespeichert)',
+				'Sicherstellung der Sicherheit und Funktionalität unserer Website',
+			],
+
+			cookieHeading: '4. Cookies und Tracking-Technologien',
+			cookieIntro: 'Wir verwenden die folgenden Kategorien von Cookies und Tracking-Technologien:',
+			cookieNecessaryHeading: 'Notwendig',
+			cookieNecessaryDesc: 'Für die Funktion der Website erforderlich (z.B. Cookie-Einstellungspräferenz in localStorage gespeichert). Kann nicht deaktiviert werden.',
+			cookieAnalyticsHeading: 'Analyse & Performance',
+			cookieAnalyticsDesc: 'Google Analytics (G-L1011GL1PY): Erfasst die Websitenutzung mittels Cookies. Wird erst nach Ihrer ausdrücklichen Einwilligung über das Cookie-Banner aktiviert. Daten werden von Google LLC (USA) unter Standardvertragsklauseln verarbeitet.',
+			cookieMarketingHeading: 'Marketing',
+			cookieMarketingDesc: 'Derzeit nicht in Verwendung. Der Schalter ist für zukünftige Nutzung reserviert.',
+			cookieCookielessHeading: 'Cookielose Analyse',
+			cookieCookielessDesc: 'Umami Analytics: Datenschutzfreundliche Analyse, die keine Cookies verwendet und keine personenbezogenen Daten erfasst. Wird ohne Einwilligung geladen, da es von Natur aus DSGVO-konform ist.',
+			cookieManage: 'Sie können Ihre Cookie-Einstellungen jederzeit über die Option „Cookies verwalten" in unserem Cookie-Banner ändern.',
+
+			thirdPartyHeading: '5. Drittanbieter und Auftragsverarbeiter',
+			thirdPartyIntro: 'Wir nutzen folgende Drittanbieter-Dienste zum Betrieb dieser Website:',
+			thirdPartyItems: [
+				'<strong>Google Analytics</strong> (Google LLC, USA) — Website-Analyse. Daten werden unter Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) in die USA übermittelt. Nur mit Ihrer Einwilligung aktiviert.',
+				'<strong>Umami Analytics</strong> (Umami Software Inc.) — Datenschutzfreundliche, cookielose Analyse. Es werden keine personenbezogenen Daten erfasst oder gespeichert.',
+				'<strong>HubSpot</strong> (HubSpot Inc., USA) — Newsletter-Anmeldeformular und Kontaktverwaltung. Daten werden unter Standardvertragsklauseln in die USA übermittelt. Nur mit Ihrer Einwilligung aktiviert.',
+				'<strong>GitHub Pages</strong> (GitHub Inc., USA) — Website-Hosting. Zugriffsprotokolle können von GitHub verarbeitet werden.',
+				'<strong>Google Fonts</strong> (Google LLC, USA) — Laden von Webschriftarten. Ihre IP-Adresse wird beim Laden der Schriftarten an Google-Server übermittelt.',
+			],
+
+			transferHeading: '6. Internationale Datenübermittlung',
+			transferText: 'Einige unserer Dienstleister haben ihren Sitz außerhalb des Europäischen Wirtschaftsraums (EWR). Bei der Übermittlung personenbezogener Daten in Länder außerhalb des EWR stellen wir sicher, dass geeignete Garantien bestehen, einschließlich von der Europäischen Kommission genehmigter Standardvertragsklauseln oder Angemessenheitsbeschlüsse.',
+
+			retentionHeading: '7. Datenspeicherung',
+			retentionText: 'Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die Zwecke erforderlich ist, für die sie erhoben wurden. Newsletter-Abonnentendaten werden bis zu Ihrer Abmeldung gespeichert. Analysedaten werden gemäß den Aufbewahrungsrichtlinien des jeweiligen Dienstanbieters gespeichert (Google Analytics: 14 Monate; Umami: aggregiert, nicht personenbezogen).',
+
+			rightsHeading: '8. Ihre Rechte',
+			rightsIntro: 'Gemäß der DSGVO haben Sie folgende Rechte in Bezug auf Ihre personenbezogenen Daten:',
+			rightsItems: [
+				'<strong>Auskunftsrecht</strong> (Art. 15) — Eine Kopie Ihrer personenbezogenen Daten anfordern',
+				'<strong>Recht auf Berichtigung</strong> (Art. 16) — Berichtigung unrichtiger Daten verlangen',
+				'<strong>Recht auf Löschung</strong> (Art. 17) — Löschung Ihrer personenbezogenen Daten verlangen',
+				'<strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18) — Einschränkung der Verarbeitung verlangen',
+				'<strong>Recht auf Datenübertragbarkeit</strong> (Art. 20) — Ihre Daten in einem maschinenlesbaren Format erhalten',
+				'<strong>Widerspruchsrecht</strong> (Art. 21) — Der Verarbeitung auf Grundlage berechtigter Interessen widersprechen',
+				'<strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3) — Einwilligung jederzeit widerrufen (z.B. über Cookie-Einstellungen)',
+			],
+			rightsContact: 'Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter <a href="mailto:office@labs.ai">office@labs.ai</a>. Wir werden Ihre Anfrage innerhalb eines Monats beantworten.',
+
+			securityHeading: '9. Datensicherheit',
+			securityText: 'Wir setzen geeignete technische und organisatorische Maßnahmen zum Schutz Ihrer personenbezogenen Daten ein, einschließlich HTTPS-Verschlüsselung für alle Daten während der Übertragung und Zugangskontrollen für administrative Systeme.',
+
+			childrenHeading: '10. Datenschutz für Kinder',
+			childrenText: 'Unsere Website ist nicht für Kinder unter 16 Jahren bestimmt. Wir erheben wissentlich keine personenbezogenen Daten von Kindern.',
+
+			changesHeading: '11. Änderungen dieser Datenschutzerklärung',
+			changesText: 'Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Über Änderungen informieren wir Sie durch Veröffentlichung der aktualisierten Erklärung auf dieser Seite und Aktualisierung des Datums „Letzte Aktualisierung".',
+
+			authorityHeading: '12. Aufsichtsbehörde',
+			authorityText: 'Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren. In Österreich ist dies:',
+			authorityName: 'Österreichische Datenschutzbehörde (DSB)',
+			authorityUrl: 'https://www.dsb.gv.at',
+
+			contactHeading: '13. Kontakt',
+			contactText: 'Bei Fragen zu dieser Datenschutzerklärung oder unserer Datenverarbeitung kontaktieren Sie uns bitte:',
+			contactDetails: 'LABS.AI — Datenschutz<br>Wien, Österreich<br>E-Mail: <a href="mailto:office@labs.ai">office@labs.ai</a>',
+		},
+	},
 };
 
 export default de;
