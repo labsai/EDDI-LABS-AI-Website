@@ -41,11 +41,12 @@ const p = t.legal.imprint;
 				</div>
 			</section>
 
-			<!-- Managing Partners -->
+			<!-- Open Source Project -->
 			<section class="legal-section">
-				<h2>{p.managingPartnersHeading}</h2>
+				<h2>{p.projectHeading}</h2>
 				<div class="legal-card">
-					<p>{p.managingPartners}</p>
+					<p>{p.projectMaintainers}</p>
+					<p set:html={p.projectLicense} />
 				</div>
 			</section>
 

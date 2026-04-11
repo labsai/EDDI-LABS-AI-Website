@@ -784,15 +784,17 @@ const de: TranslationSchema = {
 			companyHeading: 'Firmeninformationen',
 			companyName: 'LABS.AI',
 			companyLegalForm: 'Ing. Gregor Jarisch',
-			address: 'Wien, Österreich',
+			// TODO: Vollständige Adresse eintragen (§5 ECG)
+			address: 'Musterstraße 1, 1010 Wien, Österreich',
 			vatId: 'ATU65272778',
-			managingPartners: 'Franz Weber, Gregor Jarisch',
 
 			contactHeading: 'Kontakt',
 			emailLabel: 'E-Mail',
 			email: 'office@labs.ai',
 
-			managingPartnersHeading: 'Geschäftsführende Gesellschafter',
+			projectHeading: 'Open-Source-Projekt',
+			projectMaintainers: 'EDDI wird von Gregor Jarisch und Franz Weber betreut.',
+			projectLicense: 'Lizenziert unter der <a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>.',
 
 			vatHeading: 'Umsatzsteuer-Identifikationsnummer',
 			vatNote: 'UID-Nummer gemäß §27a UStG (Umsatzsteuergesetz)',
@@ -823,7 +825,8 @@ const de: TranslationSchema = {
 			controllerHeading: '1. Verantwortlicher',
 			controllerText: 'Der für die Datenverarbeitung auf dieser Website Verantwortliche ist:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
-			controllerAddress: 'Wien, Österreich',
+			// TODO: Vollständige Adresse eintragen
+			controllerAddress: 'Musterstraße 1, 1010 Wien, Österreich',
 			controllerEmail: 'office@labs.ai',
 			controllerVat: 'ATU65272778',
 
