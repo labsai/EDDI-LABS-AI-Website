@@ -4,6 +4,9 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 📈 Content Updates
+- `feat(website)`: **Test Count Milestone** — Updated all test count references from 1,700+ to 2,000+ across all 11 locale files (en, de, es, fr, pt, ar, zh, ja, ko, hi, th). Affected strings: `codeQualityDesc`, `footer.tests`, `home.trustTests`, `featuresOverview.cqCardDesc`, `pages.codeQuality.description`, and `pages.codeQuality.items`. 6 strings × 11 locales = 66 string replacements.
+
 ### 📊 Analytics & Cookie Consent
 - `feat(website)`: **Cookie Consent Banner** — Ported the cookie consent system from the original `index.html` into a standalone `CookieConsent.astro` component. Features Accept All / Manage Cookies flow, settings modal with Necessary / Analytics / Marketing toggles, focus trap for keyboard accessibility, Escape to close, and localStorage-persisted consent.
 - `feat(website)`: **Google Analytics (GA4)** — Consent-gated GA4 integration (`G-L1011GL1PY`). Only loads the gtag script after the user explicitly consents to analytics cookies.

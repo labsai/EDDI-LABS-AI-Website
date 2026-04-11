@@ -26,7 +26,7 @@ const ar: TranslationSchema = {
 		observability: 'المراقبة',
 		observabilityDesc: 'سجلات خطوط الأنابيب ومسارات التدقيق',
 		codeQuality: 'جودة الشفرة',
-		codeQualityDesc: '+1,700 اختبار، صفر إخفاقات',
+		codeQualityDesc: '+2,000 اختبار، صفر إخفاقات',
 		aiReady: 'جاهز للذكاء الاصطناعي',
 		aiReadyDesc: 'مصمم لوكلاء البرمجة',
 
@@ -70,7 +70,7 @@ const ar: TranslationSchema = {
 		subtitle: 'قائم على التكوين. مستضاف ذاتياً. جاهز للإنتاج.',
 		redHatCertified: 'حاوية معتمدة من Red Hat',
 		apache2: 'مرخص بـ Apache 2.0',
-		tests: '+1,700 اختبار · صفر إخفاقات',
+		tests: '+2,000 اختبار · صفر إخفاقات',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		platform: 'المنصة',
 		develop: 'التطوير',
@@ -149,7 +149,7 @@ const ar: TranslationSchema = {
 		trustRedHatDesc: 'صورة Docker معتمدة من IBM',
 		trustApache: 'مرخص بـ Apache 2.0',
 		trustApacheDesc: '100% مفتوح المصدر وجاهز للمؤسسات',
-		trustTests: '+1,700 اختبار · 0 إخفاقات',
+		trustTests: '+2,000 اختبار · 0 إخفاقات',
 		trustTestsDesc: 'CI/CD صارم وتغطية الشفرة',
 		techTitle: 'مبني على تقنية مثبتة',
 		techJava: 'Java 25',
@@ -284,7 +284,7 @@ const ar: TranslationSchema = {
 		obsCardDesc:
 			'كل خطوة في خط الأنابيب مسجلة مع <strong>مسارات تدقيق غير قابلة للتغيير</strong> — الرموز والتكلفة والتوقيت واستدعاءات الأدوات.',
 		cqCardTitle: '🧪 جودة الشفرة',
-		cqCardDesc: '<strong>+1,700 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. CI/CD مطبق في كل دمج.',
+		cqCardDesc: '<strong>+2,000 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. CI/CD مطبق في كل دمج.',
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
 		aiCardDesc: '58 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
 	},
@@ -427,13 +427,13 @@ const ar: TranslationSchema = {
 		},
 		codeQuality: {
 			title: 'جودة الشفرة',
-			description: '+1,700 اختبار بصفر إخفاقات. صفر تنبيهات Checkstyle. بوابات جودة CI/CD مطبقة في كل دمج.',
+			description: '+2,000 اختبار بصفر إخفاقات. صفر تنبيهات Checkstyle. بوابات جودة CI/CD مطبقة في كل دمج.',
 			heading1: 'صرامة هندسية',
 			para1:
 				'يحافظ EDDI على <strong>جودة شفرة استثنائية</strong> من خلال الاختبارات الشاملة والتحليل الثابت وبوابات جودة CI/CD. كل طلب سحب يجب أن يجتاز مجموعة الاختبارات الكاملة قبل الدمج.',
 			heading2: 'مقاييس الجودة',
 			items: [
-				'<strong>+1,700 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
+				'<strong>+2,000 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
 				'<strong>صفر إخفاقات</strong> — CI نظيف في كل بناء',
 				'<strong>تطبيق Checkstyle</strong> — صفر تنبيهات، قواعد صارمة مطبقة في كل بناء',
 				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 58',

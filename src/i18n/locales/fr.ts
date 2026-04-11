@@ -26,7 +26,7 @@ const fr: TranslationSchema = {
 		observability: 'Observabilité',
 		observabilityDesc: 'Logs de pipeline et traces d\'audit',
 		codeQuality: 'Qualité du code',
-		codeQualityDesc: 'Plus de 1 700 tests, zéro échec',
+		codeQualityDesc: 'Plus de 2 000 tests, zéro échec',
 		aiReady: 'Prêt pour l\'IA',
 		aiReadyDesc: 'Conçu pour les agents de codage',
 
@@ -70,7 +70,7 @@ const fr: TranslationSchema = {
 		subtitle: 'Basé sur la configuration. Auto-hébergé. Prêt pour la production.',
 		redHatCertified: 'Conteneur certifié Red Hat',
 		apache2: 'Licence Apache 2.0',
-		tests: '1 700+ Tests · 0 Échecs',
+		tests: '2 000+ Tests · 0 Échecs',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		platform: 'Plateforme',
 		develop: 'Développement',
@@ -151,7 +151,7 @@ const fr: TranslationSchema = {
 		trustRedHatDesc: 'Image Docker validée par IBM',
 		trustApache: 'Sous Licence Apache 2.0',
 		trustApacheDesc: '100% open-source et Enterprise-ready',
-		trustTests: 'Plus de 1 700 tests · 0 Échecs',
+		trustTests: 'Plus de 2 000 tests · 0 Échecs',
 		trustTestsDesc: 'Procédures de tests automatisés (CI/CD) exhaustives',
 		techTitle: 'Construit sur des Technologies Éprouvées',
 		techJava: 'Java 25',
@@ -297,7 +297,7 @@ const fr: TranslationSchema = {
 			'Chaque étape du pipeline est journalisée avec des <strong>pistes d\'audit immuables</strong> — tokens, coûts, durées et appels d\'outils.',
 		cqCardTitle: '🧪 Qualité du code',
 		cqCardDesc:
-			'<strong>Plus de 1 700 tests sans aucun échec.</strong> Zéro avertissement Checkstyle. CI/CD appliqué à chaque merge.',
+			'<strong>Plus de 2 000 tests sans aucun échec.</strong> Zéro avertissement Checkstyle. CI/CD appliqué à chaque merge.',
 		aiCardTitle: '🧩 Prêt pour l\'IA',
 		aiCardDesc:
 			'58 outils MCP, patterns CRUD prévisibles, APIs auto-documentées. <strong>Conçu pour que les agents de codage travaillent avec</strong>.',
@@ -444,13 +444,13 @@ const fr: TranslationSchema = {
 		codeQuality: {
 			title: 'Qualité du code',
 			description:
-				'Plus de 1 700 tests sans aucun échec. Zéro avertissement Checkstyle. Contrôle qualité CI/CD appliqué à chaque merge.',
+				'Plus de 2 000 tests sans aucun échec. Zéro avertissement Checkstyle. Contrôle qualité CI/CD appliqué à chaque merge.',
 			heading1: 'Rigueur d\'ingénierie',
 			para1:
 				'EDDI maintient une <strong>qualité de code exceptionnelle</strong> grâce à des tests exhaustifs, l\'analyse statique et des contrôles qualité CI/CD. Chaque pull request doit passer la suite de tests complète avant d\'être fusionnée.',
 			heading2: 'Métriques de qualité',
 			items: [
-				'<strong>Plus de 1 700 tests</strong> — Couverture unitaire, d\'intégration et de bout en bout',
+				'<strong>Plus de 2 000 tests</strong> — Couverture unitaire, d\'intégration et de bout en bout',
 				'<strong>Zéro échec</strong> — CI propre à chaque build',
 				'<strong>Application de Checkstyle</strong> — Zéro avertissement, règles strictes appliquées à chaque build',
 				'<strong>Tests des outils MCP</strong> — Couverture complète des 58 outils MCP',
