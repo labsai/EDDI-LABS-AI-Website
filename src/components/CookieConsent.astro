@@ -10,12 +10,26 @@
  */
 ---
 
-<!-- Umami Analytics — cookieless, no consent required -->
-<script defer src="https://cloud.umami.is/script.js" data-website-id="06a369b1-4a64-4262-9f6e-0a987ca7122a" is:inline></script>
-
-<!-- Google Analytics loader (consent-gated) -->
+<!-- Analytics Scripts (skipped on localhost) -->
 <script is:inline>
+	var __isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+
+	// Umami — cookieless, no consent required
+	if (!__isLocalhost) {
+		var u = document.createElement('script');
+		u.defer = true;
+		u.src = 'https://cloud.umami.is/script.js';
+		u.dataset.websiteId = '06a369b1-4a64-4262-9f6e-0a987ca7122a';
+		document.head.appendChild(u);
+	} else {
+		console.log('[Analytics] Umami skipped on localhost');
+	}
+
 	function enableGoogleAnalytics() {
+		if (__isLocalhost) {
+			console.log('[Analytics] Google Analytics skipped on localhost');
+			return;
+		}
 		try {
 			if (window.__gaLoaded) return;
 			window.__gaLoaded = true;
