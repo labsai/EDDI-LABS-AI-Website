@@ -171,12 +171,10 @@
 			modal.classList.remove('hidden');
 			document.body.style.overflow = 'hidden';
 
-			// Pre-fill checkboxes from current consent (read fresh, not stale)
+			// Pre-fill checkboxes: use stored consent, or default to enabled
 			var consent = getConsent();
-			if (consent) {
-				document.getElementById('analytics-cookies').checked = !!consent.analytics;
-				document.getElementById('marketing-cookies').checked = !!consent.marketing;
-			}
+			document.getElementById('analytics-cookies').checked = consent ? !!consent.analytics : true;
+			document.getElementById('marketing-cookies').checked = consent ? !!consent.marketing : true;
 
 			var closeBtn = document.getElementById('close-cookie-settings');
 			setTimeout(function () { closeBtn.focus(); }, 100);
