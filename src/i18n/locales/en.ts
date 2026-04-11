@@ -826,8 +826,7 @@ const en = {
 			companyHeading: 'Company Information',
 			companyName: 'LABS.AI',
 			companyLegalForm: 'Ing. Gregor Jarisch',
-			// TODO: Replace with full street address for §5 ECG compliance
-			address: 'Musterstraße 1, 1010 Vienna, Austria',
+			address: 'Lindengasse 58/6, 1070 Vienna, Austria',
 			vatId: 'ATU65272778',
 
 			contactHeading: 'Contact',
@@ -869,8 +868,7 @@ const en = {
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
-			// TODO: Replace with full street address
-			controllerAddress: 'Musterstraße 1, 1010 Vienna, Austria',
+			controllerAddress: 'Lindengasse 58/6, 1070 Vienna, Austria',
 			controllerEmail: 'office@labs.ai',
 			controllerVat: 'ATU65272778',
 

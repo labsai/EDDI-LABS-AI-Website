@@ -784,8 +784,7 @@ const de: TranslationSchema = {
 			companyHeading: 'Firmeninformationen',
 			companyName: 'LABS.AI',
 			companyLegalForm: 'Ing. Gregor Jarisch',
-			// TODO: Vollständige Adresse eintragen (§5 ECG)
-			address: 'Musterstraße 1, 1010 Wien, Österreich',
+			address: 'Lindengasse 58/6, 1070 Wien, Österreich',
 			vatId: 'ATU65272778',
 
 			contactHeading: 'Kontakt',
@@ -825,8 +824,7 @@ const de: TranslationSchema = {
 			controllerHeading: '1. Verantwortlicher',
 			controllerText: 'Der für die Datenverarbeitung auf dieser Website Verantwortliche ist:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',
-			// TODO: Vollständige Adresse eintragen
-			controllerAddress: 'Musterstraße 1, 1010 Wien, Österreich',
+			controllerAddress: 'Lindengasse 58/6, 1070 Wien, Österreich',
 			controllerEmail: 'office@labs.ai',
 			controllerVat: 'ATU65272778',
 
