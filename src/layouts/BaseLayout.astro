@@ -177,6 +177,29 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 		</script>
 
 		<CookieConsent lang={lang} t={tMeta} />
+
+		<!-- Email deobfuscation — assembles mailto links client-side to prevent scraping -->
+		<script is:inline>
+			document.addEventListener('astro:page-load', function () {
+				document.querySelectorAll('.obfuscated-email').forEach(function (el) {
+					var u = el.getAttribute('data-u');
+					var d = el.getAttribute('data-d');
+					if (u && d) {
+						var addr = u + '@' + d;
+						var a = document.createElement('a');
+						a.href = 'mailto:' + addr;
+						a.textContent = addr;
+						// Preserve any additional classes from the span
+						if (el.className) {
+							el.className.split(' ').forEach(function (cls) {
+								if (cls && cls !== 'obfuscated-email') a.classList.add(cls);
+							});
+						}
+						el.replaceWith(a);
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
 
