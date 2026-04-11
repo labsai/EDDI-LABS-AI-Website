@@ -6,6 +6,7 @@
  */
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/global.css';
 import { LOCALE_CODES, getLocaleFromUrl, getPathWithoutLocale, getDir, localePath, type Locale } from '../i18n';
 import { ClientRouter } from 'astro:transitions';
@@ -177,6 +178,8 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 				});
 			});
 		</script>
+
+		<CookieConsent />
 	</body>
 </html>
 
