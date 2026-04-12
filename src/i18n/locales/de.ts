@@ -212,8 +212,11 @@ const de: TranslationSchema = {
 		prerequisitesTitle: 'Voraussetzungen',
 		prereq1: '<strong>Docker</strong> (empfohlen) oder Java 25+',
 		prereq2: 'Ein LLM-Anbieter-API-Key (OpenAI, Anthropic, Google Gemini oder eine lokale Ollama-Instanz)',
-		step1Title: '1. EDDI mit Docker starten',
-		step1Desc: 'Der schnellste Weg, EDDI zu starten:',
+		step1Title: '1. EDDI installieren & starten',
+		step1Desc: 'Der schnellste Weg, EDDI zum Laufen zu bringen, ist das <strong>Ein-Befehl-Installationsskript</strong>. Es richtet EDDI + Ihre Wahl der Datenbank über Docker Compose ein, stellt einen Starter-Agent bereit und führt Sie durch die Konfiguration:',
+		step1TabInstaller: 'Installationsskript (Empfohlen)',
+		step1TabCompose: 'Docker Compose',
+		step1ComposeDesc: 'Wenn Sie manuelle Kontrolle bevorzugen, klonen Sie das Repository und verwenden Sie Docker Compose direkt:',
 		step1After: 'EDDI ist unter <code>http://localhost:7070</code> erreichbar.',
 		step2Title: '2. Via MCP verbinden',
 		step2Desc:

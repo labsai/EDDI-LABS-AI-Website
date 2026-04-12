@@ -36,7 +36,24 @@ const { lang, t } = Astro.props;
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step1Title}</h2>
 		<p set:html={t.gettingStarted.step1Desc} />
-		<pre><code>docker run -p 7070:7070 labsai/eddi:latest</code></pre>
+
+		<div class="gs-tabs" id="install-tabs">
+			<div class="gs-tab-bar" role="tablist">
+				<button class="gs-tab active" role="tab" aria-selected="true" aria-controls="panel-installer" id="tab-installer">{t.gettingStarted.step1TabInstaller}</button>
+				<button class="gs-tab" role="tab" aria-selected="false" aria-controls="panel-compose" id="tab-compose">{t.gettingStarted.step1TabCompose}</button>
+			</div>
+			<div class="gs-tab-panel active" role="tabpanel" id="panel-installer" aria-labelledby="tab-installer">
+				<p class="gs-os-label">Linux / macOS / WSL2:</p>
+				<pre><code>curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash</code></pre>
+				<p class="gs-os-label">Windows (PowerShell):</p>
+				<pre><code>iwr -useb https://raw.githubusercontent.com/labsai/EDDI/main/install.ps1 | iex</code></pre>
+			</div>
+			<div class="gs-tab-panel" role="tabpanel" id="panel-compose" aria-labelledby="tab-compose">
+				<p set:html={t.gettingStarted.step1ComposeDesc} />
+				<pre><code>docker compose up</code></pre>
+			</div>
+		</div>
+
 		<p set:html={t.gettingStarted.step1After} />
 	</section>
 	<section class="gs-section">
@@ -87,7 +104,7 @@ const { lang, t } = Astro.props;
 </BaseLayout>
 
 <style>
-	.gs-hero { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem; text-align: center; }
+	.gs-hero { padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 3rem; text-align: center; }
 	.gs-hero-inner { max-width: 42rem; margin: 0 auto; }
 	.gs-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 0 0 1rem; color: var(--color-text); }
 	.gs-subtitle { font-size: 1.125rem; color: var(--color-text-muted); margin: 0; }
@@ -108,4 +125,33 @@ const { lang, t } = Astro.props;
 	.gs-card strong { display: block; color: var(--color-text); margin-bottom: 0.25rem; }
 	.gs-card span { font-size: 0.8125rem; color: var(--color-text-subtle); }
 	@media (max-width: 40rem) { .gs-cards { grid-template-columns: 1fr; } }
+	/* Tabs */
+	.gs-tabs { margin: 0 0 1rem; }
+	.gs-tab-bar { display: flex; gap: 0; border-bottom: 1px solid var(--color-border); margin-bottom: 1.25rem; }
+	.gs-tab { background: none; border: none; padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 600; color: var(--color-text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s ease; font-family: inherit; }
+	.gs-tab:hover { color: var(--color-text); }
+	.gs-tab.active { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+	.gs-tab-panel { display: none; }
+	.gs-tab-panel.active { display: block; }
+	.gs-os-label { font-size: 0.8125rem; font-weight: 600; color: var(--color-text); margin: 0 0 0.375rem; }
+	.gs-os-label + pre { margin-bottom: 1rem; }
 </style>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const tabBar = document.querySelector('#install-tabs .gs-tab-bar');
+		if (!tabBar) return;
+		tabBar.addEventListener('click', (e) => {
+			const tab = (e.target as HTMLElement).closest('.gs-tab');
+			if (!tab) return;
+			const tabs = tabBar.querySelectorAll('.gs-tab');
+			const panels = document.querySelectorAll('#install-tabs .gs-tab-panel');
+			tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+			panels.forEach(p => p.classList.remove('active'));
+			tab.classList.add('active');
+			tab.setAttribute('aria-selected', 'true');
+			const panelId = tab.getAttribute('aria-controls');
+			if (panelId) document.getElementById(panelId)?.classList.add('active');
+		});
+	});
+</script>

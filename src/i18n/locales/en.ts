@@ -240,8 +240,11 @@ const en = {
 		prerequisitesTitle: 'Prerequisites',
 		prereq1: '<strong>Docker</strong> (recommended) or Java 25+',
 		prereq2: 'An LLM provider API key (OpenAI, Anthropic, Google Gemini, or a local Ollama instance)',
-		step1Title: '1. Start EDDI with Docker',
-		step1Desc: 'The fastest way to run EDDI:',
+		step1Title: '1. Install & Start EDDI',
+		step1Desc: 'The fastest way to get EDDI running is the <strong>one-command installer</strong>. It sets up EDDI + your choice of database via Docker Compose, deploys a starter agent, and walks you through configuration:',
+		step1TabInstaller: 'Install Script (Recommended)',
+		step1TabCompose: 'Docker Compose',
+		step1ComposeDesc: 'If you prefer manual control, clone the repo and use Docker Compose directly:',
 		step1After: 'EDDI will be available at <code>http://localhost:7070</code>.',
 		step2Title: '2. Connect via MCP',
 		step2Desc:
