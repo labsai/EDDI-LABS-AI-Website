@@ -29,6 +29,7 @@ const pagePath = getPathWithoutLocale(Astro.url);
 				class:list={['lang-dropdown-item', { active: loc === lang }]}
 				role="menuitem"
 				aria-current={loc === lang ? 'page' : undefined}
+				data-locale={loc}
 			>
 				<span class="lang-native">{LOCALES[loc].native}</span>
 				<span class="lang-label">{loc.toUpperCase()}</span>
@@ -152,11 +153,36 @@ const pagePath = getPathWithoutLocale(Astro.url);
 	function initLangPicker() {
 		document.querySelectorAll('.lang-dropdown-item').forEach(link => {
 			link.addEventListener('click', () => {
-				const href = link.getAttribute('href') || '/';
-				const segments = href.split('/').filter(Boolean);
-				const code = segments.length > 0 ? segments[0] : 'en';
+				const code = link.getAttribute('data-locale') || 'en';
 				localStorage.setItem('eddi-lang', code);
 			});
+		});
+
+		// Toggle aria-expanded on click and keyboard
+		document.querySelectorAll('.lang-picker-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const expanded = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!expanded));
+			});
+		});
+
+		// Close on outside click
+		document.addEventListener('click', (e) => {
+			if (!(e.target as Element)?.closest('.lang-picker')) {
+				document.querySelectorAll('.lang-picker-btn').forEach(btn => {
+					btn.setAttribute('aria-expanded', 'false');
+				});
+			}
+		});
+
+		// Close on Escape
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				document.querySelectorAll('.lang-picker-btn').forEach(btn => {
+					btn.setAttribute('aria-expanded', 'false');
+					(btn as HTMLElement).blur();
+				});
+			}
 		});
 	}
 	initLangPicker();

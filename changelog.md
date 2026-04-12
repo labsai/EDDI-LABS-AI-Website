@@ -3,6 +3,12 @@
 All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
+### 🔧 PR Code Review Fixes (Copilot)
+- `fix(website)`: **Duplicate English Route** — Fixed `[lang]/contact.astro` using `LOCALE_CODES` instead of `NON_DEFAULT_LOCALES`, which generated a duplicate `/en/contact/` page alongside the root `/contact/`.
+- `fix(website)`: **Language Picker Locale Detection** — Added `data-locale` attribute to language dropdown items. Previously the JS derived the locale from the URL path, which failed for English root paths (e.g., `/features/overview/` would store `features` as the locale code).
+- `fix(website)`: **Language Picker Accessibility** — Added click/keyboard toggle for `aria-expanded` on the language picker button, plus Escape-to-close and outside-click-to-close handlers. Previously `aria-expanded` was hardcoded to `false` despite CSS hover controlling visibility.
+- `docs(website)`: **AGENTS.md Refresh** — Updated project context from "migrating to Astro" to current architecture (Astro + Tailwind CSS v4, root-English i18n routing). Updated key files table to reflect current project structure.
+- `fix(website)`: **Vite Override Pin** — Pinned `overrides.vite` from `^7` to exact `7.3.2` to prevent unexpected breakage on lockfile regeneration.
 
 ### 📈 Content Updates
 - `feat(website)`: **Test Count Milestone** — Updated all test count references from 1,700+ to 2,000+ across all 11 locale files (en, de, es, fr, pt, ar, zh, ja, ko, hi, th). Affected strings: `codeQualityDesc`, `footer.tests`, `home.trustTests`, `featuresOverview.cqCardDesc`, `pages.codeQuality.description`, and `pages.codeQuality.items`. 6 strings × 11 locales = 66 string replacements.

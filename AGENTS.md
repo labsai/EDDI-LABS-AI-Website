@@ -4,20 +4,20 @@
 
 ## 1. Project Context
 
-**eddi-website** is the marketing site for EDDI, hosted on **GitHub Pages** at `eddi.labs.ai`. Currently a single HTML file, migrating to **Astro**.
+**eddi-website** is the marketing site for EDDI, hosted on **GitHub Pages** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
 
-### Current State → Target
+### Architecture
 
-| Aspect        | Current                              | Target                                      |
-| ------------- | ------------------------------------ | ------------------------------------------- |
-| **Framework** | Single `index.html` (1188 lines)     | Astro                                       |
-| **Styling**   | Tailwind via CDN                     | Tailwind (built)                            |
-| **i18n**      | None                                 | Astro i18n routing (`/en/`, `/de/`, `/ar/`) |
-| **RTL**       | None                                 | Arabic support with `dir="rtl"`             |
-| **Theme**     | Light only                           | Dark/Light toggle                           |
-| **Docs**      | Published separately at docs.labs.ai | Link to docs.labs.ai                        |
-| **Hosting**   | GitHub Pages (manual push)           | GitHub Pages via GitHub Actions             |
-| **Domain**    | `eddi.labs.ai` (CNAME file)          | Same                                        |
+| Aspect        | Details                                                       |
+| ------------- | ------------------------------------------------------------- |
+| **Framework** | Astro (static site generation)                                |
+| **Styling**   | Tailwind CSS v4 (built via `@tailwindcss/vite`)               |
+| **i18n**      | Root-English routing (`/` for en, `/{locale}/` for 10 others) |
+| **RTL**       | Arabic support with `dir="rtl"` and logical CSS properties    |
+| **Theme**     | Dark/Light toggle via `[data-theme]` attribute                |
+| **Docs**      | Published separately at docs.labs.ai                          |
+| **Hosting**   | GitHub Pages via GitHub Actions                               |
+| **Domain**    | `eddi.labs.ai` (CNAME file)                                   |
 
 ### Ecosystem
 
@@ -36,10 +36,13 @@
 
 ## 3. Key Files
 
-| File         | Purpose                                             |
-| ------------ | --------------------------------------------------- |
-| `index.html` | Current entire site (1188 lines) — migration source |
-| `CNAME`      | GitHub Pages domain: `eddi.labs.ai`                 |
+| File               | Purpose                                         |
+| ------------------ | ----------------------------------------------- |
+| `astro.config.mjs` | Astro configuration (i18n, sitemap, vite)       |
+| `src/i18n/`        | i18n core (locale definitions, translations)    |
+| `src/pages/`       | All page routes (root + `[lang]/` for i18n)     |
+| `src/components/`  | Layout and UI components                        |
+| `CNAME`            | GitHub Pages domain: `eddi.labs.ai`             |
 
 ### DO NOT
 
