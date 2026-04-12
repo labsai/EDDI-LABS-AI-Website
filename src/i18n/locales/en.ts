@@ -2,12 +2,14 @@
  * English translations — Source of truth.
  * All other locale files must export the same shape.
  */
+import { EDDI_VERSION } from '../version';
+
 const en = {
 	// ─── Site Meta ──────────────────────────────────────────────
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance (v6.0.0-RC1 Preview).',
+			`EDDI — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance (${EDDI_VERSION} Preview).`,
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
@@ -70,7 +72,7 @@ const en = {
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
 		bannerBadge: 'New',
-		bannerText: 'EDDI v6.0.0-RC1 is now available for developer preview!',
+		bannerText: `EDDI ${EDDI_VERSION} is now available for developer preview!`,
 		bannerLink: 'Get started',
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
@@ -136,7 +138,7 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			'Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Currently in <strong>v6.0.0-RC1 Preview</strong>.',
+			`Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Currently in <strong>${EDDI_VERSION} Preview</strong>.`,
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
@@ -180,6 +182,10 @@ const en = {
 		trustApacheDesc: '100% open-source & enterprise-ready',
 		trustTests: '2,000+ Tests · 0 Failures',
 		trustTestsDesc: 'Rigorous CI/CD & code coverage',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Container pulls from Docker Hub',
+		trustCI: 'CI Passing · CodeQL Clean',
+		trustCIDesc: 'Automated builds, security scanning & code analysis',
 		// Built on Proven Technology
 		techTitle: 'Built on Proven Technology',
 		techJava: 'Java 25',

@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const fr: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — L\'orchestrateur d\'IA d\'entreprise. Plateforme d\'agents IA auto-hébergée et pilotée par la configuration, avec gestion visuelle, architecture sécurité intrinsèque et conformité intégrée (v6.0.0-RC1 Preview).',
+			`EDDI — L'orchestrateur d'IA d'entreprise. Plateforme d'agents IA auto-hébergée et pilotée par la configuration, avec gestion visuelle, architecture sécurité intrinsèque et conformité intégrée (${EDDI_VERSION} Preview).`,
 	},
 	nav: {
 		features: 'Fonctionnalités',
@@ -59,7 +60,7 @@ const fr: TranslationSchema = {
 		getStartedCta: 'Démarrer →',
 		viewOnGithub: 'Voir sur GitHub ↗',
 		bannerBadge: 'Nouveau',
-		bannerText: 'EDDI v6.0.0-RC1 est désormais disponible en Developer Preview !',
+		bannerText: `EDDI ${EDDI_VERSION} est désormais disponible en Developer Preview !`,
 		bannerLink: 'Commencer',
 		notFoundTitle: 'Page introuvable',
 		notFoundDesc: 'La route d\'orchestration IA que vous recherchez a été déconnectée ou déplacée.',
@@ -112,7 +113,7 @@ const fr: TranslationSchema = {
 		heroTitle: 'L\'orchestrateur',
 		heroHighlight: 'd\'IA d\'entreprise',
 		heroTagline:
-			'Créez, déployez et gérez des agents IA — sans écrire de code. Piloté par la configuration, auto-hébergé et conforme dès la première installation. Actuellement en phase <strong>v6.0.0-RC1 Preview</strong>.',
+			`Créez, déployez et gérez des agents IA — sans écrire de code. Piloté par la configuration, auto-hébergé et conforme dès la première installation. Actuellement en phase <strong>${EDDI_VERSION} Preview</strong>.`,
 		problemTitle: 'Le Problème',
 		problemDesc:
 			'L\'orchestration d\'IA d\'entreprise est <strong>fragmentée et douloureuse</strong>. Les équipes sont bloquées dans un cycle de développement brisé :',
@@ -153,6 +154,10 @@ const fr: TranslationSchema = {
 		trustApacheDesc: '100% open-source et Enterprise-ready',
 		trustTests: 'Plus de 2 000 tests · 0 Échecs',
 		trustTestsDesc: 'Procédures de tests automatisés (CI/CD) exhaustives',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Téléchargements de conteneurs depuis Docker Hub',
+		trustCI: 'CI réussi · CodeQL propre',
+		trustCIDesc: 'Builds automatisés, analyse de sécurité et analyse de code',
 		techTitle: 'Construit sur des Technologies Éprouvées',
 		techJava: 'Java 25',
 		techJavaDesc: 'Runtime pour l\'entreprise',

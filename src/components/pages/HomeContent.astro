@@ -110,7 +110,7 @@ const { lang, t } = Astro.props;
 	<div class="text-center mb-12">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.trustedTitle}</h2>
 	</div>
-	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
 		{[
 			{ title: t.home.trustRedHat, desc: t.home.trustRedHatDesc, icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
 			{ title: t.home.trustApache, desc: t.home.trustApacheDesc, icon: '<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>' },
@@ -126,6 +126,32 @@ const { lang, t } = Astro.props;
 				</div>
 			</div>
 		))}
+	</div>
+	<!-- Social proof row: Docker Pulls + CI badges -->
+	<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+		<a href="https://hub.docker.com/r/labsai/eddi" target="_blank" rel="noopener" class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group no-underline!">
+			<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M2 13h20"/><rect x="5" y="10" width="3" height="3"/><rect x="10" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/><rect x="5" y="15" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/></svg>
+			</div>
+			<div class="text-center sm:text-left">
+				<strong class="block text-white mb-1">{t.home.trustDocker}</strong>
+				<span class="text-sm text-zinc-400">{t.home.trustDockerDesc}</span>
+				<img src="https://img.shields.io/docker/pulls/labsai/eddi?style=flat-square&color=f59e0b&labelColor=27272a" alt="Docker Pulls" class="mt-2 h-5 inline-block" loading="lazy" />
+			</div>
+		</a>
+		<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener" class="h-full flex flex-col sm:flex-row items-center sm:items-start gap-4 p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group no-underline!">
+			<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+				<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+			</div>
+			<div class="text-center sm:text-left">
+				<strong class="block text-white mb-1">{t.home.trustCI}</strong>
+				<span class="text-sm text-zinc-400">{t.home.trustCIDesc}</span>
+				<div class="mt-2 flex flex-wrap gap-2">
+					<img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" class="h-5 inline-block" loading="lazy" />
+					<img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" class="h-5 inline-block" loading="lazy" />
+				</div>
+			</div>
+		</a>
 	</div>
 </section>
 

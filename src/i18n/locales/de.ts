@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const de: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — Der Enterprise-KI-Orchestrator. Konfigurationsgesteuerte, selbst gehostete KI-Agent-Plattform mit visueller Verwaltung, Security-First-Architektur und integrierter Compliance (v6.0.0-RC1 Preview).',
+			`EDDI — Der Enterprise-KI-Orchestrator. Konfigurationsgesteuerte, selbst gehostete KI-Agent-Plattform mit visueller Verwaltung, Security-First-Architektur und integrierter Compliance (${EDDI_VERSION} Preview).`,
 	},
 	nav: {
 		features: 'Features',
@@ -59,7 +60,7 @@ const de: TranslationSchema = {
 		getStartedCta: 'Jetzt Starten →',
 		viewOnGithub: 'Auf GitHub ansehen ↗',
 		bannerBadge: 'Neu',
-		bannerText: 'EDDI v6.0.0-RC1 ist jetzt als Developer Preview verfügbar!',
+		bannerText: `EDDI ${EDDI_VERSION} ist jetzt als Developer Preview verfügbar!`,
 		bannerLink: 'Jetzt starten',
 		notFoundTitle: 'Seite nicht gefunden',
 		notFoundDesc: 'Die gesuchte KI-Orchestrierungsroute wurde getrennt oder verschoben.',
@@ -112,7 +113,7 @@ const de: TranslationSchema = {
 		heroTitle: 'Der Enterprise',
 		heroHighlight: 'KI-Orchestrator',
 		heroTagline:
-			'KI-Agents erstellen, deployen und verwalten — ohne Code zu schreiben. Konfigurationsgesteuert, selbst gehostet und compliance-bereit out of the box. Aktuell in <strong>v6.0.0-RC1 Preview</strong>.',
+			`KI-Agents erstellen, deployen und verwalten — ohne Code zu schreiben. Konfigurationsgesteuert, selbst gehostet und compliance-bereit out of the box. Aktuell in <strong>${EDDI_VERSION} Preview</strong>.`,
 		problemTitle: 'Das Problem',
 		problemDesc:
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
@@ -153,6 +154,10 @@ const de: TranslationSchema = {
 		trustApacheDesc: '100 % Open Source & Enterprise-ready',
 		trustTests: '2.000+ Tests · 0 Fehler',
 		trustTestsDesc: 'Rigoroses CI/CD & Code-Coverage',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Container-Downloads von Docker Hub',
+		trustCI: 'CI bestanden · CodeQL sauber',
+		trustCIDesc: 'Automatisierte Builds, Sicherheitsscans & Codeanalyse',
 		techTitle: 'Bewährte Technologie',
 		techJava: 'Java 25',
 		techJavaDesc: 'Enterprise-Runtime',

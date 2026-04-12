@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const th: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — ตัวจัดการ AI ระดับองค์กร ขับเคลื่อนด้วย Configuration, แพลตฟอร์ม AI Agent แบบ Self-Hosted ขับเคลื่อนด้วย Configuration พร้อม Visual Management และ Built-in Compliance (v6.0.0-RC1 พรีวิว)',
+			`EDDI — ตัวจัดการ AI ระดับองค์กร ขับเคลื่อนด้วย Configuration, แพลตฟอร์ม AI Agent แบบ Self-Hosted ขับเคลื่อนด้วย Configuration พร้อม Visual Management และ Built-in Compliance (${EDDI_VERSION} พรีวิว)`,
 	},
 	nav: {
 		features: 'คุณสมบัติ',
@@ -59,7 +60,7 @@ const th: TranslationSchema = {
 		getStartedCta: 'เริ่มต้น →',
 		viewOnGithub: 'ดูบน GitHub ↗',
 		bannerBadge: 'ใหม่',
-		bannerText: 'EDDI v6.0.0-RC1 Developer Preview พร้อมใช้งานแล้ว!',
+		bannerText: `EDDI ${EDDI_VERSION} Developer Preview พร้อมใช้งานแล้ว!`,
 		bannerLink: 'เริ่มต้น',
 		notFoundTitle: 'ไม่พบหน้า',
 		notFoundDesc: 'เส้นทาง AI orchestration ที่คุณค้นหาถูกยกเลิกหรือย้ายแล้ว',
@@ -112,7 +113,7 @@ const th: TranslationSchema = {
 		heroTitle: 'ตัวจัดการ',
 		heroHighlight: 'AI ระดับองค์กร',
 		heroTagline:
-			'ขับเคลื่อนด้วย Configuration สร้าง ปรับใช้ และจัดการ AI Agents — ไม่ต้องเขียนโค้ด ขับเคลื่อนด้วย Configuration, Self-Hosted และพร้อมใช้งาน Compliance — ปัจจุบันอยู่ใน <strong>v6.0.0-RC1 Preview</strong>',
+			`ขับเคลื่อนด้วย Configuration สร้าง ปรับใช้ และจัดการ AI Agents — ไม่ต้องเขียนโค้ด ขับเคลื่อนด้วย Configuration, Self-Hosted และพร้อมใช้งาน Compliance — ปัจจุบันอยู่ใน <strong>${EDDI_VERSION} Preview</strong>`,
 		problemTitle: 'ปัญหา',
 		problemDesc: 'Enterprise Java <strong>ขาด Visual AI Orchestration Middleware</strong> ทีมติดอยู่ในวงจรที่เจ็บปวดและกระจัดกระจาย:',
 		problemCard1Title: 'กับดักโปรโตไทป์',
@@ -147,6 +148,10 @@ const th: TranslationSchema = {
 		trustApacheDesc: '100% open-source พร้อมสำหรับองค์กร',
 		trustTests: '2,000+ เทสต์ · 0 ข้อผิดพลาด',
 		trustTestsDesc: 'CI/CD เข้มงวดและ code coverage',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Container pulls จาก Docker Hub',
+		trustCI: 'CI ผ่าน · CodeQL สะอาด',
+		trustCIDesc: 'Build อัตโนมัติ, การสแกนความปลอดภัย และการวิเคราะห์โค้ด',
 		techTitle: 'สร้างด้วยเทคโนโลยีที่พิสูจน์แล้ว',
 		techJava: 'Java 25',
 		techJavaDesc: 'Enterprise Runtime',

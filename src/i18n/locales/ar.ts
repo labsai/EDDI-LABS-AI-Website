@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const ar: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — منسّق الذكاء الاصطناعي للمؤسسات. منصة وكلاء ذكاء اصطناعي قائمة على التكوين، مستضافة ذاتياً، مع إدارة مرئية وبنية أمان أولاً وامتثال مدمج (معاينة v6.0.0-RC1).',
+			`EDDI — منسّق الذكاء الاصطناعي للمؤسسات. منصة وكلاء ذكاء اصطناعي قائمة على التكوين، مستضافة ذاتياً، مع إدارة مرئية وبنية أمان أولاً وامتثال مدمج (معاينة ${EDDI_VERSION}).`,
 	},
 	nav: {
 		features: 'الميزات',
@@ -59,7 +60,7 @@ const ar: TranslationSchema = {
 		getStartedCta: 'ابدأ الآن →',
 		viewOnGithub: 'عرض على GitHub ↗',
 		bannerBadge: 'جديد',
-		bannerText: 'EDDI v6.0.0-RC1 متاح الآن كنسخة معاينة للمطورين!',
+		bannerText: `EDDI ${EDDI_VERSION} متاح الآن كنسخة معاينة للمطورين!`,
 		bannerLink: 'ابدأ الآن',
 		notFoundTitle: 'الصفحة غير موجودة',
 		notFoundDesc: 'مسار تنسيق الذكاء الاصطناعي الذي تبحث عنه غير متصل أو تم نقله.',
@@ -112,7 +113,7 @@ const ar: TranslationSchema = {
 		heroTitle: 'منسّق',
 		heroHighlight: 'الذكاء الاصطناعي للمؤسسات',
 		heroTagline:
-			'أنشئ وانشر وأدر وكلاء الذكاء الاصطناعي — بدون كتابة شفرة. قائم على التكوين، مستضاف ذاتياً، وجاهز للامتثال — حالياً في <strong>معاينة v6.0.0-RC1</strong>.',
+			`أنشئ وانشر وأدر وكلاء الذكاء الاصطناعي — بدون كتابة شفرة. قائم على التكوين، مستضاف ذاتياً، وجاهز للامتثال — حالياً في <strong>معاينة ${EDDI_VERSION}</strong>.`,
 		problemTitle: 'المشكلة',
 		problemDesc: 'تنسيق الذكاء الاصطناعي المؤسسي <strong>مجزأ ومؤلم</strong>. الفرق عالقة في دورة حياة مفككة:',
 		problemCard1Title: 'فخ النموذج الأولي',
@@ -151,6 +152,10 @@ const ar: TranslationSchema = {
 		trustApacheDesc: '100% مفتوح المصدر وجاهز للمؤسسات',
 		trustTests: '+2,000 اختبار · 0 إخفاقات',
 		trustTestsDesc: 'CI/CD صارم وتغطية الشفرة',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'تحميلات الحاويات من Docker Hub',
+		trustCI: 'CI ناجح · CodeQL نظيف',
+		trustCIDesc: 'بناء تلقائي، فحص أمني وتحليل الشفرة',
 		techTitle: 'مبني على تقنية مثبتة',
 		techJava: 'Java 25',
 		techJavaDesc: 'بيئة تشغيل مؤسسية',

@@ -1,9 +1,10 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const ko: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: 'EDDI — 엔터프라이즈 AI 오케스트레이터. 구성 기반, 자체 호스팅 AI 에이전트 플랫폼, 비주얼 관리, 보안 우선 아키텍처 및 내장 컴플라이언스 (v6.0.0-RC1 프리뷰).',
+		siteDescription: `EDDI — 엔터프라이즈 AI 오케스트레이터. 구성 기반, 자체 호스팅 AI 에이전트 플랫폼, 비주얼 관리, 보안 우선 아키텍처 및 내장 컴플라이언스 (${EDDI_VERSION} 프리뷰).`,
 	},
 	nav: {
 		features: '기능',
@@ -58,7 +59,7 @@ const ko: TranslationSchema = {
 		getStartedCta: '시작하기 →',
 		viewOnGithub: 'GitHub에서 보기 ↗',
 		bannerBadge: '새로운',
-		bannerText: 'EDDI v6.0.0-RC1 개발자 프리뷰가 출시되었습니다!',
+		bannerText: `EDDI ${EDDI_VERSION} 개발자 프리뷰가 출시되었습니다!`,
 		bannerLink: '시작하기',
 		notFoundTitle: '페이지를 찾을 수 없습니다',
 		notFoundDesc: '찾고 계신 AI 오케스트레이션 경로가 연결 해제되었거나 이동되었습니다.',
@@ -109,7 +110,7 @@ const ko: TranslationSchema = {
 		title: '엔터프라이즈 AI 오케스트레이터',
 		heroTitle: '엔터프라이즈',
 		heroHighlight: 'AI 오케스트레이터',
-		heroTagline: 'AI 에이전트를 코드 작성 없이 생성, 배포 및 관리. 구성 기반, 자체 호스팅, 즉시 사용 가능한 컴플라이언스 — 현재 <strong>v6.0.0-RC1 프리뷰</strong> 중.',
+		heroTagline: `AI 에이전트를 코드 작성 없이 생성, 배포 및 관리. 구성 기반, 자체 호스팅, 즉시 사용 가능한 컴플라이언스 — 현재 <strong>${EDDI_VERSION} 프리뷰</strong> 중.`,
 		problemTitle: '문제',
 		problemDesc: '엔터프라이즈 AI 오케스트레이션에는 <strong>비주얼 AI 오케스트레이션 미들웨어가 없습니다</strong>. 팀은 고통스럽고 파편화된 라이프사이클에 갇혀 있습니다:',
 		problemCard1Title: '프로토타입의 함정',
@@ -141,6 +142,10 @@ const ko: TranslationSchema = {
 		trustApacheDesc: '100% 오픈소스, 엔터프라이즈 대응',
 		trustTests: '2,000+ 테스트 · 0 실패',
 		trustTestsDesc: '엄격한 CI/CD 및 코드 커버리지',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Docker Hub에서의 컨테이너 풀',
+		trustCI: 'CI 통과 · CodeQL 클린',
+		trustCIDesc: '자동화된 빌드, 보안 스캐닝 및 코드 분석',
 		techTitle: '검증된 기술로 구축',
 		techJava: 'Java 25',
 		techJavaDesc: '엔터프라이즈 런타임',

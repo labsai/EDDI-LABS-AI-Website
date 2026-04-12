@@ -1,9 +1,10 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const zh: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: 'EDDI — 企业级AI编排器。配置驱动、自托管的AI代理平台，具备可视化管理、安全优先架构和内置合规能力（v6.0.0-RC1预览版）。',
+		siteDescription: `EDDI — 企业级AI编排器。配置驱动、自托管的AI代理平台，具备可视化管理、安全优先架构和内置合规能力（${EDDI_VERSION}预览版）。`,
 	},
 	nav: {
 		features: '功能特性',
@@ -58,7 +59,7 @@ const zh: TranslationSchema = {
 		getStartedCta: '立即开始 →',
 		viewOnGithub: '在GitHub上查看 ↗',
 		bannerBadge: '新',
-		bannerText: 'EDDI v6.0.0-RC1开发者预览版现已发布！',
+		bannerText: `EDDI ${EDDI_VERSION}开发者预览版现已发布！`,
 		bannerLink: '立即开始',
 		notFoundTitle: '页面未找到',
 		notFoundDesc: '您查找的AI编排路由已断开或已迁移。',
@@ -109,7 +110,7 @@ const zh: TranslationSchema = {
 		title: '企业级AI编排器',
 		heroTitle: '企业级',
 		heroHighlight: 'AI编排器',
-		heroTagline: '创建、部署和管理AI代理——无需编写代码。配置驱动、自托管且开箱即用的合规能力。目前处于<strong>v6.0.0-RC1预览版</strong>。',
+		heroTagline: `创建、部署和管理AI代理——无需编写代码。配置驱动、自托管且开箱即用的合规能力。目前处于<strong>${EDDI_VERSION}预览版</strong>。`,
 		problemTitle: '问题',
 		problemDesc: '企业级AI编排<strong>碎片化且痛苦</strong>。团队陷入一个破碎的生命周期中：',
 		problemCard1Title: '原型陷阱',
@@ -139,6 +140,10 @@ const zh: TranslationSchema = {
 		trustApacheDesc: '100%开源且企业就绪',
 		trustTests: '2,000+测试 · 0失败',
 		trustTestsDesc: '严格的CI/CD和代码覆盖率',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: '来自 Docker Hub 的容器拉取',
+		trustCI: 'CI 通过 · CodeQL 清洁',
+		trustCIDesc: '自动构建、安全扫描和代码分析',
 		techTitle: '基于成熟技术构建',
 		techJava: 'Java 25',
 		techJavaDesc: '企业级运行时',

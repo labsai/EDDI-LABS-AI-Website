@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const es: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — El orquestador de IA para empresas. Plataforma de agentes de IA autoalojada y basada en configuración, con gestión visual, arquitectura de seguridad integrada y cumplimiento normativo (v6.0.0-RC1 Preview).',
+			`EDDI — El orquestador de IA para empresas. Plataforma de agentes de IA autoalojada y basada en configuración, con gestión visual, arquitectura de seguridad integrada y cumplimiento normativo (${EDDI_VERSION} Preview).`,
 	},
 	nav: {
 		features: 'Características',
@@ -59,7 +60,7 @@ const es: TranslationSchema = {
 		getStartedCta: 'Empezar →',
 		viewOnGithub: 'Ver en GitHub ↗',
 		bannerBadge: 'Nuevo',
-		bannerText: 'EDDI v6.0.0-RC1 ya está disponible como Developer Preview.',
+		bannerText: `EDDI ${EDDI_VERSION} ya está disponible como Developer Preview.`,
 		bannerLink: 'Comenzar',
 		notFoundTitle: 'Página no encontrada',
 		notFoundDesc: 'La ruta de orquestación de IA que buscas ha sido desconectada o reubicada.',
@@ -112,7 +113,7 @@ const es: TranslationSchema = {
 		heroTitle: 'El orquestador de IA',
 		heroHighlight: 'para empresas',
 		heroTagline:
-			'Cree, despliegue y gestione agentes de IA — sin escribir código. Basado en configuración, autoalojado y listo para el cumplimiento normativo. Actualmente en <strong>v6.0.0-RC1 Preview</strong>.',
+			`Cree, despliegue y gestione agentes de IA — sin escribir código. Basado en configuración, autoalojado y listo para el cumplimiento normativo. Actualmente en <strong>${EDDI_VERSION} Preview</strong>.`,
 		problemTitle: 'El problema',
 		problemDesc:
 			'La orquestación empresarial de IA está <strong>fragmentada y es dolorosa</strong>. Los equipos están atrapados en un ciclo de vida roto:',
@@ -153,6 +154,10 @@ const es: TranslationSchema = {
 		trustApacheDesc: '100% código abierto y listo para empresas',
 		trustTests: 'Más de 2.000 pruebas · 0 fallos',
 		trustTestsDesc: 'Pruebas intensivas automatizadas (CI/CD)',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Descargas de contenedores desde Docker Hub',
+		trustCI: 'CI aprobado · CodeQL limpio',
+		trustCIDesc: 'Compilaciones automatizadas, escaneo de seguridad y análisis de código',
 		techTitle: 'Construido sobre tecnología probada',
 		techJava: 'Java 25',
 		techJavaDesc: 'Motor de ejecución empresarial',

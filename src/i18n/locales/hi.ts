@@ -1,10 +1,11 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const hi: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			'EDDI — एंटरप्राइज़ AI ऑर्केस्ट्रेटर। कॉन्फ़िगरेशन-संचालित, सेल्फ-होस्टेड AI एजेंट प्लेटफ़ॉर्म, विज़ुअल मैनेजमेंट, सिक्योरिटी-फ़र्स्ट आर्किटेक्चर और बिल्ट-इन कम्प्लायंस (v6.0.0-RC1 प्रीव्यू)।',
+			`EDDI — एंटरप्राइज़ AI ऑर्केस्ट्रेटर। कॉन्फ़िगरेशन-संचालित, सेल्फ-होस्टेड AI एजेंट प्लेटफ़ॉर्म, विज़ुअल मैनेजमेंट, सिक्योरिटी-फ़र्स्ट आर्किटेक्चर और बिल्ट-इन कम्प्लायंस (${EDDI_VERSION} प्रीव्यू)।`,
 	},
 	nav: {
 		features: 'सुविधाएँ',
@@ -59,7 +60,7 @@ const hi: TranslationSchema = {
 		getStartedCta: 'शुरू करें →',
 		viewOnGithub: 'GitHub पर देखें ↗',
 		bannerBadge: 'नया',
-		bannerText: 'EDDI v6.0.0-RC1 अब डेवलपर प्रीव्यू के रूप में उपलब्ध है!',
+		bannerText: `EDDI ${EDDI_VERSION} अब डेवलपर प्रीव्यू के रूप में उपलब्ध है!`,
 		bannerLink: 'शुरू करें',
 		notFoundTitle: 'पेज नहीं मिला',
 		notFoundDesc: 'आप जिस AI ऑर्केस्ट्रेशन रूट की तलाश कर रहे हैं वह डिस्कनेक्ट या स्थानांतरित हो गया है।',
@@ -112,7 +113,7 @@ const hi: TranslationSchema = {
 		heroTitle: 'एंटरप्राइज़',
 		heroHighlight: 'AI ऑर्केस्ट्रेटर',
 		heroTagline:
-			'AI एजेंट्स बनाएं, डिप्लॉय करें और प्रबंधित करें — कोड लिखे बिना। कॉन्फ़िगरेशन-संचालित, सेल्फ-होस्टेड और कम्प्लायंस-रेडी — वर्तमान में <strong>v6.0.0-RC1 प्रीव्यू</strong> में।',
+			`AI एजेंट्स बनाएं, डिप्लॉय करें और प्रबंधित करें — कोड लिखे बिना। कॉन्फ़िगरेशन-संचालित, सेल्फ-होस्टेड और कम्प्लायंस-रेडी — वर्तमान में <strong>${EDDI_VERSION} प्रीव्यू</strong> में।`,
 		problemTitle: 'समस्या',
 		problemDesc: 'एंटरप्राइज़ AI ऑर्केस्ट्रेशन <strong>खंडित और कठिन</strong> है। टीमें एक दर्दनाक, खंडित जीवनचक्र में फंसी हुई हैं:',
 		problemCard1Title: 'प्रोटोटाइप जाल',
@@ -149,6 +150,10 @@ const hi: TranslationSchema = {
 		trustApacheDesc: '100% ओपन-सोर्स और एंटरप्राइज़-तैयार',
 		trustTests: '2,000+ टेस्ट · 0 विफलताएँ',
 		trustTestsDesc: 'कठोर CI/CD और कोड कवरेज',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Docker Hub से कंटेनर पुल',
+		trustCI: 'CI पास · CodeQL क्लीन',
+		trustCIDesc: 'स्वचालित बिल्ड, सुरक्षा स्कैनिंग और कोड विश्लेषण',
 		techTitle: 'सिद्ध तकनीक पर निर्मित',
 		techJava: 'Java 25',
 		techJavaDesc: 'एंटरप्राइज़ रनटाइम',

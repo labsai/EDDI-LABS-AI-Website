@@ -1,9 +1,10 @@
+import { EDDI_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const ja: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: 'EDDI — エンタープライズAIオーケストレーター。構成駆動型、自己ホスト型のAIエージェントプラットフォーム、ビジュアル管理、セキュリティファーストアーキテクチャ、内蔵コンプライアンス（v6.0.0-RC1 プレビュー）。',
+		siteDescription: `EDDI — エンタープライズAIオーケストレーター。構成駆動型、自己ホスト型のAIエージェントプラットフォーム、ビジュアル管理、セキュリティファーストアーキテクチャ、内蔵コンプライアンス（${EDDI_VERSION} プレビュー）。`,
 	},
 	nav: {
 		features: '機能',
@@ -58,7 +59,7 @@ const ja: TranslationSchema = {
 		getStartedCta: '始める →',
 		viewOnGithub: 'GitHubで見る ↗',
 		bannerBadge: '新着',
-		bannerText: 'EDDI v6.0.0-RC1 デベロッパープレビューが利用可能になりました！',
+		bannerText: `EDDI ${EDDI_VERSION} デベロッパープレビューが利用可能になりました！`,
 		bannerLink: '始める',
 		notFoundTitle: 'ページが見つかりません',
 		notFoundDesc: 'お探しのAIオーケストレーションルートは切断または移動されました。',
@@ -109,7 +110,7 @@ const ja: TranslationSchema = {
 		title: 'エンタープライズAIオーケストレーター',
 		heroTitle: 'エンタープライズ',
 		heroHighlight: 'AIオーケストレーター',
-		heroTagline: 'AIエージェントを作成、デプロイ、管理 — コードの記述は不要。構成駆動型、自己ホスト型、コンプライアンス対応。現在<strong>v6.0.0-RC1プレビュー</strong>中。',
+		heroTagline: `AIエージェントを作成、デプロイ、管理 — コードの記述は不要。構成駆動型、自己ホスト型、コンプライアンス対応。現在<strong>${EDDI_VERSION}プレビュー</strong>中。`,
 		problemTitle: '問題',
 		problemDesc: 'エンタープライズAIオーケストレーションは<strong>断片化され、困難</strong>です。チームは壊れたライフサイクルに陥っています：',
 		problemCard1Title: 'プロトタイプの罠',
@@ -141,6 +142,10 @@ const ja: TranslationSchema = {
 		trustApacheDesc: '100%オープンソースでエンタープライズ対応',
 		trustTests: '2,000以上のテスト · 失敗0',
 		trustTestsDesc: '厳格なCI/CDとコードカバレッジ',
+		trustDocker: 'Docker Hub',
+		trustDockerDesc: 'Docker Hubからのコンテナプル',
+		trustCI: 'CI合格 · CodeQLクリーン',
+		trustCIDesc: '自動ビルド、セキュリティスキャン、コード分析',
 		techTitle: '実績ある技術で構築',
 		techJava: 'Java 25',
 		techJavaDesc: 'エンタープライズランタイム',
