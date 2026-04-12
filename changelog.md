@@ -3,6 +3,16 @@
 All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
+### 🔧 Version Management
+- `feat(website)`: **Centralized Version String** — Created `src/i18n/version.ts` as single source of truth for `EDDI_VERSION`. Replaced ~35 hardcoded `v6.0.0-RC1` references across all 11 locale files and `BaseLayout.astro` JSON-LD schemas with template literal interpolation. Version now updated in one place.
+
+### 📈 Social Proof
+- `feat(website)`: **Docker Pulls Badge** — Added live Docker Hub pulls badge (from shields.io) to the homepage "Trusted & Certified" section. Card links to `hub.docker.com/r/labsai/eddi`.
+- `feat(website)`: **CI & CodeQL Badges** — Added GitHub Actions CI and CodeQL status badges as social proof. Card links to GitHub Actions workflow.
+- `feat(website)`: **Trust Section i18n** — Added `trustDocker`, `trustDockerDesc`, `trustCI`, `trustCIDesc` translation keys to all 11 locales.
+
+### 🐛 Bug Fixes
+- `fix(website)`: **French Locale String** — Fixed broken `siteDescription` in `fr.ts` where escaped apostrophes (`d\'`) collided with backtick conversion during version migration, producing invalid template literal syntax.
 ### 🔧 PR Code Review Fixes (Copilot)
 - `fix(website)`: **Duplicate English Route** — Fixed `[lang]/contact.astro` using `LOCALE_CODES` instead of `NON_DEFAULT_LOCALES`, which generated a duplicate `/en/contact/` page alongside the root `/contact/`.
 - `fix(website)`: **Language Picker Locale Detection** — Added `data-locale` attribute to language dropdown items. Previously the JS derived the locale from the URL path, which failed for English root paths (e.g., `/features/overview/` would store `features` as the locale code).
