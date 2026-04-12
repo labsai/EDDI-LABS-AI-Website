@@ -15,7 +15,7 @@ const ar: TranslationSchema = {
 		eddiManager: 'مدير EDDI',
 		eddiManagerDesc: 'واجهة مرئية لإدارة الوكلاء',
 		mcpServer: 'خادم MCP',
-		mcpServerDesc: '58 أداة للتحكم الأصلي بالذكاء الاصطناعي',
+		mcpServerDesc: '42 أداة للتحكم الأصلي بالذكاء الاصطناعي',
 		configAsCode: 'التكوين-كشفرة',
 		configAsCodeDesc: 'تكوين JSON، بدون نمط متكرر',
 		securityFirst: 'الأمان أولاً',
@@ -51,7 +51,7 @@ const ar: TranslationSchema = {
 		useCases: 'حالات الاستخدام',
 		useCasesDesc: 'أنماط نشر واقعية',
 		allFeatures: 'جميع الميزات',
-		mcpServerMobile: 'خادم MCP (58 أداة)',
+		mcpServerMobile: 'خادم MCP (42 أداة)',
 		resources: 'الموارد',
 		documentation: 'التوثيق ↗',
 		github: 'GitHub ↗',
@@ -133,7 +133,7 @@ const ar: TranslationSchema = {
 		sol1Title: 'التكوين-كشفرة',
 		sol1Desc:
 			'منطق الوكلاء وخطوط الأنابيب وتعريفات الأدوات هي <strong>تكوينات JSON</strong> — وليس شفرة مجمعة. يكرر مهندسو الموجهات فوراً عبر واجهة React أو REST API، بدون إعادة نشر.',
-		sol2Title: '58 أداة MCP',
+		sol2Title: '42 أداة MCP',
 		sol2Desc:
 			'يكشف EDDI قدراته عبر <strong>بروتوكول سياق النموذج</strong> — مما يتيح تفاعل Claude Desktop. يمكن للوكلاء أيضاً <strong>استهلاك أدوات MCP خارجية</strong>.',
 		sol3Title: 'الأمان أولاً',
@@ -188,7 +188,7 @@ const ar: TranslationSchema = {
 		faqTitle: 'الأسئلة المتكررة',
 		faq1Q: 'ما هو EDDI؟',
 		faq1A:
-			'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و58 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
+			'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و42 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
 		faq2Q: 'كيف يختلف EDDI عن Spring AI أو LangChain4j؟',
 		faq2A:
 			'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة — EDDI يستخدم LangChain4j داخلياً في الواقع. الفرق الجوهري أن EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. مع Spring AI، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة حالة المحادثة وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
@@ -197,7 +197,7 @@ const ar: TranslationSchema = {
 			'نعم. يعمل EDDI على Java 25 مع Quarkus، مستفيداً من Virtual Threads للتزامن الضخم في عمليات الإدخال/الإخراج. يدعم MongoDB و PostgreSQL، يتضمن مصادقة OIDC/Keycloak مدمجة، يوفر مسارات تدقيق مشفرة غير قابلة للتغيير للامتثال (بما في ذلك قانون الذكاء الاصطناعي الأوروبي)، ويتوسع أفقياً عبر NATS JetStream.',
 		faq4Q: 'ما هو بروتوكول سياق النموذج (MCP)؟',
 		faq4A:
-			'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 58 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
+			'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 42 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
 		faq5Q: 'هل يمكن لـ EDDI أن يحل محل Flowise أو n8n لأحمال العمل الإنتاجية؟',
 		faq5A:
 			'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
@@ -215,7 +215,7 @@ const ar: TranslationSchema = {
 		step1After: 'سيكون EDDI متاحاً على <code>http://localhost:7070</code>.',
 		step2Title: '2. اتصل عبر MCP',
 		step2Desc: 'إذا كنت تستخدم <strong>Claude Desktop</strong> أو أي عميل متوافق مع MCP، أضف EDDI كخادم MCP:',
-		step2After: 'الآن يمكنك التفاعل مع أدوات EDDI الـ 58 MCP مباشرة من مساعدك الذكاء الاصطناعي.',
+		step2After: 'الآن يمكنك التفاعل مع أدوات EDDI الـ 42 MCP مباشرة من مساعدك الذكاء الاصطناعي.',
 		step3Title: '3. أنشئ وكيلك الأول',
 		step3Desc: 'استخدم أداة MCP <code>setup_agent</code> لإنشاء وكيل يعمل بالكامل في استدعاء واحد:',
 		step3After: 'هذا ينشئ القواعد وتكوين LLM وسير العمل والوكيل وينشره — كل ذلك في خطوة واحدة.',
@@ -256,7 +256,7 @@ const ar: TranslationSchema = {
 	featuresOverview: {
 		title: 'نظرة عامة على الميزات',
 		description:
-			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 58 أداة MCP، بنية الأمان أولاً، والمزيد.',
+			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 42 أداة MCP، بنية الأمان أولاً، والمزيد.',
 		heroTitle: 'كل ما تحتاجه',
 		heroHighlight: 'لتنسيق الذكاء الاصطناعي',
 		heroDesc: 'يوفر EDDI منصة كاملة جاهزة للإنتاج لبناء ونشر وإدارة وكلاء الذكاء الاصطناعي — بدون كتابة نمط متكرر.',
@@ -267,7 +267,7 @@ const ar: TranslationSchema = {
 			'<strong>واجهة React جاهزة للإنتاج</strong> لبناء ونشر ومراقبة الوكلاء بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
 		configCardTitle: '⚙️ التكوين-كشفرة',
 		configCardDesc: 'منطق الوكيل هو تكوين JSON، وليس شفرة مجمعة. يكرر مهندسو الموجهات فوراً — <strong>بدون حاجة لإعادة التجميع</strong>.',
-		mcpCardTitle: '🔌 خادم MCP (58 أداة)',
+		mcpCardTitle: '🔌 خادم MCP (42 أداة)',
 		mcpCardDesc:
 			'تحكم أصلي كامل بالذكاء الاصطناعي عبر <strong>بروتوكول سياق النموذج</strong>. Claude Desktop و Cursor والعملاء المخصصون يديرون الوكلاء برمجياً.',
 		securityCardTitle: '🔐 الأمان أولاً',
@@ -294,7 +294,7 @@ const ar: TranslationSchema = {
 		cqCardTitle: '🧪 جودة الشفرة',
 		cqCardDesc: '<strong>+2,000 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. CI/CD مطبق في كل دمج.',
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
-		aiCardDesc: '58 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
+		aiCardDesc: '42 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
 	},
 	pages: {
 		manager: {
@@ -319,12 +319,12 @@ const ar: TranslationSchema = {
 				'يمكّن المدير غير المطورين من تكرار سلوك الوكلاء بدون لمس كود Java. يمكن لمهندسي الموجهات تعديل القواعد واختبار المحادثات ونشر التغييرات — كل ذلك من المتصفح.',
 		},
 		mcpServer: {
-			title: 'خادم MCP — 58 أداة',
+			title: 'خادم MCP — 42 أداة',
 			description:
 				'يكشف EDDI قدراته الكاملة عبر بروتوكول سياق النموذج، مما يتيح لـ Claude Desktop و Cursor والعملاء المخصصين إدارة الوكلاء برمجياً.',
 			heading1: 'مستوى التحكم الأصلي بالذكاء الاصطناعي',
 			para1:
-				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>58 أداة</strong> تغطي كل جانب من جوانب المنصة.',
+				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>42 أداة</strong> تغطي كل جانب من جوانب المنصة.',
 			heading2: 'فئات الأدوات',
 			items: [
 				'<strong>أدوات المحادثة</strong> — تحدث مع الوكلاء، أدر المحادثات، اقرأ السجل',
@@ -450,7 +450,7 @@ const ar: TranslationSchema = {
 		},
 		aiReady: {
 			title: 'بنية جاهزة للذكاء الاصطناعي',
-			description: '58 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. مصمم من الألف إلى الياء لوكلاء البرمجة.',
+			description: '42 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. مصمم من الألف إلى الياء لوكلاء البرمجة.',
 			heading1: 'مصمم للتعاون مع الذكاء الاصطناعي',
 			para1:
 				'EDDI مبني على افتراض أن <strong>وكلاء البرمجة سيديرونه</strong>. كل واجهة API تتبع أنماطاً قابلة للتنبؤ، كل مورد له عمليات CRUD متسقة، وخادم MCP يتيح التحكم البرمجي الكامل.',
@@ -459,7 +459,7 @@ const ar: TranslationSchema = {
 				'<strong>أنماط قابلة للتنبؤ</strong> — تسمية موارد متسقة واتفاقيات CRUD ومعالجة الأخطاء',
 				'<strong>واجهات API ذاتية التوثيق</strong> — مواصفات OpenAPI وأوصاف أدوات MCP تُولَّد تلقائياً',
 				'<strong>دعم LLMs.txt</strong> — محتوى الموقع قابل للاكتشاف بالذكاء الاصطناعي عبر llms.txt و llms-full.txt',
-				'<strong>MCP أولاً</strong> — 58 أداة مصممة للتكامل مع مساعدي الذكاء الاصطناعي',
+				'<strong>MCP أولاً</strong> — 42 أداة مصممة للتكامل مع مساعدي الذكاء الاصطناعي',
 				'<strong>أتمتة الإعداد</strong> — إنشاء وكلاء في استدعاء واحد مع <code>setup_agent</code>',
 			],
 		},
@@ -547,7 +547,7 @@ const ar: TranslationSchema = {
 			items: [
 				'<strong>واجهة إدارة مرئية</strong> — مدير EDDI لبناء ومراقبة الوكلاء',
 				'<strong>التكوين-كشفرة</strong> — منطق الوكلاء هو JSON، وليس شفرة مجمعة',
-				'<strong>58 أداة MCP</strong> — تحكم أصلي كامل بالذكاء الاصطناعي عبر بروتوكول سياق النموذج',
+				'<strong>42 أداة MCP</strong> — تحكم أصلي كامل بالذكاء الاصطناعي عبر بروتوكول سياق النموذج',
 				'<strong>أمان مؤسسي</strong> — OIDC، خزنة، مسارات تدقيق، بدون eval()',
 				'<strong>بنية تحتية إنتاجية</strong> — واجهات REST API، إدارة حالة المحادثة، مقاييس Prometheus',
 				'<strong>توسع أفقي</strong> — NATS JetStream للبنى الموزعة',
@@ -776,7 +776,7 @@ const ar: TranslationSchema = {
 			timeline: [
 				{ year: '2006', text: '<strong>Project founded</strong> in Vienna, Austria — early research into dialogue management and conversational state.' },
 				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support.' },
-				{ year: '2016', text: '<strong>Franz Weber</strong> joins the project, expanding the team and preparing for open-source launch.' },
+	
 				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator \u00b7 Launched as open source under Apache 2.0.' },
 				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, Vienna — sponsored by weXelerate and T-Mobile.' },
 				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan at Deutsche Bank Innovation Labs — sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
@@ -786,7 +786,7 @@ const ar: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 58 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
+				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
 			],
 			institutionsTitle: 'Backed by Institutions',
 			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
@@ -821,7 +821,7 @@ const ar: TranslationSchema = {
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: '2,000+ Tests',
 			devTestsDesc: 'Zero failures, enforced on every merge',
-			devIntegration: '58 Integration Tests',
+			devIntegration: '42 Integration Tests',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
 			devE2E: '21 E2E Test Suites',
 			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
@@ -890,7 +890,7 @@ const ar: TranslationSchema = {
 			emailLabel: 'Email',
 			email: 'contact@labs.ai',
 			projectHeading: 'Open Source Project',
-			projectMaintainers: 'EDDI is maintained by Gregor Jarisch and Franz Weber.',
+			projectMaintainers: 'EDDI is maintained by Gregor Jarisch (Project Management & Development) and Franz Weber (Cyber Security & Partner Management).',
 			projectLicense: 'Licensed under <a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>.',
 			vatHeading: 'VAT Identification Number',
 			vatNote: 'VAT ID pursuant to §27a UStG (Umsatzsteuergesetz)',

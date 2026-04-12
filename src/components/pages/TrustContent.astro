@@ -322,6 +322,8 @@ const trust = t.pages.trust;
 }
 
 .trust-tl-row {
+	display: flex;
+	align-items: center;
 	position: relative;
 	padding-bottom: 0.75rem;
 	opacity: 0;
@@ -329,17 +331,15 @@ const trust = t.pages.trust;
 	animation-delay: var(--delay);
 }
 
-/* The left rail: positioned absolutely so markers align to cards */
+/* The left rail: fixed-width, centered inline with the card */
 .trust-tl-rail {
 	position: absolute;
 	inset-inline-start: -5rem;
-	top: 0;
 	width: 5rem;
-	height: 100%;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
-	padding-top: 0.75rem; /* align with card text baseline */
+	align-self: center;
 }
 
 /* Hide line div — we use the ::before on the container */
@@ -387,6 +387,7 @@ const trust = t.pages.trust;
 	color: var(--color-text-muted);
 	line-height: 1.6;
 	transition: border-color 0.2s;
+	flex: 1;
 }
 .trust-tl-card:hover {
 	border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);

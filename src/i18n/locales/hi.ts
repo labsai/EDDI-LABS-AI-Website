@@ -15,7 +15,7 @@ const hi: TranslationSchema = {
 		eddiManager: 'EDDI मैनेजर',
 		eddiManagerDesc: 'विज़ुअल एजेंट प्रबंधन UI',
 		mcpServer: 'MCP सर्वर',
-		mcpServerDesc: '58 AI-नेटिव कंट्रोल टूल्स',
+		mcpServerDesc: '42 AI-नेटिव कंट्रोल टूल्स',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON कॉन्फ़िगरेशन, कंपाइल्ड Java नहीं',
 		securityFirst: 'सुरक्षा पहले',
@@ -51,7 +51,7 @@ const hi: TranslationSchema = {
 		useCases: 'उपयोग मामले',
 		useCasesDesc: 'वास्तविक डिप्लॉयमेंट पैटर्न',
 		allFeatures: 'सभी सुविधाएँ',
-		mcpServerMobile: 'MCP सर्वर (58 टूल्स)',
+		mcpServerMobile: 'MCP सर्वर (42 टूल्स)',
 		resources: 'संसाधन',
 		documentation: 'डॉक्यूमेंटेशन ↗',
 		github: 'GitHub ↗',
@@ -133,7 +133,7 @@ const hi: TranslationSchema = {
 			'EDDI एक <strong>डिप्लॉय करने योग्य AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म</strong> है — लाइब्रेरी नहीं। विज़ुअल मैनेजमेंट, Config-as-Code और एंटरप्राइज़ सिक्योरिटी, सब बिल्ट-इन करने योग्य मिडलवेयर प्लेटफ़ॉर्म:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc: 'एजेंट लॉजिक, पाइपलाइन और टूल डेफ़िनिशन <strong>JSON कॉन्फ़िगरेशन</strong> हैं — कंपाइल्ड Java नहीं।',
-		sol2Title: '58 MCP टूल्स',
+		sol2Title: '42 MCP टूल्स',
 		sol2Desc:
 			'EDDI अपनी क्षमताओं को <strong>Model Context Protocol</strong> के माध्यम से उजागर करता है — Claude Desktop के साथ इंटरैक्शन सक्षम करता है।',
 		sol3Title: 'सुरक्षा पहले',
@@ -186,7 +186,7 @@ const hi: TranslationSchema = {
 		faqTitle: 'अक्सर पूछे जाने वाले प्रश्न',
 		faq1Q: 'EDDI क्या है?',
 		faq1A:
-			'EDDI एक ओपन-सोर्स, एंटरप्राइज़ AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म है 25 पर बनाया गया है। यह एंटरप्राइज़ टीमों को कंपाइल्ड कोड के बजाय JSON कॉन्फ़िगरेशन का उपयोग करके AI एजेंट्स बनाने, कॉन्फ़िगर करने और डिप्लॉय करने में सक्षम बनाता है। EDDI <strong>प्रोडक्शन-तैयार React मैनेजमेंट UI</strong> (EDDI मैनेजर), बिल्ट-इन REST APIs, कन्वर्सेशन स्टेट मैनेजमेंट, सिक्योरिटी (OIDC/Keycloak), अपरिवर्तनीय ऑडिट ट्रेल्स और 58 MCP टूल्स के साथ एक पूर्ण प्लेटफ़ॉर्म प्रदान करता है।',
+			'EDDI एक ओपन-सोर्स, एंटरप्राइज़ AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म है 25 पर बनाया गया है। यह एंटरप्राइज़ टीमों को कंपाइल्ड कोड के बजाय JSON कॉन्फ़िगरेशन का उपयोग करके AI एजेंट्स बनाने, कॉन्फ़िगर करने और डिप्लॉय करने में सक्षम बनाता है। EDDI <strong>प्रोडक्शन-तैयार React मैनेजमेंट UI</strong> (EDDI मैनेजर), बिल्ट-इन REST APIs, कन्वर्सेशन स्टेट मैनेजमेंट, सिक्योरिटी (OIDC/Keycloak), अपरिवर्तनीय ऑडिट ट्रेल्स और 42 MCP टूल्स के साथ एक पूर्ण प्लेटफ़ॉर्म प्रदान करता है।',
 		faq2Q: 'EDDI Spring AI या LangChain4j से कैसे अलग है?',
 		faq2A:
 			'Spring AI और LangChain4j उत्कृष्ट <strong>लाइब्रेरी</strong> हैं — EDDI वास्तव में आंतरिक रूप से LangChain4j का उपयोग करता है। मुख्य अंतर यह है कि EDDI एक <strong>डिप्लॉय करने योग्य मिडलवेयर प्लेटफ़ॉर्म</strong> है, लाइब्रेरी नहीं।',
@@ -195,7 +195,7 @@ const hi: TranslationSchema = {
 			'हाँ। EDDI Java 25 और Quarkus पर चलता है, I/O-बाउंड कंकरेंसी के लिए वर्चुअल थ्रेड्स का लाभ उठाता है। यह MongoDB और PostgreSQL को सपोर्ट करता है, बिल्ट-इन OIDC/Keycloak ऑथेंटिकेशन शामिल है, अनुपालन (EU AI अधिनियम सहित) के लिए अपरिवर्तनीय क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स प्रदान करता है, और NATS JetStream के माध्यम से क्षैतिज रूप से स्केल होता है।',
 		faq4Q: 'Model Context Protocol (MCP) क्या है?',
 		faq4A:
-			'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो Claude Desktop, IDE प्लगइन्स और कस्टम क्लाइंट्स जैसे AI सहायकों को बाहरी टूल्स के साथ प्रोग्रामेटिक रूप से इंटरैक्ट करने की अनुमति देता है। EDDI 58 MCP टूल्स उजागर करता है।',
+			'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो Claude Desktop, IDE प्लगइन्स और कस्टम क्लाइंट्स जैसे AI सहायकों को बाहरी टूल्स के साथ प्रोग्रामेटिक रूप से इंटरैक्ट करने की अनुमति देता है। EDDI 42 MCP टूल्स उजागर करता है।',
 		faq5Q: 'क्या EDDI प्रोडक्शन वर्कलोड के लिए Flowise या n8n की जगह ले सकता है?',
 		faq5A:
 			'EDDI Node.js के बजाय JVM पर समान विज़ुअल बिल्डिंग उद्देश्य पूरा करता है। Flowise और n8n के विपरीत, EDDI कोई <code>eval()</code> या कोड ब्लॉक उपयोग नहीं करता और नियंत्रित उद्योगों के लिए डिज़ाइन किया गया है।',
@@ -213,7 +213,7 @@ const hi: TranslationSchema = {
 		step1After: 'EDDI <code>http://localhost:7070</code> पर उपलब्ध होगा।',
 		step2Title: '2. MCP से कनेक्ट करें',
 		step2Desc: 'यदि आप <strong>Claude Desktop</strong> या कोई MCP-संगत क्लाइंट उपयोग करते हैं, EDDI को MCP सर्वर के रूप में जोड़ें:',
-		step2After: 'अब आप अपने AI सहायक से सीधे EDDI के 58 MCP टूल्स के साथ इंटरैक्ट कर सकते हैं।',
+		step2After: 'अब आप अपने AI सहायक से सीधे EDDI के 42 MCP टूल्स के साथ इंटरैक्ट कर सकते हैं।',
 		step3Title: '3. अपना पहला एजेंट बनाएं',
 		step3Desc: '<code>setup_agent</code> MCP टूल का उपयोग करके एक कॉल में पूर्ण कार्यशील एजेंट बनाएं:',
 		step3After: 'यह नियम, LLM कॉन्फ़िगरेशन, वर्कफ़्लो, एजेंट बनाता है और डिप्लॉय करता है — एक ही चरण में।',
@@ -226,7 +226,7 @@ const hi: TranslationSchema = {
 		nextAllFeatures: 'सभी सुविधाएँ',
 		nextAllFeaturesDesc: 'EDDI जो प्रदान करता है सब एक्सप्लोर करें',
 		nextMcpServer: 'MCP सर्वर',
-		nextMcpServerDesc: 'सभी 58 MCP टूल्स ब्राउज़ करें',
+		nextMcpServerDesc: 'सभी 42 MCP टूल्स ब्राउज़ करें',
 		nextDocs: 'डॉक्यूमेंटेशन ↗',
 		nextDocsDesc: 'आर्किटेक्चर और APIs में गहराई से जाएं',
 		nextWhyEddi: 'EDDI क्यों?',
@@ -256,7 +256,7 @@ const hi: TranslationSchema = {
 	featuresOverview: {
 		title: 'सुविधाओं की एक झलक',
 		description:
-			'हर क्षमता जो EDDI को एंटरप्राइज़ AI ऑर्केस्ट्रेटर बनाती है — EDDI मैनेजर UI, Config-as-Code, 58 MCP टूल्स, सुरक्षा-प्रथम आर्किटेक्चर और अधिक।',
+			'हर क्षमता जो EDDI को एंटरप्राइज़ AI ऑर्केस्ट्रेटर बनाती है — EDDI मैनेजर UI, Config-as-Code, 42 MCP टूल्स, सुरक्षा-प्रथम आर्किटेक्चर और अधिक।',
 		heroTitle: 'AI ऑर्केस्ट्रेट करने के लिए',
 		heroHighlight: 'सब कुछ जो चाहिए',
 		heroDesc:
@@ -267,7 +267,7 @@ const hi: TranslationSchema = {
 		managerCardDesc: 'एजेंट्स को विज़ुअली बनाने, डिप्लॉय करने और मॉनिटर करने के लिए <strong>प्रोडक्शन-तैयार React UI</strong>।',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc: 'एजेंट लॉजिक JSON कॉन्फ़िगरेशन है, कंपाइल्ड कोड नहीं। <strong>पुनः कंपाइलेशन की आवश्यकता नहीं</strong>।',
-		mcpCardTitle: '🔌 MCP सर्वर (58 टूल्स)',
+		mcpCardTitle: '🔌 MCP सर्वर (42 टूल्स)',
 		mcpCardDesc: '<strong>Model Context Protocol</strong> के माध्यम से पूर्ण AI-नेटिव कंट्रोल।',
 		securityCardTitle: '🔐 सुरक्षा पहले',
 		securityCardDesc: 'कोई <code>eval()</code> नहीं, Vault इंटीग्रेशन, OIDC/Keycloak, <strong>क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स</strong>।',
@@ -292,7 +292,7 @@ const hi: TranslationSchema = {
 		cqCardTitle: '🧪 कोड गुणवत्ता',
 		cqCardDesc: '<strong>2,000+ टेस्ट शून्य विफलताओं के साथ।</strong>',
 		aiCardTitle: '🧩 AI-तैयार',
-		aiCardDesc: '58 MCP टूल्स, अनुमानित CRUD पैटर्न। <strong>कोडिंग एजेंट्स</strong> के लिए बनाया।',
+		aiCardDesc: '42 MCP टूल्स, अनुमानित CRUD पैटर्न। <strong>कोडिंग एजेंट्स</strong> के लिए बनाया।',
 	},
 	pages: {
 		manager: {
@@ -314,11 +314,11 @@ const hi: TranslationSchema = {
 			para2: 'मैनेजर गैर-डेवलपर्स को Java कोड छुए बिना एजेंट व्यवहार पर इटरेट करने में सक्षम बनाता है।',
 		},
 		mcpServer: {
-			title: 'MCP सर्वर — 58 टूल्स',
+			title: 'MCP सर्वर — 42 टूल्स',
 			description: 'EDDI Model Context Protocol के माध्यम से अपनी पूर्ण क्षमताएँ उजागर करता है।',
 			heading1: 'AI-नेटिव कंट्रोल प्लेन',
 			para1:
-				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है। EDDI <strong>58 टूल्स</strong> के साथ एक व्यापक MCP सर्वर लागू करता है।',
+				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है। EDDI <strong>42 टूल्स</strong> के साथ एक व्यापक MCP सर्वर लागू करता है।',
 			heading2: 'टूल श्रेणियाँ',
 			items: [
 				'<strong>वार्तालाप टूल्स</strong> — एजेंट्स से चैट, वार्तालाप प्रबंधन, इतिहास पढ़ें',
@@ -428,13 +428,13 @@ const hi: TranslationSchema = {
 				'<strong>2,000+ टेस्ट</strong> — यूनिट, इंटीग्रेशन और E2E कवरेज',
 				'<strong>शून्य विफलताएँ</strong> — हर बिल्ड में क्लीन CI',
 				'<strong>Checkstyle एनफ़ोर्समेंट</strong> — शून्य चेतावनियाँ, हर बिल्ड में सख्त नियम लागू',
-				'<strong>MCP टूल टेस्ट</strong> — सभी 58 MCP टूल्स का कवरेज',
+				'<strong>MCP टूल टेस्ट</strong> — सभी 42 MCP टूल्स का कवरेज',
 				'<strong>CI/CD क्वालिटी गेट्स</strong> — ऑटोमेटेड चेक्स',
 			],
 		},
 		aiReady: {
 			title: 'AI-तैयार आर्किटेक्चर',
-			description: '58 MCP टूल्स, अनुमानित CRUD पैटर्न।',
+			description: '42 MCP टूल्स, अनुमानित CRUD पैटर्न।',
 			heading1: 'AI सहयोग के लिए डिज़ाइन',
 			para1: 'EDDI इस धारणा पर बनाया गया है कि <strong>कोडिंग एजेंट्स इसे प्रबंधित करेंगे</strong>।',
 			heading2: 'AI-फ्रेंडली डिज़ाइन',
@@ -442,7 +442,7 @@ const hi: TranslationSchema = {
 				'<strong>अनुमानित पैटर्न</strong> — संसाधन नामकरण, CRUD कन्वेंशन',
 				'<strong>सेल्फ-डॉक्यूमेंटिंग APIs</strong> — OpenAPI स्पेक्स ऑटो-जनरेटेड',
 				'<strong>LLMs.txt सपोर्ट</strong> — AI-डिस्कवरेबल साइट कंटेंट',
-				'<strong>MCP-फ़र्स्ट</strong> — AI असिस्टेंट इंटीग्रेशन के लिए 58 टूल्स',
+				'<strong>MCP-फ़र्स्ट</strong> — AI असिस्टेंट इंटीग्रेशन के लिए 42 टूल्स',
 				'<strong>सेटअप ऑटोमेशन</strong> — <code>setup_agent</code> से सिंगल-कॉल एजेंट क्रिएशन',
 			],
 		},
@@ -524,7 +524,7 @@ const hi: TranslationSchema = {
 			items: [
 				'<strong>विज़ुअल मैनेजमेंट UI</strong> — EDDI मैनेजर',
 				'<strong>Configuration-as-Code</strong> — JSON एजेंट लॉजिक',
-				'<strong>58 MCP टूल्स</strong> — पूर्ण AI-नेटिव कंट्रोल',
+				'<strong>42 MCP टूल्स</strong> — पूर्ण AI-नेटिव कंट्रोल',
 				'<strong>एंटरप्राइज़ सुरक्षा</strong> — OIDC, Vault, ऑडिट ट्रेल्स',
 				'<strong>प्रोडक्शन इंफ्रास्ट्रक्चर</strong> — REST APIs, Prometheus मेट्रिक्स',
 				'<strong>हॉरिज़ॉन्टल स्केलिंग</strong> — NATS JetStream',
@@ -752,7 +752,7 @@ const hi: TranslationSchema = {
 			timeline: [
 				{ year: '2006', text: '<strong>Project founded</strong> in Vienna, Austria — early research into dialogue management and conversational state.' },
 				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support.' },
-				{ year: '2016', text: '<strong>Franz Weber</strong> joins the project, expanding the team and preparing for open-source launch.' },
+	
 				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator \u00b7 Launched as open source under Apache 2.0.' },
 				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, Vienna — sponsored by weXelerate and T-Mobile.' },
 				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan at Deutsche Bank Innovation Labs — sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
@@ -762,7 +762,7 @@ const hi: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 58 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
+				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
 			],
 			institutionsTitle: 'Backed by Institutions',
 			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
@@ -797,7 +797,7 @@ const hi: TranslationSchema = {
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: '2,000+ Tests',
 			devTestsDesc: 'Zero failures, enforced on every merge',
-			devIntegration: '58 Integration Tests',
+			devIntegration: '42 Integration Tests',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
 			devE2E: '21 E2E Test Suites',
 			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
@@ -866,7 +866,7 @@ const hi: TranslationSchema = {
 			emailLabel: 'Email',
 			email: 'contact@labs.ai',
 			projectHeading: 'Open Source Project',
-			projectMaintainers: 'EDDI is maintained by Gregor Jarisch and Franz Weber.',
+			projectMaintainers: 'EDDI is maintained by Gregor Jarisch (Project Management & Development) and Franz Weber (Cyber Security & Partner Management).',
 			projectLicense: 'Licensed under <a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>.',
 			vatHeading: 'VAT Identification Number',
 			vatNote: 'VAT ID pursuant to §27a UStG (Umsatzsteuergesetz)',

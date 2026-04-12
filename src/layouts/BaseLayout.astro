@@ -4,282 +4,332 @@
  * Provides the HTML shell, global styles, meta tags, JSON-LD,
  * theme toggle script, and i18n hreflang alternates.
  */
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import CookieConsent from '../components/CookieConsent.astro';
-import { EDDI_VERSION } from '../i18n/version';
-import '../styles/global.css';
-import { LOCALE_CODES, getLocaleFromUrl, getPathWithoutLocale, getDir, localePath, type Locale } from '../i18n';
-import { ClientRouter } from 'astro:transitions';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import CookieConsent from "../components/CookieConsent.astro";
+import { EDDI_VERSION } from "../i18n/version";
+import "../styles/global.css";
+import {
+  LOCALE_CODES,
+  getLocaleFromUrl,
+  getPathWithoutLocale,
+  getDir,
+  localePath,
+  type Locale,
+} from "../i18n";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
-	title: string;
-	description?: string;
-	/** Full-bleed page (no content wrapper) — used by homepage */
-	fullWidth?: boolean;
-	/** Explicit locale override (otherwise derived from URL) */
-	lang?: Locale;
+  title: string;
+  description?: string;
+  /** Full-bleed page (no content wrapper) — used by homepage */
+  fullWidth?: boolean;
+  /** Explicit locale override (otherwise derived from URL) */
+  lang?: Locale;
 }
 
 const {
-	title,
-	description: descProp,
-	fullWidth = false,
-	lang: langProp,
+  title,
+  description: descProp,
+  fullWidth = false,
+  lang: langProp,
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
 const dir = getDir(lang);
 
 // Use locale-aware description fallback instead of hardcoded English
-import { getTranslations } from '../i18n';
+import { getTranslations } from "../i18n";
 const tMeta = await getTranslations(lang);
 const description = descProp ?? tMeta.meta.siteDescription;
-const siteUrl = Astro.site?.toString() || 'https://eddi.labs.ai';
+const siteUrl = Astro.site?.toString() || "https://eddi.labs.ai";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const pagePath = getPathWithoutLocale(Astro.url);
 
 // OG locale mapping (ISO 639-1 → Open Graph format)
 const OG_LOCALE_MAP: Record<string, string> = {
-	en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', pt: 'pt_BR',
-	ar: 'ar_SA', zh: 'zh_CN', ja: 'ja_JP', ko: 'ko_KR', hi: 'hi_IN', th: 'th_TH',
+  en: "en_US",
+  de: "de_DE",
+  es: "es_ES",
+  fr: "fr_FR",
+  pt: "pt_BR",
+  ar: "ar_SA",
+  zh: "zh_CN",
+  ja: "ja_JP",
+  ko: "ko_KR",
+  hi: "hi_IN",
+  th: "th_TH",
 };
 const ogLocale = OG_LOCALE_MAP[lang] || lang;
 ---
 
 <!doctype html>
 <html lang={lang} dir={dir} data-theme="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<ClientRouter />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="canonical" href={canonicalURL} />
+  <head>
+    <meta charset="UTF-8" />
+    <ClientRouter />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
 
-		<title>{title} | EDDI</title>
-		<meta name="description" content={description} />
+    <title>{title} | EDDI</title>
+    <meta name="description" content={description} />
 
-		<!-- Hreflang alternates for all locales -->
-		{LOCALE_CODES.map((loc) => (
-			<link rel="alternate" hreflang={loc} href={new URL(localePath(loc, pagePath), siteUrl)} />
-		))}
-		<link rel="alternate" hreflang="x-default" href={new URL(pagePath, siteUrl)} />
+    <!-- Hreflang alternates for all locales -->
+    {
+      LOCALE_CODES.map((loc) => (
+        <link
+          rel="alternate"
+          hreflang={loc}
+          href={new URL(localePath(loc, pagePath), siteUrl)}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(pagePath, siteUrl)}
+    />
 
-		<!-- OG / Twitter -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={`${title} | EDDI`} />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
-		<meta property="og:locale" content={ogLocale} />
-		{LOCALE_CODES.filter(l => l !== lang).map(l => (
-			<meta property="og:locale:alternate" content={OG_LOCALE_MAP[l] || l} />
-		))}
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
+    <!-- OG / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | EDDI`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
+    <meta property="og:locale" content={ogLocale} />
+    {
+      LOCALE_CODES.filter((l) => l !== lang).map((l) => (
+        <meta property="og:locale:alternate" content={OG_LOCALE_MAP[l] || l} />
+      ))
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
 
-		<!-- LLM / AI agent discovery -->
-		<link rel="author" type="text/markdown" href="/llms.txt" />
-		<link rel="author" type="text/markdown" href="/llms-full.txt" />
+    <!-- LLM / AI agent discovery -->
+    <link rel="author" type="text/markdown" href="/llms.txt" />
+    <link rel="author" type="text/markdown" href="/llms-full.txt" />
 
-		<!-- JSON-LD: Organization -->
-		<script is:inline type="application/ld+json" set:html={JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'Organization',
-			name: 'Labs.ai',
-			url: 'https://eddi.labs.ai',
-			logo: 'https://eddi.labs.ai/og-image.png',
-			sameAs: ['https://github.com/labsai/EDDI'],
-		})} />
+    <!-- JSON-LD: Organization -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Labs.ai",
+        url: "https://eddi.labs.ai",
+        logo: "https://eddi.labs.ai/og-image.png",
+        sameAs: ["https://github.com/labsai/EDDI"],
+      })}
+    />
 
-		<!-- JSON-LD: WebSite -->
-		<script is:inline type="application/ld+json" set:html={JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'WebSite',
-			name: 'EDDI',
-			url: 'https://eddi.labs.ai',
-			description: `EDDI — The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance (${EDDI_VERSION} Preview).`,
-		})} />
+    <!-- JSON-LD: WebSite -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "EDDI",
+        url: "https://eddi.labs.ai",
+        description: `EDDI — The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance (${EDDI_VERSION} Preview).`,
+      })}
+    />
 
-		<!-- JSON-LD: SoftwareApplication -->
-		<script is:inline type="application/ld+json" set:html={JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': 'SoftwareApplication',
-			name: 'EDDI',
-			applicationCategory: 'DeveloperApplication',
-			operatingSystem: 'Cross-platform (JVM)',
-			description: 'Self-hosted enterprise AI orchestration platform with a visual management UI, 58 MCP tools, and built-in compliance.',
-			url: 'https://eddi.labs.ai',
-			downloadUrl: 'https://github.com/labsai/EDDI',
-			softwareVersion: EDDI_VERSION.replace('v', ''),
-			license: 'https://www.apache.org/licenses/LICENSE-2.0',
-			author: { '@type': 'Organization', name: 'Labs.ai' },
-			offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-		})} />
+    <!-- JSON-LD: SoftwareApplication -->
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "EDDI",
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Cross-platform (JVM)",
+        description:
+          "Self-hosted enterprise AI orchestration platform with a visual management UI, 42 MCP tools, and built-in compliance.",
+        url: "https://eddi.labs.ai",
+        downloadUrl: "https://github.com/labsai/EDDI",
+        softwareVersion: EDDI_VERSION.replace("v", ""),
+        license: "https://www.apache.org/licenses/LICENSE-2.0",
+        author: { "@type": "Organization", name: "Labs.ai" },
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      })}
+    />
 
-		<!-- Theme init (no flash) -->
-		<script is:inline>
-			(function() {
-				const stored = localStorage.getItem('eddi-theme');
-				const theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-				document.documentElement.setAttribute('data-theme', theme);
-			})();
-		</script>
+    <!-- Theme init (no flash) -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("eddi-theme");
+        const theme =
+          stored ||
+          (window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
 
-		<!-- Fonts: self-hosted via fontsource (no Google CDN requests) -->
-	</head>
-	<body>
-		<a href="#main-content" class="skip-to-content">Skip to content</a>
-		<Header lang={lang} />
+    <!-- Fonts: self-hosted via fontsource (no Google CDN requests) -->
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <Header lang={lang} />
 
-		{fullWidth ? (
-			<main id="main-content">
-				<slot />
-			</main>
-		) : (
-			<main id="main-content" class="page-content">
-				<slot />
-			</main>
-		)}
+    {
+      fullWidth ? (
+        <main id="main-content">
+          <slot />
+        </main>
+      ) : (
+        <main id="main-content" class="page-content">
+          <slot />
+        </main>
+      )
+    }
 
-		<Footer lang={lang} />
-		
-		<!-- Global Copy Button Script for pre elements -->
-		<script is:inline>
-			document.addEventListener('astro:page-load', () => {
-				document.querySelectorAll('pre').forEach((pre) => {
-					// Skip if already wrapped (idempotency guard for ClientRouter transitions)
-					if (pre.closest('.eddi-pre-wrapper')) return;
+    <Footer lang={lang} />
 
-					const button = document.createElement('button');
-					button.className = 'eddi-copy-btn';
-					button.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-					button.ariaLabel = 'Copy code';
-					
-					button.addEventListener('click', async () => {
-						const code = pre.querySelector('code')?.innerText || pre.innerText;
-						try {
-							await navigator.clipboard.writeText(code);
-							button.classList.add('copied');
-							button.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-							setTimeout(() => {
-								button.classList.remove('copied');
-								button.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-							}, 2000);
-						} catch (err) {
-							console.error('Failed to copy', err);
-						}
-					});
-					
-					const wrapper = document.createElement('div');
-					wrapper.className = 'eddi-pre-wrapper';
-					pre.parentNode.insertBefore(wrapper, pre);
-					wrapper.appendChild(pre);
-					wrapper.appendChild(button);
-				});
-			});
-		</script>
+    <!-- Global Copy Button Script for pre elements -->
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        document.querySelectorAll("pre").forEach((pre) => {
+          // Skip if already wrapped (idempotency guard for ClientRouter transitions)
+          if (pre.closest(".eddi-pre-wrapper")) return;
 
-		<CookieConsent lang={lang} t={tMeta} />
+          const button = document.createElement("button");
+          button.className = "eddi-copy-btn";
+          button.innerHTML =
+            '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+          button.ariaLabel = "Copy code";
 
-		<!-- Email deobfuscation — assembles mailto links client-side to prevent scraping -->
-		<script is:inline>
-			document.addEventListener('astro:page-load', function () {
-				document.querySelectorAll('.obfuscated-email').forEach(function (el) {
-					var u = el.getAttribute('data-u');
-					var d = el.getAttribute('data-d');
-					if (u && d) {
-						var addr = u + '@' + d;
-						var a = document.createElement('a');
-						a.href = 'mailto:' + addr;
-						a.textContent = addr;
-						// Preserve any additional classes from the span
-						if (el.className) {
-							el.className.split(' ').forEach(function (cls) {
-								if (cls && cls !== 'obfuscated-email') a.classList.add(cls);
-							});
-						}
-						el.replaceWith(a);
-					}
-				});
-			});
-		</script>
-	</body>
+          button.addEventListener("click", async () => {
+            const code = pre.querySelector("code")?.innerText || pre.innerText;
+            try {
+              await navigator.clipboard.writeText(code);
+              button.classList.add("copied");
+              button.innerHTML =
+                '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+              setTimeout(() => {
+                button.classList.remove("copied");
+                button.innerHTML =
+                  '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+              }, 2000);
+            } catch (err) {
+              console.error("Failed to copy", err);
+            }
+          });
+
+          const wrapper = document.createElement("div");
+          wrapper.className = "eddi-pre-wrapper";
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+          wrapper.appendChild(button);
+        });
+      });
+    </script>
+
+    <CookieConsent lang={lang} t={tMeta} />
+
+    <!-- Email deobfuscation — assembles mailto links client-side to prevent scraping -->
+    <script is:inline>
+      document.addEventListener("astro:page-load", function () {
+        document.querySelectorAll(".obfuscated-email").forEach(function (el) {
+          var u = el.getAttribute("data-u");
+          var d = el.getAttribute("data-d");
+          if (u && d) {
+            var addr = u + "@" + d;
+            var a = document.createElement("a");
+            a.href = "mailto:" + addr;
+            a.textContent = addr;
+            // Preserve any additional classes from the span
+            if (el.className) {
+              el.className.split(" ").forEach(function (cls) {
+                if (cls && cls !== "obfuscated-email") a.classList.add(cls);
+              });
+            }
+            el.replaceWith(a);
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
 
 <style is:global>
-	html {
-		scroll-behavior: smooth;
-	}
+  html {
+    scroll-behavior: smooth;
+  }
 
-	body {
-		margin: 0;
-		min-height: 100vh;
-	}
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
 
-	/* Skip to Content for Screen Readers */
-	.skip-to-content {
-		position: absolute;
-		top: -100%;
-		inset-inline-start: 50%;
-		transform: translateX(-50%);
-		background: var(--color-accent-500);
-		color: #000;
-		padding: 0.5rem 1rem;
-		border-radius: 0 0 0.5rem 0.5rem;
-		z-index: 9999;
-		transition: top 0.2s ease;
-		font-weight: 600;
-	}
-	.skip-to-content:focus {
-		top: 0;
-	}
+  /* Skip to Content for Screen Readers */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent-500);
+    color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    z-index: 9999;
+    transition: top 0.2s ease;
+    font-weight: 600;
+  }
+  .skip-to-content:focus {
+    top: 0;
+  }
 
-	/* Full-width pages get no wrapper */
-	main.page-content {
-		max-width: 72rem;
-		margin: 0 auto;
-		padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
-	}
+  /* Full-width pages get no wrapper */
+  main.page-content {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+  }
 
-	/* Global Code Copy UI */
-	.eddi-pre-wrapper {
-		position: relative;
-		margin-bottom: 1rem;
-	}
-	.eddi-pre-wrapper pre {
-		margin-bottom: 0 !important;
-	}
-	.eddi-copy-btn {
-		position: absolute;
-		top: 0.5rem;
-		inset-inline-end: 0.5rem;
-		padding: 0.4rem;
-		border-radius: 0.375rem;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		color: var(--color-text-muted);
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.2s;
-		z-index: 10;
-	}
-	html[data-theme='light'] .eddi-copy-btn {
-		background: rgba(0, 0, 0, 0.05);
-		border: 1px solid rgba(0, 0, 0, 0.1);
-	}
-	.eddi-copy-btn:hover {
-		color: var(--color-text);
-		background: rgba(255, 255, 255, 0.2);
-	}
-	html[data-theme='light'] .eddi-copy-btn:hover {
-		background: rgba(0, 0, 0, 0.1);
-	}
-	.eddi-copy-btn.copied {
-		color: var(--color-accent-400);
-		border-color: var(--color-accent-500);
-		background: color-mix(in srgb, var(--color-accent) 15%, transparent);
-	}
+  /* Global Code Copy UI */
+  .eddi-pre-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .eddi-pre-wrapper pre {
+    margin-bottom: 0 !important;
+  }
+  .eddi-copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    inset-inline-end: 0.5rem;
+    padding: 0.4rem;
+    border-radius: 0.375rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+  }
+  html[data-theme="light"] .eddi-copy-btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .eddi-copy-btn:hover {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  html[data-theme="light"] .eddi-copy-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .eddi-copy-btn.copied {
+    color: var(--color-accent-400);
+    border-color: var(--color-accent-500);
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+  }
 </style>

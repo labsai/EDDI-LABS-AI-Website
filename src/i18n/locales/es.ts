@@ -15,7 +15,7 @@ const es: TranslationSchema = {
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Interfaz visual para la gestión de agentes',
 		mcpServer: 'Servidor MCP',
-		mcpServerDesc: '58 herramientas para control nativo de IA',
+		mcpServerDesc: '42 herramientas para control nativo de IA',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'Configuración JSON, sin boilerplate',
 		securityFirst: 'Diseñado para la seguridad',
@@ -51,7 +51,7 @@ const es: TranslationSchema = {
 		useCases: 'Casos de uso',
 		useCasesDesc: 'Patrones de implementación reales',
 		allFeatures: 'Todas las características',
-		mcpServerMobile: 'Servidor MCP (58 herr.)',
+		mcpServerMobile: 'Servidor MCP (42 herr.)',
 		resources: 'Recursos',
 		documentation: 'Documentación ↗',
 		github: 'GitHub ↗',
@@ -135,7 +135,7 @@ const es: TranslationSchema = {
 		sol1Title: 'Configuración como código',
 		sol1Desc:
 			'La lógica, pipelines y herramientas del agente son <strong>configuraciones JSON</strong>, no código compilado. Los ingenieros de prompts iteran instantáneamente usando la interfaz en React o la API REST, sin necesidad de redespliegue.',
-		sol2Title: '58 Herramientas MCP',
+		sol2Title: '42 Herramientas MCP',
 		sol2Desc:
 			'EDDI expone sus capacidades a través del <strong>Model Context Protocol</strong> (permitiendo que Claude Desktop y otros clientes interactúen). Los agentes también pueden <strong>consumir herramientas MCP externas</strong>.',
 		sol3Title: 'La seguridad es lo primero',
@@ -190,7 +190,7 @@ const es: TranslationSchema = {
 		faqTitle: 'Preguntas frecuentes',
 		faq1Q: '¿Qué es EDDI?',
 		faq1A:
-			'EDDI es una plataforma de orquestación de IA empresarial de código abierto. Permite a los equipos crear, configurar y desplegar agentes de IA mediante configuración JSON, sin necesidad de código compilado. Incluye una <strong>interfaz de administración en React lista para producción</strong> (el EDDI Manager), APIs REST integradas, gestión de conversaciones, seguridad (OIDC/Keycloak), trazas de auditoría inmutables y 58 herramientas MCP — todo desplegable a través de Docker o Kubernetes.',
+			'EDDI es una plataforma de orquestación de IA empresarial de código abierto. Permite a los equipos crear, configurar y desplegar agentes de IA mediante configuración JSON, sin necesidad de código compilado. Incluye una <strong>interfaz de administración en React lista para producción</strong> (el EDDI Manager), APIs REST integradas, gestión de conversaciones, seguridad (OIDC/Keycloak), trazas de auditoría inmutables y 42 herramientas MCP — todo desplegable a través de Docker o Kubernetes.',
 		faq2Q: '¿Cuál es la diferencia entre EDDI y las bibliotecas y frameworks de IA?',
 		faq2A:
 			'Las bibliotecas de IA como LangChain, Spring AI y LangChain4j proporcionan bloques de construcción, pero usted aún debe construir los controladores REST, la autenticación, la gestión de conversaciones, el registro de auditoría y la interfaz de administración por su cuenta. EDDI es una <strong>plataforma middleware desplegable</strong>, no una biblioteca. Proporciona todo esto listo para usar, desplegable vía Docker.',
@@ -199,7 +199,7 @@ const es: TranslationSchema = {
 			'Sí. EDDI está construido sobre un runtime empresarial con hilos virtuales ligeros para una concurrencia masiva en operaciones de E/S. Soporta MongoDB y PostgreSQL, incluye autenticación OIDC/Keycloak integrada, proporciona trazas de auditoría criptográficas inmutables para el cumplimiento normativo (incluido el Reglamento Europeo de IA) y escala horizontalmente mediante NATS JetStream.',
 		faq4Q: '¿Qué es el Model Context Protocol (MCP)?',
 		faq4A:
-			'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA como Claude Desktop, los plugins de IDE y los clientes personalizados interactuar con herramientas externas de forma programática. EDDI expone 58 herramientas MCP que abarcan la gestión de conversaciones, la administración de agentes, la automatización de configuración, la planificación de tareas y el diagnóstico.',
+			'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA como Claude Desktop, los plugins de IDE y los clientes personalizados interactuar con herramientas externas de forma programática. EDDI expone 42 herramientas MCP que abarcan la gestión de conversaciones, la administración de agentes, la automatización de configuración, la planificación de tareas y el diagnóstico.',
 		faq5Q: '¿Puede EDDI sustituir a Flowise o n8n en entornos de producción?',
 		faq5A:
 			'EDDI cumple un propósito similar de construcción visual, pero con una arquitectura de nivel empresarial. A diferencia de Flowise y n8n, EDDI no utiliza <code>eval()</code> ni bloques de ejecución de código, ejecuta millones de hilos virtuales ligeros para concurrencia de nivel empresarial, soporta autenticación OIDC/Keycloak y almacena datos en MongoDB o PostgreSQL. Está diseñado para industrias reguladas.',
@@ -217,7 +217,7 @@ const es: TranslationSchema = {
 		step1After: 'EDDI estará disponible en <code>http://localhost:7070</code>.',
 		step2Title: '2. Conéctese vía MCP',
 		step2Desc: 'Si utiliza <strong>Claude Desktop</strong> o cualquier cliente compatible con MCP, añada EDDI como servidor MCP:',
-		step2After: 'Ahora puede interactuar con las 58 herramientas MCP de EDDI directamente desde su asistente de IA.',
+		step2After: 'Ahora puede interactuar con las 42 herramientas MCP de EDDI directamente desde su asistente de IA.',
 		step3Title: '3. Cree su primer agente',
 		step3Desc: 'Utilice la herramienta MCP <code>setup_agent</code> para crear un agente completamente funcional en una sola llamada:',
 		step3After: 'Esto crea las reglas, la configuración LLM, el flujo de trabajo, el agente y lo despliega — todo en un solo paso.',
@@ -230,7 +230,7 @@ const es: TranslationSchema = {
 		nextAllFeatures: 'Todas las funcionalidades',
 		nextAllFeaturesDesc: 'Explore todo lo que EDDI ofrece',
 		nextMcpServer: 'Servidor MCP',
-		nextMcpServerDesc: 'Explore las 58 herramientas MCP',
+		nextMcpServerDesc: 'Explore las 42 herramientas MCP',
 		nextDocs: 'Documentación ↗',
 		nextDocsDesc: 'Profundice en la arquitectura y las APIs',
 		nextWhyEddi: '¿Por qué EDDI?',
@@ -263,7 +263,7 @@ const es: TranslationSchema = {
 	featuresOverview: {
 		title: 'Funcionalidades de un vistazo',
 		description:
-			'Todas las capacidades que hacen de EDDI el orquestador de IA empresarial — EDDI Manager, config-as-code, 58 herramientas MCP, arquitectura de seguridad y más.',
+			'Todas las capacidades que hacen de EDDI el orquestador de IA empresarial — EDDI Manager, config-as-code, 42 herramientas MCP, arquitectura de seguridad y más.',
 		heroTitle: 'Todo lo que necesita para',
 		heroHighlight: 'orquestar la IA',
 		heroDesc:
@@ -276,7 +276,7 @@ const es: TranslationSchema = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'La lógica del agente es configuración JSON, no código compilado. Los ingenieros de prompts iteran al instante — <strong>sin necesidad de redespliegue</strong>.',
-		mcpCardTitle: '🔌 Servidor MCP (58 herramientas)',
+		mcpCardTitle: '🔌 Servidor MCP (42 herramientas)',
 		mcpCardDesc:
 			'Control nativo completo de IA a través del <strong>Model Context Protocol</strong>. Claude Desktop, Cursor y clientes personalizados gestionan agentes de forma programática.',
 		securityCardTitle: '🔐 Seguridad integrada',
@@ -307,7 +307,7 @@ const es: TranslationSchema = {
 			'<strong>Más de 2000 pruebas sin fallos.</strong> Cero avisos de Checkstyle. CI/CD aplicado en cada merge.',
 		aiCardTitle: '🧩 Preparado para IA',
 		aiCardDesc:
-			'58 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. <strong>Diseñado para que los agentes de codificación trabajen con él</strong>.',
+			'42 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. <strong>Diseñado para que los agentes de codificación trabajen con él</strong>.',
 	},
 	pages: {
 		manager: {
@@ -332,12 +332,12 @@ const es: TranslationSchema = {
 				'El Manager permite a los no-desarrolladores iterar sobre el comportamiento de los agentes sin tocar código fuente. Los ingenieros de prompts pueden modificar reglas, probar conversaciones y desplegar cambios — todo desde el navegador.',
 		},
 		mcpServer: {
-			title: 'Servidor MCP — 58 herramientas',
+			title: 'Servidor MCP — 42 herramientas',
 			description:
 				'EDDI expone todas sus capacidades a través del Model Context Protocol, permitiendo a Claude Desktop, Cursor y clientes de IA personalizados gestionar agentes de forma programática.',
 			heading1: 'Plano de control nativo para IA',
 			para1:
-				'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA interactuar con herramientas externas. EDDI implementa un servidor MCP completo con <strong>58 herramientas</strong> que abarcan todos los aspectos de la plataforma.',
+				'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA interactuar con herramientas externas. EDDI implementa un servidor MCP completo con <strong>42 herramientas</strong> que abarcan todos los aspectos de la plataforma.',
 			heading2: 'Categorías de herramientas',
 			items: [
 				'<strong>Herramientas de conversación</strong> — Chatee con agentes, gestione conversaciones, consulte el historial',
@@ -460,14 +460,14 @@ const es: TranslationSchema = {
 				'<strong>Más de 2000 pruebas</strong> — Cobertura unitaria, de integración y de extremo a extremo',
 				'<strong>Cero fallos</strong> — CI limpio en cada build',
 				'<strong>Aplicación de Checkstyle</strong> — Cero avisos, reglas estrictas aplicadas en cada build',
-				'<strong>Pruebas de herramientas MCP</strong> — Cobertura completa de las 58 herramientas MCP',
+				'<strong>Pruebas de herramientas MCP</strong> — Cobertura completa de las 42 herramientas MCP',
 				'<strong>Compuertas de calidad CI/CD</strong> — Verificaciones automatizadas que previenen regresiones',
 			],
 		},
 		aiReady: {
 			title: 'Arquitectura preparada para IA',
 			description:
-				'58 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. Diseñado desde cero para que los agentes de codificación trabajen con él.',
+				'42 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. Diseñado desde cero para que los agentes de codificación trabajen con él.',
 			heading1: 'Diseñado para la colaboración con IA',
 			para1:
 				'EDDI está construido con la premisa de que <strong>los agentes de codificación lo gestionarán</strong>. Cada API sigue patrones predecibles, cada recurso tiene operaciones CRUD consistentes y el servidor MCP habilita el control programático completo.',
@@ -476,7 +476,7 @@ const es: TranslationSchema = {
 				'<strong>Patrones predecibles</strong> — Nomenclatura de recursos consistente, convenciones CRUD y manejo de errores',
 				'<strong>APIs autodocumentadas</strong> — Especificaciones OpenAPI y descripciones de herramientas MCP generadas automáticamente',
 				'<strong>Soporte LLMs.txt</strong> — Contenido del sitio descubrible por IA a través de llms.txt y llms-full.txt',
-				'<strong>MCP-First</strong> — 58 herramientas diseñadas para la integración con asistentes de IA',
+				'<strong>MCP-First</strong> — 42 herramientas diseñadas para la integración con asistentes de IA',
 				'<strong>Automatización de configuración</strong> — Creación de agentes en una sola llamada con <code>setup_agent</code>',
 			],
 		},
@@ -561,7 +561,7 @@ const es: TranslationSchema = {
 			items: [
 				'<strong>Interfaz de gestión visual</strong> — El EDDI Manager para construir y supervisar agentes',
 				'<strong>Configuration-as-Code</strong> — La lógica del agente es JSON, no código compilado',
-				'<strong>58 herramientas MCP</strong> — Control nativo de IA completo a través del Model Context Protocol',
+				'<strong>42 herramientas MCP</strong> — Control nativo de IA completo a través del Model Context Protocol',
 				'<strong>Seguridad empresarial</strong> — OIDC, vault, pistas de auditoría, sin eval()',
 				'<strong>Infraestructura de producción</strong> — APIs REST, gestión de estado de conversaciones, métricas Prometheus',
 				'<strong>Escalabilidad horizontal</strong> — NATS JetStream para arquitecturas distribuidas',
@@ -792,7 +792,7 @@ const es: TranslationSchema = {
 			timeline: [
 				{ year: '2006', text: '<strong>Project founded</strong> in Vienna, Austria — early research into dialogue management and conversational state.' },
 				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support.' },
-				{ year: '2016', text: '<strong>Franz Weber</strong> joins the project, expanding the team and preparing for open-source launch.' },
+	
 				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator \u00b7 Launched as open source under Apache 2.0.' },
 				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, Vienna — sponsored by weXelerate and T-Mobile.' },
 				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan at Deutsche Bank Innovation Labs — sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
@@ -802,7 +802,7 @@ const es: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 58 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
+				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
 			],
 			institutionsTitle: 'Backed by Institutions',
 			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
@@ -837,7 +837,7 @@ const es: TranslationSchema = {
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: '2,000+ Tests',
 			devTestsDesc: 'Zero failures, enforced on every merge',
-			devIntegration: '58 Integration Tests',
+			devIntegration: '42 Integration Tests',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
 			devE2E: '21 E2E Test Suites',
 			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
@@ -906,7 +906,7 @@ const es: TranslationSchema = {
 			emailLabel: 'Email',
 			email: 'contact@labs.ai',
 			projectHeading: 'Open Source Project',
-			projectMaintainers: 'EDDI is maintained by Gregor Jarisch and Franz Weber.',
+			projectMaintainers: 'EDDI is maintained by Gregor Jarisch (Project Management & Development) and Franz Weber (Cyber Security & Partner Management).',
 			projectLicense: 'Licensed under <a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>.',
 			vatHeading: 'VAT Identification Number',
 			vatNote: 'VAT ID pursuant to §27a UStG (Umsatzsteuergesetz)',
