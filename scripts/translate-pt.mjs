@@ -1,6 +1,8 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
-const ROOT = join(import.meta.dirname, '..', 'src', 'i18n', 'locales');
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..', 'src', 'i18n', 'locales');
 
 const translated = `\tcompliance: {
 			title: 'Privacidade global e conformidade regulatória',

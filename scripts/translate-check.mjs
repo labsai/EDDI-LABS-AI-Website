@@ -1,6 +1,8 @@
 import { readFileSync } from 'fs';
-import { join } from 'path';
-const ROOT = join(import.meta.dirname, '..', 'src', 'i18n', 'locales');
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..', 'src', 'i18n', 'locales');
 
 // For single-line minified files, we match from `compliance: {` to the next `},\n`
 const locales = ['ko', 'ar', 'hi', 'th'];

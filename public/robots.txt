@@ -12,5 +12,3 @@ Sitemap: https://eddi.labs.ai/sitemap-index.xml
 # llms.txt = curated table of contents (lightweight)
 # llms-full.txt = full-text documentation (comprehensive)
 
-# Disallow build artifacts
-Disallow: /_astro/

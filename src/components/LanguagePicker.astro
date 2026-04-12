@@ -150,7 +150,10 @@ const pagePath = getPathWithoutLocale(Astro.url);
 
 <script>
 	// Store explicit language choice when user clicks a language
-	function initLangPicker() {
+	// Document-level listeners are registered once to avoid accumulation on ClientRouter swaps
+	let _langPickerDocListenersRegistered = false;
+
+	function initLangPickerElements() {
 		document.querySelectorAll('.lang-dropdown-item').forEach(link => {
 			link.addEventListener('click', () => {
 				const code = link.getAttribute('data-locale') || 'en';
@@ -165,6 +168,11 @@ const pagePath = getPathWithoutLocale(Astro.url);
 				btn.setAttribute('aria-expanded', String(!expanded));
 			});
 		});
+	}
+
+	function initLangPickerDocListeners() {
+		if (_langPickerDocListenersRegistered) return;
+		_langPickerDocListenersRegistered = true;
 
 		// Close on outside click
 		document.addEventListener('click', (e) => {
@@ -185,6 +193,8 @@ const pagePath = getPathWithoutLocale(Astro.url);
 			}
 		});
 	}
-	initLangPicker();
-	document.addEventListener('astro:after-swap', initLangPicker);
+
+	initLangPickerElements();
+	initLangPickerDocListeners();
+	document.addEventListener('astro:after-swap', initLangPickerElements);
 </script>

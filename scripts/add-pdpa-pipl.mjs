@@ -3,9 +3,11 @@
  * Inserts after the pdpaItems block and updates description + para2.
  */
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const localesDir = join(import.meta.dirname, '..', 'src', 'i18n', 'locales');
+const localesDir = join(__dirname, '..', 'src', 'i18n', 'locales');
 
 // Locale-specific translations for the new keys
 const translations = {
