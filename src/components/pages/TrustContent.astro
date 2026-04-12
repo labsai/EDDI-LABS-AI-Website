@@ -19,20 +19,18 @@ const trust = t.pages.trust;
 <BaseLayout title={trust.title} description={trust.description} fullWidth={true} lang={lang}>
 
 <!-- Hero Section -->
-<section class="hero-section hero-gradient hero-gradient-bg">
-	<div class="hero-inner trust-hero-inner">
-		<div class="hero-text trust-hero-text">
-			<h1>
-				{trust.heroTitle}<br/>
-				<span class="text-gradient-dynamic">{trust.heroHighlight}</span>
-			</h1>
-			<p class="hero-tagline" set:html={trust.heroDesc} />
-		</div>
+<section class="trust-hero hero-gradient hero-gradient-bg">
+	<div class="trust-hero-inner">
+		<h1 class="trust-hero-title">
+			{trust.heroTitle}<br/>
+			<span class="text-gradient-dynamic">{trust.heroHighlight}</span>
+		</h1>
+		<p class="trust-hero-desc" set:html={trust.heroDesc} />
 	</div>
 	<!-- Stats bar -->
 	<div class="trust-stats-bar">
 		<div class="trust-stat">
-			<span class="trust-stat-value">100K+</span>
+			<span class="trust-stat-value">390K+</span>
 			<span class="trust-stat-label">{trust.statPulls}</span>
 		</div>
 		<div class="trust-stat">
@@ -57,13 +55,19 @@ const trust = t.pages.trust;
 		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">{trust.timelineDesc}</p>
 	</div>
 	<div class="trust-timeline not-content">
-		{trust.timeline.map((item, i) => (
-			<div class="trust-timeline-item" style={`--delay: ${i * 0.08}s`}>
-				<div class="trust-timeline-year">{item.year}</div>
-				<div class="trust-timeline-dot"></div>
-				<div class="trust-timeline-content" set:html={item.text} />
-			</div>
-		))}
+		{trust.timeline.map((item, i) => {
+			const prevYear = i > 0 ? trust.timeline[i - 1].year : null;
+			const isNewYear = item.year !== prevYear;
+			return (
+				<div class={`trust-tl-row ${isNewYear ? 'trust-tl-new-year' : ''}`} style={`--delay: ${i * 0.06}s`}>
+					<div class="trust-tl-rail">
+						{isNewYear && <div class="trust-tl-marker">{item.year}</div>}
+						<div class="trust-tl-line"></div>
+					</div>
+					<div class="trust-tl-card" set:html={item.text} />
+				</div>
+			);
+		})}
 	</div>
 </section>
 
@@ -77,7 +81,7 @@ const trust = t.pages.trust;
 		<!-- FFG -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instFFGTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instFFGDesc} />
@@ -85,7 +89,7 @@ const trust = t.pages.trust;
 		<!-- EU / ELG -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instEUTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instEUDesc} />
@@ -93,7 +97,7 @@ const trust = t.pages.trust;
 		<!-- EDUBOTS -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instEdubotsTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instEdubotsDesc} />
@@ -101,7 +105,7 @@ const trust = t.pages.trust;
 		<!-- weXelerate -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instWexTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instWexDesc} />
@@ -109,7 +113,7 @@ const trust = t.pages.trust;
 		<!-- inits.at -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instInitsTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instInitsDesc} />
@@ -117,25 +121,12 @@ const trust = t.pages.trust;
 		<!-- Red Hat -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">
-				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
 			</div>
 			<h3 class="text-lg font-bold text-white mb-2">{trust.instRedHatTitle}</h3>
 			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instRedHatDesc} />
 		</div>
 	</div>
-
-	<!-- EDUBOTS Partners (collapsible) -->
-	<details class="trust-partners-details mt-8">
-		<summary class="trust-partners-summary">{trust.edubotsPartnersTitle}</summary>
-		<div class="trust-partners-grid not-content">
-			{trust.edubotsPartners.map((partner) => (
-				<div class="trust-partner-chip">
-					<span class="trust-partner-name">{partner.name}</span>
-					<span class="trust-partner-country">{partner.country}</span>
-				</div>
-			))}
-		</div>
-	</details>
 </section>
 
 <!-- Enterprise Deployment Section -->
@@ -143,21 +134,8 @@ const trust = t.pages.trust;
 	<div class="trust-enterprise-card not-content">
 		<div class="trust-enterprise-content">
 			<h2 class="text-3xl md:text-4xl font-bold mb-6 text-white! border-0!">{trust.enterpriseTitle}</h2>
-			<p class="text-zinc-300 text-base leading-relaxed mb-8" set:html={trust.enterpriseDesc} />
-			<div class="trust-enterprise-stats">
-				<div class="trust-enterprise-stat">
-					<span class="trust-enterprise-stat-value">{trust.enterpriseStat1}</span>
-					<span class="trust-enterprise-stat-label">{trust.enterpriseStat1Label}</span>
-				</div>
-				<div class="trust-enterprise-stat">
-					<span class="trust-enterprise-stat-value">{trust.enterpriseStat2}</span>
-					<span class="trust-enterprise-stat-label">{trust.enterpriseStat2Label}</span>
-				</div>
-				<div class="trust-enterprise-stat">
-					<span class="trust-enterprise-stat-value">{trust.enterpriseStat3}</span>
-					<span class="trust-enterprise-stat-label">{trust.enterpriseStat3Label}</span>
-				</div>
-			</div>
+			<p class="text-zinc-300 text-base leading-relaxed mb-6" set:html={trust.enterpriseDesc} />
+			<a href={trust.enterpriseLinkUrl} target="_blank" rel="noopener" class="trust-enterprise-link">{trust.enterpriseLinkText}</a>
 		</div>
 	</div>
 </section>
@@ -189,34 +167,34 @@ const trust = t.pages.trust;
 	</div>
 
 	<!-- Trust signal cards grid -->
-	<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+	<div class="trust-signals-grid not-content">
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">🛡️</div>
+			<div class="trust-signal-icon" aria-hidden="true">🛡️</div>
 			<h4 class="trust-signal-title">{trust.devOpenSSF}</h4>
 			<p class="trust-signal-desc">{trust.devOpenSSFDesc}</p>
 		</div>
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">📊</div>
+			<div class="trust-signal-icon" aria-hidden="true">📊</div>
 			<h4 class="trust-signal-title">{trust.devCodacy}</h4>
 			<p class="trust-signal-desc">{trust.devCodacyDesc}</p>
 		</div>
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">🐳</div>
+			<div class="trust-signal-icon" aria-hidden="true">🐳</div>
 			<h4 class="trust-signal-title">{trust.devDocker}</h4>
 			<p class="trust-signal-desc">{trust.devDockerDesc}</p>
 		</div>
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">✅</div>
+			<div class="trust-signal-icon" aria-hidden="true">✅</div>
 			<h4 class="trust-signal-title">{trust.devCI}</h4>
 			<p class="trust-signal-desc">{trust.devCIDesc}</p>
 		</div>
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">🔍</div>
+			<div class="trust-signal-icon" aria-hidden="true">🔍</div>
 			<h4 class="trust-signal-title">{trust.devCodeQL}</h4>
 			<p class="trust-signal-desc">{trust.devCodeQLDesc}</p>
 		</div>
 		<div class="trust-signal-card">
-			<div class="trust-signal-icon">🧪</div>
+			<div class="trust-signal-icon" aria-hidden="true">🧪</div>
 			<h4 class="trust-signal-title">{trust.devTests}</h4>
 			<p class="trust-signal-desc">{trust.devTestsDesc}</p>
 		</div>
@@ -247,13 +225,35 @@ const trust = t.pages.trust;
 
 <style>
 /* ===== HERO ===== */
-.trust-hero-inner {
-	text-align: center;
+.trust-hero {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
+	text-align: center;
+	padding: 10rem 1.5rem 4rem;
+	min-height: 60vh;
 }
-.trust-hero-text {
+.trust-hero-inner {
 	max-width: 48rem;
+}
+.trust-hero-title {
+	font-size: clamp(2.5rem, 6vw, 4.5rem);
+	font-weight: 800;
+	line-height: 1.08;
+	letter-spacing: -0.03em;
+	margin-bottom: 1.5rem;
+	color: var(--color-text);
+}
+.trust-hero-desc {
+	font-size: 1.125rem;
+	line-height: 1.7;
+	color: var(--color-text-muted);
+	max-width: 38rem;
+	margin: 0 auto;
+}
+.trust-hero-desc :global(strong) {
+	color: var(--color-text);
 }
 
 /* ===== STATS BAR ===== */
@@ -261,7 +261,7 @@ const trust = t.pages.trust;
 	display: flex;
 	justify-content: center;
 	gap: 3rem;
-	padding: 2rem 1.5rem 0;
+	padding: 2.5rem 1.5rem 0;
 	flex-wrap: wrap;
 }
 .trust-stat {
@@ -287,53 +287,94 @@ const trust = t.pages.trust;
 	font-weight: 600;
 }
 
-/* ===== TIMELINE ===== */
+/* ===== TIMELINE (redesigned) ===== */
 .trust-timeline {
 	position: relative;
-	padding-inline-start: 2rem;
+	max-width: 42rem;
+	margin: 0 auto;
 }
-.trust-timeline::before {
-	content: '';
-	position: absolute;
-	inset-inline-start: 0.5rem;
-	top: 0;
-	bottom: 0;
-	width: 2px;
-	background: linear-gradient(to bottom, var(--color-accent), transparent);
-}
-.trust-timeline-item {
+
+.trust-tl-row {
 	display: grid;
-	grid-template-columns: 4rem auto;
-	gap: 1.5rem;
-	padding-bottom: 2rem;
-	position: relative;
+	grid-template-columns: 5rem 1fr;
+	gap: 0;
+	min-height: 0;
 	opacity: 0;
 	animation: trust-fade-in 0.4s ease forwards;
 	animation-delay: var(--delay);
 }
-.trust-timeline-year {
-	font-size: 0.875rem;
+
+/* The left rail: marker + line */
+.trust-tl-rail {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+/* Vertical connector line */
+.trust-tl-line {
+	width: 2px;
+	flex: 1;
+	background: linear-gradient(
+		to bottom,
+		color-mix(in srgb, var(--color-accent) 40%, transparent),
+		color-mix(in srgb, var(--color-accent) 15%, transparent)
+	);
+}
+.trust-tl-row:last-child .trust-tl-line {
+	background: linear-gradient(
+		to bottom,
+		color-mix(in srgb, var(--color-accent) 40%, transparent),
+		transparent
+	);
+}
+
+/* Year marker badge — only shown for new years */
+.trust-tl-marker {
+	flex-shrink: 0;
+	width: 3.5rem;
+	height: 1.75rem;
+	border-radius: 999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8125rem;
 	font-weight: 700;
 	color: var(--color-accent);
-	text-align: end;
-	padding-top: 0.125rem;
+	background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+	border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+	box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 20%, transparent);
+	margin-bottom: 0.25rem;
 }
-.trust-timeline-dot {
-	position: absolute;
-	inset-inline-start: -1.5rem;
-	top: 0.375rem;
-	width: 0.625rem;
-	height: 0.625rem;
+
+/* For rows without a year marker, add a small dot instead */
+.trust-tl-row:not(.trust-tl-new-year) .trust-tl-rail::before {
+	content: '';
+	width: 6px;
+	height: 6px;
 	border-radius: 50%;
-	background: var(--color-accent);
-	box-shadow: 0 0 12px color-mix(in srgb, var(--color-accent) 50%, transparent);
+	background: color-mix(in srgb, var(--color-accent) 50%, transparent);
+	flex-shrink: 0;
+	margin-bottom: 0.25rem;
 }
-.trust-timeline-content {
+
+/* Content card */
+.trust-tl-card {
+	padding: 0.875rem 1.25rem;
+	margin: 0 0 0.5rem 0.75rem;
+	border-radius: 0.75rem;
+	background: rgba(39, 39, 42, 0.35);
+	border: 1px solid rgba(63, 63, 70, 0.35);
 	font-size: 0.9375rem;
 	color: var(--color-text-muted);
 	line-height: 1.6;
+	transition: border-color 0.2s;
 }
-.trust-timeline-content :global(strong) {
+.trust-tl-card:hover {
+	border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+.trust-tl-card :global(strong) {
 	color: var(--color-text);
 	font-weight: 600;
 }
@@ -380,52 +421,6 @@ const trust = t.pages.trust;
 	box-shadow: 0 0 40px color-mix(in srgb, var(--color-accent) 50%, transparent);
 }
 
-/* ===== EDUBOTS PARTNERS DETAILS ===== */
-.trust-partners-details {
-	max-width: 48rem;
-	margin-inline: auto;
-}
-.trust-partners-summary {
-	cursor: pointer;
-	font-size: 0.875rem;
-	font-weight: 600;
-	color: var(--color-text-muted);
-	padding: 0.75rem 1rem;
-	border-radius: 0.75rem;
-	background: rgba(39, 39, 42, 0.3);
-	border: 1px solid rgba(63, 63, 70, 0.3);
-	transition: all 0.2s;
-	text-align: center;
-}
-.trust-partners-summary:hover {
-	color: var(--color-text);
-	border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
-}
-.trust-partners-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-	gap: 0.75rem;
-	padding-top: 1rem;
-}
-.trust-partner-chip {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.625rem 1rem;
-	border-radius: 0.5rem;
-	background: rgba(39, 39, 42, 0.3);
-	border: 1px solid rgba(63, 63, 70, 0.3);
-}
-.trust-partner-name {
-	font-size: 0.8125rem;
-	font-weight: 600;
-	color: var(--color-text-muted);
-}
-.trust-partner-country {
-	font-size: 0.6875rem;
-	color: var(--color-text-subtle);
-}
-
 /* ===== ENTERPRISE CARD ===== */
 .trust-enterprise-card {
 	position: relative;
@@ -450,29 +445,18 @@ const trust = t.pages.trust;
 	position: relative;
 	z-index: 1;
 }
-.trust-enterprise-stats {
-	display: flex;
-	gap: 3rem;
-	flex-wrap: wrap;
+.trust-enterprise-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: opacity 0.2s;
 }
-.trust-enterprise-stat {
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
-}
-.trust-enterprise-stat-value {
-	font-size: 2.5rem;
-	font-weight: 800;
-	background: linear-gradient(135deg, var(--color-accent), #f59e0b);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	line-height: 1.1;
-}
-.trust-enterprise-stat-label {
-	font-size: 0.8125rem;
-	color: var(--color-text-subtle);
-	font-weight: 500;
+.trust-enterprise-link:hover {
+	opacity: 0.8;
 }
 
 /* ===== BADGES ROW ===== */
@@ -494,6 +478,12 @@ const trust = t.pages.trust;
 }
 
 /* ===== TRUST SIGNAL CARDS ===== */
+.trust-signals-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+	gap: 1rem;
+	margin-top: 2.5rem;
+}
 .trust-signal-card {
 	padding: 1.25rem;
 	border-radius: 1rem;
@@ -541,9 +531,7 @@ const trust = t.pages.trust;
 html[data-theme='light'] .trust-card,
 html[data-theme='light'] .trust-signal-card,
 html[data-theme='light'] .trust-cta-card,
-html[data-theme='light'] .trust-enterprise-card,
-html[data-theme='light'] .trust-partner-chip,
-html[data-theme='light'] .trust-partners-summary {
+html[data-theme='light'] .trust-enterprise-card {
 	background: rgba(255, 255, 255, 0.7);
 	border-color: rgba(228, 228, 231, 0.8);
 }
@@ -552,7 +540,9 @@ html[data-theme='light'] .trust-cta-card:hover {
 	background: rgba(255, 255, 255, 0.9);
 	box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.1);
 }
-html[data-theme='light'] .trust-timeline-content {
+html[data-theme='light'] .trust-tl-card {
+	background: rgba(255, 255, 255, 0.6);
+	border-color: rgba(228, 228, 231, 0.6);
 	color: var(--color-text-muted);
 }
 html[data-theme='light'] .trust-signal-title,
@@ -565,6 +555,10 @@ html[data-theme='light'] .trust-enterprise-card::before {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 48rem) {
+	.trust-hero {
+		padding: 8rem 1.5rem 3rem;
+		min-height: auto;
+	}
 	.trust-stats-bar {
 		gap: 1.5rem;
 	}
@@ -574,18 +568,12 @@ html[data-theme='light'] .trust-enterprise-card::before {
 	.trust-enterprise-card {
 		padding: 2rem;
 	}
-	.trust-enterprise-stats {
-		gap: 1.5rem;
+	.trust-tl-row {
+		grid-template-columns: 3.5rem 1fr;
 	}
-	.trust-enterprise-stat-value {
-		font-size: 1.75rem;
-	}
-	.trust-timeline {
-		padding-inline-start: 1rem;
-	}
-	.trust-timeline-item {
-		grid-template-columns: 3rem auto;
-		gap: 1rem;
+	.trust-tl-marker {
+		width: 3rem;
+		font-size: 0.75rem;
 	}
 }
 </style>

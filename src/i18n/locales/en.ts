@@ -819,13 +819,13 @@ const en = {
 		trust: {
 			title: 'Track Record',
 			description:
-				'EDDI is backed by government-funded research, deployed in production at Fortune 500 scale, and validated by European academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
+				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by European academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
 
 			// Hero
 			heroTitle: 'Enterprise-Grade.',
 			heroHighlight: 'Community-Proven.',
 			heroDesc:
-				'EDDI is not a weekend project. It is backed by <strong>government-funded research</strong>, deployed in production at <strong>Fortune 500 scale</strong>, and validated by <strong>European academic institutions</strong>.',
+				'EDDI is not a weekend project. It is backed by <strong>government-funded research</strong>, deployed in <strong>enterprise production</strong>, and validated by <strong>European academic institutions</strong>.',
 
 			// Stats bar
 			statPulls: 'Docker Pulls',
@@ -837,16 +837,19 @@ const en = {
 			timelineTitle: 'From Vienna to the World',
 			timelineDesc: 'Almost two decades of continuous engineering — long before the LLM era.',
 			timeline: [
-				{ year: '2006', text: 'Project founded in Vienna, Austria — early research into dialogue management and conversational state' },
-				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support' },
-				{ year: '2016', text: 'Franz Weber joins the project, expanding the engineering team and preparing for open-source launch' },
-				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator · Launched as open source under Apache 2.0' },
-				{ year: '2018', text: 'First EDDI Chatbot Hackathon at weXelerate, Vienna' },
-				{ year: '2019', text: '<strong>DeveloperWeek NYC</strong> Hackathon — EDDI teams place as runners-up' },
-				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (European Language Grid)' },
-				{ year: '2021', text: 'Erasmus+ <strong>EDUBOTS</strong> integration · Virtual hackathon for pedagogical chatbots' },
-				{ year: '2024', text: 'EU AI Act compliance infrastructure · 100K+ Docker pulls milestone' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — Multi-agent orchestration, 58 MCP tools, A2A protocol, visual management UI' },
+				{ year: '2006', text: '<strong>Project founded</strong> in Vienna, Austria — early research into dialogue management and conversational state.' },
+				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support.' },
+				{ year: '2016', text: '<strong>Franz Weber</strong> joins the project, expanding the team and preparing for open-source launch.' },
+				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator · Launched as open source under Apache 2.0.' },
+				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, Vienna — sponsored by weXelerate and T-Mobile.' },
+				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan at Deutsche Bank Innovation Labs — sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
+				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (European Language Grid).' },
+				{ year: '2020', text: 'Online Chatbot Hackathon — community-driven event expanding EDDI\'s open-source reach.' },
+				{ year: '2021', text: 'Erasmus+ <strong>EDUBOTS</strong> — EDDI serves as the engine for multi-country test runs and research across European universities.' },
+				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
+				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
+				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
+				{ year: '2026', text: '<strong>v6.0.0</strong> — 58 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
 			],
 
 			// Institutional backing
@@ -865,26 +868,11 @@ const en = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness.',
 
-			// EDUBOTS partners
-			edubotsPartnersTitle: 'EDUBOTS Consortium Universities',
-			edubotsPartners: [
-				{ name: 'University of Leeds', country: 'United Kingdom' },
-				{ name: 'University of Zagreb', country: 'Croatia' },
-				{ name: 'Universidad de Granada', country: 'Spain' },
-				{ name: 'CYENS Centre of Excellence', country: 'Cyprus' },
-				{ name: 'EdTech Foundry (differ.chat)', country: 'Norway' },
-				{ name: 'Anna & Hubert Labs', country: 'Sweden' },
-			],
-
 			// Enterprise deployment
-			enterpriseTitle: 'Deployed at Enterprise Scale',
-			enterpriseDesc: 'EDDI runs in production at <strong>Gnowbe</strong>, an enterprise enablement platform trusted by AWS, SAP, IBM, Mitsubishi, and MetLife. The platform orchestrates AI-powered content creation, translation across 70+ languages, and AI coaching agents — handling the concurrency, compliance, and multi-model routing demands of Fortune 500 workforces.',
-			enterpriseStat1: '10x',
-			enterpriseStat1Label: 'Higher employee engagement',
-			enterpriseStat2: '80%',
-			enterpriseStat2Label: 'Higher knowledge retention',
-			enterpriseStat3: '70+',
-			enterpriseStat3Label: 'Languages supported',
+			enterpriseTitle: 'Deployed in Enterprise Production',
+			enterpriseDesc: 'EDDI powers the <strong>conversational AI experiences</strong> at <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a> — an enterprise enablement platform. EDDI handles the real-time chat interactions with learners and content creators, managing concurrency, multi-model routing, and conversation state at production scale.',
+			enterpriseLinkText: 'Learn more about Gnowbe →',
+			enterpriseLinkUrl: 'https://www.gnowbe.com',
 
 			// Developer trust
 			devTrustTitle: 'Verified by the Community',
