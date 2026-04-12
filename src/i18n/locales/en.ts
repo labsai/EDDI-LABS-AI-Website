@@ -53,6 +53,8 @@ const en = {
 		vsAlternativesDesc: 'Compare with Spring AI, Flowise, n8n',
 		euAiAct: 'Compliance',
 		euAiActDesc: 'GDPR, CCPA, PIPEDA & more',
+		trackRecord: 'Track Record',
+		trackRecordDesc: 'Institutional backing & real deployments',
 		useCases: 'Use Cases',
 		useCasesDesc: 'Real-world deployment patterns',
 		// Mobile
@@ -112,6 +114,7 @@ const en = {
 		whyEddi: 'Why EDDI?',
 		vsAlternatives: 'vs. Alternatives',
 		euAiAct: 'Compliance',
+		trackRecord: 'Track Record',
 		useCases: 'Use Cases',
 		// Community column
 		communityCol: 'Community',
@@ -811,6 +814,102 @@ const en = {
 			// ── Section 6: Closing ───────────────────────────────
 			heading3: 'Built for Regulated Industries Worldwide',
 			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 17+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia\'s PDPA, and China\'s PIPL. Compliance is not an afterthought — it is an architectural foundation.',
+		},
+		// ─── Track Record ─────────────────────────────────────
+		trust: {
+			title: 'Track Record',
+			description:
+				'EDDI is backed by government-funded research, deployed in production at Fortune 500 scale, and validated by European academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
+
+			// Hero
+			heroTitle: 'Enterprise-Grade.',
+			heroHighlight: 'Community-Proven.',
+			heroDesc:
+				'EDDI is not a weekend project. It is backed by <strong>government-funded research</strong>, deployed in production at <strong>Fortune 500 scale</strong>, and validated by <strong>European academic institutions</strong>.',
+
+			// Stats bar
+			statPulls: 'Docker Pulls',
+			statTests: 'Tests · 0 Failures',
+			statProviders: 'LLM Providers',
+			statCertified: 'Red Hat Certified',
+
+			// Timeline
+			timelineTitle: 'From Vienna to the World',
+			timelineDesc: 'Almost two decades of continuous engineering — long before the LLM era.',
+			timeline: [
+				{ year: '2006', text: 'Project founded in Vienna, Austria — early research into dialogue management and conversational state' },
+				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support' },
+				{ year: '2016', text: 'Franz Weber joins the project, expanding the engineering team and preparing for open-source launch' },
+				{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator · Launched as open source under Apache 2.0' },
+				{ year: '2018', text: 'First EDDI Chatbot Hackathon at weXelerate, Vienna' },
+				{ year: '2019', text: '<strong>DeveloperWeek NYC</strong> Hackathon — EDDI teams place as runners-up' },
+				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (European Language Grid)' },
+				{ year: '2021', text: 'Erasmus+ <strong>EDUBOTS</strong> integration · Virtual hackathon for pedagogical chatbots' },
+				{ year: '2024', text: 'EU AI Act compliance infrastructure · 100K+ Docker pulls milestone' },
+				{ year: '2026', text: '<strong>v6.0.0</strong> — Multi-agent orchestration, 58 MCP tools, A2A protocol, visual management UI' },
+			],
+
+			// Institutional backing
+			institutionsTitle: 'Backed by Institutions',
+			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
+			instFFGTitle: 'Austrian Research Promotion Agency (FFG)',
+			instFFGDesc: 'EDDI was deployed in <strong>SecLearn</strong>, a national cybersecurity training initiative funded by the FFG, in collaboration with the Austrian Institute of Technology (AIT) and the Ludwig Boltzmann Institute.',
+			instEUTitle: 'European Union — European Language Grid',
+			instEUDesc: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (2020–2021), exploring autonomous virtual assistants with persistent memory and multi-language support.',
+			instEdubotsTitle: 'Erasmus+ EDUBOTS',
+			instEdubotsDesc: 'EDDI was heavily used by <strong>EdTech Foundry</strong> (differ.chat), a consortium partner in the Erasmus+ EDUBOTS Knowledge Alliance, powering student engagement chatbots across European universities.',
+			instWexTitle: 'weXelerate Accelerator',
+			instWexDesc: 'Selected for <strong>Batch II</strong> of Central Europe\'s leading innovation hub, connecting LABS.AI with corporate partners and validating the platform\'s commercial viability.',
+			instInitsTitle: 'inits.at Incubator',
+			instInitsDesc: 'Incubated at Vienna\'s university business incubator, with early-stage institutional support prioritizing academic rigor and sustainable business modeling.',
+			instRedHatTitle: 'Red Hat Certified Container',
+			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness.',
+
+			// EDUBOTS partners
+			edubotsPartnersTitle: 'EDUBOTS Consortium Universities',
+			edubotsPartners: [
+				{ name: 'University of Leeds', country: 'United Kingdom' },
+				{ name: 'University of Zagreb', country: 'Croatia' },
+				{ name: 'Universidad de Granada', country: 'Spain' },
+				{ name: 'CYENS Centre of Excellence', country: 'Cyprus' },
+				{ name: 'EdTech Foundry (differ.chat)', country: 'Norway' },
+				{ name: 'Anna & Hubert Labs', country: 'Sweden' },
+			],
+
+			// Enterprise deployment
+			enterpriseTitle: 'Deployed at Enterprise Scale',
+			enterpriseDesc: 'EDDI runs in production at <strong>Gnowbe</strong>, an enterprise enablement platform trusted by AWS, SAP, IBM, Mitsubishi, and MetLife. The platform orchestrates AI-powered content creation, translation across 70+ languages, and AI coaching agents — handling the concurrency, compliance, and multi-model routing demands of Fortune 500 workforces.',
+			enterpriseStat1: '10x',
+			enterpriseStat1Label: 'Higher employee engagement',
+			enterpriseStat2: '80%',
+			enterpriseStat2Label: 'Higher knowledge retention',
+			enterpriseStat3: '70+',
+			enterpriseStat3Label: 'Languages supported',
+
+			// Developer trust
+			devTrustTitle: 'Verified by the Community',
+			devTrustDesc: 'Every trust signal is live, automated, and independently verifiable.',
+			devOpenSSF: 'OpenSSF Best Practices',
+			devOpenSSFDesc: 'Linux Foundation security and quality certification',
+			devCodacy: 'Codacy Code Quality',
+			devCodacyDesc: 'Automated third-party code analysis',
+			devDocker: 'Docker Hub',
+			devDockerDesc: 'Container adoption metric',
+			devCI: 'CI Passing',
+			devCIDesc: 'Automated build verification on every commit',
+			devCodeQL: 'CodeQL Clean',
+			devCodeQLDesc: 'GitHub security vulnerability scanning',
+			devTests: '2,000+ Tests',
+			devTestsDesc: 'Zero failures, enforced on every merge',
+			devApache: 'Apache 2.0 License',
+			devApacheDesc: 'Fully open source — no vendor lock-in',
+
+			// CTA
+			ctaTitle: 'Ready to Deploy?',
+			ctaGetStarted: 'Get Started in 5 Minutes',
+			ctaGetStartedDesc: 'Install EDDI, create your first agent, and start a conversation.',
+			ctaDocs: 'Browse Documentation ↗',
+			ctaDocsDesc: 'Architecture, MCP tools, REST API, deployment guides, and more.',
 		},
 	},
 

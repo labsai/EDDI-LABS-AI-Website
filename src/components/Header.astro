@@ -161,6 +161,13 @@ const t = await getTranslations(lang);
 							<span>{t.nav.euAiActDesc}</span>
 						</div>
 					</a>
+					<a href={localePath(lang, '/enterprise/trust/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">📜</span>
+						<div>
+							<strong>{t.nav.trackRecord}</strong>
+							<span>{t.nav.trackRecordDesc}</span>
+						</div>
+					</a>
 					<a href={localePath(lang, '/use-cases/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">📋</span>
 						<div>
@@ -219,6 +226,7 @@ const t = await getTranslations(lang);
 			<a href={localePath(lang, '/enterprise/why-eddi/')}>{t.nav.whyEddi}</a>
 			<a href={localePath(lang, '/enterprise/vs-alternatives/')}>{t.nav.vsAlternatives}</a>
 			<a href={localePath(lang, '/enterprise/compliance/')}>{t.nav.euAiAct}</a>
+			<a href={localePath(lang, '/enterprise/trust/')}>{t.nav.trackRecord}</a>
 			<a href={localePath(lang, '/use-cases/')}>{t.nav.useCases}</a>
 		</div>
 		<div class="eddi-mobile-section">

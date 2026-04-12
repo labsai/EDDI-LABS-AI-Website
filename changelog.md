@@ -10,6 +10,7 @@ All notable changes to the EDDI website will be documented in this file.
 - `feat(website)`: **Docker Pulls Badge** — Added live Docker Hub pulls badge (from shields.io) to the homepage "Trusted & Certified" section. Card links to `hub.docker.com/r/labsai/eddi`.
 - `feat(website)`: **CI & CodeQL Badges** — Added GitHub Actions CI and CodeQL status badges as social proof. Card links to GitHub Actions workflow.
 - `feat(website)`: **Trust Section i18n** — Added `trustDocker`, `trustDockerDesc`, `trustCI`, `trustCIDesc` translation keys to all 11 locales.
+- `feat(website)`: **Track Record Page** — New `/enterprise/trust/` page showcasing EDDI's 18-year evolution, institutional validation (FFG, EU/ELG, EDUBOTS, weXelerate, inits.at, Red Hat), Gnowbe enterprise deployment, and community trust signals (OpenSSF, Codacy, Docker Hub, CI, CodeQL badges). Features a compact vertical timeline, glassmorphism institution cards, live badge row, and developer trust signal grid. Added `pages.trust` translation block to all 11 locales with English placeholder content. Updated Header (desktop + mobile) and Footer navigation with Track Record link.
 
 ### 🐛 Bug Fixes
 - `fix(website)`: **French Locale String** — Fixed broken `siteDescription` in `fr.ts` where escaped apostrophes (`d\'`) collided with backtick conversion during version migration, producing invalid template literal syntax.
