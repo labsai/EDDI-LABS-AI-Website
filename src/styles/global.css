@@ -6,6 +6,10 @@
 @import 'tailwindcss/theme.css';
 @import 'tailwindcss/utilities.css';
 
+*, ::before, ::after {
+	box-sizing: border-box;
+}
+
 @theme {
 	/* Premium EDDI Brand: Black & Gold — matching EDDI Manager */
 	--font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
@@ -34,7 +38,9 @@
 
 :root,
 html[data-theme='dark'] {
+	--banner-height: 2rem;
 	--nav-height: 4rem;
+	--total-header-height: calc(var(--banner-height) + var(--nav-height));
 
 	/* Semantic colors */
 	--color-bg: #09090b;
@@ -69,6 +75,7 @@ html[data-theme='light'] {
 html {
 	scroll-behavior: smooth;
 	font-family: var(--font-sans, 'Outfit', system-ui, sans-serif);
+	overflow-x: hidden;
 }
 
 body {
@@ -253,8 +260,11 @@ details[open] summary {
    ========================================================================== */
 
 @media (max-width: 50rem) {
-	section {
+	section:not(.hero-section) {
 		padding-top: 3rem !important;
+		padding-bottom: 3rem !important;
+	}
+	.hero-section {
 		padding-bottom: 3rem !important;
 	}
 }

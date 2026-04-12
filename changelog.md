@@ -14,6 +14,8 @@ All notable changes to the EDDI website will be documented in this file.
 
 ### 🐛 Bug Fixes
 - `fix(website)`: **French Locale String** — Fixed broken `siteDescription` in `fr.ts` where escaped apostrophes (`d\'`) collided with backtick conversion during version migration, producing invalid template literal syntax.
+- `fix(website)`: **Getting Started Install Instructions** — Replaced misleading bare `docker run` command with the correct one-command installer (with OS-specific tabs for Linux/macOS/WSL and Windows PowerShell) and Docker Compose as an alternative. Added tabbed UI with `step1TabInstaller`, `step1TabCompose`, `step1ComposeDesc` keys across all 11 locales.
+- `fix(website)`: **Mobile Layout Overflows** — Fixed a severe horizontal viewport shift caused by missing `box-sizing: border-box` CSS resets from Tailwind Preflight in Astro. Re-enabled `border-box` globally. Stacked hero action buttons vertically on mobile for optimal touchscreen formatting.
 ### 🔧 PR Code Review Fixes (Copilot)
 - `fix(website)`: **Duplicate English Route** — Fixed `[lang]/contact.astro` using `LOCALE_CODES` instead of `NON_DEFAULT_LOCALES`, which generated a duplicate `/en/contact/` page alongside the root `/contact/`.
 - `fix(website)`: **Language Picker Locale Detection** — Added `data-locale` attribute to language dropdown items. Previously the JS derived the locale from the URL path, which failed for English root paths (e.g., `/features/overview/` would store `features` as the locale code).

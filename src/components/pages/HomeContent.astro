@@ -217,7 +217,7 @@ const { lang, t } = Astro.props;
 </BaseLayout>
 
 <style>
-	.hero-section { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 5rem; width: 100%; }
+	.hero-section { padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 5rem; width: 100%; }
 	.hero-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
 	.hero-text { flex: 1; }
 	.hero-text h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin: 0 0 1.5rem; }
@@ -227,9 +227,9 @@ const { lang, t } = Astro.props;
 	html[data-theme='dark'] .hero-tagline { color: rgba(255, 255, 255, 0.6); }
 	html[data-theme='light'] .hero-tagline { color: rgba(0, 0, 0, 0.6); }
 	.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-	.hero-btn-primary { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600; color: #111 !important; background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
+	.hero-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600; color: #111 !important; background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
 	.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent); }
-	.hero-btn-minimal { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 500; border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; }
+	.hero-btn-minimal { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 500; border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; }
 	html[data-theme='dark'] .hero-btn-minimal { color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.15); }
 	html[data-theme='light'] .hero-btn-minimal { color: #333; border: 1px solid rgba(0, 0, 0, 0.15); }
 	.hero-btn-minimal:hover { transform: translateY(-2px); }
@@ -239,7 +239,7 @@ const { lang, t } = Astro.props;
 	@media (max-width: 50rem) {
 		.hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
 		.hero-tagline { max-width: none; }
-		.hero-actions { justify-content: center; }
+		.hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 16rem; margin: 0 auto; gap: 1rem; }
 		.hero-visual { max-width: 20rem; }
 	}
 	/* Trusted & Certified — uniform 5-card grid */

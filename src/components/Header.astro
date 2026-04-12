@@ -457,17 +457,18 @@ const t = await getTranslations(lang);
 		padding: 0.375rem 0.875rem;
 		font-size: 0.8125rem;
 		font-weight: 600;
-		color: white !important;
-		background: var(--color-accent);
+		color: #111 !important;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
 		border-radius: 0.375rem;
 		text-decoration: none;
-		transition: background 0.15s, box-shadow 0.15s;
+		transition: all 0.15s;
 		white-space: nowrap;
+		box-shadow: 0 0 12px color-mix(in srgb, var(--color-accent) 20%, transparent);
 	}
 
 	.eddi-cta:hover {
-		background: color-mix(in srgb, var(--color-accent) 85%, white);
-		box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 30%, transparent);
+		box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 40%, transparent);
+		transform: translateY(-1px);
 	}
 
 	.eddi-icon-link {
@@ -552,7 +553,7 @@ const t = await getTranslations(lang);
 	.eddi-mobile-menu {
 		display: none;
 		position: fixed;
-		top: var(--nav-height, 4rem);
+		top: var(--total-header-height, calc(var(--banner-height, 2rem) + var(--nav-height, 4rem)));
 		inset-inline-start: 0;
 		inset-inline-end: 0;
 		bottom: 0;

@@ -256,6 +256,22 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         });
       });
     </script>
+
+    <!-- Dynamic banner height measurement -->
+    <script is:inline>
+      function syncBannerHeight() {
+        var banner = document.getElementById('eddi-announcement-banner');
+        var h = 0;
+        if (banner && getComputedStyle(banner).display !== 'none') {
+          h = banner.offsetHeight;
+        }
+        document.documentElement.style.setProperty('--banner-height', h + 'px');
+        document.documentElement.style.setProperty('--total-header-height', 'calc(' + h + 'px + var(--nav-height, 4rem))');
+      }
+      syncBannerHeight();
+      window.addEventListener('resize', syncBannerHeight);
+      document.addEventListener('astro:page-load', syncBannerHeight);
+    </script>
   </body>
 </html>
 
@@ -291,7 +307,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
   main.page-content {
     max-width: 72rem;
     margin: 0 auto;
-    padding: calc(var(--nav-height, 4rem) + 2rem) 1.5rem 4rem;
+    padding: calc(var(--total-header-height, 6rem) + 2rem) 1.5rem 4rem;
   }
 
   /* Global Code Copy UI */
