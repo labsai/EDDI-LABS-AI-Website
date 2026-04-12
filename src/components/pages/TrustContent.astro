@@ -199,6 +199,16 @@ const trust = t.pages.trust;
 			<p class="trust-signal-desc">{trust.devTestsDesc}</p>
 		</div>
 		<div class="trust-signal-card">
+			<div class="trust-signal-icon" aria-hidden="true">🔗</div>
+			<h4 class="trust-signal-title">{trust.devIntegration}</h4>
+			<p class="trust-signal-desc">{trust.devIntegrationDesc}</p>
+		</div>
+		<div class="trust-signal-card">
+			<div class="trust-signal-icon" aria-hidden="true">🖥️</div>
+			<h4 class="trust-signal-title">{trust.devE2E}</h4>
+			<p class="trust-signal-desc">{trust.devE2EDesc}</p>
+		</div>
+		<div class="trust-signal-card">
 			<div class="trust-signal-icon" aria-hidden="true">⚖️</div>
 			<h4 class="trust-signal-title">{trust.devApache}</h4>
 			<p class="trust-signal-desc">{trust.devApacheDesc}</p>
@@ -292,47 +302,55 @@ const trust = t.pages.trust;
 	position: relative;
 	max-width: 42rem;
 	margin: 0 auto;
+	padding-inline-start: 5rem;
 }
 
-.trust-tl-row {
-	display: grid;
-	grid-template-columns: 5rem 1fr;
-	gap: 0;
-	min-height: 0;
-	opacity: 0;
-	animation: trust-fade-in 0.4s ease forwards;
-	animation-delay: var(--delay);
-}
-
-/* The left rail: marker + line */
-.trust-tl-rail {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-}
-
-/* Vertical connector line */
-.trust-tl-line {
+/* Continuous vertical line running down the left rail */
+.trust-timeline::before {
+	content: '';
+	position: absolute;
+	inset-inline-start: 2.5rem;
+	top: 0;
+	bottom: 0;
 	width: 2px;
-	flex: 1;
 	background: linear-gradient(
 		to bottom,
 		color-mix(in srgb, var(--color-accent) 40%, transparent),
 		color-mix(in srgb, var(--color-accent) 15%, transparent)
 	);
+	transform: translateX(-50%);
 }
-.trust-tl-row:last-child .trust-tl-line {
-	background: linear-gradient(
-		to bottom,
-		color-mix(in srgb, var(--color-accent) 40%, transparent),
-		transparent
-	);
+
+.trust-tl-row {
+	position: relative;
+	padding-bottom: 0.75rem;
+	opacity: 0;
+	animation: trust-fade-in 0.4s ease forwards;
+	animation-delay: var(--delay);
+}
+
+/* The left rail: positioned absolutely so markers align to cards */
+.trust-tl-rail {
+	position: absolute;
+	inset-inline-start: -5rem;
+	top: 0;
+	width: 5rem;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-top: 0.75rem; /* align with card text baseline */
+}
+
+/* Hide line div — we use the ::before on the container */
+.trust-tl-line {
+	display: none;
 }
 
 /* Year marker badge — only shown for new years */
 .trust-tl-marker {
-	flex-shrink: 0;
+	position: relative;
+	z-index: 1;
 	width: 3.5rem;
 	height: 1.75rem;
 	border-radius: 999px;
@@ -342,27 +360,26 @@ const trust = t.pages.trust;
 	font-size: 0.8125rem;
 	font-weight: 700;
 	color: var(--color-accent);
-	background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+	background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg, #09090b));
 	border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
 	box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 20%, transparent);
-	margin-bottom: 0.25rem;
 }
 
 /* For rows without a year marker, add a small dot instead */
-.trust-tl-row:not(.trust-tl-new-year) .trust-tl-rail::before {
+.trust-tl-row:not(.trust-tl-new-year) .trust-tl-rail::after {
 	content: '';
-	width: 6px;
-	height: 6px;
+	position: relative;
+	z-index: 1;
+	width: 8px;
+	height: 8px;
 	border-radius: 50%;
 	background: color-mix(in srgb, var(--color-accent) 50%, transparent);
-	flex-shrink: 0;
-	margin-bottom: 0.25rem;
+	box-shadow: 0 0 8px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
 /* Content card */
 .trust-tl-card {
 	padding: 0.875rem 1.25rem;
-	margin: 0 0 0.5rem 0.75rem;
 	border-radius: 0.75rem;
 	background: rgba(39, 39, 42, 0.35);
 	border: 1px solid rgba(63, 63, 70, 0.35);
@@ -553,6 +570,10 @@ html[data-theme='light'] .trust-enterprise-card::before {
 	background: radial-gradient(ellipse, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%);
 }
 
+html[data-theme='light'] .trust-tl-marker {
+	background: color-mix(in srgb, var(--color-accent) 12%, #fff);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 48rem) {
 	.trust-hero {
@@ -568,8 +589,15 @@ html[data-theme='light'] .trust-enterprise-card::before {
 	.trust-enterprise-card {
 		padding: 2rem;
 	}
-	.trust-tl-row {
-		grid-template-columns: 3.5rem 1fr;
+	.trust-timeline {
+		padding-inline-start: 3.5rem;
+	}
+	.trust-timeline::before {
+		inset-inline-start: 1.75rem;
+	}
+	.trust-tl-rail {
+		inset-inline-start: -3.5rem;
+		width: 3.5rem;
 	}
 	.trust-tl-marker {
 		width: 3rem;

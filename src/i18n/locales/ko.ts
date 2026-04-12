@@ -773,6 +773,10 @@ const ko: TranslationSchema = {
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: '2,000+ Tests',
 			devTestsDesc: 'Zero failures, enforced on every merge',
+			devIntegration: '58 Integration Tests',
+			devIntegrationDesc: 'Full-stack REST API verification with real database',
+			devE2E: '21 E2E Test Suites',
+			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
 			devApache: 'Apache 2.0 License',
 			devApacheDesc: 'Fully open source — no vendor lock-in',
 
