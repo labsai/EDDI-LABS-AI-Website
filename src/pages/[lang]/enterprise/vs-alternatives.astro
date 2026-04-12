@@ -1,0 +1,26 @@
+---
+import FeaturePage from '../../../layouts/FeaturePage.astro';
+import heroImage from '../../../assets/hero_vs_alternatives.webp';
+import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../../i18n';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: Locale };
+const t = await getTranslations(lang);
+const p = t.pages.vsAlternatives;
+---
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
+<h2>{p.heading1}</h2>
+<p set:html={p.para1} />
+<h2>{p.heading2}</h2>
+<h3>{p.heading3a}</h3>
+<p set:html={p.para2} />
+<h3>{p.heading3b}</h3>
+<p>{p.para3}</p>
+<ul>
+{p.vsItems.map((item) => <li set:html={item} />)}
+</ul>
+<h3>{p.heading3c}</h3>
+<p set:html={p.para4} />
+</FeaturePage>

@@ -1,0 +1,11 @@
+---
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_memory.webp';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.memory;
+---
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h2>{p.heading3}</h2><p set:html={p.para2} />
+</FeaturePage>

@@ -1,0 +1,792 @@
+---
+/**
+ * Custom EDDI header — standalone (no Starlight dependencies).
+ * Includes: logo, navigation, language picker, theme toggle, mobile menu.
+ * i18n-aware: all text from translations, all links locale-prefixed.
+ */
+import eddiLogoDark from '../assets/eddi-logo-dark.svg';
+import eddiLogoLight from '../assets/eddi-logo-light.svg';
+import LanguagePicker from './LanguagePicker.astro';
+import AnnouncementBanner from './AnnouncementBanner.astro';
+import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
+
+interface Props {
+	lang?: Locale;
+}
+
+const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
+const t = await getTranslations(lang);
+---
+
+<AnnouncementBanner />
+<header class="eddi-header">
+	<div class="eddi-header-inner">
+		<!-- Logo -->
+		<div class="eddi-header-left">
+			<a href={localePath(lang, '/')} class="eddi-logo" aria-label="EDDI Home">
+				<img src={eddiLogoDark.src} alt="EDDI" class="eddi-logo-img eddi-logo-dark" width="95" height="30" />
+				<img src={eddiLogoLight.src} alt="EDDI" class="eddi-logo-img eddi-logo-light" width="95" height="30" />
+			</a>
+		</div>
+
+		<!-- Desktop Navigation -->
+		<nav class="eddi-nav desktop-only" aria-label="Main navigation">
+			<div class="eddi-nav-item has-dropdown">
+				<button class="eddi-nav-link" aria-expanded="false" aria-haspopup="true">
+					{t.nav.features} <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+				</button>
+				<div class="eddi-dropdown features-dropdown">
+					<div class="eddi-dropdown-grid">
+						<a href={localePath(lang, '/features/manager/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🖥️</span>
+							<div>
+								<strong>{t.nav.eddiManager}</strong>
+								<span>{t.nav.eddiManagerDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/mcp-server/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🔌</span>
+							<div>
+								<strong>{t.nav.mcpServer}</strong>
+								<span>{t.nav.mcpServerDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/config-as-code/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">⚙️</span>
+							<div>
+								<strong>{t.nav.configAsCode}</strong>
+								<span>{t.nav.configAsCodeDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/security/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🔐</span>
+							<div>
+								<strong>{t.nav.securityFirst}</strong>
+								<span>{t.nav.securityFirstDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/performance/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🚀</span>
+							<div>
+								<strong>{t.nav.performance}</strong>
+								<span>{t.nav.performanceDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/multi-agent/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🤖</span>
+							<div>
+								<strong>{t.nav.multiAgent}</strong>
+								<span>{t.nav.multiAgentDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/observability/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">📊</span>
+							<div>
+								<strong>{t.nav.observability}</strong>
+								<span>{t.nav.observabilityDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/code-quality/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🧪</span>
+							<div>
+								<strong>{t.nav.codeQuality}</strong>
+								<span>{t.nav.codeQualityDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/ai-ready/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🧩</span>
+							<div>
+								<strong>{t.nav.aiReady}</strong>
+								<span>{t.nav.aiReadyDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/memory/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">🧠</span>
+							<div>
+								<strong>{t.nav.memory}</strong>
+								<span>{t.nav.memoryDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/rag/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">📚</span>
+							<div>
+								<strong>{t.nav.rag}</strong>
+								<span>{t.nav.ragDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/model-cascading/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">📈</span>
+							<div>
+								<strong>{t.nav.modelCascading}</strong>
+								<span>{t.nav.modelCascadingDesc}</span>
+							</div>
+						</a>
+						<a href={localePath(lang, '/features/scheduling/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">⏰</span>
+							<div>
+								<strong>{t.nav.scheduling}</strong>
+								<span>{t.nav.schedulingDesc}</span>
+							</div>
+						</a>
+					</div>
+					<div class="eddi-dropdown-footer">
+						<a href={localePath(lang, '/features/overview/')}>{t.nav.viewAllFeatures}</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="eddi-nav-item has-dropdown">
+				<button class="eddi-nav-link" aria-expanded="false" aria-haspopup="true">
+					{t.nav.solutions} <svg class="eddi-chevron" viewBox="0 0 20 20" fill="currentColor" width="12" height="12"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+				</button>
+				<div class="eddi-dropdown solutions-dropdown">
+					<a href={localePath(lang, '/enterprise/why-eddi/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">💡</span>
+						<div>
+							<strong>{t.nav.whyEddi}</strong>
+							<span>{t.nav.whyEddiDesc}</span>
+						</div>
+					</a>
+					<a href={localePath(lang, '/enterprise/vs-alternatives/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">⚖️</span>
+						<div>
+							<strong>{t.nav.vsAlternatives}</strong>
+							<span>{t.nav.vsAlternativesDesc}</span>
+						</div>
+					</a>
+					<a href={localePath(lang, '/enterprise/compliance/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">🏛️</span>
+						<div>
+							<strong>{t.nav.euAiAct}</strong>
+							<span>{t.nav.euAiActDesc}</span>
+						</div>
+					</a>
+					<a href={localePath(lang, '/enterprise/trust/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">📜</span>
+						<div>
+							<strong>{t.nav.trackRecord}</strong>
+							<span>{t.nav.trackRecordDesc}</span>
+						</div>
+					</a>
+					<a href={localePath(lang, '/use-cases/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">📋</span>
+						<div>
+							<strong>{t.nav.useCases}</strong>
+							<span>{t.nav.useCasesDesc}</span>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">{t.nav.docs} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-start:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+		</nav>
+
+		<!-- Right side -->
+		<div class="eddi-header-right">
+			<a href={localePath(lang, '/getting-started/')} class="eddi-cta desktop-only">{t.nav.getStarted}</a>
+			<a href="https://github.com/labsai/EDDI" class="eddi-icon-link desktop-only" aria-label="GitHub" target="_blank" rel="noopener">
+				<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+			</a>
+			<LanguagePicker lang={lang} />
+			<button class="eddi-theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+				<svg class="eddi-theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="eddi-theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+			</button>
+			<button class="eddi-hamburger mobile-only" aria-label="Open menu" aria-expanded="false">
+				<span class="eddi-hamburger-line"></span>
+				<span class="eddi-hamburger-line"></span>
+				<span class="eddi-hamburger-line"></span>
+			</button>
+		</div>
+	</div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div class="eddi-mobile-menu" id="eddi-mobile-menu" aria-hidden="true">
+	<div class="eddi-mobile-inner">
+		<div class="eddi-mobile-section">
+			<h3>{t.nav.features}</h3>
+			<a href={localePath(lang, '/features/overview/')}>{t.nav.allFeatures}</a>
+			<a href={localePath(lang, '/features/manager/')}>{t.nav.eddiManager}</a>
+			<a href={localePath(lang, '/features/mcp-server/')}>{t.nav.mcpServerMobile}</a>
+			<a href={localePath(lang, '/features/config-as-code/')}>{t.nav.configAsCode}</a>
+			<a href={localePath(lang, '/features/security/')}>{t.nav.securityFirst}</a>
+			<a href={localePath(lang, '/features/performance/')}>{t.nav.performance}</a>
+			<a href={localePath(lang, '/features/multi-agent/')}>{t.nav.multiAgent}</a>
+			<a href={localePath(lang, '/features/observability/')}>{t.nav.observability}</a>
+			<a href={localePath(lang, '/features/code-quality/')}>{t.nav.codeQuality}</a>
+			<a href={localePath(lang, '/features/ai-ready/')}>{t.nav.aiReady}</a>
+			<a href={localePath(lang, '/features/memory/')}>{t.nav.memory}</a>
+			<a href={localePath(lang, '/features/rag/')}>{t.nav.rag}</a>
+			<a href={localePath(lang, '/features/model-cascading/')}>{t.nav.modelCascading}</a>
+			<a href={localePath(lang, '/features/scheduling/')}>{t.nav.scheduling}</a>
+		</div>
+		<div class="eddi-mobile-section">
+			<h3>{t.nav.solutions}</h3>
+			<a href={localePath(lang, '/enterprise/why-eddi/')}>{t.nav.whyEddi}</a>
+			<a href={localePath(lang, '/enterprise/vs-alternatives/')}>{t.nav.vsAlternatives}</a>
+			<a href={localePath(lang, '/enterprise/compliance/')}>{t.nav.euAiAct}</a>
+			<a href={localePath(lang, '/enterprise/trust/')}>{t.nav.trackRecord}</a>
+			<a href={localePath(lang, '/use-cases/')}>{t.nav.useCases}</a>
+		</div>
+		<div class="eddi-mobile-section">
+			<h3>{t.nav.resources}</h3>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener">{t.nav.documentation}</a>
+			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">{t.nav.github}</a>
+		</div>
+		<div class="eddi-mobile-cta">
+			<a href={localePath(lang, '/getting-started/')} class="eddi-cta">{t.nav.getStarted}</a>
+		</div>
+		<div class="eddi-mobile-theme">
+			<button class="eddi-theme-toggle eddi-mobile-theme-btn" aria-label="Toggle theme" title="Toggle theme">
+				<svg class="eddi-theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="eddi-theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+				<span class="eddi-theme-label-dark">{t.nav.switchToLightMode}</span>
+				<span class="eddi-theme-label-light">{t.nav.switchToDarkMode}</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* ===== HEADER ===== */
+	.eddi-header {
+		position: fixed;
+		top: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		z-index: 100;
+		height: var(--nav-height, 4rem);
+		border-bottom: 1px solid var(--color-border);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+
+	html[data-theme='dark'] .eddi-header {
+		background: rgba(3, 3, 5, 0.85);
+	}
+	html[data-theme='light'] .eddi-header {
+		background: rgba(255, 255, 255, 0.85);
+	}
+
+	.eddi-header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 80rem;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		height: 100%;
+	}
+
+	.eddi-header-left {
+		flex-shrink: 0;
+	}
+
+	/* ===== LOGO ===== */
+	.eddi-logo {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	.eddi-logo-img {
+		height: 1.25rem;
+		width: auto;
+	}
+
+	/* Theme-aware logo */
+	.eddi-logo-dark { display: block; }
+	.eddi-logo-light { display: none; }
+
+	html[data-theme='light'] .eddi-logo-dark { display: none; }
+	html[data-theme='light'] .eddi-logo-light { display: block; }
+
+	/* ===== DESKTOP NAV ===== */
+	.eddi-nav {
+		display: flex;
+		align-items: center;
+		gap: 0.125rem;
+	}
+
+	.eddi-nav-item {
+		position: relative;
+	}
+
+	.eddi-nav-link {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		padding: 0.4375rem 0.625rem;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		border-radius: 0.375rem;
+		border: none;
+		background: none;
+		cursor: pointer;
+		transition: color 0.15s, background 0.15s;
+		white-space: nowrap;
+		font-family: inherit;
+	}
+
+	.eddi-nav-link:hover {
+		color: var(--color-text);
+		background: var(--color-surface);
+	}
+
+	.eddi-chevron {
+		transition: transform 0.2s;
+	}
+
+	/* ===== DROPDOWNS ===== */
+	.eddi-dropdown {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		inset-inline-start: 50%;
+		transform: translateX(-50%) translateY(4px);
+		background: var(--color-bg-elevated);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+		padding: 0.5rem;
+		min-width: 15rem;
+		z-index: 200;
+	}
+
+	.features-dropdown {
+		min-width: 34rem;
+	}
+
+	.has-dropdown:hover .eddi-dropdown,
+	.has-dropdown:focus-within .eddi-dropdown,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] + .eddi-dropdown {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(-50%) translateY(0);
+	}
+
+	.has-dropdown:hover .eddi-chevron,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] .eddi-chevron {
+		transform: rotate(180deg);
+	}
+
+	.has-dropdown:hover > .eddi-nav-link,
+	.has-dropdown .eddi-nav-link[aria-expanded="true"] {
+		color: var(--color-text);
+		background: var(--color-surface);
+	}
+
+	.eddi-dropdown-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.125rem;
+	}
+
+	.eddi-dropdown-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.625rem;
+		padding: 0.5rem 0.625rem;
+		border-radius: 0.375rem;
+		text-decoration: none;
+		color: var(--color-text-muted);
+		transition: background 0.15s;
+	}
+
+	.eddi-dropdown-item:hover {
+		background: var(--color-surface);
+	}
+
+	.eddi-dropdown-icon {
+		font-size: 1.125rem;
+		flex-shrink: 0;
+		margin-top: 0.0625rem;
+	}
+
+	.eddi-dropdown-item strong {
+		display: block;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin-bottom: 0.0625rem;
+	}
+
+	.eddi-dropdown-item div span {
+		font-size: 0.6875rem;
+		color: var(--color-text-subtle);
+		line-height: 1.3;
+	}
+
+	.eddi-dropdown-footer {
+		border-top: 1px solid var(--color-border);
+		margin-top: 0.375rem;
+		padding-top: 0.375rem;
+	}
+
+	.eddi-dropdown-footer a {
+		display: block;
+		padding: 0.3125rem 0.625rem;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--color-accent);
+		text-decoration: none;
+		border-radius: 0.25rem;
+		transition: background 0.15s;
+	}
+
+	.eddi-dropdown-footer a:hover {
+		background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+	}
+
+	/* ===== RIGHT SIDE ===== */
+	.eddi-header-right {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.eddi-cta {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.375rem 0.875rem;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: white !important;
+		background: var(--color-accent);
+		border-radius: 0.375rem;
+		text-decoration: none;
+		transition: background 0.15s, box-shadow 0.15s;
+		white-space: nowrap;
+	}
+
+	.eddi-cta:hover {
+		background: color-mix(in srgb, var(--color-accent) 85%, white);
+		box-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 30%, transparent);
+	}
+
+	.eddi-icon-link {
+		display: flex;
+		align-items: center;
+		padding: 0.25rem;
+		color: var(--color-text-muted);
+		border-radius: 0.25rem;
+		transition: color 0.15s;
+	}
+
+	.eddi-icon-link:hover {
+		color: var(--color-text);
+	}
+
+	/* ===== THEME TOGGLE ===== */
+	.eddi-theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.375rem;
+		background: none;
+		border: none;
+		border-radius: 0.375rem;
+		cursor: pointer;
+		color: var(--color-text-muted);
+		transition: color 0.15s, background 0.15s;
+	}
+
+	.eddi-theme-toggle:hover {
+		color: var(--color-text);
+		background: var(--color-surface);
+	}
+
+	/* In dark mode: show sun (to switch to light), hide moon */
+	html[data-theme='dark'] .eddi-theme-icon-sun { display: block; }
+	html[data-theme='dark'] .eddi-theme-icon-moon { display: none; }
+
+	/* In light mode: show moon (to switch to dark), hide sun */
+	html[data-theme='light'] .eddi-theme-icon-sun { display: none; }
+	html[data-theme='light'] .eddi-theme-icon-moon { display: block; }
+
+	/* ===== HAMBURGER ===== */
+	.eddi-hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 4px;
+		width: 2rem;
+		height: 2rem;
+		padding: 0.375rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		border-radius: 0.25rem;
+	}
+
+	.eddi-hamburger:hover {
+		background: var(--color-surface);
+	}
+
+	.eddi-hamburger-line {
+		display: block;
+		width: 100%;
+		height: 2px;
+		background: var(--color-text-muted);
+		border-radius: 1px;
+		transition: transform 0.3s, opacity 0.3s;
+	}
+
+	.eddi-hamburger[aria-expanded="true"] .eddi-hamburger-line:nth-child(1) {
+		transform: translateY(6px) rotate(45deg);
+	}
+	.eddi-hamburger[aria-expanded="true"] .eddi-hamburger-line:nth-child(2) {
+		opacity: 0;
+	}
+	.eddi-hamburger[aria-expanded="true"] .eddi-hamburger-line:nth-child(3) {
+		transform: translateY(-6px) rotate(-45deg);
+	}
+
+	/* ===== MOBILE MENU ===== */
+	.eddi-mobile-menu {
+		display: none;
+		position: fixed;
+		top: var(--nav-height, 4rem);
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		bottom: 0;
+		background: var(--color-bg);
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+		z-index: 99;
+	}
+
+	html[dir="rtl"] .eddi-mobile-menu {
+		transform: translateX(-100%);
+	}
+
+	.eddi-mobile-menu[aria-hidden="false"] {
+		transform: translateX(0);
+	}
+
+	.eddi-mobile-inner {
+		padding: 1rem 1.25rem;
+	}
+
+	.eddi-mobile-section {
+		margin-bottom: 1.25rem;
+	}
+
+	.eddi-mobile-section h3 {
+		font-size: 0.625rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-text-subtle);
+		margin: 0; margin-block-end: 0.375rem; margin-inline-start: 0.625rem;
+	}
+
+	.eddi-mobile-section a {
+		display: block;
+		padding: 0.5rem 0.625rem;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		font-size: 0.875rem;
+		border-radius: 0.375rem;
+		transition: background 0.15s;
+	}
+
+	.eddi-mobile-section a:hover {
+		background: var(--color-surface);
+	}
+
+	.eddi-mobile-cta {
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.eddi-mobile-cta .eddi-cta {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		padding: 0.625rem;
+		font-size: 0.9375rem;
+	}
+
+	/* ===== MOBILE THEME TOGGLE ===== */
+	.eddi-mobile-theme {
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--color-border);
+		margin-top: 0.5rem;
+	}
+
+	.eddi-mobile-theme-btn {
+		width: 100%;
+		padding: 0.625rem;
+		font-size: 0.875rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		border-radius: 0.5rem;
+		background: var(--color-surface);
+		color: var(--color-text-muted);
+		border: 1px solid var(--color-border);
+		cursor: pointer;
+		transition: all 0.15s;
+	}
+
+	.eddi-mobile-theme-btn:hover {
+		color: var(--color-text);
+		background: var(--color-border);
+	}
+
+	/* Show/hide label based on current theme */
+	html[data-theme='dark'] .eddi-theme-label-dark { display: inline; }
+	html[data-theme='dark'] .eddi-theme-label-light { display: none; }
+	html[data-theme='light'] .eddi-theme-label-dark { display: none; }
+	html[data-theme='light'] .eddi-theme-label-light { display: inline; }
+
+	/* ===== MOBILE ACTIVE PAGE ===== */
+	.eddi-mobile-section a.eddi-mobile-active {
+		color: var(--color-accent);
+		background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+		font-weight: 600;
+	}
+
+	/* ===== DESKTOP NAV ACTIVE ===== */
+	.eddi-nav-active {
+		color: var(--color-text) !important;
+	}
+
+	/* ===== RESPONSIVE ===== */
+	.desktop-only {
+		display: flex;
+	}
+	.mobile-only {
+		display: none !important;
+	}
+
+	@media (max-width: 64rem) {
+		.desktop-only {
+			display: none !important;
+		}
+		.mobile-only {
+			display: flex !important;
+		}
+		.eddi-mobile-menu {
+			display: block;
+		}
+	}
+
+	/* ===== LIGHT MODE DROPDOWN SHADOWS ===== */
+	html[data-theme='light'] .eddi-dropdown {
+		box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+	}
+</style>
+
+<script is:inline>
+	document.addEventListener('astro:page-load', () => {
+		// Keyboard navigation for dropdowns
+		const dropdownToggles = document.querySelectorAll('.eddi-nav-link');
+		
+		dropdownToggles.forEach(toggle => {
+			toggle.addEventListener('click', () => {
+				const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+				// Close all others
+				dropdownToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+				// Toggle current
+				toggle.setAttribute('aria-expanded', !isExpanded);
+			});
+
+			toggle.addEventListener('keydown', (e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggle.click();
+				}
+			});
+		});
+
+		// Close dropdowns on outside click or Escape
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.eddi-nav-item')) {
+				dropdownToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+			}
+		});
+
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				dropdownToggles.forEach(t => {
+					t.setAttribute('aria-expanded', 'false');
+					t.blur();
+				});
+			}
+		});
+	});
+</script>
+
+<script>
+	function initEddiHeader() {
+		// === Hamburger ===
+		const hamburger = document.querySelector('.eddi-hamburger');
+		const mobileMenu = document.getElementById('eddi-mobile-menu');
+
+		if (hamburger && mobileMenu) {
+			hamburger.addEventListener('click', () => {
+				const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+				hamburger.setAttribute('aria-expanded', String(!isOpen));
+				mobileMenu.setAttribute('aria-hidden', String(isOpen));
+				document.body.style.overflow = isOpen ? '' : 'hidden';
+			});
+
+			mobileMenu.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', () => {
+					hamburger.setAttribute('aria-expanded', 'false');
+					mobileMenu.setAttribute('aria-hidden', 'true');
+					document.body.style.overflow = '';
+				});
+			});
+		}
+
+		// === Theme toggle ===
+		document.querySelectorAll('.eddi-theme-toggle').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const current = document.documentElement.getAttribute('data-theme');
+				const next = current === 'dark' ? 'light' : 'dark';
+				document.documentElement.setAttribute('data-theme', next);
+				localStorage.setItem('eddi-theme', next);
+			});
+		});
+
+		// === Highlight active section (desktop) ===
+		const path = window.location.pathname;
+		document.querySelectorAll('.eddi-nav > .eddi-nav-link, .eddi-nav > .eddi-nav-item > .eddi-nav-link').forEach(el => {
+			const link = el as HTMLElement;
+			const href = link.getAttribute('href') || '';
+			const parent = link.closest('.eddi-nav-item');
+			const firstDropdownHref = parent?.querySelector('.eddi-dropdown-item')?.getAttribute('href') || '';
+
+			const checkHref = href || firstDropdownHref;
+			if (
+				(checkHref.includes('/features/') && path.includes('/features/')) ||
+				((checkHref.includes('/enterprise/') || checkHref.includes('/use-cases/')) && (path.includes('/enterprise/') || path.includes('/use-cases/')))
+			) {
+				link.classList.add('eddi-nav-active');
+			}
+		});
+
+		// === Highlight active page (mobile) ===
+		document.querySelectorAll('.eddi-mobile-section a').forEach(link => {
+			const href = link.getAttribute('href') || '';
+			if (href && !href.startsWith('http') && path === href) {
+				link.classList.add('eddi-mobile-active');
+			}
+		});
+	}
+
+	initEddiHeader();
+	document.addEventListener('astro:after-swap', initEddiHeader);
+</script>

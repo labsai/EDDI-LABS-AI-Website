@@ -1,0 +1,7 @@
+---
+import ImprintContent from '../components/pages/ImprintContent.astro';
+import { getTranslations } from '../i18n';
+
+const t = await getTranslations('en');
+---
+<ImprintContent lang="en" t={t} />

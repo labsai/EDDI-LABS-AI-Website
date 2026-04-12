@@ -1,0 +1,111 @@
+---
+/**
+ * Shared Getting Started content — used by both root and [lang] versions.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import managerImage from '../../assets/hero_manager.webp';
+import { localePath, type Locale } from '../../i18n';
+import type { TranslationSchema } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+---
+
+<BaseLayout title={t.gettingStarted.title} description={t.gettingStarted.description} fullWidth={true} lang={lang}>
+
+<section class="gs-hero hero-gradient-bg">
+	<div class="gs-hero-inner">
+		<h1>{t.gettingStarted.heroTitle}</h1>
+		<p class="gs-subtitle">{t.gettingStarted.heroSubtitle}</p>
+	</div>
+</section>
+
+<article class="gs-content">
+	<section class="gs-section">
+		<h2>{t.gettingStarted.prerequisitesTitle}</h2>
+		<ul>
+			<li set:html={t.gettingStarted.prereq1} />
+			<li>{t.gettingStarted.prereq2}</li>
+		</ul>
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.step1Title}</h2>
+		<p set:html={t.gettingStarted.step1Desc} />
+		<pre><code>docker run -p 7070:7070 labsai/eddi:latest</code></pre>
+		<p set:html={t.gettingStarted.step1After} />
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.step2Title}</h2>
+		<p set:html={t.gettingStarted.step2Desc} />
+		<pre><code>{`{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}`}</code></pre>
+		<p>{t.gettingStarted.step2After}</p>
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.step3Title}</h2>
+		<p set:html={t.gettingStarted.step3Desc} />
+		<pre><code>{`setup_agent(
+  name: "My first agent",
+  systemPrompt: "You are a helpful assistant that answers questions clearly.",
+  provider: "anthropic",
+  modelId: "claude-sonnet-4-6"
+)`}</code></pre>
+		<p>{t.gettingStarted.step3After}</p>
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.step4Title}</h2>
+		<pre><code>{`chat_with_agent(agentId: "<your-agent-id>", message: "Hello! What can you do?")`}</code></pre>
+	</section>
+	<section class="gs-section border-b-0 pb-0">
+		<h2>{t.gettingStarted.step5Title}</h2>
+		<p set:html={t.gettingStarted.step5Desc} />
+		<div class="mt-8 mb-8 premium-image-wrapper mx-auto max-w-4xl shadow-2xl">
+			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1000} height={600} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
+		</div>
+	</section>
+	<section class="gs-next-steps">
+		<h2>{t.gettingStarted.whatsNextTitle}</h2>
+		<div class="gs-cards">
+			<a href={localePath(lang, '/features/overview/')} class="gs-card"><strong>{t.gettingStarted.nextAllFeatures}</strong><span>{t.gettingStarted.nextAllFeaturesDesc}</span></a>
+			<a href={localePath(lang, '/features/mcp-server/')} class="gs-card"><strong>{t.gettingStarted.nextMcpServer}</strong><span>{t.gettingStarted.nextMcpServerDesc}</span></a>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="gs-card"><strong>{t.gettingStarted.nextDocs}</strong><span>{t.gettingStarted.nextDocsDesc}</span></a>
+			<a href={localePath(lang, '/enterprise/why-eddi/')} class="gs-card"><strong>{t.gettingStarted.nextWhyEddi}</strong><span>{t.gettingStarted.nextWhyEddiDesc}</span></a>
+		</div>
+	</section>
+</article>
+
+</BaseLayout>
+
+<style>
+	.gs-hero { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 3rem; text-align: center; }
+	.gs-hero-inner { max-width: 42rem; margin: 0 auto; }
+	.gs-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 0 0 1rem; color: var(--color-text); }
+	.gs-subtitle { font-size: 1.125rem; color: var(--color-text-muted); margin: 0; }
+	.gs-content { max-width: 48rem; margin: 0 auto; padding: 3rem 1.5rem 6rem; line-height: 1.8; color: var(--color-text-muted); }
+	.gs-content h2 { font-size: 1.5rem; font-weight: 700; color: var(--color-text); margin: 0 0 1rem; }
+	.gs-content p { margin: 0 0 1rem; }
+	.gs-content ul { padding-inline-start: 1.25rem; margin: 0 0 1rem; }
+	.gs-content pre { border-radius: 0.75rem; padding: 1rem 1.25rem; overflow-x: auto; font-size: 0.875rem; margin: 0 0 1rem; }
+	html[data-theme='dark'] .gs-content pre { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .gs-content pre { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.08); }
+	.gs-section { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-border); }
+	.gs-next-steps { margin-top: 2rem; }
+	.gs-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+	.gs-card { display: block; padding: 1.25rem; border-radius: 0.75rem; text-decoration: none; transition: all 0.3s ease; }
+	html[data-theme='dark'] .gs-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .gs-card { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.08); }
+	.gs-card:hover { transform: translateY(-2px); border-color: var(--color-accent); }
+	.gs-card strong { display: block; color: var(--color-text); margin-bottom: 0.25rem; }
+	.gs-card span { font-size: 0.8125rem; color: var(--color-text-subtle); }
+	@media (max-width: 40rem) { .gs-cards { grid-template-columns: 1fr; } }
+</style>

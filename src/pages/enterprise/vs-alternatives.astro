@@ -1,0 +1,14 @@
+---
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_vs_alternatives.webp';
+import { enTranslations as t } from '../../i18n';
+const p = t.pages.vsAlternatives;
+---
+<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h2>{p.heading2}</h2>
+<h3>{p.heading3a}</h3><p set:html={p.para2} />
+<h3>{p.heading3b}</h3><p>{p.para3}</p>
+<ul>{p.vsItems.map((item) => <li set:html={item} />)}</ul>
+<h3>{p.heading3c}</h3><p set:html={p.para4} />
+</FeaturePage>

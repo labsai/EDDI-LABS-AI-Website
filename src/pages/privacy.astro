@@ -1,0 +1,7 @@
+---
+import PrivacyContent from '../components/pages/PrivacyContent.astro';
+import { getTranslations } from '../i18n';
+
+const t = await getTranslations('en');
+---
+<PrivacyContent lang="en" t={t} />

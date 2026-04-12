@@ -1,0 +1,14 @@
+# EDDI — Enterprise AI Orchestrator
+# https://eddi.labs.ai
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://eddi.labs.ai/sitemap-index.xml
+
+# LLM / AI agent content maps
+# See https://llmstxt.org for specification
+# llms.txt = curated table of contents (lightweight)
+# llms-full.txt = full-text documentation (comprehensive)
+

@@ -1,0 +1,17 @@
+---
+/**
+ * EDDI Homepage — [lang] dynamic route
+ * Generates pages for all non-default locales.
+ */
+import HomeContent from '../../components/pages/HomeContent.astro';
+import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../i18n';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = await getTranslations(lang);
+---
+
+<HomeContent lang={lang} t={t} />

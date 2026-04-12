@@ -1,0 +1,284 @@
+---
+/**
+ * Language Suggestion Toast — Non-invasive popup that detects the browser's
+ * preferred language and, if it matches a supported locale that differs from
+ * the current page locale, offers to switch.
+ *
+ * Behavior:
+ *  - Appears on every page load where browser lang ≠ page locale.
+ *  - Auto-hides after 15 s but reappears on the next navigation.
+ *  - "No thanks" permanently dismisses via localStorage.
+ *  - Switching also permanently dismisses.
+ */
+import { LOCALES, LOCALE_CODES, localePath, getPathWithoutLocale, type Locale } from '../i18n';
+
+interface Props {
+	lang: Locale;
+}
+
+const { lang } = Astro.props;
+const pagePath = getPathWithoutLocale(Astro.url);
+
+// Pre-compute all locale switch URLs and native names as JSON for the client script
+const localeData = Object.fromEntries(
+	LOCALE_CODES.map((loc) => [
+		loc,
+		{ native: LOCALES[loc].native, url: localePath(loc, pagePath) },
+	])
+);
+---
+
+<!-- Language Suggestion Toast -->
+<div
+	id="lang-suggestion"
+	class="lang-suggestion hidden"
+	role="status"
+	aria-live="polite"
+	data-current-locale={lang}
+	data-locales={JSON.stringify(localeData)}
+>
+	<div class="lang-suggestion-card">
+		<div class="lang-suggestion-content">
+			<svg class="lang-suggestion-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="10"/>
+				<line x1="2" y1="12" x2="22" y2="12"/>
+				<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+			</svg>
+			<span id="lang-suggestion-text" class="lang-suggestion-text"></span>
+		</div>
+		<div class="lang-suggestion-actions">
+			<a id="lang-suggestion-switch" href="#" class="lang-suggestion-btn lang-suggestion-btn-primary">
+				<!-- Filled by JS with native language name -->
+			</a>
+			<button id="lang-suggestion-dismiss" type="button" class="lang-suggestion-btn lang-suggestion-btn-secondary" aria-label="Don't show again">
+				No thanks
+			</button>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	document.addEventListener('astro:page-load', function () {
+		var container = document.getElementById('lang-suggestion');
+		if (!container) return;
+
+		// Reset visibility state from previous page (ClientRouter keeps DOM)
+		container.classList.add('hidden');
+		container.classList.remove('hiding');
+
+		// ── Guard: don't show if user permanently dismissed ──
+		if (localStorage.getItem('eddi-lang-suggestion-dismissed')) {
+			return;
+		}
+
+		var currentLocale = container.getAttribute('data-current-locale');
+		var localeData;
+		try {
+			localeData = JSON.parse(container.getAttribute('data-locales'));
+		} catch (e) { return; }
+
+		// ── Detect browser language ──
+		var browserLangs = navigator.languages || [navigator.language || ''];
+		var matchedLocale = null;
+
+		for (var i = 0; i < browserLangs.length; i++) {
+			var code = browserLangs[i].toLowerCase().split('-')[0];
+			if (localeData[code] && code !== currentLocale) {
+				matchedLocale = code;
+				break;
+			}
+		}
+
+		if (!matchedLocale) return;
+
+		// ── Populate and show the toast ──
+		var nativeName = localeData[matchedLocale].native;
+		var switchUrl = localeData[matchedLocale].url;
+
+		var textEl = document.getElementById('lang-suggestion-text');
+		var switchBtn = document.getElementById('lang-suggestion-switch');
+		var dismissBtn = document.getElementById('lang-suggestion-dismiss');
+
+		textEl.textContent = nativeName + '?';
+		switchBtn.textContent = nativeName;
+		switchBtn.href = switchUrl;
+
+		// Show with animation
+		container.classList.remove('hidden');
+
+		// ── Handle switch (use onclick to avoid duplicate listeners) ──
+		switchBtn.onclick = function () {
+			localStorage.setItem('eddi-lang-suggestion-dismissed', 'true');
+			container.classList.add('hiding');
+			// Navigation happens via the href
+		};
+
+		// ── Handle dismiss ──
+		dismissBtn.onclick = function () {
+			localStorage.setItem('eddi-lang-suggestion-dismissed', 'true');
+			container.classList.add('hiding');
+			setTimeout(function () {
+				container.classList.add('hidden');
+				container.classList.remove('hiding');
+			}, 300);
+		};
+
+		// Auto-hide after 15 seconds (will reappear on next page load)
+		setTimeout(function () {
+			if (!container.classList.contains('hidden')) {
+				container.classList.add('hiding');
+				setTimeout(function () {
+					container.classList.add('hidden');
+					container.classList.remove('hiding');
+				}, 300);
+			}
+		}, 15000);
+	});
+</script>
+
+<style is:global>
+	/* ============================================================
+	   LANGUAGE SUGGESTION TOAST — Non-invasive bottom-end popup
+	   ============================================================ */
+
+	.lang-suggestion {
+		position: fixed;
+		bottom: 1.5rem;
+		inset-inline-end: 1.5rem;
+		z-index: 9990;
+		pointer-events: none;
+	}
+
+	.lang-suggestion.hidden {
+		display: none !important;
+	}
+
+	.lang-suggestion-card {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		background: var(--color-bg-elevated);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+		pointer-events: auto;
+		animation: lang-toast-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		max-width: 22rem;
+	}
+
+	html[data-theme='light'] .lang-suggestion-card {
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+	}
+
+	.lang-suggestion.hiding .lang-suggestion-card {
+		animation: lang-toast-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	.lang-suggestion-content {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.lang-suggestion-icon {
+		flex-shrink: 0;
+		color: var(--color-accent-400);
+	}
+
+	.lang-suggestion-text {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.lang-suggestion-actions {
+		display: flex;
+		align-items: center;
+		gap: 0.375rem;
+		flex-shrink: 0;
+	}
+
+	.lang-suggestion-btn {
+		padding: 0.375rem 0.75rem;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		border-radius: 0.375rem;
+		border: none;
+		cursor: pointer;
+		transition: all 0.2s;
+		font-family: inherit;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.lang-suggestion-btn-primary {
+		color: #111;
+		background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600));
+		box-shadow: 0 0 12px color-mix(in srgb, var(--color-accent) 20%, transparent);
+	}
+
+	.lang-suggestion-btn-primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 35%, transparent);
+	}
+
+	.lang-suggestion-btn-secondary {
+		color: var(--color-text-muted);
+		background: none;
+		padding: 0.375rem;
+		line-height: 1;
+		font-size: 0.875rem;
+	}
+
+	.lang-suggestion-btn-secondary:hover {
+		color: var(--color-text);
+	}
+
+	/* Focus rings */
+	.lang-suggestion-btn:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+	}
+
+	/* Animations */
+	@keyframes lang-toast-in {
+		from {
+			opacity: 0;
+			transform: translateY(1rem) scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+	}
+
+	@keyframes lang-toast-out {
+		from {
+			opacity: 1;
+			transform: translateY(0) scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(1rem) scale(0.95);
+		}
+	}
+
+	/* Responsive: full-width on small screens */
+	@media (max-width: 30rem) {
+		.lang-suggestion {
+			bottom: 1rem;
+			inset-inline-start: 1rem;
+			inset-inline-end: 1rem;
+		}
+
+		.lang-suggestion-card {
+			max-width: 100%;
+		}
+	}
+</style>

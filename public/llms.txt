@@ -1,0 +1,56 @@
+# EDDI — Enterprise AI Orchestrator
+
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 48 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
+
+## Documentation
+
+- [Getting Started](https://eddi.labs.ai/docs/getting-started/): Introduction to EDDI and setup instructions
+- [Quickstart](https://eddi.labs.ai/docs/quickstart/): Get an agent running in minutes
+- [Install Wizard](https://eddi.labs.ai/docs/install-wizard/): Interactive Docker Compose generator
+
+## Features
+
+- [Features Overview](https://eddi.labs.ai/features/overview/): Complete platform capabilities summary
+- [EDDI Manager UI](https://eddi.labs.ai/features/manager/): Visual agent lifecycle management with 11-locale i18n
+- [Configuration-as-Code](https://eddi.labs.ai/features/config-as-code/): JSON-based agent configuration without recompilation
+- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 48 Model Context Protocol tools for AI-native integration
+- [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration
+- Stateful Agentic Memory: IUserMemoryStore with 2D property scopes
+- [Performance](https://eddi.labs.ai/features/performance/): Java 25 virtual threads and JVM-native throughput
+- [Security](https://eddi.labs.ai/features/security/): Zero eval(), cryptographic audit trails, RBAC
+- [Observability](https://eddi.labs.ai/features/observability/): Prometheus metrics + 45-panel Grafana Operations Command Center
+- [Code Quality](https://eddi.labs.ai/features/code-quality/): Testing strategy and engineering standards
+- [AI-Ready Design](https://eddi.labs.ai/features/ai-ready/): Built for AI agents to interact with programmatically
+
+## Architecture
+
+- [Architecture Overview](https://eddi.labs.ai/docs/architecture/overview/): Pipeline, reactor, and resource model
+- [Conversation Lifecycle](https://eddi.labs.ai/docs/architecture/conversation-lifecycle/): Request flow and processing stages
+- [Tool Execution](https://eddi.labs.ai/docs/architecture/tool-execution/): How agents call tools (MCP + HTTP)
+
+## Enterprise
+
+- [Why EDDI](https://eddi.labs.ai/enterprise/why-eddi/): The self-hosted enterprise AI platform — the only JVM-native + visual + config-driven AI middleware
+- [vs. Alternatives](https://eddi.labs.ai/enterprise/vs-alternatives/): Comparison with Flowise, n8n, Dify, Spring AI, LangChain4j, Camunda
+- [Compliance](https://eddi.labs.ai/enterprise/compliance/): Global Privacy & Regulatory Compliance — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, NIST AI RMF, ISO 42001, SOC 2 & more (15+ frameworks)
+
+## Integrations & Deployment
+
+- [Integrations](https://eddi.labs.ai/docs/integrations/): Supported LLM providers (OpenAI, Anthropic, Google, Ollama, etc.)
+- [Docker Deployment](https://eddi.labs.ai/docs/deployment/docker/): Container-based deployment
+- [Kubernetes](https://eddi.labs.ai/docs/deployment/kubernetes/): Helm charts and Kustomize manifests
+
+## API & MCP
+
+- [REST API](https://eddi.labs.ai/docs/api/rest/): RESTful endpoints for all resources
+- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 48 MCP tools
+
+## Use Cases
+
+- [Use Cases](https://eddi.labs.ai/use-cases/): Healthcare, financial services, e-commerce, manufacturing, government, and developer platforms
+
+## Additional
+
+- [Roadmap](https://eddi.labs.ai/docs/roadmap/): Upcoming features and development plans
+- [Changelog](https://eddi.labs.ai/docs/changelog/latest/): Version history
+- [GitHub Repository](https://github.com/labsai/EDDI): Source code (Apache 2.0)

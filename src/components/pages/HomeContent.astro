@@ -1,0 +1,280 @@
+---
+/**
+ * Shared homepage content — used by both root index.astro and [lang]/index.astro.
+ * Eliminates duplication: all content is defined once here.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/abstract_orchestrator.webp';
+
+import { localePath, type Locale } from '../../i18n';
+import type { TranslationSchema } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+---
+
+<BaseLayout title={t.home.title} fullWidth={true} lang={lang}>
+
+<!-- Hero Section -->
+<section class="hero-section hero-gradient hero-gradient-bg">
+	<div class="hero-inner">
+		<div class="hero-text">
+			<h1>
+				{t.home.heroTitle}<br/>
+				<span class="text-gradient-dynamic">{t.home.heroHighlight}</span>
+			</h1>
+			<p class="hero-tagline" set:html={t.home.heroTagline} />
+			<div class="hero-actions">
+				<a href={localePath(lang, '/getting-started/')} class="hero-btn-primary">{t.common.getStartedCta}</a>
+				<a href="https://github.com/labsai/EDDI" class="hero-btn-minimal" target="_blank" rel="noopener">{t.common.viewOnGithub}</a>
+			</div>
+		</div>
+		<div class="hero-visual premium-image-wrapper">
+			<Image src={heroImage} alt="EDDI AI Orchestrator" width={500} height={500} loading="eager" decoding="async" />
+		</div>
+	</div>
+</section>
+
+<!-- The Problem -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+	<div class="text-center mb-16">
+		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.home.problemTitle}</h2>
+		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.home.problemDesc} />
+	</div>
+	<div class="not-content grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+			</div>
+			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
+				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+			</div>
+			<h3 class="text-xl font-bold text-white mb-3">{t.home.problemCard1Title}</h3>
+			<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={t.home.problemCard1Desc} />
+		</div>
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
+			</div>
+			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
+				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
+			</div>
+			<h3 class="text-xl font-bold text-white mb-3">{t.home.problemCard2Title}</h3>
+			<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={t.home.problemCard2Desc} />
+		</div>
+		<div class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
+				<svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+			</div>
+			<div class="mb-6 w-14 h-14 rounded-2xl bg-linear-to-br from-accent-500/20 to-accent-900/40 border border-accent-500/30 flex items-center justify-center text-accent-400 shadow-[0_0_30px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] group-hover:scale-110 group-hover:shadow-[0_0_40px_color-mix(in_srgb,var(--color-accent)_50%,transparent)] transition-all duration-500">
+				<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+			</div>
+			<h3 class="text-xl font-bold text-white mb-3">{t.home.problemCard3Title}</h3>
+			<p class="text-zinc-400 text-sm leading-relaxed grow" set:html={t.home.problemCard3Desc} />
+		</div>
+	</div>
+</section>
+
+<!-- The Solution -->
+<section class="py-24 max-w-7xl mx-auto px-6 relative mt-12">
+	<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent-500/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+	<div class="text-center mb-16">
+		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.home.solutionTitle}</h2>
+		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.home.solutionDesc} />
+	</div>
+	<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+		{[
+			{ num: '01', title: t.home.sol1Title, desc: t.home.sol1Desc },
+			{ num: '02', title: t.home.sol2Title, desc: t.home.sol2Desc },
+			{ num: '03', title: t.home.sol3Title, desc: t.home.sol3Desc },
+			{ num: '04', title: t.home.sol4Title, desc: t.home.sol4Desc },
+			{ num: '05', title: t.home.sol5Title, desc: t.home.sol5Desc, accent: true },
+			{ num: '06', title: t.home.sol6Title, desc: t.home.sol6Desc, accent: true },
+		].map((item) => (
+			<div class={`relative overflow-hidden col-span-1 flex flex-col h-full p-8 rounded-3xl ${item.accent ? 'bg-linear-to-tr from-accent-900/10 to-zinc-900/60' : 'bg-zinc-900/60'} backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group`}>
+				<div class="w-12 h-12 mb-5 rounded-2xl bg-accent-500/10 text-accent-400 flex items-center justify-center font-bold text-xl border border-accent-500/20 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300">{item.num}</div>
+				<h3 class="text-xl font-bold text-white mb-3">{item.title}</h3>
+				<p class={`${item.accent ? 'text-zinc-300' : 'text-zinc-400'} text-sm leading-relaxed grow`} set:html={item.desc} />
+			</div>
+		))}
+	</div>
+</section>
+
+<!-- Trusted & Certified -->
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
+	<div class="text-center mb-12">
+		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.trustedTitle}</h2>
+	</div>
+	<div class="not-content trust-grid">
+		{[
+			{ title: t.home.trustRedHat, desc: t.home.trustRedHatDesc, icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+			{ title: t.home.trustApache, desc: t.home.trustApacheDesc, icon: '<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>' },
+			{ title: t.home.trustTests, desc: t.home.trustTestsDesc, icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
+			{ title: t.home.trustDocker, desc: t.home.trustDockerDesc, icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M2 13h20"/><rect x="5" y="10" width="3" height="3"/><rect x="10" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/><rect x="5" y="15" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/>', href: 'https://hub.docker.com/r/labsai/eddi', badge: '<div class="mt-2"><img src="https://img.shields.io/docker/pulls/labsai/eddi?style=flat-square&color=f59e0b&labelColor=27272a" alt="Docker Pulls" class="h-5" loading="lazy" /></div>' },
+			{ title: t.home.trustCI, desc: t.home.trustCIDesc, icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>', href: 'https://github.com/labsai/EDDI/actions/workflows/ci.yml', badge: '<div class="mt-2 flex flex-wrap gap-2"><img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" class="h-5 inline-block" loading="lazy" /><img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" class="h-5 inline-block" loading="lazy" /></div>' },
+		].map((item) => {
+			const inner = (
+				<>
+					<div class="w-12 h-12 shrink-0 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-300 border border-accent-500/20">
+						<svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" set:html={item.icon} />
+					</div>
+					<div>
+						<strong class="block text-white mb-1">{item.title}</strong>
+						<span class="text-sm text-zinc-400">{item.desc}</span>
+						{item.badge && <Fragment set:html={item.badge} />}
+					</div>
+				</>
+			);
+			return item.href ? (
+				<a href={item.href} target="_blank" rel="noopener" class="trust-card group no-underline!">
+					{inner}
+				</a>
+			) : (
+				<div class="trust-card group">
+					{inner}
+				</div>
+			);
+		})}
+	</div>
+</section>
+
+<!-- Built on Proven Technology -->
+<section class="py-24 max-w-7xl mx-auto px-6 relative border-t border-zinc-800/60">
+	<div class="text-center mb-16">
+		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.techTitle}</h2>
+	</div>
+	<div class="not-content grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+		{[
+			{ name: t.home.techJava, desc: t.home.techJavaDesc, icon: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/>' },
+			{ name: t.home.techQuarkus, desc: t.home.techQuarkusDesc, icon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>' },
+			{ name: t.home.techLangchain, desc: t.home.techLangchainDesc, icon: '<path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/>' },
+			{ name: t.home.techMongo, desc: t.home.techMongoDesc, icon: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>' },
+			{ name: t.home.techPostgres, desc: t.home.techPostgresDesc, icon: '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>' },
+			{ name: t.home.techDocker, desc: t.home.techDockerDesc, icon: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>' },
+			{ name: t.home.techK8s, desc: t.home.techK8sDesc, icon: '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>' },
+			{ name: t.home.techOpenshift, desc: t.home.techOpenshiftDesc, icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>' },
+		].map((item) => (
+			<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
+				<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" set:html={item.icon} />
+				<strong class="text-white text-sm mb-1">{item.name}</strong>
+				<span class="text-xs text-zinc-500">{item.desc}</span>
+			</div>
+		))}
+	</div>
+</section>
+
+<!-- Next Steps -->
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
+	<div class="text-center mb-12">
+		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.nextStepsTitle}</h2>
+	</div>
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<a href={localePath(lang, '/getting-started/')} class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">{t.home.nextGetStartedTitle}</strong>
+			<span class="text-sm text-zinc-400">{t.home.nextGetStartedDesc}</span>
+		</a>
+		<a href={localePath(lang, '/features/overview/')} class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">{t.home.nextFeaturesTitle}</strong>
+			<span class="text-sm text-zinc-400">{t.home.nextFeaturesDesc}</span>
+		</a>
+		<a href={localePath(lang, '/enterprise/why-eddi/')} class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">{t.home.nextWhyTitle}</strong>
+			<span class="text-sm text-zinc-400">{t.home.nextWhyDesc}</span>
+		</a>
+		<a href="https://docs.labs.ai" target="_blank" rel="noopener" class="block p-6 rounded-2xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl no-underline group">
+			<strong class="block text-white text-lg mb-2 group-hover:text-accent-400 transition-colors">{t.home.nextDocsTitle}</strong>
+			<span class="text-sm text-zinc-400">{t.home.nextDocsDesc}</span>
+		</a>
+	</div>
+</section>
+
+
+
+<!-- FAQ -->
+<section class="py-24 max-w-5xl mx-auto px-6 border-t border-zinc-800/60 mb-20">
+	<div class="text-center mb-12">
+		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.faqTitle}</h2>
+	</div>
+	{[
+		{ q: t.home.faq1Q, a: t.home.faq1A },
+		{ q: t.home.faq2Q, a: t.home.faq2A },
+		{ q: t.home.faq3Q, a: t.home.faq3A },
+		{ q: t.home.faq4Q, a: t.home.faq4A },
+		{ q: t.home.faq5Q, a: t.home.faq5A },
+	].map((faq) => (
+		<details>
+			<summary><strong>{faq.q}</strong></summary>
+			<p set:html={faq.a} />
+		</details>
+	))}
+</section>
+
+</BaseLayout>
+
+<style>
+	.hero-section { padding: calc(var(--nav-height, 4rem) + 4rem) 1.5rem 5rem; width: 100%; }
+	.hero-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
+	.hero-text { flex: 1; }
+	.hero-text h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; margin: 0 0 1.5rem; }
+	html[data-theme='dark'] .hero-text h1 { color: #fff; }
+	html[data-theme='light'] .hero-text h1 { color: #111; }
+	.hero-tagline { font-size: 1.125rem; line-height: 1.65; max-width: 36rem; margin: 0 0 2rem; }
+	html[data-theme='dark'] .hero-tagline { color: rgba(255, 255, 255, 0.6); }
+	html[data-theme='light'] .hero-tagline { color: rgba(0, 0, 0, 0.6); }
+	.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.hero-btn-primary { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600; color: #111 !important; background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
+	.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent); }
+	.hero-btn-minimal { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 500; border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; }
+	html[data-theme='dark'] .hero-btn-minimal { color: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.15); }
+	html[data-theme='light'] .hero-btn-minimal { color: #333; border: 1px solid rgba(0, 0, 0, 0.15); }
+	.hero-btn-minimal:hover { transform: translateY(-2px); }
+	.hero-visual { flex-shrink: 0; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); }
+	html[data-theme='light'] .hero-visual { background: #f0f1f3; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); }
+	.hero-visual img { display: block; width: 100%; height: auto; max-width: 28rem; }
+	@media (max-width: 50rem) {
+		.hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
+		.hero-tagline { max-width: none; }
+		.hero-actions { justify-content: center; }
+		.hero-visual { max-width: 20rem; }
+	}
+	/* Trusted & Certified — uniform 5-card grid */
+	.trust-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1.5rem;
+	}
+	.trust-card {
+		grid-column: span 2;
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		padding: 1.5rem;
+		border-radius: 1rem;
+		background: rgba(24, 24, 27, 0.4);
+		backdrop-filter: blur(12px);
+		border: 1px solid rgba(63, 63, 70, 0.5);
+		transition: all 0.3s ease;
+	}
+	.trust-card:nth-child(4) {
+		grid-column: 1 / 4;
+	}
+	.trust-card:nth-child(5) {
+		grid-column: 4 / 7;
+	}
+	.trust-card:hover {
+		border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+		transform: translateY(-2px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	}
+	@media (max-width: 50rem) {
+		.trust-grid { grid-template-columns: 1fr; }
+		.trust-card,
+		.trust-card:nth-child(4),
+		.trust-card:nth-child(5) { grid-column: auto; }
+	}
+</style>
