@@ -38,7 +38,7 @@
 
 :root,
 html[data-theme='dark'] {
-	--banner-height: 2rem;
+	--banner-height: 2.5rem;
 	--nav-height: 4rem;
 	--total-header-height: calc(var(--banner-height) + var(--nav-height));
 
@@ -53,6 +53,14 @@ html[data-theme='dark'] {
 	--color-text-subtle: #8a8a92;
 
 	--color-accent: #f59e0b;
+}
+
+/* On narrow screens the announcement banner text wraps,
+   so use a taller default until JS measures the real height. */
+@media (max-width: 40rem) {
+	:root {
+		--banner-height: 3.5rem;
+	}
 }
 
 html[data-theme='light'] {
@@ -260,11 +268,13 @@ details[open] summary {
    ========================================================================== */
 
 @media (max-width: 50rem) {
-	section:not(.hero-section) {
+	section:not(.hero-section):not([class*="-hero"]):not([class*="hero-"]) {
 		padding-top: 3rem !important;
 		padding-bottom: 3rem !important;
 	}
-	.hero-section {
+	.hero-section,
+	[class*="-hero"],
+	[class*="hero-"] {
 		padding-bottom: 3rem !important;
 	}
 }
