@@ -592,12 +592,15 @@ const t = await getTranslations(lang);
 
 	.eddi-mobile-section a {
 		display: block;
-		padding: 0.5rem 0.625rem;
+		padding: 0.625rem 0.75rem;
 		color: var(--color-text-muted);
 		text-decoration: none;
 		font-size: 0.875rem;
 		border-radius: 0.375rem;
 		transition: background 0.15s;
+		min-height: 2.75rem;
+		display: flex;
+		align-items: center;
 	}
 
 	.eddi-mobile-section a:hover {
@@ -735,12 +738,24 @@ const t = await getTranslations(lang);
 		const hamburger = document.querySelector('.eddi-hamburger');
 		const mobileMenu = document.getElementById('eddi-mobile-menu');
 
+		function setMobileMenuFocusability(menu: HTMLElement, focusable: boolean) {
+			const tabVal = focusable ? null : '-1';
+			menu.querySelectorAll<HTMLElement>('a, button').forEach(el => {
+				if (tabVal) el.setAttribute('tabindex', tabVal);
+				else el.removeAttribute('tabindex');
+			});
+		}
+
 		if (hamburger && mobileMenu) {
+			// Initially hide focusable elements
+			setMobileMenuFocusability(mobileMenu, false);
+
 			hamburger.addEventListener('click', () => {
 				const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
 				hamburger.setAttribute('aria-expanded', String(!isOpen));
 				mobileMenu.setAttribute('aria-hidden', String(isOpen));
 				document.body.style.overflow = isOpen ? '' : 'hidden';
+				setMobileMenuFocusability(mobileMenu, !isOpen);
 			});
 
 			mobileMenu.querySelectorAll('a').forEach(link => {
@@ -748,6 +763,7 @@ const t = await getTranslations(lang);
 					hamburger.setAttribute('aria-expanded', 'false');
 					mobileMenu.setAttribute('aria-hidden', 'true');
 					document.body.style.overflow = '';
+					setMobileMenuFocusability(mobileMenu, false);
 				});
 			});
 		}

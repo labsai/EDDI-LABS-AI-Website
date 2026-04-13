@@ -96,6 +96,22 @@ body {
 }
 
 /* ==========================================================================
+   GLOBAL LINK STYLES — prevent invisible default-blue on dark backgrounds
+   ========================================================================== */
+
+a:not([class]) {
+	color: var(--color-accent-400);
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--color-accent-400) 40%, transparent);
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:not([class]):hover {
+	color: var(--color-accent-300);
+	text-decoration-color: var(--color-accent-300);
+}
+
+/* ==========================================================================
    SHARED HERO STYLES — used by all hero sections
    ========================================================================== */
 

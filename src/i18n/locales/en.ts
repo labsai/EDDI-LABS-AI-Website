@@ -826,13 +826,13 @@ const en = {
 		trust: {
 			title: 'Track Record',
 			description:
-				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by European academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
+				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
 
 			// Hero
 			heroTitle: 'Enterprise-Grade.',
 			heroHighlight: 'Community-Proven.',
 			heroDesc:
-				'EDDI is not a weekend project. It is backed by <strong>government-funded research</strong>, deployed in <strong>enterprise production</strong>, and validated by <strong>European academic institutions</strong>.',
+				'EDDI is not a weekend project. It is backed by <strong>government-funded research</strong>, deployed in <strong>enterprise production</strong>, and validated by <strong>academic institutions and industry partners</strong>.',
 
 			// Stats bar
 			statPulls: 'Docker Pulls',
@@ -841,17 +841,17 @@ const en = {
 			statCertified: 'Red Hat Certified',
 
 			// Timeline
-			timelineTitle: 'From Vienna to the World',
-			timelineDesc: 'Almost two decades of continuous engineering — long before the LLM era.',
+			timelineTitle: 'Two Decades of Engineering',
+			timelineDesc: 'Almost twenty years of continuous development — long before the LLM era.',
 			timeline: [
-				{ year: '2006', text: '<strong>Project founded</strong> in Vienna, Austria — early research into dialogue management and conversational state.' },
-				{ year: '2008', text: 'Incubated at <strong>inits.at</strong>, the Vienna university business incubator, with academic rigor and institutional support.' },
-					{ year: '2018', text: 'Selected for <strong>weXelerate Batch II</strong> accelerator · Launched as open source under Apache 2.0.' },
-				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, Vienna — sponsored by weXelerate and T-Mobile.' },
-				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan at Deutsche Bank Innovation Labs — sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
-				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (European Language Grid).' },
+				{ year: '2006', text: '<strong>Project founded</strong> in Europe — early research into dialogue management and conversational state.' },
+				{ year: '2008', text: 'Incubated at a <strong>university business incubator</strong> with academic oversight, focusing on research-grade engineering and sustainable product development.' },
+				{ year: '2018', text: 'Selected for a <strong>top-tier European accelerator program</strong> · Launched as open source under Apache 2.0.' },
+				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> — co-sponsored by an accelerator and a major telecom provider.' },
+				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> at Deutsche Bank Innovation Labs — co-sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
+				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project via the European Language Grid.' },
 				{ year: '2020', text: 'Online Chatbot Hackathon — community-driven event expanding EDDI\'s open-source reach.' },
-				{ year: '2021', text: 'Erasmus+ <strong>EDUBOTS</strong> — EDDI serves as the engine for multi-country test runs and research across European universities.' },
+				{ year: '2021', text: 'EU Erasmus+ <strong>EDUBOTS</strong> program — EDDI powers multi-country chatbot research and deployment across universities.' },
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
@@ -861,16 +861,16 @@ const en = {
 			// Institutional backing
 			institutionsTitle: 'Backed by Institutions',
 			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
-			instFFGTitle: 'Austrian Research Promotion Agency (FFG)',
-			instFFGDesc: 'EDDI was deployed in <strong>SecLearn</strong>, a national cybersecurity training initiative funded by the FFG, in collaboration with the Austrian Institute of Technology (AIT).',
-			instEUTitle: 'European Union — European Language Grid',
+			instFFGTitle: 'Government Research Grant',
+			instFFGDesc: 'EDDI was deployed in <strong>SecLearn</strong>, a national cybersecurity training initiative funded by a government research agency, in collaboration with a national technology research institute.',
+			instEUTitle: 'EU-Funded Research — European Language Grid',
 			instEUDesc: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (2020–2021), exploring autonomous virtual assistants with persistent memory and multi-language support.',
-			instEdubotsTitle: 'Erasmus+ EDUBOTS',
-			instEdubotsDesc: 'EDDI was heavily used by <strong>EdTech Foundry</strong> (differ.chat), a consortium partner in the Erasmus+ EDUBOTS Knowledge Alliance, powering student engagement chatbots across European universities.',
-			instWexTitle: 'weXelerate Accelerator',
-			instWexDesc: 'Selected for <strong>Batch II</strong> of Central Europe\'s leading innovation hub, connecting LABS.AI with corporate partners and validating the platform\'s commercial viability.',
-			instInitsTitle: 'inits.at Incubator',
-			instInitsDesc: 'Incubated at Vienna\'s university business incubator, with early-stage institutional support prioritizing academic rigor and sustainable business modeling.',
+			instEdubotsTitle: 'EU Erasmus+ EDUBOTS Program',
+			instEdubotsDesc: 'EDDI powered student engagement chatbots across <strong>multiple European universities</strong> as part of the Erasmus+ EDUBOTS Knowledge Alliance — used by EdTech Foundry (differ.chat) for multi-country deployments.',
+			instWexTitle: 'European Accelerator Program',
+			instWexDesc: 'Selected for a <strong>leading European innovation accelerator</strong>, connecting LABS.AI with corporate partners and validating the platform\'s commercial viability.',
+			instInitsTitle: 'University Incubator',
+			instInitsDesc: 'Incubated at a <strong>university business incubator</strong>, with early-stage institutional support prioritizing academic rigor and sustainable business modeling.',
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness.',
 

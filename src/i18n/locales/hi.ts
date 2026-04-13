@@ -754,7 +754,7 @@ const hi: TranslationSchema = {
 			statTests: 'परीक्षण \u00b7 0 विफलताएं',
 			statProviders: 'LLM प्रदाता',
 			statCertified: 'Red Hat प्रमाणित',
-			timelineTitle: 'वियना से दुनिया तक',
+			timelineTitle: 'दो दशकों की इंजीनियरिंग',
 			timelineDesc: 'LLM युग से बहुत पहले से, लगभग दो दशकों की निरंतर इंजीनियरिंग।',
 			timeline: [
 				{ year: '2006', text: 'ऑस्ट्रिया, वियना में <strong>प्रोजेक्ट की स्थापना</strong> — संवाद प्रबंधन और वार्तालाप स्थिति पर प्रारंभिक अनुसंधान।' },
@@ -778,7 +778,7 @@ const hi: TranslationSchema = {
 			instEUDesc: 'EU-वित्त पोषित <strong>YouTwinDi</strong> डिजिटल ट्विन अनुसंधान परियोजना (2020–2021), स्थायी स्मृति और बहु-भाषा समर्थन वाले स्वायत्त वर्चुअल सहायकों की खोज।',
 			instEdubotsTitle: 'Erasmus+ EDUBOTS',
 			instEdubotsDesc: 'EDDI का <strong>EdTech Foundry</strong> (differ.chat) द्वारा व्यापक उपयोग किया गया, Erasmus+ EDUBOTS Knowledge Alliance का कंसोर्टियम भागीदार, यूरोपीय विश्वविद्यालयों में छात्र सहभागिता चैटबॉट को शक्ति प्रदान करता है।',
-			instWexTitle: 'weXelerate Accelerator',
+			instWexTitle: 'Europäisches Beschleunigerprogramm',
 			instWexDesc: 'मध्य यूरोप के अग्रणी इनोवेशन हब के <strong>Batch II</strong> के लिए चयनित, LABS.AI को कॉर्पोरेट भागीदारों से जोड़ता है और प्लेटफ़ॉर्म की व्यावसायिक व्यवहार्यता को मान्य करता है।',
 			instInitsTitle: 'inits.at इनक्यूबेटर',
 			instInitsDesc: 'वियना के विश्वविद्यालय व्यापार इनक्यूबेटर में इनक्यूबेटेड, शैक्षणिक कठोरता और टिकाऊ व्यापार मॉडलिंग को प्राथमिकता देने वाले प्रारंभिक-चरण संस्थागत समर्थन के साथ।',
