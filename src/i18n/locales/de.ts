@@ -222,12 +222,16 @@ const de: TranslationSchema = {
 		step2Desc:
 			'Wenn Sie <strong>Claude Desktop</strong> oder einen MCP-kompatiblen Client verwenden, fügen Sie EDDI als MCP-Server hinzu:',
 		step2After: 'Jetzt können Sie mit EDDIs 42 MCP-Tools direkt aus Ihrem KI-Assistenten interagieren.',
-		step3Title: '3. Ersten Agent erstellen',
-		step3Desc: 'Verwenden Sie das <code>setup_agent</code> MCP-Tool, um in einem Aufruf einen funktionsfähigen Agent zu erstellen:',
-		step3After: 'Dies erstellt Regeln, LLM-Konfiguration, Workflow, Agent und deployt ihn — alles in einem Schritt.',
-		step4Title: '4. Mit Ihrem Agent chatten',
-		step5Title: '5. Die Manager-UI öffnen',
-		step5Desc:
+		step3Title: '3. API-Key sicher speichern',
+		step3VaultIntro: 'Bevor Sie einen Agent erstellen, speichern Sie Ihren LLM-Anbieter-API-Key sicher in EDDIs <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> (AES-256-GCM verschlüsselt):',
+		step3VaultUiDesc: 'Öffnen Sie die Manager-UI unter <code>http://localhost:7070</code>, navigieren Sie zu <strong>Secrets Vault</strong> und fügen Sie ein neues Secret mit dem Schlüsselnamen <code>my-anthropic-key</code> hinzu.',
+		step3VaultTip: '<strong>💡 Tipp:</strong> Die <code>${vault:my-anthropic-key}</code>-Syntax referenziert EDDIs integrierten <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>. Der Vault-Masterschlüssel wird automatisch vom Installer generiert. Zum schnellen Testen können Sie API-Keys auch direkt übergeben: <code>apiKey: "sk-ant-..."</code>.',
+		step4Title: '4. Ersten Agent erstellen',
+		step4Desc: 'Verwenden Sie <code>setup_agent</code>, um in einem Aufruf einen funktionsfähigen Agent zu erstellen — via MCP oder REST-API:',
+		step4After: 'Dies erstellt Regeln, LLM-Konfiguration, Workflow, Agent und deployt ihn — alles in einem Schritt.',
+		step5Title: '5. Mit Ihrem Agent chatten',
+		step6Title: '6. Die Manager-UI öffnen',
+		step6Desc:
 			'Navigieren Sie zu <code>http://localhost:7070</code>, um Ihre Agents, Workflows und Konversationen visuell mit dem EDDI Manager zu verwalten.',
 		managerImageAlt: 'EDDI Manager UI Dashboard-Vorschau',
 		whatsNextTitle: 'Wie geht es weiter?',

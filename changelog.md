@@ -3,6 +3,17 @@
 All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
+### 🐛 Bug Fixes
+- `fix(website)`: **setup_agent Missing apiKey** — The `setup_agent()` code snippet on the Getting Started page was missing the required `apiKey` parameter and used `modelId` instead of `model`. Fixed to match the actual `McpSetupTools.java` signature.
+
+### 🎨 UI Enhancements
+- `feat(website)`: **Getting Started Hero Image** — Added a 3D isometric hero image to the Getting Started page, matching the dark-charcoal-and-gold visual style used across all other feature and enterprise pages. Updated hero section from centered text-only layout to side-by-side text + image layout (matching FeaturePage layout).
+
+### 🔐 Security Documentation
+- `feat(website)`: **Secure API Key Storage Step** — Added new Step 3 "Store Your API Key" to Getting Started guide, teaching users to store keys in the Secrets Vault (REST API or Manager UI) before referencing them via `${vault:...}` syntax. Steps renumbered 3→6.
+- `feat(website)`: **MCP/REST Dual Tabs** — Steps 4 (Create Agent) and 5 (Chat) now show both MCP tool calls and REST API (curl) equivalents in switchable tabs, enabling developers who don't use MCP clients to follow along.
+- `feat(website)`: **Generic Tab Script** — Refactored the tab switching script to be generic (`querySelectorAll('.gs-tabs')`) instead of hardcoded to `#install-tabs`, enabling reuse across vault, agent, and chat tab sets.
+
 ### 🔧 Version Management
 - `feat(website)`: **Centralized Version String** — Created `src/i18n/version.ts` as single source of truth for `EDDI_VERSION`. Replaced ~35 hardcoded `v6.0.0-RC1` references across all 11 locale files and `BaseLayout.astro` JSON-LD schemas with template literal interpolation. Version now updated in one place.
 
