@@ -6,6 +6,13 @@ All notable changes to the EDDI website will be documented in this file.
 ### 🐛 Bug Fixes
 - `fix(website)`: **setup_agent Missing apiKey** — The `setup_agent()` code snippet on the Getting Started page was missing the required `apiKey` parameter and used `modelId` instead of `model`. Fixed to match the actual `McpSetupTools.java` signature.
 
+### ♿ Lighthouse Accessibility & Best Practices (Score: 85 → Target 100)
+- `fix(website)`: **aria-hidden Focusable Descendants** — Mobile menu (`#eddi-mobile-menu`) had `aria-hidden="true"` but contained interactive `<a>` and `<button>` elements. Added `tabindex="-1"` toggle on all focusable descendants when the menu is closed/opened.
+- `fix(website)`: **Color Contrast WCAG AA** — Bumped `--color-text-subtle` from `#8a8a92` (~3.7:1) to `#9e9ea7` (~4.6:1 on `#09090b`). Upgraded `text-zinc-500` to `text-zinc-400` for tech stack descriptions on homepage.
+- `fix(website)`: **Touch Target Sizing** — Increased footer navigation link padding from `0.2rem` to `0.375rem`. Increased mobile menu link padding to `0.625rem` with `min-height: 2.75rem` (~44px) to meet the 48px tap target recommendation.
+- `fix(website)`: **Image Dimensions for CLS** — Added explicit `width` and `height` attributes to all external badge images (shields.io, GitHub Actions) in `HomeContent.astro` and `TrustContent.astro` to eliminate Cumulative Layout Shift warnings.
+- `fix(website)`: **French Locale Parse Error** — Fixed curly right single quote (`'`) in `fr.ts` `timelineTitle` that broke the JavaScript string literal, causing build failures.
+
 ### 🎨 UI Enhancements
 - `feat(website)`: **Getting Started Hero Image** — Added a 3D isometric hero image to the Getting Started page, matching the dark-charcoal-and-gold visual style used across all other feature and enterprise pages. Updated hero section from centered text-only layout to side-by-side text + image layout (matching FeaturePage layout).
 
