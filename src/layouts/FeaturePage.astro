@@ -149,7 +149,13 @@ const t = await getTranslations(lang);
 			text-align: center;
 		}
 		.fp-hero-tagline { max-width: none; }
-		.fp-hero-actions { justify-content: center; }
+		.fp-hero-actions {
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+			max-width: 20rem;
+			margin: 0 auto;
+		}
 		.fp-hero-image { max-width: 20rem; }
 	}
 </style>
