@@ -87,7 +87,7 @@ const { lang, t } = Astro.props;
 		<h2>{t.gettingStarted.step5Title}</h2>
 		<p set:html={t.gettingStarted.step5Desc} />
 		<div class="mt-8 mb-8 premium-image-wrapper mx-auto max-w-4xl shadow-2xl">
-			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1000} height={600} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
+			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1024} height={1024} quality="max" loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
 		</div>
 	</section>
 	<section class="gs-next-steps">
