@@ -227,7 +227,9 @@ const industryCards = [
 	.cp-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 	.cp-hero-image { flex-shrink: 0; }
 	.cp-hero-image img { display: block; width: 100%; height: auto; max-width: 28rem; object-fit: contain; }
-	@media (max-width: 50rem) { .cp-hero-inner { flex-direction: column; text-align: center; } .cp-hero-tagline { max-width: none; } .cp-hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 20rem; margin: 0 auto; } .cp-hero-image { max-width: 20rem; } }
+	@media (max-width: 64rem) { .cp-hero-inner { gap: 2rem; } .cp-hero-image img { max-width: 20rem; } }
+	@media (max-width: 50rem) { .cp-hero-inner { flex-direction: column; text-align: center; } .cp-hero-tagline { max-width: none; } .cp-hero-actions { justify-content: center; gap: 0.75rem; } .cp-hero-image { max-width: 20rem; } }
+	@media (max-width: 30rem) { .cp-hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 18rem; margin: 0 auto; } .cp-hero-image { max-width: 16rem; } }
 	.cp-check-list { list-style: none; padding: 0; margin: 0; }
 	.cp-check-list li { position: relative; padding-inline-start: 1.5rem; margin-bottom: 0.5rem; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; }
 	.cp-check-list li::before { content: '✓'; position: absolute; inset-inline-start: 0; color: var(--color-accent); font-weight: 700; font-size: 0.8125rem; }
@@ -239,5 +241,5 @@ const industryCards = [
 	.cp-api-text :global(strong) { color: var(--color-text); display: block; margin-bottom: 0.25rem; }
 	.cp-api-text :global(code) { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 0.25rem; padding: 0.1rem 0.35rem; font-size: 0.7rem; }
 	.cp-closing-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-	@media (max-width: 50rem) { .cp-closing-actions { flex-direction: column; align-items: stretch; max-width: 20rem; margin: 0 auto; } }
+	@media (max-width: 30rem) { .cp-closing-actions { flex-direction: column; align-items: stretch; max-width: 18rem; margin: 0 auto; } }
 </style>

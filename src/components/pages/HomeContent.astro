@@ -115,8 +115,8 @@ const { lang, t } = Astro.props;
 			{ title: t.home.trustRedHat, desc: t.home.trustRedHatDesc, icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
 			{ title: t.home.trustApache, desc: t.home.trustApacheDesc, icon: '<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>' },
 			{ title: t.home.trustTests, desc: t.home.trustTestsDesc, icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
-			{ title: t.home.trustDocker, desc: t.home.trustDockerDesc, icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M2 13h20"/><rect x="5" y="10" width="3" height="3"/><rect x="10" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/><rect x="5" y="15" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/>', href: 'https://hub.docker.com/r/labsai/eddi', badge: '<div class="mt-2"><img src="https://img.shields.io/docker/pulls/labsai/eddi?style=flat-square&color=f59e0b&labelColor=27272a" alt="Docker Pulls" class="h-5" loading="lazy" /></div>' },
-			{ title: t.home.trustCI, desc: t.home.trustCIDesc, icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>', href: 'https://github.com/labsai/EDDI/actions/workflows/ci.yml', badge: '<div class="mt-2 flex flex-wrap gap-2"><img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" class="h-5 inline-block" loading="lazy" /><img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" class="h-5 inline-block" loading="lazy" /></div>' },
+			{ title: t.home.trustDocker, desc: t.home.trustDockerDesc, icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M2 13h20"/><rect x="5" y="10" width="3" height="3"/><rect x="10" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/><rect x="5" y="15" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/>', href: 'https://hub.docker.com/r/labsai/eddi', badge: '<div class="mt-2"><img src="https://img.shields.io/docker/pulls/labsai/eddi?style=flat-square&color=f59e0b&labelColor=27272a" alt="Docker Pulls" class="h-5" width="150" height="20" loading="lazy" /></div>' },
+			{ title: t.home.trustCI, desc: t.home.trustCIDesc, icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>', href: 'https://github.com/labsai/EDDI/actions/workflows/ci.yml', badge: '<div class="mt-2 flex flex-wrap gap-2"><img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" class="h-5 inline-block" width="120" height="20" loading="lazy" /><img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" class="h-5 inline-block" width="120" height="20" loading="lazy" /></div>' },
 		].map((item) => {
 			const inner = (
 				<>
@@ -162,7 +162,7 @@ const { lang, t } = Astro.props;
 			<div class="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-900/30 backdrop-blur border border-zinc-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group">
 				<svg class="w-8 h-8 mb-3 text-zinc-400 group-hover:text-accent-400 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" set:html={item.icon} />
 				<strong class="text-white text-sm mb-1">{item.name}</strong>
-				<span class="text-xs text-zinc-500">{item.desc}</span>
+				<span class="text-xs text-zinc-400">{item.desc}</span>
 			</div>
 		))}
 	</div>
@@ -236,11 +236,23 @@ const { lang, t } = Astro.props;
 	.hero-visual { flex-shrink: 0; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); }
 	html[data-theme='light'] .hero-visual { background: #f0f1f3; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12); }
 	.hero-visual img { display: block; width: 100%; height: auto; max-width: 28rem; object-fit: contain; }
+	@media (max-width: 64rem) {
+		.hero-inner { gap: 2.5rem; }
+		.hero-visual img { max-width: 20rem; }
+	}
 	@media (max-width: 50rem) {
 		.hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
 		.hero-tagline { max-width: none; }
-		.hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 20rem; margin: 0 auto; gap: 1rem; }
+		.hero-actions { justify-content: center; gap: 0.75rem; }
+		.hero-btn-primary,
+		.hero-btn-minimal { padding: 0.625rem 1.5rem; font-size: 0.9375rem; }
 		.hero-visual { max-width: 20rem; }
+	}
+	@media (max-width: 30rem) {
+		.hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 18rem; margin: 0 auto; gap: 0.75rem; }
+		.hero-btn-primary,
+		.hero-btn-minimal { padding: 0.75rem 1.25rem; font-size: 0.9375rem; }
+		.hero-visual { max-width: 16rem; }
 	}
 	/* Trusted & Certified — uniform 5-card grid */
 	.trust-grid {
