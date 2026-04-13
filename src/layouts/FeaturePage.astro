@@ -33,7 +33,7 @@ const t = await getTranslations(lang);
 			</div>
 		</div>
 		{heroImage && (
-			<div class="fp-hero-image premium-image-wrapper">
+			<div class="premium-image-wrapper">
 				<Image src={heroImage} alt={title} width={1024} height={1024} loading="eager" decoding="async" />
 			</div>
 		)}
@@ -86,26 +86,6 @@ const t = await getTranslations(lang);
 		flex-wrap: wrap;
 	}
 
-	.fp-hero-image {
-		flex-shrink: 0;
-		border-radius: 1rem;
-		overflow: hidden;
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-	}
-
-	html[data-theme='light'] .fp-hero-image {
-		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-		border: 1px solid rgba(0, 0, 0, 0.08);
-	}
-
-	.fp-hero-image img {
-		display: block;
-		width: 100%;
-		height: auto;
-		max-width: 28rem;
-		object-fit: contain;
-	}
-
 	.fp-content {
 		max-width: 72rem;
 		margin: 0 auto;
@@ -147,7 +127,6 @@ const t = await getTranslations(lang);
 
 	@media (max-width: 64rem) {
 		.fp-hero-inner { gap: 2rem; }
-		.fp-hero-image img { max-width: 20rem; }
 	}
 	@media (max-width: 50rem) {
 		.fp-hero-inner {
@@ -159,17 +138,16 @@ const t = await getTranslations(lang);
 			justify-content: center;
 			gap: 0.75rem;
 		}
-		.fp-hero-image { max-width: 20rem; }
 	}
 	@media (max-width: 30rem) {
+		.fp-hero-inner { gap: 1.5rem; }
 		.fp-hero-actions {
 			justify-content: center;
 			margin: 0 auto;
 			flex-direction: column;
 			align-items: stretch;
 			width: 100%;
-			max-width: 20rem;
+			max-width: 15rem;
 		}
-		.fp-hero-image { max-width: 16rem; }
 	}
 </style>

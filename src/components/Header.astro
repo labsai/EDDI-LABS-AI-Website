@@ -206,33 +206,33 @@ const t = await getTranslations(lang);
 	<div class="eddi-mobile-inner">
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.features}</h3>
-			<a href={localePath(lang, '/features/overview/')}>{t.nav.allFeatures}</a>
-			<a href={localePath(lang, '/features/manager/')}>{t.nav.eddiManager}</a>
-			<a href={localePath(lang, '/features/mcp-server/')}>{t.nav.mcpServerMobile}</a>
-			<a href={localePath(lang, '/features/config-as-code/')}>{t.nav.configAsCode}</a>
-			<a href={localePath(lang, '/features/security/')}>{t.nav.securityFirst}</a>
-			<a href={localePath(lang, '/features/performance/')}>{t.nav.performance}</a>
-			<a href={localePath(lang, '/features/multi-agent/')}>{t.nav.multiAgent}</a>
-			<a href={localePath(lang, '/features/observability/')}>{t.nav.observability}</a>
-			<a href={localePath(lang, '/features/code-quality/')}>{t.nav.codeQuality}</a>
-			<a href={localePath(lang, '/features/ai-ready/')}>{t.nav.aiReady}</a>
-			<a href={localePath(lang, '/features/memory/')}>{t.nav.memory}</a>
-			<a href={localePath(lang, '/features/rag/')}>{t.nav.rag}</a>
-			<a href={localePath(lang, '/features/model-cascading/')}>{t.nav.modelCascading}</a>
-			<a href={localePath(lang, '/features/scheduling/')}>{t.nav.scheduling}</a>
+			<a href={localePath(lang, '/features/overview/')}><span class="eddi-mobile-icon">✨</span> {t.nav.allFeatures}</a>
+			<a href={localePath(lang, '/features/manager/')}><span class="eddi-mobile-icon">🖥️</span> {t.nav.eddiManager}</a>
+			<a href={localePath(lang, '/features/mcp-server/')}><span class="eddi-mobile-icon">🔌</span> {t.nav.mcpServerMobile}</a>
+			<a href={localePath(lang, '/features/config-as-code/')}><span class="eddi-mobile-icon">⚙️</span> {t.nav.configAsCode}</a>
+			<a href={localePath(lang, '/features/security/')}><span class="eddi-mobile-icon">🔐</span> {t.nav.securityFirst}</a>
+			<a href={localePath(lang, '/features/performance/')}><span class="eddi-mobile-icon">🚀</span> {t.nav.performance}</a>
+			<a href={localePath(lang, '/features/multi-agent/')}><span class="eddi-mobile-icon">🤖</span> {t.nav.multiAgent}</a>
+			<a href={localePath(lang, '/features/observability/')}><span class="eddi-mobile-icon">📊</span> {t.nav.observability}</a>
+			<a href={localePath(lang, '/features/code-quality/')}><span class="eddi-mobile-icon">🧪</span> {t.nav.codeQuality}</a>
+			<a href={localePath(lang, '/features/ai-ready/')}><span class="eddi-mobile-icon">🧩</span> {t.nav.aiReady}</a>
+			<a href={localePath(lang, '/features/memory/')}><span class="eddi-mobile-icon">🧠</span> {t.nav.memory}</a>
+			<a href={localePath(lang, '/features/rag/')}><span class="eddi-mobile-icon">📚</span> {t.nav.rag}</a>
+			<a href={localePath(lang, '/features/model-cascading/')}><span class="eddi-mobile-icon">📈</span> {t.nav.modelCascading}</a>
+			<a href={localePath(lang, '/features/scheduling/')}><span class="eddi-mobile-icon">⏰</span> {t.nav.scheduling}</a>
 		</div>
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.solutions}</h3>
-			<a href={localePath(lang, '/enterprise/why-eddi/')}>{t.nav.whyEddi}</a>
-			<a href={localePath(lang, '/enterprise/vs-alternatives/')}>{t.nav.vsAlternatives}</a>
-			<a href={localePath(lang, '/enterprise/compliance/')}>{t.nav.euAiAct}</a>
-			<a href={localePath(lang, '/enterprise/trust/')}>{t.nav.trackRecord}</a>
-			<a href={localePath(lang, '/use-cases/')}>{t.nav.useCases}</a>
+			<a href={localePath(lang, '/enterprise/why-eddi/')}><span class="eddi-mobile-icon">💡</span> {t.nav.whyEddi}</a>
+			<a href={localePath(lang, '/enterprise/vs-alternatives/')}><span class="eddi-mobile-icon">⚖️</span> {t.nav.vsAlternatives}</a>
+			<a href={localePath(lang, '/enterprise/compliance/')}><span class="eddi-mobile-icon">🏛️</span> {t.nav.euAiAct}</a>
+			<a href={localePath(lang, '/enterprise/trust/')}><span class="eddi-mobile-icon">📜</span> {t.nav.trackRecord}</a>
+			<a href={localePath(lang, '/use-cases/')}><span class="eddi-mobile-icon">📋</span> {t.nav.useCases}</a>
 		</div>
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.resources}</h3>
-			<a href="https://docs.labs.ai" target="_blank" rel="noopener">{t.nav.documentation}</a>
-			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">{t.nav.github}</a>
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener"><span class="eddi-mobile-icon">📖</span> {t.nav.documentation}</a>
+			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener"><span class="eddi-mobile-icon">🐙</span> {t.nav.github}</a>
 		</div>
 		<div class="eddi-mobile-cta">
 			<a href={localePath(lang, '/getting-started/')} class="eddi-cta">{t.nav.getStarted}</a>
@@ -582,12 +582,12 @@ const t = await getTranslations(lang);
 	}
 
 	.eddi-mobile-section h3 {
-		font-size: 0.625rem;
-		font-weight: 700;
+		font-size: 0.6875rem;
+		font-weight: 800;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: var(--color-text-subtle);
-		margin: 0; margin-block-end: 0.375rem; margin-inline-start: 0.625rem;
+		color: var(--color-accent);
+		margin: 0; margin-block-end: 0.5rem; margin-inline-start: 0.625rem;
 	}
 
 	.eddi-mobile-section a {
@@ -595,16 +595,24 @@ const t = await getTranslations(lang);
 		padding: 0.625rem 0.75rem;
 		color: var(--color-text-muted);
 		text-decoration: none;
-		font-size: 0.875rem;
+		font-size: 0.9375rem;
+		font-weight: 500;
 		border-radius: 0.375rem;
-		transition: background 0.15s;
+		transition: background 0.15s, color 0.15s;
 		min-height: 2.75rem;
 		display: flex;
 		align-items: center;
+		gap: 0.75rem;
 	}
 
 	.eddi-mobile-section a:hover {
 		background: var(--color-surface);
+		color: var(--color-text);
+	}
+
+	.eddi-mobile-icon {
+		font-size: 1.125rem;
+		flex-shrink: 0;
 	}
 
 	.eddi-mobile-cta {

@@ -4,6 +4,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 ### 🐛 Bug Fixes
+- `fix(website)`: **Docker Pulls Badge Distortion** — Fixed stretched shields.io and GitHub Action badges on the homepage "Trusted & Certified" section by applying `w-auto` utility classes. This prevents aspect-ratio distortion while preserving the explicit HTML `width`/`height` attributes required to avoid Lighthouse CLS penalties.
 - `fix(website)`: **Mobile CTA Stack Layout** — Re-implemented the mobile CTA button layout (Get Started / View on GitHub) to use a centered vertical flex column (`max-width: 20rem`) with 100% width buttons. This resolves cramped horizontal rendering while preventing oversized, edge-to-edge block stretching.
 - `fix(website)`: **Hero Image Container Spacing** — Eliminated excessive trailing whitespace below hero images inside `.premium-image-wrapper` elements. Applied `display: flex` to the wrapper to remove block baseline gaps and enforced an explicit `aspect-ratio: 1 / 1` on the image itself, ensuring perfectly snug, high-fidelity responsive scaling without letterboxing.
 - `fix(website)`: **Trust Badge Aspect Ratio** — Fixed stretched and squeezed social proof badges on the Track Record page by adding `width: auto` to prevent aspect ratio distortion when the height is CSS-constrained to `1.5rem`.
@@ -18,6 +19,7 @@ All notable changes to the EDDI website will be documented in this file.
 - `fix(website)`: **French Locale Parse Error** — Fixed curly right single quote (`'`) in `fr.ts` `timelineTitle` that broke the JavaScript string literal, causing build failures.
 
 ### 🎨 UI Enhancements
+- `feat(website)`: **Mobile Menu UI Polish** — Added emojis to all mobile navigation links to provide visual anchors and perfectly match the desktop dropdown menus. Updated category header typography to use the primary amber accent color (`var(--color-accent)`) and increased spacing for clear visual hierarchy on the dark navigation overlay.
 - `feat(website)`: **Getting Started Hero Image** — Added a 3D isometric hero image to the Getting Started page, matching the dark-charcoal-and-gold visual style used across all other feature and enterprise pages. Updated hero section from centered text-only layout to side-by-side text + image layout (matching FeaturePage layout).
 
 ### 🔐 Security Documentation
