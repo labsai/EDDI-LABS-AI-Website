@@ -799,7 +799,7 @@ const de: TranslationSchema = {
 			timeline: [
 				{ year: '2006', text: '<strong>Projektgründung</strong> in Wien (Europa) — frühe Forschung zu Dialogmanagement und konversationellem Zustand.' },
 				{ year: '2008', text: 'Inkubiert bei <strong>inits.at</strong> (einem Universitäts-Gründerzentrum) mit akademischer Betreuung, Fokus auf forschungsnahe Entwicklung und nachhaltige Produktentwicklung.' },
-				{ year: '2018', text: 'Ausgewählt für den <strong>führendes europäisches Beschleunigerprogramm</strong> \u00b7 Als Open Source unter Apache 2.0 veröffentlicht.' },
+				{ year: '2018', text: 'Ausgewählt für den <strong>weXelerate</strong> (ein führendes europäisches Beschleunigerprogramm) \u00b7 Als Open Source unter Apache 2.0 veröffentlicht.' },
 				{ year: '2018', text: 'Erster <strong>EDDI Chatbot Hackathon</strong> bei weXelerate — co-finanziert von einem Accelerator und einem großen Telekommunikationsanbieter.' },
 				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> in Manhattan bei den Deutsche Bank Innovation Labs — gesponsert von Google und MongoDB. EDDI-Teams erreichen den zweiten Platz.' },
 				{ year: '2020', text: 'EU-gefördertes <strong>YouTwinDi</strong> Digital-Twin-Forschungsprojekt (European Language Grid).' },

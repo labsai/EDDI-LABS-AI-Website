@@ -753,7 +753,7 @@ const th: TranslationSchema = {
 			timeline: [
 				{ year: '2006', text: '<strong>ก่อตั้งโปรเจกต์</strong>ในเวียนนา ออสเตรีย — การวิจัยเบื้องต้นเกี่ยวกับการจัดการบทสนทนาและสถานะการสนทนา' },
 				{ year: '2008', text: 'บ่มเพาะที่ <strong>inits.at</strong> (ศูนย์บ่มเพาะธุรกิจมหาวิทยาลัย) ด้วยการดูแลทางวิชาการ มุ่งเน้นวิศวกรรมระดับวิจัยและการพัฒนาผลิตภัณฑ์ที่ยั่งยืน' },
-				{ year: '2018', text: 'ได้รับเลือกเข้า <strong>führendes europäisches Beschleunigerprogramm</strong> \u00b7 เปิดตัวเป็นโอเพนซอร์สภายใต้ Apache 2.0' },
+				{ year: '2018', text: 'ได้รับเลือกเข้า <strong>weXelerate</strong> (โปรแกรมเร่งรัดชั้นนำของยุโรป) \u00b7 เปิดตัวเป็นโอเพนซอร์สภายใต้ Apache 2.0' },
 				{ year: '2018', text: '<strong>EDDI Chatbot Hackathon</strong> ครั้งแรกที่ weXelerate — ร่วมสนับสนุนโดยโปรแกรมเร่งรัดและผู้ให้บริการโทรคมนาคมรายใหญ่' },
 				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> ในแมนฮัตตันที่ Deutsche Bank Innovation Labs — สนับสนุนโดย Google และ MongoDB ทีม EDDI ได้ตำแหน่งรองชนะเลิศ' },
 				{ year: '2020', text: 'โปรเจกต์วิจัย <strong>YouTwinDi</strong> digital twin ที่ได้รับทุนจาก EU (European Language Grid)' },
@@ -772,7 +772,7 @@ const th: TranslationSchema = {
 			instEUDesc: 'โปรเจกต์วิจัย <strong>YouTwinDi</strong> digital twin ที่ได้รับทุนจาก EU (2020–2021) สำรวจผู้ช่วยเสมือนอัตโนมัติที่มีหน่วยความจำถาวรและการรองรับหลายภาษา',
 			instEdubotsTitle: 'Erasmus+ EDUBOTS',
 			instEdubotsDesc: 'EDDI ถูกใช้อย่างแพร่หลายโดย <strong>EdTech Foundry</strong> (differ.chat) พันธมิตรกลุ่มของ Erasmus+ EDUBOTS Knowledge Alliance ขับเคลื่อนแชทบอทการมีส่วนร่วมของนักศึกษาในมหาวิทยาลัยยุโรป',
-			instWexTitle: 'weXelerate Europäisches Beschleunigerprogramm',
+			instWexTitle: 'โปรแกรมเร่งรัดยุโรป weXelerate',
 			instWexDesc: 'ได้รับเลือกเข้า <strong>Batch II</strong> ของ <strong>weXelerate</strong> (โปรแกรมเร่งรัดนวัตกรรมชั้นนำของยุโรป) เชื่อมต่อ LABS.AI กับพันธมิตรองค์กรและพิสูจน์ความเป็นไปได้ทางการค้าของแพลตฟอร์ม',
 			instInitsTitle: 'University Incubator',
 			instInitsDesc: 'บ่มเพาะที่ <strong>inits.at</strong> (ศูนย์บ่มเพาะธุรกิจมหาวิทยาลัย) ด้วยการสนับสนุนจากสถาบันในช่วงเริ่มต้นที่ให้ความสำคัญกับความเข้มงวดทางวิชาการและการสร้างแบบจำลองธุรกิจที่ยั่งยืน',

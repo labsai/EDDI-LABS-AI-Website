@@ -755,7 +755,7 @@ const ko: TranslationSchema = {
 			instEUDesc: 'EU 지원 <strong>YouTwinDi</strong> 디지털 트윈 연구 프로젝트 (2020–2021). 영구 메모리와 다국어 지원을 갖춘 자율 가상 어시스턴트 탐구.',
 			instEdubotsTitle: 'Erasmus+ EDUBOTS',
 			instEdubotsDesc: 'EDDI는 Erasmus+ EDUBOTS Knowledge Alliance의 컨소시엄 파트너인 <strong>EdTech Foundry</strong>(differ.chat)에 의해 광범위하게 사용되어 유럽 대학에서 학생 참여 챗봇을 구동했습니다.',
-			instWexTitle: 'weXelerate Europäisches Beschleunigerprogramm',
+			instWexTitle: 'weXelerate 유럽 액셀러레이터',
 			instWexDesc: '<strong>weXelerate</strong> (유럽 최고의 혁신 액셀러레이터)에 선발. LABS.AI를 기업 파트너와 연결하고 플랫폼의 상업적 실행 가능성을 검증.',
 			instInitsTitle: 'inits.at 대학 인큐베이터',
 			instInitsDesc: '<strong>inits.at</strong> (대학 비즈니스 인큐베이터)에서 인큐베이션. 학술적 엄밀성과 지속 가능한 비즈니스 모델링을 우선시하는 초기 단계 기관 지원.',

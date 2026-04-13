@@ -744,7 +744,7 @@ const zh: TranslationSchema = {
 			instEUDesc: '欧盟资助的 <strong>YouTwinDi</strong> 数字孪生研究项目（2020–2021），探索具有持久记忆和多语言支持的自主虚拟助手。',
 			instEdubotsTitle: 'Erasmus+ EDUBOTS',
 			instEdubotsDesc: 'EDDI 被 <strong>EdTech Foundry</strong>（differ.chat）广泛使用，作为 Erasmus+ EDUBOTS Knowledge Alliance 的联盟合作伙伴，为欧洲大学的学生参与聊天机器人提供动力。',
-			instWexTitle: 'weXelerate Europäisches Beschleunigerprogramm',
+			instWexTitle: 'weXelerate 欧洲加速器项目',
 			instWexDesc: '入选 <strong>weXelerate</strong>（欧洲领先的创新加速器），将 LABS.AI 与企业合作伙伴连接，验证平台的商业可行性。',
 			instInitsTitle: 'inits.at 大学创业孵化器',
 			instInitsDesc: '在 <strong>inits.at</strong>（大学创业孵化器）孵化，获得早期机构支持，优先考虑学术严谨性和可持续商业建模。',

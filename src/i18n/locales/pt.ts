@@ -817,7 +817,7 @@ const pt: TranslationSchema = {
 			instEUDesc: 'Projeto de pesquisa de gêmeos digitais <strong>YouTwinDi</strong> financiado pela UE (2020–2021), explorando assistentes virtuais autônomos com memória persistente e suporte multilíngue.',
 			instEdubotsTitle: 'Erasmus+ EDUBOTS',
 			instEdubotsDesc: 'EDDI foi amplamente utilizado pela <strong>EdTech Foundry</strong> (differ.chat), parceira do consórcio Erasmus+ EDUBOTS Knowledge Alliance, impulsionando chatbots de engajamento estudantil em universidades europeias.',
-			instWexTitle: 'weXelerate Europäisches Beschleunigerprogramm',
+			instWexTitle: 'Programa de aceleração europeu weXelerate',
 			instWexDesc: 'Selecionado para o <strong>Batch II</strong> do <strong>weXelerate</strong> (um acelerador de inovação europeu líder), conectando LABS.AI com parceiros empresariais e validando a viabilidade comercial da plataforma.',
 			instInitsTitle: 'Incubadora universitaria',
 			instInitsDesc: 'Incubado no <strong>inits.at</strong> (um incubador empresarial universitário), com apoio institucional em fase inicial priorizando rigor acadêmico e modelagem empresarial sustentável.',
