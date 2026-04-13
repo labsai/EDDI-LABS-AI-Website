@@ -180,7 +180,6 @@ html[data-theme='light'] .hero-gradient-bg {
 @media (max-width: 30rem) {
 	.btn-cta-primary,
 	.btn-cta-outline {
-		width: 100%;
 		padding: 0.75rem 1.25rem;
 	}
 }

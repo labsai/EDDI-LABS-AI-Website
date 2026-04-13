@@ -4,6 +4,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 ### 🐛 Bug Fixes
+- `fix(website)`: **Mobile CTA Button Formatting** — Relaxed the forced full-width stretching constraint (`width: 100%`, `align-items: stretch`) on mobile viewport CTA buttons across the homepage, FeaturePage layout, features overview, and compliance layouts. Buttons now inherit native flex wrapping and horizontal centering, resulting in appropriately sized, un-stretched elements that better handle narrow displays without appearing as oversized block elements.
 - `fix(website)`: **setup_agent Missing apiKey** — The `setup_agent()` code snippet on the Getting Started page was missing the required `apiKey` parameter and used `modelId` instead of `model`. Fixed to match the actual `McpSetupTools.java` signature.
 
 ### ♿ Lighthouse Accessibility & Best Practices (Score: 85 → Target 100)
