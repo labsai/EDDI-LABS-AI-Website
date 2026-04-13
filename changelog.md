@@ -4,6 +4,9 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 ### 🐛 Bug Fixes
+- `fix(website)`: **Mobile CTA Stack Layout** — Re-implemented the mobile CTA button layout (Get Started / View on GitHub) to use a centered vertical flex column (`max-width: 20rem`) with 100% width buttons. This resolves cramped horizontal rendering while preventing oversized, edge-to-edge block stretching.
+- `fix(website)`: **Hero Image Container Spacing** — Eliminated excessive trailing whitespace below hero images inside `.premium-image-wrapper` elements. Applied `display: flex` to the wrapper to remove block baseline gaps and enforced an explicit `aspect-ratio: 1 / 1` on the image itself, ensuring perfectly snug, high-fidelity responsive scaling without letterboxing.
+- `fix(website)`: **Trust Badge Aspect Ratio** — Fixed stretched and squeezed social proof badges on the Track Record page by adding `width: auto` to prevent aspect ratio distortion when the height is CSS-constrained to `1.5rem`.
 - `fix(website)`: **Mobile CTA Button Formatting** — Relaxed the forced full-width stretching constraint (`width: 100%`, `align-items: stretch`) on mobile viewport CTA buttons across the homepage, FeaturePage layout, features overview, and compliance layouts. Buttons now inherit native flex wrapping and horizontal centering, resulting in appropriately sized, un-stretched elements that better handle narrow displays without appearing as oversized block elements.
 - `fix(website)`: **setup_agent Missing apiKey** — The `setup_agent()` code snippet on the Getting Started page was missing the required `apiKey` parameter and used `modelId` instead of `model`. Fixed to match the actual `McpSetupTools.java` signature.
 

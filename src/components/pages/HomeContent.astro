@@ -226,7 +226,7 @@ const { lang, t } = Astro.props;
 	.hero-tagline { font-size: 1.125rem; line-height: 1.65; max-width: 36rem; margin: 0 0 2rem; }
 	html[data-theme='dark'] .hero-tagline { color: rgba(255, 255, 255, 0.6); }
 	html[data-theme='light'] .hero-tagline { color: rgba(0, 0, 0, 0.6); }
-	.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 	.hero-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 600; color: #111 !important; background: linear-gradient(135deg, var(--color-accent-400), var(--color-accent-600)); border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 25%, transparent); }
 	.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 45%, transparent); }
 	.hero-btn-minimal { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.75rem; font-size: 1rem; font-weight: 500; border-radius: 0.5rem; text-decoration: none; transition: all 0.3s ease; }
@@ -249,9 +249,9 @@ const { lang, t } = Astro.props;
 		.hero-visual { max-width: 20rem; }
 	}
 	@media (max-width: 30rem) {
-		.hero-actions { justify-content: center; margin: 0 auto; gap: 0.75rem; }
+		.hero-actions { justify-content: center; margin: 0 auto; gap: 0.75rem; flex-direction: column; align-items: stretch; width: 100%; max-width: 20rem; }
 		.hero-btn-primary,
-		.hero-btn-minimal { padding: 0.75rem 1.25rem; font-size: 0.9375rem; }
+		.hero-btn-minimal { padding: 0.75rem 1.25rem; font-size: 0.9375rem; width: 100%; justify-content: center; text-align: center; }
 		.hero-visual { max-width: 16rem; }
 	}
 	/* Trusted & Certified — uniform 5-card grid */

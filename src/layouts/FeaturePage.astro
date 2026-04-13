@@ -81,6 +81,7 @@ const t = await getTranslations(lang);
 
 	.fp-hero-actions {
 		display: flex;
+		align-items: center;
 		gap: 1rem;
 		flex-wrap: wrap;
 	}
@@ -164,6 +165,10 @@ const t = await getTranslations(lang);
 		.fp-hero-actions {
 			justify-content: center;
 			margin: 0 auto;
+			flex-direction: column;
+			align-items: stretch;
+			width: 100%;
+			max-width: 20rem;
 		}
 		.fp-hero-image { max-width: 16rem; }
 	}
