@@ -15,7 +15,7 @@ const t = await getTranslations(lang);
 		<p class="announcement-text">
 			{t.common.bannerText}
 			<a href={localePath(lang, '/getting-started/')} class="announcement-link">
-				{t.common.bannerLink} <span aria-hidden="true">&rarr;</span>
+				{t.common.bannerLink} <span class="announcement-arrow" aria-hidden="true">&rarr;</span>
 			</a>
 		</p>
 		<button id="eddi-dismiss-banner" aria-label="Dismiss banner" class="announcement-close" title="Dismiss">
@@ -36,8 +36,8 @@ const t = await getTranslations(lang);
 		font-size: 0.875rem;
 		position: fixed;
 		top: var(--nav-height, 4rem);
-		left: 0;
-		right: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
 		z-index: 99;
 	}
 
@@ -54,7 +54,7 @@ const t = await getTranslations(lang);
 		gap: 0.75rem;
 		flex-wrap: wrap;
 		position: relative;
-		padding-right: 2rem;
+		padding-inline-end: 2rem;
 	}
 
 	.announcement-badge {
@@ -95,7 +95,7 @@ const t = await getTranslations(lang);
 
 	.announcement-close {
 		position: absolute;
-		right: 0;
+		inset-inline-end: 0;
 		top: 50%;
 		transform: translateY(-50%);
 		background: none;
@@ -133,6 +133,12 @@ const t = await getTranslations(lang);
 			padding: 0.125rem 0.375rem;
 		}
 	}
+
+	/* RTL: flip the arrow direction */
+	html[dir="rtl"] .announcement-arrow {
+		display: inline-block;
+		transform: scaleX(-1);
+	}
 </style>
 
 <script is:inline>
@@ -148,6 +154,13 @@ const t = await getTranslations(lang);
 	document.addEventListener('astro:page-load', () => {
 		const banner = document.getElementById('eddi-announcement-banner');
 		const dismissBtn = document.getElementById('eddi-dismiss-banner');
+
+		// Re-check dismissed state on SPA navigation (ClientRouter)
+		if (banner && localStorage.getItem('eddi-banner-dismissed') === 'true') {
+			banner.style.display = 'none';
+			window.dispatchEvent(new Event('resize'));
+			return;
+		}
 		
 		if (banner && dismissBtn) {
 			dismissBtn.addEventListener('click', () => {

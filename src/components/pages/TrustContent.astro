@@ -241,7 +241,7 @@ const trust = t.pages.trust;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	padding: 10rem 1.5rem 4rem;
+	padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 4rem;
 	min-height: 60vh;
 }
 .trust-hero-inner {
@@ -578,7 +578,7 @@ html[data-theme='light'] .trust-tl-marker {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 48rem) {
 	.trust-hero {
-		padding: 8rem 1.5rem 3rem;
+		padding: calc(var(--total-header-height, 6rem) + 2rem) 1.5rem 3rem;
 		min-height: auto;
 	}
 	.trust-stats-bar {
