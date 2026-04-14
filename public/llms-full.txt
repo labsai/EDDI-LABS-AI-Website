@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0 Preview. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -30,9 +30,26 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Dark/light theme, interactive onboarding tours
 
 ### MCP (Model Context Protocol) Server
-- 48 MCP tools exposing all EDDI capabilities to external AI agents
+- 42 MCP tools exposing all EDDI capabilities to external AI agents
 - Claude Desktop, Cursor, and other MCP clients can manage EDDI agents programmatically
 - EDDI agents can also consume external MCP tools as part of their pipelines
+- OpenAPI 3.1 — Auto-generated spec; paste external specs to create API-calling agents
+- A2A (Agent-to-Agent Protocol) for cross-platform agent communication
+- OAuth 2.0 / OIDC via Keycloak and SSE for real-time streaming
+
+### 12 Built-In Agent Tools
+- Web Search (DuckDuckGo, Google Custom Search)
+- Calculator (sandboxed math parser, no eval())
+- Web Scraper (SSRF-protected content extraction)
+- PDF Reader (SSRF-protected document extraction)
+- Weather (real-time weather data)
+- DateTime (current date and time)
+- Data Formatter (structured data transformation)
+- Text Summarizer (LLM-powered summarization)
+- HTTP Calls (expose REST APIs as LLM tools)
+- User Memory (read/write/search persistent memory)
+- Conversation Recall (dive into summarized history)
+- Multimodal Input (image, PDF, audio, video via MIME routing)
 
 ### Multi-Agent Orchestration
 - Coordinator pattern for routing conversations to specialist agents
@@ -43,6 +60,15 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Unified `IUserMemoryStore` handling isolated persistence paradigms
 - 2D Property Scopes (Conversation vs User bounds) mapped against Visibility logic
 - Native long-term memory retrieval without abstract vector orchestration
+- Dream consolidation — background memory maintenance on configurable schedules
+- Memory Policy (Commit Flags) — strict write discipline for failed task output
+- Rolling summarization with conversation recall tool
+
+### Config & Portability
+- Import/Export — agents as ZIP files with automatic secret scrubbing
+- Agent Sync — live instance-to-instance sync with structural matching and content diffing
+- Prompt Snippets — reusable system prompt building blocks (`{{snippets.name}}`)
+- Behavior Rules — IF-THEN logic engine for routing and business logic
 
 ### Performance
 - Java 25 virtual threads (Project Loom) — millions of concurrent conversations
@@ -95,13 +121,11 @@ EDDI uses a pipeline-based architecture:
 - **Conversations** — Stateful interaction sessions with memory
 
 ### LLM Integration
-Supports multiple providers simultaneously:
-- OpenAI (GPT-4o, o1, etc.)
-- Anthropic (Claude 3.5, Claude 4)
-- Google (Gemini 2.x)
-- Ollama (local models)
-- Azure OpenAI
-- Any OpenAI-compatible endpoint
+Supports 12 providers simultaneously:
+- **Cloud APIs**: OpenAI (GPT-4o, o1, etc.), Anthropic (Claude 3.5, Claude 4), Google (Gemini 2.x), Mistral AI
+- **Enterprise Cloud**: Azure OpenAI, Amazon Bedrock, Oracle GenAI, Google Vertex AI
+- **Self-Hosted**: Ollama (local models), Jlama, Hugging Face
+- **Compatible**: Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl
 
 ## API
 
@@ -115,13 +139,18 @@ Full CRUD operations for all resources:
 - `/conversationstore` — Conversation management
 - `/propertiesstore` — Key-value property storage
 
-### MCP Tools (48 total)
+### MCP Tools (42 total)
 Organized by domain:
 - Bot management (create, read, update, deploy, undeploy)
 - Package management (create, read, update, add/remove resources)
 - Conversation management (create, read, send messages, get logs)
 - Resource CRUD (rules, LLM configs, output sets, HTTP calls, properties)
 - System operations (health check, metrics)
+
+### Quarkus SDK
+- Quarkiverse extension: `quarkus-eddi`
+- Dev Services (auto-starts EDDI in dev mode)
+- Fluent API, SSE streaming, `@EddiAgent` endpoint wiring, `@EddiTool` MCP bridge
 
 ## Comparison Matrix
 

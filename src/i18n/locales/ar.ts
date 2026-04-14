@@ -261,7 +261,7 @@ const ar: TranslationSchema = {
 		k8sOptions: 'تتوفر أيضًا تراكبات Kustomize وخرائط Helm لـ MongoDB و PostgreSQL والمصادقة والمراقبة وتقوية الإنتاج (HPA، PDB، NetworkPolicy). راجع <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">دليل Kubernetes</a>.',
 		// Quarkus SDK
 		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
+		sdkDesc: 'هل تبني تطبيق Quarkus؟ استخدم إضافة <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> لـ Dev Services و API المرنة وبث SSE وجسر MCP:',
 	},
 	useCases: {
 		title: 'حالات الاستخدام',
@@ -341,9 +341,9 @@ const ar: TranslationSchema = {
 		portDesc:
 			'تكوينات الوكلاء قابلة للنقل والتركيب والمزامنة — انقل الوكلاء بين البيئات دون أي احتكاك.',
 		portItems: [
-			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
-			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
-			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+			{ title: '📤 Import / Export', desc: 'الوكلاء قابلون للنقل كملفات ZIP مع تنظيف تلقائي للأسرار. الاستيراد يدمج أو يستبدل — بدون تعارضات إصدارات.' },
+			{ title: '🔄 Agent Sync', desc: 'مزامنة مباشرة بين الخوادم مع مطابقة هيكلية ومقارنة المحتوى واختيار انتقائي للموارد.' },
+			{ title: '📝 Prompt Snippets', desc: 'كتل بناء تعليمات نظام قابلة لإعادة الاستخدام ومُدارة بالإصدارات. مرجع عبر <code>{{snippets.safety_rules}}</code>.' },
 		],
 		// Engineering section
 		engTitle: 'التميز الهندسي',
@@ -394,8 +394,8 @@ const ar: TranslationSchema = {
 				'<strong>إدارة الجداول</strong> — إدارة المهام الدورية للوكلاء والمشغلات',
 				'<strong>OpenAPI 3.1</strong> — مواصفة OpenAPI مولدة تلقائيًا. الصق أي مواصفة OpenAPI خارجية في EDDI ← احصل على وكيل استدعاء API منشور بالكامل',
 			],
-			heading3: 'Open Standards — Not Proprietary APIs',
-			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
+			heading3: 'معايير مفتوحة — ليست واجهات برمجة مملوكة',
+			para2: 'يمكن لوكلاء EDDI أيضًا <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. قم بتكوين نقاط نهاية خادم MCP، وسيكتشف الوكلاء الأدوات ويستدعونها تلقائيًا بناءً على سياق المحادثة. بالإضافة إلى MCP، ينفذ EDDI <strong>A2A</strong> (بروتوكول الوكيل إلى الوكيل) للتواصل عبر المنصات، <strong>OpenAPI 3.1</strong> لتوليد واستهلاك المواصفات، <strong>OAuth 2.0 / OIDC</strong> عبر Keycloak، و<strong>SSE</strong> للبث المباشر — جميعها معايير مفتوحة، بدون تبعية لبائع.',
 		},
 		configAsCode: {
 			title: 'التكوين-كشفرة',
@@ -641,7 +641,7 @@ const ar: TranslationSchema = {
 			],
 			// Quarkus SDK
 			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
+			sdkDesc: 'هل تبني تطبيق Quarkus يتواصل مع EDDI؟ استخدم إضافة <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> — Dev Services (تشغيل EDDI تلقائيًا في وضع التطوير)، واجهة برمجة مرنة، بث SSE، ربط نقاط نهاية <code>@EddiAgent</code> وجسر MCP <code>@EddiTool</code>.',
 		},
 		vsAlternatives: {
 			title: 'EDDI مقابل البدائل',

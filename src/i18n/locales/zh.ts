@@ -248,7 +248,7 @@ const zh: TranslationSchema = {
 		k8sOptions: '还提供 Kustomize overlay 和 Helm chart，支持 MongoDB、PostgreSQL、认证、监控和生产加固（HPA、PDB、NetworkPolicy）。请参阅 <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes 指南</a>。',
 		// Quarkus SDK
 		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
+		sdkDesc: '正在构建 Quarkus 应用？使用 <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> 扩展，提供 Dev Services、流畅 API、SSE 流式传输和 MCP 桥接：',
 	},
 	useCases: {
 		title: '应用场景',
@@ -323,9 +323,9 @@ const zh: TranslationSchema = {
 		portDesc:
 			'代理配置可移植、可组合、可同步 — 在环境之间无摩擦地迁移代理。',
 		portItems: [
-			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
-			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
-			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+			{ title: '📤 Import / Export', desc: '代理以 ZIP 文件形式可移植，自动清除密钥。导入合并或覆盖 — 无版本冲突。' },
+			{ title: '🔄 Agent Sync', desc: '实例间实时同步，支持结构匹配、内容差异比较和选择性资源拾取。' },
+			{ title: '📝 Prompt Snippets', desc: '可复用、版本化的系统提示构建块。通过 <code>{{snippets.safety_rules}}</code> 引用。' },
 		],
 		// Engineering section
 		engTitle: '工程卓越',
@@ -370,8 +370,8 @@ const zh: TranslationSchema = {
 				'<strong>调度管理</strong> — 管理周期性代理任务和触发器',
 				'<strong>OpenAPI 3.1</strong> — 自动生成 OpenAPI 规范。将任何外部 OpenAPI 规范粘贴到 EDDI → 获得完全部署的 API 调用代理',
 			],
-			heading3: 'Open Standards — Not Proprietary APIs',
-			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
+			heading3: '开放标准 — 非专有 API',
+			para2: 'EDDI 代理还可以在对话中<strong>使用外部 MCP 工具</strong>。配置 MCP 服务器端点，代理会根据对话上下文自动发现和调用工具。除 MCP 外，EDDI 还实现了 <strong>A2A</strong>（Agent-to-Agent 协议）用于跨平台代理通信、<strong>OpenAPI 3.1</strong> 用于原生规范生成和消费、<strong>OAuth 2.0 / OIDC</strong> 通过 Keycloak、以及 <strong>SSE</strong> 用于实时流式传输 — 全部开放标准，零供应商锁定。',
 		},
 		configAsCode: {
 			title: '配置即代码',
@@ -601,7 +601,7 @@ const zh: TranslationSchema = {
 			],
 			// Quarkus SDK
 			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
+			sdkDesc: '正在构建与 EDDI 通信的 Quarkus 应用？使用 <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> 扩展 — Dev Services（dev 模式下自动启动 EDDI）、流畅 API、SSE 流式传输、<code>@EddiAgent</code> 端点绑定和 <code>@EddiTool</code> MCP 桥接。',
 		},
 		vsAlternatives: {
 			title: 'EDDI与替代方案对比',

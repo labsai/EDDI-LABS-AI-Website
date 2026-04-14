@@ -251,7 +251,7 @@ const ja: TranslationSchema = {
 		k8sOptions: 'MongoDB、PostgreSQL、認証、モニタリング、プロダクション強化（HPA、PDB、NetworkPolicy）用のKustomizeオーバーレイとHelmチャートも利用できます。<a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetesガイド</a>をご覧ください。',
 		// Quarkus SDK
 		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
+		sdkDesc: 'Quarkusアプリを構築中？<strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong>エクステンションをご利用ください — Dev Services、Fluent API、SSEストリーミング、MCPブリッジ：',
 	},
 	useCases: {
 		title: 'ユースケース',
@@ -326,9 +326,9 @@ const ja: TranslationSchema = {
 		portDesc:
 			'エージェント設定はポータブル、コンポーザブル、同期対応 — 環境間でエージェントを摩擦なく移動。',
 		portItems: [
-			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
-			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
-			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+			{ title: '📤 Import / Export', desc: 'エージェントをZIPファイルとしてポータブルに。自動シークレット除去付き。インポートはマージまたは上書き — バージョン競合なし。' },
+			{ title: '🔄 Agent Sync', desc: '構造マッチング、コンテンツdiff、選択的リソースピッキングによるインスタンス間ライブ同期。' },
+			{ title: '📝 Prompt Snippets', desc: '再利用可能でバージョン管理されたシステムプロンプトビルディングブロック。<code>{{snippets.safety_rules}}</code>で参照。' },
 		],
 		// Engineering section
 		engTitle: 'エンジニアリングエクセレンス',
@@ -374,8 +374,8 @@ const ja: TranslationSchema = {
 				'<strong>スケジュール管理</strong> — 定期的なエージェントタスクとトリガーの管理',
 				'<strong>OpenAPI 3.1</strong> — 自動生成されるOpenAPI仕様。外部のOpenAPI仕様をEDDIに貼り付け → 完全にデプロイされたAPI呼び出しエージェントを取得',
 			],
-			heading3: 'Open Standards — Not Proprietary APIs',
-			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
+			heading3: 'オープンスタンダード — プロプライエタリAPIではない',
+			para2: 'EDDIエージェントは会話中に<strong>外部MCPツールを利用</strong>することもできます。MCPサーバーエンドポイントを設定すると、エージェントは会話コンテキストに基づいてツールを自動発見し、呼び出します。MCPに加えて、EDDIは<strong>A2A</strong>（Agent-to-Agent Protocol）でクロスプラットフォーム通信、<strong>OpenAPI 3.1</strong>でネイティブspec生成と消費、<strong>OAuth 2.0 / OIDC</strong>（Keycloak経由）、<strong>SSE</strong>でリアルタイムストリーミングを実装 — すべてオープンスタンダード、ベンダーロックインなし。',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -610,7 +610,7 @@ const ja: TranslationSchema = {
 			],
 			// Quarkus SDK
 			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
+			sdkDesc: 'EDDIと通信するQuarkusアプリを構築中？<strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong>エクステンションをご利用ください — Dev Services（devモードでEDDIを自動起動）、Fluent API、SSEストリーミング、<code>@EddiAgent</code>エンドポイントワイヤリング、<code>@EddiTool</code> MCPブリッジ。',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. 代替案',

@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 48 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 42 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -13,9 +13,11 @@
 - [Features Overview](https://eddi.labs.ai/features/overview/): Complete platform capabilities summary
 - [EDDI Manager UI](https://eddi.labs.ai/features/manager/): Visual agent lifecycle management with 11-locale i18n
 - [Configuration-as-Code](https://eddi.labs.ai/features/config-as-code/): JSON-based agent configuration without recompilation
-- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 48 Model Context Protocol tools for AI-native integration
-- [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration
-- Stateful Agentic Memory: IUserMemoryStore with 2D property scopes
+- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 42 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE
+- [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration, 5 group discussion styles
+- [Memory & Context](https://eddi.labs.ai/features/memory/): Persistent memory, dream consolidation, memory policy (commit flags)
+- 12 Built-In Agent Tools: Web search, calculator, scraper, PDF reader, weather, HTTP calls, user memory, and more
+- Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
 - [Performance](https://eddi.labs.ai/features/performance/): Java 25 virtual threads and JVM-native throughput
 - [Security](https://eddi.labs.ai/features/security/): Zero eval(), cryptographic audit trails, RBAC
 - [Observability](https://eddi.labs.ai/features/observability/): Prometheus metrics + 45-panel Grafana Operations Command Center
@@ -30,20 +32,21 @@
 
 ## Enterprise
 
-- [Why EDDI](https://eddi.labs.ai/enterprise/why-eddi/): The self-hosted enterprise AI platform — the only JVM-native + visual + config-driven AI middleware
+- [Why EDDI](https://eddi.labs.ai/enterprise/why-eddi/): Comparison table (6 dimensions), 12 LLM providers, Quarkus SDK
 - [vs. Alternatives](https://eddi.labs.ai/enterprise/vs-alternatives/): Comparison with Flowise, n8n, Dify, Spring AI, LangChain4j, Camunda
 - [Compliance](https://eddi.labs.ai/enterprise/compliance/): Global Privacy & Regulatory Compliance — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, NIST AI RMF, ISO 42001, SOC 2 & more (15+ frameworks)
 
 ## Integrations & Deployment
 
-- [Integrations](https://eddi.labs.ai/docs/integrations/): Supported LLM providers (OpenAI, Anthropic, Google, Ollama, etc.)
-- [Docker Deployment](https://eddi.labs.ai/docs/deployment/docker/): Container-based deployment
+- [Integrations](https://eddi.labs.ai/docs/integrations/): 12 LLM providers (OpenAI, Anthropic, Google, Mistral, Azure, Bedrock, Oracle, Vertex AI, Ollama, Jlama, Hugging Face, any OpenAI-compatible)
+- [Docker Deployment](https://eddi.labs.ai/docs/deployment/docker/): Container-based deployment with install wizard
 - [Kubernetes](https://eddi.labs.ai/docs/deployment/kubernetes/): Helm charts and Kustomize manifests
+- [Quarkus SDK](https://github.com/quarkiverse/quarkus-eddi): Dev Services, fluent API, SSE streaming, MCP bridge
 
 ## API & MCP
 
 - [REST API](https://eddi.labs.ai/docs/api/rest/): RESTful endpoints for all resources
-- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 48 MCP tools
+- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 42 MCP tools
 
 ## Use Cases
 

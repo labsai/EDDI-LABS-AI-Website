@@ -257,7 +257,7 @@ const th: TranslationSchema = {
 		k8sOptions: 'ยังมี Kustomize overlays และ Helm charts สำหรับ MongoDB, PostgreSQL, auth, monitoring และ production hardening (HPA, PDB, NetworkPolicy) ดู <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">คู่มือ Kubernetes</a>',
 		// Quarkus SDK
 		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
+		sdkDesc: 'กำลังสร้าง Quarkus app? ใช้ extension <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> สำหรับ Dev Services, Fluent API, SSE streaming และ MCP bridge:',
 	},
 	useCases: {
 		title: 'กรณีใช้งาน',
@@ -334,9 +334,9 @@ const th: TranslationSchema = {
 		portDesc:
 			'การตั้งค่า Agent พร้อมพกพา ประกอบได้ และพร้อมซิงค์ — ย้าย Agent ระหว่างสภาพแวดล้อมได้อย่างราบรื่น',
 		portItems: [
-			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
-			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
-			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+			{ title: '📤 Import / Export', desc: 'Agent พกพาเป็นไฟล์ ZIP พร้อมการล้าง secrets อัตโนมัติ การนำเข้ารวมหรือเขียนทับ — ไม่มีปัญหาเวอร์ชัน' },
+			{ title: '🔄 Agent Sync', desc: 'ซิงค์สดระหว่างอินสแตนซ์พร้อมการจับคู่โครงสร้าง การเปรียบเทียบเนื้อหา และการเลือกทรัพยากร' },
+			{ title: '📝 Prompt Snippets', desc: 'บล็อกสร้าง system prompt ที่ใช้ซ้ำได้และมีเวอร์ชัน อ้างอิงด้วย <code>{{snippets.safety_rules}}</code>' },
 		],
 		// Engineering section
 		engTitle: 'ความเป็นเลิศทางวิศวกรรม',
@@ -381,7 +381,7 @@ const th: TranslationSchema = {
 				'<strong>Schedule Management</strong> — จัดการ periodic agent tasks',
 							'<strong>OpenAPI 3.1</strong> — OpenAPI spec ที่สร้างอัตโนมัติ วาง OpenAPI spec ภายนอกใดก็ได้ลงใน EDDI → ได้ Agent เรียก API ที่ deploy เรียบร้อย',
 			],
-			heading3: 'Open Standards — Not Proprietary APIs',
+			heading3: 'Open Standards — ไม่ใช่ Proprietary APIs',
 			para2: 'EDDI agents ยัง<strong>ใช้ external MCP tools</strong>ได้ในระหว่างสนทนา',
 		},
 		configAsCode: {
@@ -612,7 +612,7 @@ const th: TranslationSchema = {
 			],
 			// Quarkus SDK
 			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
+			sdkDesc: 'กำลังสร้าง Quarkus app ที่สื่อสารกับ EDDI? ใช้ extension <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> — Dev Services (เริ่ม EDDI อัตโนมัติใน dev mode), Fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring และ <code>@EddiTool</code> MCP bridge',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. ทางเลือก',
