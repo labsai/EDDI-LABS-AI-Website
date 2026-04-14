@@ -824,7 +824,7 @@ const ja: TranslationSchema = {
 				{ year: '2021', text: 'オンラインチャットボットハッカソン — 教育用チャットボット開発のためのバーチャルイベント。' },
 				{ year: '2023', text: 'EDDIが<strong>LLM統合</strong>を導入 — LangChain4j経由で最新の大規模言語モデルに接続。' },
 				{ year: '2025', text: 'EDDIが<strong>エージェントフロー</strong>に適応 — インテントベースのルーティング、管理された会話、マルチエージェントオーケストレーション。' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 42のMCPツール、A2Aプロトコル、グループディスカッション、ビジュアル管理UI、モデルカスケーディング。' },
+				{ year: '2026', text: '<strong>v6</strong> — 42のMCPツール、A2Aプロトコル、グループディスカッション、ビジュアル管理UI、モデルカスケーディング。' },
 			],
 			institutionsTitle: '機関の支援',
 			institutionsDesc: '政府助成の研究と機関による検証 — マーケティングの主張だけではありません。',

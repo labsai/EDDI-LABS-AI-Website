@@ -9,7 +9,7 @@ const en = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance (${EDDI_VERSION} Preview).`,
+			`EDDI ${EDDI_VERSION} — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance.`,
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
@@ -74,7 +74,7 @@ const en = {
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
 		bannerBadge: 'New',
-		bannerText: `EDDI ${EDDI_VERSION} is now available for developer preview!`,
+		bannerText: `EDDI ${EDDI_VERSION} has been released!`,
 		bannerLink: 'Get started',
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
@@ -141,7 +141,7 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			`Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Currently in <strong>${EDDI_VERSION} Preview</strong>.`,
+			`Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Now available as <strong>${EDDI_VERSION}</strong>.`,
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
@@ -932,7 +932,7 @@ const en = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
+				{ year: '2026', text: '<strong>v6</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
 			],
 
 			// Institutional backing

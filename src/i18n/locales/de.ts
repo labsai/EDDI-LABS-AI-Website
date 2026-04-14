@@ -5,7 +5,7 @@ const de: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI — Der Enterprise-KI-Orchestrator. Konfigurationsgesteuerte, selbst gehostete KI-Agent-Plattform mit visueller Verwaltung, Security-First-Architektur und integrierter Compliance (${EDDI_VERSION} Preview).`,
+			`EDDI ${EDDI_VERSION} — Der Enterprise-KI-Orchestrator. Konfigurationsgesteuerte, selbst gehostete KI-Agent-Plattform mit visueller Verwaltung, Security-First-Architektur und integrierter Compliance.`,
 	},
 	nav: {
 		features: 'Features',
@@ -62,7 +62,7 @@ const de: TranslationSchema = {
 		getStartedCta: 'Jetzt Starten →',
 		viewOnGithub: 'Auf GitHub ansehen ↗',
 		bannerBadge: 'Neu',
-		bannerText: `EDDI ${EDDI_VERSION} ist jetzt als Developer Preview verfügbar!`,
+		bannerText: `EDDI ${EDDI_VERSION} wurde veröffentlicht!`,
 		bannerLink: 'Jetzt starten',
 		notFoundTitle: 'Seite nicht gefunden',
 		notFoundDesc: 'Die gesuchte KI-Orchestrierungsroute wurde getrennt oder verschoben.',
@@ -116,7 +116,7 @@ const de: TranslationSchema = {
 		heroTitle: 'Der Enterprise',
 		heroHighlight: 'KI-Orchestrator',
 		heroTagline:
-			`KI-Agents erstellen, deployen und verwalten — ohne Code zu schreiben. Konfigurationsgesteuert, selbst gehostet und compliance-bereit out of the box. Aktuell in <strong>${EDDI_VERSION} Preview</strong>.`,
+			`KI-Agents erstellen, deployen und verwalten — ohne Code zu schreiben. Konfigurationsgesteuert, selbst gehostet und compliance-bereit out of the box. Jetzt verfügbar als <strong>${EDDI_VERSION}</strong>.`,
 		problemTitle: 'Das Problem',
 		problemDesc:
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
@@ -883,7 +883,7 @@ const de: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — virtuelles Event für pädagogische Chatbot-Entwicklung.' },
 				{ year: '2023', text: 'EDDI integriert <strong>LLM-Anbindungen</strong> — Verbindung zu modernen großen Sprachmodellen über LangChain4j.' },
 				{ year: '2025', text: 'EDDI adaptiert <strong>Agent-Flows</strong> — Intent-basiertes Routing, verwaltete Konversationen und Multi-Agent-Orchestrierung.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 MCP-Tools, A2A-Protokoll, Gruppendiskussionen, visuelle Management-UI, Modell-Kaskadierung.' },
+				{ year: '2026', text: '<strong>v6</strong> — 42 MCP-Tools, A2A-Protokoll, Gruppendiskussionen, visuelle Management-UI, Modell-Kaskadierung.' },
 			],
 			institutionsTitle: 'Institutionell gefördert',
 			institutionsDesc: 'Staatlich geförderte Forschung und institutionelle Validierung — nicht nur Marketingversprechen.',

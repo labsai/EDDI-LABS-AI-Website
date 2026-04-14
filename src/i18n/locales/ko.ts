@@ -821,7 +821,7 @@ const ko: TranslationSchema = {
 				{ year: '2021', text: '온라인 챗봇 해커톤 — 교육용 챗봇 개발을 위한 가상 이벤트.' },
 				{ year: '2023', text: 'EDDI가 <strong>LLM 통합</strong> 도입 — LangChain4j를 통해 최신 대규모 언어 모델에 연결.' },
 				{ year: '2025', text: 'EDDI가 <strong>에이전트 플로우</strong>에 적응 — 인텐트 기반 라우팅, 관리되는 대화, 멀티 에이전트 오케스트레이션.' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 42개 MCP 도구, A2A 프로토콜, 그룹 토론, 비주얼 관리 UI, 모델 캐스케이딩.' },
+				{ year: '2026', text: '<strong>v6</strong> — 42개 MCP 도구, A2A 프로토콜, 그룹 토론, 비주얼 관리 UI, 모델 캐스케이딩.' },
 			],
 			institutionsTitle: '기관의 지원',
 			institutionsDesc: '정부 지원 연구 및 기관 검증 — 단순한 마케팅 주장이 아닙니다.',

@@ -810,7 +810,7 @@ const zh: TranslationSchema = {
 				{ year: '2021', text: '在线聊天机器人黑客松 — 教育性聊天机器人开发的虚拟活动。' },
 				{ year: '2023', text: 'EDDI 引入 <strong>LLM 集成</strong> — 通过 LangChain4j 连接现代大型语言模型。' },
 				{ year: '2025', text: 'EDDI 适配 <strong>Agent 工作流</strong> — 基于意图的路由、管理对话和多代理编排。' },
-				{ year: '2026', text: '<strong>v6.0.0</strong> — 42 个 MCP 工具、A2A 协议、群组讨论、可视化管理 UI、模型级联。' },
+				{ year: '2026', text: '<strong>v6</strong> — 42 个 MCP 工具、A2A 协议、群组讨论、可视化管理 UI、模型级联。' },
 			],
 			institutionsTitle: '机构支持',
 			institutionsDesc: '政府资助的研究和机构验证 — 不仅仅是营销宣传。',

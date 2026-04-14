@@ -7,4 +7,4 @@
  * Usage in locale files:  import { EDDI_VERSION } from '../version';
  * Usage in components:    import { EDDI_VERSION } from '../i18n/version';
  */
-export const EDDI_VERSION = 'v6.0.0-RC1';
+export const EDDI_VERSION = 'v6';
