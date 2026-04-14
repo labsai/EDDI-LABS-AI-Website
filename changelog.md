@@ -3,6 +3,20 @@
 All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
+
+### 📄 Documentation Audit — Content Gap Remediation
+- `feat(website)`: **12 Built-In Agent Tools** — Added a 6-column tool grid to Features Overview showing all 12 bundled tools (Web Search, Calculator, Web Scraper, PDF Reader, Weather, DateTime, Data Formatter, Text Summarizer, HTTP Calls, User Memory, Conversation Recall, Multimodal Input). Translated into all 10 non-English locales.
+- `feat(website)`: **Config & Portability Section** — Added Import/Export (ZIP), Agent Sync, and Prompt Snippets cards to Features Overview. Translated into all 10 locales.
+- `feat(website)`: **Config-as-Code Items** — Added 4 new items (Import/Export, Agent Sync, Prompt Snippets, Behavior Rules) to the Config-as-Code feature page. Translated into all 10 locales.
+- `feat(website)`: **Memory Policy** — Added Memory Policy (Commit Flags) item to the Memory feature page. Translated into all 10 locales.
+- `feat(website)`: **MCP Open Standards** — Added OpenAPI 3.1 tool item. Renamed MCP heading from "MCP Client Support" to "Open Standards — Not Proprietary APIs". Expanded MCP description to cover A2A, OpenAPI, OAuth 2.0/OIDC, and SSE. Translated into all 10 locales.
+- `feat(website)`: **Getting Started Expansion** — Added Installer Options (flags), `eddi update` CLI, Kubernetes Deployment, and Quarkus SDK sections. Translated into all 10 locales.
+- `feat(website)`: **Why EDDI Comparison Table** — Added 6-dimension comparison table (Concurrency, Agent Logic, Security, Compliance, Audit Trail, Deployment) vs. Python/Node frameworks. Translated into DE, ES, FR, PT.
+- `feat(website)`: **12 LLM Providers Table** — Added 4-category provider table (Cloud APIs, Enterprise Cloud, Self-Hosted, Compatible). Translated into all 10 locales.
+- `feat(website)`: **Quarkus SDK Section** — Added SDK info with Maven dependency to Why EDDI and Getting Started pages.
+- `feat(website)`: **Multi-Agent Group Conversations** — Rendered existing but previously hidden heading3/para2/items2 (5 discussion styles, nested groups, Agent Father, A2A, capability matching).
+- `feat(website)`: **llms.txt & llms-full.txt Update** — Added 12 built-in tools, config & portability, memory policy, OpenAPI/A2A/SSE, Quarkus SDK, 12 LLM providers with categories. Fixed MCP tool count (48→42).
+
 ### 🐛 Bug Fixes
 - `fix(website)`: **Docker Pulls Badge Distortion** — Fixed stretched shields.io and GitHub Action badges on the homepage "Trusted & Certified" section by applying `w-auto` utility classes. This prevents aspect-ratio distortion while preserving the explicit HTML `width`/`height` attributes required to avoid Lighthouse CLS penalties.
 - `fix(website)`: **Mobile CTA Stack Layout** — Re-implemented the mobile CTA button layout (Get Started / View on GitHub) to use a centered vertical flex column (`max-width: 20rem`) with 100% width buttons. This resolves cramped horizontal rendering while preventing oversized, edge-to-edge block stretching.
