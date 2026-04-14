@@ -268,6 +268,16 @@ const { lang, t } = Astro.props;
 		transform: translateY(-2px);
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 	}
+	/* Light mode overrides for trust cards */
+	html[data-theme='light'] .trust-card {
+		background: rgba(255, 255, 255, 0.7);
+		border-color: rgba(228, 228, 231, 0.8);
+	}
+	html[data-theme='light'] .trust-card:hover {
+		background: rgba(255, 255, 255, 0.9);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	}
+
 	@media (max-width: 50rem) {
 		.trust-grid { grid-template-columns: 1fr; }
 		.trust-card,
