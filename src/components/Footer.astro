@@ -45,6 +45,7 @@ const t = await getTranslations(lang);
 			<!-- Brand column -->
 			<div class="eddi-footer-brand">
 				<a href={localePath(lang, '/')} class="eddi-footer-logo" aria-label="EDDI Home">
+					<img src="/eddi-icon.png" alt="" class="eddi-footer-icon" width="36" height="36" />
 					<img src={eddiLogoDark.src} alt="EDDI" class="eddi-footer-logo-img eddi-footer-logo-dark" width="120" height="38" />
 					<img src={eddiLogoLight.src} alt="EDDI" class="eddi-footer-logo-img eddi-footer-logo-light" width="120" height="38" />
 				</a>
@@ -178,9 +179,20 @@ const t = await getTranslations(lang);
 
 	.eddi-footer-logo {
 		display: inline-flex;
-		align-items: baseline;
-		gap: 0.125rem;
+		align-items: center;
+		gap: 0.625rem;
 		text-decoration: none;
+	}
+
+	.eddi-footer-icon {
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	html[data-theme='light'] .eddi-footer-icon {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 	}
 
 	.eddi-footer-logo-img {
