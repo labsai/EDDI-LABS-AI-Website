@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0 Preview. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 

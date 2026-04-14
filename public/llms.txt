@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 48 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6.0.0-RC1 Preview. It combines config-as-code agent design, a visual React management UI (11 languages), 48 MCP tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Apache 2.0 licensed.
 
 ## Documentation
 
