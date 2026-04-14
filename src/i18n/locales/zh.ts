@@ -227,6 +227,28 @@ const zh: TranslationSchema = {
 		nextDocsDesc: '深入了解架构和API',
 		nextWhyEddi: '为什么选择EDDI？',
 		nextWhyEddiDesc: 'EDDI的企业价值',
+	
+		// Installer Options
+		installerOptionsTitle: 'Installer Options',
+		installerOptionsDesc: 'The install script supports flags for automated and customized setups:',
+		installerFlags: [
+			'<code>--defaults</code> — All defaults, no prompts',
+			'<code>--db=postgres</code> — Use PostgreSQL instead of MongoDB',
+			'<code>--with-auth</code> — Enable Keycloak authentication',
+			'<code>--full</code> — Everything enabled (database + auth + monitoring)',
+			'<code>--local</code> — Build Docker image from local source (for contributors)',
+		],
+		// Update CLI
+		updateTitle: 'Updating EDDI',
+		updateDesc: 'The installer creates an <code>eddi</code> CLI wrapper. To pull the latest image and restart:',
+		updateFallback: 'If the CLI is not available, run from your install directory (<code>~/.eddi</code>):',
+		// Kubernetes
+		k8sTitle: 'Kubernetes Deployment',
+		k8sDesc: 'Deploy to Kubernetes with a single command:',
+		k8sOptions: 'Kustomize overlays and Helm charts are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		// Quarkus SDK
+		sdkTitle: 'Quarkus SDK',
+		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
 	},
 	useCases: {
 		title: '应用场景',
@@ -277,6 +299,35 @@ const zh: TranslationSchema = {
 		cascadingCardDesc: '基于置信策略的成本优化多模型路由。<strong>降低LLM成本60-80%</strong>。',
 		schedulingCardTitle: '⏰ 调度与心跳',
 		schedulingCardDesc: '定时触发、心跳唤醒、梦境周期。自主行动的<strong>主动代理</strong>。',
+
+		// Built-In Agent Tools section
+		toolsTitle: 'Built-In Agent Tools',
+		toolsDesc:
+			'EDDI ships with <strong>12 ready-to-use tools</strong> that agents can call during conversations — no external setup required.',
+		tools: [
+			{ icon: '🔍', name: 'Web Search', desc: 'DuckDuckGo or Google Custom Search' },
+			{ icon: '🧮', name: 'Calculator', desc: 'Sandboxed math parser (no eval())' },
+			{ icon: '🌐', name: 'Web Scraper', desc: 'SSRF-protected content extraction' },
+			{ icon: '📄', name: 'PDF Reader', desc: 'SSRF-protected document extraction' },
+			{ icon: '☁️', name: 'Weather', desc: 'Real-time weather data' },
+			{ icon: '🕐', name: 'DateTime', desc: 'Current date and time' },
+			{ icon: '📊', name: 'Data Formatter', desc: 'Structured data transformation' },
+			{ icon: '📝', name: 'Text Summarizer', desc: 'LLM-powered summarization' },
+			{ icon: '🔌', name: 'HTTP Calls', desc: 'Expose REST APIs as LLM tools' },
+			{ icon: '🧠', name: 'User Memory', desc: 'Read/write/search persistent memory' },
+			{ icon: '🔙', name: 'Conversation Recall', desc: 'Drill into summarized history' },
+			{ icon: '📎', name: 'Multimodal Input', desc: 'Image, PDF, audio, video via MIME routing' },
+		],
+		// Config & Portability section
+		portTitle: 'Config & Portability',
+		portDesc:
+			'Agent configurations are portable, composable, and sync-ready — move agents between environments without friction.',
+		portItems: [
+			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
+			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
+			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+		],
+		// Engineering section
 		engTitle: '工程卓越',
 		obsCardTitle: '📊 可观测性',
 		obsCardDesc: '每个管道步骤记录在<strong>不可变审计跟踪</strong>中——令牌、成本、耗时和工具调用。',
@@ -317,9 +368,10 @@ const zh: TranslationSchema = {
 				'<strong>资源CRUD</strong> — 完整的规则、工作流、LLM配置、连接器的创建/读取/更新/删除',
 				'<strong>诊断工具</strong> — 健康检查、配置检查、环境诊断',
 				'<strong>调度管理</strong> — 管理周期性代理任务和触发器',
+				'<strong>OpenAPI 3.1</strong> — Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
 			],
-			heading3: 'MCP客户端支持',
-			para2: 'EDDI代理还可以在对话期间<strong>消费外部MCP工具</strong>。配置MCP服务器端点，代理会根据对话上下文自动发现和调用工具——由LangChain4j的MCP客户端集成驱动。',
+			heading3: 'Open Standards — Not Proprietary APIs',
+			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
 		},
 		configAsCode: {
 			title: '配置即代码',
@@ -452,6 +504,7 @@ const zh: TranslationSchema = {
 				'<strong>滚动摘要</strong> — LLM驱动的旧论次增量摘要，带对话回经工具可深入查看',
 				'<strong>属性提取</strong> — 配置驱动的槽填充，支持<code>longTerm</code> / <code>conversation</code> / <code>step</code>作用域',
 				'<strong>对话状态</strong> — 完整历史记录，支持撤销/重做',
+				'<strong>Memory Policy (Commit Flags)</strong> — Strict write discipline marks failed task output as uncommitted (hidden from LLM context) and injects concise error digests for graceful degradation',
 			],
 			heading3: '梦境整合工作原理',
 			para2: '受Anthropic关于后台记忆整合研究的启发，EDDI的梦境循环按<strong>可配置的计划</strong>运行以维护记忆质量。过时条目被修剪，矛盾被检测和解决，事实被摘要 — 每次运行都有成本上限。',
@@ -526,6 +579,29 @@ const zh: TranslationSchema = {
 				'<strong>受监管行业</strong>需要审计跟踪和欧盟AI法案合规',
 				'<strong>平台团队</strong>为多个部门构建内部AI服务',
 			],
+			// Comparison table
+			comparisonTitle: 'EDDI vs. Typical Agent Frameworks',
+			comparisonHeaders: { dimension: 'Dimension', frameworks: 'Python/Node Frameworks', eddi: 'EDDI' },
+			comparisonRows: [
+				{ dimension: 'Concurrency', frameworks: 'GIL or single-threaded event loop', eddi: 'Java 25 Virtual Threads — true OS-level parallelism' },
+				{ dimension: 'Agent Logic', frameworks: 'Embedded in application code', eddi: 'Versioned JSON configs — update behavior without redeployment' },
+				{ dimension: 'Security Model', frameworks: 'Relies on sandboxed code execution', eddi: 'No dynamic code execution; envelope-encrypted vault, SSRF protection' },
+				{ dimension: 'Compliance', frameworks: 'Requires custom implementation', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built-in' },
+				{ dimension: 'Audit Trail', frameworks: 'Application-level logging', eddi: 'HMAC-SHA256 immutable ledger with cryptographic agent signing' },
+				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready' },
+			],
+			// LLM Providers
+			llmTitle: '12 LLM Providers Supported',
+			llmDesc: 'Connect to any major LLM provider — or bring your own via any OpenAI-compatible endpoint.',
+			llmCategories: [
+				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
+				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
+				{ category: 'Compatible', providers: 'Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl' },
+			],
+			// Quarkus SDK
+			sdkTitle: 'Quarkus SDK',
+			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
 		},
 		vsAlternatives: {
 			title: 'EDDI与替代方案对比',

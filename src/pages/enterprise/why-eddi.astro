@@ -9,4 +9,29 @@ const p = t.pages.whyEddi;
 <h2>{p.heading2}</h2><p set:html={p.para2} />
 <ul>{p.items.map((item) => <li set:html={item} />)}</ul>
 <h2>{p.heading3}</h2><ul>{p.items2.map((item) => <li set:html={item} />)}</ul>
+
+<h2>{p.comparisonTitle}</h2>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{p.comparisonHeaders.dimension}</th><th>{p.comparisonHeaders.frameworks}</th><th>{p.comparisonHeaders.eddi}</th></tr></thead>
+<tbody>{p.comparisonRows.map((row) => <tr><td><strong>{row.dimension}</strong></td><td>{row.frameworks}</td><td>{row.eddi}</td></tr>)}</tbody>
+</table>
+</div>
+
+<h2>{p.llmTitle}</h2>
+<p>{p.llmDesc}</p>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>Category</th><th>Providers</th></tr></thead>
+<tbody>{p.llmCategories.map((cat) => <tr><td><strong>{cat.category}</strong></td><td>{cat.providers}</td></tr>)}</tbody>
+</table>
+</div>
+
+<h2>{p.sdkTitle}</h2>
+<p set:html={p.sdkDesc} />
+<pre><code>{`<dependency>
+    <groupId>io.quarkiverse.eddi</groupId>
+    <artifactId>quarkus-eddi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>`}</code></pre>
 </FeaturePage>

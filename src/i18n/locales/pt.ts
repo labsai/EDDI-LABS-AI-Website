@@ -242,6 +242,28 @@ const pt: TranslationSchema = {
 		nextDocsDesc: 'Aprofunde-se em arquitetura e APIs',
 		nextWhyEddi: 'Por que EDDI?',
 		nextWhyEddiDesc: 'O caso empresarial para o EDDI',
+	
+		// Installer Options
+		installerOptionsTitle: 'Installer Options',
+		installerOptionsDesc: 'The install script supports flags for automated and customized setups:',
+		installerFlags: [
+			'<code>--defaults</code> — All defaults, no prompts',
+			'<code>--db=postgres</code> — Use PostgreSQL instead of MongoDB',
+			'<code>--with-auth</code> — Enable Keycloak authentication',
+			'<code>--full</code> — Everything enabled (database + auth + monitoring)',
+			'<code>--local</code> — Build Docker image from local source (for contributors)',
+		],
+		// Update CLI
+		updateTitle: 'Updating EDDI',
+		updateDesc: 'The installer creates an <code>eddi</code> CLI wrapper. To pull the latest image and restart:',
+		updateFallback: 'If the CLI is not available, run from your install directory (<code>~/.eddi</code>):',
+		// Kubernetes
+		k8sTitle: 'Kubernetes Deployment',
+		k8sDesc: 'Deploy to Kubernetes with a single command:',
+		k8sOptions: 'Kustomize overlays and Helm charts are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		// Quarkus SDK
+		sdkTitle: 'Quarkus SDK',
+		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
 	},
 	useCases: {
 		title: 'Casos de Uso',
@@ -305,6 +327,35 @@ const pt: TranslationSchema = {
 		cascadingCardDesc: 'Roteamento multi-modelo otimizado com estratégias de confiança. <strong>Reduza custos de LLM em 60-80%</strong>.',
 		schedulingCardTitle: '⏰ Agendamento e Heartbeats',
 		schedulingCardDesc: 'Gatilhos cron, ativações por heartbeat, ciclos oníricos. <strong>Agentes proativos</strong> que agem por conta própria.',
+
+		// Built-In Agent Tools section
+		toolsTitle: 'Built-In Agent Tools',
+		toolsDesc:
+			'EDDI ships with <strong>12 ready-to-use tools</strong> that agents can call during conversations — no external setup required.',
+		tools: [
+			{ icon: '🔍', name: 'Web Search', desc: 'DuckDuckGo or Google Custom Search' },
+			{ icon: '🧮', name: 'Calculator', desc: 'Sandboxed math parser (no eval())' },
+			{ icon: '🌐', name: 'Web Scraper', desc: 'SSRF-protected content extraction' },
+			{ icon: '📄', name: 'PDF Reader', desc: 'SSRF-protected document extraction' },
+			{ icon: '☁️', name: 'Weather', desc: 'Real-time weather data' },
+			{ icon: '🕐', name: 'DateTime', desc: 'Current date and time' },
+			{ icon: '📊', name: 'Data Formatter', desc: 'Structured data transformation' },
+			{ icon: '📝', name: 'Text Summarizer', desc: 'LLM-powered summarization' },
+			{ icon: '🔌', name: 'HTTP Calls', desc: 'Expose REST APIs as LLM tools' },
+			{ icon: '🧠', name: 'User Memory', desc: 'Read/write/search persistent memory' },
+			{ icon: '🔙', name: 'Conversation Recall', desc: 'Drill into summarized history' },
+			{ icon: '📎', name: 'Multimodal Input', desc: 'Image, PDF, audio, video via MIME routing' },
+		],
+		// Config & Portability section
+		portTitle: 'Config & Portability',
+		portDesc:
+			'Agent configurations are portable, composable, and sync-ready — move agents between environments without friction.',
+		portItems: [
+			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
+			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
+			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+		],
+		// Engineering section
 		engTitle: 'Excelência em Engenharia',
 		obsCardTitle: '📊 Observabilidade',
 		obsCardDesc:
@@ -352,10 +403,10 @@ const pt: TranslationSchema = {
 				'<strong>CRUD de Recursos</strong> — Criação/leitura/atualização/exclusão completa para regras, workflows, configurações de LLM, conectores',
 				'<strong>Ferramentas de Diagnóstico</strong> — Verificações de saúde, inspeção de configuração, diagnósticos de ambiente',
 				'<strong>Gestão de Agendamentos</strong> — Gerencie tarefas periódicas de agentes e gatilhos',
+				'<strong>OpenAPI 3.1</strong> — Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
 			],
-			heading3: 'Suporte a Clientes MCP',
-			para2:
-				'Os agentes EDDI também podem <strong>consumir ferramentas MCP externas</strong> durante conversas. Configure endpoints de servidor MCP, e os agentes autodescobrem e invocam ferramentas com base no contexto da conversa — alimentado pela integração de cliente MCP do LangChain4j.',
+			heading3: 'Open Standards — Not Proprietary APIs',
+			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -502,6 +553,7 @@ const pt: TranslationSchema = {
 				'<strong>Resumo Rotativo</strong> — Sumarização incremental de turnos antigos por LLM com Ferramenta de Recordação de Conversa',
 				'<strong>Extração de Propriedades</strong> — Preenchimento de slots orientado por configuração com escopo <code>longTerm</code> / <code>conversation</code> / <code>step</code>',
 				'<strong>Estado da Conversa</strong> — Histórico completo com suporte a desfazer/refazer',
+				'<strong>Memory Policy (Commit Flags)</strong> — Strict write discipline marks failed task output as uncommitted (hidden from LLM context) and injects concise error digests for graceful degradation',
 			],
 			heading3: 'Como Funciona a Consolidação Onírica',
 			para2: 'Inspirado pela pesquisa da Anthropic sobre consolidação de memória em segundo plano, os Ciclos Oníricos do EDDI executam em um <strong>cronograma configurável</strong> para manter a qualidade da memória. Entradas obsoletas são podadas, contradições são detectadas e resolvidas, e fatos são resumidos — tudo com tetos de custo por execução.',
@@ -579,6 +631,29 @@ const pt: TranslationSchema = {
 				'<strong>Indústrias regulamentadas</strong> que requerem trilhas de auditoria e conformidade com a Lei de IA da UE',
 				'<strong>Equipes de plataforma</strong> construindo serviços internos de IA para múltiplos departamentos',
 			],
+			// Comparison table
+			comparisonTitle: 'EDDI vs. Typical Agent Frameworks',
+			comparisonHeaders: { dimension: 'Dimension', frameworks: 'Python/Node Frameworks', eddi: 'EDDI' },
+			comparisonRows: [
+				{ dimension: 'Concurrency', frameworks: 'GIL or single-threaded event loop', eddi: 'Java 25 Virtual Threads — true OS-level parallelism' },
+				{ dimension: 'Agent Logic', frameworks: 'Embedded in application code', eddi: 'Versioned JSON configs — update behavior without redeployment' },
+				{ dimension: 'Security Model', frameworks: 'Relies on sandboxed code execution', eddi: 'No dynamic code execution; envelope-encrypted vault, SSRF protection' },
+				{ dimension: 'Compliance', frameworks: 'Requires custom implementation', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built-in' },
+				{ dimension: 'Audit Trail', frameworks: 'Application-level logging', eddi: 'HMAC-SHA256 immutable ledger with cryptographic agent signing' },
+				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready' },
+			],
+			// LLM Providers
+			llmTitle: '12 LLM Providers Supported',
+			llmDesc: 'Connect to any major LLM provider — or bring your own via any OpenAI-compatible endpoint.',
+			llmCategories: [
+				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
+				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
+				{ category: 'Compatible', providers: 'Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl' },
+			],
+			// Quarkus SDK
+			sdkTitle: 'Quarkus SDK',
+			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. Alternativas',

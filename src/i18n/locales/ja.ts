@@ -230,6 +230,28 @@ const ja: TranslationSchema = {
 		nextDocsDesc: 'アーキテクチャとAPIの詳細',
 		nextWhyEddi: 'なぜEDDI？',
 		nextWhyEddiDesc: 'EDDIのエンタープライズケース',
+	
+		// Installer Options
+		installerOptionsTitle: 'Installer Options',
+		installerOptionsDesc: 'The install script supports flags for automated and customized setups:',
+		installerFlags: [
+			'<code>--defaults</code> — All defaults, no prompts',
+			'<code>--db=postgres</code> — Use PostgreSQL instead of MongoDB',
+			'<code>--with-auth</code> — Enable Keycloak authentication',
+			'<code>--full</code> — Everything enabled (database + auth + monitoring)',
+			'<code>--local</code> — Build Docker image from local source (for contributors)',
+		],
+		// Update CLI
+		updateTitle: 'Updating EDDI',
+		updateDesc: 'The installer creates an <code>eddi</code> CLI wrapper. To pull the latest image and restart:',
+		updateFallback: 'If the CLI is not available, run from your install directory (<code>~/.eddi</code>):',
+		// Kubernetes
+		k8sTitle: 'Kubernetes Deployment',
+		k8sDesc: 'Deploy to Kubernetes with a single command:',
+		k8sOptions: 'Kustomize overlays and Helm charts are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		// Quarkus SDK
+		sdkTitle: 'Quarkus SDK',
+		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
 	},
 	useCases: {
 		title: 'ユースケース',
@@ -280,6 +302,35 @@ const ja: TranslationSchema = {
 		cascadingCardDesc: 'コンフィデンス戦略によるコスト最適化マルチモデルルーティング。<strong>LLMコストを60-80%削減</strong>。',
 		schedulingCardTitle: '⏰ スケジューリング＆ハートビート',
 		schedulingCardDesc: 'Cronトリガー、ハートビートウェイクアップ、ドリームサイクル。自律的に行動する<strong>プロアクティブエージェント</strong>。',
+
+		// Built-In Agent Tools section
+		toolsTitle: 'Built-In Agent Tools',
+		toolsDesc:
+			'EDDI ships with <strong>12 ready-to-use tools</strong> that agents can call during conversations — no external setup required.',
+		tools: [
+			{ icon: '🔍', name: 'Web Search', desc: 'DuckDuckGo or Google Custom Search' },
+			{ icon: '🧮', name: 'Calculator', desc: 'Sandboxed math parser (no eval())' },
+			{ icon: '🌐', name: 'Web Scraper', desc: 'SSRF-protected content extraction' },
+			{ icon: '📄', name: 'PDF Reader', desc: 'SSRF-protected document extraction' },
+			{ icon: '☁️', name: 'Weather', desc: 'Real-time weather data' },
+			{ icon: '🕐', name: 'DateTime', desc: 'Current date and time' },
+			{ icon: '📊', name: 'Data Formatter', desc: 'Structured data transformation' },
+			{ icon: '📝', name: 'Text Summarizer', desc: 'LLM-powered summarization' },
+			{ icon: '🔌', name: 'HTTP Calls', desc: 'Expose REST APIs as LLM tools' },
+			{ icon: '🧠', name: 'User Memory', desc: 'Read/write/search persistent memory' },
+			{ icon: '🔙', name: 'Conversation Recall', desc: 'Drill into summarized history' },
+			{ icon: '📎', name: 'Multimodal Input', desc: 'Image, PDF, audio, video via MIME routing' },
+		],
+		// Config & Portability section
+		portTitle: 'Config & Portability',
+		portDesc:
+			'Agent configurations are portable, composable, and sync-ready — move agents between environments without friction.',
+		portItems: [
+			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
+			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
+			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
+		],
+		// Engineering section
 		engTitle: 'エンジニアリングエクセレンス',
 		obsCardTitle: '📊 オブザーバビリティ',
 		obsCardDesc: 'すべてのパイプラインステップが<strong>不変の監査証跡</strong>に記録 — トークン、コスト、タイミング、ツール呼び出し。',
@@ -321,10 +372,10 @@ const ja: TranslationSchema = {
 				'<strong>リソースCRUD</strong> — ルール、ワークフロー、LLM設定、コネクタの完全な作成/読み取り/更新/削除',
 				'<strong>診断ツール</strong> — ヘルスチェック、設定検査、環境診断',
 				'<strong>スケジュール管理</strong> — 定期的なエージェントタスクとトリガーの管理',
+				'<strong>OpenAPI 3.1</strong> — Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
 			],
-			heading3: 'MCPクライアントサポート',
-			para2:
-				'EDDIエージェントは会話中に<strong>外部MCPツールを消費</strong>することもできます。MCPサーバーエンドポイントを設定すると、エージェントは会話コンテキストに基づいてツールを自動発見し呼び出します — LangChain4jのMCPクライアント統合により実現。',
+			heading3: 'Open Standards — Not Proprietary APIs',
+			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -461,6 +512,7 @@ const ja: TranslationSchema = {
 				'<strong>ローリングサマリー</strong> — 古いターンのLLM駆動の漸進的要約、会話リコールツール付き',
 				'<strong>プロパティ抽出</strong> — <code>longTerm</code> / <code>conversation</code> / <code>step</code>スコーピングによる構成駆動スロットフィリング',
 				'<strong>会話状態</strong> — 元に戻す/やり直しサポート付きの完全な履歴',
+				'<strong>Memory Policy (Commit Flags)</strong> — Strict write discipline marks failed task output as uncommitted (hidden from LLM context) and injects concise error digests for graceful degradation',
 			],
 			heading3: 'ドリーム統合の仕組み',
 			para2: 'Anthropicのバックグラウンドメモリ統合研究にインスパイアされ、EDDIのドリームサイクルはメモリ品質を維持するために<strong>設定可能なスケジュール</strong>で実行されます。古いエントリは削除され、矛盾は検出・解決され、事実は要約されます — すべて実行ごとのコスト上限付き。',
@@ -536,6 +588,29 @@ const ja: TranslationSchema = {
 				'<strong>規制産業</strong> — 監査証跡とEU AI規制法コンプライアンスが必要',
 				'<strong>プラットフォームチーム</strong> — 複数部門向けの社内AIサービスを構築',
 			],
+			// Comparison table
+			comparisonTitle: 'EDDI vs. Typical Agent Frameworks',
+			comparisonHeaders: { dimension: 'Dimension', frameworks: 'Python/Node Frameworks', eddi: 'EDDI' },
+			comparisonRows: [
+				{ dimension: 'Concurrency', frameworks: 'GIL or single-threaded event loop', eddi: 'Java 25 Virtual Threads — true OS-level parallelism' },
+				{ dimension: 'Agent Logic', frameworks: 'Embedded in application code', eddi: 'Versioned JSON configs — update behavior without redeployment' },
+				{ dimension: 'Security Model', frameworks: 'Relies on sandboxed code execution', eddi: 'No dynamic code execution; envelope-encrypted vault, SSRF protection' },
+				{ dimension: 'Compliance', frameworks: 'Requires custom implementation', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built-in' },
+				{ dimension: 'Audit Trail', frameworks: 'Application-level logging', eddi: 'HMAC-SHA256 immutable ledger with cryptographic agent signing' },
+				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready' },
+			],
+			// LLM Providers
+			llmTitle: '12 LLM Providers Supported',
+			llmDesc: 'Connect to any major LLM provider — or bring your own via any OpenAI-compatible endpoint.',
+			llmCategories: [
+				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
+				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
+				{ category: 'Compatible', providers: 'Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl' },
+			],
+			// Quarkus SDK
+			sdkTitle: 'Quarkus SDK',
+			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. 代替案',

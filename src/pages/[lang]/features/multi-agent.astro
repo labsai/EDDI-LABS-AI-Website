@@ -11,10 +11,8 @@ const t = await getTranslations(lang);
 const p = t.pages.multiAgent;
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
-<h2>{p.heading1}</h2>
-<p set:html={p.para1} />
-<h3>{p.heading2}</h3>
-<ul>
-{p.items.map((item) => <li set:html={item} />)}
-</ul>
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+<h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h2>{p.heading3}</h2><p set:html={p.para2} />
+<ul>{p.items2.map((item) => <li set:html={item} />)}</ul>
 </FeaturePage>

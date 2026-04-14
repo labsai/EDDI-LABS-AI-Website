@@ -149,6 +149,35 @@ curl -X POST http://localhost:7070/agents/<your-agent-id>/start \\
 			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1024} height={1024} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
 		</div>
 	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.installerOptionsTitle}</h2>
+		<p>{t.gettingStarted.installerOptionsDesc}</p>
+		<ul>{t.gettingStarted.installerFlags.map((flag) => <li set:html={flag} />)}</ul>
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.updateTitle}</h2>
+		<p set:html={t.gettingStarted.updateDesc} />
+		<pre><code>eddi update</code></pre>
+		<p set:html={t.gettingStarted.updateFallback} />
+		<pre><code>{`cd ~/.eddi
+docker compose --env-file .env -f docker-compose.yml pull
+docker compose --env-file .env -f docker-compose.yml up -d`}</code></pre>
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.k8sTitle}</h2>
+		<p>{t.gettingStarted.k8sDesc}</p>
+		<pre><code>kubectl apply -f https://raw.githubusercontent.com/labsai/EDDI/main/k8s/quickstart.yaml</code></pre>
+		<p set:html={t.gettingStarted.k8sOptions} />
+	</section>
+	<section class="gs-section">
+		<h2>{t.gettingStarted.sdkTitle}</h2>
+		<p set:html={t.gettingStarted.sdkDesc} />
+		<pre><code>{`<dependency>
+    <groupId>io.quarkiverse.eddi</groupId>
+    <artifactId>quarkus-eddi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>`}</code></pre>
+	</section>
 	<section class="gs-next-steps">
 		<h2>{t.gettingStarted.whatsNextTitle}</h2>
 		<div class="gs-cards">
