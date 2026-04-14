@@ -170,6 +170,17 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
             : "dark");
         document.documentElement.setAttribute("data-theme", theme);
       })();
+
+      // Persist theme across Astro View Transitions (ClientRouter).
+      // astro:before-swap fires before the new document is painted,
+      // so we copy the current theme onto the incoming document to
+      // prevent it from flashing dark (the server-rendered default).
+      document.addEventListener("astro:before-swap", (e) => {
+        const theme = document.documentElement.getAttribute("data-theme");
+        if (theme) {
+          e.newDocument.documentElement.setAttribute("data-theme", theme);
+        }
+      });
     </script>
 
     <!-- Fonts: self-hosted via fontsource (no Google CDN requests) -->
