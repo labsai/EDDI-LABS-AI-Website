@@ -71,6 +71,8 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
     <ClientRouter />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/eddi-icon.png" />
     <link rel="canonical" href={canonicalURL} />
 
     <title>{title} | EDDI</title>
@@ -120,7 +122,12 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         "@type": "Organization",
         name: "Labs.ai",
         url: "https://eddi.labs.ai",
-        logo: "https://eddi.labs.ai/og-image.png",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://eddi.labs.ai/eddi-icon.png",
+          width: 512,
+          height: 512,
+        },
         sameAs: ["https://github.com/labsai/EDDI"],
       })}
     />
