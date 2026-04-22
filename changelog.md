@@ -19,6 +19,7 @@ All notable changes to the EDDI website will be documented in this file.
 - `feat(website)`: **llms.txt & llms-full.txt Update** — Added 12 built-in tools, config & portability, memory policy, OpenAPI/A2A/SSE, Quarkus SDK, 12 LLM providers with categories. Fixed MCP tool count (48→42).
 
 ### 🐛 Bug Fixes
+- `fix(website)`: **German Localization Typo** — Fixed incorrect translation of "prototype" (from "prototypisieren" to "bauen Prototypen") in the Features Overview page.
 - `fix(website)`: **Docker Pulls Badge Distortion** — Fixed stretched shields.io and GitHub Action badges on the homepage "Trusted & Certified" section by applying `w-auto` utility classes. This prevents aspect-ratio distortion while preserving the explicit HTML `width`/`height` attributes required to avoid Lighthouse CLS penalties.
 - `fix(website)`: **Mobile CTA Stack Layout** — Re-implemented the mobile CTA button layout (Get Started / View on GitHub) to use a centered vertical flex column (`max-width: 20rem`) with 100% width buttons. This resolves cramped horizontal rendering while preventing oversized, edge-to-edge block stretching.
 - `fix(website)`: **Hero Image Container Spacing** — Eliminated excessive trailing whitespace below hero images inside `.premium-image-wrapper` elements. Applied `display: flex` to the wrapper to remove block baseline gaps and enforced an explicit `aspect-ratio: 1 / 1` on the image itself, ensuring perfectly snug, high-fidelity responsive scaling without letterboxing.
