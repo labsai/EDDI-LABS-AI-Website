@@ -122,7 +122,7 @@ const de: TranslationSchema = {
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
 		problemCard1Title: 'Die Prototyp-Falle',
 		problemCard1Desc:
-			'Teams prototypisieren mit Flowise, n8n oder Skripten — und <strong>schreiben dann alles von Grund auf neu</strong> für die Produktion. Visuelle Prototypen werden vollständig verworfen.',
+			'Teams bauen Prototypen mit Flowise, n8n oder Skripten — und <strong>schreiben dann alles von Grund auf neu</strong> für die Produktion. Visuelle Prototypen werden vollständig verworfen.',
 		problemCard2Title: 'Boilerplate-Müdigkeit',
 		problemCard2Desc:
 			'KI-Bibliotheken zu nutzen bedeutet: REST-Controller, Auth-Layer und State-Management <strong>von Grund auf</strong> bauen. Jede Prompt-Änderung erfordert Redeployment.',
