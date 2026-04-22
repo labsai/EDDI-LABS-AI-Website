@@ -63,7 +63,7 @@ const th: TranslationSchema = {
 		viewOnGithub: 'ดูบน GitHub ↗',
 		bannerBadge: 'ใหม่',
 		bannerText: `EDDI ${EDDI_VERSION} เปิดตัวแล้ว!`,
-		bannerLink: 'เริ่มต้น',
+		bannerLink: 'อ่านบทความ',
 		notFoundTitle: 'ไม่พบหน้า',
 		notFoundDesc: 'เส้นทาง AI orchestration ที่คุณค้นหาถูกยกเลิกหรือย้ายแล้ว',
 		notFoundCta: 'กลับสู่ระบบ',

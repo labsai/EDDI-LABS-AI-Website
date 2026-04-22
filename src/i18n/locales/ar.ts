@@ -63,7 +63,7 @@ const ar: TranslationSchema = {
 		viewOnGithub: 'عرض على GitHub ↗',
 		bannerBadge: 'جديد',
 		bannerText: `EDDI ${EDDI_VERSION} متاح الآن كنسخة معاينة للمطورين!`,
-		bannerLink: 'ابدأ الآن',
+		bannerLink: 'اقرأ المقال',
 		notFoundTitle: 'الصفحة غير موجودة',
 		notFoundDesc: 'مسار تنسيق الذكاء الاصطناعي الذي تبحث عنه غير متصل أو تم نقله.',
 		notFoundCta: 'العودة إلى النظام',

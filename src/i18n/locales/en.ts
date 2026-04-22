@@ -75,7 +75,7 @@ const en = {
 		// Announcement Banner
 		bannerBadge: 'New',
 		bannerText: `EDDI ${EDDI_VERSION} has been released!`,
-		bannerLink: 'Get started',
+		bannerLink: 'Read the story',
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
 		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',

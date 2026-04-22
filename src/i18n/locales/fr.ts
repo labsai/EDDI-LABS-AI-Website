@@ -63,7 +63,7 @@ const fr: TranslationSchema = {
 		viewOnGithub: 'Voir sur GitHub ↗',
 		bannerBadge: 'Nouveau',
 		bannerText: `EDDI ${EDDI_VERSION} est maintenant disponible !`,
-		bannerLink: 'Commencer',
+		bannerLink: 'Lire l\'article',
 		notFoundTitle: 'Page introuvable',
 		notFoundDesc: 'La route d\'orchestration IA que vous recherchez a été déconnectée ou déplacée.',
 		notFoundCta: 'Retour au système',

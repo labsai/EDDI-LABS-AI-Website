@@ -63,7 +63,7 @@ const hi: TranslationSchema = {
 		viewOnGithub: 'GitHub पर देखें ↗',
 		bannerBadge: 'नया',
 		bannerText: `EDDI ${EDDI_VERSION} अब डेवलपर प्रीव्यू के रूप में उपलब्ध है!`,
-		bannerLink: 'शुरू करें',
+		bannerLink: 'लेख पढ़ें',
 		notFoundTitle: 'पेज नहीं मिला',
 		notFoundDesc: 'आप जिस AI ऑर्केस्ट्रेशन रूट की तलाश कर रहे हैं वह डिस्कनेक्ट या स्थानांतरित हो गया है।',
 		notFoundCta: 'सिस्टम पर लौटें',

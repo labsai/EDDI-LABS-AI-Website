@@ -62,7 +62,7 @@ const ja: TranslationSchema = {
 		viewOnGithub: 'GitHubで見る ↗',
 		bannerBadge: '新着',
 		bannerText: `EDDI ${EDDI_VERSION} デベロッパープレビューが利用可能になりました！`,
-		bannerLink: '始める',
+		bannerLink: '記事を読む',
 		notFoundTitle: 'ページが見つかりません',
 		notFoundDesc: 'お探しのAIオーケストレーションルートは切断または移動されました。',
 		notFoundCta: 'システムに戻る',

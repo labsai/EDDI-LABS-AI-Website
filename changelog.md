@@ -5,6 +5,7 @@ All notable changes to the EDDI website will be documented in this file.
 ## [Unreleased]
 
 ### 📄 Documentation Audit — Content Gap Remediation
+- `feat(website)`: **Banner Update** — Updated the announcement banner to link directly to the EDDI v6 release story on Medium instead of the getting-started page. Translated the link text ("Read the story") across all 11 locales.
 - `feat(website)`: **12 Built-In Agent Tools** — Added a 6-column tool grid to Features Overview showing all 12 bundled tools (Web Search, Calculator, Web Scraper, PDF Reader, Weather, DateTime, Data Formatter, Text Summarizer, HTTP Calls, User Memory, Conversation Recall, Multimodal Input). Translated into all 10 non-English locales.
 - `feat(website)`: **Config & Portability Section** — Added Import/Export (ZIP), Agent Sync, and Prompt Snippets cards to Features Overview. Translated into all 10 locales.
 - `feat(website)`: **Config-as-Code Items** — Added 4 new items (Import/Export, Agent Sync, Prompt Snippets, Behavior Rules) to the Config-as-Code feature page. Translated into all 10 locales.

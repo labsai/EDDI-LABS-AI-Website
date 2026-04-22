@@ -62,7 +62,7 @@ const zh: TranslationSchema = {
 		viewOnGithub: '在GitHub上查看 ↗',
 		bannerBadge: '新',
 		bannerText: `EDDI ${EDDI_VERSION}开发者预览版现已发布！`,
-		bannerLink: '立即开始',
+		bannerLink: '阅读文章',
 		notFoundTitle: '页面未找到',
 		notFoundDesc: '您查找的AI编排路由已断开或已迁移。',
 		notFoundCta: '返回系统首页',

@@ -63,7 +63,7 @@ const pt: TranslationSchema = {
 		viewOnGithub: 'Ver no GitHub ↗',
 		bannerBadge: 'Novo',
 		bannerText: `EDDI ${EDDI_VERSION} foi lançado!`,
-		bannerLink: 'Começar',
+		bannerLink: 'Ler o artigo',
 		notFoundTitle: 'Página Não Encontrada',
 		notFoundDesc: 'A rota de orquestração de IA que você procura foi desconectada ou realocada.',
 		notFoundCta: 'Voltar ao Sistema',

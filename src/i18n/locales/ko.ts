@@ -62,7 +62,7 @@ const ko: TranslationSchema = {
 		viewOnGithub: 'GitHub에서 보기 ↗',
 		bannerBadge: '새로운',
 		bannerText: `EDDI ${EDDI_VERSION} 개발자 프리뷰가 출시되었습니다!`,
-		bannerLink: '시작하기',
+		bannerLink: '기사 읽기',
 		notFoundTitle: '페이지를 찾을 수 없습니다',
 		notFoundDesc: '찾고 계신 AI 오케스트레이션 경로가 연결 해제되었거나 이동되었습니다.',
 		notFoundCta: '시스템으로 돌아가기',

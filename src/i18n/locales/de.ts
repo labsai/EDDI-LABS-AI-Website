@@ -63,7 +63,7 @@ const de: TranslationSchema = {
 		viewOnGithub: 'Auf GitHub ansehen ↗',
 		bannerBadge: 'Neu',
 		bannerText: `EDDI ${EDDI_VERSION} wurde veröffentlicht!`,
-		bannerLink: 'Jetzt starten',
+		bannerLink: 'Zum Artikel',
 		notFoundTitle: 'Seite nicht gefunden',
 		notFoundDesc: 'Die gesuchte KI-Orchestrierungsroute wurde getrennt oder verschoben.',
 		notFoundCta: 'Zurück zum System',
@@ -122,7 +122,7 @@ const de: TranslationSchema = {
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
 		problemCard1Title: 'Die Prototyp-Falle',
 		problemCard1Desc:
-			'Teams prototypen mit Flowise, n8n oder Skripten — und <strong>schreiben dann alles von Grund auf</strong> für die Produktion um. Visuelle Prototypen werden komplett verworfen.',
+			'Teams prototypisieren mit Flowise, n8n oder Skripten — und <strong>schreiben dann alles von Grund auf neu</strong> für die Produktion. Visuelle Prototypen werden vollständig verworfen.',
 		problemCard2Title: 'Boilerplate-Müdigkeit',
 		problemCard2Desc:
 			'KI-Bibliotheken zu nutzen bedeutet: REST-Controller, Auth-Layer und State-Management <strong>von Grund auf</strong> bauen. Jede Prompt-Änderung erfordert Redeployment.',
