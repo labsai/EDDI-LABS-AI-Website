@@ -34,7 +34,7 @@ const en = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline logs & audit trails',
 		codeQuality: 'Code Quality',
-		codeQualityDesc: '2,000+ tests, zero failures',
+		codeQualityDesc: '5,100+ tests, zero failures',
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'Built for coding agents',
 		memory: 'Memory & Context',
@@ -89,7 +89,7 @@ const en = {
 		// Trust bar
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Licensed',
-		tests: '2,000+ Tests · Zero Failures',
+		tests: '5,100+ Tests · Zero Failures',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		// Column headers
 		platform: 'Platform',
@@ -183,7 +183,7 @@ const en = {
 		trustRedHatDesc: 'Docker image certified by IBM',
 		trustApache: 'Apache 2.0 Licensed',
 		trustApacheDesc: '100% open-source & enterprise-ready',
-		trustTests: '2,000+ Tests · 0 Failures',
+		trustTests: '5,100+ Tests · 0 Failures',
 		trustTestsDesc: 'Rigorous CI/CD & code coverage',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Container pulls from Docker Hub',
@@ -400,7 +400,7 @@ const en = {
 			'Every pipeline step logged with <strong>immutable audit trails</strong> — tokens, cost, timing, and tool calls.',
 		cqCardTitle: '🧪 Code Quality',
 		cqCardDesc:
-			'<strong>2,000+ tests with zero failures.</strong> Zero Checkstyle warnings. CI/CD enforced on every merge.',
+			'<strong>5,100+ tests with zero failures.</strong> Zero Checkstyle warnings. CI/CD enforced on every merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc:
 			'42 MCP tools, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.',
@@ -544,12 +544,12 @@ const en = {
 		codeQuality: {
 			title: 'Code Quality',
 			description:
-				'2,000+ tests with zero failures. Zero Checkstyle warnings. CI/CD enforced quality gates on every merge.',
+				'5,100+ tests with zero failures. Zero Checkstyle warnings. CI/CD enforced quality gates on every merge.',
 			heading1: 'Engineering Rigor',
 			para1: 'EDDI maintains <strong>exceptional code quality</strong> through comprehensive testing, static analysis, and CI/CD quality gates. Every pull request must pass the full test suite before merge.',
 			heading2: 'Quality Metrics',
 			items: [
-				'<strong>2,000+ Tests</strong> — Unit, integration, and end-to-end coverage',
+				'<strong>5,100+ Tests</strong> — Unit, integration, and end-to-end coverage',
 				'<strong>Zero Failures</strong> — Clean CI on every build',
 				'<strong>Checkstyle Enforcement</strong> — Zero warnings, strict rules enforced on every build',
 				'<strong>MCP Tool Tests</strong> — Comprehensive coverage of all 42 MCP tools',
@@ -970,7 +970,7 @@ const en = {
 			devCIDesc: 'Automated build verification on every commit',
 			devCodeQL: 'CodeQL Clean',
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
-			devTests: '2,000+ Tests',
+			devTests: '5,100+ Tests',
 			devTestsDesc: 'Zero failures, enforced on every merge',
 			devIntegration: '42 Integration Tests',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',

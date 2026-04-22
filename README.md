@@ -45,7 +45,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
 | 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and a 45-panel Grafana dashboard |
 | 🚀 | **Performance** | Java 25 Virtual Threads — millions of lightweight threads for I/O-bound LLM workloads |
-| 🧪 | **Code Quality** | 2,000+ tests with zero failures, CI/CD quality gates on every merge |
+| 🧪 | **Code Quality** | 5,100+ tests with zero failures, CI/CD quality gates on every merge |
 
 ---
 
