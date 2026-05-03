@@ -11,16 +11,73 @@ const t = await getTranslations(lang);
 const p = t.pages.vsAlternatives;
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
-<h2>{p.heading1}</h2>
-<p set:html={p.para1} />
+
+<!-- Section 1: Overview -->
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+
+<!-- Section 2: vs. Visual Node Builders -->
 <h2>{p.heading2}</h2>
-<h3>{p.heading3a}</h3>
+<p class="section-sub">{p.heading2sub}</p>
 <p set:html={p.para2} />
-<h3>{p.heading3b}</h3>
-<p>{p.para3}</p>
-<ul>
-{p.vsItems.map((item) => <li set:html={item} />)}
-</ul>
-<h3>{p.heading3c}</h3>
+
+<h3>{p.builderComparisonTitle}</h3>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{p.builderComparisonHeaders.dimension}</th><th>{p.builderComparisonHeaders.builders}</th><th>{p.builderComparisonHeaders.eddi}</th></tr></thead>
+<tbody>{p.builderComparisonRows.map((row) => <tr><td><strong>{row.dimension}</strong></td><td>{row.builders}</td><td>{row.eddi}</td></tr>)}</tbody>
+</table>
+</div>
+
+<h3>{p.builderSecurityTitle}</h3>
+<p set:html={p.builderSecurityPara} />
+<p set:html={p.builderSecurityPara2} />
+
+<!-- Section 3: vs. Code Libraries -->
+<h2>{p.heading3}</h2>
+<p class="section-sub">{p.heading3sub}</p>
+<p set:html={p.para3} />
+
+<h3>{p.libraryGapTitle}</h3>
+<p>{p.libraryGapDesc}</p>
+<ul>{p.libraryGapItems.map((item) => <li>{item}</li>)}</ul>
+
+<h3>{p.libraryComparisonTitle}</h3>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{p.libraryComparisonHeaders.framework}</th><th>{p.libraryComparisonHeaders.abstraction}</th><th>{p.libraryComparisonHeaders.learning}</th><th>{p.libraryComparisonHeaders.state}</th><th>{p.libraryComparisonHeaders.production}</th></tr></thead>
+<tbody>{p.libraryComparisonRows.map((row) => <tr><td><strong>{row.framework}</strong></td><td>{row.abstraction}</td><td>{row.learning}</td><td>{row.state}</td><td>{row.production}</td></tr>)}</tbody>
+</table>
+</div>
+
+<p set:html={p.libraryPositioning} />
+
+<!-- Section 4: vs. Cloud AI Platforms -->
+<h2>{p.heading4}</h2>
+<p class="section-sub">{p.heading4sub}</p>
 <p set:html={p.para4} />
+
+<h3>{p.cloudComparisonTitle}</h3>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{p.cloudComparisonHeaders.dimension}</th><th>{p.cloudComparisonHeaders.cloud}</th><th>{p.cloudComparisonHeaders.eddi}</th></tr></thead>
+<tbody>{p.cloudComparisonRows.map((row) => <tr><td><strong>{row.dimension}</strong></td><td>{row.cloud}</td><td>{row.eddi}</td></tr>)}</tbody>
+</table>
+</div>
+
+<p set:html={p.cloudSovereigntyPara} />
+
+<!-- Bottom CTA -->
+<h2>{p.ctaTitle}</h2>
+<p>{p.ctaPara}</p>
+
 </FeaturePage>
+
+<style>
+.section-sub {
+	font-size: 1rem;
+	color: var(--color-text-subtle);
+	margin-top: -0.5rem;
+	margin-bottom: 1rem;
+	font-style: italic;
+}
+</style>

@@ -116,7 +116,7 @@ const es: TranslationSchema = {
 		heroTitle: 'El orquestador de IA',
 		heroHighlight: 'para empresas',
 		heroTagline:
-			`Cree, despliegue y gestione agentes de IA — sin escribir código. Basado en configuración, autoalojado y listo para el cumplimiento normativo. Actualmente en <strong>${EDDI_VERSION} Preview</strong>.`,
+			`La plataforma de código abierto lista para producción para desplegar sistemas de IA multi-agente gobernados. Basada en configuración, autoalojada y lista para cumplimiento — con UI de gestión visual, 42 herramientas MCP y seguridad empresarial integrada. Ahora en <strong>${EDDI_VERSION}</strong>.`,
 		problemTitle: 'El problema',
 		problemDesc:
 			'La orquestación empresarial de IA está <strong>fragmentada y es dolorosa</strong>. Los equipos están atrapados en un ciclo de vida roto:',
@@ -203,6 +203,10 @@ const es: TranslationSchema = {
 		faq5Q: '¿Puede EDDI sustituir a Flowise o n8n en entornos de producción?',
 		faq5A:
 			'EDDI cumple un propósito similar de construcción visual, pero con una arquitectura de nivel empresarial. A diferencia de Flowise y n8n, EDDI no utiliza <code>eval()</code> ni bloques de ejecución de código, ejecuta millones de hilos virtuales ligeros para concurrencia de nivel empresarial, soporta autenticación OIDC/Keycloak y almacena datos en MongoDB o PostgreSQL. Está diseñado para industrias reguladas.',
+		faq6Q: '¿Está EDDI relacionado con "Eddie AI" u otros productos llamados "Eddy"?',
+		faq6A: 'No. EDDI (de <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) es una plataforma <strong>de orquestación de agentes de IA empresarial</strong> autoalojada construida sobre Java/Quarkus. No está relacionado con herramientas de edición de video, software de RRHH, constructores de chatbots u otros productos con nombres similares.',
+		faq7Q: '¿Cómo se compara EDDI con plataformas de IA en la nube como AWS Bedrock o Azure AI Studio?',
+		faq7A: 'Las plataformas de IA en la nube ofrecen infraestructura gestionada pero crean <strong>dependencia del proveedor</strong>. EDDI funciona donde sea que funcione Docker. Consulta nuestra <a href="/enterprise/vs-alternatives/">comparación detallada</a>.',
 	},
 	gettingStarted: {
 		title: 'Primeros pasos',
@@ -261,9 +265,6 @@ const es: TranslationSchema = {
 		k8sTitle: 'Despliegue en Kubernetes',
 		k8sDesc: 'Despliegue en Kubernetes con un solo comando:',
 		k8sOptions: 'También hay disponibles overlays de Kustomize y Helm charts para MongoDB, PostgreSQL, auth, monitoreo y endurecimiento de producción (HPA, PDB, NetworkPolicy). Consulte la <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Guía de Kubernetes</a>.',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: '¿Construyendo una app Quarkus? Use la extensión <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> para Dev Services, API fluida, streaming SSE y puente MCP:',
 	},
 	useCases: {
 		title: 'Casos de uso',
@@ -374,7 +375,7 @@ const es: TranslationSchema = {
 				'Una interfaz de gestión React lista para producción para construir, desplegar y supervisar agentes de IA visualmente — con i18n en 11 idiomas, depuración de chat en vivo y paneles de auditoría.',
 			heading1: 'Gestión visual de agentes',
 			para1:
-				'El EDDI Manager es una interfaz de gestión completa basada en React que ofrece control visual sobre todos los aspectos de la plataforma EDDI — desde la configuración de agentes hasta la supervisión de conversaciones en tiempo real.',
+				'El mercado de orquestación de IA tiene tres arquetipos: <strong>constructores de nodos visuales</strong>, <strong>bibliotecas de código</strong> y <strong>plataformas cloud</strong>. EDDI es una <strong>plataforma middleware desplegable</strong>.',
 			heading2: 'Funcionalidades clave',
 			items: [
 				'<strong>Constructor visual de agentes</strong> — Cree y configure agentes mediante una interfaz intuitiva de arrastrar y soltar',
@@ -387,7 +388,7 @@ const es: TranslationSchema = {
 			],
 			heading3: 'Diseñado para equipos',
 			para2:
-				'El Manager permite a los no-desarrolladores iterar sobre el comportamiento de los agentes sin tocar código fuente. Los ingenieros de prompts pueden modificar reglas, probar conversaciones y desplegar cambios — todo desde el navegador.',
+				'Los constructores de nodos visuales agilizan el prototipado. Sin embargo, su arquitectura introduce limitaciones a escala empresarial.',
 		},
 		mcpServer: {
 			title: 'Servidor MCP — 42 herramientas',
@@ -435,6 +436,11 @@ const es: TranslationSchema = {
 			heading1: 'Seguridad empresarial por diseño',
 			para1:
 				'EDDI elimina clases enteras de vulnerabilidades de seguridad por diseño. No hay <strong>ningún eval()</strong>, ningún bloque de ejecución de código y ninguna inyección dinámica — el comportamiento del agente se define únicamente mediante configuración JSON declarativa.',
+			crisisTitle: '¿Por qué esto importa ahora?',
+			crisisPara: 'El ecosistema de agentes de IA está bajo una presión de seguridad sin precedentes.',
+			crisisPara2: 'La Cloud Security Alliance identificó un "Vacío de Divulgación de Agentes de IA" sistémico.',
+			defenseTitle: 'La defensa arquitectónica de EDDI',
+			defensePara: 'En lugar de intentar aislar la ejecución de código, EDDI <strong>elimina la superficie de ataque por completo</strong>.',
 			heading2: 'Funcionalidades de seguridad',
 			items: [
 				'<strong>Cero eval()</strong> — Sin ejecución dinámica de código (elimina riesgos RCE CVSS 10.0)',
@@ -445,6 +451,9 @@ const es: TranslationSchema = {
 				'<strong>Pistas de auditoría criptográficas</strong> — Registros de operaciones inmutables e inalterables',
 				'<strong>Preparado para el Reglamento de IA de la UE</strong> — Capacidades de gobernanza integradas para el cumplimiento normativo',
 			],
+			govTitle: 'Integración de gobernanza y cumplimiento',
+			govPara: 'Las capacidades de seguridad alimentan directamente el marco de cumplimiento de EDDI. La pista de auditoría inmutable satisface los requisitos del EU AI Act (Art. 12-14).',
+
 		},
 		performance: {
 			title: 'Rendimiento empresarial',
@@ -453,6 +462,9 @@ const es: TranslationSchema = {
 			heading1: 'Diseñado para escalar',
 			para1:
 				'EDDI se ejecuta sobre <strong>Java 25 con Quarkus</strong>, aprovechando los hilos virtuales (Project Loom) para una concurrencia masiva en E/S. A diferencia de los bucles de eventos de Node.js, los hilos virtuales ofrecen verdadero paralelismo multihilo con una sobrecarga mínima.',
+			vtTitle: 'Por qué los hilos virtuales importan para agentes de IA',
+			vtPara: 'Los agentes de IA modernos están fundamentalmente <strong>limitados por I/O</strong>.',
+			vtPara2: 'Los hilos virtuales de Java resuelven esto con elegancia.',
 			heading2: 'Aspectos destacados de rendimiento',
 			items: [
 				'<strong>Hilos virtuales</strong> — Millones de hilos ligeros para llamadas LLM concurrentes',
@@ -463,6 +475,10 @@ const es: TranslationSchema = {
 				'<strong>Instalación con un comando</strong> — Asistente interactivo que despliega EDDI + base de datos + agente inicial vía Docker Compose',
 				'<strong>Red Hat Certificado</strong> — Certificación de contenedores con verificaciones preflight automatizadas en CI/CD',
 			],
+			benchTitle: 'Rendimiento en contexto',
+			benchPara: 'Ningún runtime gana en todos los escenarios. Java supera consistentemente a Node.js en un 30–68%.',
+			benchPara2: 'La arquitectura de EDDI está optimizada para cargas mixtas de I/O + CPU.',
+
 		},
 		multiAgent: {
 			title: 'Orquestación multi-agente',
@@ -538,8 +554,6 @@ const es: TranslationSchema = {
 				'<strong>Automatización de configuración</strong> — Creación de agentes en una sola llamada con <code>setup_agent</code>',
 			],
 		},
-// ─── New Feature Pages ────────────────────────────────────
-
 		memory: {
 			title: 'Gestión de Memoria y Contexto',
 			description: 'Memoria de usuario persistente, consolidación onírica, resúmenes continuos y ventaneo de contexto consciente de tokens — agentes que recuerdan, aprenden y olvidan inteligentemente.',
@@ -646,38 +660,105 @@ const es: TranslationSchema = {
 			// LLM Providers
 			llmTitle: '12 proveedores LLM soportados',
 			llmDesc: 'Conéctese a cualquier proveedor LLM principal — o traiga el suyo a través de cualquier endpoint compatible con OpenAI.',
+			llmHeaderCategory: 'Categoría',
+			llmHeaderProviders: 'Proveedores',
 			llmCategories: [
 				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'Cloud Empresarial', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'Auto-hospedado', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: 'Compatible', providers: 'Cualquier endpoint compatible con OpenAI (DeepSeek, Cohere, etc.) via baseUrl' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: '¿Construyendo una app Quarkus que se comunica con EDDI? Use la extensión <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> — Dev Services (inicia EDDI automáticamente en modo dev), API fluida, streaming SSE, cableado de endpoints <code>@EddiAgent</code> y puente MCP <code>@EddiTool</code>.',
+			rfpTitle: '8 preguntas que todo CIO debería hacer',
+			rfpDesc: 'Preguntas clave para evaluar plataformas de orquestación de agentes de IA:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code?', eddiAnswer: 'No. Declarative JSON only.' },
+				{ category: 'Performance', question: 'How does it handle concurrent agents?', eddiAnswer: 'Java 25 virtual threads.' },
+				{ category: 'Integration', question: 'Open standards support?', eddiAnswer: '42 MCP tools, A2A, OpenAPI 3.1, OIDC.' },
+				{ category: 'Data Privacy', question: 'Data subject rights?', eddiAnswer: 'Unified API across 5 data stores.' },
+				{ category: 'Security', question: 'Architectural security posture?', eddiAnswer: 'No eval(). OIDC, AES-256-GCM vault, HMAC-SHA256.' },
+				{ category: 'Compliance', question: 'Immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger.' },
+				{ category: 'Operations', question: 'Non-developer friendly?', eddiAnswer: 'React management UI.' },
+				{ category: 'Portability', question: 'On-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers.' },
+			],
+			tcoTitle: 'Costo total de propiedad: Construir vs. Desplegar',
+			tcoDesc: 'El costo oculto es la <strong>infraestructura invisible</strong> que los equipos deben construir:',
+			tcoBuildTitle: 'Construir con bibliotecas',
+			tcoBuildItems: ['REST API (2\u20134 weeks)','Auth (2\u20133 weeks)','State (1\u20132 weeks)','Audit (2\u20134 weeks)','UI (4\u20138 weeks)','Secrets (1\u20132 weeks)','Scaling (2\u20134 weeks)','Maintenance'],
+			tcoDeployTitle: 'Desplegar EDDI',
+			tcoDeployItems: ['One-command install (5 min)','All included out of the box','Focus on business logic','18-year-old open-source project'],
+			roiTitle: 'El caso de negocio',
+			roiPara: 'El valor de EDDI se mide en <strong>lo que los equipos no tienen que construir</strong>.',
+			roiPara2: 'Para industrias reguladas: la alternativa es una implementación de cumplimiento personalizada que cubra más de 15 marcos regulatorios.',
+
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. Alternativas',
 			description: 'Cómo se compara EDDI con Spring AI, LangChain4j, Flowise, n8n y otros enfoques de orquestación de IA.',
-			heading1: 'Plataforma vs. Biblioteca',
-			para1:
-				'La diferencia fundamental: EDDI es una <strong>plataforma middleware desplegable</strong>, no una biblioteca. Mientras las bibliotecas proporcionan bloques de construcción, EDDI proporciona el edificio completo — listo para desplegar.',
-			heading2: 'Comparativa',
-			heading3a: 'vs. Bibliotecas de IA (Spring AI, LangChain, etc.)',
-			para2:
-				'Las bibliotecas de IA como Spring AI, LangChain y LangChain4j son excelentes <strong>bloques de construcción</strong> (EDDI utiliza LangChain4j internamente). Pero con bibliotecas, aún necesita construir controladores REST, autenticación, gestión de conversaciones, registro de auditoría e interfaces de gestión por su cuenta. EDDI proporciona todo esto listo para usar.',
-			heading3b: 'vs. Flowise / n8n',
-			para3:
-				'Flowise y n8n son constructores visuales basados en Node.js. EDDI cumple un papel similar pero con arquitectura de nivel empresarial:',
-			vsItems: [
-				'<strong>Sin eval()</strong> — Elimina riesgos de ejecución remota de código CVSS 10.0',
-				'<strong>Millones de hilos virtuales</strong> — Concurrencia empresarial vs. bucles de eventos de un solo hilo',
-				'<strong>OIDC/Keycloak</strong> — Autenticación empresarial vs. autenticación básica',
-				'<strong>MongoDB/PostgreSQL</strong> — Bases de datos de producción vs. SQLite',
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'El mercado de orquestación de IA tiene tres arquetipos: <strong>constructores de nodos visuales</strong>, <strong>bibliotecas de código</strong> y <strong>plataformas cloud</strong>. EDDI es una <strong>plataforma middleware desplegable</strong>.',
+
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
+			para2: 'Los constructores de nodos visuales agilizan el prototipado. Sin embargo, su arquitectura introduce limitaciones a escala empresarial.',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+				{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads' },
+				{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks', eddi: 'Zero eval() \u2014 declarative JSON only' },
+				{ dimension: 'Security', builders: 'Multiple critical CVEs documented', eddi: 'No dynamic code execution by design' },
+				{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC' },
+				{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL' },
+				{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable audit ledger' },
+				{ dimension: 'Compliance', builders: 'Manual implementation', eddi: '17+ frameworks built in' },
 			],
-			heading3c: 'vs. AWS Bedrock / Azure AI Studio',
-			para4:
-				'Las plataformas de IA en la nube ofrecen infraestructura gestionada pero crean <strong>dependencia del proveedor</strong>. EDDI se ejecuta en cualquier lugar donde funcione Docker — en local, en cualquier nube o en entornos aislados.',
+
+			builderSecurityTitle: 'La consideración de seguridad',
+			builderSecurityPara: 'A principios de 2026, el ecosistema de agentes de IA experimentó un importante <strong>ajuste de cuentas en seguridad</strong>.',
+			builderSecurityPara2: 'EDDI adopta un enfoque fundamentalmente diferente: <strong>prohibir categóricamente la evaluación de código en tiempo de ejecución</strong>.',
+
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph \u00b7 CrewAI \u00b7 AutoGen \u00b7 LangChain \u00b7 Spring AI',
+			para3: 'Las bibliotecas de código son excelentes bloques de construcción. Pero elegir una biblioteca implica construir toda la infraestructura de producción por cuenta propia.',
+
+			libraryGapTitle: 'La brecha de "Operaciones del Día 2"',
+			libraryGapDesc: 'Los equipos deben construir la infraestructura empresarial desde cero:',
+			libraryGapItems: [
+				'REST API controllers', 'Authentication (OIDC, RBAC)', 'Conversation state management',
+				'Audit logging', 'Management UI', 'Secret management',
+				'Horizontal scaling', 'Cost tracking', 'GDPR compliance API', 'Durable execution',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework', abstraction: 'Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+				{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG)', learning: 'Moderate\u2013High', state: 'Built-in persistence', production: 'Requires custom infrastructure' },
+				{ framework: 'CrewAI', abstraction: 'Role-based delegation', learning: 'Low', state: 'Ephemeral', production: 'Prototyping-focused' },
+				{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
+				{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged' },
+			],
+
+			libraryPositioning: '<strong>Las bibliotecas proporcionan la lógica; EDDI proporciona la infraestructura.</strong>',
+
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock \u00b7 Azure AI Studio \u00b7 Google Vertex AI',
+			para4: 'Las plataformas de IA en la nube ofrecen infraestructura gestionada pero introducen un <strong>significativo bloqueo de proveedor</strong>.',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+				{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native \u2014 any environment' },
+				{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
+				{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs 60\u201380%' },
+				{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
+				{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
+				{ dimension: 'Air-Gap', cloud: 'Not possible', eddi: 'Full offline with Ollama/Jlama' },
+			],
+
+			cloudSovereigntyPara: 'La arquitectura autoalojada de EDDI proporciona <strong>soberanía de infraestructura</strong> que las plataformas vinculadas a la nube no pueden igualar.',
+
+			ctaTitle: '¿Listo para comparar?',
+			ctaPara: 'Instala EDDI en 5 minutos y evalúalo frente a tu stack actual.',
 		},
 		compliance: {
 			title: 'Privacidad global y cumplimiento normativo',

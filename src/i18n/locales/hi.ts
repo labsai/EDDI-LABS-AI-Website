@@ -116,7 +116,7 @@ const hi: TranslationSchema = {
 		heroTitle: 'एंटरप्राइज़',
 		heroHighlight: 'AI ऑर्केस्ट्रेटर',
 		heroTagline:
-			`AI एजेंट्स बनाएं, डिप्लॉय करें और प्रबंधित करें — कोड लिखे बिना। कॉन्फ़िगरेशन-संचालित, सेल्फ-होस्टेड और कम्प्लायंस-रेडी — वर्तमान में <strong>${EDDI_VERSION} प्रीव्यू</strong> में।`,
+			`शासित, मल्टी-एजेंट AI सिस्टम तैनात करने के लिए ओपन-सोर्स, प्रोडक्शन-रेडी प्लेटफ़ॉर्म। कॉन्फ़िगरेशन-आधारित, सेल्फ-होस्टेड, और अनुपालन-तैयार — विज़ुअल प्रबंधन UI, 42 MCP टूल और एंटरप्राइज़ सुरक्षा के साथ। अब <strong>${EDDI_VERSION}</strong> में।`,
 		problemTitle: 'समस्या',
 		problemDesc: 'एंटरप्राइज़ AI ऑर्केस्ट्रेशन <strong>खंडित और कठिन</strong> है। टीमें एक दर्दनाक, खंडित जीवनचक्र में फंसी हुई हैं:',
 		problemCard1Title: 'प्रोटोटाइप जाल',
@@ -199,6 +199,10 @@ const hi: TranslationSchema = {
 		faq5Q: 'क्या EDDI प्रोडक्शन वर्कलोड के लिए Flowise या n8n की जगह ले सकता है?',
 		faq5A:
 			'EDDI Node.js के बजाय JVM पर समान विज़ुअल बिल्डिंग उद्देश्य पूरा करता है। Flowise और n8n के विपरीत, EDDI कोई <code>eval()</code> या कोड ब्लॉक उपयोग नहीं करता और नियंत्रित उद्योगों के लिए डिज़ाइन किया गया है।',
+		faq6Q: 'क्या EDDI "Eddie AI" या "Eddy" नाम के अन्य उत्पादों से संबंधित है?',
+		faq6A: 'नहीं। EDDI (<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a> द्वारा) Java/Quarkus पर निर्मित एक सेल्फ-होस्टेड <strong>एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म</strong> है। यह वीडियो संपादन, HR सॉफ़्टवेयर, चैटबॉट बिल्डर या समान नाम वाले अन्य उत्पादों से संबंधित नहीं है।',
+		faq7Q: 'EDDI की तुलना AWS Bedrock या Azure AI Studio जैसे क्लाउड AI प्लेटफ़ॉर्म से कैसे होती है?',
+		faq7A: 'क्लाउड AI प्लेटफ़ॉर्म प्रबंधित इंफ्रास्ट्रक्चर प्रदान करते हैं लेकिन <strong>वेंडर लॉक-इन</strong> बनाते हैं। EDDI कहीं भी चलता है जहां Docker चलता है। हमारी <a href="/enterprise/vs-alternatives/">विस्तृत तुलना</a> देखें।',
 	},
 	gettingStarted: {
 		title: 'शुरुआत करना',
@@ -257,9 +261,6 @@ const hi: TranslationSchema = {
 		k8sTitle: 'Kubernetes डिप्लॉयमेंट',
 		k8sDesc: 'एक कमांड से Kubernetes पर डिप्लॉय करें:',
 		k8sOptions: 'MongoDB, PostgreSQL, auth, मॉनिटरिंग, और प्रोडक्शन हार्डनिंग (HPA, PDB, NetworkPolicy) के लिए Kustomize overlays और Helm charts भी उपलब्ध हैं। <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes गाइड</a> देखें।',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Quarkus ऐप बना रहे हैं? <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> एक्सटेंशन का उपयोग करें — Dev Services, Fluent API, SSE स्ट्रीमिंग और MCP ब्रिज:',
 	},
 	useCases: {
 		title: 'उपयोग मामले',
@@ -412,6 +413,11 @@ const hi: TranslationSchema = {
 			description: 'कोई eval() नहीं, कोई कोड एक्ज़ीक्यूशन ब्लॉक नहीं।',
 			heading1: 'डिज़ाइन द्वारा एंटरप्राइज़ सुरक्षा',
 			para1: 'EDDI डिज़ाइन द्वारा सुरक्षा कमज़ोरियों की पूरी श्रेणियों को समाप्त करता है।',
+			crisisTitle: 'यह अभी क्यों महत्वपूर्ण है',
+			crisisPara: 'AI एजेंट इकोसिस्टम अभूतपूर्व सुरक्षा दबाव में है। 2026 की शुरुआत में, शोधकर्ताओं ने प्रमुख ओपन-सोर्स एजेंट फ्रेमवर्क में सैकड़ों गंभीर कमजोरियों का दस्तावेजीकरण किया।',
+			crisisPara2: 'Cloud Security Alliance ने एक प्रणालीगत "AI एजेंट प्रकटीकरण शून्यता" की पहचान की।',
+			defenseTitle: 'EDDI की आर्किटेक्चरल रक्षा',
+			defensePara: 'कोड निष्पादन को सैंडबॉक्स करने का प्रयास करने के बजाय, EDDI <strong>हमले की सतह को पूरी तरह समाप्त करता है</strong>।',
 			heading2: 'सुरक्षा सुविधाएँ',
 			items: [
 				'<strong>शून्य eval()</strong> — कोई डायनामिक कोड एक्ज़ीक्यूशन नहीं',
@@ -422,12 +428,17 @@ const hi: TranslationSchema = {
 				'<strong>क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स</strong> — अपरिवर्तनीय ऑपरेशन लॉग',
 				'<strong>EU AI अधिनियम तैयार</strong> — अंतर्निहित शासन क्षमताएँ',
 			],
+			govTitle: 'शासन और अनुपालन एकीकरण',
+			govPara: 'सुरक्षा क्षमताएं सीधे EDDI के <a href="/enterprise/compliance/">अनुपालन ढांचे</a> में शामिल होती हैं। अपरिवर्तनीय ऑडिट ट्रेल EU AI Act आवश्यकताओं (अनु. 12-14) को पूरा करता है। वही इंफ्रास्ट्रक्चर GDPR, HIPAA, SOC 2 और 15+ नियामक ढांचों का समर्थन करता है।',
 		},
 		performance: {
 			title: 'एंटरप्राइज़ प्रदर्शन',
 			description: 'Quarkus पर Java 25 वर्चुअल थ्रेड्स।',
 			heading1: 'स्केल के लिए बनाया',
 			para1: 'EDDI <strong>Java 25 और Quarkus</strong> पर चलता है, वर्चुअल थ्रेड्स (Project Loom) का लाभ उठाते हुए।',
+			vtTitle: 'AI एजेंट्स के लिए वर्चुअल थ्रेड्स क्यों महत्वपूर्ण हैं',
+			vtPara: 'आधुनिक AI एजेंट मौलिक रूप से <strong>I/O-बाउंड</strong> हैं।',
+			vtPara2: 'Java वर्चुअल थ्रेड्स इसे सुरुचिपूर्ण ढंग से हल करते हैं।',
 			heading2: 'प्रदर्शन हाइलाइट्स',
 			items: [
 				'<strong>वर्चुअल थ्रेड्स</strong> — लाखों लाइटवेट थ्रेड्स',
@@ -438,6 +449,9 @@ const hi: TranslationSchema = {
 				'<strong>एक-कमांड इंस्टॉल</strong> — Docker Compose के माध्यम से EDDI + डेटाबेस + स्टार्टर एजेंट डिप्लॉय करने वाला इंटरैक्टिव विज़ार्ड',
 				'<strong>Red Hat प्रमाणित</strong> — CI/CD में ऑटोमेटेड प्रीफ्लाइट चेक्स के साथ कंटेनर प्रमाणन',
 			],
+			benchTitle: 'संदर्भ में प्रदर्शन',
+			benchPara: 'कोई भी रनटाइम हर परिदृश्य में नहीं जीतता। Java लगातार CPU-गहन कार्यों में Node.js से 30-68% बेहतर प्रदर्शन करता है — जो AI एजेंट्स को ठीक वही चाहिए।',
+			benchPara2: 'EDDI की वास्तुकला जानबूझकर मिश्रित I/O + CPU वर्कलोड के लिए अनुकूलित है: Loom-अनुकूल कनेक्शन पूल (Agroal) के साथ वर्चुअल थ्रेड्स वाला Quarkus।',
 		},
 		multiAgent: {
 			title: 'मल्टी-एजेंट ऑर्केस्ट्रेशन',
@@ -610,35 +624,118 @@ const hi: TranslationSchema = {
 			// LLM Providers
 			llmTitle: '12 LLM प्रदाताओं का समर्थन',
 			llmDesc: 'किसी भी प्रमुख LLM प्रदाता से कनेक्ट करें — या किसी भी OpenAI-संगत endpoint के माध्यम से अपना खुद का लाएं।',
+			llmHeaderCategory: 'श्रेणी',
+			llmHeaderProviders: 'प्रदाता',
 			llmCategories: [
 				{ category: 'क्लाउड APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'एंटरप्राइज़ क्लाउड', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'सेल्फ-होस्टेड', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: 'संगत', providers: 'कोई भी OpenAI-संगत endpoint (DeepSeek, Cohere, आदि) baseUrl के माध्यम से' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'EDDI के साथ संवाद करने वाला Quarkus ऐप बना रहे हैं? <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> एक्सटेंशन का उपयोग करें — Dev Services (dev मोड में EDDI को स्वचालित रूप से शुरू करता है), Fluent API, SSE स्ट्रीमिंग, <code>@EddiAgent</code> एंडपॉइंट वायरिंग और <code>@EddiTool</code> MCP ब्रिज।',
+			rfpTitle: '8 प्रश्न जो हर CIO को पूछने चाहिए',
+			rfpDesc: 'AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म का मूल्यांकन करते समय, ये वे प्रश्न हैं that separate production-grade infrastructure from fragile prototypes:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only.' },
+				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism.' },
+				{ category: 'Integration', question: 'Can agents consume external tools through open standards?', eddiAnswer: '42 MCP tools, A2A protocol, OpenAPI 3.1, OAuth 2.0/OIDC.' },
+				{ category: 'Data Privacy', question: 'How are data subject rights implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. 15+ frameworks.' },
+				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
+				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },
+				{ category: 'Operations', question: 'Can non-developers use the platform?', eddiAnswer: 'EDDI Manager: production-ready React UI with visual agent building.' },
+				{ category: 'Portability', question: 'Can it run on-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers. Full air-gap via Ollama.' },
+			],
+			tcoTitle: 'स्वामित्व की कुल लागत: निर्माण बनाम तैनाती',
+			tcoDesc: 'AI लाइब्रेरी का उपयोग करने की छिपी लागत लाइब्रेरी स्वयं नहीं है \u2014 it\'s the <strong>invisible infrastructure</strong> teams must build around it:',
+			tcoBuildTitle: 'लाइब्रेरी से निर्माण',
+			tcoBuildItems: [
+				'Custom REST API layer (2\u20134 weeks)',
+				'Authentication & RBAC system (2\u20133 weeks)',
+				'Conversation state persistence (1\u20132 weeks)',
+				'Audit trail & compliance logging (2\u20134 weeks)',
+				'Management UI for non-developers (4\u20138 weeks)',
+				'Secret management integration (1\u20132 weeks)',
+				'Horizontal scaling & coordination (2\u20134 weeks)',
+				'Ongoing maintenance & security patching',
+			],
+			tcoDeployTitle: 'EDDI तैनात करना',
+			tcoDeployItems: [
+				'One-command install (5 minutes)',
+				'All of the above included out of the box',
+				'Team focuses on business logic, not infrastructure',
+				'Maintained by an 18-year-old open-source project',
+			],
+			roiTitle: 'व्यावसायिक मामला',
+			roiPara: 'EDDI का मूल्य इसमें मापा जाता है कि <strong>टीमों को क्या नहीं बनाना पड़ता</strong>.',
+			roiPara2: 'विनियमित उद्योगों के लिए, लागत समीकरण और भी स्पष्ट है: विकल्प 15+ नियामक ढांचों को कवर करने वाला कस्टम अनुपालन कार्यान्वयन है।',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. विकल्प',
 			description: 'EDDI की Spring AI, LangChain4j, Flowise, n8n और अन्य से तुलना।',
-			heading1: 'प्लेटफ़ॉर्म vs. लाइब्रेरी',
-			para1: 'मूल अंतर: EDDI एक <strong>डिप्लॉय करने योग्य मिडलवेयर प्लेटफ़ॉर्म</strong> है।',
-			heading2: 'तुलना',
-			heading3a: 'vs. AI Libraries (Spring AI, LangChain, etc.)',
-			para2:
-				'Spring AI और LangChain4j उत्कृष्ट <strong>लाइब्रेरी</strong> हैं। लेकिन आपको REST कंट्रोलर, ऑथ, वार्तालाप प्रबंधन खुद बनाने होंगे।',
-			heading3b: 'vs. Flowise / n8n',
-			para3: 'Flowise और n8n Node.js-आधारित हैं। EDDI JVM पर समान उद्देश्य:',
-			vsItems: [
-				'<strong>कोई eval() नहीं</strong> — CVSS 10.0 RCE जोखिम समाप्त',
-				'<strong>Java 25 वर्चुअल थ्रेड्स</strong> — एंटरप्राइज़ कंकरेंसी',
-				'<strong>OIDC/Keycloak</strong> — एंटरप्राइज़ ऑथ',
-				'<strong>MongoDB/PostgreSQL</strong> — प्रोडक्शन डेटाबेस',
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'AI ऑर्केस्ट्रेशन बाजार में तीन प्रकार हैं: <strong>विज़ुअल नोड बिल्डर</strong>, <strong>कोड लाइब्रेरी</strong>, और <strong>क्लाउड प्लेटफ़ॉर्म</strong>। EDDI एक <strong>तैनाती योग्य मिडलवेयर प्लेटफ़ॉर्म</strong> है।',
+
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
+			para2: 'विज़ुअल नोड बिल्डर प्रोटोटाइपिंग को तेज़ बनाते हैं। हालांकि, उनकी वास्तुकला एंटरप्राइज़ स्तर पर सीमाएं लागू करती है।',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+			{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads' },
+			{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks', eddi: 'Zero eval() \u2014 declarative JSON only' },
+			{ dimension: 'Security', builders: 'Multiple critical CVEs documented', eddi: 'No dynamic code execution by design' },
+			{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC' },
+			{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL' },
+			{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable audit ledger' },
+			{ dimension: 'Compliance', builders: 'Manual implementation', eddi: '17+ frameworks built in' },
 			],
-			heading3c: 'vs. AWS Bedrock / Azure AI Studio',
-			para4: 'क्लाउड AI प्लेटफ़ॉर्म <strong>वेंडर लॉक-इन</strong> बनाते हैं। EDDI कहीं भी चलता है।',
+
+			builderSecurityTitle: 'सुरक्षा विचार',
+			builderSecurityPara: '2026 की शुरुआत तक, AI एजेंट इकोसिस्टम ने एक महत्वपूर्ण <strong>सुरक्षा रिकनिंग</strong> का अनुभव किया।',
+			builderSecurityPara2: 'EDDI मौलिक रूप से अलग दृष्टिकोण अपनाता है: <strong>रनटाइम कोड मूल्यांकन को स्पष्ट रूप से प्रतिबंधित करना</strong>।',
+
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph \u00b7 CrewAI \u00b7 AutoGen \u00b7 LangChain \u00b7 Spring AI',
+			para3: 'कोड लाइब्रेरी उत्कृष्ट बिल्डिंग ब्लॉक हैं। लेकिन लाइब्रेरी चुनने का मतलब है सभी प्रोडक्शन इंफ्रास्ट्रक्चर खुद बनाना।',
+
+			libraryGapTitle: '"दूसरे दिन के संचालन" का अंतर',
+			libraryGapDesc: 'टीमों को एंटरप्राइज़ इंफ्रास्ट्रक्चर शुरू से बनाना पड़ता है:',
+			libraryGapItems: [
+			'REST API controllers', 'Authentication (OIDC, RBAC)', 'Conversation state management',
+			'Audit logging', 'Management UI', 'Secret management',
+			'Horizontal scaling', 'Cost tracking', 'GDPR compliance API', 'Durable execution',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework', abstraction: 'Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+			{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG)', learning: 'Moderate\u2013High', state: 'Built-in persistence', production: 'Requires custom infrastructure' },
+			{ framework: 'CrewAI', abstraction: 'Role-based delegation', learning: 'Low', state: 'Ephemeral', production: 'Prototyping-focused' },
+			{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
+			{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged' },
+			],
+
+			libraryPositioning: '<strong>लाइब्रेरी लॉजिक प्रदान करती हैं; EDDI इंफ्रास्ट्रक्चर प्रदान करता है।</strong>',
+
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock \u00b7 Azure AI Studio \u00b7 Google Vertex AI',
+			para4: 'क्लाउड AI प्लेटफ़ॉर्म प्रबंधित इंफ्रास्ट्रक्चर प्रदान करते हैं लेकिन <strong>महत्वपूर्ण वेंडर लॉक-इन</strong> का कारण बनते हैं।',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+			{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native \u2014 any environment' },
+			{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
+			{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs 60\u201380%' },
+			{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
+			{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
+			{ dimension: 'Air-Gap', cloud: 'Not possible', eddi: 'Full offline with Ollama/Jlama' },
+			],
+
+			cloudSovereigntyPara: 'EDDI की सेल्फ-होस्टेड वास्तुकला <strong>इंफ्रास्ट्रक्चर संप्रभुता</strong> प्रदान करती है जो क्लाउड-बद्ध प्लेटफ़ॉर्म नहीं दे सकते।',
+
+			ctaTitle: 'तुलना करने के लिए तैयार?',
+			ctaPara: 'EDDI को 5 मिनट में इंस्टॉल करें और इसे अपने वर्तमान स्टैक के विरुद्ध मूल्यांकन करें।',
 		},
 		compliance: {
 			title: 'वैश्विक गोपनीयता और नियामक अनुपालन',

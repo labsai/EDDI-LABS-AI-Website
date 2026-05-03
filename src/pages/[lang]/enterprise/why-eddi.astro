@@ -28,16 +28,115 @@ const p = t.pages.whyEddi;
 <p>{p.llmDesc}</p>
 <div class="overflow-x-auto mb-8">
 <table>
-<thead><tr><th>Category</th><th>Providers</th></tr></thead>
+<thead><tr><th>{p.llmHeaderCategory}</th><th>{p.llmHeaderProviders}</th></tr></thead>
 <tbody>{p.llmCategories.map((cat) => <tr><td><strong>{cat.category}</strong></td><td>{cat.providers}</td></tr>)}</tbody>
 </table>
 </div>
 
-<h2>{p.sdkTitle}</h2>
-<p set:html={p.sdkDesc} />
-<pre><code>{`<dependency>
-    <groupId>io.quarkiverse.eddi</groupId>
-    <artifactId>quarkus-eddi</artifactId>
-    <version>6.0.0</version>
-</dependency>`}</code></pre>
+<!-- RFP Evaluation Checklist -->
+<h2>{p.rfpTitle}</h2>
+<p>{p.rfpDesc}</p>
+<div class="rfp-grid">
+{p.rfpItems.map((item) => (
+<div class="rfp-card">
+	<div class="rfp-category">{item.category}</div>
+	<div class="rfp-question">{item.question}</div>
+	<div class="rfp-answer"><strong>EDDI:</strong> {item.eddiAnswer}</div>
+</div>
+))}
+</div>
+
+<!-- TCO: Build vs. Deploy -->
+<h2>{p.tcoTitle}</h2>
+<p set:html={p.tcoDesc} />
+<div class="tco-comparison">
+<div class="tco-column tco-build">
+	<h3>{p.tcoBuildTitle}</h3>
+	<ul>{p.tcoBuildItems.map((item) => <li set:html={item} />)}</ul>
+</div>
+<div class="tco-column tco-deploy">
+	<h3>{p.tcoDeployTitle}</h3>
+	<ul>{p.tcoDeployItems.map((item) => <li>{item}</li>)}</ul>
+</div>
+</div>
+
+<!-- ROI -->
+<h2>{p.roiTitle}</h2>
+<p set:html={p.roiPara} />
+<p set:html={p.roiPara2} />
+
 </FeaturePage>
+
+<style>
+/* RFP Evaluation Grid */
+.rfp-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+	gap: 1.25rem;
+	margin: 1.5rem 0 2rem;
+}
+.rfp-card {
+	background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	border: 1px solid var(--color-border);
+	border-radius: 0.75rem;
+	padding: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	transition: border-color 0.2s ease;
+}
+.rfp-card:hover {
+	border-color: var(--color-accent, hsl(45, 100%, 51%));
+}
+.rfp-category {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-accent, hsl(45, 100%, 51%));
+}
+.rfp-question {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--color-text);
+	line-height: 1.4;
+}
+.rfp-answer {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	line-height: 1.6;
+	margin-top: 0.25rem;
+}
+
+/* TCO Comparison */
+.tco-comparison {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+	margin: 1.5rem 0 2rem;
+}
+.tco-column {
+	background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	border: 1px solid var(--color-border);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+}
+.tco-column h3 {
+	margin-top: 0 !important;
+}
+.tco-build {
+	opacity: 0.85;
+}
+.tco-deploy {
+	border-color: var(--color-accent, hsl(45, 100%, 51%));
+}
+
+@media (max-width: 40rem) {
+	.tco-comparison {
+		grid-template-columns: 1fr;
+	}
+	.rfp-grid {
+		grid-template-columns: 1fr;
+	}
+}
+</style>

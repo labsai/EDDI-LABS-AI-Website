@@ -116,7 +116,7 @@ const ar: TranslationSchema = {
 		heroTitle: 'منسّق',
 		heroHighlight: 'الذكاء الاصطناعي للمؤسسات',
 		heroTagline:
-			`أنشئ وانشر وأدر وكلاء الذكاء الاصطناعي — بدون كتابة شفرة. قائم على التكوين، مستضاف ذاتياً، وجاهز للامتثال — حالياً في <strong>معاينة ${EDDI_VERSION}</strong>.`,
+			`المنصة مفتوحة المصدر والجاهزة للإنتاج لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة. مدفوعة بالتكوين، مستضافة ذاتياً، وجاهزة للامتثال — مع واجهة إدارة بصرية و42 أداة MCP وأمان مؤسسي مدمج. متوفر الآن في <strong>معاينة ${EDDI_VERSION}</strong>.`,
 		problemTitle: 'المشكلة',
 		problemDesc: 'تنسيق الذكاء الاصطناعي المؤسسي <strong>مجزأ ومؤلم</strong>. الفرق عالقة في دورة حياة مفككة:',
 		problemCard1Title: 'فخ النموذج الأولي',
@@ -201,6 +201,10 @@ const ar: TranslationSchema = {
 		faq5Q: 'هل يمكن لـ EDDI أن يحل محل Flowise أو n8n لأحمال العمل الإنتاجية؟',
 		faq5A:
 			'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
+		faq6Q: 'هل EDDI مرتبط بـ "Eddie AI" أو منتجات أخرى تحمل اسم "Eddy"؟',
+		faq6A: 'لا. EDDI (من <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) هو منصة <strong>تنسيق وكلاء الذكاء الاصطناعي للمؤسسات</strong> مستضافة ذاتياً ومبنية على Java/Quarkus. لا علاقة له بأدوات تحرير الفيديو أو برامج الموارد البشرية أو منشئي الروبوتات أو المنتجات الأخرى التي تحمل أسماء مشابهة.',
+		faq7Q: 'كيف يقارن EDDI بمنصات الذكاء الاصطناعي السحابية مثل AWS Bedrock أو Azure AI Studio؟',
+		faq7A: 'توفر منصات الذكاء الاصطناعي السحابية بنية تحتية مُدارة لكنها تخلق <strong>تقييداً بالمورد</strong>. EDDI يعمل في أي مكان يعمل فيه Docker. راجع <a href="/enterprise/vs-alternatives/">المقارنة التفصيلية</a>.',
 	},
 	gettingStarted: {
 		title: 'البدء',
@@ -235,7 +239,7 @@ const ar: TranslationSchema = {
 		nextAllFeatures: 'جميع الميزات',
 		nextAllFeaturesDesc: 'استكشف كل ما يقدمه EDDI',
 		nextMcpServer: 'خادم MCP',
-		nextMcpServerDesc: 'تصفح جميع أدوات MCP الـ 58',
+		nextMcpServerDesc: 'تصفح جميع أدوات MCP الـ 42',
 		nextDocs: 'التوثيق ↗',
 		nextDocsDesc: 'تعمق في البنية المعمارية وواجهات API',
 		nextWhyEddi: 'لماذا EDDI؟',
@@ -259,9 +263,6 @@ const ar: TranslationSchema = {
 		k8sTitle: 'نشر Kubernetes',
 		k8sDesc: 'انشر على Kubernetes بأمر واحد:',
 		k8sOptions: 'تتوفر أيضًا تراكبات Kustomize وخرائط Helm لـ MongoDB و PostgreSQL والمصادقة والمراقبة وتقوية الإنتاج (HPA، PDB، NetworkPolicy). راجع <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">دليل Kubernetes</a>.',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'هل تبني تطبيق Quarkus؟ استخدم إضافة <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> لـ Dev Services و API المرنة وبث SSE وجسر MCP:',
 	},
 	useCases: {
 		title: 'حالات الاستخدام',
@@ -362,7 +363,7 @@ const ar: TranslationSchema = {
 				'واجهة إدارة React جاهزة للإنتاج لبناء ونشر ومراقبة وكلاء الذكاء الاصطناعي بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
 			heading1: 'إدارة الوكلاء المرئية',
 			para1:
-				'مدير EDDI هو واجهة إدارة شاملة قائمة على React توفر تحكماً مرئياً في كل جانب من جوانب منصة EDDI — من تكوين الوكلاء إلى مراقبة المحادثات في الوقت الفعلي.',
+				'سوق تنسيق الذكاء الاصطناعي له ثلاثة أنماط: <strong>أدوات البناء المرئية</strong>، و<strong>مكتبات الكود</strong>، و<strong>المنصات السحابية</strong>. EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>.',
 			heading2: 'القدرات الرئيسية',
 			items: [
 				'<strong>بناء الوكلاء المرئي</strong> — أنشئ وكوّن الوكلاء من خلال واجهة سحب وإفلات بديهية',
@@ -375,7 +376,7 @@ const ar: TranslationSchema = {
 			],
 			heading3: 'مصمم للفرق',
 			para2:
-				'يمكّن المدير غير المطورين من تكرار سلوك الوكلاء بدون لمس كود Java. يمكن لمهندسي الموجهات تعديل القواعد واختبار المحادثات ونشر التغييرات — كل ذلك من المتصفح.',
+				'أدوات البناء المرئية تجعل النماذج الأولية سريعة. ومع ذلك، تفرض بنيتها قيوداً على نطاق المؤسسات.',
 		},
 		mcpServer: {
 			title: 'خادم MCP — 42 أداة',
@@ -421,6 +422,11 @@ const ar: TranslationSchema = {
 			heading1: 'أمان مؤسسي بالتصميم',
 			para1:
 				'يزيل EDDI فئات كاملة من الثغرات الأمنية بالتصميم. لا يوجد <strong>eval()</strong>، لا كتل تنفيذ شفرة، ولا حقن شفرة ديناميكي — سلوك الوكيل يُعرَّف من خلال تكوين JSON تصريحي فقط.',
+			crisisTitle: 'لماذا هذا مهم الآن',
+			crisisPara: 'يتعرض نظام وكلاء الذكاء الاصطناعي لضغوط أمنية غير مسبوقة.',
+			crisisPara2: 'حدد تحالف أمن السحابة فراغاً نظامياً في "الإفصاح عن وكلاء الذكاء الاصطناعي".',
+			defenseTitle: 'الدفاع المعماري لـ EDDI',
+			defensePara: 'بدلاً من محاولة عزل تنفيذ الكود، يقوم EDDI <strong>بإزالة سطح الهجوم بالكامل</strong>.',
 			heading2: 'ميزات الأمان',
 			items: [
 				'<strong>صفر eval()</strong> — بدون تنفيذ شفرة ديناميكي (يزيل مخاطر RCE CVSS 10.0)',
@@ -431,6 +437,9 @@ const ar: TranslationSchema = {
 				'<strong>مسارات تدقيق مشفرة</strong> — سجلات عمليات غير قابلة للتغيير ومقاومة للعبث',
 				'<strong>جاهز لقانون الذكاء الاصطناعي الأوروبي</strong> — قدرات حوكمة مدمجة للامتثال التنظيمي',
 			],
+			govTitle: 'تكامل الحوكمة والامتثال',
+			govPara: 'تغذي القدرات الأمنية إطار امتثال EDDI مباشرة. يلبي مسار التدقيق غير القابل للتغيير متطلبات قانون الذكاء الاصطناعي الأوروبي (المواد 12-14).',
+
 		},
 		performance: {
 			title: 'أداء المؤسسات',
@@ -439,6 +448,9 @@ const ar: TranslationSchema = {
 			heading1: 'مبني للتوسع',
 			para1:
 				'يعمل EDDI على <strong>Java 25 مع Quarkus</strong>، مستفيداً من Virtual Threads (Project Loom) للتزامن الضخم في عمليات الإدخال/الإخراج. على عكس حلقات أحداث Node.js، توفر Virtual Threads توازياً حقيقياً متعدد الخيوط مع الحد الأدنى من الحمل.',
+			vtTitle: 'لماذا تهم الخيوط الافتراضية لوكلاء الذكاء الاصطناعي',
+			vtPara: 'وكلاء الذكاء الاصطناعي الحديثون مقيدون بشكل أساسي <strong>بعمليات الإدخال/الإخراج</strong>.',
+			vtPara2: 'تحل الخيوط الافتراضية في Java هذه المشكلة بأناقة.',
 			heading2: 'أبرز نقاط الأداء',
 			items: [
 				'<strong>Virtual Threads</strong> — ملايين الخيوط الخفيفة لاستدعاءات LLM المتزامنة',
@@ -449,6 +461,10 @@ const ar: TranslationSchema = {
 				'<strong>تثبيت بأمر واحد</strong> — معالج تفاعلي ينشر EDDI + قاعدة البيانات + وكيل بداية عبر Docker Compose',
 				'<strong>معتمد من Red Hat</strong> — شهادة حاوية مع فحوصات تمهيدية آلية في CI/CD',
 			],
+			benchTitle: 'الأداء في السياق',
+			benchPara: 'لا توجد بيئة تشغيل تفوز في كل سيناريو. يتفوق Java باستمرار على Node.js بنسبة 30-68%.',
+			benchPara2: 'تم تحسين بنية EDDI لأحمال العمل المختلطة بين الإدخال/الإخراج والمعالجة.',
+
 		},
 		multiAgent: {
 			title: 'تنسيق متعدد الوكلاء',
@@ -503,7 +519,7 @@ const ar: TranslationSchema = {
 				'<strong>+5,100 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
 				'<strong>صفر إخفاقات</strong> — CI نظيف في كل بناء',
 				'<strong>تطبيق Checkstyle</strong> — صفر تنبيهات، قواعد صارمة مطبقة في كل بناء',
-				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 58',
+				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 42',
 				'<strong>بوابات جودة CI/CD</strong> — فحوصات آلية تمنع التراجع',
 			],
 		},
@@ -522,8 +538,6 @@ const ar: TranslationSchema = {
 				'<strong>أتمتة الإعداد</strong> — إنشاء وكلاء في استدعاء واحد مع <code>setup_agent</code>',
 			],
 		},
-// ─── New Feature Pages ────────────────────────────────────
-
 		memory: {
 			title: 'إدارة الذاكرة والسياق',
 			description:
@@ -633,37 +647,105 @@ const ar: TranslationSchema = {
 			// LLM Providers
 			llmTitle: 'دعم 12 موفر LLM',
 			llmDesc: 'اتصل بأي مزود LLM رئيسي — أو أحضر الخاص بك عبر أي نقطة نهاية متوافقة مع OpenAI.',
+			llmHeaderCategory: 'الفئة',
+			llmHeaderProviders: 'المزودون',
 			llmCategories: [
 				{ category: 'واجهات السحابة', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'سحابة المؤسسات', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'استضافة ذاتية', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: 'متوافق', providers: 'أي نقطة نهاية متوافقة مع OpenAI (DeepSeek، Cohere، إلخ) عبر baseUrl' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'هل تبني تطبيق Quarkus يتواصل مع EDDI؟ استخدم إضافة <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> — Dev Services (تشغيل EDDI تلقائيًا في وضع التطوير)، واجهة برمجة مرنة، بث SSE، ربط نقاط نهاية <code>@EddiAgent</code> وجسر MCP <code>@EddiTool</code>.',
+			rfpTitle: '8 أسئلة يجب أن يطرحها كل مدير تقنية معلومات',
+			rfpDesc: 'أسئلة أساسية لتقييم منصات تنسيق وكلاء الذكاء الاصطناعي:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code?', eddiAnswer: 'No. Declarative JSON only.' },
+				{ category: 'Performance', question: 'How does it handle concurrent agents?', eddiAnswer: 'Java 25 virtual threads.' },
+				{ category: 'Integration', question: 'Open standards support?', eddiAnswer: '42 MCP tools, A2A, OpenAPI 3.1, OIDC.' },
+				{ category: 'Data Privacy', question: 'Data subject rights?', eddiAnswer: 'Unified API across 5 data stores.' },
+				{ category: 'Security', question: 'Architectural security posture?', eddiAnswer: 'No eval(). OIDC, AES-256-GCM vault, HMAC-SHA256.' },
+				{ category: 'Compliance', question: 'Immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger.' },
+				{ category: 'Operations', question: 'Non-developer friendly?', eddiAnswer: 'React management UI.' },
+				{ category: 'Portability', question: 'On-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers.' },
+			],
+			tcoTitle: 'التكلفة الإجمالية للملكية: البناء مقابل النشر',
+			tcoDesc: 'التكلفة الخفية هي <strong>البنية التحتية غير المرئية</strong> التي يجب على الفرق بناؤها:',
+			tcoBuildTitle: 'البناء باستخدام المكتبات',
+			tcoBuildItems: ['REST API (2\u20134 weeks)','Auth (2\u20133 weeks)','State (1\u20132 weeks)','Audit (2\u20134 weeks)','UI (4\u20138 weeks)','Secrets (1\u20132 weeks)','Scaling (2\u20134 weeks)','Maintenance'],
+			tcoDeployTitle: 'نشر EDDI',
+			tcoDeployItems: ['One-command install (5 min)','All included out of the box','Focus on business logic','18-year-old open-source project'],
+			roiTitle: 'الحالة التجارية',
+			roiPara: 'تُقاس قيمة EDDI بما <strong>لا تحتاج الفرق لبنائه</strong>.',
+			roiPara2: 'للصناعات المنظمة: البديل هو تطبيق امتثال مخصص يغطي أكثر من 15 إطاراً تنظيمياً.',
+
 		},
 		vsAlternatives: {
 			title: 'EDDI مقابل البدائل',
 			description: 'كيف يقارن EDDI مع Spring AI و LangChain4j و Flowise و n8n وأساليب تنسيق الذكاء الاصطناعي الأخرى.',
-			heading1: 'منصة مقابل مكتبة',
-			para1:
-				'الفرق الجوهري: EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. بينما توفر المكتبات لبنات البناء، يوفر EDDI المبنى بالكامل — جاهز للنشر.',
-			heading2: 'المقارنة',
-			heading3a: 'مقابل مكتبات الذكاء الاصطناعي (Spring AI، LangChain، إلخ.)',
-			para2:
-				'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة (EDDI يستخدم LangChain4j داخلياً). لكن مع المكتبات، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة المحادثات وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
-			heading3b: 'مقابل Flowise / n8n',
-			para3: 'Flowise و n8n هما بنّاءان مرئيان قائمان على Node.js. يخدم EDDI غرضاً مشابهاً لكن ببنية مؤسسية:',
-			vsItems: [
-				'<strong>بدون eval()</strong> — يزيل مخاطر تنفيذ الشفرة عن بعد CVSS 10.0',
-				'<strong>ملايين الخيوط الافتراضية</strong> — تزامن مؤسسي مقابل حلقات الأحداث أحادية الخيط',
-				'<strong>OIDC/Keycloak</strong> — مصادقة مؤسسية مقابل المصادقة الأساسية',
-				'<strong>MongoDB/PostgreSQL</strong> — قواعد بيانات إنتاجية مقابل SQLite',
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'سوق تنسيق الذكاء الاصطناعي له ثلاثة أنماط: <strong>أدوات البناء المرئية</strong>، و<strong>مكتبات الكود</strong>، و<strong>المنصات السحابية</strong>. EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>.',
+
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
+			para2: 'أدوات البناء المرئية تجعل النماذج الأولية سريعة. ومع ذلك، تفرض بنيتها قيوداً على نطاق المؤسسات.',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+				{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads' },
+				{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks', eddi: 'Zero eval() \u2014 declarative JSON only' },
+				{ dimension: 'Security', builders: 'Multiple critical CVEs documented', eddi: 'No dynamic code execution by design' },
+				{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC' },
+				{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL' },
+				{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable audit ledger' },
+				{ dimension: 'Compliance', builders: 'Manual implementation', eddi: '17+ frameworks built in' },
 			],
-			heading3c: 'مقابل AWS Bedrock / Azure AI Studio',
-			para4:
-				'منصات الذكاء الاصطناعي السحابية تقدم بنية تحتية مُدارة لكنها تخلق <strong>تقييد بالمُزوِّد</strong>. يعمل EDDI في أي مكان يعمل فيه Docker — محلياً، في أي سحابة، أو في بيئات معزولة.',
+
+			builderSecurityTitle: 'الاعتبار الأمني',
+			builderSecurityPara: 'بحلول أوائل 2026، شهد نظام وكلاء الذكاء الاصطناعي <strong>حساباً أمنياً</strong> كبيراً.',
+			builderSecurityPara2: 'يتبع EDDI نهجاً مختلفاً جوهرياً: <strong>منع تقييم الكود أثناء التشغيل بشكل قاطع</strong>.',
+
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph \u00b7 CrewAI \u00b7 AutoGen \u00b7 LangChain \u00b7 Spring AI',
+			para3: 'مكتبات الكود هي لبنات بناء ممتازة. لكن اختيار مكتبة يعني بناء جميع البنية التحتية للإنتاج بنفسك.',
+
+			libraryGapTitle: 'فجوة "عمليات اليوم الثاني"',
+			libraryGapDesc: 'يجب على الفرق بناء البنية التحتية للمؤسسات من الصفر:',
+			libraryGapItems: [
+				'REST API controllers', 'Authentication (OIDC, RBAC)', 'Conversation state management',
+				'Audit logging', 'Management UI', 'Secret management',
+				'Horizontal scaling', 'Cost tracking', 'GDPR compliance API', 'Durable execution',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework', abstraction: 'Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+				{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG)', learning: 'Moderate\u2013High', state: 'Built-in persistence', production: 'Requires custom infrastructure' },
+				{ framework: 'CrewAI', abstraction: 'Role-based delegation', learning: 'Low', state: 'Ephemeral', production: 'Prototyping-focused' },
+				{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
+				{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged' },
+			],
+
+			libraryPositioning: '<strong>توفر المكتبات المنطق؛ يوفر EDDI البنية التحتية.</strong>',
+
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock \u00b7 Azure AI Studio \u00b7 Google Vertex AI',
+			para4: 'تقدم منصات الذكاء الاصطناعي السحابية بنية تحتية مُدارة لكنها تفرض <strong>تقييداً كبيراً بالمورد</strong>.',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+				{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native \u2014 any environment' },
+				{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
+				{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs 60\u201380%' },
+				{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
+				{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
+				{ dimension: 'Air-Gap', cloud: 'Not possible', eddi: 'Full offline with Ollama/Jlama' },
+			],
+
+			cloudSovereigntyPara: 'توفر بنية EDDI المستضافة ذاتياً <strong>سيادة البنية التحتية</strong> التي لا تستطيع المنصات المقيدة بالسحابة مضاهاتها.',
+
+			ctaTitle: 'مستعد للمقارنة؟',
+			ctaPara: 'ثبّت EDDI في 5 دقائق وقيّمه مقارنة بمجموعتك التقنية الحالية.',
 		},
 		compliance: {
 			title: 'الخصوصية العالمية والامتثال التنظيمي',

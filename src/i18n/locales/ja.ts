@@ -14,7 +14,7 @@ const ja: TranslationSchema = {
 		eddiManager: 'EDDIマネージャー',
 		eddiManagerDesc: 'ビジュアルエージェント管理UI',
 		mcpServer: 'MCPサーバー',
-		mcpServerDesc: '58のAIネイティブ制御ツール',
+		mcpServerDesc: '42のAIネイティブ制御ツール',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON設定、ボイラープレート不要',
 		securityFirst: 'セキュリティファースト',
@@ -50,7 +50,7 @@ const ja: TranslationSchema = {
 		useCases: 'ユースケース',
 		useCasesDesc: '実世界のデプロイメントパターン',
 		allFeatures: 'すべての機能',
-		mcpServerMobile: 'MCPサーバー（58ツール）',
+		mcpServerMobile: 'MCPサーバー（42ツール）',
 		resources: 'リソース',
 		documentation: 'ドキュメント ↗',
 		github: 'GitHub ↗',
@@ -113,7 +113,8 @@ const ja: TranslationSchema = {
 		title: 'エンタープライズAIオーケストレーター',
 		heroTitle: 'エンタープライズ',
 		heroHighlight: 'AIオーケストレーター',
-		heroTagline: `AIエージェントを作成、デプロイ、管理 — コードの記述は不要。構成駆動型、自己ホスト型、コンプライアンス対応。現在<strong>${EDDI_VERSION}プレビュー</strong>中。`,
+		heroTagline:
+			`ガバナンスされたマルチエージェントAIシステムをデプロイするためのオープンソースのプロダクション対応プラットフォーム。設定駆動、セルフホスト、コンプライアンス対応 — ビジュアル管理UI、42のMCPツール、エンタープライズセキュリティ内蔵。現在<strong>${EDDI_VERSION}</strong>で提供中。`,
 		problemTitle: '問題',
 		problemDesc: 'エンタープライズAIオーケストレーションは<strong>断片化され、困難</strong>です。チームは壊れたライフサイクルに陥っています：',
 		problemCard1Title: 'プロトタイプの罠',
@@ -127,7 +128,7 @@ const ja: TranslationSchema = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'エージェントロジック、パイプライン、ツール定義は<strong>JSON設定</strong>です — コンパイルされたコードではありません。プロンプトエンジニアはReact UIまたはREST APIで即座にイテレーションでき、Javaコードに触れる必要はありません。',
-		sol2Title: '58のMCPツール',
+		sol2Title: '42のMCPツール',
 		sol2Desc:
 			'EDDIは<strong>Model Context Protocol</strong>を通じてその機能を公開し、Claude Desktopとの対話を可能にします。エージェントは<strong>外部MCPツールを消費</strong>することもできます。',
 		sol3Title: 'セキュリティファースト',
@@ -178,7 +179,7 @@ const ja: TranslationSchema = {
 		faqTitle: 'よくある質問',
 		faq1Q: 'EDDIとは？',
 		faq1A:
-			'EDDIはオープンソースのエンタープライズAIオーケストレーションプラットフォームです。チームがコンパイルされたコードではなくJSON設定を使用してAIエージェントを構築、設定、デプロイすることを可能にします。EDDIは<strong>本番環境対応のReact管理UI</strong>（EDDIマネージャー）、組み込みREST API、会話状態管理、セキュリティ（OIDC/Keycloak）、不変の監査証跡、58のMCPツールを備えた完全なプラットフォームを提供します — すべてDockerまたはKubernetesでデプロイ可能。',
+			'EDDIはオープンソースのエンタープライズAIオーケストレーションプラットフォームです。チームがコンパイルされたコードではなくJSON設定を使用してAIエージェントを構築、設定、デプロイすることを可能にします。EDDIは<strong>本番環境対応のReact管理UI</strong>（EDDIマネージャー）、組み込みREST API、会話状態管理、セキュリティ（OIDC/Keycloak）、不変の監査証跡、42のMCPツールを備えた完全なプラットフォームを提供します — すべてDockerまたはKubernetesでデプロイ可能。',
 		faq2Q: 'EDDIはAIライブラリやフレームワークとどう違いますか？',
 		faq2A:
 			'Spring AIとLangChain4jは優れた<strong>ライブラリ</strong>です — EDDIは実際にLangChain4jを内部で使用しています。主な違いは、EDDIは<strong>デプロイ可能なミドルウェアプラットフォーム</strong>であり、ライブラリではないということです。Spring AIでは、RESTコントローラー、認証、会話状態管理、監査ログ、管理UIを自分で構築する必要があります。EDDIはこれらすべてをすぐに使える形で提供します。',
@@ -187,10 +188,14 @@ const ja: TranslationSchema = {
 			'はい。EDDIは軽量仮想スレッドを備えたエンタープライズランタイム上に構築され、I/Oバウンド並行性のために大規模並列処理を実現します。MongoDBとPostgreSQLをサポートし、組み込みのOIDC/Keycloak認証を含み、コンプライアンス（EU AI規制法を含む）のための不変の暗号化監査証跡を提供し、NATS JetStreamで水平スケーリングします。',
 		faq4Q: 'Model Context Protocol（MCP）とは？',
 		faq4A:
-			'Model Context Protocol（MCP）は、Claude Desktop、IDEプラグイン、カスタムクライアントなどのAIアシスタントが外部ツールとプログラム的に対話できるオープンスタンダードです。EDDIは会話管理、エージェント管理、セットアップ自動化、スケジュール管理、診断にわたる58のMCPツールを公開しています。',
+			'Model Context Protocol（MCP）は、Claude Desktop、IDEプラグイン、カスタムクライアントなどのAIアシスタントが外部ツールとプログラム的に対話できるオープンスタンダードです。EDDIは会話管理、エージェント管理、セットアップ自動化、スケジュール管理、診断にわたる42のMCPツールを公開しています。',
 		faq5Q: 'EDDIは本番ワークロードでFlowiseやn8nの代替になりますか？',
 		faq5A:
 			'EDDIはエンタープライズグレードのアーキテクチャで同様のビジュアルビルディング目的を果たします。FlowiseやとはnNode.jsとは異なり、EDDIは<code>eval()</code>やコードブロックを使用せず、エンタープライズグレードの並行性のために数百万の軽量仮想スレッドを実行し、OIDC/Keycloak認証をサポートし、MongoDBまたはPostgreSQLにデータを保存します。規制産業向けに設計されています。',
+		faq6Q: 'EDDIは「Eddie AI」や「Eddy」という名前の他の製品と関係がありますか？',
+		faq6A: 'いいえ。EDDI（<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>による）は、Java/Quarkus上に構築されたセルフホスト型の<strong>エンタープライズAIエージェントオーケストレーションプラットフォーム</strong>です。ビデオ編集ツール、HRソフトウェア、チャットボットビルダーなど、似た名前の他製品とは無関係です。',
+		faq7Q: 'EDDIは、AWS BedrockやAzure AI StudioなどのクラウドAIプラットフォームとどう違いますか？',
+		faq7A: 'クラウドAIプラットフォームはマネージドインフラを提供しますが、<strong>ベンダーロックイン</strong>を生じさせます。EDDIはDockerが動く場所ならどこでも動作します。<a href="/enterprise/vs-alternatives/">詳細な比較</a>をご覧ください。',
 	},
 	gettingStarted: {
 		title: 'はじめに',
@@ -208,7 +213,7 @@ const ja: TranslationSchema = {
 		step1After: 'EDDIは<code>http://localhost:7070</code>で利用可能になります。',
 		step2Title: '2. MCPで接続',
 		step2Desc: '<strong>Claude Desktop</strong>またはMCP互換クライアントを使用している場合、EDDIをMCPサーバーとして追加：',
-		step2After: 'AIアシスタントからEDDIの58のMCPツールと直接対話できるようになりました。',
+		step2After: 'AIアシスタントからEDDIの42のMCPツールと直接対話できるようになりました。',
 		step3Title: '3. APIキーを安全に保存',
 		step3VaultIntro: 'エージェントを作成する前に、LLMプロバイダーのAPIキーをEDDIの<a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>（AES-256-GCM暗号化）に安全に保存してください：',
 		step3VaultUiDesc: 'Manager UIを<code>http://localhost:7070</code>で開き、<strong>Secrets Vault</strong>に移動して、キー名<code>my-anthropic-key</code>で新しいシークレットを追加します。',
@@ -225,7 +230,7 @@ const ja: TranslationSchema = {
 		nextAllFeatures: 'すべての機能',
 		nextAllFeaturesDesc: 'EDDIが提供するすべてを探索',
 		nextMcpServer: 'MCPサーバー',
-		nextMcpServerDesc: '58のMCPツールすべてを閲覧',
+		nextMcpServerDesc: '42のMCPツールすべてを閲覧',
 		nextDocs: 'ドキュメント ↗',
 		nextDocsDesc: 'アーキテクチャとAPIの詳細',
 		nextWhyEddi: 'なぜEDDI？',
@@ -249,9 +254,6 @@ const ja: TranslationSchema = {
 		k8sTitle: 'Kubernetes デプロイ',
 		k8sDesc: '単一コマンドでKubernetesにデプロイ：',
 		k8sOptions: 'MongoDB、PostgreSQL、認証、モニタリング、プロダクション強化（HPA、PDB、NetworkPolicy）用のKustomizeオーバーレイとHelmチャートも利用できます。<a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetesガイド</a>をご覧ください。',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Quarkusアプリを構築中？<strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong>エクステンションをご利用ください — Dev Services、Fluent API、SSEストリーミング、MCPブリッジ：',
 	},
 	useCases: {
 		title: 'ユースケース',
@@ -273,7 +275,7 @@ const ja: TranslationSchema = {
 	},
 	featuresOverview: {
 		title: '機能一覧',
-		description: 'EDDIをエンタープライズAIオーケストレーターにするすべての機能 — EDDIマネージャーUI、Config-as-Code、58のMCPツール、セキュリティファーストアーキテクチャなど。',
+		description: 'EDDIをエンタープライズAIオーケストレーターにするすべての機能 — EDDIマネージャーUI、Config-as-Code、42のMCPツール、セキュリティファーストアーキテクチャなど。',
 		heroTitle: 'AIオーケストレーションに',
 		heroHighlight: '必要なすべて',
 		heroDesc: 'EDDIは、AIエージェントの構築、デプロイ、管理のための完全な本番環境対応プラットフォームを提供 — ボイラープレート不要。',
@@ -283,7 +285,7 @@ const ja: TranslationSchema = {
 		managerCardDesc: 'エージェントをビジュアルに構築、デプロイ、監視するための<strong>本番環境対応React UI</strong> — 11言語i18n、ライブチャットデバッグ、監査ダッシュボード付き。',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc: 'エージェントロジックはJSON設定で、コンパイルされたコードではありません。プロンプトエンジニアが即座にイテレーション — <strong>再デプロイ不要</strong>。',
-		mcpCardTitle: '🔌 MCPサーバー（58ツール）',
+		mcpCardTitle: '🔌 MCPサーバー（42ツール）',
 		mcpCardDesc: '<strong>Model Context Protocol</strong>による完全なAIネイティブ制御。Claude Desktop、Cursor、カスタムクライアントがエージェントをプログラム的に管理。',
 		securityCardTitle: '🔐 セキュリティファースト',
 		securityCardDesc: '<code>eval()</code>なし、Vault統合、パストラバーサル保護、OIDC/Keycloak、<strong>暗号化監査証跡</strong>。',
@@ -337,7 +339,7 @@ const ja: TranslationSchema = {
 		cqCardTitle: '🧪 コード品質',
 		cqCardDesc: '<strong>5,100以上のテストで失敗ゼロ。</strong>Checkstyle警告ゼロ。CI/CDをすべてのマージで強制。',
 		aiCardTitle: '🧩 AI対応',
-		aiCardDesc: '58のMCPツール、予測可能なCRUDパターン、自己文書化API。<strong>コーディングエージェント向け</strong>に構築。',
+		aiCardDesc: '42のMCPツール、予測可能なCRUDパターン、自己文書化API。<strong>コーディングエージェント向け</strong>に構築。',
 	},
 	pages: {
 		manager: {
@@ -359,11 +361,11 @@ const ja: TranslationSchema = {
 			para2: 'マネージャーにより、非開発者がソースコードに触れることなくエージェントの動作を反復できます。プロンプトエンジニアはルールの修正、会話のテスト、変更のデプロイ — すべてブラウザから。',
 		},
 		mcpServer: {
-			title: 'MCPサーバー — 58ツール',
+			title: 'MCPサーバー — 42ツール',
 			description: 'EDDIはModel Context Protocolを通じて完全な機能を公開し、Claude Desktop、Cursor、カスタムAIクライアントがエージェントをプログラム的に管理可能に。',
 			heading1: 'AIネイティブ制御プレーン',
 			para1:
-				'Model Context Protocol（MCP）は、AIアシスタントが外部ツールと対話できるオープンスタンダード。EDDIはプラットフォームのあらゆる面をカバーする<strong>58のツール</strong>を備えた包括的MCPサーバーを実装しています。',
+				'Model Context Protocol（MCP）は、AIアシスタントが外部ツールと対話できるオープンスタンダード。EDDIはプラットフォームのあらゆる面をカバーする<strong>42のツール</strong>を備えた包括的MCPサーバーを実装しています。',
 			heading2: 'ツールカテゴリ',
 			items: [
 				'<strong>会話ツール</strong> — エージェントとチャット、会話管理、履歴の読み取り',
@@ -399,6 +401,11 @@ const ja: TranslationSchema = {
 			description: 'eval()なし、コード実行ブロックなし。Vault統合、暗号化監査証跡、OIDC/Keycloak認証 — セキュリティはアーキテクチャの基盤。',
 			heading1: '設計によるエンタープライズセキュリティ',
 			para1: 'EDDIは設計上、セキュリティ脆弱性のクラス全体を排除します。<strong>eval()</strong>なし、コード実行ブロックなし、動的コードインジェクションなし — エージェントの動作は宣言的JSON設定のみで定義。',
+			crisisTitle: 'なぜ今これが重要なのか',
+			crisisPara: 'AIエージェントのエコシステムは前例のないセキュリティの圧力に直面しています。2026年初頭、研究者たちは主要なオープンソースエージェントフレームワークで数百もの重大な脆弱性を文書化しました。',
+			crisisPara2: 'Cloud Security Allianceは体系的な「AIエージェントの開示の空白」を特定しました。',
+			defenseTitle: 'EDDIのアーキテクチャ防御',
+			defensePara: 'コード実行をサンドボックス化しようとするのではなく、EDDIは<strong>攻撃面を完全に排除します</strong>。',
 			heading2: 'セキュリティ機能',
 			items: [
 				'<strong>eval()ゼロ</strong> — 動的コード実行なし（CVSS 10.0 RCEリスクを排除）',
@@ -409,6 +416,8 @@ const ja: TranslationSchema = {
 				'<strong>暗号化監査証跡</strong> — 不変で改ざん不能な操作ログ',
 				'<strong>EU AI規制法対応</strong> — 規制コンプライアンスのための組み込みガバナンス機能',
 			],
+			govTitle: 'ガバナンスとコンプライアンスの統合',
+			govPara: 'セキュリティ機能はEDDIの<a href="/enterprise/compliance/">コンプライアンスフレームワーク</a>に直接供給されます。不変の監査証跡はEU AI法要件（第12〜14条）を満たします。同じインフラストラクチャがGDPR、HIPAA、SOC 2、15以上の規制フレームワークをサポートします。',
 		},
 		performance: {
 			title: 'エンタープライズパフォーマンス',
@@ -416,6 +425,9 @@ const ja: TranslationSchema = {
 			heading1: 'スケール向けに構築',
 			para1:
 				'EDDIは<strong>Java 25とQuarkus</strong>で稼働し、仮想スレッド（Project Loom）を活用した大規模I/O並行性を実現。Node.jsのイベントループとは異なり、仮想スレッドは最小限のオーバーヘッドで真のマルチスレッド並列性を提供。',
+			vtTitle: 'なぜ仮想スレッドがAIエージェントに重要なのか',
+			vtPara: '最新のAIエージェントは基本的に<strong>I/Oバウンド</strong>です。',
+			vtPara2: 'Java仮想スレッドはこれをエレガントに解決します。',
 			heading2: 'パフォーマンスハイライト',
 			items: [
 				'<strong>仮想スレッド</strong> — 並行LLM呼び出しのための数百万の軽量スレッド',
@@ -426,6 +438,9 @@ const ja: TranslationSchema = {
 				'<strong>ワンコマンドインストール</strong> — Docker ComposeでEDDI + データベース + スターターエージェントをデプロイするインタラクティブウィザード',
 				'<strong>Red Hat認定</strong> — CI/CDでの自動プリフライトチェックによるコンテナ認定',
 			],
+			benchTitle: 'コンテキストにおけるパフォーマンス',
+			benchPara: 'すべてのシナリオで勝つランタイムはありません。JavaはCPU集約型タスクを含むシナリオでNode.jsを30〜68%一貫して上回ります — これはまさにAIエージェントが必要とするものです。',
+			benchPara2: 'EDDIのアーキテクチャは混合I/O + CPUワークロード向けに意図的に最適化されています：仮想スレッドを備えたQuarkusと、Loom対応のコネクションプール（Agroal）を組み合わせています。',
 		},
 		multiAgent: {
 			title: 'マルチエージェントオーケストレーション',
@@ -477,13 +492,13 @@ const ja: TranslationSchema = {
 				'<strong>5,100以上のテスト</strong> — ユニット、統合、エンドツーエンドのカバレッジ',
 				'<strong>失敗ゼロ</strong> — すべてのビルドでクリーンなCI',
 				'<strong>Checkstyle強制</strong> — 警告ゼロ、すべてのビルドで厳格なルールを適用',
-				'<strong>MCPツールテスト</strong> — 58のMCPツールすべての包括的カバレッジ',
+				'<strong>MCPツールテスト</strong> — 42のMCPツールすべての包括的カバレッジ',
 				'<strong>CI/CD品質ゲート</strong> — 自動チェックでリグレッションを防止',
 			],
 		},
 		aiReady: {
 			title: 'AI対応アーキテクチャ',
-			description: '58のMCPツール、予測可能なCRUDパターン、自己文書化API。ゼロからコーディングエージェント向けに構築。',
+			description: '42のMCPツール、予測可能なCRUDパターン、自己文書化API。ゼロからコーディングエージェント向けに構築。',
 			heading1: 'AIコラボレーション向けに設計',
 			para1:
 				'EDDIは<strong>コーディングエージェントがそれを管理する</strong>ことを前提に構築されています。すべてのAPIが予測可能なパターンに従い、すべてのリソースに一貫したCRUD操作があり、MCPサーバーが完全なプログラム制御を可能にします。',
@@ -492,7 +507,7 @@ const ja: TranslationSchema = {
 				'<strong>予測可能なパターン</strong> — 一貫したリソース命名、CRUD規約、エラー処理',
 				'<strong>自己文書化API</strong> — OpenAPI仕様とMCPツール説明が自動生成',
 				'<strong>LLMs.txtサポート</strong> — llms.txtとllms-full.txtによるAI発見可能なサイトコンテンツ',
-				'<strong>MCPファースト</strong> — AIアシスタント統合向けに設計された58のツール',
+				'<strong>MCPファースト</strong> — AIアシスタント統合向けに設計された42のツール',
 				'<strong>セットアップ自動化</strong> — <code>setup_agent</code>で1回の呼び出しでエージェント作成',
 			],
 		},
@@ -576,7 +591,7 @@ const ja: TranslationSchema = {
 			items: [
 				'<strong>ビジュアル管理UI</strong> — エージェントの構築と監視のためのEDDIマネージャー',
 				'<strong>Configuration-as-Code</strong> — エージェントロジックはJSON、コンパイルされたコードではない',
-				'<strong>58のMCPツール</strong> — Model Context Protocolによる完全なAIネイティブ制御',
+				'<strong>42のMCPツール</strong> — Model Context Protocolによる完全なAIネイティブ制御',
 				'<strong>エンタープライズセキュリティ</strong> — OIDC、Vault、監査証跡、eval()なし',
 				'<strong>本番インフラストラクチャ</strong> — REST API、会話状態管理、Prometheusメトリクス',
 				'<strong>水平スケーリング</strong> — 分散アーキテクチャのためのNATS JetStream',
@@ -602,35 +617,118 @@ const ja: TranslationSchema = {
 			// LLM Providers
 			llmTitle: '12のLLMプロバイダーに対応',
 			llmDesc: '主要なLLMプロバイダーに接続 — またはOpenAI互換エンドポイントで独自のものを使用。',
+			llmHeaderCategory: 'カテゴリ',
+			llmHeaderProviders: 'プロバイダー',
 			llmCategories: [
 				{ category: 'クラウドAPI', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'エンタープライズクラウド', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'セルフホスト', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: '互換', providers: 'OpenAI互換エンドポイント（DeepSeek、Cohere等）baseUrl経由' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'EDDIと通信するQuarkusアプリを構築中？<strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong>エクステンションをご利用ください — Dev Services（devモードでEDDIを自動起動）、Fluent API、SSEストリーミング、<code>@EddiAgent</code>エンドポイントワイヤリング、<code>@EddiTool</code> MCPブリッジ。',
+			rfpTitle: 'すべてのCIOが問うべき8つの質問',
+			rfpDesc: 'AIエージェントオーケストレーションプラットフォームを評価する際、これらがその質問です that separate production-grade infrastructure from fragile prototypes:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only.' },
+				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism.' },
+				{ category: 'Integration', question: 'Can agents consume external tools through open standards?', eddiAnswer: '42 MCP tools, A2A protocol, OpenAPI 3.1, OAuth 2.0/OIDC.' },
+				{ category: 'Data Privacy', question: 'How are data subject rights implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. 15+ frameworks.' },
+				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
+				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },
+				{ category: 'Operations', question: 'Can non-developers use the platform?', eddiAnswer: 'EDDI Manager: production-ready React UI with visual agent building.' },
+				{ category: 'Portability', question: 'Can it run on-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers. Full air-gap via Ollama.' },
+			],
+			tcoTitle: '総所有コスト：構築 vs. デプロイ',
+			tcoDesc: 'AIライブラリを使用する際の隠れたコストは、ライブラリそのものではなく \u2014 it\'s the <strong>invisible infrastructure</strong> teams must build around it:',
+			tcoBuildTitle: 'ライブラリで構築',
+			tcoBuildItems: [
+				'Custom REST API layer (2\u20134 weeks)',
+				'Authentication & RBAC system (2\u20133 weeks)',
+				'Conversation state persistence (1\u20132 weeks)',
+				'Audit trail & compliance logging (2\u20134 weeks)',
+				'Management UI for non-developers (4\u20138 weeks)',
+				'Secret management integration (1\u20132 weeks)',
+				'Horizontal scaling & coordination (2\u20134 weeks)',
+				'Ongoing maintenance & security patching',
+			],
+			tcoDeployTitle: 'EDDIをデプロイ',
+			tcoDeployItems: [
+				'One-command install (5 minutes)',
+				'All of the above included out of the box',
+				'Team focuses on business logic, not infrastructure',
+				'Maintained by an 18-year-old open-source project',
+			],
+			roiTitle: 'ビジネスケース',
+			roiPara: 'EDDIの価値は、<strong>チームが構築しなくて済むもの</strong>で測定されます.',
+			roiPara2: '規制産業にとって、コストの方程式はさらに明確です：代替案は15以上の規制フレームワークをカバーするカスタムコンプライアンス実装です。',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. 代替案',
 			description: 'EDDIとSpring AI、LangChain4j、Flowise、n8nおよびその他のAIオーケストレーションアプローチとの比較。',
-			heading1: 'プラットフォーム vs. ライブラリ',
-			para1: '根本的な違い：EDDIは<strong>デプロイ可能なミドルウェアプラットフォーム</strong>で、ライブラリではありません。ライブラリがブロックを提供する一方、EDDIは建物全体を提供 — デプロイ準備完了。',
-			heading2: '比較',
-			heading3a: 'vs. AI Libraries (Spring AI, LangChain, etc.)',
-			para2:
-				'Spring AIとLangChain4jは優れた<strong>ライブラリ</strong>です（EDDIは内部でLangChain4jを使用）。しかしライブラリでは、RESTコントローラー、認証、会話管理、監査ログ、管理UIを自分で構築する必要があります。EDDIはすべてをすぐに使える形で提供。',
-			heading3b: 'vs. Flowise / n8n',
-			para3: 'Flowiseとn8nはNode.jsベースのビジュアルビルダーです。EDDIはエンタープライズグレードのアーキテクチャで同様の目的を果たします：',
-			vsItems: [
-				'<strong>eval()なし</strong> — CVSS 10.0リモートコード実行リスクを排除',
-				'<strong>数百万の仮想スレッド</strong> — エンタープライズグレードの並行性 vs. シングルスレッドイベントループ',
-				'<strong>OIDC/Keycloak</strong> — エンタープライズ認証 vs. 基本認証',
-				'<strong>MongoDB/PostgreSQL</strong> — 本番データベース vs. SQLite',
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'AIオーケストレーション市場には3つの類型があります：<strong>ビジュアルノードビルダー</strong>、<strong>コードライブラリ</strong>、<strong>クラウドプラットフォーム</strong>。EDDIは<strong>デプロイ可能なミドルウェアプラットフォーム</strong>です。',
+
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
+			para2: 'ビジュアルノードビルダーはプロトタイピングを迅速にします。しかし、そのアーキテクチャはエンタープライズ規模での制約をもたらします。',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+			{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads' },
+			{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks', eddi: 'Zero eval() \u2014 declarative JSON only' },
+			{ dimension: 'Security', builders: 'Multiple critical CVEs documented', eddi: 'No dynamic code execution by design' },
+			{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC' },
+			{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL' },
+			{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable audit ledger' },
+			{ dimension: 'Compliance', builders: 'Manual implementation', eddi: '17+ frameworks built in' },
 			],
-			heading3c: 'vs. AWS Bedrock / Azure AI Studio',
-			para4: 'クラウドAIプラットフォームはマネージドインフラを提供しますが<strong>ベンダーロックイン</strong>が発生します。EDDIはDockerが動作するどこでも実行可能 — オンプレミス、任意のクラウド、エアギャップ環境。',
+
+			builderSecurityTitle: 'セキュリティの考慮事項',
+			builderSecurityPara: '2026年初頭、AIエージェントのエコシステムは重大な<strong>セキュリティの清算</strong>を経験しました。',
+			builderSecurityPara2: 'EDDIは根本的に異なるアプローチを採用しています：<strong>ランタイムコード評価の絶対的な禁止</strong>。',
+
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph \u00b7 CrewAI \u00b7 AutoGen \u00b7 LangChain \u00b7 Spring AI',
+			para3: 'コードライブラリは優れたビルディングブロックです。しかし、ライブラリを選択するということは、すべてのプロダクションインフラを自分で構築することを意味します。',
+
+			libraryGapTitle: '「Day 2オペレーション」のギャップ',
+			libraryGapDesc: 'チームはエンタープライズインフラをゼロから構築する必要があります：',
+			libraryGapItems: [
+			'REST API controllers', 'Authentication (OIDC, RBAC)', 'Conversation state management',
+			'Audit logging', 'Management UI', 'Secret management',
+			'Horizontal scaling', 'Cost tracking', 'GDPR compliance API', 'Durable execution',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework', abstraction: 'Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+			{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG)', learning: 'Moderate\u2013High', state: 'Built-in persistence', production: 'Requires custom infrastructure' },
+			{ framework: 'CrewAI', abstraction: 'Role-based delegation', learning: 'Low', state: 'Ephemeral', production: 'Prototyping-focused' },
+			{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
+			{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged' },
+			],
+
+			libraryPositioning: '<strong>ライブラリはロジックを提供し、EDDIはインフラストラクチャを提供します。</strong>',
+
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock \u00b7 Azure AI Studio \u00b7 Google Vertex AI',
+			para4: 'クラウドAIプラットフォームはマネージドインフラを提供しますが、<strong>重大なベンダーロックイン</strong>をもたらします。',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+			{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native \u2014 any environment' },
+			{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
+			{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs 60\u201380%' },
+			{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
+			{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
+			{ dimension: 'Air-Gap', cloud: 'Not possible', eddi: 'Full offline with Ollama/Jlama' },
+			],
+
+			cloudSovereigntyPara: 'EDDIのセルフホストアーキテクチャは、クラウドにロックインされたプラットフォームが到底及ばない<strong>インフラストラクチャの主権</strong>を提供します。',
+
+			ctaTitle: '比較する準備はできましたか？',
+			ctaPara: 'EDDIを5分でインストールし、現在のスタックと比較評価してください。',
 		},
 		compliance: {
 			title: 'グローバルプライバシーと規制コンプライアンス',

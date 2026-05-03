@@ -116,7 +116,7 @@ const th: TranslationSchema = {
 		heroTitle: 'ตัวจัดการ',
 		heroHighlight: 'AI ระดับองค์กร',
 		heroTagline:
-			`ขับเคลื่อนด้วย Configuration สร้าง ปรับใช้ และจัดการ AI Agents — ไม่ต้องเขียนโค้ด ขับเคลื่อนด้วย Configuration, Self-Hosted และพร้อมใช้งาน Compliance — ปัจจุบันอยู่ใน <strong>${EDDI_VERSION} Preview</strong>`,
+			`แพลตฟอร์มโอเพนซอร์สพร้อมใช้งานจริงสำหรับการปรับใช้ระบบ AI หลายเอเจนต์ที่มีธรรมาภิบาล คอนฟิกูเรชันไดรเวน โฮสต์เอง และพร้อมปฏิบัติตามข้อกำหนด — พร้อม UI จัดการแบบวิชวล เครื่องมือ MCP 42 ตัว และความปลอดภัยระดับองค์กรในตัว ขณะนี้ใน <strong>${EDDI_VERSION}</strong>`,
 		problemTitle: 'ปัญหา',
 		problemDesc: 'Enterprise Java <strong>ขาด Visual AI Orchestration Middleware</strong> ทีมติดอยู่ในวงจรที่เจ็บปวดและกระจัดกระจาย:',
 		problemCard1Title: 'กับดักโปรโตไทป์',
@@ -197,6 +197,10 @@ const th: TranslationSchema = {
 		faq5Q: 'EDDI สามารถแทนที่ Flowise หรือ n8n สำหรับ production workloads ได้หรือไม่?',
 		faq5A:
 			'EDDI ทำหน้าที่ visual building บน JVM แทน Node.js ต่างจาก Flowise และ n8n ตรงที่ EDDI ไม่ใช้ <code>eval()</code> หรือ code blocks ทำงานด้วย Java 25 Virtual Threads สำหรับ enterprise-grade concurrency รองรับ OIDC/Keycloak authentication และเก็บข้อมูลใน MongoDB หรือ PostgreSQL ออกแบบสำหรับอุตสาหกรรมที่มีการกำกับดูแล',
+		faq6Q: 'EDDI เกี่ยวข้องกับ "Eddie AI" หรือผลิตภัณฑ์อื่นที่ชื่อ "Eddy" หรือไม่?',
+		faq6A: 'ไม่ EDDI (โดย <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) เป็น<strong>แพลตฟอร์มการจัดการ AI Agent ระดับองค์กร</strong>แบบโฮสต์เอง ที่สร้างบน Java/Quarkus ไม่เกี่ยวข้องกับเครื่องมือตัดต่อวิดีโอสำหรับผู้บริโภค ซอฟต์แวร์ HR เครื่องมือสร้างแชทบอท หรือผลิตภัณฑ์อื่น ๆ ที่มีชื่อคล้ายกัน',
+		faq7Q: 'EDDI เทียบกับแพลตฟอร์ม AI บนคลาวด์อย่าง AWS Bedrock หรือ Azure AI Studio อย่างไร?',
+		faq7A: 'แพลตฟอร์ม AI บนคลาวด์มีโครงสร้างพื้นฐานที่จัดการให้ แต่สร้าง<strong>การผูกขาดกับผู้ขาย</strong> EDDI ทำงานได้ทุกที่ที่ Docker ทำงานได้ ดู<a href="/enterprise/vs-alternatives/">การเปรียบเทียบโดยละเอียด</a>ของเรา',
 	},
 	gettingStarted: {
 		title: 'เริ่มต้นใช้งาน',
@@ -255,9 +259,6 @@ const th: TranslationSchema = {
 		k8sTitle: 'การ Deploy บน Kubernetes',
 		k8sDesc: 'Deploy บน Kubernetes ด้วยคำสั่งเดียว:',
 		k8sOptions: 'ยังมี Kustomize overlays และ Helm charts สำหรับ MongoDB, PostgreSQL, auth, monitoring และ production hardening (HPA, PDB, NetworkPolicy) ดู <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">คู่มือ Kubernetes</a>',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'กำลังสร้าง Quarkus app? ใช้ extension <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> สำหรับ Dev Services, Fluent API, SSE streaming และ MCP bridge:',
 	},
 	useCases: {
 		title: 'กรณีใช้งาน',
@@ -406,6 +407,11 @@ const th: TranslationSchema = {
 			description: 'ไม่มี eval() ไม่มี code execution blocks',
 			heading1: 'ความปลอดภัยระดับองค์กรจากการออกแบบ',
 			para1: 'EDDI ขจัดช่องโหว่ทั้งหมดจากการออกแบบ ไม่มี <strong>eval()</strong> ไม่มี code execution blocks',
+			crisisTitle: 'ทำไมเรื่องนี้จึงสำคัญตอนนี้',
+			crisisPara: 'ระบบนิเวศของ AI Agent อยู่ภายใต้แรงกดดันด้านความปลอดภัยที่ไม่เคยเกิดขึ้นมาก่อน In early 2026, researchers documented hundreds of critical vulnerabilities across major open-source agent frameworks.',
+			crisisPara2: 'Cloud Security Alliance ระบุว่ามี "ช่องว่างการเปิดเผยข้อมูล AI Agent" ในระดับระบบ',
+			defenseTitle: 'การป้องกันเชิงสถาปัตยกรรมของ EDDI',
+			defensePara: 'แทนที่จะพยายามจำกัดพื้นที่ (sandbox) การรันโค้ด EDDI <strong>กำจัดพื้นที่ผิวการโจมตีออกทั้งหมด</strong>',
 			heading2: 'คุณสมบัติด้านความปลอดภัย',
 			items: [
 				'<strong>Zero eval()</strong> — ไม่มี dynamic code execution',
@@ -416,12 +422,17 @@ const th: TranslationSchema = {
 				'<strong>Cryptographic Audit Trails</strong> — immutable operation logs',
 				'<strong>EU AI Act Ready</strong> — governance capabilities ในตัว',
 			],
+			govTitle: 'การบูรณาการธรรมาภิบาลและการปฏิบัติตามข้อกำหนด',
+			govPara: 'ความสามารถด้านความปลอดภัยป้อนเข้าสู่<a href="/enterprise/compliance/">กรอบการปฏิบัติตามข้อกำหนด</a>ของ EDDI โดยตรง ร่องรอยการตรวจสอบที่เปลี่ยนแปลงไม่ได้เป็นไปตามข้อกำหนด EU AI Act (มาตรา 12-14) โครงสร้างพื้นฐานเดียวกันรองรับ GDPR, HIPAA, SOC 2 และกรอบกฎระเบียบ 15+ กรอบ',
 		},
 		performance: {
 			title: 'ประสิทธิภาพระดับองค์กร',
 			description: 'Java 25 Virtual Threads บน Quarkus',
 			heading1: 'สร้างเพื่อ Scale',
 			para1: 'EDDI ทำงานบน <strong>Java 25 กับ Quarkus</strong> ใช้ Virtual Threads สำหรับ massive I/O-bound concurrency',
+			vtTitle: 'ทำไม Virtual Threads จึงสำคัญสำหรับ AI Agents',
+			vtPara: 'เอเจนต์ AI สมัยใหม่นั้นมีพื้นฐานคือ <strong>I/O-bound</strong>',
+			vtPara2: 'Java Virtual Threads แก้ปัญหานี้ได้อย่างงดงาม',
 			heading2: 'จุดเด่นด้านประสิทธิภาพ',
 			items: [
 				'<strong>Virtual Threads</strong> — ล้านๆ lightweight threads',
@@ -432,6 +443,9 @@ const th: TranslationSchema = {
 				'<strong>One-Command Install</strong> — ตัวช่วยแบบโต้ตอบที่ deploy EDDI + ฐานข้อมูล + เอเจนต์เริ่มต้นผ่าน Docker Compose',
 				'<strong>Red Hat Certified</strong> — การรับรองคอนเทนเนอร์พร้อมการตรวจสอบ preflight อัตโนมัติใน CI/CD',
 			],
+			benchTitle: 'ประสิทธิภาพในบริบท',
+			benchPara: 'ไม่มี runtime ใดชนะในทุกสถานการณ์ Java เอาชนะ Node.js อย่างสม่ำเสมอ 30-68% ในสถานการณ์ที่เกี่ยวข้องกับงานที่ใช้ CPU มาก — ซึ่งเป็นสิ่งที่ AI agents ต้องการอย่างแท้จริง',
+			benchPara2: 'สถาปัตยกรรมของ EDDI ได้รับการปรับแต่งโดยเจตนาสำหรับเวิร์กโหลดแบบผสม I/O + CPU: Quarkus กับ virtual threads รวมกับ connection pools ที่เข้ากันกับ Loom (Agroal)',
 		},
 		multiAgent: {
 			title: 'Multi-Agent Orchestration',
@@ -604,35 +618,118 @@ const th: TranslationSchema = {
 			// LLM Providers
 			llmTitle: 'รองรับ 12 LLM Providers',
 			llmDesc: 'เชื่อมต่อกับ LLM provider หลักใดก็ได้ — หรือใช้ของคุณเองผ่าน OpenAI-compatible endpoint',
+			llmHeaderCategory: 'หมวดหมู่',
+			llmHeaderProviders: 'ผู้ให้บริการ',
 			llmCategories: [
 				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: 'Compatible', providers: 'OpenAI-compatible endpoint ใดก็ได้ (DeepSeek, Cohere ฯลฯ) ผ่าน baseUrl' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'กำลังสร้าง Quarkus app ที่สื่อสารกับ EDDI? ใช้ extension <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> — Dev Services (เริ่ม EDDI อัตโนมัติใน dev mode), Fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring และ <code>@EddiTool</code> MCP bridge',
+			rfpTitle: '8 คำถามที่ CIO ทุกคนควรถาม',
+			rfpDesc: 'เมื่อประเมินแพลตฟอร์มการจัดการ AI Agent คำถามเหล่านี้ that separate production-grade infrastructure from fragile prototypes:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only.' },
+				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism.' },
+				{ category: 'Integration', question: 'Can agents consume external tools through open standards?', eddiAnswer: '42 MCP tools, A2A protocol, OpenAPI 3.1, OAuth 2.0/OIDC.' },
+				{ category: 'Data Privacy', question: 'How are data subject rights implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. 15+ frameworks.' },
+				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
+				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },
+				{ category: 'Operations', question: 'Can non-developers use the platform?', eddiAnswer: 'EDDI Manager: production-ready React UI with visual agent building.' },
+				{ category: 'Portability', question: 'Can it run on-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers. Full air-gap via Ollama.' },
+			],
+			tcoTitle: 'ต้นทุนรวมของการเป็นเจ้าของ: สร้างเอง vs. ปรับใช้',
+			tcoDesc: 'ต้นทุนแอบแฝงของการใช้ไลบรารี AI ไม่ใช่ตัวไลบรารีเอง \u2014 it\'s the <strong>invisible infrastructure</strong> teams must build around it:',
+			tcoBuildTitle: 'สร้างด้วยไลบรารี',
+			tcoBuildItems: [
+				'Custom REST API layer (2\u20134 weeks)',
+				'Authentication & RBAC system (2\u20133 weeks)',
+				'Conversation state persistence (1\u20132 weeks)',
+				'Audit trail & compliance logging (2\u20134 weeks)',
+				'Management UI for non-developers (4\u20138 weeks)',
+				'Secret management integration (1\u20132 weeks)',
+				'Horizontal scaling & coordination (2\u20134 weeks)',
+				'Ongoing maintenance & security patching',
+			],
+			tcoDeployTitle: 'ปรับใช้ EDDI',
+			tcoDeployItems: [
+				'One-command install (5 minutes)',
+				'All of the above included out of the box',
+				'Team focuses on business logic, not infrastructure',
+				'Maintained by an 18-year-old open-source project',
+			],
+			roiTitle: 'กรณีทางธุรกิจ',
+			roiPara: 'คุณค่าของ EDDI วัดจาก <strong>สิ่งที่ทีมไม่ต้องสร้างเอง</strong>.',
+			roiPara2: 'สำหรับอุตสาหกรรมที่มีการกำกับดูแล สมการต้นทุนยิ่งชัดเจนกว่า: ทางเลือกอื่นคือการนำระบบปฏิบัติตามข้อกำหนดแบบกำหนดเองที่ครอบคลุมกรอบกฎระเบียบ 15+ กรอบ',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. ทางเลือก',
 			description: 'เปรียบเทียบ EDDI กับ Spring AI, LangChain4j, Flowise, n8n',
-			heading1: 'Platform vs. Library',
-			para1: 'ความแตกต่างพื้นฐาน: EDDI เป็น <strong>deployable middleware platform</strong> ไม่ใช่ library',
-			heading2: 'การเปรียบเทียบ',
-			heading3a: 'vs. AI Libraries (Spring AI, LangChain, etc.)',
-			para2:
-				'Spring AI และ LangChain4j เป็น<strong>ไลบรารี</strong>ที่ยอดเยี่ยม แต่คุณยังต้องสร้าง REST controllers, auth, conversation management เอง',
-			heading3b: 'vs. Flowise / n8n',
-			para3: 'Flowise และ n8n เป็น Node.js-based visual builders EDDI ทำหน้าที่เดียวกันบน JVM:',
-			vsItems: [
-				'<strong>ไม่มี eval()</strong> — ขจัด CVSS 10.0 RCE risk',
-				'<strong>Java 25 Virtual Threads</strong> — enterprise concurrency',
-				'<strong>OIDC/Keycloak</strong> — enterprise auth',
-				'<strong>MongoDB/PostgreSQL</strong> — production databases',
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'ตลาดการจัดการ AI มีสามรูปแบบ: <strong>ตัวสร้างโหนดวิชวล</strong>, <strong>ไลบรารีโค้ด</strong> และ <strong>แพลตฟอร์มคลาวด์</strong> EDDI เป็น<strong>แพลตฟอร์มมิดเดิลแวร์ที่ปรับใช้ได้</strong>',
+
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
+			para2: 'ตัวสร้างโหนดวิชวลทำให้การสร้างต้นแบบรวดเร็ว อย่างไรก็ตาม สถาปัตยกรรมของมันนำมาซึ่งข้อจำกัดในระดับองค์กร',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+			{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads' },
+			{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks', eddi: 'Zero eval() \u2014 declarative JSON only' },
+			{ dimension: 'Security', builders: 'Multiple critical CVEs documented', eddi: 'No dynamic code execution by design' },
+			{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC' },
+			{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL' },
+			{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable audit ledger' },
+			{ dimension: 'Compliance', builders: 'Manual implementation', eddi: '17+ frameworks built in' },
 			],
-			heading3c: 'vs. AWS Bedrock / Azure AI Studio',
-			para4: 'Cloud AI platforms สร้า<strong>vendor lock-in</strong> EDDI ทำงานได้ทุกที่ที่ Docker ทำงาน',
+
+			builderSecurityTitle: 'ข้อพิจารณาด้านความปลอดภัย',
+			builderSecurityPara: 'ภายในต้นปี 2026 ระบบนิเวศของ AI Agent ได้ประสบกับ<strong>การตรวจสอบความปลอดภัย</strong>ครั้งสำคัญ',
+			builderSecurityPara2: 'EDDI ใช้แนวทางที่แตกต่างไปจากเดิมอย่างสิ้นเชิง: <strong>ห้ามการประเมินรันไทม์โค้ดโดยเด็ดขาด</strong>',
+
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph \u00b7 CrewAI \u00b7 AutoGen \u00b7 LangChain \u00b7 Spring AI',
+			para3: 'ไลบรารีโค้ดเป็นองค์ประกอบที่ยอดเยี่ยม แต่การเลือกไลบรารีหมายถึงต้องสร้างโครงสร้างพื้นฐานการผลิตทั้งหมดด้วยตนเอง',
+
+			libraryGapTitle: 'ช่องว่าง "การดำเนินงานวันที่ 2"',
+			libraryGapDesc: 'ทีมต้องสร้างโครงสร้างพื้นฐานระดับองค์กรตั้งแต่เริ่มต้น:',
+			libraryGapItems: [
+			'REST API controllers', 'Authentication (OIDC, RBAC)', 'Conversation state management',
+			'Audit logging', 'Management UI', 'Secret management',
+			'Horizontal scaling', 'Cost tracking', 'GDPR compliance API', 'Durable execution',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework', abstraction: 'Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+			{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG)', learning: 'Moderate\u2013High', state: 'Built-in persistence', production: 'Requires custom infrastructure' },
+			{ framework: 'CrewAI', abstraction: 'Role-based delegation', learning: 'Low', state: 'Ephemeral', production: 'Prototyping-focused' },
+			{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
+			{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged' },
+			],
+
+			libraryPositioning: '<strong>ไลบรารีให้ตรรกะ EDDI ให้โครงสร้างพื้นฐาน</strong>',
+
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock \u00b7 Azure AI Studio \u00b7 Google Vertex AI',
+			para4: 'แพลตฟอร์ม AI บนคลาวด์มีโครงสร้างพื้นฐานที่จัดการให้ แต่ทำให้เกิด<strong>การผูกขาดกับผู้ขายอย่างมาก</strong>',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+			{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native \u2014 any environment' },
+			{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
+			{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs 60\u201380%' },
+			{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
+			{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
+			{ dimension: 'Air-Gap', cloud: 'Not possible', eddi: 'Full offline with Ollama/Jlama' },
+			],
+
+			cloudSovereigntyPara: 'สถาปัตยกรรมแบบโฮสต์เองของ EDDI ให้<strong>อธิปไตยเหนือโครงสร้างพื้นฐาน</strong>ที่แพลตฟอร์มบนคลาวด์เทียบไม่ได้',
+
+			ctaTitle: 'พร้อมที่จะเปรียบเทียบหรือยัง?',
+			ctaPara: 'ติดตั้ง EDDI ใน 5 นาที และประเมินกับสแต็กปัจจุบันของคุณ',
 		},
 		compliance: {
 			title: 'ความเป็นส่วนตัวทั่วโลกและการปฏิบัติตามข้อกำหนด',

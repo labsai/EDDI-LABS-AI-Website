@@ -9,7 +9,7 @@ const en = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION} — The Enterprise AI Orchestrator. Configuration-driven, self-hosted AI agent platform with visual management, security-first architecture, and built-in compliance.`,
+			`EDDI ${EDDI_VERSION} — Enterprise AI Agent Orchestration Platform. Self-hosted, configuration-driven multi-agent system with visual management UI, 42 MCP tools, security-first architecture, and built-in regulatory compliance for GDPR, EU AI Act, HIPAA, and 15+ frameworks.`,
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
@@ -141,7 +141,7 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			`Build, deploy, and manage AI agents — without writing code. Configuration-driven, self-hosted, and compliance-ready out of the box. Now available as <strong>${EDDI_VERSION}</strong>.`,
+			`The open-source, production-ready platform for deploying governed, multi-agent AI systems. Configuration-driven, self-hosted, and compliance-ready — with a visual management UI, 42 MCP tools, and enterprise security built in. Now in <strong>${EDDI_VERSION}</strong>.`,
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
@@ -229,6 +229,10 @@ const en = {
 		faq4A: 'The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes 42 MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics.',
 		faq5Q: 'Can EDDI replace Flowise or n8n for production workloads?',
 		faq5A: 'EDDI serves a similar visual-building purpose but with enterprise-grade architecture. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs millions of lightweight virtual threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
+		faq6Q: 'Is EDDI related to "Eddie AI" or other products named "Eddy"?',
+		faq6A: 'No. EDDI (by <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
+		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
+		faq7A: 'Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, any cloud, or in air-gapped environments. It supports 12 LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.',
 	},
 
 	// ─── Getting Started ────────────────────────────────────────
@@ -289,9 +293,7 @@ const en = {
 		k8sTitle: 'Kubernetes Deployment',
 		k8sDesc: 'Deploy to Kubernetes with a single command:',
 		k8sOptions: 'Kustomize overlays and Helm charts are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
-		// Quarkus SDK
-		sdkTitle: 'Quarkus SDK',
-		sdkDesc: 'Building a Quarkus app? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension for Dev Services, fluent API, SSE streaming, and MCP bridge:',
+
 	},
 
 	// ─── Use Cases ──────────────────────────────────────────────
@@ -470,36 +472,63 @@ const en = {
 		security: {
 			title: 'Security-First Architecture',
 			description:
-				'No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication — security is an architectural foundation.',
+				'No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication — security is an architectural foundation, not a bolt-on.',
 			heading1: 'Enterprise Security by Design',
 			para1: 'EDDI eliminates entire classes of security vulnerabilities by design. There is <strong>no eval()</strong>, no code execution blocks, and no dynamic code injection — agent behavior is defined through declarative JSON configuration only.',
-			heading2: 'Security Features',
+
+			// Industry context
+			crisisTitle: 'Why This Matters Now',
+			crisisPara: 'The AI agent ecosystem is under unprecedented security pressure. In early 2026, independent researchers <a href="https://theweatherreport.ai/posts/agent-platform-cves-april-2026/" target="_blank" rel="noopener">documented hundreds of critical vulnerabilities</a> across major open-source agent frameworks — including CVSS 10.0 remote code execution flaws, sandbox escapes, and authorization bypasses. The root cause in most cases: <strong>platforms that execute user-supplied or dynamically generated code at runtime</strong>.',
+			crisisPara2: 'The <a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">Cloud Security Alliance</a> identified a systemic "AI Agent Disclosure Vacuum" — traditional vulnerability reporting processes cannot keep pace with the non-deterministic nature of AI systems. For enterprises deploying agents in regulated environments, the security posture of the underlying platform is no longer a nice-to-have — it is a board-level risk decision.',
+
+			// Architectural defense
+			defenseTitle: 'EDDI\'s Architectural Defense',
+			defensePara: 'Rather than attempting to sandbox code execution after the fact, EDDI <strong>eliminates the attack surface entirely</strong>. Agent behavior is defined through declarative JSON configuration — never through executable code blocks, eval() statements, or dynamic script injection. This architectural decision structurally prevents the vulnerability classes that have affected competing platforms.',
+
+			heading2: 'Security Capabilities',
 			items: [
-				'<strong>Zero eval()</strong> — No dynamic code execution (eliminates CVSS 10.0 RCE risks)',
-				'<strong>OIDC/Keycloak</strong> — Enterprise authentication and authorization',
-				'<strong>Vault Integration</strong> — Secure secret management for API keys',
-				'<strong>Path Traversal Protection</strong> — Input validation at every boundary',
-				'<strong>URL Validation</strong> — Prevent SSRF and redirect attacks',
-				'<strong>Cryptographic Audit Trails</strong> — Immutable, tamper-evident operation logs',
-				'<strong>EU AI Act Ready</strong> — Built-in governance capabilities for regulatory compliance',
+				'<strong>Zero eval()</strong> — No dynamic code execution of any kind. Agent logic is declarative JSON only',
+				'<strong>OIDC/Keycloak</strong> — Enterprise authentication and authorization with RBAC roles (admin, editor, viewer)',
+				'<strong>Secrets Vault</strong> — AES-256-GCM envelope encryption for API keys with automatic secret scrubbing on export',
+				'<strong>Path Traversal Protection</strong> — Input validation at every boundary prevents directory escape attacks',
+				'<strong>SSRF Protection</strong> — URL validation and domain allowlisting prevent server-side request forgery',
+				'<strong>Cryptographic Audit Trails</strong> — HMAC-SHA256 signed, tamper-evident operation logs with per-agent cryptographic signing',
+				'<strong>Secret Redaction</strong> — Automated filter scrubs API keys, vault references, and sensitive data from all audit entries',
+				'<strong>PII-Safe Logging</strong> — GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
 			],
+
+			// Governance
+			govTitle: 'Governance & Compliance Integration',
+			govPara: 'Security capabilities feed directly into EDDI\'s <a href="/enterprise/compliance/">compliance framework</a>. The immutable audit trail satisfies EU AI Act record-keeping requirements (Art. 12), pipeline tracing provides AI decision transparency (Art. 13), and the Management UI enables human oversight with emergency stop capabilities (Art. 14). The same infrastructure supports GDPR, HIPAA, SOC 2, and 15+ additional regulatory frameworks — all through one unified API.',
 		},
 		performance: {
 			title: 'Enterprise Performance',
 			description:
-				'Java 25 Virtual Threads on Quarkus — millions of lightweight threads for I/O-bound LLM workloads with sub-second boot times.',
+				'Java 25 Virtual Threads on Quarkus — millions of lightweight threads for I/O-bound LLM workloads with sub-second boot times and half the memory footprint of traditional frameworks.',
 			heading1: 'Built for Scale',
 			para1: 'EDDI runs on <strong>Java 25 with Quarkus</strong>, leveraging Virtual Threads (Project Loom) for massive I/O-bound concurrency. Unlike Node.js event loops, Virtual Threads provide genuine multi-threaded parallelism with minimal overhead.',
+
+			// Why Virtual Threads matter for AI
+			vtTitle: 'Why Virtual Threads Matter for AI Agents',
+			vtPara: 'Modern AI agents are fundamentally <strong>I/O-bound</strong>: they spend most of their time waiting for LLM API responses, vector store queries, external tool calls, and database operations. Traditional platform threads (and Node.js event loops) struggle with this pattern — each blocking call either occupies an expensive OS thread or forces complex callback chains.',
+			vtPara2: 'Java Virtual Threads solve this elegantly: when an agent awaits an LLM response, its virtual thread <strong>yields seamlessly</strong>, freeing the underlying carrier thread to process other agent operations. This means EDDI can serve millions of concurrent agent conversations with a fraction of the hardware required by traditional architectures.',
+
 			heading2: 'Performance Highlights',
 			items: [
-				'<strong>Virtual Threads</strong> — Millions of lightweight threads for concurrent LLM calls',
-				'<strong>Quarkus Runtime</strong> — Cloud-native, dev-mode hot reload, optimized for containers',
-				'<strong>NATS JetStream</strong> — Horizontal scaling with event-driven architecture',
+				'<strong>Virtual Threads</strong> — Millions of lightweight threads for concurrent LLM calls, each yielding during I/O waits',
+				'<strong>Quarkus Runtime</strong> — Cloud-native Java with dev-mode hot reload, optimized for containers. Quarkus handles 2.7× more transactions per second than legacy Spring Boot while starting 2.3× faster and using half the memory',
+				'<strong>Loom-Friendly Connection Pools</strong> — Agroal connection pooling avoids the ThreadLocal bottlenecks that can affect traditional connection pools under virtual thread workloads',
+				'<strong>NATS JetStream</strong> — Horizontal scaling with event-driven architecture for multi-instance coordination',
 				'<strong>Dual Database</strong> — MongoDB or PostgreSQL, switch with one env var. Single Docker image for both',
 				'<strong>SSE Streaming</strong> — Real-time chat responses, group discussion feeds, and live log streaming via Server-Sent Events',
 				'<strong>One-Command Install</strong> — Interactive wizard deploys EDDI + database + starter agent via Docker Compose',
 				'<strong>Red Hat Certified</strong> — Container certification with automated preflight checks in CI/CD',
 			],
+
+			// Honest benchmark context
+			benchTitle: 'Performance in Context',
+			benchPara: 'No runtime wins in every scenario. <a href="https://apuravchauhan.medium.com/node-js-vs-java-web-performance-benchmark-analysis-scaling-insights-de2ce3998d18" target="_blank" rel="noopener">Industry benchmarks</a> show that Node.js can outperform Java in highly specific, pure-I/O routing scenarios. However, Java consistently outperforms Node.js by 30–68% across scenarios involving CPU-intensive tasks — which is exactly what AI agents require. Modern agents perform a complex mix of <strong>massive I/O</strong> (LLM API calls, vector queries) and <strong>intensive computation</strong> (data transformation, routing logic, embedding processing, confidence evaluation). This mixed-workload profile is where virtual threads on Quarkus deliver their strongest advantage.',
+			benchPara2: 'EDDI\'s architecture is intentionally optimized for this reality: Quarkus with virtual threads for the I/O-heavy agent orchestration layer, combined with Loom-friendly connection pools (Agroal) that avoid the ThreadLocal contention issues <a href="https://www.reddit.com/r/java/comments/1lfa991/virtual_threads_in_java_24_we_ran_realworld/" target="_blank" rel="noopener">documented by the community</a> with traditional pooling libraries under high virtual thread concurrency.',
 		},
 		multiAgent: {
 			title: 'Multi-Agent Orchestration',
@@ -681,35 +710,140 @@ const en = {
 			// LLM Providers
 			llmTitle: '12 LLM Providers Supported',
 			llmDesc: 'Connect to any major LLM provider — or bring your own via any OpenAI-compatible endpoint.',
+			llmHeaderCategory: 'Category',
+			llmHeaderProviders: 'Providers',
 			llmCategories: [
 				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
 				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
 				{ category: 'Compatible', providers: 'Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl' },
 			],
-			// Quarkus SDK
-			sdkTitle: 'Quarkus SDK',
-			sdkDesc: 'Building a Quarkus app that talks to EDDI? Use the <strong><a href="https://github.com/quarkiverse/quarkus-eddi" target="_blank" rel="noopener">quarkus-eddi</a></strong> extension — Dev Services (auto-starts EDDI in dev mode), fluent API, SSE streaming, <code>@EddiAgent</code> endpoint wiring, and <code>@EddiTool</code> MCP bridge.',
+
+			// ── RFP Evaluation Checklist ───────────────────────────
+			rfpTitle: '8 Questions Every CIO Should Ask',
+			rfpDesc: 'When evaluating AI agent orchestration platforms, these are the questions that separate production-grade infrastructure from fragile prototypes:',
+			rfpItems: [
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only — zero eval(), zero code execution blocks.' },
+				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism for millions of concurrent I/O-bound operations.' },
+				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '42 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC — all open standards.' },
+				{ category: 'Data Privacy', question: 'How are data subject rights (erasure, export, restriction) implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. One endpoint for GDPR, CCPA, LGPD, PIPEDA, and 15+ frameworks.' },
+				{ category: 'Security', question: 'What is the platform\'s CVE history and architectural security posture?', eddiAnswer: 'No dynamic code execution eliminates entire vulnerability classes. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
+				{ category: 'Compliance', question: 'Does the platform provide immutable, cryptographically signed audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with per-agent cryptographic signing. Full pipeline tracing for every decision.' },
+				{ category: 'Operations', question: 'Can non-developers (prompt engineers, compliance officers) use the platform?', eddiAnswer: 'The EDDI Manager is a production-ready React UI with visual agent building, live chat debugging, and audit dashboards.' },
+				{ category: 'Portability', question: 'Can the platform run on-premises, in any cloud, and in air-gapped environments?', eddiAnswer: 'Docker-native architecture runs anywhere. Supports 12 LLM providers + any OpenAI-compatible endpoint. Full air-gap support via Ollama.' },
+			],
+
+			// ── TCO / Build vs. Deploy ────────────────────────────
+			tcoTitle: 'Total Cost of Ownership: Build vs. Deploy',
+			tcoDesc: 'The hidden cost of using AI libraries is not the library itself — it\'s the <strong>invisible infrastructure</strong> teams must build, maintain, and secure around it:',
+			tcoBuildTitle: 'Building with Libraries',
+			tcoBuildItems: [
+				'Custom REST API layer (2–4 weeks)',
+				'Authentication & RBAC system (2–3 weeks)',
+				'Conversation state persistence (1–2 weeks)',
+				'Audit trail & compliance logging (2–4 weeks)',
+				'Management UI for non-developers (4–8 weeks)',
+				'Secret management integration (1–2 weeks)',
+				'Horizontal scaling & coordination (2–4 weeks)',
+				'Ongoing maintenance & security patching',
+			],
+			tcoDeployTitle: 'Deploying EDDI',
+			tcoDeployItems: [
+				'One-command install (5 minutes)',
+				'All of the above included out of the box',
+				'Team focuses on business logic, not infrastructure',
+				'Maintained by an 18-year-old open-source project',
+			],
+
+			// ── ROI Framing ──────────────────────────────────────
+			roiTitle: 'The Business Case',
+			roiPara: 'EDDI\'s value is measured in <strong>what teams don\'t have to build</strong>: the REST APIs, authentication systems, audit infrastructure, management UIs, and compliance tooling that would otherwise consume months of engineering time. Model cascading alone can reduce LLM costs by 60–80% by routing simple queries to cheaper models — escalating to powerful models only when confidence is low.',
+			roiPara2: 'For regulated industries, the cost equation is even clearer: the alternative to EDDI\'s built-in compliance infrastructure is a custom implementation covering GDPR, EU AI Act, HIPAA, and potentially 15+ additional regulatory frameworks — each requiring its own data subject rights implementation, audit trail, and governance tooling.',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. Alternatives',
 			description:
-				'How EDDI compares with Spring AI, LangChain4j, Flowise, n8n, and other AI orchestration approaches.',
-			heading1: 'Platform vs. Library',
-			para1: 'The fundamental difference: EDDI is a <strong>deployable middleware platform</strong>, not a library. While libraries give you building blocks, EDDI gives you the entire building — ready to deploy.',
-			heading2: 'Comparison',
-			heading3a: 'vs. AI Libraries (Spring AI, LangChain, etc.)',
-			para2: 'AI libraries like Spring AI, LangChain, and LangChain4j are excellent <strong>building blocks</strong> (EDDI uses LangChain4j internally). But with libraries, you still need to build REST controllers, authentication, conversation management, audit logging, and management UIs yourself. EDDI provides all of this out of the box.',
-			heading3b: 'vs. Flowise / n8n',
-			para3: 'Flowise and n8n are Node.js-based visual builders. EDDI serves a similar purpose but with enterprise-grade architecture:',
-			vsItems: [
-				'<strong>No eval()</strong> — Eliminates CVSS 10.0 remote code execution risks',
-				'<strong>Millions of virtual threads</strong> — Enterprise-grade concurrency vs. single-threaded event loops',
-				'<strong>OIDC/Keycloak</strong> — Enterprise authentication vs. basic auth',
-				'<strong>MongoDB/PostgreSQL</strong> — Production databases vs. SQLite',
+				'How EDDI compares with Flowise, n8n, LangGraph, CrewAI, AutoGen, AWS Bedrock, Azure AI Studio, and other AI orchestration approaches — architecture, security, and enterprise readiness.',
+
+			// ── Section 1: Overview ────────────────────────────────
+			heading1: 'Platform vs. Library vs. Builder',
+			para1: 'The AI orchestration market has three archetypes: <strong>visual node builders</strong> (Flowise, n8n), <strong>code libraries</strong> (LangGraph, CrewAI, AutoGen), and <strong>cloud platforms</strong> (AWS Bedrock, Azure AI Studio). EDDI is none of these — it is a <strong>deployable middleware platform</strong> that provides the complete infrastructure teams need to ship AI agents to production.',
+
+			// ── Section 2: vs. Visual Node Builders ────────────────
+			heading2: 'vs. Visual Node Builders',
+			heading2sub: 'Flowise · n8n · Similar Platforms',
+			para2: 'Visual node builders make prototyping fast and accessible. However, their architecture introduces fundamental constraints that surface at enterprise scale — particularly around concurrency, security, and operational governance.',
+
+			builderComparisonTitle: 'Architecture Comparison',
+			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
+			builderComparisonRows: [
+				{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads (Project Loom)' },
+				{ dimension: 'Concurrency Model', builders: 'Async callbacks — blocks on CPU-intensive tasks', eddi: 'True OS-level parallelism — virtual threads yield seamlessly during I/O waits' },
+				{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks for custom logic', eddi: 'Zero eval() — agent behavior is declarative JSON configuration only' },
+				{ dimension: 'Security Posture', builders: 'Multiple critical CVEs documented across major platforms', eddi: 'No dynamic code execution — eliminates entire vulnerability classes by design' },
+				{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC (admin, editor, viewer roles)' },
+				{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL — switch with one environment variable' },
+				{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable cryptographic audit ledger' },
+				{ dimension: 'Compliance', builders: 'Manual implementation required', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built in — 17+ frameworks supported' },
 			],
-			heading3c: 'vs. AWS Bedrock / Azure AI Studio',
-			para4: 'Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, in any cloud, or in air-gapped environments.',
+
+			builderSecurityTitle: 'The Security Consideration',
+			builderSecurityPara: 'By early 2026, the AI agent ecosystem experienced a significant <strong>security reckoning</strong>. Independent researchers documented hundreds of critical vulnerabilities across major open-source agent frameworks — including sandbox escapes, authorization bypasses, and remote code execution flaws within platform safety layers. The Cloud Security Alliance highlighted a systemic "<a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">AI Agent Disclosure Vacuum</a>," noting that traditional vulnerability reporting processes were struggling to keep pace with emergent, non-deterministic AI systems.',
+			builderSecurityPara2: 'EDDI takes a fundamentally different architectural approach: by <strong>categorically forbidding runtime code evaluation</strong>, it eliminates the attack surface that enables these vulnerability classes. Agent behavior is defined through declarative JSON configuration — not executable code blocks. Combined with enterprise OIDC/Keycloak authentication, AES-256-GCM vault-based secret management, SSRF protection, and path traversal guards, EDDI provides a security posture designed for regulated environments where compliance is not optional.',
+
+			// ── Section 3: vs. Code Libraries ─────────────────────
+			heading3: 'vs. Code Libraries & Frameworks',
+			heading3sub: 'LangGraph · CrewAI · AutoGen · LangChain · Spring AI',
+			para3: 'Code libraries and frameworks are excellent building blocks — EDDI uses <a href="https://docs.langchain4j.dev/" target="_blank" rel="noopener">LangChain4j</a> internally. But choosing a library means accepting responsibility for <strong>everything else</strong> required to run AI agents in production.',
+
+			libraryGapTitle: 'The "Day 2 Operations" Gap',
+			libraryGapDesc: 'When a development team uses LangGraph, CrewAI, or similar frameworks, they achieve excellent logic structuring. But they are entirely responsible for building the surrounding enterprise infrastructure from scratch:',
+			libraryGapItems: [
+				'REST API controllers and endpoint routing',
+				'Authentication and authorization (OIDC, RBAC, multi-tenancy)',
+				'Conversation state management across distributed databases',
+				'Comprehensive audit logging and compliance trails',
+				'Durable execution and state recovery across server restarts',
+				'Management UI for non-developer users (prompt engineers, ops teams)',
+				'Secret management (API key storage, rotation, access control)',
+				'Horizontal scaling infrastructure (event bus, coordination)',
+				'Cost tracking, per-tenant budgeting, and model cascading',
+				'Data subject rights API (GDPR erasure, export, processing restriction)',
+			],
+
+			libraryComparisonTitle: 'Framework Comparison',
+			libraryComparisonHeaders: { framework: 'Framework / Platform', abstraction: 'Primary Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
+			libraryComparisonRows: [
+				{ framework: 'LangGraph (v1.0)', abstraction: 'Nodes & Edges (DAG / state machine)', learning: 'Moderate–High (2–3 weeks)', state: 'Excellent built-in persistence, but rigid upfront definition required', production: 'Requires custom REST, auth, UI, and scaling infrastructure' },
+				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral — relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
+				{ framework: 'Microsoft AutoGen', abstraction: 'Multi-party conversational dialogues', learning: 'Low–Moderate', state: 'Good conversation history support', production: 'Transitioning to new framework; deep Azure integration required' },
+				{ framework: 'EDDI', abstraction: 'Multi-Agent Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Native persistent memory, dream consolidation, rolling summaries', production: 'Fully packaged: OIDC/Keycloak, vault, audit trails, management UI, Kubernetes-ready' },
+			],
+
+			libraryPositioning: '<strong>Libraries provide the logic; EDDI provides the infrastructure.</strong> Teams using EDDI ship AI agents to production instead of maintaining internal middleware. This distinction matters most when scaling beyond a single developer — when prompt engineers, operations teams, and compliance officers all need access to the platform.',
+
+			// ── Section 4: vs. Cloud AI Platforms ────────────────
+			heading4: 'vs. Cloud AI Platforms',
+			heading4sub: 'AWS Bedrock · Azure AI Studio · Google Vertex AI · Salesforce Agentforce',
+			para4: 'Cloud AI platforms offer managed infrastructure with deep integration into existing corporate data lakes. However, this convenience introduces <strong>significant vendor lock-in</strong> at a time when the AI model landscape is shifting rapidly — with newer, cheaper, and more capable models emerging every quarter.',
+
+			cloudComparisonTitle: 'Sovereignty & Portability',
+			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
+			cloudComparisonRows: [
+				{ dimension: 'Deployment', cloud: 'Locked to provider\'s cloud tenant', eddi: 'Docker-native — runs on-premises, any cloud, or air-gapped' },
+				{ dimension: 'Model Choice', cloud: 'Provider\'s model portfolio (often restricted)', eddi: '12 LLM providers + any OpenAI-compatible endpoint via baseUrl' },
+				{ dimension: 'Cost Control', cloud: 'Provider-set pricing, limited optimization levers', eddi: 'Model cascading reduces LLM costs 60–80% via confidence-based routing' },
+				{ dimension: 'Data Residency', cloud: 'Data resides in provider\'s infrastructure', eddi: 'Full data sovereignty — you control where data is stored and processed' },
+				{ dimension: 'Portability', cloud: 'Provider-specific APIs, SDKs, and abstractions', eddi: 'Standard MCP, A2A, OpenAPI, REST — zero proprietary lock-in' },
+				{ dimension: 'Multi-Cloud', cloud: 'Difficult or impossible to span providers', eddi: 'Same Docker image deploys identically to any environment' },
+				{ dimension: 'Air-Gap Ready', cloud: 'Not possible without major customization', eddi: 'Full offline deployment with Ollama or Jlama for local LLM inference' },
+			],
+
+			cloudSovereigntyPara: 'For organizations in regulated industries, defense, healthcare, or national security — where data must stay on-premises or within specific jurisdictions — EDDI\'s self-hosted, Docker-native architecture provides <strong>infrastructure sovereignty</strong> that cloud-locked platforms cannot match. And when the next breakthrough model drops at half the cost, teams using EDDI can switch providers with a single configuration change.',
+
+			// ── Bottom CTA ─────────────────────────────────────────
+			ctaTitle: 'Ready to Compare?',
+			ctaPara: 'Install EDDI in 5 minutes and evaluate it side-by-side against your current stack.',
 		},
 		compliance: {
 			title: 'Global Privacy & Regulatory Compliance',

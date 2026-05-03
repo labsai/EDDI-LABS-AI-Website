@@ -11,10 +11,22 @@ const t = await getTranslations(lang);
 const p = t.pages.security;
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
-<h2>{p.heading1}</h2>
-<p set:html={p.para1} />
-<h3>{p.heading2}</h3>
-<ul>
-{p.items.map((item) => <li set:html={item} />)}
-</ul>
+<h2>{p.heading1}</h2><p set:html={p.para1} />
+
+<!-- Industry Context -->
+<h3>{p.crisisTitle}</h3>
+<p set:html={p.crisisPara} />
+<p set:html={p.crisisPara2} />
+
+<!-- Architectural Defense -->
+<h3>{p.defenseTitle}</h3>
+<p set:html={p.defensePara} />
+
+<!-- Security Capabilities -->
+<h2>{p.heading2}</h2>
+<ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+
+<!-- Governance -->
+<h3>{p.govTitle}</h3>
+<p set:html={p.govPara} />
 </FeaturePage>
