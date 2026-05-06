@@ -52,7 +52,7 @@ const { lang, t } = Astro.props;
 				<p class="gs-os-label">Linux / macOS / WSL2:</p>
 				<pre><code>curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash</code></pre>
 				<p class="gs-os-label">Windows (PowerShell):</p>
-				<pre><code>iwr -useb https://raw.githubusercontent.com/labsai/EDDI/main/install.ps1 | iex</code></pre>
+				<pre><code>& ([scriptblock]::Create((iwr -useb https://raw.githubusercontent.com/labsai/EDDI/main/install.ps1).Content))</code></pre>
 			</div>
 			<div class="gs-tab-panel" role="tabpanel" id="panel-compose" aria-labelledby="tab-compose">
 				<p set:html={t.gettingStarted.step1ComposeDesc} />
