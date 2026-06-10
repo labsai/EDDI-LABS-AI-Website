@@ -207,6 +207,12 @@ const pt: TranslationSchema = {
 		faq6A: 'Não. O EDDI (pela <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) é uma plataforma de <strong>orquestração de agentes de IA empresarial</strong> auto-hospedada, construída em Java/Quarkus. Não tem relação com ferramentas de edição de vídeo, softwares de RH, criadores de chatbots ou outros produtos com nomes semelhantes.',
 		faq7Q: 'Como o EDDI se compara a plataformas de IA na nuvem, como AWS Bedrock ou Azure AI Studio?',
 		faq7A: 'Plataformas de IA na nuvem oferecem infraestrutura gerenciada, mas criam <strong>dependência de fornecedor</strong>. O EDDI funciona onde quer que o Docker funcione. Veja nossa <a href="/enterprise/vs-alternatives/">comparação detalhada</a>.',
+		demoBtn: 'Sistema de Demo',
+		demoModalTitle: 'Sistema de Demo',
+		demoModalWarning: 'Apenas para exploração. Todos os dados são apagados a cada 48 horas às 03:00 UTC.',
+		demoModalBody: 'Esta é uma instância de demonstração ao vivo do EDDI disponível para todos. Destina-se exclusivamente para avaliação e experimentação — não a utilize para cargas de trabalho em produção, não armazene dados sensíveis e não dependa da sua disponibilidade.',
+		demoModalCancel: 'Cancelar',
+		demoModalOpen: 'Abrir Demo',
 	},
 	gettingStarted: {
 		title: 'Primeiros Passos',

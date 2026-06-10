@@ -193,6 +193,12 @@ const zh: TranslationSchema = {
 		faq6A: '不。EDDI（由<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>开发）是一个自托管的<strong>企业AI代理编排平台</strong>，基于Java/Quarkus构建。它与消费者视频剪辑工具、HR软件、聊天机器人生成器或其他同名产品无关。',
 		faq7Q: '与AWS Bedrock或Azure AI Studio等云端AI平台相比，EDDI如何？',
 		faq7A: '云AI平台提供托管基础设施，但造成<strong>供应商锁定</strong>。EDDI可在任何运行Docker的地方运行。查看我们的<a href="/enterprise/vs-alternatives/">详细比较</a>。',
+		demoBtn: '演示系统',
+		demoModalTitle: '演示系统',
+		demoModalWarning: '仅供探索使用。所有数据每 48 小时在 03:00 UTC 清除一次。',
+		demoModalBody: '这是一个供所有人探索的 EDDI 实时演示实例。仅用于评估和实验——请勿用于生产工作负载、存储敏感数据或依赖其可用性。',
+		demoModalCancel: '取消',
+		demoModalOpen: '打开演示',
 	},
 	gettingStarted: {
 		title: '快速入门',

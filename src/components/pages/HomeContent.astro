@@ -34,7 +34,7 @@ const { lang, t } = Astro.props;
 				<a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">{t.common.viewOnGithub}</a>
 				<button id="open-demo-modal" type="button" class="btn-cta-demo">
 					<svg class="btn-demo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-					Demo System
+					{t.home.demoBtn}
 				</button>
 			</div>
 		</div>
@@ -226,7 +226,7 @@ const { lang, t } = Astro.props;
 				<div class="demo-modal-warning-icon" aria-hidden="true">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
 				</div>
-				<h3 id="demo-modal-title" class="demo-modal-title">Demo System</h3>
+				<h3 id="demo-modal-title" class="demo-modal-title">{t.home.demoModalTitle}</h3>
 			</div>
 			<button id="close-demo-modal" type="button" class="demo-modal-close" aria-label="Close demo system dialog">
 				<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -234,15 +234,15 @@ const { lang, t } = Astro.props;
 		</div>
 
 		<div class="demo-warning-box">
-			<strong>For exploration only.</strong> All data is wiped every 48 hours at 03:00 UTC.
+			{t.home.demoModalWarning}
 		</div>
 
 		<p class="demo-modal-text">
-			This is a live demo instance of EDDI available for anyone to explore. It is intended solely for evaluation and experimentation — please do not use it for production workloads, store sensitive data, or rely on its availability.
+			{t.home.demoModalBody}
 		</p>
 
 		<div class="demo-modal-actions">
-			<button id="demo-cancel" type="button" class="demo-btn-secondary">Cancel</button>
+			<button id="demo-cancel" type="button" class="demo-btn-secondary">{t.home.demoModalCancel}</button>
 			<a
 				href="https://34-29-111-190.sslip.io/manage"
 				target="_blank"
@@ -250,7 +250,7 @@ const { lang, t } = Astro.props;
 				class="demo-btn-primary"
 				id="demo-open-link"
 			>
-				Open Demo
+				{t.home.demoModalOpen}
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:0.9em;height:0.9em;display:inline;vertical-align:-0.1em;margin-inline-start:0.35em"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
 			</a>
 		</div>

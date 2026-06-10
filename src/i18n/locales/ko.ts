@@ -195,6 +195,12 @@ const ko: TranslationSchema = {
 		faq6A: '아니요. EDDI(<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a> 개발)는 Java/Quarkus 기반으로 구축된 자체 호스팅 <strong>엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼</strong>입니다. 소비자용 비디오 편집 도구, HR 소프트웨어, 챗봇 빌더 등 유사한 이름을 가진 제품들과 무관합니다.',
 		faq7Q: 'EDDI는 AWS Bedrock이나 Azure AI Studio 같은 클라우드 AI 플랫폼과 어떻게 다른가요?',
 		faq7A: '클라우드 AI 플랫폼은 관리형 인프라를 제공하지만 <strong>벤더 종속</strong>을 야기합니다. EDDI는 Docker가 실행되는 모든 곳에서 실행됩니다. <a href="/enterprise/vs-alternatives/">상세 비교</a>를 확인하세요.',
+		demoBtn: '데모 시스템',
+		demoModalTitle: '데모 시스템',
+		demoModalWarning: '탐색 전용입니다. 모든 데이터는 48시간마다 03:00 UTC에 삭제됩니다.',
+		demoModalBody: '이것은 누구나 탐색할 수 있는 EDDI의 라이브 데모 인스턴스입니다. 평가 및 실험 목적으로만 사용하며 프로덕션 워크로드, 민감한 데이터 저장 또는 가용성에 의존하지 마십시오.',
+		demoModalCancel: '취소',
+		demoModalOpen: '데모 열기',
 	},
 	gettingStarted: {
 		title: '시작하기',

@@ -233,6 +233,13 @@ const en = {
 		faq6A: 'No. EDDI (by <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
 		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
 		faq7A: 'Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, any cloud, or in air-gapped environments. It supports 12 LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.',
+		// Demo System
+		demoBtn: 'Demo System',
+		demoModalTitle: 'Demo System',
+		demoModalWarning: 'For exploration only. All data is wiped every 48 hours at 03:00 UTC.',
+		demoModalBody: 'This is a live demo instance of EDDI available for anyone to explore. It is intended solely for evaluation and experimentation — please do not use it for production workloads, store sensitive data, or rely on its availability.',
+		demoModalCancel: 'Cancel',
+		demoModalOpen: 'Open Demo',
 	},
 
 	// ─── Getting Started ────────────────────────────────────────
