@@ -4,6 +4,10 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🚀 Features
+- `feat(website)`: **Demo System Button & Modal** — Added a "Demo System" button to the homepage hero section. Clicking it opens an accessible modal dialog that informs users the system is for exploration only, that all data is wiped every 48 hours at 03:00 UTC, and provides a direct link to the demo instance at `https://34-29-111-190.sslip.io/manage`. Modal includes focus trap, Escape-to-close, backdrop-click-to-close, and full dark/light theme support.
+- `feat(website)`: **Demo Modal i18n** — Internationalized all demo system UI strings (`demoBtn`, `demoModalTitle`, `demoModalWarning`, `demoModalBody`, `demoModalCancel`, `demoModalOpen`) across all 11 locales (en, de, es, fr, pt, ar, zh, ja, ko, hi, th).
+
 ### 📄 Documentation Audit — Content Gap Remediation
 - `feat(website)`: **Banner Update** — Updated the announcement banner to link directly to the EDDI v6 release story on Medium instead of the getting-started page. Translated the link text ("Read the story") across all 11 locales.
 - `feat(website)`: **12 Built-In Agent Tools** — Added a 6-column tool grid to Features Overview showing all 12 bundled tools (Web Search, Calculator, Web Scraper, PDF Reader, Weather, DateTime, Data Formatter, Text Summarizer, HTTP Calls, User Memory, Conversation Recall, Multimodal Input). Translated into all 10 non-English locales.
