@@ -100,23 +100,46 @@ const paddleEnv    = import.meta.env.PUBLIC_PADDLE_ENV;
 {user && (
   <script define:vars={{ paddleToken, paddleEnv, priceMonthly, priceYearly }}>
     (function () {
+      var paddleReady = false;
+
       var script = document.createElement('script');
       script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
+      script.onerror = function () {
+        console.error('[Paddle] Failed to load paddle.js');
+      };
       script.onload = function () {
         if (paddleEnv === 'sandbox') Paddle.Environment.set('sandbox');
-        Paddle.Initialize({ token: paddleToken });
+        Paddle.Initialize({
+          token: paddleToken,
+          eventCallback: function (ev) {
+            if (ev.name === 'checkout.error') {
+              console.error('[Paddle] Checkout error:', ev.data);
+              alert('Payment error: ' + (ev.data?.error?.detail || JSON.stringify(ev.data)));
+            }
+          },
+        });
+        paddleReady = true;
       };
       document.head.appendChild(script);
 
       document.addEventListener('click', function (e) {
         var btn = e.target.closest('[data-plan]');
         if (!btn) return;
-        Paddle.Checkout.open({
-          items: [{ priceId: btn.dataset.price, quantity: 1 }],
-          customer: { email: btn.dataset.email },
-          customData: { userId: btn.dataset.uid },
-          successUrl: window.location.origin + '/checkout/success',
-        });
+        if (!paddleReady) {
+          alert('Payment system is still loading. Please try again in a moment.');
+          return;
+        }
+        try {
+          Paddle.Checkout.open({
+            items: [{ priceId: btn.dataset.price, quantity: 1 }],
+            customer: { email: btn.dataset.email },
+            customData: { userId: btn.dataset.uid },
+            successUrl: window.location.origin + '/checkout/success',
+          });
+        } catch (err) {
+          console.error('[Paddle] Checkout.open error:', err);
+          alert('Could not open checkout: ' + err.message);
+        }
       });
     })();
   </script>
