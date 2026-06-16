@@ -18,6 +18,13 @@ const t = await getT(Astro.locals.lang);
 
       <div id="error-banner" class="error-banner hidden" role="alert" aria-live="polite"></div>
 
+      <div id="confirm-panel" class="confirm-panel hidden" role="status">
+        <div class="confirm-icon" aria-hidden="true">✉</div>
+        <h2 class="confirm-title">{t.register.confirmTitle}</h2>
+        <p id="confirm-message" class="confirm-message"></p>
+        <a href="/login" class="submit-btn" style="display:block;text-align:center;text-decoration:none;margin-top:1.5rem;">{t.register.loginLinkCta}</a>
+      </div>
+
       <form id="register-form" novalidate>
         <div class="field">
           <label for="email">{t.register.emailLabel}</label>
@@ -104,6 +111,10 @@ const t = await getT(Astro.locals.lang);
         else showBanner(data.error || t.errors.generic);
         submitBtn.disabled = false;
         submitBtn.textContent = t.submitButton;
+      } else if (data.requiresConfirmation) {
+        document.getElementById('confirm-message').textContent = t.confirmMessage.replace('{email}', email);
+        document.getElementById('confirm-panel').classList.remove('hidden');
+        document.getElementById('register-form').classList.add('hidden');
       } else {
         window.location.href = '/';
       }
@@ -170,4 +181,11 @@ const t = await getT(Astro.locals.lang);
   }
   .auth-footer a { color: #a78bfa; text-decoration: none; }
   .auth-footer a:hover { text-decoration: underline; }
+
+  .confirm-panel {
+    text-align: center; padding: 1rem 0 0.5rem;
+  }
+  .confirm-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .confirm-title { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.625rem; color: var(--color-text); }
+  .confirm-message { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
 </style>

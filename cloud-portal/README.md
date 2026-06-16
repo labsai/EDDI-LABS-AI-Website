@@ -1,4 +1,4 @@
-w# EDDI Cloud Portal
+# EDDI Cloud Portal
 
 Self-contained Astro SSR app for `cloud.eddi.labs.ai` — lets customers register, subscribe to a managed EDDI instance on Google Cloud, and manage their billing.
 
@@ -127,6 +127,8 @@ The app is available at `http://localhost:4321`.
 
 ### Paddle checkout (requires a tunnel for webhooks)
 
+> **Before you start:** The Paddle checkout buttons only appear for logged-in users. Make sure you can register and sign in first (see the auth section above). If Supabase requires email confirmation and you want to skip it during local testing, go to your Supabase dashboard → **Authentication → Email → disable "Confirm email"**. You can re-enable it before going to production.
+
 Paddle's servers need to reach your local machine to fire webhook events. Use a free Cloudflare tunnel:
 
 ```bash
@@ -147,6 +149,7 @@ Copy the `https://xxxx.trycloudflare.com` URL it prints, then:
    - `subscription.updated`
    - `transaction.completed`
 4. Copy the **secret key** that Paddle shows you → `PADDLE_WEBHOOK_SECRET` in `.env`.
+   > Make sure this is the real key from the dashboard — the `.env.example` placeholder (`pdl_ntfset_xxxx...`) must be replaced or all incoming webhooks will be rejected with a 400.
 5. Restart the dev server (`Ctrl+C` then `npm run dev`) so it picks up the new secret.
 
 Now run the full checkout:

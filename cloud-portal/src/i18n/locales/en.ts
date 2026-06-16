@@ -59,6 +59,8 @@ export const en = {
     submitting: 'Creating account…',
     loginLink: 'Already have an account?',
     loginLinkCta: 'Sign in',
+    confirmTitle: 'Check your inbox',
+    confirmMessage: 'We sent a confirmation link to {email}. Click it to activate your account, then sign in.',
     errors: {
       emailRequired: 'Email is required.',
       emailInvalid: 'Please enter a valid email address.',
