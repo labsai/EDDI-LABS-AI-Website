@@ -1,0 +1,26 @@
+{
+  "name": "eddi-cloud-portal",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "wrangler pages dev ./dist",
+    "deploy": "astro build && wrangler pages deploy ./dist",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/cloudflare": "^13.7.0",
+    "@fontsource-variable/outfit": "^5.2.8",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^6.1.5",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.83.0"
+  }
+}

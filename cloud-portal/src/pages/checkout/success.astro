@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getT } from '../../i18n';
+import { createSupabaseServerClient } from '../../lib/supabase';
+
+const supabase = createSupabaseServerClient(Astro.cookies);
+const { data: { user } } = await supabase.auth.getUser();
+if (!user) return Astro.redirect('/login');
+
+const t = await getT(Astro.locals.lang);
+---
+
+<BaseLayout title={t.checkout.successTitle} lang={Astro.locals.lang} userEmail={user.email ?? null}>
+  <section class="success-wrap">
+    <div class="success-card">
+      <div class="success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <h1>{t.checkout.successTitle}</h1>
+      <p class="sub">{t.checkout.successSubtitle}</p>
+      <p class="body">{t.checkout.successBody}</p>
+      <p class="note">{t.checkout.provisioningNote}</p>
+      <a href="/dashboard" class="cta">{t.checkout.dashboardCta}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .success-wrap {
+    min-height: calc(100vh - 7.5rem);
+    display: flex; align-items: center; justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .success-card {
+    text-align: center; max-width: 28rem; width: 100%;
+    padding: 3rem 2rem; border-radius: 1.25rem;
+    background: var(--color-bg-card, #111118); border: 1px solid var(--color-border);
+  }
+  html[data-theme='light'] .success-card {
+    background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .success-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 4rem; height: 4rem; border-radius: 50%; margin: 0 auto 1.5rem;
+    background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3);
+    color: #86efac;
+  }
+  .success-icon svg { width: 1.75rem; height: 1.75rem; }
+  h1 { font-size: 1.625rem; font-weight: 800; margin: 0 0 0.625rem; color: var(--color-text); }
+  .sub { font-size: 1rem; font-weight: 600; color: var(--color-text); margin: 0 0 0.75rem; }
+  .body { font-size: 0.9rem; color: var(--color-text-muted); margin: 0 0 0.5rem; line-height: 1.6; }
+  .note { font-size: 0.8rem; color: var(--color-text-muted); margin: 0 0 2rem; }
+  .cta {
+    display: inline-block; padding: 0.75rem 2rem; border-radius: 0.5rem;
+    background: var(--color-accent, #7c3aed); color: #fff;
+    font-weight: 600; text-decoration: none; transition: opacity 0.15s;
+  }
+  .cta:hover { opacity: 0.88; }
+</style>

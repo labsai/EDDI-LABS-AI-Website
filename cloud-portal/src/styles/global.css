@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "@fontsource-variable/outfit/index.css";
+
+@theme {
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f7ff;
+  --color-bg-card: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b7280;
+  --color-border: rgba(124, 58, 237, 0.15);
+  --color-accent: #7c3aed;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0a0a0f;
+  --color-bg-secondary: #0f0f1a;
+  --color-bg-card: #111118;
+  --color-text: #f0f0ff;
+  --color-text-muted: #9ca3af;
+  --color-border: rgba(139, 92, 246, 0.2);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-family: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}

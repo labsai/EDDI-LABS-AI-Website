@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getT } from '../i18n';
+import { createSupabaseServerClient } from '../lib/supabase';
+
+const supabase = createSupabaseServerClient(Astro.cookies);
+const { data: { user } } = await supabase.auth.getUser();
+if (user) return Astro.redirect('/');
+
+const t = await getT(Astro.locals.lang);
+---
+
+<BaseLayout title={t.register.title} lang={Astro.locals.lang}>
+  <section class="auth-wrap">
+    <div class="auth-card">
+      <h1 class="auth-title">{t.register.title}</h1>
+      <p class="auth-sub">{t.register.subtitle}</p>
+
+      <div id="error-banner" class="error-banner hidden" role="alert" aria-live="polite"></div>
+
+      <form id="register-form" novalidate>
+        <div class="field">
+          <label for="email">{t.register.emailLabel}</label>
+          <input id="email" name="email" type="email" autocomplete="email"
+            placeholder={t.register.emailPlaceholder} required />
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="password">{t.register.passwordLabel}</label>
+          <input id="password" name="password" type="password" autocomplete="new-password"
+            placeholder={t.register.passwordPlaceholder} required minlength="8" />
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="confirm">{t.register.confirmPasswordLabel}</label>
+          <input id="confirm" name="confirm" type="password" autocomplete="new-password"
+            placeholder={t.register.confirmPasswordPlaceholder} required />
+          <span class="field-error" id="confirm-error"></span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">{t.register.submitButton}</button>
+      </form>
+
+      <p class="auth-footer">
+        {t.register.loginLink} <a href="/login">{t.register.loginLinkCta}</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ t: t.register }}>
+  var form = document.getElementById('register-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var errorBanner = document.getElementById('error-banner');
+
+  function setError(id, msg) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = msg;
+  }
+  function clearErrors() {
+    ['email-error', 'password-error', 'confirm-error'].forEach(function (id) {
+      setError(id, '');
+    });
+    errorBanner.textContent = '';
+    errorBanner.classList.add('hidden');
+  }
+  function showBanner(msg) {
+    errorBanner.textContent = msg;
+    errorBanner.classList.remove('hidden');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearErrors();
+
+    var email = document.getElementById('email').value.trim();
+    var password = document.getElementById('password').value;
+    var confirm = document.getElementById('confirm').value;
+    var valid = true;
+
+    if (!email) { setError('email-error', t.errors.emailRequired); valid = false; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('email-error', t.errors.emailInvalid); valid = false; }
+    if (!password) { setError('password-error', t.errors.passwordRequired); valid = false; }
+    else if (password.length < 8) { setError('password-error', t.errors.passwordTooShort); valid = false; }
+    if (!confirm) { setError('confirm-error', t.errors.confirmRequired); valid = false; }
+    else if (password !== confirm) { setError('confirm-error', t.errors.passwordMismatch); valid = false; }
+
+    if (!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = t.submitting;
+
+    try {
+      var res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      var data = await res.json();
+      if (!res.ok) {
+        if (res.status === 409) showBanner(t.errors.emailInUse);
+        else showBanner(data.error || t.errors.generic);
+        submitBtn.disabled = false;
+        submitBtn.textContent = t.submitButton;
+      } else {
+        window.location.href = '/';
+      }
+    } catch {
+      showBanner(t.errors.generic);
+      submitBtn.disabled = false;
+      submitBtn.textContent = t.submitButton;
+    }
+  });
+</script>
+
+<style>
+  .auth-wrap {
+    min-height: calc(100vh - 3.5rem - 4rem);
+    display: flex; align-items: center; justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .auth-card {
+    width: 100%; max-width: 26rem;
+    padding: 2.5rem; border-radius: 1.25rem;
+    background: var(--color-bg-card, #111118);
+    border: 1px solid var(--color-border);
+  }
+  html[data-theme='light'] .auth-card {
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .auth-title { font-size: 1.625rem; font-weight: 800; margin: 0 0 0.375rem; color: var(--color-text); }
+  .auth-sub { font-size: 0.9rem; color: var(--color-text-muted); margin: 0 0 1.75rem; }
+
+  .error-banner {
+    padding: 0.75rem 1rem; border-radius: 0.5rem; margin-bottom: 1.25rem;
+    background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5; font-size: 0.875rem;
+  }
+  html[data-theme='light'] .error-banner { color: #dc2626; }
+  .hidden { display: none !important; }
+
+  .field { display: flex; flex-direction: column; gap: 0.375rem; margin-bottom: 1.125rem; }
+  label { font-size: 0.875rem; font-weight: 600; color: var(--color-text); }
+  input {
+    padding: 0.625rem 0.875rem; border-radius: 0.5rem;
+    background: rgba(124,58,237,0.04); border: 1px solid var(--color-border);
+    color: var(--color-text); font-size: 0.9375rem;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  input:focus { border-color: var(--color-accent, #7c3aed); box-shadow: 0 0 0 3px rgba(124,58,237,0.15); }
+  html[data-theme='light'] input { background: #f8f7ff; }
+  .field-error { font-size: 0.8rem; color: #f87171; min-height: 1rem; }
+
+  .submit-btn {
+    width: 100%; padding: 0.75rem 1rem; margin-top: 0.5rem;
+    border-radius: 0.5rem; font-size: 0.9375rem; font-weight: 600;
+    border: none; background: var(--color-accent, #7c3aed); color: #fff;
+    transition: opacity 0.15s;
+  }
+  .submit-btn:hover:not(:disabled) { opacity: 0.88; }
+  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .auth-footer {
+    text-align: center; margin-top: 1.5rem;
+    font-size: 0.875rem; color: var(--color-text-muted);
+  }
+  .auth-footer a { color: #a78bfa; text-decoration: none; }
+  .auth-footer a:hover { text-decoration: underline; }
+</style>

@@ -199,6 +199,62 @@ const { lang, t } = Astro.props;
 
 
 
+<!-- EDDI Cloud -->
+<section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
+	<div class="text-center mb-16">
+		<div class="cloud-badge">
+			<svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+			{t.home.cloudBadge}
+		</div>
+		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.home.cloudTitle}</h2>
+		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">{t.home.cloudSubtitle}</p>
+	</div>
+
+	<div class="not-content grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+		<!-- Monthly -->
+		<div class="flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group">
+			<p class="text-sm font-medium text-zinc-400 mb-1">{t.home.cloudMonthlyLabel}</p>
+			<div class="flex items-baseline gap-1 mb-4">
+				<span class="text-4xl font-bold text-white">{t.home.cloudMonthlyPrice}</span>
+				<span class="text-zinc-400 text-sm">{t.home.cloudMonthlyPeriod}</span>
+			</div>
+			<ul class="space-y-2 mb-8 grow">
+				{[t.home.cloudFeature1, t.home.cloudFeature2, t.home.cloudFeature3, t.home.cloudFeature4, t.home.cloudFeature5].map((f) => (
+					<li class="flex items-start gap-2 text-sm text-zinc-300">
+						<svg class="w-4 h-4 shrink-0 text-accent-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+						{f}
+					</li>
+				))}
+			</ul>
+			<a href="https://cloud.eddi.labs.ai/register" target="_blank" rel="noopener" class="cloud-btn-outline">{t.home.cloudMonthlyCta}</a>
+		</div>
+
+		<!-- Yearly (featured) -->
+		<div class="relative flex flex-col h-full p-8 rounded-3xl bg-linear-to-tr from-accent-900/20 to-zinc-900/60 backdrop-blur border border-accent-500/40 hover:border-accent-500/70 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-accent-900/20 group">
+			<div class="absolute top-4 end-4 px-2 py-0.5 text-xs font-bold rounded-full bg-accent-500/20 border border-accent-500/30 text-accent-300">{t.home.cloudSaveBadge}</div>
+			<p class="text-sm font-medium text-accent-400 mb-1">{t.home.cloudYearlyLabel}</p>
+			<div class="flex items-baseline gap-1 mb-1">
+				<span class="text-4xl font-bold text-white">{t.home.cloudYearlyPrice}</span>
+				<span class="text-zinc-400 text-sm">{t.home.cloudYearlyPeriod}</span>
+			</div>
+			<p class="text-xs text-zinc-500 mb-4">{t.home.cloudYearlyBilled}</p>
+			<ul class="space-y-2 mb-8 grow">
+				{[t.home.cloudFeature1, t.home.cloudFeature2, t.home.cloudFeature3, t.home.cloudFeature4, t.home.cloudFeature5].map((f) => (
+					<li class="flex items-start gap-2 text-sm text-zinc-300">
+						<svg class="w-4 h-4 shrink-0 text-accent-400 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+						{f}
+					</li>
+				))}
+			</ul>
+			<a href="https://cloud.eddi.labs.ai/register" target="_blank" rel="noopener" class="cloud-btn-primary">{t.home.cloudYearlyCta}</a>
+		</div>
+	</div>
+
+	<p class="text-center mt-8 text-sm text-zinc-500">
+		{t.home.cloudAlreadyCustomer} <a href="https://cloud.eddi.labs.ai/login" target="_blank" rel="noopener" class="text-accent-400 hover:text-accent-300 transition-colors">{t.home.cloudSignIn}</a>
+	</p>
+</section>
+
 <!-- FAQ -->
 <section class="py-24 max-w-5xl mx-auto px-6 border-t border-zinc-800/60 mb-20">
 	<div class="text-center mb-12">
@@ -527,6 +583,31 @@ const { lang, t } = Astro.props;
 		from { opacity: 0; transform: scale(0.95); }
 		to   { opacity: 1; transform: scale(1); }
 	}
+
+	/* ── EDDI Cloud section ── */
+	.cloud-badge {
+		display: inline-flex; align-items: center; gap: 0.4rem;
+		padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1.5rem;
+		font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+		background: rgba(124, 58, 237, 0.12); border: 1px solid rgba(124, 58, 237, 0.3);
+		color: #a78bfa;
+	}
+	.cloud-btn-outline {
+		display: block; width: 100%; padding: 0.75rem 1rem;
+		border-radius: 0.5rem; font-size: 0.9375rem; font-weight: 600;
+		text-align: center; text-decoration: none;
+		background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3);
+		color: #a78bfa; transition: all 0.2s;
+	}
+	.cloud-btn-outline:hover { background: rgba(124,58,237,0.18); border-color: rgba(124,58,237,0.5); }
+	.cloud-btn-primary {
+		display: block; width: 100%; padding: 0.75rem 1rem;
+		border-radius: 0.5rem; font-size: 0.9375rem; font-weight: 600;
+		text-align: center; text-decoration: none;
+		background: var(--color-accent, #7c3aed); color: #fff;
+		box-shadow: 0 0 24px rgba(124,58,237,0.3); transition: all 0.2s;
+	}
+	.cloud-btn-primary:hover { opacity: 0.9; box-shadow: 0 0 32px rgba(124,58,237,0.4); }
 </style>
 
 <script is:inline>
