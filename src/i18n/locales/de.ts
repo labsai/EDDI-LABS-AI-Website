@@ -235,7 +235,7 @@ const de: TranslationSchema = {
 		step3Title: '3. API-Key sicher speichern',
 		step3VaultIntro: 'Bevor Sie einen Agent erstellen, speichern Sie Ihren LLM-Anbieter-API-Key sicher in EDDIs <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> (AES-256-GCM verschlüsselt):',
 		step3VaultUiDesc: 'Öffnen Sie die Manager-UI unter <code>http://localhost:7070</code>, navigieren Sie zu <strong>Secrets Vault</strong> und fügen Sie ein neues Secret mit dem Schlüsselnamen <code>my-anthropic-key</code> hinzu.',
-		step3VaultTip: '<strong>💡 Tipp:</strong> Die <code>${eddivault:my-anthropic-key}</code>-Syntax referenziert EDDIs integrierten <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>. Der Vault-Masterschlüssel wird automatisch vom Installer generiert. Zum schnellen Testen können Sie API-Keys auch direkt übergeben: <code>apiKey: "sk-ant-..."</code>.',
+		step3VaultTip: '<strong>💡 Tipp:</strong> Die <code>${vault:my-anthropic-key}</code>-Syntax referenziert EDDIs integrierten <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>. Der Vault-Masterschlüssel wird automatisch vom Installer generiert. Zum schnellen Testen können Sie API-Keys auch direkt übergeben: <code>apiKey: "sk-ant-..."</code>.',
 		step4Title: '4. Ersten Agent erstellen',
 		step4Desc: 'Verwenden Sie <code>setup_agent</code>, um in einem Aufruf einen funktionsfähigen Agent zu erstellen — via MCP oder REST-API:',
 		step4After: 'Dies erstellt Regeln, LLM-Konfiguration, Workflow, Agent und deployt ihn — alles in einem Schritt.',
