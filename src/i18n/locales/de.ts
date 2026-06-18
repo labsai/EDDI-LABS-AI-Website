@@ -370,7 +370,7 @@ const de: TranslationSchema = {
 			'Jeder Pipeline-Schritt wird mit <strong>unveränderlichen Audit-Trails</strong> protokolliert — Tokens, Kosten, Timing und Tool-Aufrufe.',
 		cqCardTitle: '🧪 Code-Qualität',
 		cqCardDesc:
-			'<strong>9.000+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. CI/CD-Qualitätskontrolle bei jedem Merge.',
+			'<strong>9.000+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-Qualitätskontrolle bei jedem Merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc: '42 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. <strong>Für Coding-Agents entwickelt</strong>.',
 	},
