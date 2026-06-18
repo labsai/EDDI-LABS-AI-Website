@@ -7,12 +7,15 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "check": "astro check",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
+    "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/outfit": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
@@ -26,6 +29,7 @@
     "vite": "7.3.2"
   },
   "devDependencies": {
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "wrangler": "^4.102.0"
   }
 }
