@@ -27,7 +27,7 @@ const de: TranslationSchema = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline-Logs & Audit-Trails',
 		codeQuality: 'Code-Qualität',
-		codeQualityDesc: '5.100+ Tests, null Fehler',
+		codeQualityDesc: '9.000+ Tests, null Fehler, >90% Coverage',
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'Für Coding-Agents entwickelt',
 
@@ -73,7 +73,7 @@ const de: TranslationSchema = {
 		subtitle: 'Konfigurationsgesteuert. Selbst gehostet. Produktionsbereit.',
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Lizenz',
-		tests: '5.100+ Tests · Null Fehler',
+		tests: '9.000+ Tests · Null Fehler',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		platform: 'Plattform',
 		develop: 'Entwicklung',
@@ -155,8 +155,8 @@ const de: TranslationSchema = {
 		trustRedHatDesc: 'Docker-Image zertifiziert von IBM',
 		trustApache: 'Apache 2.0 Lizenz',
 		trustApacheDesc: '100 % Open Source & Enterprise-ready',
-		trustTests: '5.100+ Tests · 0 Fehler',
-		trustTestsDesc: 'Rigoroses CI/CD & Code-Coverage',
+		trustTests: '9.000+ Tests · 0 Fehler',
+		trustTestsDesc: 'Rigoroses CI/CD & >90% Code-Coverage',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Container-Downloads von Docker Hub',
 		trustCI: 'CI bestanden · CodeQL sauber',
@@ -370,7 +370,7 @@ const de: TranslationSchema = {
 			'Jeder Pipeline-Schritt wird mit <strong>unveränderlichen Audit-Trails</strong> protokolliert — Tokens, Kosten, Timing und Tool-Aufrufe.',
 		cqCardTitle: '🧪 Code-Qualität',
 		cqCardDesc:
-			'<strong>5.100+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. CI/CD-Qualitätskontrolle bei jedem Merge.',
+			'<strong>9.000+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. CI/CD-Qualitätskontrolle bei jedem Merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc: '42 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. <strong>Für Coding-Agents entwickelt</strong>.',
 	},
@@ -531,13 +531,13 @@ const de: TranslationSchema = {
 		codeQuality: {
 			title: 'Code-Qualität',
 			description:
-				'5.100+ Tests mit null Fehlern. Null Checkstyle-Warnungen. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
+				'9.000+ Tests mit null Fehlern. Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
 			heading1: 'Engineering-Rigorosität',
 			para1:
 				'EDDI pflegt <strong>außergewöhnliche Code-Qualität</strong> durch umfassende Tests, statische Analyse und CI/CD-Qualitätskontrolle. Jeder Pull Request muss die vollständige Test-Suite bestehen, bevor er gemergt wird.',
 			heading2: 'Qualitätsmetriken',
 			items: [
-				'<strong>5.100+ Tests</strong> — Unit-, Integrations- und End-to-End-Coverage',
+				'<strong>9.000+ Tests</strong> — Unit-, Integrations- und End-to-End-Coverage',
 				'<strong>Null Fehler</strong> — Sauberes CI bei jedem Build',
 				'<strong>Checkstyle-Enforcement</strong> — Null Warnungen, strikte Regeln bei jedem Build erzwungen',
 				'<strong>MCP-Tool-Tests</strong> — Umfassende Coverage aller 42 MCP-Tools',
@@ -1003,7 +1003,7 @@ const de: TranslationSchema = {
 			devCIDesc: 'Automatisierte Build-Verifizierung bei jedem Commit',
 			devCodeQL: 'CodeQL sauber',
 			devCodeQLDesc: 'GitHub-Sicherheits-Schwachstellenscanning',
-			devTests: '5.100+ Tests',
+			devTests: '9.000+ Tests',
 			devTestsDesc: 'Null Fehler, bei jedem Merge erzwungen',
 			devIntegration: '42 Integrationstests',
 			devIntegrationDesc: 'Full-Stack REST-API-Verifizierung mit echter Datenbank',
