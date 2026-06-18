@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔒 Infrastructure — OpenSSF Gold `[hardened_site]`
+- `feat(website)`: **Cloudflare Pages Migration** — Migrated hosting from GitHub Pages to Cloudflare Pages (unified Workers platform) to enable custom HTTP security headers required for OpenSSF Best Practices Gold badge `[hardened_site]` criterion. GitHub Pages does not support custom response headers.
+- `feat(website)`: **Security Headers** — Added `public/_headers` with Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options (`nosniff`), X-Frame-Options (`DENY`), Referrer-Policy, and Permissions-Policy.
+- `feat(website)`: **CSP Audit** — Audited all external resource dependencies (HubSpot forms embed v2, Umami analytics, Google Analytics GA4, shields.io badges, GitHub Actions badges) and crafted a Content-Security-Policy whitelist covering only the required domains.
+- `feat(website)`: **Node.js Version Pin** — Added `.nvmrc` (Node 22) for Cloudflare's build system.
+
 ### 🚀 Features
 - `feat(website)`: **Demo System Button & Modal** — Added a "Demo System" button to the homepage hero section. Clicking it opens an accessible modal dialog that informs users the system is for exploration only, that all data is wiped every 48 hours at 03:00 UTC, and provides a direct link to the demo instance at `https://34-29-111-190.sslip.io/manage`. Modal includes focus trap, Escape-to-close, backdrop-click-to-close, and full dark/light theme support.
 - `feat(website)`: **Demo Modal i18n** — Internationalized all demo system UI strings (`demoBtn`, `demoModalTitle`, `demoModalWarning`, `demoModalBody`, `demoModalCancel`, `demoModalOpen`) across all 11 locales (en, de, es, fr, pt, ar, zh, ja, ko, hi, th).

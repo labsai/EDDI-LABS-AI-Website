@@ -4,7 +4,7 @@
 
 ## 1. Project Context
 
-**eddi-website** is the marketing site for EDDI, hosted on **GitHub Pages** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
+**eddi-website** is the marketing site for EDDI, hosted on **Cloudflare Pages** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
 
 ### Architecture
 
@@ -16,8 +16,8 @@
 | **RTL**       | Arabic support with `dir="rtl"` and logical CSS properties    |
 | **Theme**     | Dark/Light toggle via `[data-theme]` attribute                |
 | **Docs**      | Published separately at docs.labs.ai                          |
-| **Hosting**   | GitHub Pages via GitHub Actions                               |
-| **Domain**    | `eddi.labs.ai` (CNAME file)                                   |
+| **Hosting**   | Cloudflare Pages via Cloudflare git integration               |
+| **Domain**    | `eddi.labs.ai` (Cloudflare custom domain)                     |
 
 ### Ecosystem
 
@@ -42,11 +42,12 @@
 | `src/i18n/`        | i18n core (locale definitions, translations)    |
 | `src/pages/`       | All page routes (root + `[lang]/` for i18n)     |
 | `src/components/`  | Layout and UI components                        |
-| `CNAME`            | GitHub Pages domain: `eddi.labs.ai`             |
+| `public/_headers`  | Security headers (CSP, HSTS, etc.) — OpenSSF Gold |
+| `CNAME`            | GitHub Pages domain (legacy, remove after migration) |
 
 ### DO NOT
 
-- Do NOT delete `CNAME` — it's required for the custom domain
+- Do NOT weaken or remove security headers in `public/_headers` — required for OpenSSF Gold badge
 - Do NOT change the domain without coordination
 - Do NOT embed docs content — link to docs.labs.ai instead
 
