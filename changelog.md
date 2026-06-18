@@ -5,8 +5,8 @@ All notable changes to the EDDI website will be documented in this file.
 ## [Unreleased]
 
 ### 🔒 Infrastructure — OpenSSF Gold `[hardened_site]`
-- `feat(website)`: **Cloudflare Pages Migration** — Migrated hosting from GitHub Pages to Cloudflare Pages (unified Workers platform) to enable custom HTTP security headers required for OpenSSF Best Practices Gold badge `[hardened_site]` criterion. GitHub Pages does not support custom response headers.
-- `feat(website)`: **Security Headers** — Added `public/_headers` with Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options (`nosniff`), X-Frame-Options (`DENY`), Referrer-Policy, and Permissions-Policy.
+- `feat(website)`: **Vercel Migration** — Migrated hosting from GitHub Pages to Vercel to enable custom HTTP security headers required for OpenSSF Best Practices Gold badge `[hardened_site]` criterion. GitHub Pages does not support custom response headers. Vercel selected for global edge CDN performance and custom domain support without DNS provider migration.
+- `feat(website)`: **Security Headers** — Added `vercel.json` with Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options (`nosniff`), X-Frame-Options (`DENY`), Referrer-Policy, and Permissions-Policy. Also added `public/_headers` as Cloudflare/Netlify fallback.
 - `feat(website)`: **CSP Audit** — Audited all external resource dependencies (HubSpot forms embed v2, Umami analytics, Google Analytics GA4, shields.io badges, GitHub Actions badges) and crafted a Content-Security-Policy whitelist covering only the required domains.
 - `feat(website)`: **Node.js Version Pin** — Added `.nvmrc` (Node 22) for Cloudflare's build system.
 

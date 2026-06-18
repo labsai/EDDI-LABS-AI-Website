@@ -4,7 +4,7 @@
 
 ## 1. Project Context
 
-**eddi-website** is the marketing site for EDDI, hosted on **Cloudflare Pages** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
+**eddi-website** is the marketing site for EDDI, hosted on **Vercel** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
 
 ### Architecture
 
@@ -16,8 +16,8 @@
 | **RTL**       | Arabic support with `dir="rtl"` and logical CSS properties    |
 | **Theme**     | Dark/Light toggle via `[data-theme]` attribute                |
 | **Docs**      | Published separately at docs.labs.ai                          |
-| **Hosting**   | Cloudflare Pages via Cloudflare git integration               |
-| **Domain**    | `eddi.labs.ai` (Cloudflare custom domain)                     |
+| **Hosting**   | Vercel (static, via git integration)                          |
+| **Domain**    | `eddi.labs.ai` (Vercel custom domain, DNS at easyname)        |
 
 ### Ecosystem
 
@@ -42,12 +42,13 @@
 | `src/i18n/`        | i18n core (locale definitions, translations)    |
 | `src/pages/`       | All page routes (root + `[lang]/` for i18n)     |
 | `src/components/`  | Layout and UI components                        |
-| `public/_headers`  | Security headers (CSP, HSTS, etc.) — OpenSSF Gold |
+| `vercel.json`      | Security headers (CSP, HSTS, etc.) — OpenSSF Gold |
+| `public/_headers`  | Security headers (Cloudflare/Netlify fallback)    |
 | `CNAME`            | GitHub Pages domain (legacy, remove after migration) |
 
 ### DO NOT
 
-- Do NOT weaken or remove security headers in `public/_headers` — required for OpenSSF Gold badge
+- Do NOT weaken or remove security headers in `vercel.json` or `public/_headers` — required for OpenSSF Gold badge
 - Do NOT change the domain without coordination
 - Do NOT embed docs content — link to docs.labs.ai instead
 

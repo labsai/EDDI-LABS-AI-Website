@@ -1,7 +1,0 @@
-#:schema node_modules/wrangler/config-schema.json
-name = "eddi-website"
-compatibility_date = "2026-06-18"
-
-# Static site — no Worker script, just assets from Astro build output
-[assets]
-directory = "./dist"
