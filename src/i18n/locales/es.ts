@@ -522,10 +522,10 @@ const es: TranslationSchema = {
 			items2: [
 				'<strong>5 Estilos de Discusión</strong> — Mesa Redonda, Revisión por Pares, Abogado del Diablo, Delphi y Debate',
 				'<strong>Grupos Anidados</strong> — Componer grupos de grupos para llaves de torneo, equipo rojo vs. azul y revisiones de panel',
+				'<strong>Integración con Slack</strong> — Despliega agentes en canales de Slack y ejecuta debates multi-agente directamente en hilos, con soporte de DM y enrutamiento por palabras clave',
 				'<strong>Agent Father</strong> — Un meta-agente que crea otros agentes mediante conversación (incluido de serie)',
 				'<strong>Protocolo A2A</strong> — Implementación completa del protocolo Agent-to-Agent con Agent Cards y descubrimiento de habilidades multiplataforma',
 				'<strong>Coincidencia de Capacidades</strong> — Descubrir y enrutar a agentes por habilidad, puntuación de confianza y atributos personalizados',
-				'<strong>Integración con Slack</strong> — Despliega agentes en canales de Slack y ejecuta debates multi-agente directamente en hilos, con soporte de DM y enrutamiento por palabras clave',
 			],
 		},
 		observability: {

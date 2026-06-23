@@ -480,10 +480,10 @@ const ko: TranslationSchema = {
 			items2: [
 				'<strong>5개 토론 스타일</strong> — 라운드 테이블, 피어 리뷰, 악마의 옥호, 델파이, 디베이트',
 				'<strong>중첩 그룹</strong> — 토너먼트, 레드팀 vs 블루팀, 패널 리뷰를 위한 그룹의 그룹 구성',
+				'<strong>Slack 연동</strong> — 에이전트를 Slack 채널에 배포하고 스레드에서 직접 다중 에이전트 토론을 실행, DM 지원 및 트리거 키워드 라우팅',
 				'<strong>Agent Father</strong> — 대화를 통해 다른 에이전트를 만드는 메타 에이전트 (즉시 사용 가능)',
 				'<strong>A2A 프로토콜</strong> — Agent Cards와 크로스 플랫폼 스킬 디스커버리를 통한 완전한 Agent-to-Agent 프로토콜 구현',
 				'<strong>역량 매칭</strong> — 스킬, 신뢰도 점수, 커스텀 속성으로 에이전트 발견 및 라우팅',
-				'<strong>Slack 연동</strong> — 에이전트를 Slack 채널에 배포하고 스레드에서 직접 다중 에이전트 토론을 실행, DM 지원 및 트리거 키워드 라우팅',
 			],
 		},
 		observability: {

@@ -476,10 +476,10 @@ const zh: TranslationSchema = {
 			items2: [
 				'<strong>5种讨论样式</strong> — 圆桌会议、同行评审、魔鬼代言、德尔菲、辩论',
 				'<strong>嵌套群组</strong> — 组合群组的群组，用于锦标赛、红队 vs 蓝队、专家团评审',
+				'<strong>Slack 集成</strong> — 将代理部署到 Slack 频道，直接在线程中运行多代理辩论，支持私信和触发关键词路由',
 				'<strong>Agent Father</strong> — 通过对话创建其他代理的元代理（开箱即用）',
 				'<strong>A2A协议</strong> — 完整的Agent-to-Agent协议实现，包含Agent Cards和跨平台技能发现',
 				'<strong>能力匹配</strong> — 按技能、置信度分数和自定义属性发现和路由代理',
-				'<strong>Slack 集成</strong> — 将代理部署到 Slack 频道，直接在线程中运行多代理辩论，支持私信和触发关键词路由',
 			],
 		},
 		observability: {
