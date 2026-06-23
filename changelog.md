@@ -4,6 +4,20 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🏅 OpenSSF Gold & Trust Enhancements
+- `feat(website)`: **OpenSSF Gold Badge** — Added OpenSSF Gold trust bar item to footer and OpenSSF Gold trust card to homepage "Trusted & Certified" section (now 6-card grid). Updated Track Record page `devOpenSSF` label from "Best Practices" to "Gold" with "highest tier" description. All changes i18n'd across 11 locales.
+- `feat(website)`: **OpenSSF Scorecard Badge** — Added Scorecard badge (9.8) to Track Record live badges row and new Scorecard trust signal card to the developer trust grid. i18n'd across 11 locales.
+- `feat(website)`: **Philosophy Quote** — Added hero callout with project philosophy quote ("The engine is strict so the AI can be creative.") between The Solution and Trusted sections on homepage. Links to project-philosophy.md. i18n'd across 11 locales.
+- `feat(website)`: **Version Display** — Added `EDDI_LATEST_VERSION` constant (6.1.1) and updated hero tagline to show full version: "Now in v6 (latest: 6.1.1)". i18n'd across 11 locales.
+
+### 🔒 Security Content
+- `feat(website)`: **Sigstore Cosign** — Added keyless OIDC container image signing to security capabilities list. i18n'd across 11 locales.
+- `feat(website)`: **Automated Security Pipeline** — New section on Security feature page documenting 6 CI/CD security tools: CodeQL, Trivy, Gitleaks, ZAP, CycloneDX, Jazzer. Rendered in both root and [lang] security page variants. i18n'd across 11 locales.
+
+### 🚀 Features Content
+- `feat(website)`: **Slack Integration** — Added Slack integration item to Multi-Agent group orchestration features (items2). i18n'd across 11 locales.
+- `feat(website)`: **OpenTelemetry/OTLP** — Added OpenTelemetry distributed tracing (Jaeger, Tempo, Datadog) to observability features. Updated Prometheus entry to mention 50+ Micrometer metrics at `/q/metrics`. i18n'd across 11 locales.
+
 ### 🔒 Infrastructure — OpenSSF Gold `[hardened_site]`
 - `feat(website)`: **Vercel Migration** — Migrated hosting from GitHub Pages to Vercel to enable custom HTTP security headers required for OpenSSF Best Practices Gold badge `[hardened_site]` criterion. GitHub Pages does not support custom response headers. Vercel selected for global edge CDN performance and custom domain support without DNS provider migration.
 - `feat(website)`: **Security Headers** — Added `vercel.json` with Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options (`nosniff`), X-Frame-Options (`DENY`), Referrer-Policy, and Permissions-Policy. Also added `public/_headers` as Cloudflare/Netlify fallback.
