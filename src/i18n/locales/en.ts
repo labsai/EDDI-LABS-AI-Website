@@ -2,7 +2,7 @@
  * English translations — Source of truth.
  * All other locale files must export the same shape.
  */
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 
 const en = {
 	// ─── Site Meta ──────────────────────────────────────────────
@@ -91,6 +91,7 @@ const en = {
 		apache2: 'Apache 2.0 Licensed',
 		tests: '9,000+ Tests · Zero Failures',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		// Column headers
 		platform: 'Platform',
 		develop: 'Develop',
@@ -141,7 +142,7 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			`The open-source, production-ready platform for deploying governed, multi-agent AI systems. Configuration-driven, self-hosted, and compliance-ready — with a visual management UI, 42 MCP tools, and enterprise security built in. Now in <strong>${EDDI_VERSION}</strong>.`,
+			`The open-source, production-ready platform for deploying governed, multi-agent AI systems. Configuration-driven, self-hosted, and compliance-ready — with a visual management UI, 42 MCP tools, and enterprise security built in. Now in <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
@@ -185,10 +186,14 @@ const en = {
 		trustApacheDesc: '100% open-source & enterprise-ready',
 		trustTests: '9,000+ Tests · 0 Failures',
 		trustTestsDesc: 'Rigorous CI/CD & >90% code coverage',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Highest tier of Linux Foundation security & quality certification',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Container pulls from Docker Hub',
 		trustCI: 'CI Passing · CodeQL Clean',
 		trustCIDesc: 'Automated builds, security scanning & code analysis',
+		// Philosophy
+		philosophyQuote: 'The engine is strict so the AI can be creative.',
 		// Built on Proven Technology
 		techTitle: 'Built on Proven Technology',
 		techJava: 'Java 25',
@@ -502,6 +507,19 @@ const en = {
 				'<strong>Cryptographic Audit Trails</strong> — HMAC-SHA256 signed, tamper-evident operation logs with per-agent cryptographic signing',
 				'<strong>Secret Redaction</strong> — Automated filter scrubs API keys, vault references, and sensitive data from all audit entries',
 				'<strong>PII-Safe Logging</strong> — GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
+				'<strong>Sigstore Cosign</strong> — Keyless OIDC container image signing — cryptographically verify any Docker image was built by official CI',
+			],
+
+			// CI/CD Security Pipeline
+			ciTitle: 'Automated Security Pipeline',
+			ciPara: 'Every push and pull request is scanned by 6 automated security tools — all GitHub Actions SHA-pinned to prevent supply-chain attacks:',
+			ciItems: [
+				'<strong>CodeQL</strong> — Semantic SAST analysis with <code>security-extended</code> queries',
+				'<strong>Trivy</strong> — CVE scanning for filesystem dependencies and Docker images (blocking on CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong> — Git history scanning to prevent secret and credential leakage',
+				'<strong>ZAP</strong> — DAST API scanning against the live Docker image',
+				'<strong>CycloneDX</strong> — SBOM generation for supply chain transparency',
+				'<strong>Jazzer</strong> — Coverage-guided fuzz testing for security-critical parsers',
 			],
 
 			// Governance
@@ -556,6 +574,7 @@ const en = {
 			items2: [
 				'<strong>5 Discussion Styles</strong> — Round Table, Peer Review, Devil\'s Advocate, Delphi, and Debate',
 				'<strong>Nested Groups</strong> — Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
+				'<strong>Slack Integration</strong> — Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support and trigger-keyword routing',
 				'<strong>Agent Father</strong> — A meta-agent that creates other agents through conversation (ships out of the box)',
 				'<strong>A2A Protocol</strong> — Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
 				'<strong>Capability Matching</strong> — Discover and route to agents by skill, confidence score, and custom attributes',
@@ -572,8 +591,9 @@ const en = {
 				'<strong>Immutable Audit Trail</strong> — Cryptographically signed, tamper-evident operation logs',
 				'<strong>Token & Cost Tracking</strong> — Per-conversation and per-agent usage metrics',
 				'<strong>Pipeline Tracing</strong> — Full visibility into every step of the processing pipeline',
-				'<strong>Prometheus Metrics</strong> — Standard metrics endpoint for monitoring infrastructure',
+				'<strong>Prometheus Metrics</strong> — 50+ Micrometer metrics at <code>/q/metrics</code> for monitoring infrastructure',
 				'<strong>Grafana Dashboards</strong> — Pre-built dashboards for operations teams',
+				'<strong>OpenTelemetry Tracing</strong> — Per-task distributed traces via OTLP (Jaeger, Tempo, Datadog) with spans for task ID, type, conversation, and agent',
 				'<strong>CQRS Telemetry</strong> — Event-sourced ledger of all system operations',
 			],
 		},
@@ -1101,8 +1121,10 @@ const en = {
 			// Developer trust
 			devTrustTitle: 'Verified by the Community',
 			devTrustDesc: 'Every trust signal is live, automated, and independently verifiable.',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Linux Foundation security and quality certification',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Highest tier of Linux Foundation security and quality certification',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Automated supply-chain security scoring by the Linux Foundation',
 			devCodacy: 'Codacy Code Quality',
 			devCodacyDesc: 'Automated third-party code analysis',
 			devDocker: 'Docker Hub',

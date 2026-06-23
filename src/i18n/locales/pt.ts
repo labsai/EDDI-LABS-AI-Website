@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const pt: TranslationSchema = {
@@ -75,6 +75,7 @@ const pt: TranslationSchema = {
 		apache2: 'Licença Apache 2.0',
 		tests: '9.000+ Testes · Zero Falhas',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'Plataforma',
 		develop: 'Desenvolvimento',
 		resourcesCol: 'Recursos',
@@ -116,7 +117,7 @@ const pt: TranslationSchema = {
 		heroTitle: 'O Empresarial',
 		heroHighlight: 'Orquestrador de IA',
 		heroTagline:
-			`A plataforma de código aberto pronta para produção para implantar sistemas de IA multi-agente governados. Baseada em configuração, auto-hospedada e pronta para conformidade — com UI de gestão visual, 42 ferramentas MCP e segurança empresarial integrada. Agora em <strong>${EDDI_VERSION}</strong>.`,
+			`A plataforma de código aberto pronta para produção para implantar sistemas de IA multi-agente governados. Baseada em configuração, auto-hospedada e pronta para conformidade — com UI de gestão visual, 42 ferramentas MCP e segurança empresarial integrada. Agora em <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		problemTitle: 'O Problema',
 		problemDesc:
 			'A orquestração de IA empresarial está <strong>fragmentada e dolorosa</strong>. As equipes ficam presas em um ciclo de vida quebrado:',
@@ -157,10 +158,13 @@ const pt: TranslationSchema = {
 		trustApacheDesc: '100% código aberto e pronto para empresas',
 		trustTests: '9.000+ Testes · 0 Falhas',
 		trustTestsDesc: 'CI/CD rigoroso e >90% cobertura de código',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Nível mais alto de certificação de segurança e qualidade da Linux Foundation',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Downloads de contêineres do Docker Hub',
 		trustCI: 'CI aprovado · CodeQL limpo',
 		trustCIDesc: 'Builds automatizados, varredura de segurança e análise de código',
+		philosophyQuote: 'O motor é rigoroso para que a IA possa ser criativa.',
 		techTitle: 'Construído com Tecnologia Comprovada',
 		techJava: 'Java 25',
 		techJavaDesc: 'Runtime empresarial',
@@ -455,6 +459,17 @@ const pt: TranslationSchema = {
 				'<strong>Validação de URL</strong> — Previne ataques SSRF e de redirecionamento',
 				'<strong>Trilhas de Auditoria Criptográficas</strong> — Logs de operação imutáveis e à prova de adulteração',
 				'<strong>Pronto para a Lei de IA da UE</strong> — Capacidades de governança integradas para conformidade regulatória',
+				'<strong>Sigstore Cosign</strong> — Assinatura de imagens de contêiner OIDC sem chave — verificação criptográfica de que cada imagem Docker foi construída pela CI oficial',
+			],
+			ciTitle: 'Pipeline de Segurança Automatizada',
+			ciPara: 'Cada push e pull request é analisado por 6 ferramentas de segurança automatizadas — todas as GitHub Actions fixadas por SHA para prevenir ataques à cadeia de suprimentos:',
+			ciItems: [
+				'<strong>CodeQL</strong> — Análise SAST semântica com consultas <code>security-extended</code>',
+				'<strong>Trivy</strong> — Varredura de CVE para dependências e imagens Docker (bloqueio em CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong> — Varredura do histórico Git para prevenir vazamento de segredos e credenciais',
+				'<strong>ZAP</strong> — Varredura DAST de API contra a imagem Docker em produção',
+				'<strong>CycloneDX</strong> — Geração de SBOM para transparência na cadeia de suprimentos',
+				'<strong>Jazzer</strong> — Testes de fuzzing guiados por cobertura para parsers críticos de segurança',
 			],
 			govTitle: 'Integração de governança e conformidade',
 			govPara: 'Os recursos de segurança alimentam diretamente a estrutura de conformidade do EDDI. A trilha de auditoria imutável satisfaz os requisitos do EU AI Act (Art. 12-14).',
@@ -505,6 +520,7 @@ const pt: TranslationSchema = {
 			items2: [
 				'<strong>5 Estilos de Discussão</strong> — Mesa Redonda, Revisão por Pares, Advogado do Diabo, Delphi e Debate',
 				'<strong>Grupos Aninhados</strong> — Componha grupos de grupos para torneios, equipe vermelha vs equipe azul e revisões em painel',
+				'<strong>Integração com Slack</strong> — Implante agentes em canais do Slack e execute debates multi-agente diretamente em threads, com suporte a DM e roteamento por palavras-chave',
 				'<strong>Agent Father</strong> — Um meta-agente que cria outros agentes através de conversa (disponível de fábrica)',
 				'<strong>Protocolo A2A</strong> — Implementação completa do protocolo Agent-to-Agent com Agent Cards e descoberta de habilidades entre plataformas',
 				'<strong>Correspondência de Capacidades</strong> — Descubra e roteie para agentes por habilidade, pontuação de confiança e atributos personalizados',
@@ -522,8 +538,9 @@ const pt: TranslationSchema = {
 				'<strong>Trilha de Auditoria Imutável</strong> — Logs de operação assinados criptograficamente à prova de adulteração',
 				'<strong>Rastreamento de Tokens e Custos</strong> — Métricas de uso por conversa e por agente',
 				'<strong>Rastreamento de Pipeline</strong> — Visibilidade total em cada etapa do pipeline de processamento',
-				'<strong>Métricas Prometheus</strong> — Endpoint de métricas padrão para infraestrutura de monitoramento',
+				'<strong>Métricas Prometheus</strong> — 50+ métricas Micrometer em <code>/q/metrics</code> para infraestrutura de monitoramento',
 				'<strong>Dashboards Grafana</strong> — Dashboards pré-construídos para equipes de operações',
+				'<strong>Rastreamento OpenTelemetry</strong> — Traces distribuídos por tarefa via OTLP (Jaeger, Tempo, Datadog) com spans para ID de tarefa, tipo, conversa e agente',
 				'<strong>Telemetria CQRS</strong> — Ledger orientado a eventos de todas as operações do sistema',
 			],
 		},
@@ -992,8 +1009,10 @@ const pt: TranslationSchema = {
 
 			devTrustTitle: 'Verificado pela comunidade',
 			devTrustDesc: 'Cada sinal de confiança é ao vivo, automatizado e independentemente verificável.',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Certificação de segurança e qualidade da Linux Foundation',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Nível mais alto de certificação de segurança e qualidade da Linux Foundation',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Pontuação automatizada de segurança da cadeia de suprimentos pela Linux Foundation',
 			devCodacy: 'Qualidade de código Codacy',
 			devCodacyDesc: 'Análise de código automatizada por terceiros',
 			devDocker: 'Docker Hub',

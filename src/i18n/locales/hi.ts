@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const hi: TranslationSchema = {
@@ -75,6 +75,7 @@ const hi: TranslationSchema = {
 		apache2: 'Apache 2.0 लाइसेंस',
 		tests: '9,000+ टेस्ट · शून्य विफलताएँ',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'प्लेटफ़ॉर्म',
 		develop: 'डेवलप',
 		resourcesCol: 'संसाधन',
@@ -153,10 +154,13 @@ const hi: TranslationSchema = {
 		trustApacheDesc: '100% ओपन-सोर्स और एंटरप्राइज़-तैयार',
 		trustTests: '9,000+ टेस्ट · 0 विफलताएँ',
 		trustTestsDesc: 'कठोर CI/CD और >90% कोड कवरेज',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Linux Foundation की सर्वोच्च स्तर की सुरक्षा और गुणवत्ता प्रमाणन',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Docker Hub से कंटेनर पुल',
 		trustCI: 'CI पास · CodeQL क्लीन',
 		trustCIDesc: 'स्वचालित बिल्ड, सुरक्षा स्कैनिंग और कोड विश्लेषण',
+		philosophyQuote: 'इंजन सख्त है ताकि AI रचनात्मक हो सके।',
 		techTitle: 'सिद्ध तकनीक पर निर्मित',
 		techJava: 'Java 25',
 		techJavaDesc: 'एंटरप्राइज़ रनटाइम',
@@ -433,6 +437,17 @@ const hi: TranslationSchema = {
 				'<strong>URL वैलिडेशन</strong> — SSRF और रीडायरेक्ट हमले रोकें',
 				'<strong>क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स</strong> — अपरिवर्तनीय ऑपरेशन लॉग',
 				'<strong>EU AI अधिनियम तैयार</strong> — अंतर्निहित शासन क्षमताएँ',
+				'<strong>Sigstore Cosign</strong> — कीलेस OIDC कंटेनर इमेज साइनिंग — हर Docker इमेज की आधिकारिक CI द्वारा निर्माण की क्रिप्टोग्राफिक सत्यापन',
+			],
+			ciTitle: 'स्वचालित सुरक्षा पाइपलाइन',
+			ciPara: 'हर push और pull request को 6 स्वचालित सुरक्षा उपकरणों द्वारा स्कैन किया जाता है — सभी GitHub Actions SHA-पिन किए गए हैं ताकि आपूर्ति श्रृंखला हमलों को रोका जा सके:',
+			ciItems: [
+				'<strong>CodeQL</strong> — <code>security-extended</code> क्वेरीज़ के साथ सिमेंटिक SAST विश्लेषण',
+				'<strong>Trivy</strong> — फाइलसिस्टम डिपेंडेंसी और Docker इमेज का CVE स्कैनिंग (CRITICAL/HIGH पर ब्लॉक)',
+				'<strong>Gitleaks</strong> — सीक्रेट और क्रेडेंशियल लीकेज रोकने के लिए Git हिस्ट्री स्कैनिंग',
+				'<strong>ZAP</strong> — लाइव Docker इमेज के विरुद्ध DAST API स्कैनिंग',
+				'<strong>CycloneDX</strong> — आपूर्ति श्रृंखला पारदर्शिता के लिए SBOM जनरेशन',
+				'<strong>Jazzer</strong> — सुरक्षा-महत्वपूर्ण पार्सर्स के लिए कवरेज-गाइडेड फ़ज़ टेस्टिंग',
 			],
 			govTitle: 'शासन और अनुपालन एकीकरण',
 			govPara: 'सुरक्षा क्षमताएं सीधे EDDI के <a href="/enterprise/compliance/">अनुपालन ढांचे</a> में शामिल होती हैं। अपरिवर्तनीय ऑडिट ट्रेल EU AI Act आवश्यकताओं (अनु. 12-14) को पूरा करता है। वही इंफ्रास्ट्रक्चर GDPR, HIPAA, SOC 2 और 15+ नियामक ढांचों का समर्थन करता है।',
@@ -480,6 +495,7 @@ const hi: TranslationSchema = {
 				'<strong>Agent Father</strong> — एक मेटा-एजेंट जो वार्तालाप के माध्यम से अन्य एजेंट्स बनाता है (बॉक्स से बाहर शामिल)',
 				'<strong>A2A प्रोटोकॉल</strong> — Agent Cards और क्रॉस-प्लेटफॉर्म स्किल डिस्कवरी के साथ पूर्ण Agent-to-Agent प्रोटोकॉल कार्यान्वयन',
 				'<strong>क्षमता मिलान</strong> — स्किल, कॉन्फिडेंस स्कोर और कस्टम विशेषताओं के आधार पर एजेंट्स खोजें और रूट करें',
+				'<strong>Slack एकीकरण</strong> — एजेंटों को Slack चैनलों में डिप्लॉय करें और थ्रेड्स में सीधे मल्टी-एजेंट डिबेट चलाएं, DM सपोर्ट और ट्रिगर कीवर्ड राउटिंग के साथ',
 			],
 		},
 		observability: {
@@ -492,8 +508,9 @@ const hi: TranslationSchema = {
 				'<strong>अपरिवर्तनीय ऑडिट ट्रेल</strong> — क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित',
 				'<strong>टोकन और लागत ट्रैकिंग</strong> — प्रति-वार्तालाप और प्रति-एजेंट मेट्रिक्स',
 				'<strong>पाइपलाइन ट्रेसिंग</strong> — हर स्टेप में पूर्ण दृश्यता',
-				'<strong>Prometheus मेट्रिक्स</strong> — मानक मेट्रिक्स एंडपॉइंट',
+				'<strong>Prometheus मेट्रिक्स</strong> — <code>/q/metrics</code> पर 50+ मेट्रिक्स उजागर करने वाला मानक मेट्रिक्स एंडपॉइंट',
 				'<strong>Grafana डैशबोर्ड</strong> — प्री-बिल्ट डैशबोर्ड',
+				'<strong>OpenTelemetry ट्रेसिंग</strong> — OTLP (Jaeger, Tempo, Datadog) के माध्यम से प्रति-कार्य वितरित ट्रेस, कार्य ID, प्रकार, वार्तालाप और एजेंट के span सहित',
 				'<strong>CQRS टेलीमेट्री</strong> — ईवेंट-सोर्स्ड लेजर',
 			],
 		},
@@ -970,8 +987,10 @@ const hi: TranslationSchema = {
 
 			devTrustTitle: 'समुदाय द्वारा सत्यापित',
 			devTrustDesc: 'हर विश्वास संकेत लाइव, स्वचालित और स्वतंत्र रूप से सत्यापन योग्य है।',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Linux Foundation सुरक्षा और गुणवत्ता प्रमाणन',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Linux Foundation की सर्वोच्च स्तर की सुरक्षा और गुणवत्ता प्रमाणन',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Linux Foundation द्वारा स्वचालित आपूर्ति श्रृंखला सुरक्षा स्कोरिंग',
 			devCodacy: 'Codacy कोड गुणवत्ता',
 			devCodacyDesc: 'तृतीय-पक्ष स्वचालित कोड विश्लेषण',
 			devDocker: 'Docker Hub',

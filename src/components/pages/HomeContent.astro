@@ -109,6 +109,14 @@ const { lang, t } = Astro.props;
 	</div>
 </section>
 
+<!-- Philosophy Quote -->
+<section class="py-12 max-w-5xl mx-auto px-6 text-center border-t border-zinc-800/60">
+	<blockquote class="text-2xl md:text-3xl font-light italic text-zinc-300 leading-relaxed">
+		"{t.home.philosophyQuote}"
+	</blockquote>
+	<cite class="block mt-4 text-sm text-zinc-500 not-italic">— <a href="https://github.com/labsai/EDDI/blob/main/docs/project-philosophy.md" target="_blank" rel="noopener" class="text-accent-400 hover:text-accent-300 transition-colors">Project Philosophy</a></cite>
+</section>
+
 <!-- Trusted & Certified -->
 <section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
 	<div class="text-center mb-12">
@@ -119,6 +127,7 @@ const { lang, t } = Astro.props;
 			{ title: t.home.trustRedHat, desc: t.home.trustRedHatDesc, icon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
 			{ title: t.home.trustApache, desc: t.home.trustApacheDesc, icon: '<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>' },
 			{ title: t.home.trustTests, desc: t.home.trustTestsDesc, icon: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>' },
+			{ title: t.home.trustOpenSSF, desc: t.home.trustOpenSSFDesc, icon: '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>', href: 'https://www.bestpractices.dev/projects/12355', badge: '<div class="mt-2"><img src="https://www.bestpractices.dev/projects/12355/badge" alt="OpenSSF Best Practices" class="h-5 w-auto" width="234" height="20" loading="lazy" /></div>' },
 			{ title: t.home.trustDocker, desc: t.home.trustDockerDesc, icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M2 13h20"/><rect x="5" y="10" width="3" height="3"/><rect x="10" y="10" width="3" height="3"/><rect x="15" y="10" width="3" height="3"/><rect x="5" y="15" width="3" height="3"/><rect x="10" y="15" width="3" height="3"/>', href: 'https://hub.docker.com/r/labsai/eddi', badge: '<div class="mt-2"><img src="https://img.shields.io/docker/pulls/labsai/eddi?style=flat-square&color=f59e0b&labelColor=27272a" alt="Docker Pulls" class="h-5 w-auto" width="134" height="20" loading="lazy" /></div>' },
 			{ title: t.home.trustCI, desc: t.home.trustCIDesc, icon: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>', href: 'https://github.com/labsai/EDDI/actions/workflows/ci.yml', badge: '<div class="mt-2 flex flex-wrap gap-2"><img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" class="h-5 w-auto inline-block" width="98" height="20" loading="lazy" /><img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" class="h-5 w-auto inline-block" width="98" height="20" loading="lazy" /></div>' },
 		].map((item) => {
@@ -282,7 +291,7 @@ const { lang, t } = Astro.props;
 		.hero-inner { gap: 1.5rem; }
 		.hero-actions { justify-content: center; margin: 0 auto; gap: 0.75rem; flex-direction: column; align-items: stretch; width: 100%; max-width: 15rem; }
 	}
-	/* Trusted & Certified — uniform 5-card grid */
+	/* Trusted & Certified — uniform 6-card grid */
 	.trust-grid {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
@@ -299,12 +308,6 @@ const { lang, t } = Astro.props;
 		backdrop-filter: blur(12px);
 		border: 1px solid rgba(63, 63, 70, 0.5);
 		transition: all 0.3s ease;
-	}
-	.trust-card:nth-child(4) {
-		grid-column: 1 / 4;
-	}
-	.trust-card:nth-child(5) {
-		grid-column: 4 / 7;
 	}
 	.trust-card:hover {
 		border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
@@ -323,9 +326,7 @@ const { lang, t } = Astro.props;
 
 	@media (max-width: 50rem) {
 		.trust-grid { grid-template-columns: 1fr; }
-		.trust-card,
-		.trust-card:nth-child(4),
-		.trust-card:nth-child(5) { grid-column: auto; }
+		.trust-card { grid-column: auto; }
 	}
 
 	/* ── Demo System button ── */

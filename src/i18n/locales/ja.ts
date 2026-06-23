@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const ja: TranslationSchema = {
@@ -74,6 +74,7 @@ const ja: TranslationSchema = {
 		apache2: 'Apache 2.0ライセンス',
 		tests: '9,000以上のテスト · 失敗ゼロ',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'プラットフォーム',
 		develop: '開発',
 		resourcesCol: 'リソース',
@@ -114,7 +115,7 @@ const ja: TranslationSchema = {
 		heroTitle: 'エンタープライズ',
 		heroHighlight: 'AIオーケストレーター',
 		heroTagline:
-			`ガバナンスされたマルチエージェントAIシステムをデプロイするためのオープンソースのプロダクション対応プラットフォーム。設定駆動、セルフホスト、コンプライアンス対応 — ビジュアル管理UI、42のMCPツール、エンタープライズセキュリティ内蔵。現在<strong>${EDDI_VERSION}</strong>で提供中。`,
+			`ガバナンスされたマルチエージェントAIシステムをデプロイするためのオープンソースのプロダクション対応プラットフォーム。設定駆動、セルフホスト、コンプライアンス対応 — ビジュアル管理UI、42のMCPツール、エンタープライズセキュリティ内蔵。現在<strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION})で提供中。`,
 		problemTitle: '問題',
 		problemDesc: 'エンタープライズAIオーケストレーションは<strong>断片化され、困難</strong>です。チームは壊れたライフサイクルに陥っています：',
 		problemCard1Title: 'プロトタイプの罠',
@@ -146,10 +147,13 @@ const ja: TranslationSchema = {
 		trustApacheDesc: '100%オープンソースでエンタープライズ対応',
 		trustTests: '9,000以上のテスト · 失敗0',
 		trustTestsDesc: '厳格なCI/CDと>90%コードカバレッジ',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Linux Foundation最高レベルのセキュリティ・品質認証',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Docker Hubからのコンテナプル',
 		trustCI: 'CI合格 · CodeQLクリーン',
 		trustCIDesc: '自動ビルド、セキュリティスキャン、コード分析',
+		philosophyQuote: 'エンジンが厳格だからこそ、AIは創造的になれる。',
 		techTitle: '実績ある技術で構築',
 		techJava: 'Java 25',
 		techJavaDesc: 'エンタープライズランタイム',
@@ -421,6 +425,17 @@ const ja: TranslationSchema = {
 				'<strong>URL検証</strong> — SSRFとリダイレクト攻撃の防止',
 				'<strong>暗号化監査証跡</strong> — 不変で改ざん不能な操作ログ',
 				'<strong>EU AI規制法対応</strong> — 規制コンプライアンスのための組み込みガバナンス機能',
+				'<strong>Sigstore Cosign</strong> — キーレスOIDCコンテナイメージ署名 — 公式CIでビルドされたDockerイメージを暗号的に検証',
+			],
+			ciTitle: '自動セキュリティパイプライン',
+			ciPara: 'すべてのpushとpull requestが6つの自動セキュリティツールでスキャンされます — すべてのGitHub ActionsがSHAピン留めされ、サプライチェーン攻撃を防止：',
+			ciItems: [
+				'<strong>CodeQL</strong> — <code>security-extended</code>クエリによるセマンティックSAST分析',
+				'<strong>Trivy</strong> — ファイルシステム依存関係とDockerイメージのCVEスキャン（CRITICAL/HIGHでブロック）',
+				'<strong>Gitleaks</strong> — シークレットと認証情報の漏洩を防ぐGit履歴スキャン',
+				'<strong>ZAP</strong> — ライブDockerイメージに対するDAST APIスキャン',
+				'<strong>CycloneDX</strong> — サプライチェーン透明性のためのSBOM生成',
+				'<strong>Jazzer</strong> — セキュリティクリティカルなパーサー向けカバレッジガイド付きファズテスト',
 			],
 			govTitle: 'ガバナンスとコンプライアンスの統合',
 			govPara: 'セキュリティ機能はEDDIの<a href="/enterprise/compliance/">コンプライアンスフレームワーク</a>に直接供給されます。不変の監査証跡はEU AI法要件（第12〜14条）を満たします。同じインフラストラクチャがGDPR、HIPAA、SOC 2、15以上の規制フレームワークをサポートします。',
@@ -470,6 +485,7 @@ const ja: TranslationSchema = {
 				'<strong>Agent Father</strong> — 会話を通じて他のエージェントを作成するメタエージェント（即利用可能）',
 				'<strong>A2Aプロトコル</strong> — Agent Cardsとクロスプラットフォームスキルディスカバリーによる完全なAgent-to-Agentプロトコル実装',
 				'<strong>ケーパビリティマッチング</strong> — スキル、コンフィデンススコア、カスタム属性でエージェントを発見・ルーティング',
+				'<strong>Slack連携</strong> — エージェントをSlackチャンネルにデプロイし、スレッドで直接マルチエージェントディベートを実行、DMサポートとトリガーキーワードルーティング対応',
 			],
 		},
 		observability: {
@@ -483,8 +499,9 @@ const ja: TranslationSchema = {
 				'<strong>不変の監査証跡</strong> — 暗号署名され改ざん不能な操作ログ',
 				'<strong>トークンとコストの追跡</strong> — 会話別・エージェント別の使用量メトリクス',
 				'<strong>パイプライントレーシング</strong> — 処理パイプラインの各ステップへの完全な可視性',
-				'<strong>Prometheusメトリクス</strong> — 監視インフラストラクチャのための標準メトリクスエンドポイント',
+				'<strong>Prometheusメトリクス</strong> — <code>/q/metrics</code>経由で50以上のメトリクスを提供、監視インフラストラクチャ向け',
 				'<strong>Grafanaダッシュボード</strong> — 運用チーム向けの事前構築ダッシュボード',
+				'<strong>OpenTelemetryトレーシング</strong> — OTLP（Jaeger、Tempo、Datadog）によるタスクごとの分散トレース、タスクID・タイプ・会話・エージェントのspan付き',
 				'<strong>CQRSテレメトリ</strong> — すべてのシステム操作のイベントソース台帳',
 			],
 		},
@@ -951,8 +968,10 @@ const ja: TranslationSchema = {
 
 			devTrustTitle: 'コミュニティによる検証',
 			devTrustDesc: 'すべての信頼シグナルはライブ、自動化、独立検証可能です。',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Linux Foundationのセキュリティ・品質認証',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Linux Foundation最高レベルのセキュリティ・品質認証',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Linux Foundationによる自動サプライチェーンセキュリティスコアリング',
 			devCodacy: 'Codacyコード品質',
 			devCodacyDesc: 'サードパーティによる自動コード分析',
 			devDocker: 'Docker Hub',

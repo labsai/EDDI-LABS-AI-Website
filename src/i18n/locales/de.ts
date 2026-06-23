@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const de: TranslationSchema = {
@@ -75,6 +75,7 @@ const de: TranslationSchema = {
 		apache2: 'Apache 2.0 Lizenz',
 		tests: '9.000+ Tests · Null Fehler',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'Plattform',
 		develop: 'Entwicklung',
 		resourcesCol: 'Ressourcen',
@@ -116,7 +117,7 @@ const de: TranslationSchema = {
 		heroTitle: 'Der Enterprise',
 		heroHighlight: 'KI-Orchestrator',
 		heroTagline:
-			`Die quelloffene, produktionsreife Plattform für die Bereitstellung gesteuerter Multi-Agent-KI-Systeme. Konfigurationsgesteuert, selbst gehostet und compliance-bereit — mit visueller Management-UI, 42 MCP-Tools und integrierter Enterprise-Sicherheit. Jetzt in <strong>${EDDI_VERSION}</strong>.`,
+			`Die quelloffene, produktionsreife Plattform für die Bereitstellung gesteuerter Multi-Agent-KI-Systeme. Konfigurationsgesteuert, selbst gehostet und compliance-bereit — mit visueller Management-UI, 42 MCP-Tools und integrierter Enterprise-Sicherheit. Jetzt in <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		problemTitle: 'Das Problem',
 		problemDesc:
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
@@ -157,10 +158,13 @@ const de: TranslationSchema = {
 		trustApacheDesc: '100 % Open Source & Enterprise-ready',
 		trustTests: '9.000+ Tests · 0 Fehler',
 		trustTestsDesc: 'Rigoroses CI/CD & >90% Code-Coverage',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Höchste Stufe der Linux Foundation Sicherheits- und Qualitätszertifizierung',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Container-Downloads von Docker Hub',
 		trustCI: 'CI bestanden · CodeQL sauber',
 		trustCIDesc: 'Automatisierte Builds, Sicherheitsscans & Codeanalyse',
+		philosophyQuote: 'Die Engine ist streng, damit die KI kreativ sein kann.',
 		techTitle: 'Bewährte Technologie',
 		techJava: 'Java 25',
 		techJavaDesc: 'Enterprise-Runtime',
@@ -456,6 +460,18 @@ const de: TranslationSchema = {
 				'<strong>URL-Validierung</strong> — SSRF- und Redirect-Angriffe verhindern',
 				'<strong>Kryptografische Audit-Trails</strong> — Unveränderliche, manipulationssichere Betriebsprotokolle',
 				'<strong>EU AI Act Ready</strong> — Eingebaute Governance-Fähigkeiten für regulatorische Compliance',
+				'<strong>Sigstore Cosign</strong> — Schlüssellose OIDC-Container-Image-Signierung — kryptografische Verifizierung, dass jedes Docker-Image von der offiziellen CI erstellt wurde',
+			],
+			// CI/CD Security Pipeline
+			ciTitle: 'Automatisierte Sicherheitspipeline',
+			ciPara: 'Jeder Push und Pull Request wird von 6 automatisierten Sicherheitstools gescannt — alle GitHub Actions SHA-gepinnt gegen Supply-Chain-Angriffe:',
+			ciItems: [
+				'<strong>CodeQL</strong> — Semantische SAST-Analyse mit <code>security-extended</code>-Abfragen',
+				'<strong>Trivy</strong> — CVE-Scanning für Dateisystem-Abhängigkeiten und Docker-Images (blockierend bei CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong> — Git-History-Scanning zur Verhinderung von Secret- und Credential-Leaks',
+				'<strong>ZAP</strong> — DAST-API-Scanning gegen das Live-Docker-Image',
+				'<strong>CycloneDX</strong> — SBOM-Generierung für Supply-Chain-Transparenz',
+				'<strong>Jazzer</strong> — Coverage-geführtes Fuzz-Testing für sicherheitskritische Parser',
 			],
 			govTitle: 'Governance- und Compliance-Integration',
 			govPara: 'Sicherheitsfunktionen fließen direkt in EDDIs Compliance-Framework ein. Der unveränderliche Audit-Trail erfüllt die Anforderungen des EU AI Act (Art. 12-14).',
@@ -509,6 +525,7 @@ const de: TranslationSchema = {
 				'<strong>Agent Father</strong> — Ein Meta-Agent, der andere Agenten durch Konversation erstellt (sofort einsatzbereit)',
 				'<strong>A2A-Protokoll</strong> — Vollständige Agent-zu-Agent-Protokollimplementierung mit Agent Cards und plattformübergreifender Skill-Erkennung',
 				'<strong>Fähigkeitsabgleich</strong> — Agenten nach Skill, Konfidenzbewertung und benutzerdefinierten Attributen entdecken und routen',
+				'<strong>Slack-Integration</strong> — Agenten in Slack-Kanäle deployen und Multi-Agenten-Debatten direkt in Threads führen, mit DM-Unterstützung und Trigger-Keyword-Routing',
 			],
 		},
 		observability: {
@@ -523,8 +540,9 @@ const de: TranslationSchema = {
 				'<strong>Unveränderlicher Audit-Trail</strong> — Kryptografisch signierte, manipulationssichere Betriebsprotokolle',
 				'<strong>Token- & Kosten-Tracking</strong> — Nutzungsmetriken pro Konversation und pro Agent',
 				'<strong>Pipeline-Tracing</strong> — Vollständige Sichtbarkeit in jeden Schritt der Verarbeitungs-Pipeline',
-				'<strong>Prometheus-Metriken</strong> — Standard-Metriken-Endpoint für Monitoring-Infrastruktur',
+				'<strong>Prometheus-Metriken</strong> — 50+ Micrometer-Metriken unter <code>/q/metrics</code> für Monitoring-Infrastruktur',
 				'<strong>Grafana-Dashboards</strong> — Vorgefertigte Dashboards für Operations-Teams',
+				'<strong>OpenTelemetry-Tracing</strong> — Verteilte Traces pro Task via OTLP (Jaeger, Tempo, Datadog) mit Spans für Task-ID, Typ, Conversation und Agent',
 				'<strong>CQRS-Telemetrie</strong> — Event-gesourctes Ledger aller Systemoperationen',
 			],
 		},
@@ -993,8 +1011,10 @@ const de: TranslationSchema = {
 
 			devTrustTitle: 'Von der Community verifiziert',
 			devTrustDesc: 'Jedes Vertrauenssignal ist live, automatisiert und unabhängig überprüfbar.',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Linux Foundation Sicherheits- und Qualitätszertifizierung',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Höchste Stufe der Linux Foundation Sicherheits- und Qualitätszertifizierung',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Automatisierte Supply-Chain-Sicherheitsbewertung der Linux Foundation',
 			devCodacy: 'Codacy Code-Qualität',
 			devCodacyDesc: 'Automatisierte Drittanbieter-Codeanalyse',
 			devDocker: 'Docker Hub',

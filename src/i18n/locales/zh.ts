@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const zh: TranslationSchema = {
@@ -74,6 +74,7 @@ const zh: TranslationSchema = {
 		apache2: 'Apache 2.0许可',
 		tests: '9,000+测试 · 零失败',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: '平台',
 		develop: '开发',
 		resourcesCol: '资源',
@@ -114,7 +115,7 @@ const zh: TranslationSchema = {
 		heroTitle: '企业级',
 		heroHighlight: 'AI编排器',
 		heroTagline:
-			`用于部署受治理的多代理AI系统的开源生产就绪平台。配置驱动、自托管、合规就绪 — 内置可视化管理UI、42个MCP工具和企业安全。现已推出<strong>${EDDI_VERSION}</strong>。`,
+			`用于部署受治理的多代理AI系统的开源生产就绪平台。配置驱动、自托管、合规就绪 — 内置可视化管理UI、42个MCP工具和企业安全。现已推出<strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION})。`,
 		problemTitle: '问题',
 		problemDesc: '企业级AI编排<strong>碎片化且痛苦</strong>。团队陷入一个破碎的生命周期中：',
 		problemCard1Title: '原型陷阱',
@@ -144,10 +145,13 @@ const zh: TranslationSchema = {
 		trustApacheDesc: '100%开源且企业就绪',
 		trustTests: '9,000+测试 · 0失败',
 		trustTestsDesc: '严格的CI/CD和>90%代码覆盖率',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'Linux Foundation 最高级别安全与质量认证',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: '来自 Docker Hub 的容器拉取',
 		trustCI: 'CI 通过 · CodeQL 清洁',
 		trustCIDesc: '自动构建、安全扫描和代码分析',
+		philosophyQuote: '引擎严格，AI才能自由创造。',
 		techTitle: '基于成熟技术构建',
 		techJava: 'Java 25',
 		techJavaDesc: '企业级运行时',
@@ -417,6 +421,17 @@ const zh: TranslationSchema = {
 				'<strong>URL验证</strong> — 防止SSRF和重定向攻击',
 				'<strong>加密审计跟踪</strong> — 不可变、防篡改的操作日志',
 				'<strong>欧盟AI法案就绪</strong> — 内置治理功能满足监管合规',
+				'<strong>Sigstore Cosign</strong> — 无密钥 OIDC 容器镜像签名 — 加密验证每个 Docker 镜像由官方 CI 构建',
+			],
+			ciTitle: '自动化安全流水线',
+			ciPara: '每次 push 和 pull request 都由 6 个自动化安全工具扫描 — 所有 GitHub Actions 均通过 SHA 固定以防止供应链攻击：',
+			ciItems: [
+				'<strong>CodeQL</strong> — 使用 <code>security-extended</code> 查询进行语义 SAST 分析',
+				'<strong>Trivy</strong> — 文件系统依赖和 Docker 镜像的 CVE 扫描（CRITICAL/HIGH 级别阻断）',
+				'<strong>Gitleaks</strong> — Git 历史扫描以防止密钥和凭证泄露',
+				'<strong>ZAP</strong> — 针对实时 Docker 镜像的 DAST API 扫描',
+				'<strong>CycloneDX</strong> — SBOM 生成以实现供应链透明',
+				'<strong>Jazzer</strong> — 覆盖率引导的模糊测试，用于安全关键解析器',
 			],
 			govTitle: '治理与合规集成',
 			govPara: '安全功能直接融入EDDI的<a href="/enterprise/compliance/">合规框架</a>。不可变审计追踪满足了《欧盟AI法案》的要求（第12至14条）。同一基础设施支持GDPR、HIPAA、SOC 2和15+个监管框架。',
@@ -464,6 +479,7 @@ const zh: TranslationSchema = {
 				'<strong>Agent Father</strong> — 通过对话创建其他代理的元代理（开箱即用）',
 				'<strong>A2A协议</strong> — 完整的Agent-to-Agent协议实现，包含Agent Cards和跨平台技能发现',
 				'<strong>能力匹配</strong> — 按技能、置信度分数和自定义属性发现和路由代理',
+				'<strong>Slack 集成</strong> — 将代理部署到 Slack 频道，直接在线程中运行多代理辩论，支持私信和触发关键词路由',
 			],
 		},
 		observability: {
@@ -476,8 +492,9 @@ const zh: TranslationSchema = {
 				'<strong>不可变审计跟踪</strong> — 加密签名、防篡改的操作日志',
 				'<strong>令牌和成本追踪</strong> — 按对话和按代理的使用指标',
 				'<strong>管道追踪</strong> — 处理管道每一步的完全可见性',
-				'<strong>Prometheus指标</strong> — 用于监控基础设施的标准指标端点',
+				'<strong>Prometheus指标</strong> — 通过 <code>/q/metrics</code> 提供超过 50 个指标用于监控基础设施',
 				'<strong>Grafana仪表板</strong> — 为运维团队预建的仪表板',
+				'<strong>OpenTelemetry 追踪</strong> — 通过 OTLP（Jaeger、Tempo、Datadog）进行每任务分布式追踪，包含任务ID、类型、对话和代理的span',
 				'<strong>CQRS遥测</strong> — 所有系统操作的事件溯源账本',
 			],
 		},
@@ -938,8 +955,10 @@ const zh: TranslationSchema = {
 
 			devTrustTitle: '社区验证',
 			devTrustDesc: '每个信任信号都是实时的、自动化的、可独立验证的。',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'Linux Foundation 安全与质量认证',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'Linux Foundation 最高级别安全与质量认证',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'Linux Foundation 自动化供应链安全评分',
 			devCodacy: 'Codacy 代码质量',
 			devCodacyDesc: '第三方自动代码分析',
 			devDocker: 'Docker Hub',

@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const ar: TranslationSchema = {
@@ -75,6 +75,7 @@ const ar: TranslationSchema = {
 		apache2: 'مرخص بـ Apache 2.0',
 		tests: '+9,000 اختبار · صفر إخفاقات',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'المنصة',
 		develop: 'التطوير',
 		resourcesCol: 'الموارد',
@@ -116,7 +117,7 @@ const ar: TranslationSchema = {
 		heroTitle: 'منسّق',
 		heroHighlight: 'الذكاء الاصطناعي للمؤسسات',
 		heroTagline:
-			`المنصة مفتوحة المصدر والجاهزة للإنتاج لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة. مدفوعة بالتكوين، مستضافة ذاتياً، وجاهزة للامتثال — مع واجهة إدارة بصرية و42 أداة MCP وأمان مؤسسي مدمج. متوفر الآن في <strong>معاينة ${EDDI_VERSION}</strong>.`,
+			`المنصة مفتوحة المصدر والجاهزة للإنتاج لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة. مدفوعة بالتكوين، مستضافة ذاتياً، وجاهزة للامتثال — مع واجهة إدارة بصرية و42 أداة MCP وأمان مؤسسي مدمج. متوفر الآن في <strong>معاينة ${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		problemTitle: 'المشكلة',
 		problemDesc: 'تنسيق الذكاء الاصطناعي المؤسسي <strong>مجزأ ومؤلم</strong>. الفرق عالقة في دورة حياة مفككة:',
 		problemCard1Title: 'فخ النموذج الأولي',
@@ -155,10 +156,13 @@ const ar: TranslationSchema = {
 		trustApacheDesc: '100% مفتوح المصدر وجاهز للمؤسسات',
 		trustTests: '+9,000 اختبار · 0 إخفاقات',
 		trustTestsDesc: 'CI/CD صارم و>90% تغطية الشفرة',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'أعلى مستوى من شهادة الأمان والجودة من Linux Foundation',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'تحميلات الحاويات من Docker Hub',
 		trustCI: 'CI ناجح · CodeQL نظيف',
 		trustCIDesc: 'بناء تلقائي، فحص أمني وتحليل الشفرة',
+		philosophyQuote: 'المحرك صارم حتى يتمكن الذكاء الاصطناعي من الإبداع.',
 		techTitle: 'مبني على تقنية مثبتة',
 		techJava: 'Java 25',
 		techJavaDesc: 'بيئة تشغيل مؤسسية',
@@ -442,6 +446,17 @@ const ar: TranslationSchema = {
 				'<strong>التحقق من URL</strong> — منع هجمات SSRF وإعادة التوجيه',
 				'<strong>مسارات تدقيق مشفرة</strong> — سجلات عمليات غير قابلة للتغيير ومقاومة للعبث',
 				'<strong>جاهز لقانون الذكاء الاصطناعي الأوروبي</strong> — قدرات حوكمة مدمجة للامتثال التنظيمي',
+				'<strong>Sigstore Cosign</strong> — توقيع صور الحاويات عبر OIDC بدون مفتاح — التحقق التشفيري من أن كل صورة Docker تم بناؤها بواسطة CI الرسمي',
+			],
+			ciTitle: 'خط أنابيب الأمان الآلي',
+			ciPara: 'يتم فحص كل push وpull request بواسطة 6 أدوات أمان آلية — جميع إجراءات GitHub Actions مثبتة بـ SHA لمنع هجمات سلسلة التوريد:',
+			ciItems: [
+				'<strong>CodeQL</strong> — تحليل SAST دلالي مع استعلامات <code>security-extended</code>',
+				'<strong>Trivy</strong> — فحص CVE لتبعيات نظام الملفات وصور Docker (حظر عند CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong> — فحص تاريخ Git لمنع تسريب الأسرار وبيانات الاعتماد',
+				'<strong>ZAP</strong> — فحص DAST للـ API ضد صورة Docker الحية',
+				'<strong>CycloneDX</strong> — إنشاء SBOM لشفافية سلسلة التوريد',
+				'<strong>Jazzer</strong> — اختبار Fuzz موجه بالتغطية للمحللات الأمنية الحرجة',
 			],
 			govTitle: 'تكامل الحوكمة والامتثال',
 			govPara: 'تغذي القدرات الأمنية إطار امتثال EDDI مباشرة. يلبي مسار التدقيق غير القابل للتغيير متطلبات قانون الذكاء الاصطناعي الأوروبي (المواد 12-14).',
@@ -495,6 +510,7 @@ const ar: TranslationSchema = {
 				'<strong>الوكيل الأب</strong> — وكيل وصفي ينشئ وكلاء آخرين عبر المحادثة (يأتي جاهزاً)',
 				'<strong>بروتوكول A2A</strong> — تنفيذ كامل لبروتوكول وكيل-إلى-وكيل مع بطاقات الوكلاء واكتشاف المهارات عبر المنصات',
 				'<strong>مطابقة القدرات</strong> — اكتشاف وتوجيه إلى الوكلاء حسب المهارة ودرجة الثقة والسمات المخصصة',
+				'<strong>تكامل Slack</strong> — نشر الوكلاء في قنوات Slack وتشغيل مناظرات متعددة الوكلاء مباشرة في المواضيع، مع دعم الرسائل المباشرة والتوجيه بالكلمات المفتاحية',
 			],
 		},
 		observability: {
@@ -509,8 +525,9 @@ const ar: TranslationSchema = {
 				'<strong>مسار تدقيق غير قابل للتغيير</strong> — سجلات عمليات موقعة بالتشفير ومقاومة للعبث',
 				'<strong>تتبع الرموز والتكاليف</strong> — مقاييس استخدام لكل محادثة ولكل وكيل',
 				'<strong>تتبع خط الأنابيب</strong> — رؤية كاملة في كل خطوة من خط معالجة البيانات',
-				'<strong>مقاييس Prometheus</strong> — نقطة نهاية مقاييس قياسية للبنية التحتية للمراقبة',
+				'<strong>مقاييس Prometheus</strong> — أكثر من 50 مقياساً عبر <code>/q/metrics</code> للبنية التحتية للمراقبة',
 				'<strong>لوحات Grafana</strong> — لوحات معلومات مُعدة مسبقاً لفرق العمليات',
+				'<strong>تتبع OpenTelemetry</strong> — تتبعات موزعة لكل مهمة عبر OTLP (Jaeger، Tempo، Datadog) مع spans لمعرف المهمة والنوع والمحادثة والوكيل',
 				'<strong>قياس CQRS</strong> — دفتر أستاذ مدفوع بالأحداث لجميع عمليات النظام',
 			],
 		},
@@ -979,8 +996,10 @@ const ar: TranslationSchema = {
 
 			devTrustTitle: 'معتمد من المجتمع',
 			devTrustDesc: 'كل إشارة ثقة مباشرة وآلية وقابلة للتحقق بشكل مستقل.',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'شهادة الأمان والجودة من Linux Foundation',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'أعلى مستوى من شهادة الأمان والجودة من Linux Foundation',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'تقييم آلي لأمان سلسلة التوريد من Linux Foundation',
 			devCodacy: 'جودة كود Codacy',
 			devCodacyDesc: 'تحليل كود آلي من طرف ثالث',
 			devDocker: 'Docker Hub',

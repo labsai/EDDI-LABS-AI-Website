@@ -1,4 +1,4 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const th: TranslationSchema = {
@@ -75,6 +75,7 @@ const th: TranslationSchema = {
 		apache2: 'Apache 2.0 License',
 		tests: '9,000+ เทสต์ · ไม่มีข้อผิดพลาด',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
+		openSSFGold: 'OpenSSF Gold',
 		platform: 'แพลตฟอร์ม',
 		develop: 'พัฒนา',
 		resourcesCol: 'ทรัพยากร',
@@ -116,7 +117,7 @@ const th: TranslationSchema = {
 		heroTitle: 'ตัวจัดการ',
 		heroHighlight: 'AI ระดับองค์กร',
 		heroTagline:
-			`แพลตฟอร์มโอเพนซอร์สพร้อมใช้งานจริงสำหรับการปรับใช้ระบบ AI หลายเอเจนต์ที่มีธรรมาภิบาล คอนฟิกูเรชันไดรเวน โฮสต์เอง และพร้อมปฏิบัติตามข้อกำหนด — พร้อม UI จัดการแบบวิชวล เครื่องมือ MCP 42 ตัว และความปลอดภัยระดับองค์กรในตัว ขณะนี้ใน <strong>${EDDI_VERSION}</strong>`,
+			`แพลตฟอร์มโอเพนซอร์สพร้อมใช้งานจริงสำหรับการปรับใช้ระบบ AI หลายเอเจนต์ที่มีธรรมาภิบาล คอนฟิกูเรชันไดรเวน โฮสต์เอง และพร้อมปฏิบัติตามข้อกำหนด — พร้อม UI จัดการแบบวิชวล เครื่องมือ MCP 42 ตัว และความปลอดภัยระดับองค์กรในตัว ขณะนี้ใน <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION})`,
 		problemTitle: 'ปัญหา',
 		problemDesc: 'Enterprise Java <strong>ขาด Visual AI Orchestration Middleware</strong> ทีมติดอยู่ในวงจรที่เจ็บปวดและกระจัดกระจาย:',
 		problemCard1Title: 'กับดักโปรโตไทป์',
@@ -151,10 +152,13 @@ const th: TranslationSchema = {
 		trustApacheDesc: '100% open-source พร้อมสำหรับองค์กร',
 		trustTests: '9,000+ เทสต์ · 0 ข้อผิดพลาด',
 		trustTestsDesc: 'CI/CD เข้มงวดและ >90% code coverage',
+		trustOpenSSF: 'OpenSSF Gold',
+		trustOpenSSFDesc: 'การรับรองความปลอดภัยและคุณภาพระดับสูงสุดของ Linux Foundation',
 		trustDocker: 'Docker Hub',
 		trustDockerDesc: 'Container pulls จาก Docker Hub',
 		trustCI: 'CI ผ่าน · CodeQL สะอาด',
 		trustCIDesc: 'Build อัตโนมัติ, การสแกนความปลอดภัย และการวิเคราะห์โค้ด',
+		philosophyQuote: 'เอ็นจินเข้มงวดเพื่อให้ AI สร้างสรรค์ได้อย่างอิสระ',
 		techTitle: 'สร้างด้วยเทคโนโลยีที่พิสูจน์แล้ว',
 		techJava: 'Java 25',
 		techJavaDesc: 'Enterprise Runtime',
@@ -427,6 +431,17 @@ const th: TranslationSchema = {
 				'<strong>URL Validation</strong> — ป้องกัน SSRF',
 				'<strong>Cryptographic Audit Trails</strong> — immutable operation logs',
 				'<strong>EU AI Act Ready</strong> — governance capabilities ในตัว',
+				'<strong>Sigstore Cosign</strong> — การเซ็นอิมเมจคอนเทนเนอร์ OIDC แบบไม่ต้องใช้คีย์ — ตรวจสอบเข้ารหัสว่าทุกอิมเมจ Docker ถูกสร้างโดย CI อย่างเป็นทางการ',
+			],
+			ciTitle: 'ไปป์ไลน์ความปลอดภัยอัตโนมัติ',
+			ciPara: 'ทุก push และ pull request จะถูกสแกนโดยเครื่องมือความปลอดภัยอัตโนมัติ 6 ตัว — GitHub Actions ทั้งหมดถูกตรึงด้วย SHA เพื่อป้องกันการโจมตีห่วงโซ่อุปทาน:',
+			ciItems: [
+				'<strong>CodeQL</strong> — การวิเคราะห์ SAST เชิงความหมายด้วยคิวรี <code>security-extended</code>',
+				'<strong>Trivy</strong> — สแกน CVE สำหรับ dependency ระบบไฟล์และอิมเมจ Docker (บล็อกที่ CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong> — สแกนประวัติ Git เพื่อป้องกันการรั่วไหลของ secret และ credential',
+				'<strong>ZAP</strong> — สแกน DAST API ต่ออิมเมจ Docker แบบสด',
+				'<strong>CycloneDX</strong> — สร้าง SBOM เพื่อความโปร่งใสของห่วงโซ่อุปทาน',
+				'<strong>Jazzer</strong> — การทดสอบ Fuzz แบบนำทางด้วย coverage สำหรับ parser ที่สำคัญด้านความปลอดภัย',
 			],
 			govTitle: 'การบูรณาการธรรมาภิบาลและการปฏิบัติตามข้อกำหนด',
 			govPara: 'ความสามารถด้านความปลอดภัยป้อนเข้าสู่<a href="/enterprise/compliance/">กรอบการปฏิบัติตามข้อกำหนด</a>ของ EDDI โดยตรง ร่องรอยการตรวจสอบที่เปลี่ยนแปลงไม่ได้เป็นไปตามข้อกำหนด EU AI Act (มาตรา 12-14) โครงสร้างพื้นฐานเดียวกันรองรับ GDPR, HIPAA, SOC 2 และกรอบกฎระเบียบ 15+ กรอบ',
@@ -474,6 +489,7 @@ const th: TranslationSchema = {
 				'<strong>Agent Father</strong> — meta-agent ที่สร้างเอเจนต์อื่นผ่านการสนทนา (พร้อมใช้งานทันที)',
 				'<strong>A2A Protocol</strong> — การใช้งานโปรโตคอล Agent-to-Agent เต็มรูปแบบพร้อม Agent Cards และการค้นพบทักษะข้ามแพลตฟอร์ม',
 				'<strong>การจับคู่ความสามารถ</strong> — ค้นหาและเราท์เอเจนต์ตามทักษะ, คะแนนความเชื่อมั่น และคุณสมบัติกำหนดเอง',
+				'<strong>การผสานรวม Slack</strong> — ปรับใช้เอเจนต์ในช่อง Slack และดำเนินการถกเถียงหลายเอเจนต์โดยตรงในเธรด พร้อมรองรับ DM และการกำหนดเส้นทางด้วยคำสำคัญ',
 			],
 		},
 		observability: {
@@ -486,8 +502,9 @@ const th: TranslationSchema = {
 				'<strong>Immutable Audit Trail</strong> — cryptographically signed logs',
 				'<strong>Token & Cost Tracking</strong> — per-conversation metrics',
 				'<strong>Pipeline Tracing</strong> — full visibility ทุกขั้นตอน',
-				'<strong>Prometheus Metrics</strong> — standard metrics endpoint',
+				'<strong>Prometheus Metrics</strong> — เปิดเผย 50+ เมตริกที่ <code>/q/metrics</code> เป็น endpoint เมตริกมาตรฐาน',
 				'<strong>Grafana Dashboards</strong> — pre-built dashboards',
+				'<strong>การติดตาม OpenTelemetry</strong> — การติดตามแบบกระจายต่อ task ผ่าน OTLP (Jaeger, Tempo, Datadog) พร้อม span สำหรับ task ID, ประเภท, การสนทนา และเอเจนต์',
 				'<strong>CQRS Telemetry</strong> — event-sourced ledger',
 			],
 		},
@@ -964,8 +981,10 @@ const th: TranslationSchema = {
 
 			devTrustTitle: 'ตรวจสอบโดยชุมชน',
 			devTrustDesc: 'ทุกสัญญาณความน่าเชื่อถือเป็นแบบเรียลไทม์ อัตโนมัติ และตรวจสอบได้อย่างอิสระ',
-			devOpenSSF: 'OpenSSF Best Practices',
-			devOpenSSFDesc: 'การรับรองความปลอดภัยและคุณภาพของ Linux Foundation',
+			devOpenSSF: 'OpenSSF Gold',
+			devOpenSSFDesc: 'การรับรองความปลอดภัยและคุณภาพระดับสูงสุดของ Linux Foundation',
+			devScorecard: 'OpenSSF Scorecard',
+			devScorecardDesc: 'การให้คะแนนความปลอดภัยห่วงโซ่อุปทานอัตโนมัติโดย Linux Foundation',
 			devCodacy: 'Codacy Code Quality',
 			devCodacyDesc: 'การวิเคราะห์โค้ดอัตโนมัติโดยบุคคลที่สาม',
 			devDocker: 'Docker Hub',
