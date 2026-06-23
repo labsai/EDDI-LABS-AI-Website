@@ -4,7 +4,7 @@
  * Displays across the top of the header.
  * i18n-aware: all text from translations.
  */
-import { getLocaleFromUrl, getTranslations } from '../i18n';
+import { getLocaleFromUrl, getTranslations, localePath } from '../i18n';
 
 const lang = getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
@@ -14,7 +14,7 @@ const t = await getTranslations(lang);
 		<span class="announcement-badge">{t.common.bannerBadge}</span>
 		<p class="announcement-text">
 			{t.common.bannerText}
-			<a href="/enterprise/unido-trusted-partner/" class="announcement-link">
+			<a href={localePath(lang, '/enterprise/unido-trusted-partner/')} class="announcement-link">
 				{t.common.bannerLink} <span class="announcement-arrow" aria-hidden="true">&rarr;</span>
 			</a>
 		</p>
