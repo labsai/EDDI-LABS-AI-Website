@@ -14,7 +14,7 @@ const t = await getTranslations(lang);
 		<span class="announcement-badge">{t.common.bannerBadge}</span>
 		<p class="announcement-text">
 			{t.common.bannerText}
-			<a href="https://labsai.medium.com/why-i-spent-20-years-building-an-ai-agent-engine-and-what-version-6-finally-got-right-c17bc110574b" class="announcement-link" target="_blank" rel="noopener">
+			<a href="/enterprise/unido-trusted-partner/" class="announcement-link">
 				{t.common.bannerLink} <span class="announcement-arrow" aria-hidden="true">&rarr;</span>
 			</a>
 		</p>
@@ -143,7 +143,7 @@ const t = await getTranslations(lang);
 
 <script is:inline>
 	(function() {
-		if (localStorage.getItem('eddi-banner-dismissed') === 'true') {
+		if (localStorage.getItem('eddi-banner-dismissed-unido') === 'true') {
 			var banner = document.getElementById('eddi-announcement-banner');
 			if (banner) banner.style.display = 'none';
 		}
@@ -156,7 +156,7 @@ const t = await getTranslations(lang);
 		const dismissBtn = document.getElementById('eddi-dismiss-banner');
 
 		// Re-check dismissed state on SPA navigation (ClientRouter)
-		if (banner && localStorage.getItem('eddi-banner-dismissed') === 'true') {
+		if (banner && localStorage.getItem('eddi-banner-dismissed-unido') === 'true') {
 			banner.style.display = 'none';
 			window.dispatchEvent(new Event('resize'));
 			return;
@@ -165,7 +165,7 @@ const t = await getTranslations(lang);
 		if (banner && dismissBtn) {
 			dismissBtn.addEventListener('click', () => {
 				banner.style.display = 'none';
-				localStorage.setItem('eddi-banner-dismissed', 'true');
+				localStorage.setItem('eddi-banner-dismissed-unido', 'true');
 				// Dispatch event so BaseLayout can recalculate height
 				window.dispatchEvent(new Event('resize'));
 			});

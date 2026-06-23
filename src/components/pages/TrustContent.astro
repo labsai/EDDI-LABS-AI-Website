@@ -78,6 +78,14 @@ const trust = t.pages.trust;
 		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed">{trust.institutionsDesc}</p>
 	</div>
 	<div class="not-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+		<!-- UNIDO -->
+		<a href={localePath(lang, '/enterprise/unido-trusted-partner/')} class="trust-card group no-underline!">
+			<div class="trust-card-icon">
+				<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+			</div>
+			<h3 class="text-lg font-bold text-white mb-2">{trust.instUnidoTitle}</h3>
+			<p class="text-zinc-400 text-sm leading-relaxed" set:html={trust.instUnidoDesc} />
+		</a>
 		<!-- FFG -->
 		<div class="trust-card group">
 			<div class="trust-card-icon">

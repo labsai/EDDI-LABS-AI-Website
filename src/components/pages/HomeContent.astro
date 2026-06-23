@@ -116,6 +116,17 @@ const { lang, t } = Astro.props;
 	</blockquote>
 	<cite class="block mt-4 text-sm text-zinc-500 not-italic">— <a href="https://github.com/labsai/EDDI/blob/main/docs/project-philosophy.md" target="_blank" rel="noopener" class="text-accent-400 hover:text-accent-300 transition-colors">Project Philosophy</a></cite>
 </section>
+<!-- UNIDO Recognition Callout -->
+<section class="py-16 max-w-5xl mx-auto px-6">
+	<a href={localePath(lang, '/enterprise/unido-trusted-partner/')} class="unido-callout-card group no-underline! block">
+		<div class="unido-callout-inner">
+			<div class="unido-callout-badge">{t.home.unidoBadge}</div>
+			<h2 class="unido-callout-title">{t.home.unidoCalloutTitle}</h2>
+			<p class="unido-callout-desc">{t.home.unidoCalloutDesc}</p>
+			<span class="unido-callout-link">{t.home.unidoCalloutLink}</span>
+		</div>
+	</a>
+</section>
 
 <!-- Trusted & Certified -->
 <section class="py-24 max-w-7xl mx-auto px-6 border-t border-zinc-800/60">
@@ -527,6 +538,85 @@ const { lang, t } = Astro.props;
 	@keyframes demo-scale-in {
 		from { opacity: 0; transform: scale(0.95); }
 		to   { opacity: 1; transform: scale(1); }
+	}
+	/* ── UNIDO Recognition Callout ── */
+	.unido-callout-card {
+		position: relative;
+		overflow: hidden;
+		padding: 2.5rem;
+		border-radius: 1.5rem;
+		background: linear-gradient(135deg, rgba(39, 39, 42, 0.6), rgba(39, 39, 42, 0.2));
+		backdrop-filter: blur(16px);
+		border: 1px solid rgba(63, 63, 70, 0.5);
+		transition: all 0.3s ease;
+		text-decoration: none;
+	}
+	.unido-callout-card::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		inset-inline-end: -20%;
+		width: 60%;
+		height: 200%;
+		background: radial-gradient(ellipse, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%);
+		pointer-events: none;
+	}
+	.unido-callout-card:hover {
+		border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+		transform: translateY(-3px);
+		box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.5), 0 0 40px color-mix(in srgb, var(--color-accent) 10%, transparent);
+	}
+	.unido-callout-inner {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+	}
+	.unido-callout-badge {
+		display: inline-block;
+		padding: 0.25rem 0.875rem;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+		color: var(--color-accent);
+		margin-bottom: 1rem;
+	}
+	.unido-callout-title {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: var(--color-text, #fff);
+		margin: 0 0 0.75rem;
+		border: none;
+	}
+	.unido-callout-desc {
+		font-size: 0.9375rem;
+		line-height: 1.65;
+		color: var(--color-text-muted, #a1a1aa);
+		max-width: 40rem;
+		margin: 0 auto 1.25rem;
+	}
+	.unido-callout-link {
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--color-accent);
+		transition: opacity 0.2s;
+	}
+	.unido-callout-card:hover .unido-callout-link {
+		opacity: 0.8;
+	}
+	html[data-theme='light'] .unido-callout-card {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+		border-color: rgba(228, 228, 231, 0.8);
+	}
+	html[data-theme='light'] .unido-callout-card:hover {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+		box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.1);
+	}
+	html[data-theme='light'] .unido-callout-card::before {
+		background: radial-gradient(ellipse, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%);
 	}
 </style>
 

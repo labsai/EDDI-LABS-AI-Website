@@ -4,6 +4,13 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🏆 UNIDO Trusted Partner Integration
+- `feat(website)`: **UNIDO Trusted Partner Page** — New dedicated page at `/enterprise/unido-trusted-partner/` showcasing LABS.AI's selection as UNIDO Trusted Partner for Industrial AI for the Global South. Includes hero, certificate display (Astro-optimized), expanded solution section with 4 Global South-specific feature cards, 4 "What This Means" context cards, 4 organization cards (UNIDO, AIM Global, Shanghai AI Research Institute, WAIC 2026), 5 SDG alignment cards (SDG 9, 8, 10, 12, 17 with official UN colors), and CTA. Full i18n across 11 locales.
+- `feat(website)`: **Announcement Banner** — Updated to "LABS.AI selected as UNIDO Trusted Partner for Industrial AI" with link to dedicated page. New localStorage key `eddi-banner-dismissed-unido` so users who dismissed the old v6 banner see the new one.
+- `feat(website)`: **Homepage Callout** — New UNIDO Recognition callout section between Philosophy Quote and Trusted & Certified sections. Glassmorphic card with badge, title, description, and link.
+- `feat(website)`: **Trust Page** — Added UNIDO institution card (first in grid) and 2026 timeline entry for the Trusted Partner selection.
+- `feat(website)`: **Footer** — Added "UNIDO Partnership" link in Resources column.
+
 ### 🏅 OpenSSF Gold & Trust Enhancements
 - `feat(website)`: **OpenSSF Gold Badge** — Added OpenSSF Gold trust bar item to footer and OpenSSF Gold trust card to homepage "Trusted & Certified" section (now 6-card grid). Updated Track Record page `devOpenSSF` label from "Best Practices" to "Gold" with "highest tier" description. All changes i18n'd across 11 locales.
 - `feat(website)`: **OpenSSF Scorecard Badge** — Added Scorecard badge (9.8) to Track Record live badges row and new Scorecard trust signal card to the developer trust grid. i18n'd across 11 locales.

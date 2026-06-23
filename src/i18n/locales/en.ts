@@ -73,9 +73,9 @@ const en = {
 		getStartedCta: 'Get Started →',
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
-		bannerBadge: 'New',
-		bannerText: `EDDI ${EDDI_VERSION} has been released!`,
-		bannerLink: 'Read the story',
+		bannerBadge: '🏆 UN Recognition',
+		bannerText: 'LABS.AI selected as UNIDO Trusted Partner for Industrial AI',
+		bannerLink: 'Read more',
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
 		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',
@@ -116,6 +116,7 @@ const en = {
 		vsAlternatives: 'vs. Alternatives',
 		euAiAct: 'Compliance',
 		trackRecord: 'Track Record',
+		unidoPartner: 'UNIDO Partnership',
 		useCases: 'Use Cases',
 		// Community column
 		communityCol: 'Community',
@@ -192,6 +193,11 @@ const en = {
 		trustDockerDesc: 'Container pulls from Docker Hub',
 		trustCI: 'CI Passing · CodeQL Clean',
 		trustCIDesc: 'Automated builds, security scanning & code analysis',
+		// UNIDO Recognition Callout
+		unidoBadge: 'United Nations Recognition',
+		unidoCalloutTitle: 'UNIDO Trusted Partner for Industrial AI',
+		unidoCalloutDesc: 'LABS.AI has been selected by the United Nations Industrial Development Organization (UNIDO) as a Trusted Partner for Industrial AI for the Global South — with EDDI showcased at WAIC 2026 in Shanghai.',
+		unidoCalloutLink: 'Learn more about the partnership →',
 		// Philosophy
 		philosophyQuote: 'The engine is strict so the AI can be creative.',
 		// Built on Proven Technology
@@ -1094,6 +1100,7 @@ const en = {
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
 				{ year: '2026', text: '<strong>v6</strong> — 42 MCP tools, A2A protocol, group discussions, visual management UI, model cascading.' },
+				{ year: '2026', text: 'Selected as <strong>UNIDO Trusted Partner</strong> for Industrial AI for the Global South. Solution showcased at WAIC 2026 · Shanghai.' },
 			],
 
 			// Institutional backing
@@ -1111,6 +1118,8 @@ const en = {
 			instInitsDesc: 'Incubated at the <strong>inits.at</strong> university business incubator, with early-stage institutional support prioritizing academic rigor and sustainable business modeling.',
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness.',
+			instUnidoTitle: 'UNIDO Trusted Partner',
+			instUnidoDesc: 'Selected by the <strong>United Nations Industrial Development Organization</strong> (UNIDO) as a Trusted Partner under the Global Call for Industrial AI for the Global South. Showcased at WAIC 2026 · Shanghai.',
 
 			// Enterprise deployment
 			enterpriseTitle: 'Deployed in Enterprise Production',
@@ -1148,6 +1157,80 @@ const en = {
 			ctaGetStartedDesc: 'Install EDDI, create your first agent, and start a conversation.',
 			ctaDocs: 'Browse Documentation ↗',
 			ctaDocsDesc: 'Architecture, MCP tools, REST API, deployment guides, and more.',
+		},
+		// ─── UNIDO Trusted Partner Page ─────────────────────────
+		unido: {
+			title: 'UNIDO Trusted Partner — Industrial AI for the Global South',
+			description: 'LABS.AI has been selected by UNIDO as a Trusted Partner for Industrial AI for the Global South. Enterprise AI Agent Orchestration using EDDI — showcased at WAIC 2026 in Shanghai.',
+
+			// Hero
+			heroBadge: 'June 2026 · WAIC Shanghai',
+			heroTitle: 'UNIDO Trusted Partner',
+			heroHighlight: 'Industrial AI for the Global South',
+			heroDesc: 'LABS.AI has been selected by the <strong>United Nations Industrial Development Organization</strong> (UNIDO) as a Trusted Partner under the <strong>Global Call for Trusted Partners — Industrial AI for the Global South</strong>.',
+
+			// Certificate section
+			certTitle: 'Certificate of Recognition',
+			certAlt: 'UNIDO Certificate of Recognition — LABS.AI selected as Trusted Partner for Industrial AI for the Global South',
+			certIssuedBy: 'Issued by UNIDO, AIM Global, and the Shanghai Artificial Intelligence Research Institute on June 19, 2026.',
+
+			// Solution section
+			solutionTitle: 'The Solution',
+			solutionSubtitle: 'Enterprise AI Agent Orchestration for Industrial Digitalization using EDDI',
+			solutionDesc: 'EDDI provides a self-hosted, configuration-driven platform for deploying governed, multi-agent AI systems — purpose-built for industrial digitalization. The platform was specifically recognized for its ability to serve organizations in the Global South:',
+			solCard1Title: 'Self-Hosted & Sovereign',
+			solCard1Desc: 'Runs anywhere Docker runs — on-premises, any cloud, or air-gapped. No dependency on US-based cloud platforms. Full data sovereignty for nations with limited cloud infrastructure or strict data residency requirements.',
+			solCard2Title: 'Open Source · Apache 2.0',
+			solCard2Desc: 'Zero licensing costs, full transparency, no vendor lock-in. Organizations can inspect, modify, and extend the platform without paying enterprise license fees — critical for emerging economies.',
+			solCard3Title: 'Configuration-Driven',
+			solCard3Desc: 'AI agents are defined via JSON configuration, not compiled code. Prompt engineers and domain experts can build and iterate without deep programming expertise — lowering the barrier to AI adoption.',
+			solCard4Title: '12+ LLM Providers',
+			solCard4Desc: 'Works with local models (Ollama), open-source models, and any OpenAI-compatible endpoint — not tied exclusively to US-based APIs. Enables use of regional and locally-hosted language models.',
+
+			// What this means
+			whatTitle: 'What This Means',
+			whatCard1Title: 'UN Institutional Validation',
+			whatCard1Desc: 'UNIDO is a specialized agency of the United Nations with 172 member states, dedicated to promoting industrial development for poverty reduction, inclusive globalization, and environmental sustainability.',
+			whatCard2Title: 'AIM Global Alliance',
+			whatCard2Desc: 'The Global Alliance on AI for Industry & Manufacturing (AIM Global) brings together industry leaders, governments, and academia to drive responsible AI adoption in manufacturing and industrial sectors worldwide.',
+			whatCard3Title: 'WAIC 2026 Showcase',
+			whatCard3Desc: 'The World Artificial Intelligence Conference (WAIC) in Shanghai is one of the most influential AI events globally, bringing together leading researchers, policymakers, and industry leaders to shape the future of AI.',
+			whatCard4Title: 'Global South Focus',
+			whatCard4Desc: 'The program specifically targets AI solutions that can drive industrial development in emerging economies — ensuring that the benefits of AI-powered manufacturing and digitalization reach developing nations.',
+
+			// Organizations
+			orgsTitle: 'The Organizations',
+			org1Title: 'UNIDO',
+			org1Desc: 'The <strong>United Nations Industrial Development Organization</strong> (UNIDO) is a specialized UN agency promoting inclusive and sustainable industrial development. With 172 member states, UNIDO bridges the gap between developing and industrialized nations.',
+			org1Link: 'Visit UNIDO →',
+			org2Title: 'AIM Global',
+			org2Desc: 'The <strong>Global Alliance on AI for Industry & Manufacturing</strong> (AIM Global) is a multi-stakeholder initiative fostering the responsible adoption of artificial intelligence in industrial sectors across the globe.',
+			org2Link: 'Visit AIM Global →',
+			org3Title: 'Shanghai AI Research Institute',
+			org3Desc: 'The <strong>Shanghai Artificial Intelligence Research Institute</strong> is a leading AI research center in China, driving cutting-edge research and innovation in artificial intelligence and its industrial applications.',
+			org4Title: 'WAIC 2026',
+			org4Desc: 'The <strong>World Artificial Intelligence Conference</strong> (WAIC) is one of the most prestigious AI events globally, held annually in Shanghai. WAIC 2026 brings together world-class researchers, policymakers, and industry leaders.',
+			org4Link: 'Visit WAIC →',
+
+			// SDG Alignment
+			sdgTitle: 'Aligned with the UN Sustainable Development Goals',
+			sdgDesc: 'UNIDO\'s mandate is to advance the UN 2030 Agenda. The EDDI platform directly supports key Sustainable Development Goals through its architecture and accessibility:',
+			sdg9Title: 'SDG 9 — Industry, Innovation & Infrastructure',
+			sdg9Desc: 'EDDI is an industrial AI orchestration platform — the core technology UNIDO recognized. It enables organizations to build resilient infrastructure, promote inclusive industrialization, and foster innovation through accessible, production-ready AI systems.',
+			sdg8Title: 'SDG 8 — Decent Work & Economic Growth',
+			sdg8Desc: 'By providing enterprise-grade AI orchestration with zero licensing costs and no cloud dependency, EDDI empowers local economies to adopt AI-driven productivity improvements without creating dependency on foreign technology vendors.',
+			sdg10Title: 'SDG 10 — Reduced Inequalities',
+			sdg10Desc: 'UNIDO\'s AIM Global initiative explicitly aims to prevent the "AI divide" from widening. EDDI\'s self-hosted, open-source architecture ensures that developing nations can deploy the same enterprise AI capabilities as industrialized countries — without expensive cloud subscriptions.',
+			sdg12Title: 'SDG 12 — Responsible Consumption & Production',
+			sdg12Desc: 'EDDI\'s model cascading system automatically routes simpler queries to smaller, more efficient models — only escalating to larger, compute-intensive models when needed. This reduces unnecessary energy and GPU consumption, contributing to more responsible use of computational resources at scale.',
+			sdg17Title: 'SDG 17 — Partnerships for the Goals',
+			sdg17Desc: 'The UNIDO Trusted Partner selection itself embodies SDG 17 — a multilateral partnership between a UN agency, industry alliance, and technology provider, working together to transfer AI capabilities to the Global South through open-source collaboration.',
+
+			// CTA
+			ctaTitle: 'Ready to Deploy EDDI?',
+			ctaDesc: 'The same platform recognized by the United Nations is available for your organization — open source, self-hosted, and production-ready.',
+			ctaGetStarted: 'Get Started in 5 Minutes',
+			ctaTrackRecord: 'View Full Track Record',
 		},
 	},
 
