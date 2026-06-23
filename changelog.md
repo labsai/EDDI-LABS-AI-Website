@@ -18,6 +18,18 @@ All notable changes to the EDDI website will be documented in this file.
 - `feat(website)`: **Slack Integration** — Added Slack integration item to Multi-Agent group orchestration features (items2). i18n'd across 11 locales.
 - `feat(website)`: **OpenTelemetry/OTLP** — Added OpenTelemetry distributed tracing (Jaeger, Tempo, Datadog) to observability features. Updated Prometheus entry to mention 50+ Micrometer metrics at `/q/metrics`. i18n'd across 11 locales.
 
+### 🌐 i18n — Translation Gap Remediation
+- `fix(website)`: **Security Items** — Added missing "Secret Redaction" and "PII-Safe Logging" items to `pages.security.items` in all 10 non-English locales (now matching EN's 9 items + locale-specific EU AI Act item = 10 total).
+- `fix(website)`: **Config-as-Code Items** — Added missing "Import / Export", "Agent Sync", "Prompt Snippets", and "Behavior Rules" items to `pages.configAsCode.items` in all 10 non-English locales (now 9 items matching EN).
+- `fix(website)`: **Performance Items** — Added missing "Loom-Friendly Connection Pools" item to `pages.performance.items` in all 10 non-English locales (now 8 items matching EN).
+- `fix(website)`: **FR Full Translation** — Translated `crisisPara` English fragment, `rfpItems` (8 questions + answers), `tcoBuildItems` (8 items), and `tcoDeployItems` (4 items) from English to French.
+- `fix(website)`: **PT Full Translation** — Translated `rfpItems`, `tcoBuildItems`, and `tcoDeployItems` from English to Portuguese. Fixed `contactLink` from "Contact" to "Contato".
+- `fix(website)`: **ES contactLink** — Fixed untranslated "Contact" → "Contacto".
+- `fix(website)`: **KO Typo** — Fixed Devil's Advocate translation typo: "악마의 옥호" → "악마의 옹호".
+- `fix(website)`: **TH Garbled Text** — Fixed broken text in `solutionDesc`: garbled "eware Platform" fragment restored to proper Thai.
+- `fix(website)`: **Slack Ordering** — Fixed Slack Integration item position from last (6th) to 3rd in `multiAgent.items2` for DE, ES, AR, ZH, JA, KO, HI, TH. FR and PT already had correct ordering.
+- `fix(website)`: **Light Mode** — Fixed philosophy quote section using hardcoded `text-zinc-300` (invisible on light backgrounds) to use theme-aware `dark:text-zinc-300 text-zinc-600`.
+
 ### 🔒 Infrastructure — OpenSSF Gold `[hardened_site]`
 - `feat(website)`: **Vercel Migration** — Migrated hosting from GitHub Pages to Vercel to enable custom HTTP security headers required for OpenSSF Best Practices Gold badge `[hardened_site]` criterion. GitHub Pages does not support custom response headers. Vercel selected for global edge CDN performance and custom domain support without DNS provider migration.
 - `feat(website)`: **Security Headers** — Added `vercel.json` with Content-Security-Policy, Strict-Transport-Security (HSTS), X-Content-Type-Options (`nosniff`), X-Frame-Options (`DENY`), Referrer-Policy, and Permissions-Policy. Also added `public/_headers` as Cloudflare/Netlify fallback.
