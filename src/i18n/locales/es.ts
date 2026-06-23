@@ -104,7 +104,7 @@ const es: TranslationSchema = {
 		securityPolicy: 'Política de Seguridad ↗',
 		codeOfConduct: 'Código de Conducta ↗',
 		discussions: 'Discusiones ↗',
-		contactLink: 'Contact',
+		contactLink: 'Contacto',
 		initiated: 'Iniciado en Viena. Desarrollado con ❤️ en Europa. Creado para el mundo.',
 	},
 	newsletter: {
@@ -434,6 +434,10 @@ const es: TranslationSchema = {
 				'<strong>Versionado</strong> — Las configuraciones JSON se gestionan en Git junto con la infraestructura como código',
 				'<strong>Recarga en caliente</strong> — Los cambios surten efecto de inmediato, sin reiniciar el servidor',
 				'<strong>Auditable</strong> — Cada cambio de configuración se rastrea en la pista de auditoría inmutable',
+				'<strong>Importar / Exportar</strong> — Los agentes son portables como archivos ZIP con limpieza automática de secretos en la exportación. La importación fusiona o sobrescribe — sin conflictos de versión',
+				'<strong>Agent Sync</strong> — Sincronización en vivo entre instancias con coincidencia estructural, diferenciación de contenido y selección selectiva de recursos — sin intermediario ZIP necesario',
+				'<strong>Prompt Snippets</strong> — Bloques reutilizables y versionados de system prompt referenciados como <code>{{snippets.safety_rules}}</code> — componer prompts desde bibliotecas compartidas',
+				'<strong>Behavior Rules</strong> — Motor de lógica IF-THEN para enrutamiento, orquestación y decisiones de lógica empresarial sin código',
 			],
 			heading3: 'Tipos de recursos',
 			para2:
@@ -460,6 +464,8 @@ const es: TranslationSchema = {
 				'<strong>Validación de URL</strong> — Prevención de ataques SSRF y redireccionamientos maliciosos',
 				'<strong>Pistas de auditoría criptográficas</strong> — Registros de operaciones inmutables e inalterables',
 				'<strong>Preparado para el Reglamento de IA de la UE</strong> — Capacidades de gobernanza integradas para el cumplimiento normativo',
+				'<strong>Redacción de Secretos</strong> — Filtro automatizado que elimina claves API, referencias de vault y datos sensibles de todas las entradas de auditoría',
+				'<strong>Registro seguro de PII</strong> — Las operaciones RGPD registran pseudónimos SHA-256, nunca identificadores de usuario sin procesar',
 				'<strong>Sigstore Cosign</strong> — Firma de imágenes de contenedor OIDC sin clave — verificación criptográfica de que cada imagen Docker fue creada por la CI oficial',
 			],
 			// CI/CD Security Pipeline
@@ -491,6 +497,7 @@ const es: TranslationSchema = {
 			items: [
 				'<strong>Hilos virtuales</strong> — Millones de hilos ligeros para llamadas LLM concurrentes',
 				'<strong>Runtime Quarkus</strong> — Nativo para la nube, recarga en caliente en desarrollo, optimizado para contenedores',
+				'<strong>Pools de conexión compatibles con Loom</strong> — El pool de conexiones Agroal evita los cuellos de botella ThreadLocal que pueden afectar a los pools tradicionales bajo cargas de hilos virtuales',
 				'<strong>NATS JetStream</strong> — Escalabilidad horizontal con arquitectura basada en eventos',
 				'<strong>Base de datos dual</strong> — MongoDB o PostgreSQL, cambio con una variable de entorno. Una imagen Docker para ambas',
 				'<strong>Streaming SSE</strong> — Respuestas de chat en tiempo real, feeds de discusiones grupales y streaming de logs en vivo a través de Server-Sent Events',

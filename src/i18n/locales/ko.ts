@@ -400,6 +400,10 @@ const ko: TranslationSchema = {
 				'<strong>버전 관리</strong> — JSON 구성이 Infrastructure-as-Code와 함께 Git에 저장',
 				'<strong>핫 리로드</strong> — 변경 사항이 즉시 적용, 서버 재시작 불필요',
 				'<strong>감사 가능</strong> — 모든 구성 변경이 불변 감사 추적에 기록',
+				'<strong>가져오기 / 내보내기</strong> — 에이전트는 내보내기 시 자동 시크릿 스크러빙이 적용된 ZIP 파일로 이동 가능. 가져오기는 병합 또는 덮어쓰기 — 버전 충돌 없음',
+				'<strong>Agent Sync</strong> — 구조적 매칭, 콘텐츠 비교, 선택적 리소스 선택이 가능한 라이브 인스턴스 간 동기화 — ZIP 중간 단계 불필요',
+				'<strong>Prompt Snippets</strong> — <code>{{snippets.safety_rules}}</code>로 참조되는 재사용 가능한 버전 관리 시스템 프롬프트 빌딩 블록 — 공유 라이브러리에서 프롬프트 구성',
+				'<strong>Behavior Rules</strong> — 코드 없이 라우팅, 오케스트레이션, 비즈니스 로직 결정을 위한 IF-THEN 로직 엔진',
 			],
 			heading3: '리소스 유형',
 			para2:
@@ -424,6 +428,8 @@ const ko: TranslationSchema = {
 				'<strong>URL 검증</strong> — SSRF 및 리다이렉트 공격 방지',
 				'<strong>암호화 감사 추적</strong> — 불변, 변조 방지 운영 로그',
 				'<strong>EU AI법 대응</strong> — 규제 준수를 위한 내장 거버넌스 기능',
+				'<strong>시크릿 삭제</strong> — API 키, vault 참조, 민감한 데이터를 모든 감사 항목에서 자동으로 필터링',
+				'<strong>PII 안전 로깅</strong> — GDPR 작업은 SHA-256 가명을 기록하며, 원시 사용자 식별자는 기록하지 않음',
 				'<strong>Sigstore Cosign</strong> — 키리스 OIDC 컨테이너 이미지 서명 — 모든 Docker 이미지가 공식 CI에서 빌드되었음을 암호학적으로 검증',
 			],
 			ciTitle: '자동화된 보안 파이프라인',
@@ -451,6 +457,7 @@ const ko: TranslationSchema = {
 			items: [
 				'<strong>가상 스레드</strong> — 동시 LLM 호출을 위한 수백만 개의 경량 스레드',
 				'<strong>Quarkus 런타임</strong> — 클라우드 네이티브, 개발 모드 핫 리로드, 컨테이너 최적화',
+				'<strong>Loom 호환 커넥션 풀</strong> — Agroal 커넥션 풀링은 가상 스레드 워크로드에서 기존 풀에 영향을 줄 수 있는 ThreadLocal 병목 현상을 방지',
 				'<strong>NATS JetStream</strong> — 이벤트 기반 아키텍처로 수평 확장',
 				'<strong>듀얼 데이터베이스</strong> — MongoDB 또는 PostgreSQL, 환경 변수 하나로 전환. 두 DB 모두 단일 Docker 이미지',
 				'<strong>SSE 스트리밍</strong> — Server-Sent Events를 통한 실시간 채팅 응답, 그룹 토론 피드, 라이브 로그 스트리밍',
@@ -478,7 +485,7 @@ const ko: TranslationSchema = {
 			heading3: '그룹 대화 & 고급 오케스트레이션',
 			para2: 'EDDI는 5개의 내장 토론 스타일, 중첩 그룹 구조, 대화를 통해 다른 에이전트를 만드는 메타 에이전트를 갖춘 <strong>멀티 에이전트 그룹 대화</strong>를 지원:',
 			items2: [
-				'<strong>5개 토론 스타일</strong> — 라운드 테이블, 피어 리뷰, 악마의 옥호, 델파이, 디베이트',
+				'<strong>5개 토론 스타일</strong> — 라운드 테이블, 피어 리뷰, 악마의 옹호, 델파이, 디베이트',
 				'<strong>중첩 그룹</strong> — 토너먼트, 레드팀 vs 블루팀, 패널 리뷰를 위한 그룹의 그룹 구성',
 				'<strong>Slack 연동</strong> — 에이전트를 Slack 채널에 배포하고 스레드에서 직접 다중 에이전트 토론을 실행, DM 지원 및 트리거 키워드 라우팅',
 				'<strong>Agent Father</strong> — 대화를 통해 다른 에이전트를 만드는 메타 에이전트 (즉시 사용 가능)',

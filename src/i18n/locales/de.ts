@@ -434,6 +434,10 @@ const de: TranslationSchema = {
 				'<strong>Versionskontrolliert</strong> — JSON-Konfigurationen leben in Git neben Infrastructure-as-Code',
 				'<strong>Hot-Reloadable</strong> — Änderungen werden sofort wirksam, kein Server-Neustart nötig',
 				'<strong>Auditierbar</strong> — Jede Konfigurationsänderung wird im unveränderlichen Audit-Trail erfasst',
+				'<strong>Import / Export</strong> — Agenten sind als ZIP-Dateien portabel mit automatischer Geheimnis-Bereinigung beim Export. Import führt zusammen oder überschreibt — keine Versionskonflikte',
+				'<strong>Agent Sync</strong> — Live-Instanz-zu-Instanz-Synchronisation mit strukturellem Abgleich, Inhalts-Diffing und selektiver Ressourcenauswahl — kein ZIP-Zwischenschritt nötig',
+				'<strong>Prompt Snippets</strong> — Wiederverwendbare, versionierte System-Prompt-Bausteine, referenziert als <code>{{snippets.safety_rules}}</code> — Prompts aus gemeinsamen Bibliotheken zusammenstellen',
+				'<strong>Behavior Rules</strong> — IF-THEN-Logik-Engine für Routing, Orchestrierung und Geschäftslogik-Entscheidungen ohne Code',
 			],
 			heading3: 'Ressourcentypen',
 			para2:
@@ -460,6 +464,8 @@ const de: TranslationSchema = {
 				'<strong>URL-Validierung</strong> — SSRF- und Redirect-Angriffe verhindern',
 				'<strong>Kryptografische Audit-Trails</strong> — Unveränderliche, manipulationssichere Betriebsprotokolle',
 				'<strong>EU AI Act Ready</strong> — Eingebaute Governance-Fähigkeiten für regulatorische Compliance',
+				'<strong>Geheimnis-Schwärzung</strong> — Automatischer Filter bereinigt API-Schlüssel, Vault-Referenzen und sensible Daten aus allen Audit-Einträgen',
+				'<strong>PII-sicheres Logging</strong> — DSGVO-Operationen protokollieren SHA-256-Pseudonyme, niemals rohe Benutzerkennungen',
 				'<strong>Sigstore Cosign</strong> — Schlüssellose OIDC-Container-Image-Signierung — kryptografische Verifizierung, dass jedes Docker-Image von der offiziellen CI erstellt wurde',
 			],
 			// CI/CD Security Pipeline
@@ -491,6 +497,7 @@ const de: TranslationSchema = {
 			items: [
 				'<strong>Virtual Threads</strong> — Millionen leichtgewichtiger Threads für gleichzeitige LLM-Aufrufe',
 				'<strong>Quarkus-Runtime</strong> — Cloud-nativ, Dev-Mode Hot-Reload, optimiert für Container',
+				'<strong>Loom-freundliche Verbindungspools</strong> — Agroal Connection Pooling vermeidet ThreadLocal-Engpässe, die traditionelle Pools unter Virtual-Thread-Lasten beeinträchtigen können',
 				'<strong>NATS JetStream</strong> — Horizontale Skalierung mit eventgesteuerter Architektur',
 				'<strong>Dual Database</strong> — MongoDB oder PostgreSQL, Umschaltung mit einer Umgebungsvariable. Ein Docker-Image für beide',
 				'<strong>SSE-Streaming</strong> — Echtzeit-Chat-Antworten, Gruppendiskussions-Feeds und Live-Log-Streaming über Server-Sent Events',

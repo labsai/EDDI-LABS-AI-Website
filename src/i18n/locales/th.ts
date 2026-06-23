@@ -130,7 +130,7 @@ const th: TranslationSchema = {
 			'การบังคับ AI agents ที่ไม่ deterministic เข้าสู่ Camunda/Temporal workflow สร้าง<strong>ปัญหา impedance mismatch อย่างมาก</strong>',
 		solutionTitle: 'โซลูชัน',
 		solutionDesc:
-			'EDDI เติมเต็ม<strong>Deployable AI Orchestration Platform</strong> — ไม่ใช่ Library Visual Management, Config-as-Code และ Enterprise Security พร้อมใช้งานeware Platform พร้อม Visual Management UI:',
+			'EDDI เป็น<strong>แพลตฟอร์มที่พร้อมสำหรับการผลิต รองรับการปฏิบัติตามข้อกำหนด</strong> พร้อม Visual Management UI:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc: 'Agent logic, pipelines และ tool definitions เป็น <strong>JSON configurations</strong> — ไม่ใช่ compiled Java',
 		sol2Title: '42 MCP Tools',
@@ -407,6 +407,10 @@ const th: TranslationSchema = {
 				'<strong>Version Controlled</strong> — JSON configs อยู่ใน Git',
 				'<strong>Hot-Reloadable</strong> — เปลี่ยนแปลงมีผลทันที',
 				'<strong>Auditable</strong> — ทุกการเปลี่ยนแปลงถูกบันทึก',
+				'<strong>นำเข้า / ส่งออก</strong> — เอเจนต์สามารถพกพาเป็นไฟล์ ZIP พร้อมการล้าง secret อัตโนมัติเมื่อส่งออก การนำเข้าจะผสานหรือเขียนทับ — ไม่มีความขัดแย้งของเวอร์ชัน',
+				'<strong>Agent Sync</strong> — การซิงค์แบบสดระหว่างอินสแตนซ์ด้วยการจับคู่โครงสร้าง การเปรียบเทียบเนื้อหา และการเลือกทรัพยากร — ไม่ต้องใช้ ZIP เป็นตัวกลาง',
+				'<strong>Prompt Snippets</strong> — บล็อก system prompt ที่ใช้ซ้ำได้และมีการจัดการเวอร์ชัน อ้างอิงเป็น <code>{{snippets.safety_rules}}</code> — สร้าง prompt จากไลบรารีที่ใช้ร่วมกัน',
+				'<strong>Behavior Rules</strong> — เอ็นจินลอจิก IF-THEN สำหรับการกำหนดเส้นทาง การจัดการ และการตัดสินใจลอจิกทางธุรกิจโดยไม่ต้องเขียนโค้ด',
 			],
 			heading3: 'ประเภททรัพยากร',
 			para2:
@@ -431,6 +435,8 @@ const th: TranslationSchema = {
 				'<strong>URL Validation</strong> — ป้องกัน SSRF',
 				'<strong>Cryptographic Audit Trails</strong> — immutable operation logs',
 				'<strong>EU AI Act Ready</strong> — governance capabilities ในตัว',
+				'<strong>การปิดบัง Secret</strong> — ตัวกรองอัตโนมัติลบคีย์ API, การอ้างอิง vault และข้อมูลที่ละเอียดอ่อนออกจากทุกรายการตรวจสอบ',
+				'<strong>การบันทึกที่ปลอดภัยต่อ PII</strong> — การดำเนินการ GDPR บันทึกนามแฝง SHA-256 ไม่บันทึกตัวระบุผู้ใช้ดิบ',
 				'<strong>Sigstore Cosign</strong> — การเซ็นอิมเมจคอนเทนเนอร์ OIDC แบบไม่ต้องใช้คีย์ — ตรวจสอบเข้ารหัสว่าทุกอิมเมจ Docker ถูกสร้างโดย CI อย่างเป็นทางการ',
 			],
 			ciTitle: 'ไปป์ไลน์ความปลอดภัยอัตโนมัติ',
@@ -458,6 +464,7 @@ const th: TranslationSchema = {
 			items: [
 				'<strong>Virtual Threads</strong> — ล้านๆ lightweight threads',
 				'<strong>Quarkus Runtime</strong> — cloud-native, hot reload',
+				'<strong>Connection Pool ที่รองรับ Loom</strong> — Agroal connection pooling หลีกเลี่ยงปัญหา ThreadLocal bottleneck ที่อาจส่งผลต่อ pool แบบดั้งเดิมภายใต้โหลด virtual thread',
 				'<strong>NATS JetStream</strong> — horizontal scaling',
 				'<strong>Dual Database</strong> — MongoDB หรือ PostgreSQL สลับด้วย environment variable เดียว Docker image เดียวรองรับทั้งสอง',
 				'<strong>SSE Streaming</strong> — การตอบแชทแบบเรียลไทม์, ฟีดการสนทนากลุ่ม และการสตรีมล็อกสดผ่าน Server-Sent Events',

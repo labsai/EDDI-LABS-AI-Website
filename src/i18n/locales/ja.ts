@@ -401,6 +401,10 @@ const ja: TranslationSchema = {
 				'<strong>バージョン管理</strong> — JSON設定はInfrastructure-as-Codeと一緒にGitに保存',
 				'<strong>ホットリロード</strong> — 変更は即座に反映、サーバー再起動不要',
 				'<strong>監査可能</strong> — すべての設定変更は不変の監査証跡で追跡',
+				'<strong>インポート / エクスポート</strong> — エージェントはZIPファイルとして移植可能、エクスポート時にシークレットを自動スクラブ。インポートはマージまたは上書き — バージョン競合なし',
+				'<strong>Agent Sync</strong> — 構造マッチング、コンテンツ差分、選択的リソースピッキングによるライブインスタンス間同期 — ZIP中間ファイル不要',
+				'<strong>Prompt Snippets</strong> — <code>{{snippets.safety_rules}}</code>として参照される再利用可能なバージョン管理付きシステムプロンプトビルディングブロック — 共有ライブラリからプロンプトを構成',
+				'<strong>Behavior Rules</strong> — ルーティング、オーケストレーション、ビジネスロジック判断のためのIF-THENロジックエンジン（コード不要）',
 			],
 			heading3: 'リソースタイプ',
 			para2:
@@ -425,6 +429,8 @@ const ja: TranslationSchema = {
 				'<strong>URL検証</strong> — SSRFとリダイレクト攻撃の防止',
 				'<strong>暗号化監査証跡</strong> — 不変で改ざん不能な操作ログ',
 				'<strong>EU AI規制法対応</strong> — 規制コンプライアンスのための組み込みガバナンス機能',
+				'<strong>シークレット墨消し</strong> — APIキー、vault参照、機密データをすべての監査エントリから自動フィルタリング',
+				'<strong>PII安全ロギング</strong> — GDPR操作はSHA-256仮名を記録し、生のユーザー識別子は記録しない',
 				'<strong>Sigstore Cosign</strong> — キーレスOIDCコンテナイメージ署名 — 公式CIでビルドされたDockerイメージを暗号的に検証',
 			],
 			ciTitle: '自動セキュリティパイプライン',
@@ -453,6 +459,7 @@ const ja: TranslationSchema = {
 			items: [
 				'<strong>仮想スレッド</strong> — 並行LLM呼び出しのための数百万の軽量スレッド',
 				'<strong>Quarkusランタイム</strong> — クラウドネイティブ、開発モードホットリロード、コンテナ最適化',
+				'<strong>Loom対応コネクションプール</strong> — Agroalコネクションプーリングは、仮想スレッドワークロード下で従来のプールに影響するThreadLocalボトルネックを回避',
 				'<strong>NATS JetStream</strong> — イベント駆動アーキテクチャによる水平スケーリング',
 				'<strong>デュアルデータベース</strong> — MongoDBまたはPostgreSQL、環境変数一つで切り替え。両方対応の単一Dockerイメージ',
 				'<strong>SSEストリーミング</strong> — Server-Sent Eventsによるリアルタイムチャット応答、グループディスカッションフィード、ライブログストリーミング',

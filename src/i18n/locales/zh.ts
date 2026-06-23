@@ -397,6 +397,10 @@ const zh: TranslationSchema = {
 				'<strong>版本控制</strong> — JSON配置与基础设施即代码一起存放在Git中',
 				'<strong>热加载</strong> — 更改立即生效，无需重启服务器',
 				'<strong>可审计</strong> — 每个配置更改都在不可变审计跟踪中被追踪',
+				'<strong>导入 / 导出</strong> — 代理可作为 ZIP 文件移植，导出时自动清理密钥。导入合并或覆盖 — 无版本冲突',
+				'<strong>Agent Sync</strong> — 实例间实时同步，支持结构匹配、内容差异比较和选择性资源挑选 — 无需 ZIP 中间步骤',
+				'<strong>Prompt Snippets</strong> — 可重用的版本化 system prompt 构建块，引用为 <code>{{snippets.safety_rules}}</code> — 从共享库组合 prompt',
+				'<strong>Behavior Rules</strong> — IF-THEN 逻辑引擎，用于路由、编排和业务逻辑决策，无需代码',
 			],
 			heading3: '资源类型',
 			para2:
@@ -421,6 +425,8 @@ const zh: TranslationSchema = {
 				'<strong>URL验证</strong> — 防止SSRF和重定向攻击',
 				'<strong>加密审计跟踪</strong> — 不可变、防篡改的操作日志',
 				'<strong>欧盟AI法案就绪</strong> — 内置治理功能满足监管合规',
+				'<strong>密钥脱敏</strong> — 自动过滤器从所有审计条目中清除 API 密钥、vault 引用和敏感数据',
+				'<strong>PII 安全日志</strong> — GDPR 操作记录 SHA-256 假名，从不记录原始用户标识符',
 				'<strong>Sigstore Cosign</strong> — 无密钥 OIDC 容器镜像签名 — 加密验证每个 Docker 镜像由官方 CI 构建',
 			],
 			ciTitle: '自动化安全流水线',
@@ -448,6 +454,7 @@ const zh: TranslationSchema = {
 			items: [
 				'<strong>虚拟线程</strong> — 数百万轻量级线程用于并发LLM调用',
 				'<strong>Quarkus运行时</strong> — 云原生，开发模式热加载，容器优化',
+				'<strong>Loom 友好连接池</strong> — Agroal 连接池避免了在虚拟线程负载下可能影响传统连接池的 ThreadLocal 瓶颈',
 				'<strong>NATS JetStream</strong> — 事件驱动架构的水平扩展',
 				'<strong>双数据库</strong> — MongoDB或PostgreSQL，通过一个环境变量切换。单一Docker镜像同时支持两者',
 				'<strong>SSE流式传输</strong> — 通过Server-Sent Events实现实时聊天响应、群组讨论反馈和活跟日志流',
