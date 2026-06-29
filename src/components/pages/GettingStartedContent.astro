@@ -68,13 +68,23 @@ Unblock-File .\\install.ps1
 		<h2>{t.gettingStarted.step2Title}</h2>
 		<p set:html={t.gettingStarted.step2Desc} />
 		<div class="gs-tabs" id="mcp-tabs">
-			<div class="gs-tab-bar" role="tablist">
-				<button class="gs-tab active" role="tab" aria-selected="true" aria-controls="panel-mcp-claude" id="tab-mcp-claude">{t.gettingStarted.step2TabClaude}</button>
-				<button class="gs-tab" role="tab" aria-selected="false" aria-controls="panel-mcp-direct" id="tab-mcp-direct">{t.gettingStarted.step2TabDirect}</button>
-			</div>
-			<div class="gs-tab-panel active" role="tabpanel" id="panel-mcp-claude" aria-labelledby="tab-mcp-claude">
-				<p set:html={t.gettingStarted.step2ClaudeNote} />
-				<pre><code>{`{
+		<div class="gs-tab-bar" role="tablist">
+			<button class="gs-tab active" role="tab" aria-selected="true" aria-controls="panel-mcp-direct" id="tab-mcp-direct">{t.gettingStarted.step2TabDirect}</button>
+			<button class="gs-tab" role="tab" aria-selected="false" aria-controls="panel-mcp-claude" id="tab-mcp-claude">{t.gettingStarted.step2TabClaude}</button>
+		</div>
+		<div class="gs-tab-panel active" role="tabpanel" id="panel-mcp-direct" aria-labelledby="tab-mcp-direct">
+			<p set:html={t.gettingStarted.step2DirectNote} />
+			<pre><code>{`{
+  "mcpServers": {
+    "eddi": {
+      "url": "http://localhost:7070/mcp"
+    }
+  }
+}`}</code></pre>
+		</div>
+		<div class="gs-tab-panel" role="tabpanel" id="panel-mcp-claude" aria-labelledby="tab-mcp-claude">
+			<p set:html={t.gettingStarted.step2ClaudeNote} />
+			<pre><code>{`{
   "mcpServers": {
     "eddi": {
       "command": "npx",
@@ -82,19 +92,9 @@ Unblock-File .\\install.ps1
     }
   }
 }`}</code></pre>
-				<p set:html={t.gettingStarted.step2WindowsTip} />
-			</div>
-			<div class="gs-tab-panel" role="tabpanel" id="panel-mcp-direct" aria-labelledby="tab-mcp-direct">
-				<p set:html={t.gettingStarted.step2DirectNote} />
-				<pre><code>{`{
-  "mcpServers": {
-    "eddi": {
-      "url": "http://localhost:7070/mcp"
-    }
-  }
-}`}</code></pre>
-			</div>
+			<p set:html={t.gettingStarted.step2WindowsTip} />
 		</div>
+	</div>
 		<p set:html={t.gettingStarted.step2After} />
 		<p set:html={t.gettingStarted.step2DocsLink} />
 	</section>
@@ -261,7 +261,7 @@ docker compose --env-file .env -f docker-compose.yml up -d`}</code></pre>
 </style>
 
 <script>
-	document.addEventListener('astro:page-load', () => {
+	document.addEventListener('DOMContentLoaded', () => {
 		document.querySelectorAll('.gs-tabs').forEach(tabContainer => {
 			const tabBar = tabContainer.querySelector('.gs-tab-bar');
 			if (!tabBar) return;
