@@ -543,9 +543,10 @@ const es: TranslationSchema = {
 				'<strong>Patrón coordinador</strong> — Los agentes delegan a subagentes especializados',
 			],
 			heading3: 'Conversaciones Grupales y Orquestación Avanzada',
-			para2: 'EDDI soporta <strong>conversaciones grupales multi-agente</strong> con 5 estilos de discusión integrados, estructuras de grupos anidados y un meta-agente que crea otros agentes mediante conversación:',
+			para2: 'EDDI soporta <strong>conversaciones grupales multi-agente</strong> con 6 estilos de discusión integrados, creación dinámica de agentes, estructuras de grupos anidados y un meta-agente que crea otros agentes mediante conversación:',
 			items2: [
-				'<strong>5 Estilos de Discusión</strong> — Mesa Redonda, Revisión por Pares, Abogado del Diablo, Delphi y Debate',
+				'<strong>6 Estilos de Discusión</strong> — Mesa Redonda, Revisión por Pares, Abogado del Diablo, Delphi, Debate y <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>Agentes Dinámicos</strong> — Los agentes en discusiones Task Force pueden crear, reclutar, delegar y eliminar sub-agentes en tiempo de ejecución — con guardrails (listas de proveedores/modelos, límites por discusión, políticas de ciclo de vida)',
 				'<strong>Grupos Anidados</strong> — Componer grupos de grupos para llaves de torneo, equipo rojo vs. azul y revisiones de panel',
 				'<strong>Integración con Slack</strong> — Despliega agentes en canales de Slack y ejecuta debates multi-agente directamente en hilos, con soporte de DM y enrutamiento por palabras clave',
 				'<strong>Agent Father</strong> — Un meta-agente que crea otros agentes mediante conversación (incluido de serie)',

@@ -541,9 +541,10 @@ const fr: TranslationSchema = {
 				'<strong>Pattern coordinateur</strong> — Les agents délèguent à des sous-agents spécialisés',
 			],
 			heading3: 'Conversations de Groupe et Orchestration Avancée',
-			para2: 'EDDI prend en charge les <strong>conversations de groupe multi-agents</strong> avec 5 styles de discussion intégrés, des structures de groupes imbriqués et un méta-agent qui crée d\'autres agents par la conversation :',
+			para2: 'EDDI prend en charge les <strong>conversations de groupe multi-agents</strong> avec 6 styles de discussion intégrés, création dynamique d\'agents, des structures de groupes imbriqués et un méta-agent qui crée d\'autres agents par la conversation :',
 			items2: [
-				'<strong>5 Styles de Discussion</strong> — Table Ronde, Revue par les Pairs, Avocat du Diable, Delphi et Débat',
+				'<strong>6 Styles de Discussion</strong> — Table Ronde, Revue par les Pairs, Avocat du Diable, Delphi, Débat et <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>Agents Dynamiques</strong> — Les agents dans les discussions Task Force peuvent créer, recruter, déléguer et supprimer des sous-agents en temps réel — avec des garde-fous (listes de fournisseurs/modèles, limites par discussion, politiques de cycle de vie)',
 				'<strong>Groupes Imbriqués</strong> — Composer des groupes de groupes pour des tournois, équipe rouge vs. bleue et revues de panel',
 				'<strong>Intégration Slack</strong> — Déployez des agents dans les canaux Slack et lancez des débats multi-agents directement dans les fils, avec support DM et routage par mots-clés',
 				'<strong>Agent Father</strong> — Un méta-agent qui crée d\'autres agents par la conversation (inclus nativement)',
