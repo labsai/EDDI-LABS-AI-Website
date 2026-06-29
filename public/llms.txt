@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 42 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 65 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -13,8 +13,8 @@
 - [Features Overview](https://eddi.labs.ai/features/overview/): Complete platform capabilities summary
 - [EDDI Manager UI](https://eddi.labs.ai/features/manager/): Visual agent lifecycle management with 11-locale i18n
 - [Configuration-as-Code](https://eddi.labs.ai/features/config-as-code/): JSON-based agent configuration without recompilation
-- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 42 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE
-- [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration, 5 group discussion styles
+- [MCP Server](https://eddi.labs.ai/features/mcp-server/): 65 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE
+- [Multi-Agent Orchestration](https://eddi.labs.ai/features/multi-agent/): Coordinator-based agent collaboration, 6 group discussion styles
 - [Memory & Context](https://eddi.labs.ai/features/memory/): Persistent memory, dream consolidation, memory policy (commit flags)
 - 12 Built-In Agent Tools: Web search, calculator, scraper, PDF reader, weather, HTTP calls, user memory, and more
 - Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
@@ -46,7 +46,7 @@
 ## API & MCP
 
 - [REST API](https://eddi.labs.ai/docs/api/rest/): RESTful endpoints for all resources
-- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 42 MCP tools
+- [MCP Tools Reference](https://eddi.labs.ai/docs/mcp/tools/): Complete list of 65 MCP tools
 
 ## Use Cases
 

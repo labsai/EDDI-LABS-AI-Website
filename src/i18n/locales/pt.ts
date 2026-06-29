@@ -15,7 +15,7 @@ const pt: TranslationSchema = {
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Interface visual de gestão de agentes',
 		mcpServer: 'Servidor MCP',
-		mcpServerDesc: '42 ferramentas para controle nativo de IA',
+		mcpServerDesc: '65 ferramentas para controle nativo de IA',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'Configuração JSON, sem boilerplate',
 		securityFirst: 'Segurança em Primeiro Lugar',
@@ -27,7 +27,7 @@ const pt: TranslationSchema = {
 		observability: 'Observabilidade',
 		observabilityDesc: 'Logs de pipeline e trilhas de auditoria',
 		codeQuality: 'Qualidade de Código',
-		codeQualityDesc: '9.000+ testes, zero falhas, >90% de cobertura',
+		codeQualityDesc: '9.600+ testes, zero falhas, >90% de cobertura',
 		aiReady: 'Preparado para IA',
 		aiReadyDesc: 'Projetado para agentes de codificação',
 
@@ -51,7 +51,7 @@ const pt: TranslationSchema = {
 		useCases: 'Casos de Uso',
 		useCasesDesc: 'Padrões de implantação reais',
 		allFeatures: 'Todas as Funcionalidades',
-		mcpServerMobile: 'Servidor MCP (42 Ferramentas)',
+		mcpServerMobile: 'Servidor MCP (65 Ferramentas)',
 		resources: 'Recursos',
 		documentation: 'Documentação ↗',
 		github: 'GitHub ↗',
@@ -73,7 +73,7 @@ const pt: TranslationSchema = {
 		subtitle: 'Orientado por configuração. Auto-hospedado. Pronto para produção.',
 		redHatCertified: 'Container Certificado Red Hat',
 		apache2: 'Licença Apache 2.0',
-		tests: '9.000+ Testes · Zero Falhas',
+		tests: '9.600+ Testes · Zero Falhas',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Gold',
 		platform: 'Plataforma',
@@ -118,7 +118,7 @@ const pt: TranslationSchema = {
 		heroTitle: 'O Empresarial',
 		heroHighlight: 'Orquestrador de IA',
 		heroTagline:
-			`A plataforma de código aberto pronta para produção para implantar sistemas de IA multi-agente governados. Baseada em configuração, auto-hospedada e pronta para conformidade — com UI de gestão visual, 42 ferramentas MCP e segurança empresarial integrada. Agora em <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
+			`A plataforma de código aberto pronta para produção para implantar sistemas de IA multi-agente governados. Baseada em configuração, auto-hospedada e pronta para conformidade — com UI de gestão visual, 65 ferramentas MCP e segurança empresarial integrada. Agora em <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		problemTitle: 'O Problema',
 		problemDesc:
 			'A orquestração de IA empresarial está <strong>fragmentada e dolorosa</strong>. As equipes ficam presas em um ciclo de vida quebrado:',
@@ -137,7 +137,7 @@ const pt: TranslationSchema = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'Lógica de agentes, pipelines e definições de ferramentas são <strong>configurações JSON</strong> — não código compilado. Engenheiros de prompt iteram instantaneamente via a UI React ou API REST, sem necessidade de reimplantação.',
-		sol2Title: '42 Ferramentas MCP',
+		sol2Title: '65 Ferramentas MCP',
 		sol2Desc:
 			'O EDDI expõe suas capacidades via o <strong>Model Context Protocol</strong> — permitindo a interação com o Claude Desktop. Agentes também podem <strong>consumir ferramentas MCP externas</strong>.',
 		sol3Title: 'Segurança em Primeiro Lugar',
@@ -157,7 +157,7 @@ const pt: TranslationSchema = {
 		trustRedHatDesc: 'Imagem Docker certificada pela IBM',
 		trustApache: 'Licença Apache 2.0',
 		trustApacheDesc: '100% código aberto e pronto para empresas',
-		trustTests: '9.000+ Testes · 0 Falhas',
+		trustTests: '9.600+ Testes · 0 Falhas',
 		trustTestsDesc: 'CI/CD rigoroso e >90% cobertura de código',
 		trustOpenSSF: 'OpenSSF Gold',
 		trustOpenSSFDesc: 'Nível mais alto de certificação de segurança e qualidade da Linux Foundation',
@@ -200,7 +200,7 @@ const pt: TranslationSchema = {
 		faqTitle: 'Perguntas Frequentes',
 		faq1Q: 'O que é o EDDI?',
 		faq1A:
-			'O EDDI é uma plataforma de orquestração de IA empresarial de código aberto. Permite que equipes construam, configurem e implantem agentes de IA usando configuração JSON em vez de código compilado. O EDDI fornece uma plataforma completa com uma <strong>interface de gestão React pronta para produção</strong> (o EDDI Manager), APIs REST integradas, gerenciamento de estado de conversa, segurança (OIDC/Keycloak), trilhas de auditoria imutáveis e 42 ferramentas MCP — tudo implantável via Docker ou Kubernetes.',
+			'O EDDI é uma plataforma de orquestração de IA empresarial de código aberto. Permite que equipes construam, configurem e implantem agentes de IA usando configuração JSON em vez de código compilado. O EDDI fornece uma plataforma completa com uma <strong>interface de gestão React pronta para produção</strong> (o EDDI Manager), APIs REST integradas, gerenciamento de estado de conversa, segurança (OIDC/Keycloak), trilhas de auditoria imutáveis e 65 ferramentas MCP — tudo implantável via Docker ou Kubernetes.',
 		faq2Q: 'Como o EDDI é diferente de bibliotecas e frameworks de IA?',
 		faq2A:
 			'Bibliotecas de IA como LangChain, Spring AI e LangChain4j fornecem blocos de construção — mas você ainda precisa construir controladores REST, autenticação, gerenciamento de estado de conversa, registro de auditoria e interfaces de gestão por conta própria. O EDDI é uma <strong>plataforma middleware implantável</strong>, não uma biblioteca. Fornece tudo isso pronto para uso, implantável via Docker.',
@@ -209,7 +209,7 @@ const pt: TranslationSchema = {
 			'Sim. O EDDI é construído sobre um runtime empresarial com threads virtuais leves para concorrência massiva em operações de I/O. Suporta MongoDB e PostgreSQL, inclui autenticação OIDC/Keycloak integrada, fornece trilhas de auditoria criptográficas imutáveis para conformidade (incluindo a Lei de IA da UE) e escala horizontalmente via NATS JetStream.',
 		faq4Q: 'O que é o Model Context Protocol (MCP)?',
 		faq4A:
-			'O Model Context Protocol (MCP) é um padrão aberto que permite que assistentes de IA como Claude Desktop, plugins de IDE e clientes personalizados interajam com ferramentas externas programaticamente. O EDDI expõe 42 ferramentas MCP abrangendo gestão de conversas, administração de agentes, automação de configuração, gestão de agendamentos e diagnósticos.',
+			'O Model Context Protocol (MCP) é um padrão aberto que permite que assistentes de IA como Claude Desktop, plugins de IDE e clientes personalizados interajam com ferramentas externas programaticamente. O EDDI expõe 65 ferramentas MCP abrangendo gestão de conversas, administração de agentes, automação de configuração, gestão de agendamentos e diagnósticos.',
 		faq5Q: 'O EDDI pode substituir Flowise ou n8n para cargas de trabalho de produção?',
 		faq5A:
 			'O EDDI serve um propósito similar de construção visual, mas com arquitetura de nível empresarial. Ao contrário do Flowise e n8n, o EDDI não usa <code>eval()</code> nem blocos de código, executa milhões de threads virtuais leves para concorrência de nível empresarial, suporta autenticação OIDC/Keycloak e armazena dados em MongoDB ou PostgreSQL. É projetado para indústrias regulamentadas.',
@@ -239,8 +239,19 @@ const pt: TranslationSchema = {
 		step1ComposeDesc: 'Se preferir controle manual, clone o repositório e use o Docker Compose diretamente:',
 		step1After: 'O EDDI estará disponível em <code>http://localhost:7070</code>.',
 		step2Title: '2. Conecte via MCP',
-		step2Desc: 'Se você usa <strong>Claude Desktop</strong> ou qualquer cliente compatível com MCP, adicione o EDDI como servidor MCP:',
-		step2After: 'Agora você pode interagir com as 42 ferramentas MCP do EDDI diretamente do seu assistente de IA.',
+		step2Desc:
+			'Conecte seu assistente de IA às <strong>65 ferramentas MCP</strong> do EDDI. A configuração depende do suporte de transporte do seu cliente:',
+		step2TabClaude: 'Claude Desktop (stdio)',
+		step2TabDirect: 'HTTP direto (Cursor, VS Code, Windsurf)',
+		step2ClaudeNote:
+			'O Claude Desktop suporta apenas transporte <strong>stdio</strong>. Use <a href="https://github.com/geelen/mcp-remote" target="_blank" rel="noopener">mcp-remote</a> para fazer a ponte stdio↔HTTP. Requer Node.js 18+.',
+		step2WindowsTip:
+			'<strong>💡 Windows:</strong> Se <code>npx</code> não estiver no seu PATH, use <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> em vez disso.',
+		step2DirectNote:
+			'Clientes com suporte nativo a Streamable HTTP (Cursor, VS Code, Windsurf, Antigravity e outros plugins de IDE) conectam-se diretamente — sem ponte necessária:',
+		step2After: 'Agora você pode interagir com as <strong>65 ferramentas MCP</strong> do EDDI diretamente do seu assistente de IA.',
+		step2DocsLink:
+			'📖 Consulte a <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentação do servidor MCP</a> para a referência completa de ferramentas e configuração avançada.',
 		step3Title: '3. Armazene sua chave API',
 		step3VaultIntro: 'Antes de criar um agente, armazene com segurança a chave API do seu provedor LLM no <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> do EDDI (criptografado AES-256-GCM):',
 		step3VaultUiDesc: 'Abra a interface do Manager em <code>http://localhost:7070</code>, navegue até <strong>Secrets Vault</strong> e adicione um novo segredo com o nome de chave <code>my-anthropic-key</code>.',
@@ -257,7 +268,7 @@ const pt: TranslationSchema = {
 		nextAllFeatures: 'Todas as Funcionalidades',
 		nextAllFeaturesDesc: 'Explore tudo o que o EDDI oferece',
 		nextMcpServer: 'Servidor MCP',
-		nextMcpServerDesc: 'Navegue por todas as 42 ferramentas MCP',
+		nextMcpServerDesc: 'Navegue por todas as 65 ferramentas MCP',
 		nextDocs: 'Documentação ↗',
 		nextDocsDesc: 'Aprofunde-se em arquitetura e APIs',
 		nextWhyEddi: 'Por que EDDI?',
@@ -309,7 +320,7 @@ const pt: TranslationSchema = {
 	featuresOverview: {
 		title: 'Visão Geral das Funcionalidades',
 		description:
-			'Todas as capacidades que fazem do EDDI o orquestrador de IA empresarial — EDDI Manager, config-as-code, 42 ferramentas MCP, arquitetura security-first e mais.',
+			'Todas as capacidades que fazem do EDDI o orquestrador de IA empresarial — EDDI Manager, config-as-code, 65 ferramentas MCP, arquitetura security-first e mais.',
 		heroTitle: 'Tudo o Que Você Precisa para',
 		heroHighlight: 'Orquestrar IA',
 		heroDesc:
@@ -322,7 +333,7 @@ const pt: TranslationSchema = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'A lógica do agente é configuração JSON, não código compilado. Engenheiros de prompt iteram instantaneamente — <strong>sem necessidade de reimplantação</strong>.',
-		mcpCardTitle: '🔌 Servidor MCP (42 Ferramentas)',
+		mcpCardTitle: '🔌 Servidor MCP (65 Ferramentas)',
 		mcpCardDesc:
 			'Controle completo nativo de IA via <strong>Model Context Protocol</strong>. Claude Desktop, Cursor e clientes personalizados gerenciam agentes programaticamente.',
 		securityCardTitle: '🔐 Segurança em Primeiro Lugar',
@@ -378,10 +389,10 @@ const pt: TranslationSchema = {
 		obsCardDesc:
 			'Cada etapa do pipeline registrada com <strong>trilhas de auditoria imutáveis</strong> — tokens, custo, tempo e chamadas de ferramentas.',
 		cqCardTitle: '🧪 Qualidade de Código',
-		cqCardDesc: '<strong>9.000+ testes com zero falhas.</strong> Zero avisos de Checkstyle. >90% de cobertura de código. CI/CD aplicado em cada merge.',
+		cqCardDesc: '<strong>9.600+ testes com zero falhas.</strong> Zero avisos de Checkstyle. >90% de cobertura de código. CI/CD aplicado em cada merge.',
 		aiCardTitle: '🧩 Preparado para IA',
 		aiCardDesc:
-			'42 ferramentas MCP, padrões CRUD previsíveis, APIs autodocumentadas. <strong>Projetado para agentes de codificação</strong> trabalharem.',
+			'65 ferramentas MCP, padrões CRUD previsíveis, APIs autodocumentadas. <strong>Projetado para agentes de codificação</strong> trabalharem.',
 	},
 	pages: {
 		manager: {
@@ -406,12 +417,12 @@ const pt: TranslationSchema = {
 				'Construtores visuais de nós tornam a prototipagem rápida. No entanto, sua arquitetura introduz restrições em escala empresarial.',
 		},
 		mcpServer: {
-			title: 'Servidor MCP — 42 Ferramentas',
+			title: 'Servidor MCP — 65 Ferramentas',
 			description:
 				'O EDDI expõe suas capacidades completas via o Model Context Protocol, permitindo que Claude Desktop, Cursor e clientes de IA personalizados gerenciem agentes programaticamente.',
 			heading1: 'Plano de Controle Nativo de IA',
 			para1:
-				'O Model Context Protocol (MCP) é um padrão aberto que permite que assistentes de IA interajam com ferramentas externas. O EDDI implementa um servidor MCP abrangente com <strong>42 ferramentas</strong> cobrindo todos os aspectos da plataforma.',
+				'O Model Context Protocol (MCP) é um padrão aberto que permite que assistentes de IA interajam com ferramentas externas. O EDDI implementa um servidor MCP abrangente com <strong>65 ferramentas</strong> cobrindo todos os aspectos da plataforma.',
 			heading2: 'Categorias de Ferramentas',
 			items: [
 				'<strong>Ferramentas de Conversa</strong> — Converse com agentes, gerencie conversas, leia histórico',
@@ -424,6 +435,7 @@ const pt: TranslationSchema = {
 			],
 			heading3: 'Padrões Abertos — Sem APIs Proprietárias',
 			para2: 'Os agentes EDDI também podem <strong>consumir ferramentas MCP externas</strong> durante as conversas. Configure endpoints de servidor MCP, e os agentes autodescobrem e invocam ferramentas com base no contexto. Além do MCP, o EDDI implementa <strong>A2A</strong> (Agent-to-Agent Protocol) para comunicação entre plataformas, <strong>OpenAPI 3.1</strong> para geração e consumo nativo de specs, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, e <strong>SSE</strong> para streaming em tempo real — todos padrões abertos, zero vendor lock-in.',
+			clientsNote: 'Funciona com Claude Desktop, Cursor, VS Code, Windsurf, Antigravity e qualquer cliente compatível com MCP. Consulte a <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentação MCP</a> para guias de configuração de clientes.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -560,23 +572,23 @@ const pt: TranslationSchema = {
 		codeQuality: {
 			title: 'Qualidade de Código',
 			description:
-				'9.000+ testes com zero falhas. Zero avisos de Checkstyle. >90% de cobertura de código. Portas de qualidade CI/CD aplicadas em cada merge.',
+				'9.600+ testes com zero falhas. Zero avisos de Checkstyle. >90% de cobertura de código. Portas de qualidade CI/CD aplicadas em cada merge.',
 			heading1: 'Rigor em Engenharia',
 			para1:
 				'O EDDI mantém <strong>qualidade de código excepcional</strong> através de testes abrangentes, análise estática e portas de qualidade CI/CD. Cada pull request deve passar no conjunto completo de testes antes do merge.',
 			heading2: 'Métricas de Qualidade',
 			items: [
-				'<strong>9.000+ Testes</strong> — Cobertura unitária, de integração e ponta a ponta',
+				'<strong>9.600+ Testes</strong> — Cobertura unitária, de integração e ponta a ponta',
 				'<strong>Zero Falhas</strong> — CI limpo em cada build',
 				'<strong>Enforcement do Checkstyle</strong> — Zero avisos, regras rigorosas aplicadas em cada build',
-				'<strong>Testes de Ferramentas MCP</strong> — Cobertura abrangente de todas as 42 ferramentas MCP',
+				'<strong>Testes de Ferramentas MCP</strong> — Cobertura abrangente de todas as 65 ferramentas MCP',
 				'<strong>Portas de Qualidade CI/CD</strong> — Verificações automatizadas previnem regressões',
 			],
 		},
 		aiReady: {
 			title: 'Arquitetura Preparada para IA',
 			description:
-				'42 ferramentas MCP, padrões CRUD previsíveis, APIs autodocumentadas. Construído desde o início para agentes de codificação trabalharem.',
+				'65 ferramentas MCP, padrões CRUD previsíveis, APIs autodocumentadas. Construído desde o início para agentes de codificação trabalharem.',
 			heading1: 'Projetado para Colaboração com IA',
 			para1:
 				'O EDDI é construído com a suposição de que <strong>agentes de codificação irão gerenciá-lo</strong>. Cada API segue padrões previsíveis, cada recurso tem operações CRUD consistentes e o servidor MCP permite controle programático completo.',
@@ -585,7 +597,7 @@ const pt: TranslationSchema = {
 				'<strong>Padrões Previsíveis</strong> — Nomenclatura de recursos consistente, convenções CRUD e tratamento de erros',
 				'<strong>APIs Autodocumentadas</strong> — Especificações OpenAPI e descrições de ferramentas MCP geradas automaticamente',
 				'<strong>Suporte a LLMs.txt</strong> — Conteúdo do site descobrível por IA via llms.txt e llms-full.txt',
-				'<strong>MCP-First</strong> — 42 ferramentas projetadas para integração com assistentes de IA',
+				'<strong>MCP-First</strong> — 65 ferramentas projetadas para integração com assistentes de IA',
 				'<strong>Automação de Setup</strong> — Criação de agentes em uma única chamada com <code>setup_agent</code>',
 			],
 		},
@@ -669,7 +681,7 @@ const pt: TranslationSchema = {
 			items: [
 				'<strong>Interface Visual de Gestão</strong> — O EDDI Manager para construir e monitorar agentes',
 				'<strong>Configuration-as-Code</strong> — Lógica de agentes é JSON, não código compilado',
-				'<strong>42 Ferramentas MCP</strong> — Controle total nativo de IA via Model Context Protocol',
+				'<strong>65 Ferramentas MCP</strong> — Controle total nativo de IA via Model Context Protocol',
 				'<strong>Segurança Empresarial</strong> — OIDC, vault, trilhas de auditoria, sem eval()',
 				'<strong>Infraestrutura de Produção</strong> — APIs REST, gestão de estado de conversa, métricas Prometheus',
 				'<strong>Escalabilidade Horizontal</strong> — NATS JetStream para arquiteturas distribuídas',
@@ -708,7 +720,7 @@ const pt: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Arquitetura', question: 'A plataforma executa código fornecido pelo usuário em tempo de execução?', eddiAnswer: 'Não. EDDI utiliza apenas configuração JSON declarativa.' },
 				{ category: 'Desempenho', question: 'Como a plataforma lida com milhares de conversas de agentes simultâneas?', eddiAnswer: 'As threads virtuais do Java 25 oferecem paralelismo real ao nível do SO.' },
-				{ category: 'Integração', question: 'Os agentes podem consumir ferramentas externas através de padrões abertos?', eddiAnswer: '42 ferramentas MCP, protocolo A2A, OpenAPI 3.1, OAuth 2.0/OIDC.' },
+				{ category: 'Integração', question: 'Os agentes podem consumir ferramentas externas através de padrões abertos?', eddiAnswer: '65 ferramentas MCP, protocolo A2A, OpenAPI 3.1, OAuth 2.0/OIDC.' },
 				{ category: 'Privacidade de dados', question: 'Como os direitos dos titulares de dados são implementados?', eddiAnswer: 'API REST unificada em cascata em todos os 5 armaéns de dados. 15+ frameworks regulatórios.' },
 				{ category: 'Segurança', question: 'Qual é a postura de segurança arquitetural da plataforma?', eddiAnswer: 'Nenhuma execução dinâmica de código. OIDC/Keycloak, cofre AES-256-GCM, trilhas de auditoria HMAC-SHA256.' },
 				{ category: 'Conformidade', question: 'A plataforma fornece trilhas de auditoria imutáveis?', eddiAnswer: 'Registro HMAC-SHA256 à prova de adulteração com rastreamento completo do pipeline.' },
@@ -1013,7 +1025,7 @@ const pt: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon — evento virtual para desenvolvimento de chatbots pedagógicos.' },
 				{ year: '2023', text: 'EDDI integra <strong>conexões LLM</strong> — conexão a grandes modelos de linguagem modernos via LangChain4j.' },
 				{ year: '2025', text: 'EDDI se adapta a <strong>fluxos de agentes</strong> — roteamento baseado em intenção, conversas gerenciadas e orquestração multi-agente.' },
-				{ year: '2026', text: '<strong>v6</strong> — 42 ferramentas MCP, protocolo A2A, discussões em grupo, UI de gestão visual, cascading de modelos.' },
+				{ year: '2026', text: '<strong>v6</strong> — 65 ferramentas MCP, protocolo A2A, discussões em grupo, UI de gestão visual, cascading de modelos.' },
 				{ year: '2026', text: 'Selecionado como <strong>Parceiro de Confiança da UNIDO</strong> para IA Industrial para o Sul Global. Solução apresentada no WAIC 2026 · Shanghai.' },
 			],
 			institutionsTitle: 'Apoiado por instituições',
@@ -1051,7 +1063,7 @@ const pt: TranslationSchema = {
 			devCIDesc: 'Verificação de build automatizada em cada commit',
 			devCodeQL: 'CodeQL limpo',
 			devCodeQLDesc: 'Varredura de vulnerabilidades de segurança do GitHub',
-			devTests: '9.000+ Testes',
+			devTests: '9.600+ Testes',
 			devTestsDesc: 'Zero falhas, aplicado em cada merge',
 			devIntegration: '42 Testes de integração',
 			devIntegrationDesc: 'Verificação REST API full-stack com banco de dados real',

@@ -4,6 +4,14 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔄 Sync with EDDI 6.1.2 Docs
+- `fix(website)`: **MCP Tool Count 42 → 65** — Updated all MCP tool count references across 11 locales, llms.txt, and llms-full.txt. Added 4 missing tool categories to MCP Server page: Group Conversation Tools (11), Memory Tools (8), GDPR Tools (2), Channel Integration Tools (5).
+- `feat(website)`: **Task Force Discussion Style** — Added 6th discussion style (TASK_FORCE: PLAN → EXECUTE → VERIFY → SYNTHESIS) and Dynamic Agents feature (create/recruit/teardown agents at runtime) to Multi-Agent page. Updated from "5 discussion styles" to "6". i18n'd across 11 locales.
+- `fix(website)`: **Getting Started MCP Config** — Replaced single Direct HTTP config (which didn't work for Claude Desktop) with tabbed UI: "Claude Desktop (stdio)" tab showing mcp-remote bridge config, and "Direct HTTP" tab for Cursor/VS Code/Windsurf/Antigravity. Added Windows npx PATH tip and link to MCP Server documentation.
+- `fix(website)`: **Version 6.1.1 → 6.1.2** — Updated `EDDI_LATEST_VERSION` in version.ts.
+- `fix(website)`: **Test Count 9,000+ → 9,600+** — Updated test count across all 11 locales (actual: 9,611 tests, 0 failures).
+- `feat(website)`: **MCP Client Documentation** — Added `clientsNote` to MCP Server page listing supported clients (Claude Desktop, Cursor, VS Code, Windsurf, Antigravity) with link to docs.labs.ai/mcp-server. Added `step2DocsLink` to Getting Started. i18n'd across 11 locales.
+
 ### 🏆 UNIDO Trusted Partner Integration
 - `feat(website)`: **UNIDO Trusted Partner Page** — New dedicated page at `/enterprise/unido-trusted-partner/` showcasing LABS.AI's selection as UNIDO Trusted Partner for Industrial AI for the Global South. Includes hero, certificate display (Astro-optimized), expanded solution section with 4 Global South-specific feature cards, 4 "What This Means" context cards, 4 organization cards (UNIDO, AIM Global, Shanghai AI Research Institute, WAIC 2026), 5 SDG alignment cards (SDG 9, 8, 10, 12, 17 with official UN colors), and CTA. Full i18n across 11 locales.
 - `feat(website)`: **Announcement Banner** — Updated to "LABS.AI selected as UNIDO Trusted Partner for Industrial AI" with link to dedicated page. New localStorage key `eddi-banner-dismissed-unido` so users who dismissed the old v6 banner see the new one.

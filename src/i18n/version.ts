@@ -8,4 +8,4 @@
  * Usage in components:    import { EDDI_VERSION } from '../i18n/version';
  */
 export const EDDI_VERSION = 'v6';
-export const EDDI_LATEST_VERSION = '6.1.1';
+export const EDDI_LATEST_VERSION = '6.1.2';

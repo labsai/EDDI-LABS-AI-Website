@@ -15,7 +15,7 @@ const ar: TranslationSchema = {
 		eddiManager: 'مدير EDDI',
 		eddiManagerDesc: 'واجهة مرئية لإدارة الوكلاء',
 		mcpServer: 'خادم MCP',
-		mcpServerDesc: '42 أداة للتحكم الأصلي بالذكاء الاصطناعي',
+		mcpServerDesc: '65 أداة للتحكم الأصلي بالذكاء الاصطناعي',
 		configAsCode: 'التكوين-كشفرة',
 		configAsCodeDesc: 'تكوين JSON، بدون نمط متكرر',
 		securityFirst: 'الأمان أولاً',
@@ -51,7 +51,7 @@ const ar: TranslationSchema = {
 		useCases: 'حالات الاستخدام',
 		useCasesDesc: 'أنماط نشر واقعية',
 		allFeatures: 'جميع الميزات',
-		mcpServerMobile: 'خادم MCP (42 أداة)',
+		mcpServerMobile: 'خادم MCP (65 أداة)',
 		resources: 'الموارد',
 		documentation: 'التوثيق ↗',
 		github: 'GitHub ↗',
@@ -118,7 +118,7 @@ const ar: TranslationSchema = {
 		heroTitle: 'منسّق',
 		heroHighlight: 'الذكاء الاصطناعي للمؤسسات',
 		heroTagline:
-			`المنصة مفتوحة المصدر والجاهزة للإنتاج لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة. مدفوعة بالتكوين، مستضافة ذاتياً، وجاهزة للامتثال — مع واجهة إدارة بصرية و42 أداة MCP وأمان مؤسسي مدمج. متوفر الآن في <strong>معاينة ${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
+			`المنصة مفتوحة المصدر والجاهزة للإنتاج لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة. مدفوعة بالتكوين، مستضافة ذاتياً، وجاهزة للامتثال — مع واجهة إدارة بصرية و65 أداة MCP وأمان مؤسسي مدمج. متوفر الآن في <strong>معاينة ${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
 		problemTitle: 'المشكلة',
 		problemDesc: 'تنسيق الذكاء الاصطناعي المؤسسي <strong>مجزأ ومؤلم</strong>. الفرق عالقة في دورة حياة مفككة:',
 		problemCard1Title: 'فخ النموذج الأولي',
@@ -135,7 +135,7 @@ const ar: TranslationSchema = {
 		sol1Title: 'التكوين-كشفرة',
 		sol1Desc:
 			'منطق الوكلاء وخطوط الأنابيب وتعريفات الأدوات هي <strong>تكوينات JSON</strong> — وليس شفرة مجمعة. يكرر مهندسو الموجهات فوراً عبر واجهة React أو REST API، بدون إعادة نشر.',
-		sol2Title: '42 أداة MCP',
+		sol2Title: '65 أداة MCP',
 		sol2Desc:
 			'يكشف EDDI قدراته عبر <strong>بروتوكول سياق النموذج</strong> — مما يتيح تفاعل Claude Desktop. يمكن للوكلاء أيضاً <strong>استهلاك أدوات MCP خارجية</strong>.',
 		sol3Title: 'الأمان أولاً',
@@ -198,7 +198,7 @@ const ar: TranslationSchema = {
 		faqTitle: 'الأسئلة المتكررة',
 		faq1Q: 'ما هو EDDI؟',
 		faq1A:
-			'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و42 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
+			'EDDI هو وسيط تنسيق ذكاء اصطناعي مفتوح المصدر، أصلي على JVM، مبني على Quarkus و Java 25. يمكّن فرق المؤسسات من بناء وتكوين ونشر وكلاء ذكاء اصطناعي باستخدام تكوين JSON بدلاً من الشفرة المجمعة. يوفر EDDI منصة كاملة مع <strong>واجهة إدارة React جاهزة للإنتاج</strong> (مدير EDDI)، وواجهات REST API مدمجة، وإدارة حالة المحادثة، والأمان (OIDC/Keycloak)، ومسارات تدقيق غير قابلة للتغيير، و65 أداة MCP — كل ذلك قابل للنشر عبر Docker أو Kubernetes.',
 		faq2Q: 'كيف يختلف EDDI عن Spring AI أو LangChain4j؟',
 		faq2A:
 			'Spring AI و LangChain4j هي <strong>مكتبات</strong> ممتازة — EDDI يستخدم LangChain4j داخلياً في الواقع. الفرق الجوهري أن EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>، وليس مكتبة. مع Spring AI، لا تزال بحاجة لبناء وحدات تحكم REST والمصادقة وإدارة حالة المحادثة وتسجيل التدقيق وواجهات الإدارة بنفسك. EDDI يوفر كل ذلك جاهزاً.',
@@ -207,7 +207,7 @@ const ar: TranslationSchema = {
 			'نعم. يعمل EDDI على Java 25 مع Quarkus، مستفيداً من Virtual Threads للتزامن الضخم في عمليات الإدخال/الإخراج. يدعم MongoDB و PostgreSQL، يتضمن مصادقة OIDC/Keycloak مدمجة، يوفر مسارات تدقيق مشفرة غير قابلة للتغيير للامتثال (بما في ذلك قانون الذكاء الاصطناعي الأوروبي)، ويتوسع أفقياً عبر NATS JetStream.',
 		faq4Q: 'ما هو بروتوكول سياق النموذج (MCP)؟',
 		faq4A:
-			'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 42 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
+			'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي مثل Claude Desktop وإضافات IDE والعملاء المخصصين بالتفاعل مع الأدوات الخارجية برمجياً. يكشف EDDI 65 أداة MCP تشمل إدارة المحادثات وإدارة الوكلاء وأتمتة الإعداد وإدارة الجداول والتشخيصات.',
 		faq5Q: 'هل يمكن لـ EDDI أن يحل محل Flowise أو n8n لأحمال العمل الإنتاجية؟',
 		faq5A:
 			'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
@@ -237,8 +237,18 @@ const ar: TranslationSchema = {
 		step1ComposeDesc: 'إذا كنت تفضل التحكم اليدوي، قم باستنساخ المستودع واستخدم Docker Compose مباشرة:',
 		step1After: 'سيكون EDDI متاحاً على <code>http://localhost:7070</code>.',
 		step2Title: '2. اتصل عبر MCP',
-		step2Desc: 'إذا كنت تستخدم <strong>Claude Desktop</strong> أو أي عميل متوافق مع MCP، أضف EDDI كخادم MCP:',
-		step2After: 'الآن يمكنك التفاعل مع أدوات EDDI الـ 42 MCP مباشرة من مساعدك الذكاء الاصطناعي.',
+		step2Desc: 'قم بتوصيل مساعدك الذكي بـ <strong>65 أداة MCP</strong> في EDDI. يعتمد التكوين على دعم النقل لعميلك:',
+		step2TabClaude: 'Claude Desktop (stdio)',
+		step2TabDirect: 'HTTP مباشر (Cursor، VS Code، Windsurf)',
+		step2ClaudeNote:
+			'يدعم Claude Desktop نقل <strong>stdio</strong> فقط. استخدم <a href="https://github.com/geelen/mcp-remote" target="_blank" rel="noopener">mcp-remote</a> لجسر stdio↔HTTP. يتطلب Node.js 18+.',
+		step2WindowsTip:
+			'<strong>💡 Windows:</strong> إذا لم يكن <code>npx</code> في PATH، استخدم <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> بدلاً من ذلك.',
+		step2DirectNote:
+			'العملاء الذين يدعمون Streamable HTTP بشكل أصلي (Cursor، VS Code، Windsurf، Antigravity وإضافات IDE الأخرى) يتصلون مباشرة — لا حاجة لجسر:',
+		step2After: 'الآن يمكنك التفاعل مع <strong>65 أداة MCP</strong> في EDDI مباشرة من مساعدك الذكي.',
+		step2DocsLink:
+			'📖 راجع <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">وثائق خادم MCP</a> للمرجع الكامل للأدوات والتكوين المتقدم.',
 		step3Title: '3. تخزين مفتاح API الخاص بك',
 		step3VaultIntro: 'قبل إنشاء وكيل، قم بتخزين مفتاح API الخاص بموفر LLM بشكل آمن في <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> الخاص بـ EDDI (مشفر بـ AES-256-GCM):',
 		step3VaultUiDesc: 'افتح واجهة المدير على <code>http://localhost:7070</code>، وانتقل إلى <strong>Secrets Vault</strong> وأضف سرًا جديدًا باسم المفتاح <code>my-anthropic-key</code>.',
@@ -255,7 +265,7 @@ const ar: TranslationSchema = {
 		nextAllFeatures: 'جميع الميزات',
 		nextAllFeaturesDesc: 'استكشف كل ما يقدمه EDDI',
 		nextMcpServer: 'خادم MCP',
-		nextMcpServerDesc: 'تصفح جميع أدوات MCP الـ 42',
+		nextMcpServerDesc: 'تصفح جميع أدوات MCP الـ 65',
 		nextDocs: 'التوثيق ↗',
 		nextDocsDesc: 'تعمق في البنية المعمارية وواجهات API',
 		nextWhyEddi: 'لماذا EDDI؟',
@@ -303,7 +313,7 @@ const ar: TranslationSchema = {
 	featuresOverview: {
 		title: 'نظرة عامة على الميزات',
 		description:
-			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 42 أداة MCP، بنية الأمان أولاً، والمزيد.',
+			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات — واجهة EDDI Manager، التكوين-كشفرة، 65 أداة MCP، بنية الأمان أولاً، والمزيد.',
 		heroTitle: 'كل ما تحتاجه',
 		heroHighlight: 'لتنسيق الذكاء الاصطناعي',
 		heroDesc: 'يوفر EDDI منصة كاملة جاهزة للإنتاج لبناء ونشر وإدارة وكلاء الذكاء الاصطناعي — بدون كتابة نمط متكرر.',
@@ -314,7 +324,7 @@ const ar: TranslationSchema = {
 			'<strong>واجهة React جاهزة للإنتاج</strong> لبناء ونشر ومراقبة الوكلاء بصرياً — مع i18n بـ 11 لغة، تصحيح أخطاء الدردشة المباشرة، ولوحات التدقيق.',
 		configCardTitle: '⚙️ التكوين-كشفرة',
 		configCardDesc: 'منطق الوكيل هو تكوين JSON، وليس شفرة مجمعة. يكرر مهندسو الموجهات فوراً — <strong>بدون حاجة لإعادة التجميع</strong>.',
-		mcpCardTitle: '🔌 خادم MCP (42 أداة)',
+		mcpCardTitle: '🔌 خادم MCP (65 أداة)',
 		mcpCardDesc:
 			'تحكم أصلي كامل بالذكاء الاصطناعي عبر <strong>بروتوكول سياق النموذج</strong>. Claude Desktop و Cursor والعملاء المخصصون يديرون الوكلاء برمجياً.',
 		securityCardTitle: '🔐 الأمان أولاً',
@@ -370,7 +380,7 @@ const ar: TranslationSchema = {
 		cqCardTitle: '🧪 جودة الشفرة',
 		cqCardDesc: '<strong>+9,000 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. >90% تغطية الشفرة. CI/CD مطبق في كل دمج.',
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
-		aiCardDesc: '42 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
+		aiCardDesc: '65 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
 	},
 	pages: {
 		manager: {
@@ -395,24 +405,29 @@ const ar: TranslationSchema = {
 				'أدوات البناء المرئية تجعل النماذج الأولية سريعة. ومع ذلك، تفرض بنيتها قيوداً على نطاق المؤسسات.',
 		},
 		mcpServer: {
-			title: 'خادم MCP — 42 أداة',
+			title: 'خادم MCP — 65 أداة',
 			description:
 				'يكشف EDDI قدراته الكاملة عبر بروتوكول سياق النموذج، مما يتيح لـ Claude Desktop و Cursor والعملاء المخصصين إدارة الوكلاء برمجياً.',
 			heading1: 'مستوى التحكم الأصلي بالذكاء الاصطناعي',
 			para1:
-				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>42 أداة</strong> تغطي كل جانب من جوانب المنصة.',
+				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>65 أداة</strong> تغطي كل جانب من جوانب المنصة.',
 			heading2: 'فئات الأدوات',
 			items: [
-				'<strong>أدوات المحادثة</strong> — تحدث مع الوكلاء، أدر المحادثات، اقرأ السجل',
-				'<strong>أدوات الإدارة</strong> — اعرض وافحص وأدر الوكلاء المنشورين',
-				'<strong>أدوات الإعداد</strong> — أنشئ وكلاء كاملين في استدعاء واحد مع <code>setup_agent</code>',
-				'<strong>CRUD للموارد</strong> — إنشاء/قراءة/تحديث/حذف كامل للقواعد وسير العمل وتكوينات LLM والموصلات',
-				'<strong>أدوات التشخيص</strong> — فحوصات الصحة وفحص التكوين وتشخيصات البيئة',
-				'<strong>إدارة الجداول</strong> — إدارة المهام الدورية للوكلاء والمشغلات',
+				'<strong>أدوات المحادثة (11)</strong> — تحدث مع الوكلاء، أدر المحادثات، اقرأ السجل، دردشة مُدارة قائمة على النوايا',
+				'<strong>أدوات الإدارة (13)</strong> — نشر وإلغاء نشر وإنشاء وتحديث وحذف الوكلاء والمشغلات',
+				'<strong>أدوات الإعداد (2)</strong> — أنشئ وكلاء كاملين في استدعاء واحد مع <code>setup_agent</code>، أو من مواصفة OpenAPI مع <code>create_api_agent</code>',
+				'<strong>CRUD للموارد (5)</strong> — إنشاء/قراءة/تحديث/حذف كامل للقواعد وسير العمل وتكوينات LLM والموصلات، مع تتالي دفعي',
+				'<strong>أدوات المحادثة الجماعية (11)</strong> — مناقشات متعددة الوكلاء بـ 6 أنماط، مجموعات متداخلة، مناقشات غير متزامنة',
+				'<strong>أدوات الذاكرة (8)</strong> — ذاكرة مستخدم دائمة مع نطاق الرؤية والبحث والعمليات الجماعية',
+				'<strong>إدارة الجداول (6)</strong> — إنشاء وعرض وتشغيل وإعادة محاولة مشغلات الوكلاء المجدولة (cron والنبضات)',
+				'<strong>أدوات التشخيص (2)</strong> — سجلات خط الأنابيب من جانب الخادم ومسار تدقيق لكل مهمة مع تفاصيل LLM والتوقيت والتكلفة',
+				'<strong>أدوات GDPR (2)</strong> — محو البيانات التتابعي (المادة 17) وتصدير البيانات الكامل (المادتان 15/20)',
+				'<strong>أدوات تكامل القنوات (5)</strong> — إدارة تكاملات Slack وTeams والقنوات المخصصة',
 				'<strong>OpenAPI 3.1</strong> — مواصفة OpenAPI مولدة تلقائيًا. الصق أي مواصفة OpenAPI خارجية في EDDI ← احصل على وكيل استدعاء API منشور بالكامل',
 			],
 			heading3: 'معايير مفتوحة — ليست واجهات برمجة مملوكة',
 			para2: 'يمكن لوكلاء EDDI أيضًا <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. قم بتكوين نقاط نهاية خادم MCP، وسيكتشف الوكلاء الأدوات ويستدعونها تلقائيًا بناءً على سياق المحادثة. بالإضافة إلى MCP، ينفذ EDDI <strong>A2A</strong> (بروتوكول الوكيل إلى الوكيل) للتواصل عبر المنصات، <strong>OpenAPI 3.1</strong> لتوليد واستهلاك المواصفات، <strong>OAuth 2.0 / OIDC</strong> عبر Keycloak، و<strong>SSE</strong> للبث المباشر — جميعها معايير مفتوحة، بدون تبعية لبائع.',
+			clientsNote: 'يعمل مع Claude Desktop وCursor وVS Code وWindsurf وAntigravity وأي عميل متوافق مع MCP. راجع <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">وثائق MCP</a> للحصول على أدلة تكوين العملاء.',
 		},
 		configAsCode: {
 			title: 'التكوين-كشفرة',
@@ -516,9 +531,10 @@ const ar: TranslationSchema = {
 				'<strong>نمط المنسق</strong> — يفوض الوكلاء إلى وكلاء فرعيين متخصصين',
 			],
 				heading3: 'المحادثات الجماعية والتنسيق المتقدم',
-			para2: 'يدعم EDDI <strong>محادثات جماعية متعددة الوكلاء</strong> مع 5 أنماط مناقشة مدمجة وهياكل مجموعات متداخلة ووكيل وصفي ينشئ وكلاء آخرين عبر المحادثة:',
+			para2: 'يدعم EDDI <strong>محادثات جماعية متعددة الوكلاء</strong> مع 6 أنماط مناقشة مدمجة، إنشاء وكلاء ديناميكي، وهياكل مجموعات متداخلة ووكيل وصفي ينشئ وكلاء آخرين عبر المحادثة:',
 			items2: [
-				'<strong>5 أنماط مناقشة</strong> — طاولة مستديرة، مراجعة أقران، محامي الشيطان، دلفي، ومناظرة',
+				'<strong>6 أنماط مناقشة</strong> — طاولة مستديرة، مراجعة الأقران، محامي الشيطان، دلفي، مناظرة، و<strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>وكلاء ديناميكيون</strong> — يمكن للوكلاء في مناقشات Task Force إنشاء وتجنيد وتفويض وتفكيك وكلاء فرعيين في وقت التشغيل مع حواجز حماية (قوائم بيضاء للمزودين/النماذج، حدود لكل مناقشة، سياسات دورة الحياة)',
 				'<strong>مجموعات متداخلة</strong> — تكوين مجموعات من مجموعات لنظام البطولات، فريق أحمر ضد فريق أزرق، ومراجعات اللجان',
 				'<strong>تكامل Slack</strong> — نشر الوكلاء في قنوات Slack وتشغيل مناظرات متعددة الوكلاء مباشرة في المواضيع، مع دعم الرسائل المباشرة والتوجيه بالكلمات المفتاحية',
 				'<strong>الوكيل الأب</strong> — وكيل وصفي ينشئ وكلاء آخرين عبر المحادثة (يأتي جاهزاً)',
@@ -555,13 +571,13 @@ const ar: TranslationSchema = {
 				'<strong>+9,000 اختبار</strong> — تغطية وحدات وتكامل وشاملة',
 				'<strong>صفر إخفاقات</strong> — CI نظيف في كل بناء',
 				'<strong>تطبيق Checkstyle</strong> — صفر تنبيهات، قواعد صارمة مطبقة في كل بناء',
-				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 42',
+				'<strong>اختبارات أدوات MCP</strong> — تغطية شاملة لجميع أدوات MCP الـ 65',
 				'<strong>بوابات جودة CI/CD</strong> — فحوصات آلية تمنع التراجع',
 			],
 		},
 		aiReady: {
 			title: 'بنية جاهزة للذكاء الاصطناعي',
-			description: '42 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. مصمم من الألف إلى الياء لوكلاء البرمجة.',
+			description: '65 أداة MCP، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. مصمم من الألف إلى الياء لوكلاء البرمجة.',
 			heading1: 'مصمم للتعاون مع الذكاء الاصطناعي',
 			para1:
 				'EDDI مبني على افتراض أن <strong>وكلاء البرمجة سيديرونه</strong>. كل واجهة API تتبع أنماطاً قابلة للتنبؤ، كل مورد له عمليات CRUD متسقة، وخادم MCP يتيح التحكم البرمجي الكامل.',
@@ -570,7 +586,7 @@ const ar: TranslationSchema = {
 				'<strong>أنماط قابلة للتنبؤ</strong> — تسمية موارد متسقة واتفاقيات CRUD ومعالجة الأخطاء',
 				'<strong>واجهات API ذاتية التوثيق</strong> — مواصفات OpenAPI وأوصاف أدوات MCP تُولَّد تلقائياً',
 				'<strong>دعم LLMs.txt</strong> — محتوى الموقع قابل للاكتشاف بالذكاء الاصطناعي عبر llms.txt و llms-full.txt',
-				'<strong>MCP أولاً</strong> — 42 أداة مصممة للتكامل مع مساعدي الذكاء الاصطناعي',
+				'<strong>MCP أولاً</strong> — 65 أداة مصممة للتكامل مع مساعدي الذكاء الاصطناعي',
 				'<strong>أتمتة الإعداد</strong> — إنشاء وكلاء في استدعاء واحد مع <code>setup_agent</code>',
 			],
 		},
@@ -657,7 +673,7 @@ const ar: TranslationSchema = {
 			items: [
 				'<strong>واجهة إدارة مرئية</strong> — مدير EDDI لبناء ومراقبة الوكلاء',
 				'<strong>التكوين-كشفرة</strong> — منطق الوكلاء هو JSON، وليس شفرة مجمعة',
-				'<strong>42 أداة MCP</strong> — تحكم أصلي كامل بالذكاء الاصطناعي عبر بروتوكول سياق النموذج',
+				'<strong>65 أداة MCP</strong> — تحكم أصلي كامل بالذكاء الاصطناعي عبر بروتوكول سياق النموذج',
 				'<strong>أمان مؤسسي</strong> — OIDC، خزنة، مسارات تدقيق، بدون eval()',
 				'<strong>بنية تحتية إنتاجية</strong> — واجهات REST API، إدارة حالة المحادثة، مقاييس Prometheus',
 				'<strong>توسع أفقي</strong> — NATS JetStream للبنى الموزعة',
@@ -696,7 +712,7 @@ const ar: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Architecture', question: 'Does the platform execute user-supplied code?', eddiAnswer: 'No. Declarative JSON only.' },
 				{ category: 'Performance', question: 'How does it handle concurrent agents?', eddiAnswer: 'Java 25 virtual threads.' },
-				{ category: 'Integration', question: 'Open standards support?', eddiAnswer: '42 MCP tools, A2A, OpenAPI 3.1, OIDC.' },
+				{ category: 'Integration', question: 'Open standards support?', eddiAnswer: '65 MCP tools, A2A, OpenAPI 3.1, OIDC.' },
 				{ category: 'Data Privacy', question: 'Data subject rights?', eddiAnswer: 'Unified API across 5 data stores.' },
 				{ category: 'Security', question: 'Architectural security posture?', eddiAnswer: 'No eval(). OIDC, AES-256-GCM vault, HMAC-SHA256.' },
 				{ category: 'Compliance', question: 'Immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger.' },
@@ -986,7 +1002,7 @@ const ar: TranslationSchema = {
 				{ year: '2021', text: 'هاكاثون روبوتات المحادثة عبر الإنترنت — حدث افتراضي لتطوير روبوتات محادثة تعليمية.' },
 				{ year: '2023', text: 'EDDI يتبنى <strong>تكاملات LLM</strong> — الاتصال بنماذج اللغة الكبيرة الحديثة عبر LangChain4j.' },
 				{ year: '2025', text: 'EDDI يتكيف مع <strong>تدفقات الوكلاء</strong> — التوجيه القائم على النوايا، والمحادثات المُدارة، وتنسيق الوكلاء المتعددين.' },
-				{ year: '2026', text: '<strong>v6</strong> — 42 أداة MCP، بروتوكول A2A، مناقشات جماعية، واجهة إدارة بصرية، تتابع النماذج.' },
+				{ year: '2026', text: '<strong>v6</strong> — 65 أداة MCP، بروتوكول A2A، 6 أنماط مناقشة بما في ذلك Task Force، وكلاء ديناميكيون، واجهة إدارة بصرية، تتابع النماذج.' },
 				{ year: '2026', text: 'تم اختياره كـ<strong>شريك موثوق لدى UNIDO</strong> للذكاء الاصطناعي الصناعي للجنوب العالمي. الحل معروض في WAIC 2026 · شنغهاي.' },
 			],
 			institutionsTitle: 'مدعوم من المؤسسات',
