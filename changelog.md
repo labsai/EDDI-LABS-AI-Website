@@ -4,6 +4,14 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🎯 UNIDO Page Accuracy Pass
+- `fix(website)`: **Removed unconfirmed WAIC 2026 showcase claims** — The official UNIDO selection email states WAIC 2026 is only a "potential platform… subject to further consultation and confirmation," and the conference had not yet taken place. Removed every "showcased at WAIC 2026" claim from the UNIDO callout, timeline, institutions card, meta description, and hero badge across all 11 locales. Removed the "WAIC 2026 Showcase" feature card and the WAIC organization card from `UnidoPartnerContent.astro` (org cards now list only the three certificate issuers: UNIDO, AIM Global, Shanghai AI Research Institute). Hero badge changed from "· WAIC Shanghai" to "· UNIDO".
+- `fix(website)`: **Softened UN over-attribution** — `whatCard1Title` "UN Institutional Validation" → "Recognized by a UN Agency" (and locale equivalents); UNIDO `ctaDesc` "recognized by the United Nations" → "recognized by UNIDO" (the recognition came via UNIDO's AIM Global, not the UN as a whole). All 11 locales.
+- `fix(website)`: **UNIDO member states 172 → 170+** — Future-proofed the member-state count (current ~173) in `whatCard1Desc` and `org1Desc` across all 11 locales.
+- `fix(website)`: **Provider count 12+ → 12** — Removed the inflating "+" from `solCard4Title` across all 11 locales.
+- `fix(website)`: **AIM Global link** — Repointed the AIM Global organization card from the empty `aim-global.org` to the official `aim.unido.org`.
+- `fix(website)`: **Solution description (EN)** — Softened "specifically recognized for its ability to serve organizations in the Global South" to "recognized as a promising contribution to industrial AI for the Global South", matching the official selection wording.
+
 ### 🔄 Sync with EDDI 6.1.2 Docs
 - `fix(website)`: **MCP Tool Count 42 → 65** — Updated all MCP tool count references across 11 locales, llms.txt, and llms-full.txt. Added 4 missing tool categories to MCP Server page: Group Conversation Tools (11), Memory Tools (8), GDPR Tools (2), Channel Integration Tools (5).
 - `feat(website)`: **Task Force Discussion Style** — Added 6th discussion style (TASK_FORCE: PLAN → EXECUTE → VERIFY → SYNTHESIS) and Dynamic Agents feature (create/recruit/teardown agents at runtime) to Multi-Agent page. Updated from "5 discussion styles" to "6". i18n'd across 11 locales.

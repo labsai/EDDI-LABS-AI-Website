@@ -157,7 +157,7 @@ const ja: TranslationSchema = {
 		// UNIDO Recognition Callout
 		unidoBadge: '国連認定',
 		unidoCalloutTitle: 'UNIDO産業AI信頼パートナー',
-		unidoCalloutDesc: 'LABS.AIは国連工業開発機関（UNIDO）により、グローバルサウスのための産業AIの信頼パートナーに選出されました — EDDIはWAIC 2026（上海）で紹介されています。',
+		unidoCalloutDesc: 'LABS.AIは国連工業開発機関（UNIDO）により、グローバルサウスのための産業AIの信頼パートナーに選出されました。',
 		unidoCalloutLink: 'パートナーシップについて詳しく →',
 		philosophyQuote: 'エンジンが厳格だからこそ、AIは創造的になれる。',
 		techTitle: '実績ある技術で構築',
@@ -975,7 +975,7 @@ const ja: TranslationSchema = {
 				{ year: '2023', text: 'EDDIが<strong>LLM統合</strong>を導入 — LangChain4j経由で最新の大規模言語モデルに接続。' },
 				{ year: '2025', text: 'EDDIが<strong>エージェントフロー</strong>に適応 — インテントベースのルーティング、管理された会話、マルチエージェントオーケストレーション。' },
 				{ year: '2026', text: '<strong>v6</strong> — 65のMCPツール、A2Aプロトコル、Task Forceを含む6つのディスカッションスタイル、動的エージェント、ビジュアル管理UI、モデルカスケーディング。' },
-				{ year: '2026', text: 'グローバルサウスのための産業AIの<strong>UNIDO信頼パートナー</strong>に選出。WAIC 2026（上海）でソリューションを紹介。' },
+				{ year: '2026', text: 'グローバルサウスのための産業AIの<strong>UNIDO信頼パートナー</strong>に選出。' },
 			],
 			institutionsTitle: '機関の支援',
 			institutionsDesc: '政府助成の研究と機関による検証 — マーケティングの主張だけではありません。',
@@ -992,7 +992,7 @@ const ja: TranslationSchema = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDIのDockerイメージは<strong>IBM/Red Hat認証済み</strong>。セキュリティ、安定性、エンタープライズデプロイメント準備のための自動プリフライトチェックに合格。',
 			instUnidoTitle: 'UNIDO信頼パートナー',
-			instUnidoDesc: '<strong>国連工業開発機関</strong>（UNIDO）により、グローバルサウスのための産業AIグローバルコールの信頼パートナーに選出。WAIC 2026（上海）で紹介。',
+			instUnidoDesc: '<strong>国連工業開発機関</strong>（UNIDO）により、グローバルサウスのための産業AIグローバルコールの信頼パートナーに選出。',
 			enterpriseTitle: 'エンタープライズ本番環境で稼働',
 			enterpriseDesc: 'EDDIは<a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a>で<strong>会話型AIエクスペリエンス</strong>を駆動しています — エンタープライズイネーブルメントプラットフォーム。EDDIは学習者とコンテンツクリエイターとのリアルタイムチャットインタラクションを処理し、並行処理、マルチモデルルーティング、本番スケールでの会話状態を管理します。',
 			enterpriseLinkText: 'Gnowbeについて詳しく \u2192',
@@ -1030,10 +1030,10 @@ const ja: TranslationSchema = {
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
 			title: 'UNIDO信頼パートナー — グローバルサウスのための産業AI',
-			description: 'LABS.AIはUNIDOによりグローバルサウスのための産業AI信頼パートナーに選出されました。EDDIを使用したエンタープライズAIエージェントオーケストレーション — WAIC 2026（上海）で紹介。',
+			description: 'LABS.AIはUNIDOによりグローバルサウスのための産業AI信頼パートナーに選出されました。EDDIを使用したエンタープライズAIエージェントオーケストレーション。',
 
 			// Hero
-			heroBadge: '2026年6月 · WAIC上海',
+			heroBadge: '2026年6月 · UNIDO',
 			heroTitle: 'UNIDO信頼パートナー',
 			heroHighlight: 'グローバルサウスのための産業AI',
 			heroDesc: 'LABS.AIは<strong>国連工業開発機関</strong>（UNIDO）により、<strong>信頼パートナーのグローバルコール — グローバルサウスのための産業AI</strong>の信頼パートナーに選出されました。',
@@ -1053,13 +1053,13 @@ const ja: TranslationSchema = {
 			solCard2Desc: 'ライセンス費用ゼロ、完全な透明性、ベンダーロックインなし。組織はエンタープライズライセンス料を支払うことなく、プラットフォームを検査、修正、拡張できます — 新興経済圏にとって重要です。',
 			solCard3Title: '構成駆動',
 			solCard3Desc: 'AIエージェントはJSON設定で定義され、コンパイル済みコードではありません。プロンプトエンジニアやドメインエキスパートが深いプログラミング専門知識なしに構築・反復できます — AI導入の障壁を下げます。',
-			solCard4Title: '12以上のLLMプロバイダー',
+			solCard4Title: '12のLLMプロバイダー',
 			solCard4Desc: 'ローカルモデル（Ollama）、オープンソースモデル、任意のOpenAI互換エンドポイントと連携 — 米国APIに縛られません。地域のローカルホスト型言語モデルの使用を可能にします。',
 
 			// What this means
 			whatTitle: 'これが意味すること',
-			whatCard1Title: '国連の機関認定',
-			whatCard1Desc: 'UNIDOは172の加盟国を持つ国連の専門機関であり、貧困削減、包括的なグローバル化、環境の持続可能性のための産業開発の促進に取り組んでいます。',
+			whatCard1Title: '国連機関による認定',
+			whatCard1Desc: 'UNIDOは170+の加盟国を持つ国連の専門機関であり、貧困削減、包括的なグローバル化、環境の持続可能性のための産業開発の促進に取り組んでいます。',
 			whatCard2Title: 'AIM Globalアライアンス',
 			whatCard2Desc: '産業・製造業のためのAIグローバルアライアンス（AIM Global）は、業界リーダー、政府、学術機関を結集し、製造・産業セクターにおける責任あるAI導入を推進しています。',
 			whatCard3Title: 'WAIC 2026ショーケース',
@@ -1070,7 +1070,7 @@ const ja: TranslationSchema = {
 			// Organizations
 			orgsTitle: '組織',
 			org1Title: 'UNIDO',
-			org1Desc: '<strong>国連工業開発機関</strong>（UNIDO）は包括的で持続可能な産業開発を促進する国連の専門機関です。172の加盟国を持ち、開発途上国と先進国の架け橋となっています。',
+			org1Desc: '<strong>国連工業開発機関</strong>（UNIDO）は包括的で持続可能な産業開発を促進する国連の専門機関です。170+の加盟国を持ち、開発途上国と先進国の架け橋となっています。',
 			org1Link: 'UNIDOを訪問 →',
 			org2Title: 'AIM Global',
 			org2Desc: '<strong>産業・製造業のためのAIグローバルアライアンス</strong>（AIM Global）は、世界の産業セクターにおける人工知能の責任ある導入を促進するマルチステークホルダーイニシアチブです。',
@@ -1097,7 +1097,7 @@ const ja: TranslationSchema = {
 
 			// CTA
 			ctaTitle: 'EDDIをデプロイする準備はできましたか？',
-			ctaDesc: '国連に認められた同じプラットフォームが、あなたの組織でも利用可能です — オープンソース、セルフホスト、本番環境対応。',
+			ctaDesc: 'UNIDOに認められた同じプラットフォームが、あなたの組織でも利用可能です — オープンソース、セルフホスト、本番環境対応。',
 			ctaGetStarted: '5分で始める',
 			ctaTrackRecord: '実績の全体を見る',
 		},

@@ -168,7 +168,7 @@ const de: TranslationSchema = {
 		// UNIDO Recognition Callout
 		unidoBadge: 'Anerkennung der Vereinten Nationen',
 		unidoCalloutTitle: 'UNIDO Trusted Partner für industrielle KI',
-		unidoCalloutDesc: 'LABS.AI wurde von der Organisation der Vereinten Nationen für industrielle Entwicklung (UNIDO) als Trusted Partner für industrielle KI für den Globalen Süden ausgewählt — mit EDDI, präsentiert auf der WAIC 2026 in Shanghai.',
+		unidoCalloutDesc: 'LABS.AI wurde von der Organisation der Vereinten Nationen für industrielle Entwicklung (UNIDO) als Trusted Partner für industrielle KI für den Globalen Süden ausgewählt.',
 		unidoCalloutLink: 'Mehr über die Partnerschaft erfahren →',
 		philosophyQuote: 'Die Engine ist streng, damit die KI kreativ sein kann.',
 		techTitle: 'Bewährte Technologie',
@@ -1017,7 +1017,7 @@ const de: TranslationSchema = {
 				{ year: '2023', text: 'EDDI integriert <strong>LLM-Anbindungen</strong> — Verbindung zu modernen großen Sprachmodellen über LangChain4j.' },
 				{ year: '2025', text: 'EDDI adaptiert <strong>Agent-Flows</strong> — Intent-basiertes Routing, verwaltete Konversationen und Multi-Agent-Orchestrierung.' },
 				{ year: '2026', text: '<strong>v6</strong> — 65 MCP-Tools, A2A-Protokoll, 6 Diskussionsstile inkl. Task Force, dynamische Agenten, visuelle Management-UI, Modell-kaskadierung.' },
-				{ year: '2026', text: 'Ausgewählt als <strong>UNIDO Trusted Partner</strong> für industrielle KI für den Globalen Süden. Lösung präsentiert auf der WAIC 2026 · Shanghai.' },
+				{ year: '2026', text: 'Ausgewählt als <strong>UNIDO Trusted Partner</strong> für industrielle KI für den Globalen Süden.' },
 			],
 			institutionsTitle: 'Institutionell gefördert',
 			institutionsDesc: 'Staatlich geförderte Forschung und institutionelle Validierung — nicht nur Marketingversprechen.',
@@ -1034,7 +1034,7 @@ const de: TranslationSchema = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'Das Docker-Image von EDDI ist <strong>IBM/Red Hat-zertifiziert</strong> und besteht automatisierte Preflight-Checks für Sicherheit, Stabilität und Enterprise-Deployment-Bereitschaft.',
 			instUnidoTitle: 'UNIDO Trusted Partner',
-			instUnidoDesc: 'Ausgewählt von der <strong>Organisation der Vereinten Nationen für industrielle Entwicklung</strong> (UNIDO) als Trusted Partner im Rahmen des Global Call für industrielle KI für den Globalen Süden. Präsentiert auf der WAIC 2026 · Shanghai.',
+			instUnidoDesc: 'Ausgewählt von der <strong>Organisation der Vereinten Nationen für industrielle Entwicklung</strong> (UNIDO) als Trusted Partner im Rahmen des Global Call für industrielle KI für den Globalen Süden.',
 			enterpriseTitle: 'Im Enterprise-Produktivbetrieb eingesetzt',
 			enterpriseDesc: 'EDDI betreibt die <strong>konversationellen KI-Erlebnisse</strong> bei <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a> — einer Enterprise-Enablement-Plattform. EDDI übernimmt die Echtzeit-Chat-Interaktionen mit Lernenden und Content-Erstellern und verwaltet Nebenläufigkeit, Multi-Modell-Routing und Konversationszustand im Produktivbetrieb.',
 			enterpriseLinkText: 'Mehr über Gnowbe erfahren \u2192',
@@ -1072,10 +1072,10 @@ const de: TranslationSchema = {
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
 			title: 'UNIDO Trusted Partner — Industrielle KI für den Globalen Süden',
-			description: 'LABS.AI wurde von UNIDO als Trusted Partner für industrielle KI für den Globalen Süden ausgewählt. Enterprise-KI-Agenten-Orchestrierung mit EDDI — präsentiert auf der WAIC 2026 in Shanghai.',
+			description: 'LABS.AI wurde von UNIDO als Trusted Partner für industrielle KI für den Globalen Süden ausgewählt. Enterprise-KI-Agenten-Orchestrierung mit EDDI.',
 
 			// Hero
-			heroBadge: 'Juni 2026 \u00b7 WAIC Shanghai',
+			heroBadge: 'Juni 2026 \u00b7 UNIDO',
 			heroTitle: 'UNIDO Trusted Partner',
 			heroHighlight: 'Industrielle KI für den Globalen Süden',
 			heroDesc: 'LABS.AI wurde von der <strong>Organisation der Vereinten Nationen für industrielle Entwicklung</strong> (UNIDO) als Trusted Partner im Rahmen des <strong>Global Call for Trusted Partners — Industrial AI for the Global South</strong> ausgewählt.',
@@ -1095,13 +1095,13 @@ const de: TranslationSchema = {
 			solCard2Desc: 'Keine Lizenzkosten, volle Transparenz, kein Vendor Lock-in. Organisationen können die Plattform inspizieren, modifizieren und erweitern, ohne Enterprise-Lizenzgebühren zu zahlen — entscheidend für Schwellenländer.',
 			solCard3Title: 'Konfigurationsgesteuert',
 			solCard3Desc: 'KI-Agenten werden über JSON-Konfiguration definiert, nicht durch kompilierten Code. Prompt-Engineers und Domänenexperten können ohne tiefgreifende Programmierkenntnisse erstellen und iterieren — was die Hürde für KI-Adoption senkt.',
-			solCard4Title: '12+ LLM-Anbieter',
+			solCard4Title: '12 LLM-Anbieter',
 			solCard4Desc: 'Funktioniert mit lokalen Modellen (Ollama), Open-Source-Modellen und jedem OpenAI-kompatiblen Endpunkt — nicht ausschließlich an US-basierte APIs gebunden. Ermöglicht den Einsatz regionaler und lokal gehosteter Sprachmodelle.',
 
 			// What this means
 			whatTitle: 'Was das bedeutet',
-			whatCard1Title: 'Institutionelle UN-Validierung',
-			whatCard1Desc: 'UNIDO ist eine Sonderorganisation der Vereinten Nationen mit 172 Mitgliedstaaten, die sich der Förderung der industriellen Entwicklung für Armutsbekämpfung, inklusive Globalisierung und ökologische Nachhaltigkeit widmet.',
+			whatCard1Title: 'Von einer UN-Organisation anerkannt',
+			whatCard1Desc: 'UNIDO ist eine Sonderorganisation der Vereinten Nationen mit 170+ Mitgliedstaaten, die sich der Förderung der industriellen Entwicklung für Armutsbekämpfung, inklusive Globalisierung und ökologische Nachhaltigkeit widmet.',
 			whatCard2Title: 'AIM Global Allianz',
 			whatCard2Desc: 'Die Global Alliance on AI for Industry & Manufacturing (AIM Global) bringt Branchenführer, Regierungen und Wissenschaft zusammen, um die verantwortungsvolle KI-Einführung in der Fertigung und im industriellen Sektor weltweit voranzutreiben.',
 			whatCard3Title: 'WAIC 2026 Präsentation',
@@ -1112,7 +1112,7 @@ const de: TranslationSchema = {
 			// Organizations
 			orgsTitle: 'Die Organisationen',
 			org1Title: 'UNIDO',
-			org1Desc: 'Die <strong>Organisation der Vereinten Nationen für industrielle Entwicklung</strong> (UNIDO) ist eine Sonderorganisation der UN zur Förderung inklusiver und nachhaltiger industrieller Entwicklung. Mit 172 Mitgliedstaaten überbrückt UNIDO die Kluft zwischen Entwicklungs- und Industrieländern.',
+			org1Desc: 'Die <strong>Organisation der Vereinten Nationen für industrielle Entwicklung</strong> (UNIDO) ist eine Sonderorganisation der UN zur Förderung inklusiver und nachhaltiger industrieller Entwicklung. Mit 170+ Mitgliedstaaten überbrückt UNIDO die Kluft zwischen Entwicklungs- und Industrieländern.',
 			org1Link: 'UNIDO besuchen →',
 			org2Title: 'AIM Global',
 			org2Desc: 'Die <strong>Global Alliance on AI for Industry & Manufacturing</strong> (AIM Global) ist eine Multi-Stakeholder-Initiative zur Förderung der verantwortungsvollen Einführung künstlicher Intelligenz in industriellen Sektoren weltweit.',
@@ -1139,7 +1139,7 @@ const de: TranslationSchema = {
 
 			// CTA
 			ctaTitle: 'Bereit, EDDI einzusetzen?',
-			ctaDesc: 'Dieselbe Plattform, die von den Vereinten Nationen anerkannt wurde, steht Ihrer Organisation zur Verfügung — Open Source, selbst gehostet und produktionsbereit.',
+			ctaDesc: 'Dieselbe Plattform, die von UNIDO anerkannt wurde, steht Ihrer Organisation zur Verfügung — Open Source, selbst gehostet und produktionsbereit.',
 			ctaGetStarted: 'In 5 Minuten starten',
 			ctaTrackRecord: 'Vollständige Erfolgsbilanz anzeigen',
 		},

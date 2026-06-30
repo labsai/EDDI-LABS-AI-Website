@@ -155,7 +155,7 @@ const zh: TranslationSchema = {
 		// UNIDO Recognition Callout
 		unidoBadge: '联合国认可',
 		unidoCalloutTitle: 'UNIDO 工业 AI 信赖合作伙伴',
-		unidoCalloutDesc: 'LABS.AI 被联合国工业发展组织（UNIDO）选为全球南方工业 AI 信赖合作伙伴 — EDDI 在 WAIC 2026（上海）展示。',
+		unidoCalloutDesc: 'LABS.AI 被联合国工业发展组织（UNIDO）选为全球南方工业 AI 信赖合作伙伴。',
 		unidoCalloutLink: '了解更多合作详情 →',
 		philosophyQuote: '引擎严格，AI才能自由创造。',
 		techTitle: '基于成熟技术构建',
@@ -962,7 +962,7 @@ const zh: TranslationSchema = {
 				{ year: '2023', text: 'EDDI 引入 <strong>LLM 集成</strong> — 通过 LangChain4j 连接现代大型语言模型。' },
 				{ year: '2025', text: 'EDDI 适配 <strong>Agent 工作流</strong> — 基于意图的路由、管理对话和多代理编排。' },
 				{ year: '2026', text: '<strong>v6</strong> — 65 个 MCP 工具、A2A 协议、6种讨论样式（含 Task Force）、动态代理、可视化管理 UI、模型级联。' },
-				{ year: '2026', text: '被选为全球南方工业 AI 的<strong>UNIDO 信赖合作伙伴</strong>。解决方案在 WAIC 2026（上海）展示。' },
+				{ year: '2026', text: '被选为全球南方工业 AI 的<strong>UNIDO 信赖合作伙伴</strong>。' },
 			],
 			institutionsTitle: '机构支持',
 			institutionsDesc: '政府资助的研究和机构验证 — 不仅仅是营销宣传。',
@@ -979,7 +979,7 @@ const zh: TranslationSchema = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDI 的 Docker 镜像已获得 <strong>IBM/Red Hat 认证</strong>，通过了安全性、稳定性和企业部署准备的自动预检。',
 			instUnidoTitle: 'UNIDO 信赖合作伙伴',
-			instUnidoDesc: '被<strong>联合国工业发展组织</strong>（UNIDO）选为全球南方工业 AI 全球召集的信赖合作伙伴。在 WAIC 2026（上海）展示。',
+			instUnidoDesc: '被<strong>联合国工业发展组织</strong>（UNIDO）选为全球南方工业 AI 全球召集的信赖合作伙伴。',
 			enterpriseTitle: '在企业生产环境中部署',
 			enterpriseDesc: 'EDDI 为 <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a> 提供 <strong>对话式 AI 体验</strong> — 一个企业赋能平台。EDDI 处理与学习者和内容创建者的实时聊天交互，管理并发、多模型路由和生产规模的对话状态。',
 			enterpriseLinkText: '了解更多关于 Gnowbe \u2192',
@@ -1017,10 +1017,10 @@ const zh: TranslationSchema = {
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
 			title: 'UNIDO 信赖合作伙伴 — 全球南方工业 AI',
-			description: 'LABS.AI 被 UNIDO 选为全球南方工业 AI 信赖合作伙伴。使用 EDDI 的企业级 AI 代理编排 — 在 WAIC 2026（上海）展示。',
+			description: 'LABS.AI 被 UNIDO 选为全球南方工业 AI 信赖合作伙伴。使用 EDDI 的企业级 AI 代理编排。',
 
 			// Hero
-			heroBadge: '2026年6月 · WAIC 上海',
+			heroBadge: '2026年6月 · UNIDO',
 			heroTitle: 'UNIDO 信赖合作伙伴',
 			heroHighlight: '全球南方工业 AI',
 			heroDesc: 'LABS.AI 被<strong>联合国工业发展组织</strong>（UNIDO）选为<strong>信赖合作伙伴全球召集 — 全球南方工业 AI</strong>的信赖合作伙伴。',
@@ -1040,13 +1040,13 @@ const zh: TranslationSchema = {
 			solCard2Desc: '零许可费用、完全透明、无供应商锁定。组织可以在不支付企业许可费的情况下检查、修改和扩展平台 — 对新兴经济体至关重要。',
 			solCard3Title: '配置驱动',
 			solCard3Desc: 'AI 代理通过 JSON 配置定义，而非编译代码。提示工程师和领域专家无需深入的编程专业知识即可构建和迭代 — 降低 AI 采用门槛。',
-			solCard4Title: '12+ LLM 提供商',
+			solCard4Title: '12 LLM 提供商',
 			solCard4Desc: '支持本地模型（Ollama）、开源模型和任意 OpenAI 兼容端点 — 不绑定美国 API。支持使用区域和本地托管的语言模型。',
 
 			// What this means
 			whatTitle: '这意味着什么',
-			whatCard1Title: '联合国机构认可',
-			whatCard1Desc: 'UNIDO 是拥有 172 个成员国的联合国专门机构，致力于促进减贫、包容性全球化和环境可持续性的工业发展。',
+			whatCard1Title: '由联合国机构认可',
+			whatCard1Desc: 'UNIDO 是拥有 170+ 个成员国的联合国专门机构，致力于促进减贫、包容性全球化和环境可持续性的工业发展。',
 			whatCard2Title: 'AIM Global 联盟',
 			whatCard2Desc: '工业与制造业 AI 全球联盟（AIM Global）汇集了行业领袖、政府和学术界，推动制造业和工业领域负责任的 AI 采用。',
 			whatCard3Title: 'WAIC 2026 展示',
@@ -1057,7 +1057,7 @@ const zh: TranslationSchema = {
 			// Organizations
 			orgsTitle: '组织机构',
 			org1Title: 'UNIDO',
-			org1Desc: '<strong>联合国工业发展组织</strong>（UNIDO）是促进包容性和可持续工业发展的联合国专门机构。拥有 172 个成员国，UNIDO 在发展中国家和工业化国家之间架起桥梁。',
+			org1Desc: '<strong>联合国工业发展组织</strong>（UNIDO）是促进包容性和可持续工业发展的联合国专门机构。拥有 170+ 个成员国，UNIDO 在发展中国家和工业化国家之间架起桥梁。',
 			org1Link: '访问 UNIDO →',
 			org2Title: 'AIM Global',
 			org2Desc: '<strong>工业与制造业 AI 全球联盟</strong>（AIM Global）是一个多方利益相关者倾议，促进全球工业领域负责任地采用人工智能。',
@@ -1084,7 +1084,7 @@ const zh: TranslationSchema = {
 
 			// CTA
 			ctaTitle: '准备部署 EDDI 了吗？',
-			ctaDesc: '联合国认可的同一平台可供您的组织使用 — 开源、自托管、生产就绪。',
+			ctaDesc: 'UNIDO 认可的同一平台可供您的组织使用 — 开源、自托管、生产就绪。',
 			ctaGetStarted: '5 分钟快速开始',
 			ctaTrackRecord: '查看完整发展历程',
 		},

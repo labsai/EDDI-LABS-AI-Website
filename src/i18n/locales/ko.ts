@@ -156,7 +156,7 @@ const ko: TranslationSchema = {
 		// UNIDO Recognition Callout
 		unidoBadge: 'UN 인정',
 		unidoCalloutTitle: 'UNIDO 산업 AI 신뢰 파트너',
-		unidoCalloutDesc: 'LABS.AI는 유엔공업개발기구(UNIDO)에 의해 글로벌 사우스를 위한 산업 AI 신뢰 파트너로 선정되었습니다 — EDDI는 WAIC 2026(상하이)에서 소개되고 있습니다.',
+		unidoCalloutDesc: 'LABS.AI는 유엔공업개발기구(UNIDO)에 의해 글로벌 사우스를 위한 산업 AI 신뢰 파트너로 선정되었습니다.',
 		unidoCalloutLink: '파트너십에 대해 자세히 →',
 		philosophyQuote: '엔진이 엄격하기에, AI는 창의적일 수 있습니다.',
 		techTitle: '검증된 기술로 구축',
@@ -972,7 +972,7 @@ const ko: TranslationSchema = {
 				{ year: '2023', text: 'EDDI가 <strong>LLM 통합</strong> 도입 — LangChain4j를 통해 최신 대규모 언어 모델에 연결.' },
 				{ year: '2025', text: 'EDDI가 <strong>에이전트 플로우</strong>에 적응 — 인텐트 기반 라우팅, 관리되는 대화, 멀티 에이전트 오케스트레이션.' },
 				{ year: '2026', text: '<strong>v6</strong> — 65개 MCP 도구, A2A 프로토콜, Task Force 포함 6개 토론 스타일, 동적 에이전트, 비주얼 관리 UI, 모델 캐스케이딩.' },
-				{ year: '2026', text: '글로벌 사우스를 위한 산업 AI의 <strong>UNIDO 신뢰 파트너</strong>로 선정. WAIC 2026(상하이)에서 솔루션 소개.' },
+				{ year: '2026', text: '글로벌 사우스를 위한 산업 AI의 <strong>UNIDO 신뢰 파트너</strong>로 선정.' },
 			],
 			institutionsTitle: '기관의 지원',
 			institutionsDesc: '정부 지원 연구 및 기관 검증 — 단순한 마케팅 주장이 아닙니다.',
@@ -989,7 +989,7 @@ const ko: TranslationSchema = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'EDDI의 Docker 이미지는 <strong>IBM/Red Hat 인증</strong>을 받았으며, 보안, 안정성, 엔터프라이즈 배포 준비를 위한 자동화된 프리플라이트 검사를 통과했습니다.',
 			instUnidoTitle: 'UNIDO 신뢰 파트너',
-			instUnidoDesc: '<strong>유엔공업개발기구</strong>(UNIDO)에 의해 글로벌 사우스를 위한 산업 AI 글로벌 콜의 신뢰 파트너로 선정. WAIC 2026(상하이)에서 소개.',
+			instUnidoDesc: '<strong>유엔공업개발기구</strong>(UNIDO)에 의해 글로벌 사우스를 위한 산업 AI 글로벌 콜의 신뢰 파트너로 선정.',
 			enterpriseTitle: '기업 프로덕션에 배포됨',
 			enterpriseDesc: 'EDDI는 <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a>에서 <strong>대화형 AI 경험</strong>을 구동합니다 — 엔터프라이즈 이네이블먼트 플랫폼. EDDI는 학습자 및 콘텐츠 제작자와의 실시간 채팅 상호작용을 처리하며, 동시성, 멀티 모델 라우팅, 프로덕션 규모의 대화 상태를 관리합니다.',
 			enterpriseLinkText: 'Gnowbe에 대해 자세히 알아보기 \u2192',
@@ -1027,10 +1027,10 @@ const ko: TranslationSchema = {
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
 			title: 'UNIDO 신뢰 파트너 — 글로벌 사우스를 위한 산업 AI',
-			description: 'LABS.AI는 UNIDO에 의해 글로벌 사우스를 위한 산업 AI 신뢰 파트너로 선정되었습니다. EDDI를 활용한 엔터프라이즈 AI 에이전트 오케스트레이션 — WAIC 2026(상하이)에서 소개.',
+			description: 'LABS.AI는 UNIDO에 의해 글로벌 사우스를 위한 산업 AI 신뢰 파트너로 선정되었습니다. EDDI를 활용한 엔터프라이즈 AI 에이전트 오케스트레이션.',
 
 			// Hero
-			heroBadge: '2026년 6월 · WAIC 상하이',
+			heroBadge: '2026년 6월 · UNIDO',
 			heroTitle: 'UNIDO 신뢰 파트너',
 			heroHighlight: '글로벌 사우스를 위한 산업 AI',
 			heroDesc: 'LABS.AI는 <strong>유엔공업개발기구</strong>(UNIDO)에 의해 <strong>신뢰 파트너 글로벌 콜 — 글로벌 사우스를 위한 산업 AI</strong>의 신뢰 파트너로 선정되었습니다.',
@@ -1050,13 +1050,13 @@ const ko: TranslationSchema = {
 			solCard2Desc: '라이선스 비용 제로, 완전한 투명성, 벤더 종속 없음. 조직은 엔터프라이즈 라이선스 요금을 지불하지 않고 플랫폼을 검사, 수정, 확장할 수 있습니다 — 신흥 경제권에 중요합니다.',
 			solCard3Title: '구성 기반',
 			solCard3Desc: 'AI 에이전트는 컴파일된 코드가 아닌 JSON 구성으로 정의됩니다. 프롬프트 엔지니어와 도메인 전문가가 깊은 프로그래밍 전문지식 없이 구축하고 반복할 수 있습니다 — AI 도입의 장벽을 낮춥니다.',
-			solCard4Title: '12개 이상의 LLM 제공자',
+			solCard4Title: '12개의 LLM 제공자',
 			solCard4Desc: '로컬 모델(Ollama), 오픈소스 모델, 모든 OpenAI 호환 엔드포인트와 연동 — 미국 API에 종속되지 않습니다. 지역 및 로컬 호스팅 언어 모델 사용을 가능하게 합니다.',
 
 			// What this means
 			whatTitle: '이것이 의미하는 것',
-			whatCard1Title: 'UN 기관 인정',
-			whatCard1Desc: 'UNIDO는 172개 회원국을 보유한 UN 전문 기관으로, 빈곴 감소, 포용적 세계화, 환경 지속가능성을 위한 산업 발전을 촉진합니다.',
+			whatCard1Title: 'UN 기관의 인정',
+			whatCard1Desc: 'UNIDO는 170+개 회원국을 보유한 UN 전문 기관으로, 빈곴 감소, 포용적 세계화, 환경 지속가능성을 위한 산업 발전을 촉진합니다.',
 			whatCard2Title: 'AIM Global 얼라이언스',
 			whatCard2Desc: '산업 및 제조를 위한 AI 글로벌 얼라이언스(AIM Global)는 업계 리더, 정부, 학계를 결집하여 제조 및 산업 분야에서 책임 있는 AI 도입을 촉진합니다.',
 			whatCard3Title: 'WAIC 2026 쇼케이스',
@@ -1067,7 +1067,7 @@ const ko: TranslationSchema = {
 			// Organizations
 			orgsTitle: '조직',
 			org1Title: 'UNIDO',
-			org1Desc: '<strong>유엔공업개발기구</strong>(UNIDO)는 포용적이고 지속가능한 산업 발전을 촉진하는 UN 전문 기관입니다. 172개 회원국을 보유하며 개발도상국과 선진국 간의 가교 역할을 합니다.',
+			org1Desc: '<strong>유엔공업개발기구</strong>(UNIDO)는 포용적이고 지속가능한 산업 발전을 촉진하는 UN 전문 기관입니다. 170+개 회원국을 보유하며 개발도상국과 선진국 간의 가교 역할을 합니다.',
 			org1Link: 'UNIDO 방문 →',
 			org2Title: 'AIM Global',
 			org2Desc: '<strong>산업 및 제조를 위한 AI 글로벌 얼라이언스</strong>(AIM Global)는 전 세계 산업 분야에서 인공지능의 책임 있는 도입을 촉진하는 다자간 이니셔티브입니다.',
@@ -1094,7 +1094,7 @@ const ko: TranslationSchema = {
 
 			// CTA
 			ctaTitle: 'EDDI를 배포할 준비가 되셨나요?',
-			ctaDesc: '유엔이 인정한 동일한 플랫폼을 귀하의 조직에서도 사용할 수 있습니다 — 오픈소스, 자체 호스팅, 프로덕션 준비 완료.',
+			ctaDesc: 'UNIDO가 인정한 동일한 플랫폼을 귀하의 조직에서도 사용할 수 있습니다 — 오픈소스, 자체 호스팅, 프로덕션 준비 완료.',
 			ctaGetStarted: '5분 만에 시작하기',
 			ctaTrackRecord: '전체 실적 보기',
 		},

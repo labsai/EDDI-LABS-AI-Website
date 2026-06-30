@@ -168,7 +168,7 @@ const fr: TranslationSchema = {
 		// UNIDO Recognition Callout
 		unidoBadge: 'Reconnaissance des Nations Unies',
 		unidoCalloutTitle: 'Partenaire de Confiance UNIDO pour l\'IA Industrielle',
-		unidoCalloutDesc: 'LABS.AI a été sélectionné par l\'Organisation des Nations Unies pour le Développement Industriel (UNIDO) comme Partenaire de Confiance pour l\'IA Industrielle pour le Sud Global — avec EDDI présenté à la WAIC 2026 à Shanghai.',
+		unidoCalloutDesc: 'LABS.AI a été sélectionné par l\'Organisation des Nations Unies pour le Développement Industriel (UNIDO) comme Partenaire de Confiance pour l\'IA Industrielle pour le Sud Global.',
 		unidoCalloutLink: 'En savoir plus sur le partenariat →',
 		philosophyQuote: 'Le moteur est strict pour que l\'IA puisse être créative.',
 		techTitle: 'Construit sur des Technologies Éprouvées',
@@ -1028,7 +1028,7 @@ const fr: TranslationSchema = {
 				{ year: '2023', text: 'EDDI intègre les <strong>connexions LLM</strong> — connexion aux grands modèles de langage modernes via LangChain4j.' },
 				{ year: '2025', text: 'EDDI s\'adapte aux <strong>flux d\'agents</strong> — routage basé sur l\'intention, conversations gérées et orchestration multi-agents.' },
 				{ year: '2026', text: '<strong>v6</strong> — 65 outils MCP, protocole A2A, discussions de groupe, UI de gestion visuelle, cascading de modèles.' },
-				{ year: '2026', text: 'Sélectionné comme <strong>Partenaire de Confiance UNIDO</strong> pour l\'IA Industrielle pour le Sud Global. Solution présentée à la WAIC 2026 \u00b7 Shanghai.' },
+				{ year: '2026', text: 'Sélectionné comme <strong>Partenaire de Confiance UNIDO</strong> pour l\'IA Industrielle pour le Sud Global.' },
 			],
 			institutionsTitle: 'Soutenu par les institutions',
 			institutionsDesc: 'Recherche financée par les gouvernements et validation institutionnelle — pas seulement des arguments marketing.',
@@ -1045,7 +1045,7 @@ const fr: TranslationSchema = {
 			instRedHatTitle: 'Red Hat Certified Container',
 			instRedHatDesc: 'L\'image Docker d\'EDDI est <strong>certifiée IBM/Red Hat</strong>, passant les contrôles automatisés de pré-vol pour la sécurité, la stabilité et la préparation au déploiement entreprise.',
 			instUnidoTitle: 'Partenaire de Confiance UNIDO',
-			instUnidoDesc: 'Sélectionné par l\'<strong>Organisation des Nations Unies pour le Développement Industriel</strong> (UNIDO) comme Partenaire de Confiance dans le cadre de l\'Appel Global pour l\'IA Industrielle pour le Sud Global. Présenté à la WAIC 2026 \u00b7 Shanghai.',
+			instUnidoDesc: 'Sélectionné par l\'<strong>Organisation des Nations Unies pour le Développement Industriel</strong> (UNIDO) comme Partenaire de Confiance dans le cadre de l\'Appel Global pour l\'IA Industrielle pour le Sud Global.',
 			enterpriseTitle: 'Déployé en production entreprise',
 			enterpriseDesc: 'EDDI alimente les <strong>expériences d\'IA conversationnelle</strong> chez <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a> — une plateforme d\'enablement entreprise. EDDI gère les interactions de chat en temps réel avec les apprenants et les créateurs de contenu, gérant la concurrence, le routage multi-modèles et l\'état conversationnel à l\'échelle de la production.',
 			enterpriseLinkText: 'En savoir plus sur Gnowbe \u2192',
@@ -1083,10 +1083,10 @@ const fr: TranslationSchema = {
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
 			title: 'Partenaire de Confiance UNIDO — IA Industrielle pour le Sud Global',
-			description: 'LABS.AI a été sélectionné par UNIDO comme Partenaire de Confiance pour l\'IA Industrielle pour le Sud Global. Orchestration d\'agents d\'IA d\'entreprise avec EDDI — présenté à la WAIC 2026 à Shanghai.',
+			description: 'LABS.AI a été sélectionné par UNIDO comme Partenaire de Confiance pour l\'IA Industrielle pour le Sud Global. Orchestration d\'agents d\'IA d\'entreprise avec EDDI.',
 
 			// Hero
-			heroBadge: 'Juin 2026 \u00b7 WAIC Shanghai',
+			heroBadge: 'Juin 2026 \u00b7 UNIDO',
 			heroTitle: 'Partenaire de Confiance UNIDO',
 			heroHighlight: 'IA Industrielle pour le Sud Global',
 			heroDesc: 'LABS.AI a été sélectionné par l\'<strong>Organisation des Nations Unies pour le Développement Industriel</strong> (UNIDO) comme Partenaire de Confiance dans le cadre de l\'<strong>Appel Global pour les Partenaires de Confiance — IA Industrielle pour le Sud Global</strong>.',
@@ -1106,13 +1106,13 @@ const fr: TranslationSchema = {
 			solCard2Desc: 'Zéro coût de licence, transparence totale, pas de vendor lock-in. Les organisations peuvent inspecter, modifier et étendre la plateforme sans payer de licences entreprise \u2014 essentiel pour les économies émergentes.',
 			solCard3Title: 'Piloté par configuration',
 			solCard3Desc: 'Les agents IA sont définis via une configuration JSON, pas du code compilé. Les ingénieurs de prompts et experts métier peuvent créer et itérer sans expertise approfondie en programmation \u2014 abaissant la barrière à l\'adoption de l\'IA.',
-			solCard4Title: '12+ fournisseurs LLM',
+			solCard4Title: '12 fournisseurs LLM',
 			solCard4Desc: 'Compatible avec les modèles locaux (Ollama), les modèles open source et tout endpoint compatible OpenAI \u2014 pas exclusivement lié aux APIs américaines. Permet l\'utilisation de modèles de langage régionaux et hébergés localement.',
 
 			// What this means
 			whatTitle: 'Ce que cela signifie',
-			whatCard1Title: 'Validation Institutionnelle de l\'ONU',
-			whatCard1Desc: 'UNIDO est une agence spécialisée des Nations Unies avec 172 États membres, dédiée à la promotion du développement industriel pour la réduction de la pauvreté, la mondialisation inclusive et la durabilité environnementale.',
+			whatCard1Title: 'Reconnu par une agence de l\'ONU',
+			whatCard1Desc: 'UNIDO est une agence spécialisée des Nations Unies avec 170+ États membres, dédiée à la promotion du développement industriel pour la réduction de la pauvreté, la mondialisation inclusive et la durabilité environnementale.',
 			whatCard2Title: 'Alliance AIM Global',
 			whatCard2Desc: 'L\'Alliance Mondiale pour l\'IA dans l\'Industrie et la Fabrication (AIM Global) réunit des leaders industriels, des gouvernements et le monde académique pour promouvoir l\'adoption responsable de l\'IA dans les secteurs manufacturier et industriel à travers le monde.',
 			whatCard3Title: 'Présentation WAIC 2026',
@@ -1123,7 +1123,7 @@ const fr: TranslationSchema = {
 			// Organizations
 			orgsTitle: 'Les Organisations',
 			org1Title: 'UNIDO',
-			org1Desc: 'L\'<strong>Organisation des Nations Unies pour le Développement Industriel</strong> (UNIDO) est une agence spécialisée de l\'ONU promouvant le développement industriel inclusif et durable. Avec 172 États membres, UNIDO comble le fossé entre les nations en développement et les nations industrialisées.',
+			org1Desc: 'L\'<strong>Organisation des Nations Unies pour le Développement Industriel</strong> (UNIDO) est une agence spécialisée de l\'ONU promouvant le développement industriel inclusif et durable. Avec 170+ États membres, UNIDO comble le fossé entre les nations en développement et les nations industrialisées.',
 			org1Link: 'Visiter UNIDO →',
 			org2Title: 'AIM Global',
 			org2Desc: 'L\'<strong>Alliance Mondiale pour l\'IA dans l\'Industrie et la Fabrication</strong> (AIM Global) est une initiative multi-parties prenantes favorisant l\'adoption responsable de l\'intelligence artificielle dans les secteurs industriels à travers le monde.',
@@ -1150,7 +1150,7 @@ const fr: TranslationSchema = {
 
 			// CTA
 			ctaTitle: 'Prêt à déployer EDDI ?',
-			ctaDesc: 'La même plateforme reconnue par les Nations Unies est disponible pour votre organisation — open source, auto-hébergée et prête pour la production.',
+			ctaDesc: 'La même plateforme reconnue par UNIDO est disponible pour votre organisation — open source, auto-hébergée et prête pour la production.',
 			ctaGetStarted: 'Démarrer en 5 minutes',
 			ctaTrackRecord: 'Voir le bilan complet',
 		},
