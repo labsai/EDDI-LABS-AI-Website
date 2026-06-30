@@ -61,7 +61,7 @@ const fr: TranslationSchema = {
 	common: {
 		getStartedCta: 'Démarrer →',
 		viewOnGithub: 'Voir sur GitHub ↗',
-		bannerBadge: '🏆 Reconnaissance ONU',
+		bannerBadge: '🏆 Reconnaissance UNIDO',
 		bannerText: 'LABS.AI sélectionné comme Partenaire de Confiance UNIDO pour l\'IA Industrielle',
 		bannerLink: 'En savoir plus',
 		notFoundTitle: 'Page introuvable',
@@ -166,7 +166,7 @@ const fr: TranslationSchema = {
 		trustCI: 'CI réussi · CodeQL propre',
 		trustCIDesc: 'Builds automatisés, analyse de sécurité et analyse de code',
 		// UNIDO Recognition Callout
-		unidoBadge: 'Reconnaissance des Nations Unies',
+		unidoBadge: 'Reconnaissance UNIDO',
 		unidoCalloutTitle: 'Partenaire de Confiance UNIDO pour l\'IA Industrielle',
 		unidoCalloutDesc: 'LABS.AI a été sélectionné par l\'Organisation des Nations Unies pour le Développement Industriel (UNIDO) comme Partenaire de Confiance pour l\'IA Industrielle pour le Sud Global.',
 		unidoCalloutLink: 'En savoir plus sur le partenariat →',
@@ -214,7 +214,7 @@ const fr: TranslationSchema = {
 		faq5A:
 			'EDDI remplit un rôle similaire de construction visuelle, mais avec une architecture de niveau entreprise. Contrairement à Flowise et n8n, EDDI n\'utilise aucun <code>eval()</code> ni bloc d\'exécution de code, exécute des millions de threads virtuels légers pour une concurrence de niveau entreprise, supporte l\'authentification OIDC/Keycloak et stocke les données dans MongoDB ou PostgreSQL. Il est conçu pour les industries réglementées.',
 		faq6Q: 'EDDI est-il lié à "Eddie AI" ou à d\'autres produits nommés "Eddy" ?',
-		faq6A: 'Non. EDDI (par <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) est une <strong>plateforme d\'orchestration d\'agents IA d\'entreprise</strong> auto-hébergée construite sur Java/Quarkus. Il n\'est pas lié aux outils de montage vidéo, logiciels RH, constructeurs de chatbots ou autres produits portant des noms similaires.',
+		faq6A: 'Non. EDDI (par <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) est une <strong>plateforme d\'orchestration d\'agents IA d\'entreprise</strong> auto-hébergée construite sur Java/Quarkus. Il n\'est pas lié aux outils de montage vidéo, logiciels RH, constructeurs de chatbots ou autres produits portant des noms similaires.',
 		faq7Q: 'Comment EDDI se compare-t-il aux plateformes IA cloud comme AWS Bedrock ou Azure AI Studio ?',
 		faq7A: 'Les plateformes IA cloud offrent une infrastructure gérée mais créent un <strong>verrouillage fournisseur</strong>. EDDI fonctionne partout où Docker fonctionne. Voir notre <a href="/enterprise/vs-alternatives/">comparaison détaillée</a>.',
 		demoBtn: 'Système de démo',
@@ -1099,7 +1099,7 @@ const fr: TranslationSchema = {
 			// Solution section
 			solutionTitle: 'La Solution',
 			solutionSubtitle: 'Orchestration d\'Agents d\'IA d\'Entreprise pour la Digitalisation Industrielle avec EDDI',
-			solutionDesc: 'EDDI fournit une plateforme auto-hébergée et pilotée par configuration pour déployer des systèmes d\'IA multi-agents gouvernés \u2014 spécialement conçue pour la digitalisation industrielle. La plateforme a été spécifiquement reconnue pour sa capacité à servir les organisations du Sud Global :',
+			solutionDesc: 'EDDI fournit une plateforme auto-hébergée et pilotée par configuration pour déployer des systèmes d\'IA multi-agents gouvernés \u2014 spécialement conçue pour la digitalisation industrielle. Elle a été reconnue comme une contribution prometteuse à l\'IA industrielle pour le Sud Global :',
 			solCard1Title: 'Auto-hébergé et souverain',
 			solCard1Desc: 'Fonctionne partout où Docker fonctionne \u2014 sur site, dans n\'importe quel cloud ou en environnement isolé. Aucune dépendance aux plateformes cloud américaines. Souveraineté totale des données pour les nations à infrastructure cloud limitée ou ayant des exigences strictes de résidence des données.',
 			solCard2Title: 'Open Source \u00b7 Apache 2.0',
@@ -1230,7 +1230,7 @@ const fr: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

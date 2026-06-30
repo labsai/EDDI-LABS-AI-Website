@@ -61,7 +61,7 @@ const hi: TranslationSchema = {
 	common: {
 		getStartedCta: 'शुरू करें →',
 		viewOnGithub: 'GitHub पर देखें ↗',
-		bannerBadge: '🏆 संयुक्त राष्ट्र मान्यता',
+		bannerBadge: '🏆 UNIDO मान्यता',
 		bannerText: 'LABS.AI को UNIDO द्वारा औद्योगिक AI के लिए विश्वसनीय साझेदार के रूप में चुना गया',
 		bannerLink: 'अधिक पढ़ें',
 		notFoundTitle: 'पेज नहीं मिला',
@@ -162,7 +162,7 @@ const hi: TranslationSchema = {
 		trustCI: 'CI पास · CodeQL क्लीन',
 		trustCIDesc: 'स्वचालित बिल्ड, सुरक्षा स्कैनिंग और कोड विश्लेषण',
 		// UNIDO Recognition Callout
-		unidoBadge: 'संयुक्त राष्ट्र मान्यता',
+		unidoBadge: 'UNIDO मान्यता',
 		unidoCalloutTitle: 'औद्योगिक AI के लिए UNIDO विश्वसनीय भागीदार',
 		unidoCalloutDesc: 'LABS.AI को संयुक्त राष्ट्र औद्योगिक विकास संगठन (UNIDO) द्वारा ग्लोबल साउथ के लिए औद्योगिक AI हेतु विश्वसनीय भागीदार के रूप में चुना गया है।',
 		unidoCalloutLink: 'साझेदारी के बारे में और जानें →',
@@ -210,7 +210,7 @@ const hi: TranslationSchema = {
 		faq5A:
 			'EDDI Node.js के बजाय JVM पर समान विज़ुअल बिल्डिंग उद्देश्य पूरा करता है। Flowise और n8n के विपरीत, EDDI कोई <code>eval()</code> या कोड ब्लॉक उपयोग नहीं करता और नियंत्रित उद्योगों के लिए डिज़ाइन किया गया है।',
 		faq6Q: 'क्या EDDI "Eddie AI" या "Eddy" नाम के अन्य उत्पादों से संबंधित है?',
-		faq6A: 'नहीं। EDDI (<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a> द्वारा) Java/Quarkus पर निर्मित एक सेल्फ-होस्टेड <strong>एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म</strong> है। यह वीडियो संपादन, HR सॉफ़्टवेयर, चैटबॉट बिल्डर या समान नाम वाले अन्य उत्पादों से संबंधित नहीं है।',
+		faq6A: 'नहीं। EDDI (<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a> द्वारा) Java/Quarkus पर निर्मित एक सेल्फ-होस्टेड <strong>एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म</strong> है। यह वीडियो संपादन, HR सॉफ़्टवेयर, चैटबॉट बिल्डर या समान नाम वाले अन्य उत्पादों से संबंधित नहीं है।',
 		faq7Q: 'EDDI की तुलना AWS Bedrock या Azure AI Studio जैसे क्लाउड AI प्लेटफ़ॉर्म से कैसे होती है?',
 		faq7A: 'क्लाउड AI प्लेटफ़ॉर्म प्रबंधित इंफ्रास्ट्रक्चर प्रदान करते हैं लेकिन <strong>वेंडर लॉक-इन</strong> बनाते हैं। EDDI कहीं भी चलता है जहां Docker चलता है। हमारी <a href="/enterprise/vs-alternatives/">विस्तृत तुलना</a> देखें।',
 		demoBtn: 'डेमो सिस्टम',
@@ -1065,7 +1065,7 @@ const hi: TranslationSchema = {
 			// Solution section
 			solutionTitle: 'समाधान',
 			solutionSubtitle: 'EDDI का उपयोग करके औद्योगिक डिजिटलाइज़ेशन के लिए एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन',
-			solutionDesc: 'EDDI शासित, बहु-एजेंट AI सिस्टम तैनात करने के लिए एक स्व-होस्टेड, कॉन्फ़िगरेशन-संचालित प्लेटफ़ॉर्म प्रदान करता है — विशेष रूप से औद्योगिक डिजिटलाइज़ेशन के लिए निर्मित। प्लेटफ़ॉर्म को विशेष रूप से ग्लोबल साउथ की संस्थाओं की सेवा करने की क्षमता के लिए मान्यता प्राप्त हुई:',
+			solutionDesc: 'EDDI शासित, बहु-एजेंट AI सिस्टम तैनात करने के लिए एक स्व-होस्टेड, कॉन्फ़िगरेशन-संचालित प्लेटफ़ॉर्म प्रदान करता है — विशेष रूप से औद्योगिक डिजिटलाइज़ेशन के लिए निर्मित। इसे ग्लोबल साउथ के लिए औद्योगिक AI में एक आशाजनक योगदान के रूप में मान्यता मिली:',
 			solCard1Title: 'स्व-होस्टेड और स्वतंत्र',
 			solCard1Desc: 'जहां भी Docker चलता है वहां चलता है — ऑन-प्रेमिसेज़, कोई भी क्लाउड, या एयर-गैप्ड वातावरण। अमेरिकी क्लाउड प्लेटफ़ॉर्मों पर कोई निर्भरता नहीं। सीमित क्लाउड इंफ्रास्ट्रक्चर या सख्त डेटा रेज़िडेंसी आवश्यकताओं वाले देशों के लिए पूर्ण डेटा संप्रभुता।',
 			solCard2Title: 'Open Source · Apache 2.0',
@@ -1196,7 +1196,7 @@ const hi: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

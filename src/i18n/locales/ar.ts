@@ -61,7 +61,7 @@ const ar: TranslationSchema = {
 	common: {
 		getStartedCta: 'ابدأ الآن →',
 		viewOnGithub: 'عرض على GitHub ↗',
-		bannerBadge: '🏆 اعتراف أممي',
+		bannerBadge: '🏆 اعتراف UNIDO',
 		bannerText: 'LABS.AI تم اختيارها كشريك موثوق لدى UNIDO للذكاء الاصطناعي الصناعي',
 		bannerLink: 'اقرأ المزيد',
 		notFoundTitle: 'الصفحة غير موجودة',
@@ -164,7 +164,7 @@ const ar: TranslationSchema = {
 		trustCI: 'CI ناجح · CodeQL نظيف',
 		trustCIDesc: 'بناء تلقائي، فحص أمني وتحليل الشفرة',
 		// UNIDO Recognition Callout
-		unidoBadge: 'اعتراف الأمم المتحدة',
+		unidoBadge: 'اعتراف UNIDO',
 		unidoCalloutTitle: 'شريك موثوق لدى UNIDO للذكاء الاصطناعي الصناعي',
 		unidoCalloutDesc: 'تم اختيار LABS.AI من قبل منظمة الأمم المتحدة للتنمية الصناعية (UNIDO) كشريك موثوق للذكاء الاصطناعي الصناعي للجنوب العالمي.',
 		unidoCalloutLink: 'اعرف المزيد عن الشراكة →',
@@ -212,7 +212,7 @@ const ar: TranslationSchema = {
 		faq5A:
 			'يخدم EDDI غرضاً مشابهاً للبناء المرئي ولكن على JVM بدلاً من Node.js. على عكس Flowise و n8n، لا يستخدم EDDI <code>eval()</code> أو كتل الشفرة، يشغل Java 25 Virtual Threads للتزامن المؤسسي، يدعم مصادقة OIDC/Keycloak، ويخزن البيانات في MongoDB أو PostgreSQL. مصمم للصناعات المنظمة.',
 		faq6Q: 'هل EDDI مرتبط بـ "Eddie AI" أو منتجات أخرى تحمل اسم "Eddy"؟',
-		faq6A: 'لا. EDDI (من <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) هو منصة <strong>تنسيق وكلاء الذكاء الاصطناعي للمؤسسات</strong> مستضافة ذاتياً ومبنية على Java/Quarkus. لا علاقة له بأدوات تحرير الفيديو أو برامج الموارد البشرية أو منشئي الروبوتات أو المنتجات الأخرى التي تحمل أسماء مشابهة.',
+		faq6A: 'لا. EDDI (من <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) هو منصة <strong>تنسيق وكلاء الذكاء الاصطناعي للمؤسسات</strong> مستضافة ذاتياً ومبنية على Java/Quarkus. لا علاقة له بأدوات تحرير الفيديو أو برامج الموارد البشرية أو منشئي الروبوتات أو المنتجات الأخرى التي تحمل أسماء مشابهة.',
 		faq7Q: 'كيف يقارن EDDI بمنصات الذكاء الاصطناعي السحابية مثل AWS Bedrock أو Azure AI Studio؟',
 		faq7A: 'توفر منصات الذكاء الاصطناعي السحابية بنية تحتية مُدارة لكنها تخلق <strong>تقييداً بالمورد</strong>. EDDI يعمل في أي مكان يعمل فيه Docker. راجع <a href="/enterprise/vs-alternatives/">المقارنة التفصيلية</a>.',
 		demoBtn: 'النظام التجريبي',
@@ -1074,7 +1074,7 @@ const ar: TranslationSchema = {
 			// Solution section
 			solutionTitle: 'الحل',
 			solutionSubtitle: 'تنسيق وكلاء الذكاء الاصطناعي المؤسسي للرقمنة الصناعية باستخدام EDDI',
-			solutionDesc: 'يوفر EDDI منصة مستضافة ذاتياً وقائمة على التكوين لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة — مصممة خصيصاً للرقمنة الصناعية. تم الاعتراف بالمنصة تحديداً لقدرتها على خدمة المنظمات في الجنوب العالمي:',
+			solutionDesc: 'يوفر EDDI منصة مستضافة ذاتياً وقائمة على التكوين لنشر أنظمة ذكاء اصطناعي متعددة الوكلاء ومحكومة — مصممة خصيصاً للرقمنة الصناعية. وقد تم الاعتراف بها كمساهمة واعدة في الذكاء الاصطناعي الصناعي لصالح الجنوب العالمي:',
 			solCard1Title: 'مستضاف ذاتياً وسيادي',
 			solCard1Desc: 'يعمل في أي مكان يعمل فيه Docker — محلياً، أي سحابة، أو في بيئات معزولة. لا اعتماد على منصات سحابية أمريكية. سيادة كاملة على البيانات للدول ذات البنية التحتية السحابية المحدودة أو متطلبات إقامة البيانات الصارمة.',
 			solCard2Title: 'Open Source · Apache 2.0',
@@ -1205,7 +1205,7 @@ const ar: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

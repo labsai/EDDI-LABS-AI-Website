@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. Apache 2.0 licensed. Website: https://eddi.labs.ai | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -175,7 +175,7 @@ Organized by domain:
 - A supported LLM API key (OpenAI, Anthropic, Google, or Ollama for local)
 
 ### Quickstart
-1. Visit https://eddi.labs.ai/docs/install-wizard/ for the interactive Install Wizard
+1. Visit https://eddi.technology/docs/install-wizard/ for the interactive Install Wizard
 2. Or use Docker Compose directly:
    ```
    git clone https://github.com/labsai/EDDI.git
@@ -204,7 +204,7 @@ Organized by domain:
 
 ## Links
 
-- Website: https://eddi.labs.ai
+- Website: https://eddi.technology
 - GitHub: https://github.com/labsai/EDDI
 - Documentation: https://docs.labs.ai
 - Docker Hub: https://hub.docker.com/r/labsai/eddi

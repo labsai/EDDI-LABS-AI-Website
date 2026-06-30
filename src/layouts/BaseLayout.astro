@@ -43,7 +43,7 @@ const dir = getDir(lang);
 import { getTranslations } from "../i18n";
 const tMeta = await getTranslations(lang);
 const description = descProp ?? tMeta.meta.siteDescription;
-const siteUrl = Astro.site?.toString() || "https://eddi.labs.ai";
+const siteUrl = Astro.site?.toString() || "https://eddi.technology";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const pagePath = getPathWithoutLocale(Astro.url);
 
@@ -99,7 +99,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
     <meta property="og:title" content={`${title} | EDDI`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content="https://eddi.labs.ai/og-image.png" />
+    <meta property="og:image" content="https://eddi.technology/og-image.png" />
     <meta property="og:locale" content={ogLocale} />
     {
       LOCALE_CODES.filter((l) => l !== lang).map((l) => (
@@ -107,7 +107,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
       ))
     }
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://eddi.labs.ai/og-image.png" />
+    <meta name="twitter:image" content="https://eddi.technology/og-image.png" />
 
     <!-- LLM / AI agent discovery -->
     <link rel="author" type="text/markdown" href="/llms.txt" />
@@ -121,10 +121,10 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         "@context": "https://schema.org",
         "@type": "Organization",
         name: "Labs.ai",
-        url: "https://eddi.labs.ai",
+        url: "https://eddi.technology",
         logo: {
           "@type": "ImageObject",
-          url: "https://eddi.labs.ai/eddi-icon.png",
+          url: "https://eddi.technology/eddi-icon.png",
           width: 512,
           height: 512,
         },
@@ -140,7 +140,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "EDDI",
-        url: "https://eddi.labs.ai",
+        url: "https://eddi.technology",
         description: `EDDI ${EDDI_VERSION} — The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
       })}
     />
@@ -157,7 +157,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         operatingSystem: "Cross-platform (JVM)",
         description:
           "Self-hosted enterprise AI orchestration platform with a visual management UI, 42 MCP tools, and built-in compliance.",
-        url: "https://eddi.labs.ai",
+        url: "https://eddi.technology",
         downloadUrl: "https://github.com/labsai/EDDI",
         softwareVersion: EDDI_VERSION.replace("v", ""),
         license: "https://www.apache.org/licenses/LICENSE-2.0",

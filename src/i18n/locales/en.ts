@@ -73,7 +73,7 @@ const en = {
 		getStartedCta: 'Get Started →',
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
-		bannerBadge: '🏆 UN Recognition',
+		bannerBadge: '🏆 UNIDO Recognition',
 		bannerText: 'LABS.AI selected as UNIDO Trusted Partner for Industrial AI',
 		bannerLink: 'Read more',
 		// 404 Page
@@ -194,7 +194,7 @@ const en = {
 		trustCI: 'CI Passing · CodeQL Clean',
 		trustCIDesc: 'Automated builds, security scanning & code analysis',
 		// UNIDO Recognition Callout
-		unidoBadge: 'United Nations Recognition',
+		unidoBadge: 'UNIDO Recognition',
 		unidoCalloutTitle: 'UNIDO Trusted Partner for Industrial AI',
 		unidoCalloutDesc: 'LABS.AI has been selected by the United Nations Industrial Development Organization (UNIDO) as a Trusted Partner for Industrial AI for the Global South.',
 		unidoCalloutLink: 'Learn more about the partnership →',
@@ -241,7 +241,7 @@ const en = {
 		faq5Q: 'Can EDDI replace Flowise or n8n for production workloads?',
 		faq5A: 'EDDI serves a similar visual-building purpose but with enterprise-grade architecture. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs millions of lightweight virtual threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
 		faq6Q: 'Is EDDI related to "Eddie AI" or other products named "Eddy"?',
-		faq6A: 'No. EDDI (by <a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
+		faq6A: 'No. EDDI (by <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
 		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
 		faq7A: 'Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, any cloud, or in air-gapped environments. It supports 12 LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.',
 		// Demo System
@@ -1340,7 +1340,7 @@ const en = {
 			description: 'Privacy Policy for EDDI by LABS.AI — how we handle your data.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 
 			// 1. Data Controller
 			controllerHeading: '1. Data Controller',

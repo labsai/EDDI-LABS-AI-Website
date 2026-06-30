@@ -4,7 +4,7 @@
 
 ## 1. Project Context
 
-**eddi-website** is the marketing site for EDDI, hosted on **Vercel** at `eddi.labs.ai`. Built with **Astro** and **Tailwind CSS v4**.
+**eddi-website** is the marketing site for EDDI, hosted on **Vercel** at `eddi.technology`. Built with **Astro** and **Tailwind CSS v4**.
 
 ### Architecture
 
@@ -17,7 +17,7 @@
 | **Theme**     | Dark/Light toggle via `[data-theme]` attribute                |
 | **Docs**      | Published separately at docs.labs.ai                          |
 | **Hosting**   | Vercel (static, via git integration)                          |
-| **Domain**    | `eddi.labs.ai` (Vercel custom domain, DNS at easyname)        |
+| **Domain**    | `eddi.technology` (Vercel custom domain, DNS at easyname)        |
 
 ### Ecosystem
 

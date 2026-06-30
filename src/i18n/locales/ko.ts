@@ -60,7 +60,7 @@ const ko: TranslationSchema = {
 	common: {
 		getStartedCta: '시작하기 →',
 		viewOnGithub: 'GitHub에서 보기 ↗',
-		bannerBadge: '🏆 UN 인정',
+		bannerBadge: '🏆 UNIDO 인정',
 		bannerText: 'LABS.AI가 UNIDO 산업 AI 신뢰 파트너로 선정',
 		bannerLink: '자세히 보기',
 		notFoundTitle: '페이지를 찾을 수 없습니다',
@@ -154,7 +154,7 @@ const ko: TranslationSchema = {
 		trustCI: 'CI 통과 · CodeQL 클린',
 		trustCIDesc: '자동화된 빌드, 보안 스캐닝 및 코드 분석',
 		// UNIDO Recognition Callout
-		unidoBadge: 'UN 인정',
+		unidoBadge: 'UNIDO 인정',
 		unidoCalloutTitle: 'UNIDO 산업 AI 신뢰 파트너',
 		unidoCalloutDesc: 'LABS.AI는 유엔공업개발기구(UNIDO)에 의해 글로벌 사우스를 위한 산업 AI 신뢰 파트너로 선정되었습니다.',
 		unidoCalloutLink: '파트너십에 대해 자세히 →',
@@ -202,7 +202,7 @@ const ko: TranslationSchema = {
 		faq5A:
 			'EDDI는 엔터프라이즈급 아키텍처로 유사한 비주얼 빌딩 목적을 수행합니다. Flowise, n8n과 달리 EDDI는 <code>eval()</code>이나 코드 블록을 사용하지 않고, 엔터프라이즈 급 동시성을 위해 Java 25 가상 스레드를 실행하며, OIDC/Keycloak 인증을 지원하고, MongoDB 또는 PostgreSQL에 데이터를 저장합니다. 규제 산업을 위해 설계되었습니다.',
 		faq6Q: 'EDDI는 "Eddie AI" 또는 "Eddy"라는 이름의 다른 제품과 관련이 있나요?',
-		faq6A: '아니요. EDDI(<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a> 개발)는 Java/Quarkus 기반으로 구축된 자체 호스팅 <strong>엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼</strong>입니다. 소비자용 비디오 편집 도구, HR 소프트웨어, 챗봇 빌더 등 유사한 이름을 가진 제품들과 무관합니다.',
+		faq6A: '아니요. EDDI(<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a> 개발)는 Java/Quarkus 기반으로 구축된 자체 호스팅 <strong>엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼</strong>입니다. 소비자용 비디오 편집 도구, HR 소프트웨어, 챗봇 빌더 등 유사한 이름을 가진 제품들과 무관합니다.',
 		faq7Q: 'EDDI는 AWS Bedrock이나 Azure AI Studio 같은 클라우드 AI 플랫폼과 어떻게 다른가요?',
 		faq7A: '클라우드 AI 플랫폼은 관리형 인프라를 제공하지만 <strong>벤더 종속</strong>을 야기합니다. EDDI는 Docker가 실행되는 모든 곳에서 실행됩니다. <a href="/enterprise/vs-alternatives/">상세 비교</a>를 확인하세요.',
 		demoBtn: '데모 시스템',
@@ -1043,7 +1043,7 @@ const ko: TranslationSchema = {
 			// Solution section
 			solutionTitle: '솔루션',
 			solutionSubtitle: 'EDDI를 활용한 산업 디지털화를 위한 엔터프라이즈 AI 에이전트 오케스트레이션',
-			solutionDesc: 'EDDI는 거버넌스된 멀티 에이전트 AI 시스템을 배포하기 위한 자체 호스팅, 구성 기반 플랫폼을 제공합니다 — 산업 디지털화를 위해 설계되었습니다. 65개 MCP 도구, 비주얼 관리, 엔터프라이즈 보안이 내장되어 글로벌 사우스 조직이 벤더 종속 없이 프로덕션 준비된 AI 오케스트레이션을 도입할 수 있습니다.',
+			solutionDesc: 'EDDI는 거버넌스된 멀티 에이전트 AI 시스템을 배포하기 위한 자체 호스팅, 구성 기반 플랫폼을 제공합니다 — 산업 디지털화를 위해 설계되었습니다. 이는 글로벌 사우스를 위한 산업용 AI에 유망한 기여로 인정받았습니다：',
 			solCard1Title: '자체 호스팅 & 데이터 주권',
 			solCard1Desc: 'Docker가 실행되는 곳이면 어디서나 실행 가능 — 온프레미스, 모든 클라우드, 또는 에어갭 환경. 미국 기반 클라우드 플랫폼에 대한 종속 없음. 클라우드 인프라가 제한된 국가나 엄격한 데이터 거주 요구사항이 있는 국가에 완전한 데이터 주권을 제공.',
 			solCard2Title: '오픈소스 · Apache 2.0',
@@ -1174,7 +1174,7 @@ const ko: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

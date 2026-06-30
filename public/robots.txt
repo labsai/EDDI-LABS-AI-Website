@@ -1,11 +1,11 @@
 # EDDI — Enterprise AI Orchestrator
-# https://eddi.labs.ai
+# https://eddi.technology
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://eddi.labs.ai/sitemap-index.xml
+Sitemap: https://eddi.technology/sitemap-index.xml
 
 # LLM / AI agent content maps
 # See https://llmstxt.org for specification

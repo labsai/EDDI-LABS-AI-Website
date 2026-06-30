@@ -60,7 +60,7 @@ const zh: TranslationSchema = {
 	common: {
 		getStartedCta: '立即开始 →',
 		viewOnGithub: '在GitHub上查看 ↗',
-		bannerBadge: '🏆 联合国认可',
+		bannerBadge: '🏆 UNIDO 认可',
 		bannerText: 'LABS.AI 被选为 UNIDO 工业 AI 信赖合作伙伴',
 		bannerLink: '了解更多',
 		notFoundTitle: '页面未找到',
@@ -153,7 +153,7 @@ const zh: TranslationSchema = {
 		trustCI: 'CI 通过 · CodeQL 清洁',
 		trustCIDesc: '自动构建、安全扫描和代码分析',
 		// UNIDO Recognition Callout
-		unidoBadge: '联合国认可',
+		unidoBadge: 'UNIDO 认可',
 		unidoCalloutTitle: 'UNIDO 工业 AI 信赖合作伙伴',
 		unidoCalloutDesc: 'LABS.AI 被联合国工业发展组织（UNIDO）选为全球南方工业 AI 信赖合作伙伴。',
 		unidoCalloutLink: '了解更多合作详情 →',
@@ -200,7 +200,7 @@ const zh: TranslationSchema = {
 		faq5A:
 			'EDDI服务于类似的可视化构建目的，但具有企业级架构。与Flowise和n8n不同，EDDI不使用<code>eval()</code>或代码块，运行数百万轻量级虚拟线程以实现企业级并发，支持OIDC/Keycloak认证，并将数据存储在MongoDB或PostgreSQL中。它专为受监管行业设计。',
 		faq6Q: 'EDDI是否与“Eddie AI”或名为“Eddy”的其他产品有关联？',
-		faq6A: '不。EDDI（由<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>开发）是一个自托管的<strong>企业AI代理编排平台</strong>，基于Java/Quarkus构建。它与消费者视频剪辑工具、HR软件、聊天机器人生成器或其他同名产品无关。',
+		faq6A: '不。EDDI（由<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>开发）是一个自托管的<strong>企业AI代理编排平台</strong>，基于Java/Quarkus构建。它与消费者视频剪辑工具、HR软件、聊天机器人生成器或其他同名产品无关。',
 		faq7Q: '与AWS Bedrock或Azure AI Studio等云端AI平台相比，EDDI如何？',
 		faq7A: '云AI平台提供托管基础设施，但造成<strong>供应商锁定</strong>。EDDI可在任何运行Docker的地方运行。查看我们的<a href="/enterprise/vs-alternatives/">详细比较</a>。',
 		demoBtn: '演示系统',
@@ -1033,7 +1033,7 @@ const zh: TranslationSchema = {
 			// Solution section
 			solutionTitle: '解决方案',
 			solutionSubtitle: '使用 EDDI 的工业数字化企业级 AI 代理编排',
-			solutionDesc: 'EDDI 提供自托管、配置驱动的平台，用于部署治理良好的多代理 AI 系统 — 专为工业数字化设计。内置 65 个 MCP 工具、可视化管理和企业级安全，使全球南方组织能够在没有供应商锁定的情况下采用生产就绪的 AI 编排。',
+			solutionDesc: 'EDDI 提供自托管、配置驱动的平台，用于部署治理良好的多代理 AI 系统 — 专为工业数字化设计。它被认为是面向全球南方的工业 AI 的一项有前景的贡献：',
 			solCard1Title: '自托管 & 数据主权',
 			solCard1Desc: 'Docker 能运行的地方就能运行 — 本地部署、任意云平台或气隔环境。不依赖美国云平台。为云基础设施有限或有严格数据居留要求的国家提供完全的数据主权。',
 			solCard2Title: '开源 · Apache 2.0',
@@ -1164,7 +1164,7 @@ const zh: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

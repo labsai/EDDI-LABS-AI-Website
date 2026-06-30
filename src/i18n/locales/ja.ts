@@ -60,7 +60,7 @@ const ja: TranslationSchema = {
 	common: {
 		getStartedCta: '始める →',
 		viewOnGithub: 'GitHubで見る ↗',
-		bannerBadge: '🏆 国連認定',
+		bannerBadge: '🏆 UNIDO評価',
 		bannerText: 'LABS.AIがUNIDO産業AI信頼パートナーに選出',
 		bannerLink: '詳しく見る',
 		notFoundTitle: 'ページが見つかりません',
@@ -155,7 +155,7 @@ const ja: TranslationSchema = {
 		trustCI: 'CI合格 · CodeQLクリーン',
 		trustCIDesc: '自動ビルド、セキュリティスキャン、コード分析',
 		// UNIDO Recognition Callout
-		unidoBadge: '国連認定',
+		unidoBadge: 'UNIDO評価',
 		unidoCalloutTitle: 'UNIDO産業AI信頼パートナー',
 		unidoCalloutDesc: 'LABS.AIは国連工業開発機関（UNIDO）により、グローバルサウスのための産業AIの信頼パートナーに選出されました。',
 		unidoCalloutLink: 'パートナーシップについて詳しく →',
@@ -203,7 +203,7 @@ const ja: TranslationSchema = {
 		faq5A:
 			'EDDIはエンタープライズグレードのアーキテクチャで同様のビジュアルビルディング目的を果たします。FlowiseやとはnNode.jsとは異なり、EDDIは<code>eval()</code>やコードブロックを使用せず、エンタープライズグレードの並行性のために数百万の軽量仮想スレッドを実行し、OIDC/Keycloak認証をサポートし、MongoDBまたはPostgreSQLにデータを保存します。規制産業向けに設計されています。',
 		faq6Q: 'EDDIは「Eddie AI」や「Eddy」という名前の他の製品と関係がありますか？',
-		faq6A: 'いいえ。EDDI（<a href="https://labs.ai" target="_blank" rel="noopener">LABS.AI</a>による）は、Java/Quarkus上に構築されたセルフホスト型の<strong>エンタープライズAIエージェントオーケストレーションプラットフォーム</strong>です。ビデオ編集ツール、HRソフトウェア、チャットボットビルダーなど、似た名前の他製品とは無関係です。',
+		faq6A: 'いいえ。EDDI（<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>による）は、Java/Quarkus上に構築されたセルフホスト型の<strong>エンタープライズAIエージェントオーケストレーションプラットフォーム</strong>です。ビデオ編集ツール、HRソフトウェア、チャットボットビルダーなど、似た名前の他製品とは無関係です。',
 		faq7Q: 'EDDIは、AWS BedrockやAzure AI StudioなどのクラウドAIプラットフォームとどう違いますか？',
 		faq7A: 'クラウドAIプラットフォームはマネージドインフラを提供しますが、<strong>ベンダーロックイン</strong>を生じさせます。EDDIはDockerが動く場所ならどこでも動作します。<a href="/enterprise/vs-alternatives/">詳細な比較</a>をご覧ください。',
 		demoBtn: 'デモシステム',
@@ -1046,7 +1046,7 @@ const ja: TranslationSchema = {
 			// Solution section
 			solutionTitle: 'ソリューション',
 			solutionSubtitle: 'EDDIを使用した産業デジタル化のためのエンタープライズAIエージェントオーケストレーション',
-			solutionDesc: 'EDDIは、ガバナンスされたマルチエージェントAIシステムを展開するための、セルフホスト型の構成駆動プラットフォームを提供します — 産業デジタル化のために設計されています。65のMCPツール、ビジュアル管理、エンタープライズセキュリティを内蔵し、グローバルサウスの組織がベンダーロックインなしで本番対応のAIオーケストレーションを導入できるようにします。',
+			solutionDesc: 'EDDIは、ガバナンスされたマルチエージェントAIシステムを展開するための、セルフホスト型の構成駆動プラットフォームを提供します — 産業デジタル化のために設計されています。これは、グローバルサウスのための産業AIへの有望な貢献として評価されました：',
 			solCard1Title: 'セルフホスト & データ主権',
 			solCard1Desc: 'Dockerが動くところならどこでも実行可能 — オンプレミス、任意のクラウド、エアギャップ環境。米国拠点のクラウドプラットフォームへの依存なし。クラウドインフラが限られている国や厳格なデータ居住要件のある国に完全なデータ主権を提供。',
 			solCard2Title: 'オープンソース · Apache 2.0',
@@ -1177,7 +1177,7 @@ const ja: TranslationSchema = {
 			description: 'Privacy Policy for EDDI by LABS.AI.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
-			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.labs.ai">eddi.labs.ai</a>).',
+			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
 			controllerHeading: '1. Data Controller',
 			controllerText: 'The data controller responsible for data processing on this website is:',
 			controllerName: 'LABS.AI, Ing. Gregor Jarisch',

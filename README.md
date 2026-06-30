@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://eddi.labs.ai">
+  <a href="https://eddi.technology">
     <img src="src/assets/eddi-logo.svg" alt="EDDI Logo" width="120" />
   </a>
 </p>
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://eddi.labs.ai"><img src="https://img.shields.io/badge/🌐_Website-eddi.labs.ai-0f172a?style=for-the-badge" alt="Website" /></a>&nbsp;
+  <a href="https://eddi.technology"><img src="https://img.shields.io/badge/🌐_Website-eddi.technology-0f172a?style=for-the-badge" alt="Website" /></a>&nbsp;
   <a href="https://github.com/labsai/EDDI"><img src="https://img.shields.io/badge/⚙️_Source_Code-GitHub-181717?style=for-the-badge&logo=github" alt="GitHub" /></a>&nbsp;
   <a href="https://docs.labs.ai"><img src="https://img.shields.io/badge/📖_Docs-docs.labs.ai-2563eb?style=for-the-badge" alt="Docs" /></a>&nbsp;
   <a href="https://hub.docker.com/r/labsai/eddi"><img src="https://img.shields.io/docker/pulls/labsai/eddi?style=for-the-badge&color=f59e0b&labelColor=27272a&label=🐳%20Docker%20Pulls" alt="Docker Pulls" /></a>
@@ -70,7 +70,7 @@ docker run -p 7070:7070 labsai/eddi
 
 Then open **http://localhost:7070** to access the EDDI Manager UI.
 
-👉 **[Full getting-started guide →](https://eddi.labs.ai/getting-started/)**
+👉 **[Full getting-started guide →](https://eddi.technology/getting-started/)**
 
 ---
 
@@ -109,7 +109,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI.
 | 💬 [**eddi-chat-ui**](https://github.com/labsai/eddi-chat-ui) | Embeddable chat widget |
 | ☸️ [**EDDI-Operator**](https://github.com/labsai/EDDI-operator) | Kubernetes operator |
 | 📦 [**EDDI Client SDK**](https://github.com/labsai/EDDI-client-sdk) | Java SDK for integration |
-| 🌐 [**EDDI Website**](https://github.com/labsai/EDDI-LABS-AI-Website) | This repo — the marketing site at [eddi.labs.ai](https://eddi.labs.ai) |
+| 🌐 [**EDDI Website**](https://github.com/labsai/EDDI-LABS-AI-Website) | This repo — the marketing site at [eddi.technology](https://eddi.technology) |
 
 ---
 
@@ -117,7 +117,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI.
 
 | | Link |
 |---|---|
-| 🌐 | **Website:** [eddi.labs.ai](https://eddi.labs.ai) |
+| 🌐 | **Website:** [eddi.technology](https://eddi.technology) |
 | 📖 | **Documentation:** [docs.labs.ai](https://docs.labs.ai) |
 | ⚙️ | **Source Code:** [github.com/labsai/EDDI](https://github.com/labsai/EDDI) |
 | 🐳 | **Docker Hub:** [hub.docker.com/r/labsai/eddi](https://hub.docker.com/r/labsai/eddi) |

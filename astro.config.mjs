@@ -8,7 +8,7 @@ export default defineConfig({
 	image: {
 		service: passthroughImageService(),
 	},
-	site: 'https://eddi.labs.ai',
+	site: 'https://eddi.technology',
 	integrations: [sitemap({
 		i18n: {
 			defaultLocale: 'en',
