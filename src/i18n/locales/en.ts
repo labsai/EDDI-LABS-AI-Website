@@ -2,27 +2,29 @@
  * English translations — Source of truth.
  * All other locale files must export the same shape.
  */
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION } from '../version';
+import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS } from '../stats';
 
 const en = {
 	// ─── Site Meta ──────────────────────────────────────────────
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION} — Enterprise AI Agent Orchestration Platform. Self-hosted, configuration-driven multi-agent system with visual management UI, 65 MCP tools, security-first architecture, and built-in regulatory compliance for GDPR, EU AI Act, HIPAA, and 15+ frameworks.`,
+			`EDDI ${EDDI_VERSION}, Enterprise AI Agent Orchestration Platform. Self-hosted, configuration-driven multi-agent system with visual management UI, ${MCP_TOOLS} MCP tools, security-first architecture, and built-in regulatory compliance for GDPR, EU AI Act, HIPAA, and ${FRAMEWORKS} frameworks.`,
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
 	nav: {
 		features: 'Features',
 		docs: 'Docs',
-		solutions: 'Solutions',
+		solutions: 'Enterprise',
+		managedCloud: 'Managed Cloud',
 		getStarted: 'Get Started',
 		// Features dropdown
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Visual agent management UI',
 		mcpServer: 'MCP Server',
-		mcpServerDesc: '65 tools for AI-native control',
+		mcpServerDesc: `${MCP_TOOLS} tools for AI-native control`,
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON config, zero boilerplate',
 		securityFirst: 'Security-First',
@@ -34,7 +36,7 @@ const en = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline logs & audit trails',
 		codeQuality: 'Code Quality',
-		codeQualityDesc: '9,600+ tests, zero failures, >90% coverage',
+		codeQualityDesc: `${TESTS} tests, zero failures, >90% coverage`,
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'Built for coding agents',
 		memory: 'Memory & Context',
@@ -56,10 +58,10 @@ const en = {
 		trackRecord: 'Track Record',
 		trackRecordDesc: 'Institutional backing & real deployments',
 		useCases: 'Use Cases',
-		useCasesDesc: 'Real-world deployment patterns',
+		useCasesDesc: 'Deployment patterns for regulated industries',
 		// Mobile
 		allFeatures: 'All Features',
-		mcpServerMobile: 'MCP Server (65 Tools)',
+		mcpServerMobile: `MCP Server (${MCP_TOOLS} Tools)`,
 		resources: 'Resources',
 		documentation: 'Documentation ↗',
 		github: 'GitHub ↗',
@@ -80,6 +82,10 @@ const en = {
 		notFoundTitle: 'Page Not Found',
 		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',
 		notFoundCta: 'Return to System Core',
+		// Enterprise CTA
+		enterpriseCtaTitle: 'Ready for production?',
+		enterpriseCtaDesc: 'Get managed deployment, SLA-backed support, and hands-on help from the team that builds EDDI.',
+		enterpriseCtaBtn: 'Talk to us about enterprise deployment',
 	},
 
 	// ─── Footer ─────────────────────────────────────────────────
@@ -89,7 +95,7 @@ const en = {
 		// Trust bar
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Licensed',
-		tests: '9,600+ Tests · Zero Failures',
+		tests: `${TESTS} Tests · Zero Failures`,
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Gold',
 		// Column headers
@@ -118,6 +124,7 @@ const en = {
 		trackRecord: 'Track Record',
 		unidoPartner: 'UNIDO Partnership',
 		useCases: 'Use Cases',
+		solutionsSite: 'Managed Cloud & Enterprise Support',
 		// Community column
 		communityCol: 'Community',
 		contributing: 'Contributing ↗',
@@ -126,6 +133,7 @@ const en = {
 		codeOfConduct: 'Code of Conduct ↗',
 		discussions: 'Discussions ↗',
 		contactLink: 'Contact',
+		cookieSettings: 'Cookie Settings',
 		// Bottom
 		initiated: 'Initiated in Vienna. Developed with ❤️ in Europe. Made for the World.',
 	},
@@ -134,7 +142,10 @@ const en = {
 	newsletter: {
 		title: 'Stay in the Loop',
 		description:
-			'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.',
+			'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam, just signal.',
+		consentNotice:
+			'The newsletter signup form is provided by HubSpot (USA). Loading it sets cookies and transfers data to HubSpot. Click below to load the form and consent to this processing. See our <a href="{privacyUrl}">Privacy Policy</a>.',
+		consentCta: 'Show subscription form',
 	},
 
 	// ─── Homepage ───────────────────────────────────────────────
@@ -143,14 +154,14 @@ const en = {
 		heroTitle: 'The Enterprise',
 		heroHighlight: 'AI Orchestrator',
 		heroTagline:
-			`The open-source, production-ready platform for deploying governed, multi-agent AI systems. Configuration-driven, self-hosted, and compliance-ready — with a visual management UI, 65 MCP tools, and enterprise security built in. Now in <strong>${EDDI_VERSION}</strong> (latest: ${EDDI_LATEST_VERSION}).`,
+			`The open-source platform for deploying governed, multi-agent AI systems: self-hosted, configuration-driven, and compliance-ready. Now in <strong>${EDDI_VERSION}</strong>.`,
 		// The Problem
 		problemTitle: 'The Problem',
 		problemDesc:
 			'Enterprise AI orchestration is <strong>fragmented and painful</strong>. Teams are stuck in a broken lifecycle:',
 		problemCard1Title: 'The Prototype Trap',
 		problemCard1Desc:
-			'Teams prototype with Flowise, n8n, or scripts — then <strong>rewrite everything from scratch</strong> for production. Visual prototypes are discarded entirely.',
+			'Teams prototype with Flowise, n8n, or scripts, then <strong>rewrite everything from scratch</strong> for production. Visual prototypes are discarded entirely.',
 		problemCard2Title: 'Boilerplate Fatigue',
 		problemCard2Desc:
 			'Using AI libraries means building REST controllers, auth layers, and state management <strong>from scratch</strong>. Every prompt tweak requires redeployment.',
@@ -160,19 +171,19 @@ const en = {
 		// The Solution
 		solutionTitle: 'The Solution',
 		solutionDesc:
-			'EDDI is a <strong>deployable AI orchestration platform</strong> — not a library. Visual management, config-as-code, and enterprise security, out of the box:',
+			'EDDI is a <strong>deployable AI orchestration platform</strong>, not a library. Visual management, config-as-code, and enterprise security, out of the box:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
-			'Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong> — not compiled code. Prompt engineers iterate instantly via the React UI or REST API, without redeployment.',
+			'Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong>, not compiled code. Prompt engineers iterate instantly via the React UI or REST API, without redeployment.',
 		sol2Title: '65 MCP Tools',
 		sol2Desc:
-			'EDDI exposes its capabilities via the <strong>Model Context Protocol</strong> — enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.',
+			'EDDI exposes its capabilities via the <strong>Model Context Protocol</strong>, enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.',
 		sol3Title: 'Security-First',
 		sol3Desc:
 			'No <code>eval()</code>, no escapes. Vault integration, URL validation, and cryptographic audit trails are <strong>architectural foundations</strong>.',
 		sol4Title: 'Observability',
 		sol4Desc:
-			'Every pipeline step is logged with an <strong>immutable audit trail</strong> — tokens, cost, timing, tool calls. Full CQRS telemetry ledger.',
+			'Every pipeline step is logged with an <strong>immutable audit trail</strong>: tokens, cost, timing, tool calls. Full CQRS telemetry ledger.',
 		sol5Title: 'Enterprise Concurrency',
 		sol5Desc:
 			'Built on an enterprise-grade runtime with <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.',
@@ -185,12 +196,12 @@ const en = {
 		trustRedHatDesc: 'Docker image certified by IBM',
 		trustApache: 'Apache 2.0 Licensed',
 		trustApacheDesc: '100% open-source & enterprise-ready',
-		trustTests: '9,600+ Tests · 0 Failures',
+		trustTests: '10,000+ Tests · 0 Failures',
 		trustTestsDesc: 'Rigorous CI/CD & >90% code coverage',
 		trustOpenSSF: 'OpenSSF Gold',
 		trustOpenSSFDesc: 'Highest tier of Linux Foundation security & quality certification',
 		trustDocker: 'Docker Hub',
-		trustDockerDesc: 'Container pulls from Docker Hub',
+		trustDockerDesc: 'Hundreds of thousands of production pulls',
 		trustCI: 'CI Passing · CodeQL Clean',
 		trustCIDesc: 'Automated builds, security scanning & code analysis',
 		// UNIDO Recognition Callout
@@ -231,24 +242,24 @@ const en = {
 		// FAQ
 		faqTitle: 'Frequently Asked Questions',
 		faq1Q: 'What is EDDI?',
-		faq1A: 'EDDI is an open-source, enterprise-grade AI orchestration platform. It enables teams to build, configure, and deploy AI-powered agents using JSON configuration rather than compiled code. EDDI provides a complete platform with a <strong>production-ready React management UI</strong> (the EDDI Manager), built-in REST APIs, conversation state management, security (OIDC/Keycloak), immutable audit trails, and 65 MCP tools — all deployable via Docker or Kubernetes.',
+		faq1A: `EDDI is an open-source, enterprise-grade AI orchestration platform. It enables teams to build, configure, and deploy AI-powered agents using JSON configuration rather than compiled code. EDDI provides a complete platform with a <strong>production-ready React management UI</strong> (the EDDI Manager), built-in REST APIs, conversation state management, security (OIDC/Keycloak), immutable audit trails, and ${MCP_TOOLS} MCP tools, all deployable via Docker or Kubernetes.`,
 		faq2Q: 'How is EDDI different from AI libraries and frameworks?',
-		faq2A: 'AI libraries like LangChain, Spring AI, and LangChain4j give you building blocks — but you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides all of this out of the box, ready to deploy via Docker.',
+		faq2A: 'AI libraries like LangChain, Spring AI, and LangChain4j give you building blocks, but you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides all of this out of the box, ready to deploy via Docker.',
 		faq3Q: 'Is EDDI production-ready for enterprise use?',
 		faq3A: 'Yes. EDDI is built on an enterprise-grade runtime with lightweight virtual threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream.',
 		faq4Q: 'What is the Model Context Protocol (MCP)?',
-		faq4A: 'The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes 65 MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics.',
+		faq4A: `The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes ${MCP_TOOLS} MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics.`,
 		faq5Q: 'Can EDDI replace Flowise or n8n for production workloads?',
 		faq5A: 'EDDI serves a similar visual-building purpose but with enterprise-grade architecture. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs millions of lightweight virtual threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
 		faq6Q: 'Is EDDI related to "Eddie AI" or other products named "Eddy"?',
 		faq6A: 'No. EDDI (by <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
 		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
-		faq7A: 'Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs — on-premises, any cloud, or in air-gapped environments. It supports 12 LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.',
+		faq7A: `Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs, on-premises, any cloud, or in air-gapped environments. It supports ${LLM_PROVIDERS} LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.`,
 		// Demo System
 		demoBtn: 'Demo System',
 		demoModalTitle: 'Demo System',
 		demoModalWarning: 'For exploration only. All data is wiped every 48 hours at 03:00 UTC.',
-		demoModalBody: 'This is a live demo instance of EDDI available for anyone to explore. It is intended solely for evaluation and experimentation — please do not use it for production workloads, store sensitive data, or rely on its availability.',
+		demoModalBody: 'This is a live demo instance of EDDI available for anyone to explore. It is intended solely for evaluation and experimentation, please do not use it for production workloads, store sensitive data, or rely on its availability.',
 		demoModalCancel: 'Cancel',
 		demoModalOpen: 'Open Demo',
 	},
@@ -259,6 +270,7 @@ const en = {
 		description: 'Install EDDI, create your first agent, and start chatting in 5 minutes.',
 		heroTitle: 'Get Started with EDDI',
 		heroSubtitle: 'Install EDDI, create your first agent, and start chatting in 5 minutes.',
+		promiseLine: 'In five minutes you will have EDDI running via a single command, a working agent created with one <code>setup_agent</code> call, and the Manager UI open at <code>http://localhost:7070</code>.',
 		prerequisitesTitle: 'Prerequisites',
 		prereq1: '<strong>Docker</strong> (recommended) or Java 25+',
 		prereq2: 'An LLM provider API key (OpenAI, Anthropic, Google Gemini, or a local Ollama instance)',
@@ -278,7 +290,7 @@ const en = {
 		step2WindowsTip:
 			'<strong>💡 Windows:</strong> If <code>npx</code> is not on your PATH, use <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> instead.',
 		step2DirectNote:
-			'Clients with native Streamable HTTP support (Cursor, VS Code, Windsurf, Antigravity, and other IDE plugins) connect directly — no bridge needed:',
+			'Clients with native Streamable HTTP support (Cursor, VS Code, Windsurf, Antigravity, and other IDE plugins) connect directly, no bridge needed:',
 		step2After: "Now you can interact with EDDI's <strong>65 MCP tools</strong> directly from your AI assistant.",
 		step2DocsLink:
 			'📖 See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
@@ -287,8 +299,8 @@ const en = {
 		step3VaultUiDesc: 'Open the Manager UI at <code>http://localhost:7070</code>, navigate to <strong>Secrets Vault</strong>, and add a new secret with key name <code>my-anthropic-key</code>.',
 		step3VaultTip: '<strong>💡 Tip:</strong> The <code>${vault:my-anthropic-key}</code> syntax references EDDI\'s built-in <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>. The vault master key is auto-generated by the installer. For quick testing, you can also pass API keys directly: <code>apiKey: "sk-ant-..."</code>.',
 		step4Title: '4. Create Your First Agent',
-		step4Desc: 'Use <code>setup_agent</code> to create a fully working agent in one call — via MCP or REST API:',
-		step4After: 'This creates the rules, LLM config, workflow, agent, and deploys it — all in one step.',
+		step4Desc: 'Use <code>setup_agent</code> to create a fully working agent in one call, via MCP or REST API:',
+		step4After: 'This creates the rules, LLM config, workflow, agent, and deploys it, all in one step.',
 		step5Title: '5. Chat with Your Agent',
 		step6Title: '6. Open the Manager UI',
 		step6Desc:
@@ -307,11 +319,11 @@ const en = {
 		installerOptionsTitle: 'Installer Options',
 		installerOptionsDesc: 'The install script supports flags for automated and customized setups:',
 		installerFlags: [
-			'<code>--defaults</code> — All defaults, no prompts',
-			'<code>--db=postgres</code> — Use PostgreSQL instead of MongoDB',
-			'<code>--with-auth</code> — Enable Keycloak authentication',
-			'<code>--full</code> — Everything enabled (database + auth + monitoring)',
-			'<code>--local</code> — Build Docker image from local source (for contributors)',
+			'<code>--defaults</code>: All defaults, no prompts',
+			'<code>--db=postgres</code>: Use PostgreSQL instead of MongoDB',
+			'<code>--with-auth</code>: Enable Keycloak authentication',
+			'<code>--full</code>: Everything enabled (database + auth + monitoring)',
+			'<code>--local</code>: Build Docker image from local source (for contributors)',
 		],
 		// Update CLI
 		updateTitle: 'Updating EDDI',
@@ -327,48 +339,52 @@ const en = {
 	// ─── Use Cases ──────────────────────────────────────────────
 	useCases: {
 		title: 'Use Cases',
-		description: 'Real-world deployment patterns and use cases for the EDDI AI orchestration platform.',
+		description: 'Deployment patterns for regulated industries and enterprise teams using the EDDI AI orchestration platform.',
 		heroTitle: 'Use Cases',
-		heroSubtitle: 'Real-world deployment patterns for the EDDI platform.',
+		heroSubtitle: 'Deployment patterns for regulated industries and enterprise teams.',
 		healthcare: 'Healthcare',
 		healthcareDesc:
-			'Patient intake agents, medical FAQ bots, appointment scheduling — with full audit trails for HIPAA compliance and EU AI Act readiness.',
+			'Patient intake, medical FAQ, and appointment scheduling agents defined as config-as-code, so clinical teams adjust prompts and rules without a redeployment cycle. Every conversation writes to the immutable, HMAC-signed audit trail, and the unified GDPR/data-subject API handles erasure and export requests. Self-hosted deployment keeps PHI inside your infrastructure for HIPAA and EU AI Act readiness.',
 		finance: 'Financial Services',
 		financeDesc:
-			'Customer support agents with compliance logging, fraud detection assistants, and internal knowledge base chatbots with cryptographic audit trails.',
+			'Customer support agents, fraud-triage assistants, and internal knowledge-base chatbots that combine RAG over your own documents with the immutable audit trail for defensible compliance logging. Model cascading routes routine queries to cheaper models and escalates only on low confidence, keeping per-conversation cost under control. OIDC/Keycloak and the Secrets Vault meet enterprise access-control requirements.',
 		ecommerce: 'E-Commerce',
 		ecommerceDesc:
-			'Product recommendation agents, order support bots, and multi-language customer service — with intent-based routing across specialized agents.',
+			'Product recommendation, order support, and multi-language service agents fronted by intent-based multi-agent routing, so each request reaches the specialist agent that declared the matching intent. Agents call the built-in web, HTTP, and RAG tools to pull live catalog and order data, and A/B routing lets you test agent variants against real traffic before rolling one out.',
 		manufacturing: 'Manufacturing',
 		manufacturingDesc:
-			'Equipment maintenance assistants, quality control agents, and supply chain optimization — running on-premises or in private clouds.',
+			'Equipment-maintenance, quality-control, and supply-chain assistants that run fully self-hosted on-premises or in a private cloud, with no dependency on a US-based API. Scheduling and heartbeat triggers let agents run periodic checks and proactive summaries on a cron cadence, and the 65 MCP tools plus OpenAPI ingestion connect agents to existing line-of-business systems.',
 		government: 'Government',
 		governmentDesc:
-			'Citizen inquiry agents, internal process automation, and document analysis — in air-gapped environments with no cloud dependency.',
+			'Citizen-inquiry agents, internal process automation, and document analysis in fully air-gapped environments, using local models via Ollama or Jlama so no data leaves the network. Config-as-code makes every agent decision reproducible for audit, and the immutable audit trail plus human-oversight controls in the Manager UI map directly onto EU AI Act record-keeping and oversight requirements.',
 		devPlatforms: 'Developer Platforms',
 		devPlatformsDesc:
-			'Internal AI services for engineering teams — API-accessible agents that integrate into CI/CD pipelines, code review, and documentation workflows.',
+			'Internal AI services for engineering teams, exposed as API- and MCP-accessible agents that drop into CI/CD pipelines, code review, and documentation workflows. Agents are created and managed programmatically with a single setup_agent call, predictable CRUD APIs, and 65 MCP tools, so coding agents in Claude, Cursor, or VS Code can drive EDDI directly.',
+		ctaTitle: 'Ready to build your use case?',
+		ctaDesc: 'Install EDDI in five minutes, create your first agent, and map any of these patterns onto your own deployment. Prefer to talk it through first? We are happy to help.',
+		ctaButton: 'Get Started in 5 Minutes',
+		ctaSecondary: 'Talk to us about your use case',
 	},
 
 	// ─── Features Overview ──────────────────────────────────────
 	featuresOverview: {
 		title: 'Features at a Glance',
 		description:
-			'Every capability that makes EDDI the enterprise AI orchestrator — EDDI Manager UI, config-as-code, 65 MCP tools, security-first architecture, and more.',
+			'Every capability that makes EDDI the enterprise AI orchestrator, EDDI Manager UI, config-as-code, 65 MCP tools, security-first architecture, and more.',
 		heroTitle: 'Everything You Need to',
 		heroHighlight: 'Orchestrate AI',
 		heroDesc:
-			'EDDI provides a complete, production-ready platform for building, deploying, and managing AI agents — without writing boilerplate.',
+			'EDDI provides a complete, production-ready platform for building, deploying, and managing AI agents, without writing boilerplate.',
 		coreTitle: 'Core Platform',
 		coreDesc:
 			'The essential capabilities that make EDDI a <strong>complete AI orchestration platform</strong>.',
 		// Core cards
 		managerCardTitle: '🖥️ EDDI Manager',
 		managerCardDesc:
-			'A <strong>production-ready React UI</strong> for building, deploying, and monitoring agents visually — with 11-locale i18n, live chat debugging, and audit dashboards.',
+			'A <strong>production-ready React UI</strong> for building, deploying, and monitoring agents visually, with 11-locale i18n, live chat debugging, and audit dashboards.',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
-			'Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly — <strong>no redeployment needed</strong>.',
+			'Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly, <strong>no redeployment needed</strong>.',
 		mcpCardTitle: '🔌 MCP Server (65 Tools)',
 		mcpCardDesc:
 			'Full AI-native control via the <strong>Model Context Protocol</strong>. Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom clients manage agents programmatically.',
@@ -392,14 +408,14 @@ const en = {
 			'7 embedding providers, 5 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
 		cascadingCardTitle: '📈 Model Cascading',
 		cascadingCardDesc:
-			'Cost-optimized multi-model routing with confidence strategies. <strong>Reduce LLM costs 60-80%</strong>.',
+			'Cost-optimized multi-model routing with confidence strategies. <strong>Reduce LLM costs by up to 60-80%</strong> in typical multi-model workloads.',
 		schedulingCardTitle: '⏰ Scheduling & Heartbeats',
 		schedulingCardDesc:
 			'Cron triggers, heartbeat wake-ups, dream cycles. <strong>Proactive agents</strong> that act on their own.',
 		// Built-In Agent Tools section
 		toolsTitle: 'Built-In Agent Tools',
 		toolsDesc:
-			'EDDI ships with <strong>12 ready-to-use tools</strong> that agents can call during conversations — no external setup required.',
+			'EDDI ships with <strong>12 ready-to-use tools</strong> that agents can call during conversations, no external setup required.',
 		tools: [
 			{ icon: '🔍', name: 'Web Search', desc: 'DuckDuckGo or Google Custom Search' },
 			{ icon: '🧮', name: 'Calculator', desc: 'Sandboxed math parser (no eval())' },
@@ -417,9 +433,9 @@ const en = {
 		// Config & Portability section
 		portTitle: 'Config & Portability',
 		portDesc:
-			'Agent configurations are portable, composable, and sync-ready — move agents between environments without friction.',
+			'Agent configurations are portable, composable, and sync-ready, move agents between environments without friction.',
 		portItems: [
-			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites — no version conflicts.' },
+			{ title: '📤 Import / Export', desc: 'Agents portable as ZIP files with automatic secret scrubbing. Import merges or overwrites, no version conflicts.' },
 			{ title: '🔄 Agent Sync', desc: 'Live instance-to-instance sync with structural matching, content diffing, and selective resource picking.' },
 			{ title: '📝 Prompt Snippets', desc: 'Reusable, versioned system prompt building blocks. Reference as <code>{{snippets.safety_rules}}</code>.' },
 		],
@@ -427,10 +443,10 @@ const en = {
 		engTitle: 'Engineering Excellence',
 		obsCardTitle: '📊 Observability',
 		obsCardDesc:
-			'Every pipeline step logged with <strong>immutable audit trails</strong> — tokens, cost, timing, and tool calls.',
+			'Every pipeline step logged with <strong>immutable audit trails</strong>: tokens, cost, timing, and tool calls.',
 		cqCardTitle: '🧪 Code Quality',
 		cqCardDesc:
-			'<strong>9,600+ tests with zero failures.</strong> Zero Checkstyle warnings. >90% code coverage. CI/CD enforced on every merge.',
+			'<strong>10,000+ tests with zero failures.</strong> Zero Checkstyle warnings. >90% code coverage. CI/CD enforced on every merge.',
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc:
 			'65 MCP tools, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.',
@@ -441,63 +457,63 @@ const en = {
 		manager: {
 			title: 'EDDI Manager',
 			description:
-				'A production-ready React management UI for building, deploying, and monitoring AI agents visually — with 11-locale i18n, live chat debugging, and audit dashboards.',
+				'A production-ready React management UI for building, deploying, and monitoring AI agents visually, with 11-locale i18n, live chat debugging, and audit dashboards.',
 			heading1: 'Visual Agent Management',
-			para1: 'The EDDI Manager is a comprehensive React-based management interface that provides visual control over every aspect of the EDDI platform — from agent configuration to real-time conversation monitoring.',
+			para1: 'The EDDI Manager is a comprehensive React-based management interface that provides visual control over every aspect of the EDDI platform, from agent configuration to real-time conversation monitoring.',
 			heading2: 'Key Capabilities',
 			items: [
-				'<strong>Visual Agent Builder</strong> — Create and configure agents through an intuitive drag-and-drop interface',
-				'<strong>Live Chat Debugging</strong> — Test agents in real-time with full conversation inspection',
-				'<strong>Audit Dashboards</strong> — Monitor token usage, costs, and performance across all agents',
-				'<strong>11-Locale i18n</strong> — Full internationalization with RTL support for Arabic',
-				'<strong>Interactive Onboarding</strong> — Guided tours that introduce new users to the platform',
-				'<strong>Resource Management</strong> — CRUD operations for rules, workflows, LLM configs, and connectors',
-				'<strong>Secrets Vault</strong> — Secure API key management with masked display',
+				'<strong>Visual Agent Builder</strong>: Create and configure agents through an intuitive drag-and-drop interface',
+				'<strong>Live Chat Debugging</strong>: Test agents in real-time with full conversation inspection',
+				'<strong>Audit Dashboards</strong>: Monitor token usage, costs, and performance across all agents',
+				'<strong>11-Locale i18n</strong>: Full internationalization with RTL support for Arabic',
+				'<strong>Interactive Onboarding</strong>: Guided tours that introduce new users to the platform',
+				'<strong>Resource Management</strong>: CRUD operations for rules, workflows, LLM configs, and connectors',
+				'<strong>Secrets Vault</strong>: Secure API key management with masked display',
 			],
 			heading3: 'Built for Teams',
-			para2: 'The Manager enables non-developers to iterate on agent behavior without touching source code. Prompt engineers can modify rules, test conversations, and deploy changes — all from the browser.',
+			para2: 'The Manager enables non-developers to iterate on agent behavior without touching source code. Prompt engineers can modify rules, test conversations, and deploy changes, all from the browser.',
 		},
 		mcpServer: {
-			title: 'MCP Server — 65 tools',
+			title: 'MCP Server: 65 tools',
 			description:
 				'EDDI exposes its full capabilities via the Model Context Protocol, enabling Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom AI clients to manage agents programmatically.',
 			heading1: 'AI-Native Control Plane',
 			para1: 'The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>65 tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.',
 			heading2: 'Tool Categories',
 			items: [
-				'<strong>Conversation Tools (11)</strong> — Chat with agents, manage conversations, read history, intent-based managed chat',
-				'<strong>Admin Tools (13)</strong> — Deploy, undeploy, create, update, and delete agents and triggers',
-				'<strong>Setup Tools (2)</strong> — Create complete agents in a single call with <code>setup_agent</code>, or from an OpenAPI spec with <code>create_api_agent</code>',
-				'<strong>Resource CRUD (5)</strong> — Full create/read/update/delete for rules, workflows, LLM configs, connectors, with batch cascade',
-				'<strong>Group Conversation Tools (11)</strong> — Multi-agent discussions with 6 styles, nested groups, async discussions',
-				'<strong>Memory Tools (8)</strong> — Persistent user memory with visibility scoping, search, and bulk operations',
-				'<strong>Schedule Management (6)</strong> — Create, list, fire, and retry scheduled agent triggers (cron and heartbeat)',
-				'<strong>Diagnostic Tools (2)</strong> — Server-side pipeline logs and per-task audit trail with LLM details, timing, and cost',
-				'<strong>GDPR Tools (2)</strong> — Cascade data erasure (Art. 17) and full data export (Art. 15/20)',
-				'<strong>Channel Integration Tools (5)</strong> — Manage Slack, Teams, and custom channel integrations',
-				'<strong>OpenAPI 3.1</strong> — Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
+				'<strong>Conversation Tools (11)</strong>: Chat with agents, manage conversations, read history, intent-based managed chat',
+				'<strong>Admin Tools (13)</strong>: Deploy, undeploy, create, update, and delete agents and triggers',
+				'<strong>Setup Tools (2)</strong>: Create complete agents in a single call with <code>setup_agent</code>, or from an OpenAPI spec with <code>create_api_agent</code>',
+				'<strong>Resource CRUD (5)</strong>: Full create/read/update/delete for rules, workflows, LLM configs, connectors, with batch cascade',
+				'<strong>Group Conversation Tools (11)</strong>: Multi-agent discussions with 6 styles, nested groups, async discussions',
+				'<strong>Memory Tools (8)</strong>: Persistent user memory with visibility scoping, search, and bulk operations',
+				'<strong>Schedule Management (6)</strong>: Create, list, fire, and retry scheduled agent triggers (cron and heartbeat)',
+				'<strong>Diagnostic Tools (2)</strong>: Server-side pipeline logs and per-task audit trail with LLM details, timing, and cost',
+				'<strong>GDPR Tools (2)</strong>: Cascade data erasure (Art. 17) and full data export (Art. 15/20)',
+				'<strong>Channel Integration Tools (5)</strong>: Manage Slack, Teams, and custom channel integrations',
+				'<strong>OpenAPI 3.1</strong>: Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
 			],
-			heading3: 'Open Standards — Not Proprietary APIs',
-			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming — all open standards, zero vendor lock-in.',
+			heading3: 'Open Standards: Not Proprietary APIs',
+			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming, all open standards, zero vendor lock-in.',
 			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
 			description:
-				'Agent logic, pipelines, and tool definitions are JSON configurations — not compiled code. Iterate instantly without redeployment.',
+				'Agent logic, pipelines, and tool definitions are JSON configurations, not compiled code. Iterate instantly without redeployment.',
 			heading1: 'JSON-Driven Agent Logic',
 			para1: "In EDDI, everything that defines an agent's behavior is a <strong>JSON configuration resource</strong>: rules (system prompts), LLM connector settings, workflow pipelines, tool configurations, and deployment descriptors. No code changes, no redeployment.",
 			heading2: 'Why This Matters',
 			items: [
-				'<strong>No redeployment</strong> — Change agent behavior by updating JSON, not source code',
-				'<strong>Prompt engineer friendly</strong> — Non-developers modify rules via UI or REST API',
-				'<strong>Version controlled</strong> — JSON configs live in Git alongside infrastructure-as-code',
-				'<strong>Hot-reloadable</strong> — Changes take effect immediately, no server restart needed',
-				'<strong>Auditable</strong> — Every configuration change is tracked in the immutable audit trail',
-				'<strong>Import / Export</strong> — Agents are portable as ZIP files with automatic secret scrubbing on export. Import merges or overwrites — no version conflicts',
-				'<strong>Agent Sync</strong> — Live instance-to-instance sync with structural matching, content diffing, and selective resource picking — no ZIP intermediary needed',
-				'<strong>Prompt Snippets</strong> — Reusable, versioned system prompt building blocks referenced as <code>{{snippets.safety_rules}}</code> — compose prompts from shared libraries',
-				'<strong>Behavior Rules</strong> — IF-THEN logic engine for routing, orchestration, and business logic decisions without code',
+				'<strong>No redeployment</strong>: Change agent behavior by updating JSON, not source code',
+				'<strong>Prompt engineer friendly</strong>: Non-developers modify rules via UI or REST API',
+				'<strong>Version controlled</strong>: JSON configs live in Git alongside infrastructure-as-code',
+				'<strong>Hot-reloadable</strong>: Changes take effect immediately, no server restart needed',
+				'<strong>Auditable</strong>: Every configuration change is tracked in the immutable audit trail',
+				'<strong>Import / Export</strong>: Agents are portable as ZIP files with automatic secret scrubbing on export. Import merges or overwrites, no version conflicts',
+				'<strong>Agent Sync</strong>: Live instance-to-instance sync with structural matching, content diffing, and selective resource picking, no ZIP intermediary needed',
+				'<strong>Prompt Snippets</strong>: Reusable, versioned system prompt building blocks referenced as <code>{{snippets.safety_rules}}</code>, compose prompts from shared libraries',
+				'<strong>Behavior Rules</strong>: IF-THEN logic engine for routing, orchestration, and business logic decisions without code',
 			],
 			heading3: 'Resource Types',
 			para2: 'EDDI manages these configuration resources: <strong>Rules</strong> (system prompts), <strong>Workflows</strong> (pipeline definitions), <strong>LLM Connectors</strong> (provider settings), <strong>HTTP Connectors</strong> (external API integrations), <strong>Agents</strong> (deployment descriptors), and <strong>Environments</strong> (deployment targets).',
@@ -505,133 +521,134 @@ const en = {
 		security: {
 			title: 'Security-First Architecture',
 			description:
-				'No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication — security is an architectural foundation, not a bolt-on.',
+				'No eval(), no code execution blocks. Vault integration, cryptographic audit trails, and OIDC/Keycloak authentication, security is an architectural foundation, not a bolt-on.',
 			heading1: 'Enterprise Security by Design',
-			para1: 'EDDI eliminates entire classes of security vulnerabilities by design. There is <strong>no eval()</strong>, no code execution blocks, and no dynamic code injection — agent behavior is defined through declarative JSON configuration only.',
+			para1: 'EDDI eliminates entire classes of security vulnerabilities by design. There is <strong>no eval()</strong>, no code execution blocks, and no dynamic code injection, agent behavior is defined through declarative JSON configuration only.',
 
 			// Industry context
 			crisisTitle: 'Why This Matters Now',
-			crisisPara: 'The AI agent ecosystem is under unprecedented security pressure. In early 2026, independent researchers <a href="https://theweatherreport.ai/posts/agent-platform-cves-april-2026/" target="_blank" rel="noopener">documented hundreds of critical vulnerabilities</a> across major open-source agent frameworks — including CVSS 10.0 remote code execution flaws, sandbox escapes, and authorization bypasses. The root cause in most cases: <strong>platforms that execute user-supplied or dynamically generated code at runtime</strong>.',
-			crisisPara2: 'The <a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">Cloud Security Alliance</a> identified a systemic "AI Agent Disclosure Vacuum" — traditional vulnerability reporting processes cannot keep pace with the non-deterministic nature of AI systems. For enterprises deploying agents in regulated environments, the security posture of the underlying platform is no longer a nice-to-have — it is a board-level risk decision.',
+			crisisPara: 'The AI agent ecosystem is under unprecedented security pressure. In early 2026, hundreds of critical vulnerabilities were publicly documented across major open-source agent frameworks, including CVSS 10.0 remote code execution flaws, sandbox escapes, and authorization bypasses. The root cause in most cases: <strong>platforms that execute user-supplied or dynamically generated code at runtime</strong>.',
+			crisisPara2: 'The <a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">Cloud Security Alliance</a> identified a systemic "AI Agent Disclosure Vacuum": traditional vulnerability reporting processes cannot keep pace with the non-deterministic nature of AI systems. For enterprises deploying agents in regulated environments, the security posture of the underlying platform is no longer a nice-to-have. It is a board-level risk decision.',
 
 			// Architectural defense
 			defenseTitle: 'EDDI\'s Architectural Defense',
-			defensePara: 'Rather than attempting to sandbox code execution after the fact, EDDI <strong>eliminates the attack surface entirely</strong>. Agent behavior is defined through declarative JSON configuration — never through executable code blocks, eval() statements, or dynamic script injection. This architectural decision structurally prevents the vulnerability classes that have affected competing platforms.',
+			defensePara: 'Rather than attempting to sandbox code execution after the fact, EDDI <strong>eliminates the attack surface entirely</strong>. Agent behavior is defined through declarative JSON configuration, never through executable code blocks, eval() statements, or dynamic script injection. This architectural decision structurally prevents the vulnerability classes that have affected competing platforms.',
 
 			heading2: 'Security Capabilities',
 			items: [
-				'<strong>Zero eval()</strong> — No dynamic code execution of any kind. Agent logic is declarative JSON only',
-				'<strong>OIDC/Keycloak</strong> — Enterprise authentication and authorization with RBAC roles (admin, editor, viewer)',
-				'<strong>Secrets Vault</strong> — AES-256-GCM envelope encryption for API keys with automatic secret scrubbing on export',
-				'<strong>Path Traversal Protection</strong> — Input validation at every boundary prevents directory escape attacks',
-				'<strong>SSRF Protection</strong> — URL validation and domain allowlisting prevent server-side request forgery',
-				'<strong>Cryptographic Audit Trails</strong> — HMAC-SHA256 signed, tamper-evident operation logs with per-agent cryptographic signing',
-				'<strong>Secret Redaction</strong> — Automated filter scrubs API keys, vault references, and sensitive data from all audit entries',
-				'<strong>PII-Safe Logging</strong> — GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
-				'<strong>Sigstore Cosign</strong> — Keyless OIDC container image signing — cryptographically verify any Docker image was built by official CI',
+				'<strong>Zero eval()</strong>: No dynamic code execution of any kind. Agent logic is declarative JSON only',
+				'<strong>OIDC/Keycloak</strong>: Enterprise authentication and authorization with RBAC roles (admin, editor, viewer)',
+				'<strong>Secrets Vault</strong>: AES-256-GCM envelope encryption for API keys with automatic secret scrubbing on export',
+				'<strong>Path Traversal Protection</strong>: Input validation at every boundary prevents directory escape attacks',
+				'<strong>SSRF Protection</strong>: URL validation and domain allowlisting prevent server-side request forgery',
+				'<strong>Cryptographic Audit Trails</strong>: HMAC-SHA256 signed, tamper-evident operation logs with per-agent cryptographic signing',
+				'<strong>EU AI Act Ready</strong>: Built-in governance capabilities for regulatory compliance',
+				'<strong>Secret Redaction</strong>: Automated filter scrubs API keys, vault references, and sensitive data from all audit entries',
+				'<strong>PII-Safe Logging</strong>: GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
+				'<strong>Sigstore Cosign</strong>: Keyless OIDC container image signing, cryptographically verify any Docker image was built by official CI',
 			],
 
 			// CI/CD Security Pipeline
 			ciTitle: 'Automated Security Pipeline',
-			ciPara: 'Every push and pull request is scanned by 6 automated security tools — all GitHub Actions SHA-pinned to prevent supply-chain attacks:',
+			ciPara: 'Every push and pull request is scanned by 6 automated security tools, all GitHub Actions SHA-pinned to prevent supply-chain attacks:',
 			ciItems: [
-				'<strong>CodeQL</strong> — Semantic SAST analysis with <code>security-extended</code> queries',
-				'<strong>Trivy</strong> — CVE scanning for filesystem dependencies and Docker images (blocking on CRITICAL/HIGH)',
-				'<strong>Gitleaks</strong> — Git history scanning to prevent secret and credential leakage',
-				'<strong>ZAP</strong> — DAST API scanning against the live Docker image',
-				'<strong>CycloneDX</strong> — SBOM generation for supply chain transparency',
-				'<strong>Jazzer</strong> — Coverage-guided fuzz testing for security-critical parsers',
+				'<strong>CodeQL</strong>: Semantic SAST analysis with <code>security-extended</code> queries',
+				'<strong>Trivy</strong>: CVE scanning for filesystem dependencies and Docker images (blocking on CRITICAL/HIGH)',
+				'<strong>Gitleaks</strong>: Git history scanning to prevent secret and credential leakage',
+				'<strong>ZAP</strong>: DAST API scanning against the live Docker image',
+				'<strong>CycloneDX</strong>: SBOM generation for supply chain transparency',
+				'<strong>Jazzer</strong>: Coverage-guided fuzz testing for security-critical parsers',
 			],
 
 			// Governance
 			govTitle: 'Governance & Compliance Integration',
-			govPara: 'Security capabilities feed directly into EDDI\'s <a href="/enterprise/compliance/">compliance framework</a>. The immutable audit trail satisfies EU AI Act record-keeping requirements (Art. 12), pipeline tracing provides AI decision transparency (Art. 13), and the Management UI enables human oversight with emergency stop capabilities (Art. 14). The same infrastructure supports GDPR, HIPAA, SOC 2, and 15+ additional regulatory frameworks — all through one unified API.',
+			govPara: `Security capabilities feed directly into EDDI's <a href="/enterprise/compliance/">compliance framework</a>. The immutable audit trail satisfies EU AI Act record-keeping requirements (Art. 12), pipeline tracing provides AI decision transparency (Art. 13), and the Management UI enables human oversight with emergency stop capabilities (Art. 14). The same infrastructure supports GDPR, HIPAA, SOC 2, and ${FRAMEWORKS} additional regulatory frameworks, all through one unified API.`,
 		},
 		performance: {
 			title: 'Enterprise Performance',
 			description:
-				'Java 25 Virtual Threads on Quarkus — millions of lightweight threads for I/O-bound LLM workloads with sub-second boot times and half the memory footprint of traditional frameworks.',
+				'Java 25 Virtual Threads on Quarkus, millions of lightweight threads for I/O-bound LLM workloads with sub-second boot times and half the memory footprint of traditional frameworks.',
 			heading1: 'Built for Scale',
 			para1: 'EDDI runs on <strong>Java 25 with Quarkus</strong>, leveraging Virtual Threads (Project Loom) for massive I/O-bound concurrency. Unlike Node.js event loops, Virtual Threads provide genuine multi-threaded parallelism with minimal overhead.',
 
 			// Why Virtual Threads matter for AI
 			vtTitle: 'Why Virtual Threads Matter for AI Agents',
-			vtPara: 'Modern AI agents are fundamentally <strong>I/O-bound</strong>: they spend most of their time waiting for LLM API responses, vector store queries, external tool calls, and database operations. Traditional platform threads (and Node.js event loops) struggle with this pattern — each blocking call either occupies an expensive OS thread or forces complex callback chains.',
+			vtPara: 'Modern AI agents are fundamentally <strong>I/O-bound</strong>: they spend most of their time waiting for LLM API responses, vector store queries, external tool calls, and database operations. Traditional platform threads (and Node.js event loops) struggle with this pattern, each blocking call either occupies an expensive OS thread or forces complex callback chains.',
 			vtPara2: 'Java Virtual Threads solve this elegantly: when an agent awaits an LLM response, its virtual thread <strong>yields seamlessly</strong>, freeing the underlying carrier thread to process other agent operations. This means EDDI can serve millions of concurrent agent conversations with a fraction of the hardware required by traditional architectures.',
 
 			heading2: 'Performance Highlights',
 			items: [
-				'<strong>Virtual Threads</strong> — Millions of lightweight threads for concurrent LLM calls, each yielding during I/O waits',
-				'<strong>Quarkus Runtime</strong> — Cloud-native Java with dev-mode hot reload, optimized for containers. Quarkus handles 2.7× more transactions per second than legacy Spring Boot while starting 2.3× faster and using half the memory',
-				'<strong>Loom-Friendly Connection Pools</strong> — Agroal connection pooling avoids the ThreadLocal bottlenecks that can affect traditional connection pools under virtual thread workloads',
-				'<strong>NATS JetStream</strong> — Horizontal scaling with event-driven architecture for multi-instance coordination',
-				'<strong>Dual Database</strong> — MongoDB or PostgreSQL, switch with one env var. Single Docker image for both',
-				'<strong>SSE Streaming</strong> — Real-time chat responses, group discussion feeds, and live log streaming via Server-Sent Events',
-				'<strong>One-Command Install</strong> — Interactive wizard deploys EDDI + database + starter agent via Docker Compose',
-				'<strong>Red Hat Certified</strong> — Container certification with automated preflight checks in CI/CD',
+				'<strong>Virtual Threads</strong>: Millions of lightweight threads for concurrent LLM calls, each yielding during I/O waits',
+				'<strong>Quarkus Runtime</strong>: Cloud-native Java with dev-mode hot reload, optimized for containers. Quarkus delivers significantly higher throughput and faster startup than legacy JVM stacks, with a smaller memory footprint',
+				'<strong>Loom-Friendly Connection Pools</strong>: Agroal connection pooling avoids the ThreadLocal bottlenecks that can affect traditional connection pools under virtual thread workloads',
+				'<strong>NATS JetStream</strong>: Horizontal scaling with event-driven architecture for multi-instance coordination',
+				'<strong>Dual Database</strong>: MongoDB or PostgreSQL, switch with one env var. Single Docker image for both',
+				'<strong>SSE Streaming</strong>: Real-time chat responses, group discussion feeds, and live log streaming via Server-Sent Events',
+				'<strong>One-Command Install</strong>: Interactive wizard deploys EDDI + database + starter agent via Docker Compose',
+				'<strong>Red Hat Certified</strong>: Container certification with automated preflight checks in CI/CD',
 			],
 
 			// Honest benchmark context
 			benchTitle: 'Performance in Context',
-			benchPara: 'No runtime wins in every scenario. <a href="https://apuravchauhan.medium.com/node-js-vs-java-web-performance-benchmark-analysis-scaling-insights-de2ce3998d18" target="_blank" rel="noopener">Industry benchmarks</a> show that Node.js can outperform Java in highly specific, pure-I/O routing scenarios. However, Java consistently outperforms Node.js by 30–68% across scenarios involving CPU-intensive tasks — which is exactly what AI agents require. Modern agents perform a complex mix of <strong>massive I/O</strong> (LLM API calls, vector queries) and <strong>intensive computation</strong> (data transformation, routing logic, embedding processing, confidence evaluation). This mixed-workload profile is where virtual threads on Quarkus deliver their strongest advantage.',
-			benchPara2: 'EDDI\'s architecture is intentionally optimized for this reality: Quarkus with virtual threads for the I/O-heavy agent orchestration layer, combined with Loom-friendly connection pools (Agroal) that avoid the ThreadLocal contention issues <a href="https://www.reddit.com/r/java/comments/1lfa991/virtual_threads_in_java_24_we_ran_realworld/" target="_blank" rel="noopener">documented by the community</a> with traditional pooling libraries under high virtual thread concurrency.',
+			benchPara: 'No runtime wins in every scenario. Node.js can outperform Java in highly specific, pure-I/O routing scenarios, while Java consistently leads in workloads that involve CPU-intensive tasks, which is exactly what AI agents require. Modern agents perform a complex mix of <strong>massive I/O</strong> (LLM API calls, vector queries) and <strong>intensive computation</strong> (data transformation, routing logic, embedding processing, confidence evaluation). This mixed-workload profile is where virtual threads on Quarkus deliver their strongest advantage.',
+			benchPara2: 'EDDI\'s architecture is intentionally optimized for this reality: Quarkus with virtual threads for the I/O-heavy agent orchestration layer, combined with Loom-friendly connection pools (Agroal) that avoid the ThreadLocal contention issues seen with traditional pooling libraries under high virtual thread concurrency.',
 		},
 		multiAgent: {
 			title: 'Multi-Agent Orchestration',
 			description:
-				'Intent-based agent discovery, managed conversations, agent triggers, and A/B routing — one conversation per intent+user, auto-created and auto-managed.',
+				'Intent-based agent discovery, managed conversations, agent triggers, and A/B routing, one conversation per intent+user, auto-created and auto-managed.',
 			heading1: 'Intelligent Agent Routing',
 			para1: "EDDI's multi-agent system goes beyond simple load balancing. It provides <strong>intent-based agent discovery</strong> that automatically routes user requests to the most appropriate agent based on declared capabilities.",
 			heading2: 'Orchestration Features',
 			items: [
-				'<strong>Agent Discovery</strong> — Agents declare intents and are auto-matched to user requests',
-				'<strong>Managed Conversations</strong> — One conversation per intent+user, auto-created',
-				'<strong>Agent Triggers</strong> — Automated agent activation based on events',
-				'<strong>A/B Routing</strong> — Test different agents against the same traffic',
-				'<strong>Coordinator Pattern</strong> — Agents delegate to specialized sub-agents',
+				'<strong>Agent Discovery</strong>: Agents declare intents and are auto-matched to user requests',
+				'<strong>Managed Conversations</strong>: One conversation per intent+user, auto-created',
+				'<strong>Agent Triggers</strong>: Automated agent activation based on events',
+				'<strong>A/B Routing</strong>: Test different agents against the same traffic',
+				'<strong>Coordinator Pattern</strong>: Agents delegate to specialized sub-agents',
 			],
 			heading3: 'Group Conversations & Advanced Orchestration',
 			para2: 'EDDI supports <strong>multi-agent group conversations</strong> with 6 built-in discussion styles, nested group structures, dynamic agent creation, and a meta-agent that creates other agents through conversation:',
 			items2: [
-				'<strong>6 Discussion Styles</strong> — Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, and <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
-				'<strong>Dynamic Agents</strong> — Agents in Task Force discussions can create, recruit, delegate to, and teardown sub-agents at runtime with guardrails (provider/model whitelists, per-discussion caps, lifecycle policies)',
-				'<strong>Nested Groups</strong> — Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
-				'<strong>Slack Integration</strong> — Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support and trigger-keyword routing',
-				'<strong>Agent Father</strong> — A meta-agent that creates other agents through conversation (ships out of the box)',
-				'<strong>A2A Protocol</strong> — Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
-				'<strong>Capability Matching</strong> — Discover and route to agents by skill, confidence score, and custom attributes',
+				'<strong>6 Discussion Styles</strong>: Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, and <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>Dynamic Agents</strong>: Agents in Task Force discussions can create, recruit, delegate to, and teardown sub-agents at runtime with guardrails (provider/model whitelists, per-discussion caps, lifecycle policies)',
+				'<strong>Nested Groups</strong>: Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
+				'<strong>Slack Integration</strong>: Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support and trigger-keyword routing',
+				'<strong>Agent Father</strong>: A meta-agent that creates other agents through conversation (ships out of the box)',
+				'<strong>A2A Protocol</strong>: Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
+				'<strong>Capability Matching</strong>: Discover and route to agents by skill, confidence score, and custom attributes',
 			],
 		},
 		observability: {
 			title: 'Observability & Audit Trails',
 			description:
-				'Every pipeline step is logged with an immutable audit trail — tokens, cost, timing, tool calls. Full CQRS telemetry with Prometheus and Grafana integration.',
+				'Every pipeline step is logged with an immutable audit trail: tokens, cost, timing, tool calls. Full CQRS telemetry with Prometheus and Grafana integration.',
 			heading1: 'Complete Visibility',
-			para1: 'EDDI provides <strong>end-to-end observability</strong> across every conversation, pipeline step, and tool invocation. The immutable audit trail captures tokens used, latency, costs, and outcomes — enabling both operational monitoring and regulatory compliance.',
+			para1: 'EDDI provides <strong>end-to-end observability</strong> across every conversation, pipeline step, and tool invocation. The immutable audit trail captures tokens used, latency, costs, and outcomes, enabling both operational monitoring and regulatory compliance.',
 			heading2: 'Observability Features',
 			items: [
-				'<strong>Immutable Audit Trail</strong> — Cryptographically signed, tamper-evident operation logs',
-				'<strong>Token & Cost Tracking</strong> — Per-conversation and per-agent usage metrics',
-				'<strong>Pipeline Tracing</strong> — Full visibility into every step of the processing pipeline',
-				'<strong>Prometheus Metrics</strong> — 50+ Micrometer metrics at <code>/q/metrics</code> for monitoring infrastructure',
-				'<strong>Grafana Dashboards</strong> — Pre-built dashboards for operations teams',
-				'<strong>OpenTelemetry Tracing</strong> — Per-task distributed traces via OTLP (Jaeger, Tempo, Datadog) with spans for task ID, type, conversation, and agent',
-				'<strong>CQRS Telemetry</strong> — Event-sourced ledger of all system operations',
+				'<strong>Immutable Audit Trail</strong>: Cryptographically signed, tamper-evident operation logs',
+				'<strong>Token & Cost Tracking</strong>: Per-conversation and per-agent usage metrics',
+				'<strong>Pipeline Tracing</strong>: Full visibility into every step of the processing pipeline',
+				'<strong>Prometheus Metrics</strong>: 50+ Micrometer metrics at <code>/q/metrics</code> for monitoring infrastructure',
+				'<strong>Grafana Dashboards</strong>: Pre-built dashboards for operations teams',
+				'<strong>OpenTelemetry Tracing</strong>: Per-task distributed traces via OTLP (Jaeger, Tempo, Datadog) with spans for task ID, type, conversation, and agent',
+				'<strong>CQRS Telemetry</strong>: Event-sourced ledger of all system operations',
 			],
 		},
 		codeQuality: {
 			title: 'Code Quality',
 			description:
-				'9,600+ tests with zero failures. Zero Checkstyle warnings. >90% code coverage. CI/CD enforced quality gates on every merge.',
+				'10,000+ tests with zero failures. Zero Checkstyle warnings. >90% code coverage. CI/CD enforced quality gates on every merge.',
 			heading1: 'Engineering Rigor',
 			para1: 'EDDI maintains <strong>exceptional code quality</strong> through comprehensive testing, static analysis, and CI/CD quality gates. Every pull request must pass the full test suite before merge.',
 			heading2: 'Quality Metrics',
 			items: [
-				'<strong>9,600+ Tests</strong> — Unit, integration, and end-to-end coverage',
-				'<strong>Zero Failures</strong> — Clean CI on every build',
-				'<strong>Checkstyle Enforcement</strong> — Zero warnings, strict rules enforced on every build',
-				'<strong>MCP Tool Tests</strong> — Comprehensive coverage of all 65 MCP tools',
-				'<strong>CI/CD Quality Gates</strong> — Automated checks prevent regressions',
+				'<strong>10,000+ Tests</strong>: Unit, integration, and end-to-end coverage',
+				'<strong>Zero Failures</strong>: Clean CI on every build',
+				'<strong>Checkstyle Enforcement</strong>: Zero warnings, strict rules enforced on every build',
+				'<strong>MCP Tool Tests</strong>: Comprehensive coverage of all 65 MCP tools',
+				'<strong>CI/CD Quality Gates</strong>: Automated checks prevent regressions',
 			],
 		},
 		aiReady: {
@@ -642,81 +659,81 @@ const en = {
 			para1: 'EDDI is built with the assumption that <strong>coding agents will manage it</strong>. Every API follows predictable patterns, every resource has consistent CRUD operations, and the MCP server enables full programmatic control.',
 			heading2: 'AI-Friendly Design',
 			items: [
-				'<strong>Predictable Patterns</strong> — Consistent resource naming, CRUD conventions, and error handling',
-				'<strong>Self-Documenting APIs</strong> — OpenAPI specs and MCP tool descriptions auto-generated',
-				'<strong>LLMs.txt Support</strong> — AI-discoverable site content via llms.txt and llms-full.txt',
-				'<strong>MCP-First</strong> — 65 tools designed for AI assistant integration',
-				'<strong>Setup Automation</strong> — Single-call agent creation with <code>setup_agent</code>',
+				'<strong>Predictable Patterns</strong>: Consistent resource naming, CRUD conventions, and error handling',
+				'<strong>Self-Documenting APIs</strong>: OpenAPI specs and MCP tool descriptions auto-generated',
+				'<strong>LLMs.txt Support</strong>: AI-discoverable site content via llms.txt and llms-full.txt',
+				'<strong>MCP-First</strong>: 65 tools designed for AI assistant integration',
+				'<strong>Setup Automation</strong>: Single-call agent creation with <code>setup_agent</code>',
 			],
 		},
 		// ─── New Feature Pages ────────────────────────────────────
 		memory: {
 			title: 'Memory & Context Management',
 			description:
-				'Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing — agents that remember, learn, and forget intelligently.',
+				'Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing, agents that remember, learn, and forget intelligently.',
 			heading1: 'Agents That Remember',
-			para1: 'EDDI provides a comprehensive <strong>persistent memory system</strong> that enables agents to remember facts, preferences, and context across conversations. Memory entries are structured key-value pairs with visibility scoping — giving agents the right context at the right time.',
+			para1: 'EDDI provides a comprehensive <strong>persistent memory system</strong> that enables agents to remember facts, preferences, and context across conversations. Memory entries are structured key-value pairs with visibility scoping, giving agents the right context at the right time.',
 			heading2: 'Memory Capabilities',
 			items: [
-				'<strong>Persistent User Memory</strong> — Key-value entries with <code>global</code>, <code>agent</code>, and <code>group</code> visibility scoping across conversations',
-				'<strong>LLM Memory Tools</strong> — Built-in tools agents can call to read, write, and search their own persistent memory',
-				'<strong>Dream Consolidation</strong> — Background memory maintenance: stale entry pruning, contradiction detection, and fact summarization',
-				'<strong>Token-Aware Windowing</strong> — Intelligent context packing with model-specific tokenizer support and anchored opening steps',
-				'<strong>Rolling Summary</strong> — Incremental LLM-powered summarization of older turns with a Conversation Recall Tool for drill-back',
-				'<strong>Property Extraction</strong> — Config-driven slot-filling with <code>longTerm</code> / <code>conversation</code> / <code>step</code> scoping',
-				'<strong>Memory Policy (Commit Flags)</strong> — Strict write discipline marks failed task output as uncommitted (hidden from LLM context) and injects concise error digests for graceful degradation',
-				'<strong>Conversation State</strong> — Full history with undo/redo support',
+				'<strong>Persistent User Memory</strong>: Key-value entries with <code>global</code>, <code>agent</code>, and <code>group</code> visibility scoping across conversations',
+				'<strong>LLM Memory Tools</strong>: Built-in tools agents can call to read, write, and search their own persistent memory',
+				'<strong>Dream Consolidation</strong>: Background memory maintenance: stale entry pruning, contradiction detection, and fact summarization',
+				'<strong>Token-Aware Windowing</strong>: Intelligent context packing with model-specific tokenizer support and anchored opening steps',
+				'<strong>Rolling Summary</strong>: Incremental LLM-powered summarization of older turns with a Conversation Recall Tool for drill-back',
+				'<strong>Property Extraction</strong>: Config-driven slot-filling with <code>longTerm</code> / <code>conversation</code> / <code>step</code> scoping',
+				'<strong>Memory Policy (Commit Flags)</strong>: Strict write discipline marks failed task output as uncommitted (hidden from LLM context) and injects concise error digests for graceful degradation',
+				'<strong>Conversation State</strong>: Full history with undo/redo support',
 			],
 			heading3: 'How Dream Consolidation Works',
-			para2: 'Inspired by Anthropic\'s research on background memory consolidation, EDDI\'s Dream Cycles run on a <strong>configurable schedule</strong> to maintain memory quality. Stale entries are pruned, contradictions are detected and resolved, and facts are summarized — all with cost ceilings per run. Dreams are scheduled via cron expressions and can use persistent or fresh conversation strategies.',
+			para2: 'Inspired by Anthropic\'s research on background memory consolidation, EDDI\'s Dream Cycles run on a <strong>configurable schedule</strong> to maintain memory quality. Stale entries are pruned, contradictions are detected and resolved, and facts are summarized, all with cost ceilings per run. Dreams are scheduled via cron expressions and can use persistent or fresh conversation strategies.',
 		},
 		rag: {
-			title: 'RAG — Retrieval-Augmented Generation',
+			title: 'RAG: Retrieval-Augmented Generation',
 			description:
-				'7 embedding providers, 5 vector stores, httpCall RAG, and async document ingestion — enterprise-grade knowledge retrieval for AI agents.',
+				'7 embedding providers, 5 vector stores, httpCall RAG, and async document ingestion, enterprise-grade knowledge retrieval for AI agents.',
 			heading1: 'Enterprise Knowledge Retrieval',
 			para1: 'EDDI provides a complete <strong>Retrieval-Augmented Generation</strong> pipeline with native support for multiple embedding providers, vector stores, and a zero-infrastructure RAG option via HTTP calls.',
 			heading2: 'RAG Capabilities',
 			items: [
-				'<strong>7 Embedding Providers</strong> — OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
-				'<strong>5 Vector Stores</strong> — pgvector, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
-				'<strong>httpCall RAG</strong> — Zero-infrastructure RAG via any search API (BM25, Elasticsearch, custom endpoints)',
-				'<strong>REST Ingestion API</strong> — Async document ingestion with status tracking and batch processing',
-				'<strong>Hybrid Search</strong> — Combine dense vector retrieval with sparse keyword matching for optimal recall',
+				'<strong>7 Embedding Providers</strong>: OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
+				'<strong>5 Vector Stores</strong>: pgvector, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
+				'<strong>httpCall RAG</strong>: Zero-infrastructure RAG via any search API (BM25, Elasticsearch, custom endpoints)',
+				'<strong>REST Ingestion API</strong>: Async document ingestion with status tracking and batch processing',
+				'<strong>Hybrid Search</strong>: Combine dense vector retrieval with sparse keyword matching for optimal recall',
 			],
 			heading3: 'Flexible Deployment',
-			para2: 'RAG is fully configuration-driven. Choose your embedding provider and vector store via JSON configuration — no code changes needed. The <code>httpCall RAG</code> option lets you use <strong>any existing search infrastructure</strong> (Elasticsearch, Solr, custom APIs) without deploying a separate vector database.',
+			para2: 'RAG is fully configuration-driven. Choose your embedding provider and vector store via JSON configuration, no code changes needed. The <code>httpCall RAG</code> option lets you use <strong>any existing search infrastructure</strong> (Elasticsearch, Solr, custom APIs) without deploying a separate vector database.',
 		},
 		modelCascading: {
 			title: 'Smart Model Cascading',
 			description:
-				'Cost-optimized multi-model routing — try cheap models first, escalate on low confidence. Per-conversation budgets and tenant cost ceilings.',
+				'Cost-optimized multi-model routing, try cheap models first, escalate on low confidence. Per-conversation budgets and tenant cost ceilings.',
 			heading1: 'Intelligent Cost Optimization',
-			para1: 'EDDI\'s Model Cascading system enables <strong>cost-aware multi-model routing</strong>. Start with fast, inexpensive models and automatically escalate to more powerful (and expensive) models only when confidence is low — reducing AI costs without sacrificing quality.',
+			para1: 'EDDI\'s Model Cascading system enables <strong>cost-aware multi-model routing</strong>. Start with fast, inexpensive models and automatically escalate to more powerful (and expensive) models only when confidence is low, reducing AI costs without sacrificing quality.',
 			heading2: 'Cascading Features',
 			items: [
-				'<strong>Cost Optimization</strong> — Try cheap/fast models first, escalate to powerful models only when confidence is low',
-				'<strong>4 Confidence Strategies</strong> — Structured output, heuristic, judge model, or none — choose the evaluation method that fits your use case',
-				'<strong>Per-Conversation Budgets</strong> — Automatic cost tracking with budget caps and conversation eviction when exceeded',
-				'<strong>Tenant Cost Ceilings</strong> — Monthly cost budgets per tenant with automatic enforcement in multi-tenant deployments',
-				'<strong>12 LLM Providers</strong> — OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Vertex AI, Ollama, Jlama, Hugging Face, and any OpenAI-compatible endpoint',
+				'<strong>Cost Optimization</strong>: Try cheap/fast models first, escalate to powerful models only when confidence is low',
+				'<strong>4 Confidence Strategies</strong>: Structured output, heuristic, judge model, or none, choose the evaluation method that fits your use case',
+				'<strong>Per-Conversation Budgets</strong>: Automatic cost tracking with budget caps and conversation eviction when exceeded',
+				'<strong>Tenant Cost Ceilings</strong>: Monthly cost budgets per tenant with automatic enforcement in multi-tenant deployments',
+				'<strong>12 LLM Providers</strong>: OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Vertex AI, Ollama, Jlama, Hugging Face, and any OpenAI-compatible endpoint',
 			],
 			heading3: 'How It Works',
-			para2: 'Configure a cascade chain of models ordered by cost. For each user message, EDDI tries the cheapest model first and evaluates confidence. If confidence falls below the threshold, it automatically escalates to the next model in the chain. This approach can <strong>reduce LLM costs by 60-80%</strong> for typical workloads where most queries are simple enough for smaller models.',
+			para2: 'Configure a cascade chain of models ordered by cost. For each user message, EDDI tries the cheapest model first and evaluates confidence. If confidence falls below the threshold, it automatically escalates to the next model in the chain. This approach can <strong>reduce LLM costs by up to 60-80%</strong> in typical multi-model workloads where most queries are simple enough for smaller models.',
 		},
 		scheduling: {
 			title: 'Scheduling & Heartbeats',
 			description:
 				'Cron-triggered agent execution, heartbeat wake-ups for proactive behavior, dream cycles for memory maintenance, and complete fire logging.',
 			heading1: 'Proactive Agent Behavior',
-			para1: 'EDDI agents don\'t just respond to messages — they can <strong>proactively execute on schedules</strong>. Heartbeat triggers wake agents at configurable intervals, cron expressions provide precise timing, and dream cycles maintain memory quality in the background.',
+			para1: 'EDDI agents don\'t just respond to messages, they can <strong>proactively execute on schedules</strong>. Heartbeat triggers wake agents at configurable intervals, cron expressions provide precise timing, and dream cycles maintain memory quality in the background.',
 			heading2: 'Scheduling Features',
 			items: [
-				'<strong>Heartbeat Triggers</strong> — Periodic agent wake-ups at configurable intervals for proactive behavior (e.g., daily check-ins, periodic summaries)',
-				'<strong>Cron Scheduling</strong> — Standard cron expressions for precise timed agent execution',
-				'<strong>Conversation Strategies</strong> — <code>persistent</code> (reuse same conversation across fires) or <code>new</code> (fresh context each time)',
-				'<strong>Fire Logging</strong> — Complete execution history with status, duration, cost tracking, and retry logic',
-				'<strong>Dream Cycles</strong> — Scheduled background memory consolidation with cost ceilings per run',
+				'<strong>Heartbeat Triggers</strong>: Periodic agent wake-ups at configurable intervals for proactive behavior (e.g., daily check-ins, periodic summaries)',
+				'<strong>Cron Scheduling</strong>: Standard cron expressions for precise timed agent execution',
+				'<strong>Conversation Strategies</strong>: <code>persistent</code> (reuse same conversation across fires) or <code>new</code> (fresh context each time)',
+				'<strong>Fire Logging</strong>: Complete execution history with status, duration, cost tracking, and retry logic',
+				'<strong>Dream Cycles</strong>: Scheduled background memory consolidation with cost ceilings per run',
 			],
 			heading3: 'Use Cases',
 			para2: 'Scheduled agents enable powerful proactive workflows: <strong>daily report summaries</strong>, periodic data quality checks, automated customer follow-ups, memory maintenance via dream consolidation, and time-triggered escalation workflows. Each scheduled execution is fully logged with cost tracking and retry support.',
@@ -725,32 +742,32 @@ const en = {
 		whyEddi: {
 			title: 'Why EDDI?',
 			description:
-				'The self-hosted enterprise AI orchestration platform. Configuration-driven agent logic, a complete management UI, and enterprise-grade security — all in one deployable platform.',
+				'The self-hosted enterprise AI orchestration platform. Configuration-driven agent logic, a complete management UI, and enterprise-grade security, all in one deployable platform.',
 			heading1: 'The Gap in Enterprise AI',
 			para1: 'Enterprise AI orchestration has <strong>no middle ground</strong>. Teams either prototype with fragile low-code tools and rewrite for production, or build everything from scratch using AI libraries and frameworks.',
 			heading2: 'EDDI Fills This Void',
 			para2: 'EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides everything teams need out of the box:',
 			items: [
-				'<strong>Visual Management UI</strong> — The EDDI Manager for building and monitoring agents',
-				'<strong>Configuration-as-Code</strong> — Agent logic is JSON, not compiled code',
-				'<strong>65 MCP Tools</strong> — Full AI-native control via Model Context Protocol',
-				'<strong>Enterprise Security</strong> — OIDC, vault, audit trails, no eval()',
-				'<strong>Production Infrastructure</strong> — REST APIs, conversation state management, Prometheus metrics',
-				'<strong>Horizontal Scaling</strong> — NATS JetStream for distributed architectures',
+				'<strong>Visual Management UI</strong>: The EDDI Manager for building and monitoring agents',
+				'<strong>Configuration-as-Code</strong>: Agent logic is JSON, not compiled code',
+				'<strong>65 MCP Tools</strong>: Full AI-native control via Model Context Protocol',
+				'<strong>Enterprise Security</strong>: OIDC, vault, audit trails, no eval()',
+				'<strong>Production Infrastructure</strong>: REST APIs, conversation state management, Prometheus metrics',
+				'<strong>Horizontal Scaling</strong>: NATS JetStream for distributed architectures',
 			],
 			heading3: 'Who Should Use EDDI?',
 			items2: [
 				'<strong>Enterprise teams</strong> who need a production-ready AI orchestration platform',
 				'<strong>Prompt engineers</strong> who want to iterate without redeployment',
 				'<strong>Regulated industries</strong> that require audit trails and EU AI Act compliance',
-				'<strong>Platform teams</strong> — building internal AI services for multiple departments',
+				'<strong>Platform teams</strong>: building internal AI services for multiple departments',
 			],
 			// Comparison table
 			comparisonTitle: 'EDDI vs. Typical Agent Frameworks',
 			comparisonHeaders: { dimension: 'Dimension', frameworks: 'Python/Node Frameworks', eddi: 'EDDI' },
 			comparisonRows: [
-				{ dimension: 'Concurrency', frameworks: 'GIL or single-threaded event loop', eddi: 'Java 25 Virtual Threads — true OS-level parallelism' },
-				{ dimension: 'Agent Logic', frameworks: 'Embedded in application code', eddi: 'Versioned JSON configs — update behavior without redeployment' },
+				{ dimension: 'Concurrency', frameworks: 'GIL or single-threaded event loop', eddi: 'Java 25 Virtual Threads, true OS-level parallelism' },
+				{ dimension: 'Agent Logic', frameworks: 'Embedded in application code', eddi: 'Versioned JSON configs, update behavior without redeployment' },
 				{ dimension: 'Security Model', frameworks: 'Relies on sandboxed code execution', eddi: 'No dynamic code execution; envelope-encrypted vault, SSRF protection' },
 				{ dimension: 'Compliance', frameworks: 'Requires custom implementation', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built-in' },
 				{ dimension: 'Audit Trail', frameworks: 'Application-level logging', eddi: 'HMAC-SHA256 immutable ledger with cryptographic agent signing' },
@@ -758,7 +775,7 @@ const en = {
 			],
 			// LLM Providers
 			llmTitle: '12 LLM Providers Supported',
-			llmDesc: 'Connect to any major LLM provider — or bring your own via any OpenAI-compatible endpoint.',
+			llmDesc: 'Connect to any major LLM provider, or bring your own via any OpenAI-compatible endpoint.',
 			llmHeaderCategory: 'Category',
 			llmHeaderProviders: 'Providers',
 			llmCategories: [
@@ -772,10 +789,10 @@ const en = {
 			rfpTitle: '8 Questions Every CIO Should Ask',
 			rfpDesc: 'When evaluating AI agent orchestration platforms, these are the questions that separate production-grade infrastructure from fragile prototypes:',
 			rfpItems: [
-				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only — zero eval(), zero code execution blocks.' },
+				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only, zero eval(), zero code execution blocks.' },
 				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism for millions of concurrent I/O-bound operations.' },
-				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '65 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC — all open standards.' },
-				{ category: 'Data Privacy', question: 'How are data subject rights (erasure, export, restriction) implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. One endpoint for GDPR, CCPA, LGPD, PIPEDA, and 15+ frameworks.' },
+				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '65 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC, all open standards.' },
+				{ category: 'Data Privacy', question: 'How are data subject rights (erasure, export, restriction) implemented?', eddiAnswer: `Unified REST API cascades across all 5 data stores. One endpoint for GDPR, CCPA, LGPD, PIPEDA, and ${FRAMEWORKS} frameworks.` },
 				{ category: 'Security', question: 'What is the platform\'s CVE history and architectural security posture?', eddiAnswer: 'No dynamic code execution eliminates entire vulnerability classes. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable, cryptographically signed audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with per-agent cryptographic signing. Full pipeline tracing for every decision.' },
 				{ category: 'Operations', question: 'Can non-developers (prompt engineers, compliance officers) use the platform?', eddiAnswer: 'The EDDI Manager is a production-ready React UI with visual agent building, live chat debugging, and audit dashboards.' },
@@ -784,7 +801,7 @@ const en = {
 
 			// ── TCO / Build vs. Deploy ────────────────────────────
 			tcoTitle: 'Total Cost of Ownership: Build vs. Deploy',
-			tcoDesc: 'The hidden cost of using AI libraries is not the library itself — it\'s the <strong>invisible infrastructure</strong> teams must build, maintain, and secure around it:',
+			tcoDesc: 'The hidden cost of using AI libraries is not the library itself, it\'s the <strong>invisible infrastructure</strong> teams must build, maintain, and secure around it:',
 			tcoBuildTitle: 'Building with Libraries',
 			tcoBuildItems: [
 				'Custom REST API layer (2–4 weeks)',
@@ -801,49 +818,49 @@ const en = {
 				'One-command install (5 minutes)',
 				'All of the above included out of the box',
 				'Team focuses on business logic, not infrastructure',
-				'Maintained by an 18-year-old open-source project',
+				'Maintained continuously since 2006, open source since 2018',
 			],
 
 			// ── ROI Framing ──────────────────────────────────────
 			roiTitle: 'The Business Case',
-			roiPara: 'EDDI\'s value is measured in <strong>what teams don\'t have to build</strong>: the REST APIs, authentication systems, audit infrastructure, management UIs, and compliance tooling that would otherwise consume months of engineering time. Model cascading alone can reduce LLM costs by 60–80% by routing simple queries to cheaper models — escalating to powerful models only when confidence is low.',
-			roiPara2: 'For regulated industries, the cost equation is even clearer: the alternative to EDDI\'s built-in compliance infrastructure is a custom implementation covering GDPR, EU AI Act, HIPAA, and potentially 15+ additional regulatory frameworks — each requiring its own data subject rights implementation, audit trail, and governance tooling.',
+			roiPara: 'EDDI\'s value is measured in <strong>what teams don\'t have to build</strong>: the REST APIs, authentication systems, audit infrastructure, management UIs, and compliance tooling that would otherwise consume months of engineering time. Model cascading alone can reduce LLM costs by up to 60–80% in typical multi-model workloads by routing simple queries to cheaper models, escalating to powerful models only when confidence is low.',
+			roiPara2: `For regulated industries, the cost equation is even clearer: the alternative to EDDI's built-in compliance infrastructure is a custom implementation covering GDPR, EU AI Act, HIPAA, and potentially ${FRAMEWORKS} additional regulatory frameworks, each requiring its own data subject rights implementation, audit trail, and governance tooling.`,
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. Alternatives',
 			description:
-				'How EDDI compares with Flowise, n8n, LangGraph, CrewAI, AutoGen, AWS Bedrock, Azure AI Studio, and other AI orchestration approaches — architecture, security, and enterprise readiness.',
+				'How EDDI compares with Flowise, n8n, LangGraph, CrewAI, AutoGen, AWS Bedrock, Azure AI Studio, and other AI orchestration approaches, architecture, security, and enterprise readiness.',
 
 			// ── Section 1: Overview ────────────────────────────────
 			heading1: 'Platform vs. Library vs. Builder',
-			para1: 'The AI orchestration market has three archetypes: <strong>visual node builders</strong> (Flowise, n8n), <strong>code libraries</strong> (LangGraph, CrewAI, AutoGen), and <strong>cloud platforms</strong> (AWS Bedrock, Azure AI Studio). EDDI is none of these — it is a <strong>deployable middleware platform</strong> that provides the complete infrastructure teams need to ship AI agents to production.',
+			para1: 'The AI orchestration market has three archetypes: <strong>visual node builders</strong> (Flowise, n8n), <strong>code libraries</strong> (LangGraph, CrewAI, AutoGen), and <strong>cloud platforms</strong> (AWS Bedrock, Azure AI Studio). EDDI is none of these, it is a <strong>deployable middleware platform</strong> that provides the complete infrastructure teams need to ship AI agents to production.',
 
 			// ── Section 2: vs. Visual Node Builders ────────────────
 			heading2: 'vs. Visual Node Builders',
 			heading2sub: 'Flowise · n8n · Similar Platforms',
-			para2: 'Visual node builders make prototyping fast and accessible. However, their architecture introduces fundamental constraints that surface at enterprise scale — particularly around concurrency, security, and operational governance.',
+			para2: 'Visual node builders make prototyping fast and accessible. However, their architecture introduces fundamental constraints that surface at enterprise scale, particularly around concurrency, security, and operational governance.',
 
 			builderComparisonTitle: 'Architecture Comparison',
 			builderComparisonHeaders: { dimension: 'Dimension', builders: 'Visual Node Builders', eddi: 'EDDI' },
 			builderComparisonRows: [
 				{ dimension: 'Runtime', builders: 'Node.js single-threaded event loop', eddi: 'JVM with millions of virtual threads (Project Loom)' },
-				{ dimension: 'Concurrency Model', builders: 'Async callbacks — blocks on CPU-intensive tasks', eddi: 'True OS-level parallelism — virtual threads yield seamlessly during I/O waits' },
-				{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks for custom logic', eddi: 'Zero eval() — agent behavior is declarative JSON configuration only' },
-				{ dimension: 'Security Posture', builders: 'Multiple critical CVEs documented across major platforms', eddi: 'No dynamic code execution — eliminates entire vulnerability classes by design' },
+				{ dimension: 'Concurrency Model', builders: 'Async callbacks, blocks on CPU-intensive tasks', eddi: 'True OS-level parallelism, virtual threads yield seamlessly during I/O waits' },
+				{ dimension: 'Code Execution', builders: 'Dynamic eval() / code blocks for custom logic', eddi: 'Zero eval(), agent behavior is declarative JSON configuration only' },
+				{ dimension: 'Security Posture', builders: 'Publicly documented critical CVEs across major platforms', eddi: 'No dynamic code execution, eliminates entire vulnerability classes by design' },
 				{ dimension: 'Authentication', builders: 'Basic auth or community plugins', eddi: 'Enterprise OIDC/Keycloak with RBAC (admin, editor, viewer roles)' },
-				{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL — switch with one environment variable' },
+				{ dimension: 'Database', builders: 'SQLite (some support PostgreSQL)', eddi: 'MongoDB or PostgreSQL, switch with one environment variable' },
 				{ dimension: 'Audit Trail', builders: 'Application-level logging', eddi: 'HMAC-SHA256 immutable cryptographic audit ledger' },
-				{ dimension: 'Compliance', builders: 'Manual implementation required', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built in — 17+ frameworks supported' },
+				{ dimension: 'Compliance', builders: 'Manual implementation required', eddi: `GDPR, HIPAA, EU AI Act infrastructure built in, ${FRAMEWORKS} frameworks supported` },
 			],
 
 			builderSecurityTitle: 'The Security Consideration',
-			builderSecurityPara: 'By early 2026, the AI agent ecosystem experienced a significant <strong>security reckoning</strong>. Independent researchers documented hundreds of critical vulnerabilities across major open-source agent frameworks — including sandbox escapes, authorization bypasses, and remote code execution flaws within platform safety layers. The Cloud Security Alliance highlighted a systemic "<a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">AI Agent Disclosure Vacuum</a>," noting that traditional vulnerability reporting processes were struggling to keep pace with emergent, non-deterministic AI systems.',
-			builderSecurityPara2: 'EDDI takes a fundamentally different architectural approach: by <strong>categorically forbidding runtime code evaluation</strong>, it eliminates the attack surface that enables these vulnerability classes. Agent behavior is defined through declarative JSON configuration — not executable code blocks. Combined with enterprise OIDC/Keycloak authentication, AES-256-GCM vault-based secret management, SSRF protection, and path traversal guards, EDDI provides a security posture designed for regulated environments where compliance is not optional.',
+			builderSecurityPara: 'By early 2026, the AI agent ecosystem experienced a significant <strong>security reckoning</strong>. Independent researchers documented hundreds of critical vulnerabilities across major open-source agent frameworks, including sandbox escapes, authorization bypasses, and remote code execution flaws within platform safety layers. The Cloud Security Alliance highlighted a systemic "<a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/" target="_blank" rel="noopener">AI Agent Disclosure Vacuum</a>," noting that traditional vulnerability reporting processes were struggling to keep pace with emergent, non-deterministic AI systems.',
+			builderSecurityPara2: 'EDDI takes a fundamentally different architectural approach: by <strong>categorically forbidding runtime code evaluation</strong>, it eliminates the attack surface that enables these vulnerability classes. Agent behavior is defined through declarative JSON configuration, not executable code blocks. Combined with enterprise OIDC/Keycloak authentication, AES-256-GCM vault-based secret management, SSRF protection, and path traversal guards, EDDI provides a security posture designed for regulated environments where compliance is not optional.',
 
 			// ── Section 3: vs. Code Libraries ─────────────────────
 			heading3: 'vs. Code Libraries & Frameworks',
 			heading3sub: 'LangGraph · CrewAI · AutoGen · LangChain · Spring AI',
-			para3: 'Code libraries and frameworks are excellent building blocks — EDDI uses <a href="https://docs.langchain4j.dev/" target="_blank" rel="noopener">LangChain4j</a> internally. But choosing a library means accepting responsibility for <strong>everything else</strong> required to run AI agents in production.',
+			para3: 'Code libraries and frameworks are excellent building blocks, EDDI uses <a href="https://docs.langchain4j.dev/" target="_blank" rel="noopener">LangChain4j</a> internally. But choosing a library means accepting responsibility for <strong>everything else</strong> required to run AI agents in production.',
 
 			libraryGapTitle: 'The "Day 2 Operations" Gap',
 			libraryGapDesc: 'When a development team uses LangGraph, CrewAI, or similar frameworks, they achieve excellent logic structuring. But they are entirely responsible for building the surrounding enterprise infrastructure from scratch:',
@@ -864,31 +881,31 @@ const en = {
 			libraryComparisonHeaders: { framework: 'Framework / Platform', abstraction: 'Primary Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
 			libraryComparisonRows: [
 				{ framework: 'LangGraph (v1.0)', abstraction: 'Nodes & Edges (DAG / state machine)', learning: 'Moderate–High (2–3 weeks)', state: 'Excellent built-in persistence, but rigid upfront definition required', production: 'Requires custom REST, auth, UI, and scaling infrastructure' },
-				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral — relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
+				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral, relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
 				{ framework: 'Microsoft AutoGen', abstraction: 'Multi-party conversational dialogues', learning: 'Low–Moderate', state: 'Good conversation history support', production: 'Transitioning to new framework; deep Azure integration required' },
 				{ framework: 'EDDI', abstraction: 'Multi-Agent Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Native persistent memory, dream consolidation, rolling summaries', production: 'Fully packaged: OIDC/Keycloak, vault, audit trails, management UI, Kubernetes-ready' },
 			],
 
-			libraryPositioning: '<strong>Libraries provide the logic; EDDI provides the infrastructure.</strong> Teams using EDDI ship AI agents to production instead of maintaining internal middleware. This distinction matters most when scaling beyond a single developer — when prompt engineers, operations teams, and compliance officers all need access to the platform.',
+			libraryPositioning: '<strong>Libraries provide the logic; EDDI provides the infrastructure.</strong> Teams using EDDI ship AI agents to production instead of maintaining internal middleware. This distinction matters most when scaling beyond a single developer, when prompt engineers, operations teams, and compliance officers all need access to the platform.',
 
 			// ── Section 4: vs. Cloud AI Platforms ────────────────
 			heading4: 'vs. Cloud AI Platforms',
 			heading4sub: 'AWS Bedrock · Azure AI Studio · Google Vertex AI · Salesforce Agentforce',
-			para4: 'Cloud AI platforms offer managed infrastructure with deep integration into existing corporate data lakes. However, this convenience introduces <strong>significant vendor lock-in</strong> at a time when the AI model landscape is shifting rapidly — with newer, cheaper, and more capable models emerging every quarter.',
+			para4: 'Cloud AI platforms offer managed infrastructure with deep integration into existing corporate data lakes. However, this convenience introduces <strong>significant vendor lock-in</strong> at a time when the AI model landscape is shifting rapidly, with newer, cheaper, and more capable models emerging every quarter.',
 
 			cloudComparisonTitle: 'Sovereignty & Portability',
 			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
 			cloudComparisonRows: [
-				{ dimension: 'Deployment', cloud: 'Locked to provider\'s cloud tenant', eddi: 'Docker-native — runs on-premises, any cloud, or air-gapped' },
+				{ dimension: 'Deployment', cloud: 'Locked to provider\'s cloud tenant', eddi: 'Docker-native, runs on-premises, any cloud, or air-gapped' },
 				{ dimension: 'Model Choice', cloud: 'Provider\'s model portfolio (often restricted)', eddi: '12 LLM providers + any OpenAI-compatible endpoint via baseUrl' },
-				{ dimension: 'Cost Control', cloud: 'Provider-set pricing, limited optimization levers', eddi: 'Model cascading reduces LLM costs 60–80% via confidence-based routing' },
-				{ dimension: 'Data Residency', cloud: 'Data resides in provider\'s infrastructure', eddi: 'Full data sovereignty — you control where data is stored and processed' },
-				{ dimension: 'Portability', cloud: 'Provider-specific APIs, SDKs, and abstractions', eddi: 'Standard MCP, A2A, OpenAPI, REST — zero proprietary lock-in' },
+				{ dimension: 'Cost Control', cloud: 'Provider-set pricing, limited optimization levers', eddi: 'Model cascading reduces LLM costs by up to 60–80% in typical multi-model workloads via confidence-based routing' },
+				{ dimension: 'Data Residency', cloud: 'Data resides in provider\'s infrastructure', eddi: 'Full data sovereignty, you control where data is stored and processed' },
+				{ dimension: 'Portability', cloud: 'Provider-specific APIs, SDKs, and abstractions', eddi: 'Standard MCP, A2A, OpenAPI, REST, zero proprietary lock-in' },
 				{ dimension: 'Multi-Cloud', cloud: 'Difficult or impossible to span providers', eddi: 'Same Docker image deploys identically to any environment' },
 				{ dimension: 'Air-Gap Ready', cloud: 'Not possible without major customization', eddi: 'Full offline deployment with Ollama or Jlama for local LLM inference' },
 			],
 
-			cloudSovereigntyPara: 'For organizations in regulated industries, defense, healthcare, or national security — where data must stay on-premises or within specific jurisdictions — EDDI\'s self-hosted, Docker-native architecture provides <strong>infrastructure sovereignty</strong> that cloud-locked platforms cannot match. And when the next breakthrough model drops at half the cost, teams using EDDI can switch providers with a single configuration change.',
+			cloudSovereigntyPara: 'For organizations in regulated industries, defense, healthcare, or national security, where data must stay on-premises or within specific jurisdictions, EDDI\'s self-hosted, Docker-native architecture provides <strong>infrastructure sovereignty</strong> that cloud-locked platforms cannot match. And when the next breakthrough model drops at half the cost, teams using EDDI can switch providers with a single configuration change.',
 
 			// ── Bottom CTA ─────────────────────────────────────────
 			ctaTitle: 'Ready to Compare?',
@@ -897,196 +914,196 @@ const en = {
 		compliance: {
 			title: 'Global Privacy & Regulatory Compliance',
 			description:
-				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, Malaysia PDPA, PIPL, and more — with cascade data erasure, cryptographic audit trails, and one unified API.',
+				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, Malaysia PDPA, PIPL, and more, with cascade data erasure, cryptographic audit trails, and one unified API.',
 
 			// ── Section 1: Intro ─────────────────────────────────
 			heading1: 'Compliance by Architecture',
-			para1: 'Regulated industries cannot bolt compliance onto AI systems after the fact. EDDI embeds the <strong>technical foundations for global regulatory compliance</strong> into the platform architecture itself — immutable audit trails, cascade data erasure, processing restrictions, cryptographic integrity, and role-based access control are core capabilities, not add-ons. One unified API covers data subject rights for every jurisdiction.',
+			para1: 'Regulated industries cannot bolt compliance onto AI systems after the fact. EDDI embeds the <strong>technical foundations for global regulatory compliance</strong> into the platform architecture itself, immutable audit trails, cascade data erasure, processing restrictions, cryptographic integrity, and role-based access control are core capabilities, not add-ons. One unified API covers data subject rights for every jurisdiction.',
 
 			// ── Section 2: AI Governance Frameworks ──────────────
 			aiGovHeading: 'AI Governance Frameworks',
 			aiGovIntro: 'As governments worldwide introduce AI-specific legislation, organizations need platforms that provide <strong>transparency, traceability, and human oversight</strong> from day one. EDDI\'s architecture addresses the core technical requirements of major AI governance frameworks.',
 
-			euAiActHeading: 'EU AI Act — European Union',
+			euAiActHeading: 'EU AI Act: European Union',
 			euAiActPara: 'The EU AI Act (Regulation 2024/1689) is the world\'s first comprehensive AI law, establishing risk-based requirements for AI systems. EDDI provides the <strong>technical foundations</strong> for compliance with its high-risk AI system requirements:',
 			euAiActItems: [
-				'<strong>Immutable Audit Trails</strong> — Every operation recorded with HMAC-SHA256 cryptographic integrity (Art. 12 — Record-Keeping)',
-				'<strong>Decision Transparency</strong> — Full pipeline tracing shows how AI decisions were made, including model name, prompt, and response (Art. 13 — Transparency)',
-				'<strong>Human Oversight</strong> — Management UI enables human review, intervention, and emergency stop (Art. 14 — Human Oversight)',
-				'<strong>Risk Classification</strong> — Architecture supports high-risk AI system requirements with configurable controls (Art. 9 — Risk Management)',
-				'<strong>Reproducibility</strong> — Configuration-as-code enables exact reproduction of AI behavior for regulatory audits (Art. 17 — Quality Management)',
-				'<strong>Data Governance</strong> — OIDC/Keycloak RBAC, vault-based secret management, input/output logging (Art. 10 — Data Governance)',
+				'<strong>Immutable Audit Trails</strong>: Every operation recorded with HMAC-SHA256 cryptographic integrity (Art. 12: Record-Keeping)',
+				'<strong>Decision Transparency</strong>: Full pipeline tracing shows how AI decisions were made, including model name, prompt, and response (Art. 13: Transparency)',
+				'<strong>Human Oversight</strong>: Management UI enables human review, intervention, and emergency stop (Art. 14: Human Oversight)',
+				'<strong>Risk Classification</strong>: Architecture supports high-risk AI system requirements with configurable controls (Art. 9: Risk Management)',
+				'<strong>Reproducibility</strong>: Configuration-as-code enables exact reproduction of AI behavior for regulatory audits (Art. 17: Quality Management)',
+				'<strong>Data Governance</strong>: OIDC/Keycloak RBAC, vault-based secret management, input/output logging (Art. 10: Data Governance)',
 			],
 
-			nistHeading: 'NIST AI Risk Management Framework — United States',
+			nistHeading: 'NIST AI Risk Management Framework: United States',
 			nistPara: 'The NIST AI RMF (AI 100-1) provides a voluntary framework for managing AI risks across four functions: Govern, Map, Measure, and Manage. EDDI\'s architecture provides technical capabilities that support organizations pursuing NIST AI RMF alignment:',
 			nistItems: [
-				'<strong>Govern</strong> — RBAC roles (eddi-admin, eddi-editor, eddi-viewer), immutable audit ledger, and documented data flows support AI governance structures',
-				'<strong>Map</strong> — Pipeline tracing and conversation logging enable comprehensive AI risk identification and documentation',
-				'<strong>Measure</strong> — Prometheus metrics, token/cost tracking, and per-agent usage analytics provide measurable AI performance and risk indicators',
-				'<strong>Manage</strong> — Processing restriction API, human oversight via Manager UI, and configurable retention policies enable risk mitigation controls',
+				'<strong>Govern</strong>: RBAC roles (eddi-admin, eddi-editor, eddi-viewer), immutable audit ledger, and documented data flows support AI governance structures',
+				'<strong>Map</strong>: Pipeline tracing and conversation logging enable comprehensive AI risk identification and documentation',
+				'<strong>Measure</strong>: Prometheus metrics, token/cost tracking, and per-agent usage analytics provide measurable AI performance and risk indicators',
+				'<strong>Manage</strong>: Processing restriction API, human oversight via Manager UI, and configurable retention policies enable risk mitigation controls',
 			],
 
-			isoHeading: 'ISO/IEC 42001 — AI Management Systems',
+			isoHeading: 'ISO/IEC 42001: AI Management Systems',
 			isoPara: 'ISO/IEC 42001:2023 establishes requirements for an AI Management System (AIMS). EDDI provides technical capabilities that support organizations pursuing ISO 42001 certification:',
 			isoItems: [
-				'<strong>Documented AI Policies</strong> — Configuration-as-code means all agent behavior is defined in auditable JSON — rules, workflows, LLM configurations, and deployment descriptors',
-				'<strong>Risk Assessment</strong> — Audit trails capture complete decision histories for risk evaluation and impact assessments',
-				'<strong>Operational Controls</strong> — RBAC, vault-based secret management, and processing restrictions provide operational governance',
-				'<strong>Performance Monitoring</strong> — Prometheus metrics, Grafana dashboards, and CQRS telemetry enable continuous AI performance evaluation',
+				'<strong>Documented AI Policies</strong>: Configuration-as-code means all agent behavior is defined in auditable JSON, rules, workflows, LLM configurations, and deployment descriptors',
+				'<strong>Risk Assessment</strong>: Audit trails capture complete decision histories for risk evaluation and impact assessments',
+				'<strong>Operational Controls</strong>: RBAC, vault-based secret management, and processing restrictions provide operational governance',
+				'<strong>Performance Monitoring</strong>: Prometheus metrics, Grafana dashboards, and CQRS telemetry enable continuous AI performance evaluation',
 			],
 
 			// ── Section 3: Data Privacy Regulations ──────────────
 			privacyHeading: 'Data Privacy Regulations',
-			privacyIntro: 'EDDI provides <strong>unified data subject rights endpoints</strong> that satisfy the technical requirements of every major privacy regulation worldwide. One API covers cascade erasure, full data export, and processing restriction — regardless of jurisdiction.',
+			privacyIntro: 'EDDI provides <strong>unified data subject rights endpoints</strong> that satisfy the technical requirements of every major privacy regulation worldwide. One API covers cascade erasure, full data export, and processing restriction, regardless of jurisdiction.',
 
-			gdprHeading: 'GDPR — European Union / EEA',
+			gdprHeading: 'GDPR: European Union / EEA',
 			gdprPara: 'The General Data Protection Regulation (EU 2016/679) is the gold standard for data privacy. EDDI implements GDPR data subject rights as <strong>first-class API endpoints</strong> backed by cascade operations across all 5 data stores:',
 			gdprItems: [
-				'<strong>Right to Erasure (Art. 17)</strong> — <code>DELETE /admin/gdpr/{userId}</code> cascades across user memories, conversations, managed conversation mappings, database logs (SHA-256 pseudonymized), and audit ledger (SHA-256 pseudonymized)',
-				'<strong>Right of Access / Portability (Art. 15/20)</strong> — <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured, machine-readable JSON',
-				'<strong>Right to Restriction (Art. 18)</strong> — <code>POST /admin/gdpr/{userId}/restrict</code> freezes processing while preserving data, blocking new conversations and message processing',
-				'<strong>PII-Safe Logging</strong> — GDPR operations log SHA-256 pseudonyms, never raw user IDs',
-				'<strong>Configurable Retention</strong> — Per-category retention policies for conversations (365 days default), user memories (manual), and audit entries (indefinite for EU AI Act)',
-				'<strong>MCP Tools</strong> — <code>delete_user_data</code> and <code>export_user_data</code> enable AI-orchestrated compliance workflows',
+				'<strong>Right to Erasure (Art. 17)</strong>: <code>DELETE /admin/gdpr/{userId}</code> cascades across user memories, conversations, managed conversation mappings, database logs (SHA-256 pseudonymized), and audit ledger (SHA-256 pseudonymized)',
+				'<strong>Right of Access / Portability (Art. 15/20)</strong>: <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured, machine-readable JSON',
+				'<strong>Right to Restriction (Art. 18)</strong>: <code>POST /admin/gdpr/{userId}/restrict</code> freezes processing while preserving data, blocking new conversations and message processing',
+				'<strong>PII-Safe Logging</strong>: GDPR operations log SHA-256 pseudonyms, never raw user IDs',
+				'<strong>Configurable Retention</strong>: Per-category retention policies for conversations (365 days default), user memories (manual), and audit entries (indefinite for EU AI Act)',
+				'<strong>MCP Tools</strong>: <code>delete_user_data</code> and <code>export_user_data</code> enable AI-orchestrated compliance workflows',
 			],
 
-			ccpaHeading: 'CCPA / CPRA — California, United States',
+			ccpaHeading: 'CCPA / CPRA: California, United States',
 			ccpaPara: 'The California Consumer Privacy Act and California Privacy Rights Act grant consumers rights to know, delete, and opt out of data sales. EDDI satisfies CCPA\'s technical requirements through its GDPR-compatible API:',
 			ccpaItems: [
-				'<strong>Right to Know (§1798.100)</strong> — The GDPR export endpoint provides all personal information in a structured, machine-readable format',
-				'<strong>Right to Delete (§1798.105)</strong> — The GDPR erasure endpoint provides cascade deletion across all data stores',
-				'<strong>Do Not Sell (§1798.120)</strong> — EDDI architecturally cannot sell personal information — it is middleware infrastructure that processes data exclusively on behalf of the deployer',
+				'<strong>Right to Know (§1798.100)</strong>: The GDPR export endpoint provides all personal information in a structured, machine-readable format',
+				'<strong>Right to Delete (§1798.105)</strong>: The GDPR erasure endpoint provides cascade deletion across all data stores',
+				'<strong>Do Not Sell (§1798.120)</strong>: EDDI architecturally cannot sell personal information: it is middleware infrastructure that processes data exclusively on behalf of the deployer',
 			],
 
-			pipedaHeading: 'PIPEDA — Canada',
+			pipedaHeading: 'PIPEDA: Canada',
 			pipedaPara: 'Canada\'s Personal Information Protection and Electronic Documents Act (2000, amended 2023) governs commercial data processing through 10 Fair Information Principles. EDDI\'s architecture maps directly to each principle:',
 			pipedaItems: [
-				'<strong>Accountability</strong> — Immutable HMAC-signed audit ledger traces all operations',
-				'<strong>Limiting Collection</strong> — Token-aware windowing limits data sent to LLMs; configurable retention auto-deletes old conversations',
-				'<strong>Limiting Use/Disclosure</strong> — Data used only for configured agent interactions; audit trail logs every LLM invocation',
-				'<strong>Safeguards</strong> — AES-256-GCM envelope encryption (Secrets Vault), HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC',
-				'<strong>Individual Access</strong> — Full data export via REST API returns all memories, conversations, and managed conversation mappings as JSON',
-				'<strong>Challenging Compliance</strong> — Cascade deletion across all 5 data stores; audit trail pseudonymized (not deleted) for legal retention obligations',
+				'<strong>Accountability</strong>: Immutable HMAC-signed audit ledger traces all operations',
+				'<strong>Limiting Collection</strong>: Token-aware windowing limits data sent to LLMs; configurable retention auto-deletes old conversations',
+				'<strong>Limiting Use/Disclosure</strong>: Data used only for configured agent interactions; audit trail logs every LLM invocation',
+				'<strong>Safeguards</strong>: AES-256-GCM envelope encryption (Secrets Vault), HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC',
+				'<strong>Individual Access</strong>: Full data export via REST API returns all memories, conversations, and managed conversation mappings as JSON',
+				'<strong>Challenging Compliance</strong>: Cascade deletion across all 5 data stores; audit trail pseudonymized (not deleted) for legal retention obligations',
 			],
 
-			lgpdHeading: 'LGPD — Brazil',
+			lgpdHeading: 'LGPD: Brazil',
 			lgpdPara: 'Brazil\'s Lei Geral de Proteção de Dados (2018, effective 2020) grants extensive data subject rights closely mirroring GDPR. EDDI covers all Article 18 rights with built-in technical capabilities:',
 			lgpdItems: [
-				'<strong>Access to Data (Art. 18, II)</strong> — Full JSON data export',
-				'<strong>Correction (Art. 18, III)</strong> — User memories updatable via <code>PUT /usermemorystore/memories</code>',
-				'<strong>Anonymization/Deletion (Art. 18, IV)</strong> — Cascade deletion with SHA-256 pseudonymization of audit records',
-				'<strong>Data Portability (Art. 18, V)</strong> — Machine-readable JSON export includes all user data',
-				'<strong>Deletion of Unnecessary Data (Art. 18, VI)</strong> — Configurable retention policies with automatic cleanup',
-				'<strong>Consent Revocation (Art. 18, IX)</strong> — End conversation and cascade delete endpoints provide the technical mechanism',
+				'<strong>Access to Data (Art. 18, II)</strong>: Full JSON data export',
+				'<strong>Correction (Art. 18, III)</strong>: User memories updatable via <code>PUT /usermemorystore/memories</code>',
+				'<strong>Anonymization/Deletion (Art. 18, IV)</strong>: Cascade deletion with SHA-256 pseudonymization of audit records',
+				'<strong>Data Portability (Art. 18, V)</strong>: Machine-readable JSON export includes all user data',
+				'<strong>Deletion of Unnecessary Data (Art. 18, VI)</strong>: Configurable retention policies with automatic cleanup',
+				'<strong>Consent Revocation (Art. 18, IX)</strong>: End conversation and cascade delete endpoints provide the technical mechanism',
 			],
 
-			appiHeading: 'APPI — Japan',
+			appiHeading: 'APPI: Japan',
 			appiPara: 'Japan\'s Act on the Protection of Personal Information (2003, significantly amended 2022) is one of Asia\'s most mature data protection laws. Japan holds an EU adequacy decision, facilitating cross-border data flows. EDDI provides:',
 			appiItems: [
-				'<strong>Security Measures (Art. 23)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
-				'<strong>Disclosure to Data Subjects (Art. 33)</strong> — Full data export via REST API',
-				'<strong>Correction and Deletion (Art. 34-35)</strong> — Memory updates for correction; cascade deletion for erasure',
-				'<strong>Pseudonymized Information (2022 amendment)</strong> — GDPR erasure uses SHA-256 pseudonymization, satisfying APPI\'s pseudonymized information category',
-				'<strong>Cross-Border Transfer Documentation (Art. 28)</strong> — LLM provider data flows documented; audit trail records which model/provider processed each turn',
+				'<strong>Security Measures (Art. 23)</strong>: AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
+				'<strong>Disclosure to Data Subjects (Art. 33)</strong>: Full data export via REST API',
+				'<strong>Correction and Deletion (Art. 34-35)</strong>: Memory updates for correction; cascade deletion for erasure',
+				'<strong>Pseudonymized Information (2022 amendment)</strong>: GDPR erasure uses SHA-256 pseudonymization, satisfying APPI\'s pseudonymized information category',
+				'<strong>Cross-Border Transfer Documentation (Art. 28)</strong>: LLM provider data flows documented; audit trail records which model/provider processed each turn',
 			],
 
-			popiaHeading: 'POPIA — South Africa',
+			popiaHeading: 'POPIA: South Africa',
 			popiaPara: 'South Africa\'s Protection of Personal Information Act (2013, effective 2021) establishes 8 data processing conditions aligned with EU standards. EDDI provides built-in technical capabilities for each condition:',
 			popiaItems: [
-				'<strong>Accountability (Condition 1)</strong> — HMAC-signed audit ledger, documented data flows, Apache 2.0 open-source code',
-				'<strong>Processing Limitation (Condition 2)</strong> — Token-aware windowing, configurable retention, idle conversation auto-end',
-				'<strong>Information Quality (Condition 5)</strong> — Timestamped, versioned conversation state; user memories updatable via REST API',
-				'<strong>Security Safeguards (Condition 7)</strong> — AES-256-GCM encryption, HMAC integrity, Keycloak OIDC, RBAC, SSRF protection',
-				'<strong>Data Subject Participation (Condition 8)</strong> — Full data export and cascade deletion endpoints',
+				'<strong>Accountability (Condition 1)</strong>: HMAC-signed audit ledger, documented data flows, Apache 2.0 open-source code',
+				'<strong>Processing Limitation (Condition 2)</strong>: Token-aware windowing, configurable retention, idle conversation auto-end',
+				'<strong>Information Quality (Condition 5)</strong>: Timestamped, versioned conversation state; user memories updatable via REST API',
+				'<strong>Security Safeguards (Condition 7)</strong>: AES-256-GCM encryption, HMAC integrity, Keycloak OIDC, RBAC, SSRF protection',
+				'<strong>Data Subject Participation (Condition 8)</strong>: Full data export and cascade deletion endpoints',
 			],
 
-			pdpaHeading: 'PDPA — Singapore & Thailand',
+			pdpaHeading: 'PDPA: Singapore & Thailand',
 			pdpaPara: 'The Personal Data Protection Acts in Singapore (2012, amended 2021) and Thailand (2019, effective 2022) are Southeast Asia\'s most mature privacy frameworks. EDDI covers the technical obligations of both jurisdictions:',
 			pdpaItems: [
-				'<strong>Access Obligation</strong> — Full data export via REST API and MCP tools',
-				'<strong>Correction Obligation</strong> — User memories updatable via REST API',
-				'<strong>Protection Obligation</strong> — AES-256-GCM encryption, HMAC audit integrity, Keycloak OIDC, RBAC',
-				'<strong>Retention Limitation</strong> — Configurable auto-cleanup with idle conversation timeout',
-				'<strong>Data Breach Notification</strong> — Incident response runbook template included in EDDI documentation',
+				'<strong>Access Obligation</strong>: Full data export via REST API and MCP tools',
+				'<strong>Correction Obligation</strong>: User memories updatable via REST API',
+				'<strong>Protection Obligation</strong>: AES-256-GCM encryption, HMAC audit integrity, Keycloak OIDC, RBAC',
+				'<strong>Retention Limitation</strong>: Configurable auto-cleanup with idle conversation timeout',
+				'<strong>Data Breach Notification</strong>: Incident response runbook template included in EDDI documentation',
 			],
 
-			pdpaMYHeading: 'PDPA — Malaysia',
+			pdpaMYHeading: 'PDPA: Malaysia',
 			pdpaMYPara: 'Malaysia\'s Personal Data Protection Act 2010 (Act 709, amended 2024) governs commercial processing of personal data through 7 data protection principles. EDDI provides the technical controls to support deployer compliance:',
 			pdpaMYItems: [
-				'<strong>General Principle (§6)</strong> — Configurable retention policies and processing-restriction endpoint support purpose-limited, consent-based processing',
-				'<strong>Security Principle (§9)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
-				'<strong>Retention Principle (§10)</strong> — Configurable per-category retention with automatic cleanup; idle conversation auto-end',
-				'<strong>Data Integrity Principle (§11)</strong> — Timestamped, versioned conversation state; user memories updatable via REST API',
-				'<strong>Access Principle (§12)</strong> — Full data export via <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured JSON',
-				'<strong>Cross-Border Transfers (§129)</strong> — Self-hosted architecture enables deployers to control data residency; audit trail documents all LLM provider data flows',
+				'<strong>General Principle (§6)</strong>: Configurable retention policies and processing-restriction endpoint support purpose-limited, consent-based processing',
+				'<strong>Security Principle (§9)</strong>: AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
+				'<strong>Retention Principle (§10)</strong>: Configurable per-category retention with automatic cleanup; idle conversation auto-end',
+				'<strong>Data Integrity Principle (§11)</strong>: Timestamped, versioned conversation state; user memories updatable via REST API',
+				'<strong>Access Principle (§12)</strong>: Full data export via <code>GET /admin/gdpr/{userId}/export</code> returns all user data as structured JSON',
+				'<strong>Cross-Border Transfers (§129)</strong>: Self-hosted architecture enables deployers to control data residency; audit trail documents all LLM provider data flows',
 			],
 
-			piplHeading: 'PIPL — China',
+			piplHeading: 'PIPL: China',
 			piplPara: 'China\'s Personal Information Protection Law (2021) is one of the world\'s most comprehensive data protection laws, governing the processing of personal information of individuals within China. EDDI provides the technical infrastructure for PIPL-compliant deployments:',
 			piplItems: [
-				'<strong>Lawful Processing (Art. 13)</strong> — Configuration-driven agent behavior ensures processing stays within defined purposes; processing restriction API freezes activity on demand',
-				'<strong>Individual Rights (Art. 44–49)</strong> — Full data export, cascade deletion, and processing restriction endpoints cover right to know, copy, correct, delete, and restrict',
-				'<strong>Data Security (Art. 51)</strong> — AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, zero <code>eval()</code>',
-				'<strong>Cross-Border Transfers (Art. 38–39)</strong> — Self-hosted architecture enables on-premises deployment within China; audit trail documents all external data flows for security assessments',
-				'<strong>Automated Decision-Making (Art. 24)</strong> — Immutable audit trails with full pipeline tracing provide transparency into AI decision-making; human oversight via Management UI',
-				'<strong>Data Retention (Art. 19)</strong> — Configurable retention policies with automatic cleanup enforce minimum-necessary storage periods',
+				'<strong>Lawful Processing (Art. 13)</strong>: Configuration-driven agent behavior ensures processing stays within defined purposes; processing restriction API freezes activity on demand',
+				'<strong>Individual Rights (Art. 44–49)</strong>: Full data export, cascade deletion, and processing restriction endpoints cover right to know, copy, correct, delete, and restrict',
+				'<strong>Data Security (Art. 51)</strong>: AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, zero <code>eval()</code>',
+				'<strong>Cross-Border Transfers (Art. 38–39)</strong>: Self-hosted architecture enables on-premises deployment within China; audit trail documents all external data flows for security assessments',
+				'<strong>Automated Decision-Making (Art. 24)</strong>: Immutable audit trails with full pipeline tracing provide transparency into AI decision-making; human oversight via Management UI',
+				'<strong>Data Retention (Art. 19)</strong>: Configurable retention policies with automatic cleanup enforce minimum-necessary storage periods',
 			],
 
 			otherRegionsHeading: 'Additional Jurisdictions',
 			otherRegionsPara: 'EDDI\'s data protection infrastructure meets international standards. The following jurisdictions are also supported through the same unified API:',
 			otherRegionsItems: [
-				'<strong>UK GDPR</strong> (United Kingdom) — Substantially mirrors EU GDPR; EDDI\'s GDPR endpoints satisfy all UK GDPR data subject rights. ICO oversight.',
-				'<strong>PIPA</strong> (South Korea) — Strict consent requirements, mandatory DPO, 72-hour breach notification. EDDI provides the technical audit and erasure infrastructure.',
-				'<strong>DPDPA</strong> (India, 2023) — Consent-based framework with cross-border restrictions. EDDI\'s export and erasure endpoints satisfy the Digital Personal Data Protection Act requirements.',
-				'<strong>Privacy Act + APPs</strong> (Australia) — 13 Australian Privacy Principles; notifiable data breach scheme. EDDI\'s audit trail and data export cover the technical obligations.',
-				'<strong>CCPA-style state laws</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA, etc.) — The GDPR/CCPA-compatible API satisfies all emerging US state privacy laws.',
+				'<strong>UK GDPR</strong> (United Kingdom): Substantially mirrors EU GDPR; EDDI\'s GDPR endpoints satisfy all UK GDPR data subject rights. ICO oversight.',
+				'<strong>PIPA</strong> (South Korea): Strict consent requirements, mandatory DPO, 72-hour breach notification. EDDI provides the technical audit and erasure infrastructure.',
+				'<strong>DPDPA</strong> (India, 2023): Consent-based framework with cross-border restrictions. EDDI\'s export and erasure endpoints satisfy the Digital Personal Data Protection Act requirements.',
+				'<strong>Privacy Act + APPs</strong> (Australia): 13 Australian Privacy Principles; notifiable data breach scheme. EDDI\'s audit trail and data export cover the technical obligations.',
+				'<strong>CCPA-style state laws</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA, etc.): The GDPR/CCPA-compatible API satisfies all emerging US state privacy laws.',
 			],
 
 			// ── Section 4: Industry-Specific Compliance ──────────
 			industryHeading: 'Industry-Specific Compliance',
 
-			hipaaHeading: 'HIPAA — US Healthcare',
+			hipaaHeading: 'HIPAA: US Healthcare',
 			hipaaPara: 'The Health Insurance Portability and Accountability Act establishes safeguards for Protected Health Information (PHI). EDDI provides the technical infrastructure for HIPAA-compliant AI deployments:',
 			hipaaItems: [
-				'<strong>Access Controls (§164.312(a))</strong> — Keycloak OIDC with role-based access (eddi-admin, eddi-editor, eddi-viewer)',
-				'<strong>Audit Controls (§164.312(b))</strong> — HMAC-signed, immutable audit ledger records every operation with timestamps, user IDs, and outcomes',
-				'<strong>Integrity Controls (§164.312(c))</strong> — HMAC-SHA256 tamper detection on all audit entries',
-				'<strong>Transmission Security (§164.312(e))</strong> — TLS for transit; AES-256-GCM for secrets at rest via Secrets Vault',
-				'<strong>Data Disposal (§164.310(d)(2)(i))</strong> — GDPR cascade deletion endpoint permanently removes PHI across all data stores',
-				'<strong>BAA Template</strong> — Business Associate Agreement template included in EDDI documentation for healthcare deployments',
+				'<strong>Access Controls (§164.312(a))</strong>: Keycloak OIDC with role-based access (eddi-admin, eddi-editor, eddi-viewer)',
+				'<strong>Audit Controls (§164.312(b))</strong>: HMAC-signed, immutable audit ledger records every operation with timestamps, user IDs, and outcomes',
+				'<strong>Integrity Controls (§164.312(c))</strong>: HMAC-SHA256 tamper detection on all audit entries',
+				'<strong>Transmission Security (§164.312(e))</strong>: TLS for transit; AES-256-GCM for secrets at rest via Secrets Vault',
+				'<strong>Data Disposal (§164.310(d)(2)(i))</strong>: GDPR cascade deletion endpoint permanently removes PHI across all data stores',
+				'<strong>BAA Template</strong>: Business Associate Agreement template included in EDDI documentation for healthcare deployments',
 			],
 
 			soc2Heading: 'SOC 2 Readiness',
 			soc2Para: 'SOC 2 Type II evaluates systems against Trust Services Criteria. EDDI\'s architecture provides technical controls that support organizations pursuing SOC 2 attestation:',
 			soc2Items: [
-				'<strong>Security</strong> — OIDC/Keycloak authentication, RBAC, Secrets Vault (AES-256-GCM), zero eval(), path traversal protection, URL validation',
-				'<strong>Availability</strong> — Horizontal scaling via NATS JetStream, dual database support (MongoDB/PostgreSQL), Kubernetes-native deployment',
-				'<strong>Processing Integrity</strong> — Immutable HMAC-signed audit ledger with per-operation cryptographic integrity verification',
-				'<strong>Confidentiality</strong> — Secret redaction filter scrubs API keys and vault references from audit entries; PII-safe logging with SHA-256 pseudonyms',
-				'<strong>Privacy</strong> — Full data subject rights API (erasure, export, restriction), configurable retention, processing restriction controls',
+				'<strong>Security</strong>: OIDC/Keycloak authentication, RBAC, Secrets Vault (AES-256-GCM), zero eval(), path traversal protection, URL validation',
+				'<strong>Availability</strong>: Horizontal scaling via NATS JetStream, dual database support (MongoDB/PostgreSQL), Kubernetes-native deployment',
+				'<strong>Processing Integrity</strong>: Immutable HMAC-signed audit ledger with per-operation cryptographic integrity verification',
+				'<strong>Confidentiality</strong>: Secret redaction filter scrubs API keys and vault references from audit entries; PII-safe logging with SHA-256 pseudonyms',
+				'<strong>Privacy</strong>: Full data subject rights API (erasure, export, restriction), configurable retention, processing restriction controls',
 			],
 
 			// ── Section 5: Unified API ───────────────────────────
 			apiHeading: 'One API for Global Compliance',
-			apiPara: 'Every privacy regulation listed above is served by the <strong>same unified REST API and MCP tools</strong>. Whether you are responding to a GDPR erasure request in Germany, a CCPA deletion request in California, or a PDPA access request in Singapore — the same endpoints handle it all:',
+			apiPara: 'Every privacy regulation listed above is served by the <strong>same unified REST API and MCP tools</strong>. Whether you are responding to a GDPR erasure request in Germany, a CCPA deletion request in California, or a PDPA access request in Singapore, the same endpoints handle it all:',
 			apiItems: [
-				'<strong><code>DELETE /admin/gdpr/{userId}</code></strong> — Cascade erasure across 5 data stores (user memories, conversations, managed mappings, logs, audit entries)',
-				'<strong><code>GET /admin/gdpr/{userId}/export</code></strong> — Full user data export as structured JSON (memories, conversations, audit records)',
-				'<strong><code>POST /admin/gdpr/{userId}/restrict</code></strong> — Freeze processing while preserving data for dispute resolution',
-				'<strong>MCP: <code>delete_user_data</code></strong> — AI-orchestrated cascade erasure (requires explicit confirmation)',
-				'<strong>MCP: <code>export_user_data</code></strong> — AI-orchestrated data export for automated DSAR workflows',
+				'<strong><code>DELETE /admin/gdpr/{userId}</code></strong>: Cascade erasure across 5 data stores (user memories, conversations, managed mappings, logs, audit entries)',
+				'<strong><code>GET /admin/gdpr/{userId}/export</code></strong>: Full user data export as structured JSON (memories, conversations, audit records)',
+				'<strong><code>POST /admin/gdpr/{userId}/restrict</code></strong>: Freeze processing while preserving data for dispute resolution',
+				'<strong>MCP: <code>delete_user_data</code></strong>: AI-orchestrated cascade erasure (requires explicit confirmation)',
+				'<strong>MCP: <code>export_user_data</code></strong>: AI-orchestrated data export for automated DSAR workflows',
 			],
 
 			// ── Section 6: Closing ───────────────────────────────
 			heading3: 'Built for Regulated Industries Worldwide',
-			para2: 'Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by 17+ regulatory frameworks — from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia\'s PDPA, and China\'s PIPL. Compliance is not an afterthought — it is an architectural foundation.',
+			para2: `Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by ${FRAMEWORKS} regulatory frameworks, from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia's PDPA, and China's PIPL. Compliance is not an afterthought. It is an architectural foundation.`,
 		},
 		// ─── Track Record ─────────────────────────────────────
 		trust: {
 			title: 'Track Record',
 			description:
-				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by academic institutions — with OpenSSF, Codacy, and Red Hat certifications.',
+				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by academic institutions, with OpenSSF, Codacy, and Red Hat certifications.',
 
 			// Hero
 			heroTitle: 'Enterprise-Grade.',
@@ -1096,38 +1113,40 @@ const en = {
 
 			// Stats bar
 			statPulls: 'Docker Pulls',
-			statTests: '9,600+ Tests · 0 Failures',
+			// Label only: the stats bar renders the {TESTS} value above this line,
+			// so the label must stay number-free (as statPulls/statProviders are).
+			statTests: 'Tests · 0 Failures',
 			statProviders: 'LLM Providers',
 			statCertified: 'Red Hat Certified',
 
 			// Timeline
 			timelineTitle: 'Two Decades of Engineering',
-			timelineDesc: 'Almost twenty years of continuous development — long before the LLM era.',
+			timelineDesc: 'In continuous development since 2006 and open source since 2018, long before the LLM era.',
 			timeline: [
-				{ year: '2006', text: '<strong>Project founded</strong> in Vienna (Europe) — early research into dialogue management and conversational state.' },
+				{ year: '2006', text: '<strong>Project founded</strong> in Vienna (Europe), early research into dialogue management and conversational state.' },
 				{ year: '2008', text: 'Incubated at <strong>inits.at</strong> (a university business incubator) with academic oversight, focusing on research-grade engineering and sustainable product development.' },
 				{ year: '2018', text: 'Selected for <strong>weXelerate</strong> (a top-tier European accelerator program) · Launched as open source under Apache 2.0.' },
-				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate — co-sponsored by an accelerator and a major telecom provider.' },
-				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> at Deutsche Bank Innovation Labs — co-sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
+				{ year: '2018', text: 'First <strong>EDDI Chatbot Hackathon</strong> at weXelerate, co-sponsored by an accelerator and a major telecom provider.' },
+				{ year: '2019', text: '<strong>NYC Chatbot Hackathon</strong> at Deutsche Bank Innovation Labs, co-sponsored by Google and MongoDB. EDDI teams place as runners-up.' },
 				{ year: '2020', text: 'EU-funded <strong>YouTwinDi</strong> digital twin research project via the European Language Grid.' },
-				{ year: '2020', text: 'Online Chatbot Hackathon — community-driven event expanding EDDI\'s open-source reach.' },
-				{ year: '2021', text: 'EU Erasmus+ <strong>EDUBOTS</strong> program — EDDI powers multi-country chatbot research and deployment across universities.' },
-				{ year: '2021', text: 'Online Chatbot Hackathon — virtual event for pedagogical chatbot development.' },
-				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong> — connecting to modern large language models via LangChain4j.' },
-				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong> — intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6</strong> — 65 MCP tools, A2A protocol, 6 discussion styles incl. Task Force, dynamic agents, visual management UI, model cascading.' },
+				{ year: '2020', text: 'Online Chatbot Hackathon, community-driven event expanding EDDI\'s open-source reach.' },
+				{ year: '2021', text: 'EU Erasmus+ <strong>EDUBOTS</strong> program, EDDI powers multi-country chatbot research and deployment across universities.' },
+				{ year: '2021', text: 'Online Chatbot Hackathon, virtual event for pedagogical chatbot development.' },
+				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong>: connecting to modern large language models via LangChain4j.' },
+				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong>: intent-based routing, managed conversations, and multi-agent orchestration.' },
+				{ year: '2026', text: '<strong>v6</strong>: 65 MCP tools, A2A protocol, 6 discussion styles incl. Task Force, dynamic agents, visual management UI, model cascading.' },
 				{ year: '2026', text: 'Selected as <strong>UNIDO Trusted Partner</strong> for Industrial AI for the Global South.' },
 			],
 
 			// Institutional backing
 			institutionsTitle: 'Backed by Institutions',
-			institutionsDesc: 'Government-funded research and institutional validation — not just marketing claims.',
+			institutionsDesc: 'Government-funded research and institutional validation, not just marketing claims.',
 			instFFGTitle: 'FFG Government Research Grant',
 			instFFGDesc: 'EDDI was deployed in <strong>SecLearn</strong>, a national cybersecurity training initiative funded by the FFG (government research agency), in collaboration with the AIT (national technology research institute).',
-			instEUTitle: 'EU-Funded Research — European Language Grid',
+			instEUTitle: 'EU-Funded Research: European Language Grid',
 			instEUDesc: 'EU-funded <strong>YouTwinDi</strong> digital twin research project (2020–2021), exploring autonomous virtual assistants with persistent memory and multi-language support.',
 			instEdubotsTitle: 'EU Erasmus+ EDUBOTS Program',
-			instEdubotsDesc: 'EDDI powered student engagement chatbots across <strong>multiple European universities</strong> as part of the Erasmus+ EDUBOTS Knowledge Alliance — used by EdTech Foundry (differ.chat) for multi-country deployments.',
+			instEdubotsDesc: 'EDDI powered student engagement chatbots across <strong>multiple European universities</strong> as part of the Erasmus+ EDUBOTS Knowledge Alliance, used by EdTech Foundry (differ.chat) for multi-country deployments.',
 			instWexTitle: 'weXelerate European Accelerator',
 			instWexDesc: 'Selected for <strong>weXelerate</strong> (a leading European innovation accelerator), connecting LABS.AI with corporate partners and validating the platform\'s commercial viability.',
 			instInitsTitle: 'inits.at University Incubator',
@@ -1139,7 +1158,7 @@ const en = {
 
 			// Enterprise deployment
 			enterpriseTitle: 'Deployed in Enterprise Production',
-			enterpriseDesc: 'EDDI powers the <strong>conversational AI experiences</strong> at <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a> — an enterprise enablement platform. EDDI handles the real-time chat interactions with learners and content creators, managing concurrency, multi-model routing, and conversation state at production scale.',
+			enterpriseDesc: 'EDDI powers the <strong>conversational AI experiences</strong> at <a href="https://www.gnowbe.com" target="_blank" rel="noopener">Gnowbe</a>, an enterprise enablement platform. EDDI handles the real-time chat interactions with learners and content creators, managing concurrency, multi-model routing, and conversation state at production scale.',
 			enterpriseLinkText: 'Learn more about Gnowbe →',
 			enterpriseLinkUrl: 'https://www.gnowbe.com',
 
@@ -1153,19 +1172,19 @@ const en = {
 			devCodacy: 'Codacy Code Quality',
 			devCodacyDesc: 'Automated third-party code analysis',
 			devDocker: 'Docker Hub',
-			devDockerDesc: 'Container adoption metric',
+			devDockerDesc: 'Hundreds of thousands of production pulls',
 			devCI: 'CI Passing',
 			devCIDesc: 'Automated build verification on every commit',
 			devCodeQL: 'CodeQL Clean',
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
-			devTests: '9,600+ Tests',
+			devTests: `${TESTS} Tests`,
 			devTestsDesc: 'Zero failures, enforced on every merge',
 			devIntegration: '42 Integration Tests',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
 			devE2E: '21 E2E Test Suites',
 			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
 			devApache: 'Apache 2.0 License',
-			devApacheDesc: 'Fully open source — no vendor lock-in',
+			devApacheDesc: 'Fully open source, no vendor lock-in',
 
 			// CTA
 			ctaTitle: 'Ready to Deploy?',
@@ -1176,32 +1195,32 @@ const en = {
 		},
 		// ─── UNIDO Trusted Partner Page ─────────────────────────
 		unido: {
-			title: 'UNIDO Trusted Partner — Industrial AI for the Global South',
+			title: 'UNIDO Trusted Partner: Industrial AI for the Global South',
 			description: 'LABS.AI has been selected by UNIDO as a Trusted Partner for Industrial AI for the Global South. Enterprise AI Agent Orchestration using EDDI.',
 
 			// Hero
 			heroBadge: 'June 2026 · UNIDO Recognition',
 			heroTitle: 'UNIDO Trusted Partner',
 			heroHighlight: 'Industrial AI for the Global South',
-			heroDesc: 'LABS.AI has been selected by the <strong>United Nations Industrial Development Organization</strong> (UNIDO) as a Trusted Partner under the <strong>Global Call for Trusted Partners — Industrial AI for the Global South</strong>.',
+			heroDesc: 'LABS.AI has been selected by the <strong>United Nations Industrial Development Organization</strong> (UNIDO) as a Trusted Partner under the <strong>Global Call for Trusted Partners: Industrial AI for the Global South</strong>.',
 
 			// Certificate section
 			certTitle: 'Certificate of Recognition',
-			certAlt: 'UNIDO Certificate of Recognition — LABS.AI selected as Trusted Partner for Industrial AI for the Global South',
+			certAlt: 'UNIDO Certificate of Recognition, LABS.AI selected as Trusted Partner for Industrial AI for the Global South',
 			certIssuedBy: 'Issued by UNIDO, AIM Global, and the Shanghai Artificial Intelligence Research Institute on June 19, 2026.',
 
 			// Solution section
 			solutionTitle: 'The Solution',
 			solutionSubtitle: 'Enterprise AI Agent Orchestration for Industrial Digitalization using EDDI',
-			solutionDesc: 'EDDI provides a self-hosted, configuration-driven platform for deploying governed, multi-agent AI systems — purpose-built for industrial digitalization. It was recognized as a promising contribution to industrial AI for the Global South:',
+			solutionDesc: 'EDDI provides a self-hosted, configuration-driven platform for deploying governed, multi-agent AI systems, purpose-built for industrial digitalization. It was recognized as a promising contribution to industrial AI for the Global South:',
 			solCard1Title: 'Self-Hosted & Sovereign',
-			solCard1Desc: 'Runs anywhere Docker runs — on-premises, any cloud, or air-gapped. No dependency on US-based cloud platforms. Full data sovereignty for nations with limited cloud infrastructure or strict data residency requirements.',
+			solCard1Desc: 'Runs anywhere Docker runs, on-premises, any cloud, or air-gapped. No dependency on US-based cloud platforms. Full data sovereignty for nations with limited cloud infrastructure or strict data residency requirements.',
 			solCard2Title: 'Open Source · Apache 2.0',
-			solCard2Desc: 'Zero licensing costs, full transparency, no vendor lock-in. Organizations can inspect, modify, and extend the platform without paying enterprise license fees — critical for emerging economies.',
+			solCard2Desc: 'Zero licensing costs, full transparency, no vendor lock-in. Organizations can inspect, modify, and extend the platform without paying enterprise license fees, critical for emerging economies.',
 			solCard3Title: 'Configuration-Driven',
-			solCard3Desc: 'AI agents are defined via JSON configuration, not compiled code. Prompt engineers and domain experts can build and iterate without deep programming expertise — lowering the barrier to AI adoption.',
+			solCard3Desc: 'AI agents are defined via JSON configuration, not compiled code. Prompt engineers and domain experts can build and iterate without deep programming expertise, lowering the barrier to AI adoption.',
 			solCard4Title: '12 LLM Providers',
-			solCard4Desc: 'Works with local models (Ollama), open-source models, and any OpenAI-compatible endpoint — not tied exclusively to US-based APIs. Enables use of regional and locally-hosted language models.',
+			solCard4Desc: 'Works with local models (Ollama), open-source models, and any OpenAI-compatible endpoint, not tied exclusively to US-based APIs. Enables use of regional and locally-hosted language models.',
 
 			// What this means
 			whatTitle: 'What This Means',
@@ -1212,7 +1231,7 @@ const en = {
 			whatCard3Title: 'WAIC 2026 Showcase',
 			whatCard3Desc: 'The World Artificial Intelligence Conference (WAIC) in Shanghai is one of the most influential AI events globally, bringing together leading researchers, policymakers, and industry leaders to shape the future of AI.',
 			whatCard4Title: 'Global South Focus',
-			whatCard4Desc: 'The program specifically targets AI solutions that can drive industrial development in emerging economies — ensuring that the benefits of AI-powered manufacturing and digitalization reach developing nations.',
+			whatCard4Desc: 'The program specifically targets AI solutions that can drive industrial development in emerging economies, ensuring that the benefits of AI-powered manufacturing and digitalization reach developing nations.',
 
 			// Organizations
 			orgsTitle: 'The Organizations',
@@ -1231,20 +1250,20 @@ const en = {
 			// SDG Alignment
 			sdgTitle: 'Aligned with the UN Sustainable Development Goals',
 			sdgDesc: 'UNIDO\'s mandate is to advance the UN 2030 Agenda. The EDDI platform directly supports key Sustainable Development Goals through its architecture and accessibility:',
-			sdg9Title: 'SDG 9 — Industry, Innovation & Infrastructure',
-			sdg9Desc: 'EDDI is an industrial AI orchestration platform — the core technology UNIDO recognized. It enables organizations to build resilient infrastructure, promote inclusive industrialization, and foster innovation through accessible, production-ready AI systems.',
-			sdg8Title: 'SDG 8 — Decent Work & Economic Growth',
+			sdg9Title: 'SDG 9: Industry, Innovation & Infrastructure',
+			sdg9Desc: 'EDDI is an industrial AI orchestration platform, the core technology UNIDO recognized. It enables organizations to build resilient infrastructure, promote inclusive industrialization, and foster innovation through accessible, production-ready AI systems.',
+			sdg8Title: 'SDG 8: Decent Work & Economic Growth',
 			sdg8Desc: 'By providing enterprise-grade AI orchestration with zero licensing costs and no cloud dependency, EDDI empowers local economies to adopt AI-driven productivity improvements without creating dependency on foreign technology vendors.',
-			sdg10Title: 'SDG 10 — Reduced Inequalities',
-			sdg10Desc: 'UNIDO\'s AIM Global initiative explicitly aims to prevent the "AI divide" from widening. EDDI\'s self-hosted, open-source architecture ensures that developing nations can deploy the same enterprise AI capabilities as industrialized countries — without expensive cloud subscriptions.',
-			sdg12Title: 'SDG 12 — Responsible Consumption & Production',
-			sdg12Desc: 'EDDI\'s model cascading system automatically routes simpler queries to smaller, more efficient models — only escalating to larger, compute-intensive models when needed. This reduces unnecessary energy and GPU consumption, contributing to more responsible use of computational resources at scale.',
-			sdg17Title: 'SDG 17 — Partnerships for the Goals',
-			sdg17Desc: 'The UNIDO Trusted Partner selection itself embodies SDG 17 — a multilateral partnership between a UN agency, industry alliance, and technology provider, working together to transfer AI capabilities to the Global South through open-source collaboration.',
+			sdg10Title: 'SDG 10: Reduced Inequalities',
+			sdg10Desc: 'UNIDO\'s AIM Global initiative explicitly aims to prevent the "AI divide" from widening. EDDI\'s self-hosted, open-source architecture ensures that developing nations can deploy the same enterprise AI capabilities as industrialized countries, without expensive cloud subscriptions.',
+			sdg12Title: 'SDG 12: Responsible Consumption & Production',
+			sdg12Desc: 'EDDI\'s model cascading system automatically routes simpler queries to smaller, more efficient models, only escalating to larger, compute-intensive models when needed. This reduces unnecessary energy and GPU consumption, contributing to more responsible use of computational resources at scale.',
+			sdg17Title: 'SDG 17: Partnerships for the Goals',
+			sdg17Desc: 'The UNIDO Trusted Partner selection itself embodies SDG 17, a multilateral partnership between a UN agency, industry alliance, and technology provider, working together to transfer AI capabilities to the Global South through open-source collaboration.',
 
 			// CTA
 			ctaTitle: 'Ready to Deploy EDDI?',
-			ctaDesc: 'The same platform recognized by UNIDO is available for your organization — open source, self-hosted, and production-ready.',
+			ctaDesc: 'The same platform recognized by UNIDO is available for your organization, open source, self-hosted, and production-ready.',
 			ctaGetStarted: 'Get Started in 5 Minutes',
 			ctaTrackRecord: 'View Full Track Record',
 		},
@@ -1272,17 +1291,21 @@ const en = {
 	// ─── Contact Page ───────────────────────────────────────────
 	contact: {
 		title: 'Contact Us',
-		description: 'Get in touch with the EDDI team — stay informed about releases, features, and enterprise AI orchestration.',
+		description: 'Get in touch with the EDDI team, stay informed about releases, features, and enterprise AI orchestration.',
 		heading: 'Get in Touch',
 		subheading: 'Have questions? Want to learn more about EDDI for your organization? Reach out to us.',
 		newsletterTitle: 'Stay in the Loop',
-		newsletterDesc: 'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam — just signal.',
+		newsletterDesc: 'Get updates on new releases, features, and enterprise AI orchestration best practices. No spam, just signal.',
 		directContactTitle: 'Direct Contact',
 		directContactDesc: 'Prefer email? Reach us directly at:',
 		email: 'contact@labs.ai',
 		githubTitle: 'Open Source Community',
-		githubDesc: 'Join the conversation on GitHub — report issues, request features, or contribute code.',
+		githubDesc: 'Join the conversation on GitHub, report issues, request features, or contribute code.',
 		githubLink: 'Visit EDDI on GitHub',
+		enterpriseTitle: 'Enterprise & Commercial',
+		enterpriseDesc: 'Need managed hosting, SLAs, or a guided proof of concept? Talk to the team behind EDDI.',
+		enterpriseCta: 'Contact the enterprise team',
+		privacyNotice: 'By contacting us you agree we process your details to respond to your enquiry. See our',
 	},
 
 	// ─── Legal Pages ────────────────────────────────────────────
@@ -1311,15 +1334,15 @@ const en = {
 			emailLabel: 'Email',
 			email: 'contact@labs.ai',
 
+			mediaOrientationHeading: 'Basic Orientation (§25 MedienG)',
+			mediaOrientationText: 'Information about the open-source EDDI AI orchestration platform.',
+
 			projectHeading: 'Open Source Project',
 			projectMaintainers: 'EDDI is maintained by Gregor Jarisch (Project Management & Development) and Franz Weber (Cyber Security & Partner Management).',
 			projectLicense: 'Licensed under <a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>.',
 
 			vatHeading: 'VAT Identification Number',
 			vatNote: 'VAT ID pursuant to §27a UStG (Umsatzsteuergesetz)',
-
-			authorityHeading: 'Supervisory Authority',
-			authorityNote: 'Member of the Austrian Economic Chamber (WKÖ)',
 
 			disputeHeading: 'EU Dispute Resolution',
 			disputeText: 'The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. We are neither obligated nor willing to participate in a dispute resolution procedure before a consumer arbitration board.',
@@ -1337,7 +1360,7 @@ const en = {
 		// ── Privacy Policy ──────────────────────────────────────
 		privacy: {
 			title: 'Privacy Policy',
-			description: 'Privacy Policy for EDDI by LABS.AI — how we handle your data.',
+			description: 'Privacy Policy for EDDI by LABS.AI, how we handle your data.',
 			heading: 'Privacy Policy',
 			lastUpdated: 'Last updated: April 11, 2026',
 			intro: 'At LABS.AI, we are committed to protecting your privacy and ensuring the security of your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our EDDI website (<a href="https://eddi.technology">eddi.technology</a>).',
@@ -1361,89 +1384,102 @@ const en = {
 			collectionAutoItems: [
 				'Technical information: IP address (anonymized), browser type, operating system, referring URL',
 				'Usage data: pages viewed, time spent, navigation paths',
-				'This data is collected only with your consent via cookies, or without cookies via privacy-friendly analytics (Umami)',
+				'Analytics data (Google Analytics, Umami) is collected only after you give consent via the cookie banner',
+				'Server logs are recorded briefly for the secure operation of the website',
 			],
 
 			// 3. Purpose and Legal Basis
 			purposeHeading: '3. Purpose and Legal Basis',
-			purposeConsentHeading: '3.1 Based on Consent (Art. 6(1)(a) GDPR)',
-			purposeConsentItems: [
-				'Google Analytics: website usage analysis (only after explicit cookie consent)',
-				'Newsletter: marketing communications via HubSpot (only after opt-in)',
+			purposeContractHeading: '3.1 Handling Contact and Demo Enquiries (Art. 6(1)(b) and Art. 6(1)(f) GDPR)',
+			purposeContractItems: [
+				'Responding to contact and demo enquiries you send us: legal basis is the taking of pre-contractual steps at your request (Art. 6(1)(b)) and our legitimate interest in replying to your message (Art. 6(1)(f))',
 			],
-			purposeLegitHeading: '3.2 Based on Legitimate Interests (Art. 6(1)(f) GDPR)',
+			purposeConsentHeading: '3.2 Based on Consent (Art. 6(1)(a) GDPR)',
+			purposeConsentItems: [
+				'Google Analytics: website usage analysis, loaded only after your explicit cookie consent',
+				'Umami Analytics: website usage analysis, loaded only after your explicit cookie consent',
+				'Newsletter: marketing communications via HubSpot, sent only after your opt-in',
+			],
+			purposeLegitHeading: '3.3 Based on Legitimate Interests (Art. 6(1)(f) GDPR)',
 			purposeLegitItems: [
-				'Umami Analytics: cookieless, privacy-friendly website analytics to improve our website (no personal data is stored)',
-				'Ensuring the security and functionality of our website',
+				'Hosting and server logs: ensuring the secure and stable operation of our website (Art. 6(1)(f))',
 			],
 
 			// 4. Cookies
 			cookieHeading: '4. Cookies and Tracking Technologies',
 			cookieIntro: 'We use the following categories of cookies and tracking technologies:',
-			cookieNecessaryHeading: 'Necessary',
-			cookieNecessaryDesc: 'Essential for the website to function properly (e.g., cookie consent preference stored in localStorage). Cannot be disabled.',
+			cookieNecessaryHeading: 'Strictly Necessary',
+			cookieNecessaryDesc: 'Essential for the website to function properly. This is limited to local storage of your theme choice and your consent choice. Under §165 TKG (Telekommunikationsgesetz) these require no consent. They cannot be disabled.',
 			cookieAnalyticsHeading: 'Analytics & Performance',
-			cookieAnalyticsDesc: 'Google Analytics (G-L1011GL1PY): Tracks website usage with cookies. Only activated after you explicitly consent via the cookie banner. Data is processed by Google LLC (USA) under Standard Contractual Clauses.',
+			cookieAnalyticsDesc: 'Google Analytics (G-L1011GL1PY) and Umami Analytics: track website usage. Both are loaded only after you explicitly opt in via the cookie banner (Art. 6(1)(a) GDPR). Google Analytics data is processed by Google LLC (USA); transfers rely on the EU-US Data Privacy Framework adequacy decision, with EU Standard Contractual Clauses as a fallback.',
 			cookieMarketingHeading: 'Marketing',
-			cookieMarketingDesc: 'Currently not used. The toggle is reserved for future use.',
-			cookieCookielessHeading: 'Cookieless Analytics',
-			cookieCookielessDesc: 'Umami Analytics: Privacy-friendly analytics that does not use cookies and does not collect personal data. Loaded without consent as it is GDPR-safe by design.',
-			cookieManage: 'You can manage your cookie preferences at any time via the "Manage Cookies" option in our cookie banner.',
+			cookieMarketingDesc: 'The HubSpot newsletter and contact form embed loads only after you opt in. Currently no other marketing trackers are used.',
+			cookieManage: 'You can withdraw or change your consent at any time via the "Cookie Settings" link in the footer, which reopens the preferences dialog.',
 
 			// 5. Third-Party Services
 			thirdPartyHeading: '5. Third-Party Services and Data Processors',
 			thirdPartyIntro: 'We use the following third-party services to operate this website:',
 			thirdPartyItems: [
-				'<strong>Google Analytics</strong> (Google LLC, USA) — Website analytics. Data is transferred to the USA under Standard Contractual Clauses (Art. 46(2)(c) GDPR). Only activated with your consent.',
-				'<strong>Umami Analytics</strong> (Umami Software Inc.) — Privacy-friendly, cookieless analytics. No personal data is collected or stored.',
-				'<strong>HubSpot</strong> (HubSpot Inc., USA) — Newsletter signup form and contact management. Data is transferred to the USA under Standard Contractual Clauses. Only activated with your consent.',
-				'<strong>GitHub Pages</strong> (GitHub Inc., USA) — Website hosting. Access logs may be processed by GitHub.',
+				'<strong>Google LLC</strong> (USA, Google Analytics): website analytics. Loaded only after your consent. Transfers to the USA rely on the EU-US Data Privacy Framework adequacy decision where Google is DPF-certified, with EU Standard Contractual Clauses as a fallback.',
+				'<strong>Umami Software, Inc.</strong> (analytics, cloud.umami.is): privacy-friendly website analytics. Loaded only after your consent.',
+				'<strong>HubSpot, Inc.</strong> (USA, forms and CRM): newsletter signup and contact form. Loaded only after your consent. Transfers to the USA rely on the EU-US Data Privacy Framework adequacy decision where HubSpot is DPF-certified, with EU Standard Contractual Clauses as a fallback.',
+				'<strong>Vercel Inc.</strong> (USA, hosting): website hosting and delivery. Server access logs (including IP address) may be processed for secure and reliable operation. Transfers to the USA rely on EU Standard Contractual Clauses (Art. 46(2)(c) GDPR).',
 			],
+			thirdPartyDpa: 'We have data processing agreements pursuant to Art. 28 GDPR in place with these processors. A copy of the transfer safeguards is available on request.',
 
 			// 6. International Transfers
 			transferHeading: '6. International Data Transfers',
-			transferText: 'Some of our service providers are based outside the European Economic Area (EEA). When personal data is transferred to countries outside the EEA, we ensure appropriate safeguards are in place, including Standard Contractual Clauses approved by the European Commission or adequacy decisions.',
+			transferText: 'Some of our service providers (HubSpot, Google, our host) are based in the USA. Where the recipient is certified under the EU-US Data Privacy Framework, transfers rely on the European Commission adequacy decision for that framework (Art. 45 GDPR). As a fallback, we use EU Standard Contractual Clauses (Art. 46(2)(c) GDPR). A copy of these safeguards is available on request.',
 
 			// 7. Data Retention
 			retentionHeading: '7. Data Retention',
-			retentionText: 'We retain your personal data only as long as necessary for the purposes for which it was collected. Newsletter subscriber data is retained until you unsubscribe. Analytics data is retained according to the respective service provider\'s retention policies (Google Analytics: 14 months; Umami: aggregated, non-personal).',
+			retentionText: 'We retain your personal data only as long as necessary for the purposes for which it was collected. Contact and demo enquiry data is kept only as long as needed to handle your request and for a reasonable follow-up period, then deleted. Newsletter subscriber data is retained until you unsubscribe. Analytics data is retained according to the respective provider\'s retention policy (Google Analytics: approximately 14 months). Server logs are kept only briefly for security purposes.',
 
 			// 8. Your Rights
 			rightsHeading: '8. Your Rights',
 			rightsIntro: 'Under the GDPR, you have the following rights regarding your personal data:',
 			rightsItems: [
-				'<strong>Right of access</strong> (Art. 15) — Request a copy of your personal data',
-				'<strong>Right to rectification</strong> (Art. 16) — Request correction of inaccurate data',
-				'<strong>Right to erasure</strong> (Art. 17) — Request deletion of your personal data',
-				'<strong>Right to restrict processing</strong> (Art. 18) — Request restriction of processing',
-				'<strong>Right to data portability</strong> (Art. 20) — Receive your data in a machine-readable format',
-				'<strong>Right to object</strong> (Art. 21) — Object to processing based on legitimate interests',
-				'<strong>Right to withdraw consent</strong> (Art. 7(3)) — Withdraw consent at any time (e.g., via cookie settings)',
+				'<strong>Right of access</strong> (Art. 15): Request a copy of your personal data',
+				'<strong>Right to rectification</strong> (Art. 16): Request correction of inaccurate data',
+				'<strong>Right to erasure</strong> (Art. 17): Request deletion of your personal data',
+				'<strong>Right to restrict processing</strong> (Art. 18): Request restriction of processing',
+				'<strong>Right to data portability</strong> (Art. 20): Receive your data in a machine-readable format',
+				'<strong>Right to object</strong> (Art. 21): Object to processing based on legitimate interests',
+				'<strong>Right to withdraw consent</strong> (Art. 7(3)): Withdraw consent at any time (e.g., via cookie settings)',
 			],
 			rightsContact: 'To exercise any of these rights, please contact us at <a href="mailto:contact@labs.ai">contact@labs.ai</a>. We will respond to your request within one month.',
 
-			// 9. Data Security
-			securityHeading: '9. Data Security',
+			// 9. Provision of Data
+			provisionHeading: '9. Is Provision of Data Required?',
+			provisionText: 'Providing your contact details is entirely voluntary. It is, however, necessary if you want us to answer your enquiry or send you the newsletter. There is no statutory or contractual obligation to provide the data. If you do not provide it, the only consequence is that we cannot respond to you or deliver the newsletter.',
+
+			// 10. Automated Decision-Making
+			automatedHeading: '10. Automated Decision-Making and Profiling',
+			automatedText: 'We do not use automated decision-making or profiling within the meaning of Art. 22 GDPR. Your data is not subject to any automated decision that produces legal effects concerning you or similarly significantly affects you.',
+
+			// 11. Data Security
+			securityHeading: '11. Data Security',
 			securityText: 'We implement appropriate technical and organizational measures to protect your personal data, including HTTPS encryption for all data in transit, and access controls for administrative systems.',
 
-			// 10. Children
-			childrenHeading: '10. Children\'s Privacy',
+			// 12. Children
+			childrenHeading: '12. Children\'s Privacy',
 			childrenText: 'Our website is not intended for children under the age of 16. We do not knowingly collect personal data from children.',
 
-			// 11. Changes
-			changesHeading: '11. Changes to This Privacy Policy',
+			// 13. Changes
+			changesHeading: '13. Changes to This Privacy Policy',
 			changesText: 'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the updated policy on this page and updating the "Last updated" date.',
 
-			// 12. Supervisory Authority
-			authorityHeading: '12. Supervisory Authority',
+			// 14. Supervisory Authority
+			authorityHeading: '14. Supervisory Authority',
 			authorityText: 'You have the right to lodge a complaint with the competent supervisory authority. In Austria, this is:',
 			authorityName: 'Austrian Data Protection Authority (Datenschutzbehörde)',
+			authorityAddress: 'Barichgasse 40-42, 1030 Vienna, Austria',
 			authorityUrl: 'https://www.dsb.gv.at',
 
-			// 13. Contact
-			contactHeading: '13. Contact',
+			// 15. Contact
+			contactHeading: '15. Contact',
 			contactText: 'If you have questions about this Privacy Policy or our data practices, please contact us:',
-			contactDetails: 'LABS.AI — Data Protection<br>Vienna, Austria<br>Email: <a href="mailto:contact@labs.ai">contact@labs.ai</a>',
+			contactDetails: 'LABS.AI: Data Protection<br>Vienna, Austria<br>Email: <a href="mailto:contact@labs.ai">contact@labs.ai</a>',
 		},
 	},
 };

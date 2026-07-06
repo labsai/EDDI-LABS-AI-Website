@@ -1,15 +1,48 @@
 ---
+/**
+ * 404 page: a single static /404.html is served for every unknown path.
+ * English is server-rendered from en.ts; an inline script swaps in the
+ * visitor's locale strings (and <html lang>/dir) when the URL starts with
+ * a known locale prefix, e.g. /de/some-missing-page/.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { LOCALES, enTranslations, type Locale } from '../i18n';
+import de from '../i18n/locales/de';
+import es from '../i18n/locales/es';
+import fr from '../i18n/locales/fr';
+import pt from '../i18n/locales/pt';
+import ar from '../i18n/locales/ar';
+import zh from '../i18n/locales/zh';
+import ja from '../i18n/locales/ja';
+import ko from '../i18n/locales/ko';
+import hi from '../i18n/locales/hi';
+import th from '../i18n/locales/th';
+
+const en = enTranslations;
+const allTranslations = { en, de, es, fr, pt, ar, zh, ja, ko, hi, th };
+
+// Per-locale 404 strings embedded for the client-side locale swap below
+const notFoundByLocale = Object.fromEntries(
+	Object.entries(allTranslations).map(([code, t]) => [
+		code,
+		{
+			title: t.common.notFoundTitle,
+			desc: t.common.notFoundDesc,
+			cta: t.common.notFoundCta,
+			dir: LOCALES[code as Locale].dir,
+		},
+	])
+);
 ---
 
 <BaseLayout title="404: Not Found">
 	<div class="not-found-container">
 		<div class="not-found-content">
 			<h1 class="error-code">404</h1>
-			<h2 class="error-title">Page Not Found</h2>
-			<p class="error-desc">The AI orchestration route you are looking for has been disconnected or relocated.</p>
-			<a href="/" class="btn-cta-primary">
-				Return to System Core
+			<h2 class="error-title" data-nf-title>{en.common.notFoundTitle}</h2>
+			<p class="error-desc" data-nf-desc>{en.common.notFoundDesc}</p>
+			<a href="/" class="btn-cta-primary" data-nf-home>
+				<span data-nf-cta>{en.common.notFoundCta}</span>
 				<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M5 12h14"></path>
 					<path d="m12 5 7 7-7 7"></path>
@@ -17,6 +50,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			</a>
 		</div>
 	</div>
+
+	<script is:inline define:vars={{ notFoundByLocale }}>
+		// Swap the English defaults for the visitor's locale when the missing
+		// URL carries a known locale prefix (English is served at root, no prefix).
+		// Runs on load and again on every ClientRouter swap: a soft-navigated
+		// 404 swaps in the static English markup, so it needs re-localizing.
+		// The [data-nf-title] guard makes the listener a no-op elsewhere.
+		(function () {
+			function localize() {
+				var title = document.querySelector('[data-nf-title]');
+				if (!title) return;
+				var seg = window.location.pathname.split('/').filter(Boolean)[0];
+				var known = seg && seg !== 'en' && Object.prototype.hasOwnProperty.call(notFoundByLocale, seg);
+				// Reset to the English/LTR defaults for root or unknown segments,
+				// so a soft-navigation from an RTL 404 cannot leave dir='rtl' stuck.
+				var strings = known ? notFoundByLocale[seg] : { lang: 'en', dir: 'ltr' };
+				document.documentElement.lang = strings.lang || seg;
+				document.documentElement.dir = strings.dir;
+				if (!known) return;
+				title.textContent = strings.title;
+				var desc = document.querySelector('[data-nf-desc]');
+				if (desc) desc.textContent = strings.desc;
+				var cta = document.querySelector('[data-nf-cta]');
+				if (cta) cta.textContent = strings.cta;
+				var home = document.querySelector('[data-nf-home]');
+				if (home) home.setAttribute('href', '/' + seg + '/');
+			}
+			localize();
+			document.addEventListener('astro:page-load', localize);
+		})();
+	</script>
 </BaseLayout>
 
 <style>
@@ -66,5 +130,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	html[data-theme="light"] .error-code {
 		background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
 		-webkit-background-clip: text;
+	}
+
+	/* The home-link arrow must follow text direction when the client-side
+	   localization switches an RTL locale (Arabic) onto this page. */
+	html[dir='rtl'] .not-found-content svg {
+		transform: scaleX(-1);
 	}
 </style>

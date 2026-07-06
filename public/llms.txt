@@ -1,12 +1,11 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 65 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + 45-panel Grafana dashboard) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 65 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
 
 ## Documentation
 
-- [Getting Started](https://eddi.technology/docs/getting-started/): Introduction to EDDI and setup instructions
-- [Quickstart](https://eddi.technology/docs/quickstart/): Get an agent running in minutes
-- [Install Wizard](https://eddi.technology/docs/install-wizard/): Interactive Docker Compose generator
+- [Getting Started](https://docs.labs.ai/getting-started/getting-started.md): Introduction to EDDI and setup instructions
+- [Developer Quickstart](https://docs.labs.ai/getting-started/developer-quickstart.md): Get an agent running in minutes with Docker Compose
 
 ## Features
 
@@ -20,15 +19,13 @@
 - Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
 - [Performance](https://eddi.technology/features/performance/): Java 25 virtual threads and JVM-native throughput
 - [Security](https://eddi.technology/features/security/): Zero eval(), cryptographic audit trails, RBAC
-- [Observability](https://eddi.technology/features/observability/): Prometheus metrics + 45-panel Grafana Operations Command Center
+- [Observability](https://eddi.technology/features/observability/): Prometheus metrics + Grafana Operations Command Center dashboard
 - [Code Quality](https://eddi.technology/features/code-quality/): Testing strategy and engineering standards
 - [AI-Ready Design](https://eddi.technology/features/ai-ready/): Built for AI agents to interact with programmatically
 
 ## Architecture
 
-- [Architecture Overview](https://eddi.technology/docs/architecture/overview/): Pipeline, reactor, and resource model
-- [Conversation Lifecycle](https://eddi.technology/docs/architecture/conversation-lifecycle/): Request flow and processing stages
-- [Tool Execution](https://eddi.technology/docs/architecture/tool-execution/): How agents call tools (MCP + HTTP)
+- [Architecture](https://docs.labs.ai/architecture-and-concepts/architecture.md): Pipeline, reactor, and resource model; conversation lifecycle and tool execution (MCP + HTTP)
 
 ## Enterprise
 
@@ -38,15 +35,14 @@
 
 ## Integrations & Deployment
 
-- [Integrations](https://eddi.technology/docs/integrations/): 12 LLM providers (OpenAI, Anthropic, Google, Mistral, Azure, Bedrock, Oracle, Vertex AI, Ollama, Jlama, Hugging Face, any OpenAI-compatible)
-- [Docker Deployment](https://eddi.technology/docs/deployment/docker/): Container-based deployment with install wizard
-- [Kubernetes](https://eddi.technology/docs/deployment/kubernetes/): Helm charts and Kustomize manifests
+- [Integrations](https://docs.labs.ai/agent-configuration/langchain.md): 12 LLM providers (OpenAI, Anthropic, Google, Mistral, Azure, Bedrock, Oracle, Vertex AI, Ollama, Jlama, Hugging Face, any OpenAI-compatible)
+- [Docker Deployment](https://docs.labs.ai/deployment-and-infrastructure/docker.md): Container-based deployment with Docker Compose
+- [Kubernetes](https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md): Helm charts and Kustomize manifests
 - [Quarkus SDK](https://github.com/quarkiverse/quarkus-eddi): Dev Services, fluent API, SSE streaming, MCP bridge
 
 ## API & MCP
 
-- [REST API](https://eddi.technology/docs/api/rest/): RESTful endpoints for all resources
-- [MCP Tools Reference](https://eddi.technology/docs/mcp/tools/): Complete list of 65 MCP tools
+- [MCP Tools Reference](https://docs.labs.ai/protocols-and-integration/mcp-server.md): Complete list of 65 MCP tools
 
 ## Use Cases
 
@@ -54,6 +50,5 @@
 
 ## Additional
 
-- [Roadmap](https://eddi.technology/docs/roadmap/): Upcoming features and development plans
-- [Changelog](https://eddi.technology/docs/changelog/latest/): Version history
+- [Releases & Changelog](https://github.com/labsai/EDDI/releases): Version history, release notes, and upcoming milestones
 - [GitHub Repository](https://github.com/labsai/EDDI): Source code (Apache 2.0)

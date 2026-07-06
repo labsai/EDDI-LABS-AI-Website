@@ -2,11 +2,12 @@
 /**
  * Cookie Consent Banner + Settings Modal.
  *
- * - Umami: always loaded (cookieless, GDPR-safe).
- * - Google Analytics (G-L1011GL1PY): loaded only after explicit consent.
- *
- * Ported from the original index.html cookie consent implementation,
- * adapted to match the current EDDI design-system tokens & theme toggle.
+ * Both analytics tools load ONLY after explicit opt-in to the Analytics
+ * category (§ 165 TKG / GDPR Art 6(1)(a)):
+ * - Umami (cloud.umami.is): loaded on analytics consent.
+ * - Google Analytics (G-L1011GL1PY): loaded on analytics consent.
+ * Nothing that reads the device or sends data to a third party fires before
+ * consent. Analytics/Marketing toggles default to OFF (no pre-ticked boxes).
  */
 import { localePath, type Locale } from '../i18n';
 import type { TranslationSchema } from '../i18n';
@@ -25,15 +26,23 @@ const privacyUrl = localePath(lang, '/privacy/');
 <script is:inline>
 	var __isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
-	// Umami — cookieless, no consent required
-	if (!__isLocalhost) {
+	// Umami: loaded only after explicit Analytics consent (it still transmits
+	// IP/user-agent to a third-party US host, so it is not loaded before opt-in).
+	function enableUmami() {
+		if (__isLocalhost) { console.log('[Analytics] Umami skipped on localhost'); return; }
+		if (window.__umamiLoaded) return;
+		window.__umamiLoaded = true;
 		var u = document.createElement('script');
 		u.defer = true;
 		u.src = 'https://cloud.umami.is/script.js';
 		u.dataset.websiteId = '06a369b1-4a64-4262-9f6e-0a987ca7122a';
 		document.head.appendChild(u);
-	} else {
-		console.log('[Analytics] Umami skipped on localhost');
+	}
+
+	// Load every consented analytics tool. Called on Analytics opt-in.
+	function enableAnalytics() {
+		enableUmami();
+		enableGoogleAnalytics();
 	}
 
 	function enableGoogleAnalytics() {
@@ -55,8 +64,16 @@ const privacyUrl = localePath(lang, '/privacy/');
 
 			window.dataLayer = window.dataLayer || [];
 			function gtag() { dataLayer.push(arguments); }
+			// Google Consent Mode v2: this path runs only after Analytics opt-in,
+			// so grant analytics storage and deny advertising signals.
+			gtag('consent', 'default', {
+				analytics_storage: 'granted',
+				ad_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+			});
 			gtag('js', new Date());
-			gtag('config', 'G-L1011GL1PY');
+			gtag('config', 'G-L1011GL1PY', { anonymize_ip: true });
 		} catch (e) {
 			console.warn('Error initializing Google Analytics:', e);
 		}
@@ -197,8 +214,8 @@ const privacyUrl = localePath(lang, '/privacy/');
 
 			// Pre-fill checkboxes: use stored consent, or default to enabled
 			var consent = getConsent();
-			document.getElementById('analytics-cookies').checked = consent ? !!consent.analytics : true;
-			document.getElementById('marketing-cookies').checked = consent ? !!consent.marketing : true;
+			document.getElementById('analytics-cookies').checked = consent ? !!consent.analytics : false;
+			document.getElementById('marketing-cookies').checked = consent ? !!consent.marketing : false;
 
 			var closeBtn = document.getElementById('close-cookie-settings');
 			setTimeout(function () { closeBtn.focus(); }, 100);
@@ -226,7 +243,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 			banner.classList.remove('hidden');
 			document.body.style.overflow = 'hidden';
 		} else {
-			if (initial.analytics) enableGoogleAnalytics();
+			if (initial.analytics) enableAnalytics();
 		}
 
 		// Accept all
@@ -235,7 +252,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			banner.classList.add('hidden');
 			document.body.style.overflow = '';
-			enableGoogleAnalytics();
+			enableAnalytics();
 		});
 
 		// Reject all (from modal)
@@ -249,6 +266,12 @@ const privacyUrl = localePath(lang, '/privacy/');
 
 		// Open settings
 		document.getElementById('cookie-settings').addEventListener('click', openModal);
+
+		// Persistent "Cookie settings" triggers (e.g. footer link) can reopen the
+		// preferences so consent can be withdrawn as easily as it was given.
+		document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
+			el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+		});
 
 		// Close settings (via X button)
 		document.getElementById('close-cookie-settings').addEventListener('click', function () {
@@ -272,7 +295,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			closeModal();
 			banner.classList.add('hidden');
-			if (analytics) enableGoogleAnalytics();
+			if (analytics) enableAnalytics();
 		});
 	});
 </script>

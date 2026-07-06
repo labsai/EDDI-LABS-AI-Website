@@ -9,6 +9,7 @@ import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import LanguageSuggestion from "../components/LanguageSuggestion.astro";
 import { EDDI_VERSION } from "../i18n/version";
+import { MCP_TOOLS } from "../i18n/stats";
 import "../styles/global.css";
 import {
   LOCALE_CODES,
@@ -27,6 +28,8 @@ interface Props {
   fullWidth?: boolean;
   /** Explicit locale override (otherwise derived from URL) */
   lang?: Locale;
+  /** FAQ entries to emit as FAQPage structured data (only pages with a visible FAQ section should pass this) */
+  faqItems?: { question: string; answer: string }[];
 }
 
 const {
@@ -34,6 +37,7 @@ const {
   description: descProp,
   fullWidth = false,
   lang: langProp,
+  faqItems,
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
@@ -62,6 +66,14 @@ const OG_LOCALE_MAP: Record<string, string> = {
   th: "th_TH",
 };
 const ogLocale = OG_LOCALE_MAP[lang] || lang;
+
+// Region-tagged hreflang codes (same regions as the sitemap i18n map in astro.config.mjs)
+const HREFLANG_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(OG_LOCALE_MAP).map(([code, og]) => [code, og.replace("_", "-")]),
+);
+
+// Strip HTML tags from FAQ answers for structured data
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
 ---
 
 <!doctype html>
@@ -83,7 +95,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
       LOCALE_CODES.map((loc) => (
         <link
           rel="alternate"
-          hreflang={loc}
+          hreflang={HREFLANG_MAP[loc] || loc}
           href={new URL(localePath(loc, pagePath), siteUrl)}
         />
       ))
@@ -96,10 +108,14 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
 
     <!-- OG / Twitter -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EDDI" />
     <meta property="og:title" content={`${title} | EDDI`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content="https://eddi.technology/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="EDDI: The Enterprise AI Orchestrator" />
     <meta property="og:locale" content={ogLocale} />
     {
       LOCALE_CODES.filter((l) => l !== lang).map((l) => (
@@ -107,11 +123,13 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
       ))
     }
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | EDDI`} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://eddi.technology/og-image.png" />
 
     <!-- LLM / AI agent discovery -->
-    <link rel="author" type="text/markdown" href="/llms.txt" />
-    <link rel="author" type="text/markdown" href="/llms-full.txt" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" />
+    <link rel="alternate" type="text/markdown" href="/llms-full.txt" />
 
     <!-- JSON-LD: Organization -->
     <script
@@ -120,7 +138,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
       set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "Labs.ai",
+        name: "LABS.AI",
         url: "https://eddi.technology",
         logo: {
           "@type": "ImageObject",
@@ -141,7 +159,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         "@type": "WebSite",
         name: "EDDI",
         url: "https://eddi.technology",
-        description: `EDDI ${EDDI_VERSION} — The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
+        description: `EDDI ${EDDI_VERSION}: The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
       })}
     />
 
@@ -155,16 +173,35 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
         name: "EDDI",
         applicationCategory: "DeveloperApplication",
         operatingSystem: "Cross-platform (JVM)",
-        description:
-          "Self-hosted enterprise AI orchestration platform with a visual management UI, 42 MCP tools, and built-in compliance.",
+        description: `Self-hosted enterprise AI orchestration platform with a visual management UI, ${MCP_TOOLS} MCP tools, and built-in compliance.`,
         url: "https://eddi.technology",
         downloadUrl: "https://github.com/labsai/EDDI",
         softwareVersion: EDDI_VERSION.replace("v", ""),
         license: "https://www.apache.org/licenses/LICENSE-2.0",
-        author: { "@type": "Organization", name: "Labs.ai" },
+        author: { "@type": "Organization", name: "LABS.AI" },
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       })}
     />
+
+    <!-- JSON-LD: FAQPage (only emitted on pages with a visible FAQ section) -->
+    {faqItems && faqItems.length > 0 && (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: stripHtml(item.answer),
+            },
+          })),
+        })}
+      />
+    )}
 
     <!-- Theme init (no flash) -->
     <script is:inline>
@@ -252,7 +289,7 @@ const ogLocale = OG_LOCALE_MAP[lang] || lang;
     <CookieConsent lang={lang} t={tMeta} />
     <LanguageSuggestion lang={lang} />
 
-    <!-- Email deobfuscation — assembles mailto links client-side to prevent scraping -->
+    <!-- Email deobfuscation: assembles mailto links client-side to prevent scraping -->
     <script is:inline>
       document.addEventListener("astro:page-load", function () {
         document.querySelectorAll(".obfuscated-email").forEach(function (el) {

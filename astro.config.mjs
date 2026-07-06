@@ -1,13 +1,10 @@
 // @ts-check
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	image: {
-		service: passthroughImageService(),
-	},
 	site: 'https://eddi.technology',
 	integrations: [sitemap({
 		i18n: {

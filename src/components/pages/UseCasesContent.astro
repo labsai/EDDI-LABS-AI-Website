@@ -3,7 +3,7 @@
  * Shared Use Cases content — used by both root and [lang] versions.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import type { Locale } from '../../i18n';
+import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
 
 interface Props {
@@ -13,19 +13,27 @@ interface Props {
 
 const { lang, t } = Astro.props;
 const cards = [
-	{ icon: '🏥', title: t.useCases.healthcare, desc: t.useCases.healthcareDesc },
-	{ icon: '🏦', title: t.useCases.finance, desc: t.useCases.financeDesc },
-	{ icon: '🛒', title: t.useCases.ecommerce, desc: t.useCases.ecommerceDesc },
-	{ icon: '🏭', title: t.useCases.manufacturing, desc: t.useCases.manufacturingDesc },
-	{ icon: '🏛️', title: t.useCases.government, desc: t.useCases.governmentDesc },
-	{ icon: '🧑‍💻', title: t.useCases.devPlatforms, desc: t.useCases.devPlatformsDesc },
+	{ icon: '🏥', title: t.useCases.healthcare, desc: t.useCases.healthcareDesc, link: localePath(lang, '/enterprise/compliance/'), linkLabel: t.nav.euAiAct },
+	{ icon: '🏦', title: t.useCases.finance, desc: t.useCases.financeDesc, link: localePath(lang, '/features/observability/'), linkLabel: t.nav.observability },
+	{ icon: '🛒', title: t.useCases.ecommerce, desc: t.useCases.ecommerceDesc, link: localePath(lang, '/features/multi-agent/'), linkLabel: t.nav.multiAgent },
+	{ icon: '🏭', title: t.useCases.manufacturing, desc: t.useCases.manufacturingDesc, link: localePath(lang, '/features/scheduling/'), linkLabel: t.nav.scheduling },
+	{ icon: '🏛️', title: t.useCases.government, desc: t.useCases.governmentDesc, link: localePath(lang, '/features/security/'), linkLabel: t.nav.securityFirst },
+	{ icon: '🧑‍💻', title: t.useCases.devPlatforms, desc: t.useCases.devPlatformsDesc, link: localePath(lang, '/features/config-as-code/'), linkLabel: t.nav.configAsCode },
 ];
 ---
 <BaseLayout title={t.useCases.title} description={t.useCases.description} fullWidth={true} lang={lang}>
 <section class="uc-hero hero-gradient-bg"><div class="uc-hero-inner"><h1>{t.useCases.heroTitle}</h1><p>{t.useCases.heroSubtitle}</p></div></section>
 <article class="uc-content"><div class="uc-grid">
-{cards.map((c) => (<div class="uc-card"><span class="uc-icon" aria-hidden="true">{c.icon}</span><h3>{c.title}</h3><p>{c.desc}</p></div>))}
+{cards.map((c) => (<div class="uc-card"><span class="uc-icon" aria-hidden="true">{c.icon}</span><h3>{c.title}</h3><p>{c.desc}</p><a href={c.link} class="uc-card-link">{c.linkLabel} →</a></div>))}
 </div></article>
+<section class="uc-cta">
+	<h2>{t.useCases.ctaTitle}</h2>
+	<p>{t.useCases.ctaDesc}</p>
+	<div class="uc-cta-actions">
+		<a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{t.useCases.ctaButton}</a>
+		<a href={localePath(lang, '/contact/')} class="btn-cta-outline">{t.useCases.ctaSecondary}</a>
+	</div>
+</section>
 </BaseLayout>
 <style>
 	.uc-hero { padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 3rem; text-align: center; }
@@ -33,11 +41,17 @@ const cards = [
 	.uc-hero p { color: var(--color-text-muted); font-size: 1.125rem; margin: 0; }
 	.uc-content { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
 	.uc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.5rem; }
-	.uc-card { padding: 2rem; border-radius: 1rem; transition: all 0.3s ease; }
+	.uc-card { padding: 2rem; border-radius: 1rem; transition: all 0.3s ease; display: flex; flex-direction: column; }
 	html[data-theme='dark'] .uc-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
 	html[data-theme='light'] .uc-card { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
 	.uc-card:hover { transform: translateY(-4px); border-color: var(--color-accent); }
 	.uc-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
 	.uc-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
-	.uc-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; }
+	.uc-card p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; margin: 0; flex-grow: 1; }
+	.uc-card-link { margin-top: 1rem; align-self: flex-start; font-size: 0.875rem; font-weight: 600; color: var(--color-accent); text-decoration: none; transition: opacity 0.2s; }
+	.uc-card-link:hover { opacity: 0.8; text-decoration: underline; }
+	.uc-cta { max-width: 48rem; margin: 0 auto; padding: 0 1.5rem 6rem; text-align: center; }
+	.uc-cta h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.uc-cta p { color: var(--color-text-muted); font-size: 1.0625rem; line-height: 1.6; margin: 0 0 2rem; }
+	.uc-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 </style>

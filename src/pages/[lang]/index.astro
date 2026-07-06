@@ -12,6 +12,17 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 const t = await getTranslations(lang);
+
+// FAQ entries for FAQPage structured data (forwarded via HomeContent to BaseLayout)
+const faqItems = [
+	{ question: t.home.faq1Q, answer: t.home.faq1A },
+	{ question: t.home.faq2Q, answer: t.home.faq2A },
+	{ question: t.home.faq3Q, answer: t.home.faq3A },
+	{ question: t.home.faq4Q, answer: t.home.faq4A },
+	{ question: t.home.faq5Q, answer: t.home.faq5A },
+	{ question: t.home.faq6Q, answer: t.home.faq6A },
+	{ question: t.home.faq7Q, answer: t.home.faq7A },
+];
 ---
 
-<HomeContent lang={lang} t={t} />
+<HomeContent lang={lang} t={t} faqItems={faqItems} />

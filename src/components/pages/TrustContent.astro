@@ -6,6 +6,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
+import { TESTS, DOCKER_PULLS, LLM_PROVIDERS } from '../../i18n/stats';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
 
 interface Props {
 	lang: Locale;
@@ -14,6 +16,7 @@ interface Props {
 
 const { lang, t } = Astro.props;
 const trust = t.pages.trust;
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang, '/contact/');
 ---
 
 <BaseLayout title={trust.title} description={trust.description} fullWidth={true} lang={lang}>
@@ -30,15 +33,15 @@ const trust = t.pages.trust;
 	<!-- Stats bar -->
 	<div class="trust-stats-bar">
 		<div class="trust-stat">
-			<span class="trust-stat-value">390K+</span>
+			<span class="trust-stat-value">{DOCKER_PULLS}</span>
 			<span class="trust-stat-label">{trust.statPulls}</span>
 		</div>
 		<div class="trust-stat">
-			<span class="trust-stat-value">9,000+</span>
+			<span class="trust-stat-value">{TESTS}</span>
 			<span class="trust-stat-label">{trust.statTests}</span>
 		</div>
 		<div class="trust-stat">
-			<span class="trust-stat-value">12+</span>
+			<span class="trust-stat-value">{LLM_PROVIDERS}</span>
 			<span class="trust-stat-label">{trust.statProviders}</span>
 		</div>
 		<div class="trust-stat">
@@ -158,22 +161,22 @@ const trust = t.pages.trust;
 	<!-- Live Badges Row -->
 	<div class="trust-badges-row not-content">
 		<a href="https://www.bestpractices.dev/projects/12355" target="_blank" rel="noopener">
-			<img src="https://www.bestpractices.dev/projects/12355/badge" alt="OpenSSF Best Practices" width="234" height="24" loading="lazy" />
+			<img src="/badges/openssf-bestpractices.svg" alt="OpenSSF Best Practices" width="234" height="24" loading="lazy" />
 		</a>
 		<a href="https://securityscorecards.dev/viewer/?uri=github.com/labsai/EDDI" target="_blank" rel="noopener">
-			<img src="https://api.securityscorecards.dev/projects/github.com/labsai/EDDI/badge" alt="OpenSSF Scorecard" width="150" height="24" loading="lazy" />
+			<img src="/badges/openssf-scorecard.svg" alt="OpenSSF Scorecard" width="150" height="24" loading="lazy" />
 		</a>
 		<a href="https://app.codacy.com/organizations/gh/labsai/dashboard" target="_blank" rel="noopener">
-			<img src="https://app.codacy.com/project/badge/Grade/2c5d183d4bd24dbaa77427cfbf5d4074" alt="Codacy Badge" width="100" height="20" loading="lazy" />
+			<img src="/badges/codacy.svg" alt="Codacy Badge" width="100" height="20" loading="lazy" />
 		</a>
 		<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">
-			<img src="https://github.com/labsai/EDDI/actions/workflows/ci.yml/badge.svg" alt="CI" width="120" height="20" loading="lazy" />
+			<img src="/badges/ci.svg" alt="CI" width="120" height="20" loading="lazy" />
 		</a>
 		<a href="https://github.com/labsai/EDDI/actions/workflows/codeql.yml" target="_blank" rel="noopener">
-			<img src="https://github.com/labsai/EDDI/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" width="120" height="20" loading="lazy" />
+			<img src="/badges/codeql.svg" alt="CodeQL" width="120" height="20" loading="lazy" />
 		</a>
 		<a href="https://hub.docker.com/r/labsai/eddi" target="_blank" rel="noopener">
-			<img src="https://img.shields.io/docker/pulls/labsai/eddi" alt="Docker Pulls" width="150" height="20" loading="lazy" />
+			<img src="/badges/docker-pulls.svg" alt="Docker Pulls" width="150" height="20" loading="lazy" />
 		</a>
 	</div>
 
@@ -244,6 +247,17 @@ const trust = t.pages.trust;
 			<h3 class="text-xl font-bold text-white mb-2">{trust.ctaDocs}</h3>
 			<p class="text-zinc-400 text-sm">{trust.ctaDocsDesc}</p>
 		</a>
+	</div>
+</section>
+
+<!-- Enterprise & Commercial CTA -->
+<section class="pb-24 max-w-5xl mx-auto px-6">
+	<div class="trust-commercial-card not-content">
+		<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white! border-0! text-center">{t.common.enterpriseCtaTitle}</h2>
+		<p class="text-zinc-400 text-base leading-relaxed mb-8 text-center max-w-2xl mx-auto">{t.common.enterpriseCtaDesc}</p>
+		<div class="text-center">
+			<a href={enterpriseCtaHref} class="btn-cta-primary" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+		</div>
 	</div>
 </section>
 
@@ -560,6 +574,20 @@ const trust = t.pages.trust;
 	border-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
 	transform: translateY(-0.25rem);
 	box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== COMMERCIAL CTA CARD ===== */
+.trust-commercial-card {
+	position: relative;
+	overflow: hidden;
+	padding: 3rem;
+	border-radius: 1.5rem;
+	background: linear-gradient(135deg, rgba(39, 39, 42, 0.6), rgba(39, 39, 42, 0.2));
+	backdrop-filter: blur(16px);
+	border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+html[data-theme='light'] .trust-commercial-card {
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
 }
 
 /* ===== LIGHT MODE ===== */

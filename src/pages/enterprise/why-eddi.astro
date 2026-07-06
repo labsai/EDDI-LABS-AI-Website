@@ -1,8 +1,10 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_why_eddi.webp';
-import { enTranslations as t } from '../../i18n';
+import { enTranslations as t, localePath } from '../../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
 const p = t.pages.whyEddi;
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
 <h2>{p.heading1}</h2><p set:html={p.para1} />
@@ -58,6 +60,13 @@ const p = t.pages.whyEddi;
 <h2>{p.roiTitle}</h2>
 <p set:html={p.roiPara} />
 <p set:html={p.roiPara2} />
+
+<!-- Enterprise & Commercial CTA -->
+<div class="enterprise-cta">
+	<h2>{t.common.enterpriseCtaTitle}</h2>
+	<p>{t.common.enterpriseCtaDesc}</p>
+	<a href={enterpriseCtaHref} class="btn-cta-outline" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+</div>
 
 </FeaturePage>
 
@@ -132,5 +141,22 @@ const p = t.pages.whyEddi;
 	.rfp-grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* Enterprise & Commercial CTA */
+.enterprise-cta {
+	margin-top: 3rem;
+	padding: 2.5rem 2rem;
+	border-radius: 1rem;
+	border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+	background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	text-align: center;
+}
+.enterprise-cta h2 {
+	margin-top: 0 !important;
+}
+.enterprise-cta p {
+	max-width: 38rem;
+	margin: 0 auto 1.5rem;
 }
 </style>

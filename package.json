@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run check:stats && astro check && astro build",
     "check": "astro check",
+    "check:stats": "node scripts/check-stats.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky"

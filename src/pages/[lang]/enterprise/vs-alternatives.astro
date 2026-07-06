@@ -1,7 +1,8 @@
 ---
 import FeaturePage from '../../../layouts/FeaturePage.astro';
 import heroImage from '../../../assets/hero_vs_alternatives.webp';
-import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../../i18n';
+import { NON_DEFAULT_LOCALES, getTranslations, localePath, type Locale } from '../../../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../../config';
 
 export async function getStaticPaths() {
 	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
@@ -9,6 +10,7 @@ export async function getStaticPaths() {
 const { lang } = Astro.params as { lang: Locale };
 const t = await getTranslations(lang);
 const p = t.pages.vsAlternatives;
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang, '/contact/');
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
 
@@ -70,6 +72,13 @@ const p = t.pages.vsAlternatives;
 <h2>{p.ctaTitle}</h2>
 <p>{p.ctaPara}</p>
 
+<!-- Enterprise & Commercial CTA -->
+<div class="enterprise-cta">
+	<h2>{t.common.enterpriseCtaTitle}</h2>
+	<p>{t.common.enterpriseCtaDesc}</p>
+	<a href={enterpriseCtaHref} class="btn-cta-primary" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+</div>
+
 </FeaturePage>
 
 <style>
@@ -79,5 +88,22 @@ const p = t.pages.vsAlternatives;
 	margin-top: -0.5rem;
 	margin-bottom: 1rem;
 	font-style: italic;
+}
+
+/* Enterprise & Commercial CTA */
+.enterprise-cta {
+	margin-top: 3rem;
+	padding: 2.5rem 2rem;
+	border-radius: 1rem;
+	border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+	background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	text-align: center;
+}
+.enterprise-cta h2 {
+	margin-top: 0 !important;
+}
+.enterprise-cta p {
+	max-width: 38rem;
+	margin: 0 auto 1.5rem;
 }
 </style>

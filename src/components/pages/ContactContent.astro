@@ -4,7 +4,9 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewsletterSignup from '../NewsletterSignup.astro';
+import { localePath } from '../../i18n';
 import type { TranslationSchema, Locale } from '../../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
 
 interface Props {
 	lang: Locale;
@@ -23,9 +25,29 @@ const c = t.contact;
 		</header>
 
 		<div class="contact-body">
+			<!-- Enterprise & Commercial -->
+			<section class="contact-card contact-card-enterprise">
+				<div class="contact-card-icon">
+					<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+						<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+					</svg>
+				</div>
+				<h2>{c.enterpriseTitle}</h2>
+				<p>{c.enterpriseDesc}</p>
+				{SOLUTIONS_LIVE ? (
+					<a href={solutionsUrl(lang, '/contact/')} target="_blank" rel="noopener" class="contact-enterprise-link">{c.enterpriseCta} →</a>
+				) : (
+					<span class="obfuscated-email contact-email-link" data-u="contact" data-d="labs.ai"></span>
+				)}
+			</section>
+
 			<!-- Newsletter Section -->
 			<section class="contact-section">
 				<NewsletterSignup lang={lang} />
+				<p class="contact-privacy-notice">
+					{c.privacyNotice} <a href={localePath(lang, '/privacy/')}>{t.legal.privacyLink}</a>
+				</p>
 			</section>
 
 			<!-- Direct Contact + GitHub -->
@@ -114,6 +136,11 @@ const c = t.contact;
 		transform: translateY(-2px);
 	}
 
+	.contact-card-enterprise {
+		border-color: color-mix(in srgb, var(--color-accent-400) 45%, transparent);
+		background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent-400) 8%, var(--color-surface)), var(--color-surface));
+	}
+
 	.contact-card-icon {
 		width: 3.5rem;
 		height: 3.5rem;
@@ -144,6 +171,7 @@ const c = t.contact;
 	}
 
 	.contact-email-link,
+	.contact-enterprise-link,
 	.contact-github-link {
 		color: var(--color-accent-400);
 		text-decoration: none;
@@ -153,6 +181,7 @@ const c = t.contact;
 	}
 
 	.contact-email-link:hover,
+	.contact-enterprise-link:hover,
 	.contact-github-link:hover {
 		color: var(--color-accent-300);
 		text-decoration: underline;
@@ -162,5 +191,23 @@ const c = t.contact;
 	.contact-section :global(.newsletter-section) {
 		border-top: none;
 		padding-top: 0;
+	}
+
+	.contact-privacy-notice {
+		max-width: 28rem;
+		margin: 0.75rem auto 0;
+		text-align: center;
+		font-size: 0.75rem;
+		line-height: 1.5;
+		color: var(--color-text-subtle);
+	}
+
+	.contact-privacy-notice a {
+		color: var(--color-accent-400);
+		text-decoration: none;
+	}
+
+	.contact-privacy-notice a:hover {
+		text-decoration: underline;
 	}
 </style>

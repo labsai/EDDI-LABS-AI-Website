@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import heroImage from '../../assets/hero_compliance.webp';
 import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
 
 interface Props {
 	lang: Locale;
@@ -15,6 +16,7 @@ interface Props {
 
 const { lang, t } = Astro.props;
 const p = t.pages.compliance;
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang, '/contact/');
 
 /* ── SVG icon paths (Lucide-style) for each regulation card ── */
 const icons = {
@@ -76,7 +78,7 @@ const industryCards = [
 	</div>
 </div></section>
 
-<!-- ═══ COMPLIANCE BY ARCHITECTURE — intro ═══ -->
+<!-- ═══ COMPLIANCE BY ARCHITECTURE: intro ═══ -->
 <section class="py-20 max-w-7xl mx-auto px-6">
 	<div class="not-content relative overflow-hidden p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 transition-all duration-300 hover:border-accent-500/50 hover:shadow-xl group">
 		<div class="absolute top-2 end-2 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none">
@@ -124,7 +126,7 @@ const industryCards = [
 		<h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{p.privacyHeading}</h2>
 		<p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={p.privacyIntro} />
 	</div>
-	<!-- GDPR — featured full-width card -->
+	<!-- GDPR: featured full-width card -->
 	<div class="not-content relative overflow-hidden p-8 rounded-3xl bg-linear-to-tr from-accent-900/10 to-zinc-900/60 backdrop-blur border border-accent-500/30 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 shadow-xl group mb-10">
 		<div class="absolute top-2 end-2 opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500 pointer-events-none">
 			<svg class="w-32 h-32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" set:html={icons.gdpr} />
@@ -216,6 +218,17 @@ const industryCards = [
 	</div>
 </section>
 
+<!-- Enterprise & Commercial CTA -->
+<section class="pb-24 max-w-5xl mx-auto px-6">
+	<div class="cp-commercial-card not-content">
+		<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white! border-0! text-center">{t.common.enterpriseCtaTitle}</h2>
+		<p class="text-zinc-400 text-base leading-relaxed mb-8 text-center max-w-2xl mx-auto">{t.common.enterpriseCtaDesc}</p>
+		<div class="text-center">
+			<a href={enterpriseCtaHref} class="btn-cta-primary" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+		</div>
+	</div>
+</section>
+
 </BaseLayout>
 
 <style>
@@ -242,4 +255,16 @@ const industryCards = [
 	.cp-api-text :global(code) { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 0.25rem; padding: 0.1rem 0.35rem; font-size: 0.7rem; }
 	.cp-closing-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 	@media (max-width: 30rem) { .cp-closing-actions { justify-content: center; margin: 0 auto; } }
+	.cp-commercial-card {
+		position: relative;
+		overflow: hidden;
+		padding: 3rem;
+		border-radius: 1.5rem;
+		background: linear-gradient(135deg, rgba(39, 39, 42, 0.6), rgba(39, 39, 42, 0.2));
+		backdrop-filter: blur(16px);
+		border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+	}
+	html[data-theme='light'] .cp-commercial-card {
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+	}
 </style>

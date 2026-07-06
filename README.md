@@ -4,10 +4,10 @@
   </a>
 </p>
 
-<h1 align="center">EDDI — The Enterprise AI Orchestrator</h1>
+<h1 align="center">EDDI: The Enterprise AI Orchestrator</h1>
 
 <p align="center">
-  Build, deploy, and manage AI agents — without writing code.<br/>
+  Build, deploy, and manage AI agents, without writing code.<br/>
   Configuration-driven · Self-hosted · Compliance-ready
 </p>
 
@@ -22,9 +22,9 @@
 
 ## 🤔 What is EDDI?
 
-**EDDI** is an open-source, enterprise-grade AI orchestration platform. Instead of writing boilerplate code for REST controllers, authentication, state management, and audit logging — you deploy EDDI and get all of it out of the box.
+**EDDI** is an open-source, enterprise-grade AI orchestration platform. Instead of writing boilerplate code for REST controllers, authentication, state management, and audit logging, you deploy EDDI and get all of it out of the box.
 
-Agent logic is **JSON configuration**, not compiled code. Prompt engineers iterate instantly via the visual management UI or REST API — no redeployment needed.
+Agent logic is **JSON configuration**, not compiled code. Prompt engineers iterate instantly via the visual management UI or REST API, no redeployment needed.
 
 > 🏗️ EDDI is a **deployable middleware platform**, not a library. Think of it as the missing layer between raw AI models and production applications.
 
@@ -34,18 +34,18 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 
 | | Capability | What It Does |
 |---|---|---|
-| 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually — with 11-language i18n |
-| ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration — change prompts, tools, and pipelines without redeployment |
-| 🔌 | **42 MCP Tools** | Full AI-native control via the Model Context Protocol — works with Claude Desktop, Cursor, and custom clients |
+| 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually, with 11-language i18n |
+| ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration: change prompts, tools, and pipelines without redeployment |
+| 🔌 | **65 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
 | 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, agent triggers, group discussions, and A/B routing |
 | 🧠 | **Memory & Context** | Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing |
 | 📚 | **RAG** | 7 embedding providers, 5 vector stores, and zero-infrastructure httpCall RAG |
-| 📈 | **Model Cascading** | Cost-optimized multi-model routing — reduce LLM costs by 60-80% |
+| 📈 | **Model Cascading** | Cost-optimized multi-model routing: reduce LLM costs by up to 60-80% in typical multi-model workloads |
 | ⏰ | **Scheduling** | Cron triggers, heartbeat wake-ups, and dream cycles for proactive agent behavior |
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
-| 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and a 45-panel Grafana dashboard |
-| 🚀 | **Performance** | Java 25 Virtual Threads — millions of lightweight threads for I/O-bound LLM workloads |
-| 🧪 | **Code Quality** | 5,100+ tests with zero failures, CI/CD quality gates on every merge |
+| 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and Grafana dashboards |
+| 🚀 | **Performance** | Java 25 Virtual Threads, millions of lightweight threads for I/O-bound LLM workloads |
+| 🧪 | **Code Quality** | 10,000+ tests with zero failures, CI/CD quality gates on every merge |
 
 ---
 
@@ -53,11 +53,11 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 
 EDDI is designed for **regulated industries** and enterprise teams that need:
 
-- 🔒 **Self-hosted deployment** — runs anywhere Docker runs: on-premises, in any cloud, or air-gapped
-- 📋 **Compliance out of the box** — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, and 10+ global privacy frameworks
-- 🛡️ **Zero code execution** — no `eval()`, no code blocks, no dynamic injection (eliminates CVSS 10.0 RCE risks)
-- 📝 **Full auditability** — cryptographically signed, tamper-evident operation logs for every conversation and tool call
-- ☸️ **Kubernetes-native** — dedicated Kubernetes Operator, Helm charts, and Red Hat Certified Container
+- 🔒 **Self-hosted deployment**: runs anywhere Docker runs: on-premises, in any cloud, or air-gapped
+- 📋 **Compliance out of the box**: EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, and 15+ global privacy frameworks
+- 🛡️ **Zero code execution**: no `eval()`, no code blocks, no dynamic injection (eliminates CVSS 10.0 RCE risks)
+- 📝 **Full auditability**: cryptographically signed, tamper-evident operation logs for every conversation and tool call
+- ☸️ **Kubernetes-native**: dedicated Kubernetes Operator, Helm charts, and Red Hat Certified Container
 
 ---
 
@@ -80,7 +80,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI.
 |---|---|
 | ☕ Java 25 | Enterprise runtime with Virtual Threads |
 | ⚡ Quarkus | Cloud-native framework |
-| 🔗 LangChain4j | 20+ LLM provider integrations |
+| 🔗 LangChain4j | 12 LLM providers |
 | 🗃️ MongoDB / PostgreSQL | Dual database support (switch via env var) |
 | 🐳 Docker & Kubernetes | Container-native deployment |
 | 🔴 OpenShift | Red Hat Certified Container |
@@ -109,7 +109,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI.
 | 💬 [**eddi-chat-ui**](https://github.com/labsai/eddi-chat-ui) | Embeddable chat widget |
 | ☸️ [**EDDI-Operator**](https://github.com/labsai/EDDI-operator) | Kubernetes operator |
 | 📦 [**EDDI Client SDK**](https://github.com/labsai/EDDI-client-sdk) | Java SDK for integration |
-| 🌐 [**EDDI Website**](https://github.com/labsai/EDDI-LABS-AI-Website) | This repo — the marketing site at [eddi.technology](https://eddi.technology) |
+| 🌐 [**EDDI Website**](https://github.com/labsai/EDDI-LABS-AI-Website) | This repo, the marketing site at [eddi.technology](https://eddi.technology) |
 
 ---
 

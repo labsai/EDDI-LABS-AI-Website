@@ -94,7 +94,7 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 
 ### Observability
 - Native Prometheus metrics endpoint
-- 45-panel Grafana "Operations Command Center" dashboard (auto-provisioned)
+- Grafana "Operations Command Center" dashboard (auto-provisioned)
 - Conversation lifecycle, tool execution, LLM latency, token usage, and error rate monitoring
 - Integrated audit trail in the Manager UI
 
@@ -165,7 +165,7 @@ Organized by domain:
 | Audit Trail | Cryptographic (HMAC) | Basic logging | DIY | Process history |
 | Compliance | 15+ frameworks (EU AI Act, GDPR, HIPAA, etc.) | DIY | DIY | Partial |
 | Management UI | ✅ (11 languages) | ✅ | ❌ | ✅ |
-| Prometheus/Grafana | 45 panels | ❌ | DIY | ✅ |
+| Prometheus/Grafana | ✅ Auto-provisioned | ❌ | DIY | ✅ |
 | License | Apache 2.0 | Mixed (SEE/AGPL) | Apache 2.0 | Dual (CE/EE) |
 
 ## Getting Started
@@ -175,7 +175,7 @@ Organized by domain:
 - A supported LLM API key (OpenAI, Anthropic, Google, or Ollama for local)
 
 ### Quickstart
-1. Visit https://eddi.technology/docs/install-wizard/ for the interactive Install Wizard
+1. Follow the Developer Quickstart at https://docs.labs.ai/getting-started/developer-quickstart.md
 2. Or use Docker Compose directly:
    ```
    git clone https://github.com/labsai/EDDI.git

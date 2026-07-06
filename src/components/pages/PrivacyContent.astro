@@ -56,6 +56,11 @@ const p = t.legal.privacy;
 			<section class="legal-section">
 				<h2>{p.purposeHeading}</h2>
 
+				<h3>{p.purposeContractHeading}</h3>
+				<ul>
+					{p.purposeContractItems.map((item) => <li>{item}</li>)}
+				</ul>
+
 				<h3>{p.purposeConsentHeading}</h3>
 				<ul>
 					{p.purposeConsentItems.map((item) => <li>{item}</li>)}
@@ -85,10 +90,6 @@ const p = t.legal.privacy;
 						<h4>{p.cookieMarketingHeading}</h4>
 						<p>{p.cookieMarketingDesc}</p>
 					</div>
-					<div class="legal-card">
-						<h4>{p.cookieCookielessHeading}</h4>
-						<p>{p.cookieCookielessDesc}</p>
-					</div>
 				</div>
 
 				<p class="legal-note">{p.cookieManage}</p>
@@ -101,6 +102,7 @@ const p = t.legal.privacy;
 				<ul class="legal-processors">
 					{p.thirdPartyItems.map((item) => <li set:html={item} />)}
 				</ul>
+				<p>{p.thirdPartyDpa}</p>
 			</section>
 
 			<!-- 6. International Transfers -->
@@ -125,35 +127,48 @@ const p = t.legal.privacy;
 				<p set:html={p.rightsContact} />
 			</section>
 
-			<!-- 9. Data Security -->
+			<!-- 9. Provision of Data -->
+			<section class="legal-section">
+				<h2>{p.provisionHeading}</h2>
+				<p>{p.provisionText}</p>
+			</section>
+
+			<!-- 10. Automated Decision-Making -->
+			<section class="legal-section">
+				<h2>{p.automatedHeading}</h2>
+				<p>{p.automatedText}</p>
+			</section>
+
+			<!-- 11. Data Security -->
 			<section class="legal-section">
 				<h2>{p.securityHeading}</h2>
 				<p>{p.securityText}</p>
 			</section>
 
-			<!-- 10. Children -->
+			<!-- 12. Children -->
 			<section class="legal-section">
 				<h2>{p.childrenHeading}</h2>
 				<p>{p.childrenText}</p>
 			</section>
 
-			<!-- 11. Changes -->
+			<!-- 13. Changes -->
 			<section class="legal-section">
 				<h2>{p.changesHeading}</h2>
 				<p>{p.changesText}</p>
 			</section>
 
-			<!-- 12. Supervisory Authority -->
+			<!-- 14. Supervisory Authority -->
 			<section class="legal-section">
 				<h2>{p.authorityHeading}</h2>
 				<p>{p.authorityText}</p>
 				<div class="legal-card">
 					<p class="legal-company-name">{p.authorityName}</p>
+					<p>{p.authorityAddress}</p>
 					<p><a href={p.authorityUrl} target="_blank" rel="noopener">{p.authorityUrl}</a></p>
 				</div>
 			</section>
 
-			<!-- 13. Contact -->
+			<!-- 15. Contact -->
 			<section class="legal-section">
 				<h2>{p.contactHeading}</h2>
 				<p>{p.contactText}</p>

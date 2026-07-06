@@ -53,6 +53,7 @@ html[data-theme='dark'] {
 	--color-text-subtle: #9e9ea7;
 
 	--color-accent: #f59e0b;
+	--color-accent-text: var(--color-accent-400);
 }
 
 /* On narrow screens the announcement banner text wraps,
@@ -71,9 +72,10 @@ html[data-theme='light'] {
 
 	--color-text: #111111;
 	--color-text-muted: #444444;
-	--color-text-subtle: #888888;
+	--color-text-subtle: #6b6b74;
 
 	--color-accent: #f59e0b;
+	--color-accent-text: var(--color-accent-700);
 }
 
 /* ==========================================================================
@@ -81,9 +83,14 @@ html[data-theme='light'] {
    ========================================================================== */
 
 html {
-	scroll-behavior: smooth;
 	font-family: var(--font-sans, 'Outfit', system-ui, sans-serif);
 	overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 body {
@@ -109,6 +116,15 @@ a:not([class]) {
 a:not([class]):hover {
 	color: var(--color-accent-300);
 	text-decoration-color: var(--color-accent-300);
+}
+
+/* ==========================================================================
+   FOCUS VISIBILITY — visible keyboard focus for all interactive elements
+   ========================================================================== */
+
+:is(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -221,11 +237,17 @@ section .grid > div > p:last-child {
 				radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-accent-300) 10%, transparent) 0%, transparent 50%);
 	z-index: -1;
 	pointer-events: none;
-	animation: pulse-ambient 15s ease-in-out infinite alternate;
+	opacity: 0.9;
 }
 
 html[data-theme='light'] .hero-gradient::before {
 	opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.hero-gradient::before {
+		animation: pulse-ambient 15s ease-in-out infinite alternate;
+	}
 }
 
 @keyframes pulse-ambient {
@@ -238,10 +260,21 @@ html[data-theme='light'] .hero-gradient::before {
 .text-gradient-dynamic {
 	background: linear-gradient(135deg, var(--color-accent-300), var(--color-accent-500), var(--color-accent-300));
 	background-size: 200% 200%;
+	background-position: 50% 50%;
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
-	animation: gradient-shift 5s ease infinite;
+}
+
+/* Light theme: darker stops so the hero keyword stays legible on the light background */
+html[data-theme='light'] .text-gradient-dynamic {
+	background-image: linear-gradient(135deg, var(--color-accent-600), var(--color-accent-700), var(--color-accent-600));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.text-gradient-dynamic {
+		animation: gradient-shift 5s ease infinite;
+	}
 }
 
 @keyframes gradient-shift {
@@ -295,7 +328,7 @@ details[open] {
 
 details[open] summary {
 	margin-bottom: 0.75rem;
-	color: var(--color-accent);
+	color: var(--color-accent-text);
 }
 
 /* ==========================================================================

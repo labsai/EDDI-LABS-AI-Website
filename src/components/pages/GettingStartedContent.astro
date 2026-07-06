@@ -24,6 +24,7 @@ const { lang, t } = Astro.props;
 		<div class="gs-hero-text">
 			<h1>{t.gettingStarted.heroTitle}</h1>
 			<p class="gs-subtitle">{t.gettingStarted.heroSubtitle}</p>
+				{t.gettingStarted.promiseLine && <p class="gs-promise" set:html={t.gettingStarted.promiseLine} />}
 		</div>
 		<div class="gs-hero-image premium-image-wrapper">
 			<Image src={heroImage} alt={t.gettingStarted.heroTitle} width={1024} height={1024} loading="eager" decoding="async" />
@@ -213,6 +214,9 @@ docker compose --env-file .env -f docker-compose.yml up -d`}</code></pre>
 	.gs-hero-text { flex: 1; }
 	.gs-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin: 0 0 1rem; color: var(--color-text); line-height: 1.15; }
 	.gs-subtitle { font-size: 1.125rem; color: var(--color-text-muted); margin: 0; max-width: 36rem; line-height: 1.65; }
+	.gs-promise { display: inline-block; margin: 1.25rem 0 0; padding: 0.5rem 1rem; font-size: 0.9375rem; font-weight: 600; color: var(--color-accent); border-radius: 0.5rem; border-inline-start: 3px solid var(--color-accent); }
+	html[data-theme='dark'] .gs-promise { background: rgba(255, 255, 255, 0.04); }
+	html[data-theme='light'] .gs-promise { background: #f5f6f8; }
 	.gs-hero-image { flex-shrink: 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); }
 	html[data-theme='light'] .gs-hero-image { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.08); }
 	.gs-hero-image img { display: block; width: 100%; height: auto; max-width: 28rem; object-fit: contain; }
