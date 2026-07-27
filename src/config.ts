@@ -1,7 +1,7 @@
 /** Site-wide constants that are not translation strings. */
 export const DEMO_URL = 'https://34-29-111-190.sslip.io/manage'; // PLACEHOLDER: replace with a branded subdomain (e.g. https://demo.eddi.technology) before relying on it in marketing
 export const SOLUTIONS_URL = 'https://eddi.solutions';
-export const SOLUTIONS_LIVE = false; // gates all cross-links to the commercial site (header, footer, enterprise CTAs). false = eddi.solutions still pre-launch, keep hidden; flip to true at go-live (see eddi-solutions LAUNCH.md step 7)
+export const SOLUTIONS_LIVE = true; // gates all cross-links to the commercial site (header, footer, enterprise CTAs). eddi.solutions went public on 2026-07-27; set false to hide the links again
 
 /**
  * Locale-preserving URL on the commercial site. eddi.solutions serves the
