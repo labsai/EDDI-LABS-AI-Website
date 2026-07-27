@@ -36,7 +36,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 |---|---|---|
 | 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually, with 11-language i18n |
 | ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration: change prompts, tools, and pipelines without redeployment |
-| 🔌 | **65 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
+| 🔌 | **77 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
 | 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, agent triggers, group discussions, and A/B routing |
 | 🧠 | **Memory & Context** | Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing |
 | 📚 | **RAG** | 7 embedding providers, 5 vector stores, and zero-infrastructure httpCall RAG |
@@ -45,7 +45,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
 | 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and Grafana dashboards |
 | 🚀 | **Performance** | Java 25 Virtual Threads, millions of lightweight threads for I/O-bound LLM workloads |
-| 🧪 | **Code Quality** | 10,000+ tests with zero failures, CI/CD quality gates on every merge |
+| 🧪 | **Code Quality** | 11,000+ tests with zero failures, CI/CD quality gates on every merge |
 
 ---
 

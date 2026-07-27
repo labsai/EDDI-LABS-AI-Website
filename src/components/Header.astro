@@ -66,6 +66,13 @@ const t = await getTranslations(lang);
 								<span>{t.nav.securityFirstDesc}</span>
 							</div>
 						</a>
+						<a href={localePath(lang, '/features/human-in-the-loop/')} class="eddi-dropdown-item">
+							<span class="eddi-dropdown-icon">✋</span>
+							<div>
+								<strong>{t.nav.humanInTheLoop}</strong>
+								<span>{t.nav.humanInTheLoopDesc}</span>
+							</div>
+						</a>
 						<a href={localePath(lang, '/features/performance/')} class="eddi-dropdown-item">
 							<span class="eddi-dropdown-icon">🚀</span>
 							<div>
@@ -217,6 +224,7 @@ const t = await getTranslations(lang);
 			<a href={localePath(lang, '/features/mcp-server/')}><span class="eddi-mobile-icon">🔌</span> {t.nav.mcpServerMobile}</a>
 			<a href={localePath(lang, '/features/config-as-code/')}><span class="eddi-mobile-icon">⚙️</span> {t.nav.configAsCode}</a>
 			<a href={localePath(lang, '/features/security/')}><span class="eddi-mobile-icon">🔐</span> {t.nav.securityFirst}</a>
+			<a href={localePath(lang, '/features/human-in-the-loop/')}><span class="eddi-mobile-icon">✋</span> {t.nav.humanInTheLoop}</a>
 			<a href={localePath(lang, '/features/performance/')}><span class="eddi-mobile-icon">🚀</span> {t.nav.performance}</a>
 			<a href={localePath(lang, '/features/multi-agent/')}><span class="eddi-mobile-icon">🤖</span> {t.nav.multiAgent}</a>
 			<a href={localePath(lang, '/features/observability/')}><span class="eddi-mobile-icon">📊</span> {t.nav.observability}</a>

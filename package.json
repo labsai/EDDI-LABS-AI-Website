@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run check:stats && astro check && astro build",
+    "build": "npm run update:docker-pulls && npm run check:stats && astro check && astro build",
     "check": "astro check",
     "check:stats": "node scripts/check-stats.mjs",
+    "update:docker-pulls": "node scripts/update-docker-pulls.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky"

@@ -1,11 +1,11 @@
-import { EDDI_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
 import type { TranslationSchema } from './en';
 
 const de: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION}: Enterprise-Plattform für KI-Agenten-Orchestrierung. Selbst gehostetes, konfigurationsgesteuertes Multi-Agent-System mit visueller Management-UI, 65 MCP-Tools, Security-First-Architektur und integrierter regulatorischer Compliance für DSGVO, EU AI Act, HIPAA und 15+ weitere Rahmenwerke.`,
+			`EDDI ${EDDI_VERSION}: Enterprise-Plattform für KI-Agenten-Orchestrierung. Selbst gehostetes, konfigurationsgesteuertes Multi-Agent-System mit visueller Management-UI, 77 MCP-Tools, Security-First-Architektur und integrierter regulatorischer Compliance für DSGVO, EU AI Act, HIPAA und 15+ weitere Rahmenwerke.`,
 	},
 	nav: {
 		features: 'Features',
@@ -16,7 +16,7 @@ const de: TranslationSchema = {
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Visuelle Agent-Verwaltungsoberfläche',
 		mcpServer: 'MCP Server',
-		mcpServerDesc: '65 Tools für KI-native Steuerung',
+		mcpServerDesc: '77 Tools für KI-native Steuerung',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON-Konfiguration, kein Boilerplate',
 		securityFirst: 'Security-First',
@@ -28,18 +28,20 @@ const de: TranslationSchema = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline-Logs & Audit-Trails',
 		codeQuality: 'Code-Qualität',
-		codeQualityDesc: '10.000+ Tests, null Fehler, >90% Coverage',
+		codeQualityDesc: '11.000+ Tests, null Fehler, >90% Coverage',
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'Für Coding-Agents entwickelt',
 
 		memory: 'Gedächtnis & Kontext',
 		memoryDesc: 'Persistentes Gedächtnis & Dream-Konsolidierung',
 		rag: 'RAG',
-		ragDesc: '7 Embedding-Provider, 5 Vektorspeicher',
+		ragDesc: '7 Embedding-Provider, 6 Vektorspeicher',
 		modelCascading: 'Modell-Kaskadierung',
 		modelCascadingDesc: 'Kostenoptimiertes Multi-Modell-Routing',
 		scheduling: 'Zeitplanung',
 		schedulingDesc: 'Heartbeats, Cron & Dream-Zyklen',
+		humanInTheLoop: `Human-in-the-Loop`,
+		humanInTheLoopDesc: `Freigaben, Timeouts, Slack-Abzeichnung`,
 		viewAllFeatures: 'Alle Features ansehen →',
 		whyEddi: 'Warum EDDI?',
 		whyEddiDesc: 'Die selbst gehostete Enterprise-KI-Plattform',
@@ -52,7 +54,7 @@ const de: TranslationSchema = {
 		useCases: 'Anwendungsfälle',
 		useCasesDesc: 'Einsatzszenarien für regulierte Branchen',
 		allFeatures: 'Alle Features',
-		mcpServerMobile: 'MCP Server (65 Tools)',
+		mcpServerMobile: 'MCP Server (77 Tools)',
 		resources: 'Ressourcen',
 		documentation: 'Dokumentation ↗',
 		github: 'GitHub ↗',
@@ -78,7 +80,7 @@ const de: TranslationSchema = {
 		subtitle: 'Konfigurationsgesteuert. Selbst gehostet. Produktionsbereit.',
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Lizenz',
-		tests: '10.000+ Tests · Null Fehler',
+		tests: '11.000+ Tests · Null Fehler',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Gold',
 		platform: 'Plattform',
@@ -95,6 +97,7 @@ const de: TranslationSchema = {
 		ragLink: 'RAG',
 		modelCascadingLink: 'Modell-Kaskadierung',
 		schedulingLink: 'Zeitplanung',
+		humanInTheLoopLink: `Human-in-the-Loop`,
 		gettingStarted: 'Erste Schritte',
 		documentation: 'Dokumentation ↗',
 		githubLink: 'GitHub ↗',
@@ -147,7 +150,7 @@ const de: TranslationSchema = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'Agent-Logik, Pipelines und Tool-Definitionen sind <strong>JSON-Konfigurationen</strong>: kein kompilierter Code. Prompt-Engineers iterieren sofort über die React-UI oder REST-API, ohne Redeployment.',
-		sol2Title: '65 MCP-Tools',
+		sol2Title: '77 MCP-Tools',
 		sol2Desc:
 			'EDDI bietet seine Funktionen über das <strong>Model Context Protocol</strong> an, Claude Desktop kann direkt interagieren. Agents können auch <strong>externe MCP-Tools nutzen</strong>.',
 		sol3Title: 'Security-First',
@@ -167,7 +170,7 @@ const de: TranslationSchema = {
 		trustRedHatDesc: 'Docker-Image zertifiziert von IBM',
 		trustApache: 'Apache 2.0 Lizenz',
 		trustApacheDesc: '100 % Open Source & Enterprise-ready',
-		trustTests: '10.000+ Tests · 0 Fehler',
+		trustTests: '11.000+ Tests · 0 Fehler',
 		trustTestsDesc: 'Rigoroses CI/CD & >90% Code-Coverage',
 		trustOpenSSF: 'OpenSSF Gold',
 		trustOpenSSFDesc: 'Höchste Stufe der Linux Foundation Sicherheits- und Qualitätszertifizierung',
@@ -210,7 +213,7 @@ const de: TranslationSchema = {
 		faqTitle: 'Häufig gestellte Fragen',
 		faq1Q: 'Was ist EDDI?',
 		faq1A:
-			'EDDI ist eine quelloffene, Enterprise-KI-Orchestrierungsplattform. Teams können KI-gestützte Agents per JSON-Konfiguration erstellen, konfigurieren und deployen. EDDI bietet eine <strong>produktionsreife React-Management-UI</strong> (den EDDI Manager), integrierte REST-APIs, Konversationsverwaltung, Sicherheit (OIDC/Keycloak), unveränderliche Audit-Trails und 65 MCP-Tools, alles deploybar via Docker oder Kubernetes.',
+			'EDDI ist eine quelloffene, Enterprise-KI-Orchestrierungsplattform. Teams können KI-gestützte Agents per JSON-Konfiguration erstellen, konfigurieren und deployen. EDDI bietet eine <strong>produktionsreife React-Management-UI</strong> (den EDDI Manager), integrierte REST-APIs, Konversationsverwaltung, Sicherheit (OIDC/Keycloak), unveränderliche Audit-Trails und 77 MCP-Tools, alles deploybar via Docker oder Kubernetes.',
 		faq2Q: 'Wie unterscheidet sich EDDI von KI-Bibliotheken und Frameworks?',
 		faq2A:
 			'KI-Bibliotheken wie LangChain, Spring AI und LangChain4j liefern Bausteine, aber Sie müssen REST-Controller, Authentifizierung, Konversationsverwaltung, Audit-Logging und Management-UIs selbst bauen. EDDI ist eine <strong>deploybare Middleware-Plattform</strong>, keine Bibliothek. Es liefert all das out of the box, bereit zum Deployment via Docker.',
@@ -219,7 +222,7 @@ const de: TranslationSchema = {
 			'Ja. EDDI basiert auf einer Enterprise-Runtime mit leichtgewichtigen virtuellen Threads für massive I/O-gebundene Nebenläufigkeit. Es unterstützt MongoDB und PostgreSQL, bietet integrierte OIDC/Keycloak-Authentifizierung, unveränderliche kryptografische Audit-Trails für Compliance (einschließlich EU AI Act) und skaliert horizontal über NATS JetStream.',
 		faq4Q: 'Was ist das Model Context Protocol (MCP)?',
 		faq4A:
-			'Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Assistenten wie Claude Desktop, IDE-Plugins und benutzerdefinierte Clients ermöglicht, programmgesteuert mit externen Tools zu interagieren. EDDI bietet 65 MCP-Tools für Konversationsverwaltung, Agent-Administration, Setup-Automatisierung, Zeitplanverwaltung und Diagnose.',
+			'Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Assistenten wie Claude Desktop, IDE-Plugins und benutzerdefinierte Clients ermöglicht, programmgesteuert mit externen Tools zu interagieren. EDDI bietet 77 MCP-Tools für Konversationsverwaltung, Agent-Administration, Setup-Automatisierung, Zeitplanverwaltung und Diagnose.',
 		faq5Q: 'Kann EDDI Flowise oder n8n für Produktions-Workloads ersetzen?',
 		faq5A:
 			'EDDI erfüllt einen ähnlichen visuellen Zweck, aber mit Enterprise-Architektur. Im Gegensatz zu Flowise und n8n verwendet EDDI kein <code>eval()</code> oder Code-Blöcke, nutzt Millionen leichtgewichtiger virtueller Threads für Enterprise-Nebenläufigkeit, unterstützt OIDC/Keycloak-Authentifizierung und speichert Daten in MongoDB oder PostgreSQL. Es ist für regulierte Branchen konzipiert.',
@@ -251,7 +254,7 @@ const de: TranslationSchema = {
 		step1After: 'EDDI ist unter <code>http://localhost:7070</code> erreichbar.',
 		step2Title: '2. Via MCP verbinden',
 		step2Desc:
-			'Verbinden Sie Ihren KI-Assistenten mit EDDIs <strong>65 MCP-Tools</strong>. Die Konfiguration hängt von der Transport-Unterstützung Ihres Clients ab:',
+			'Verbinden Sie Ihren KI-Assistenten mit EDDIs <strong>77 MCP-Tools</strong>. Die Konfiguration hängt von der Transport-Unterstützung Ihres Clients ab:',
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: 'Direkte HTTP-Verbindung (Cursor, VS Code, Windsurf)',
 		step2ClaudeNote:
@@ -260,7 +263,7 @@ const de: TranslationSchema = {
 			'<strong>💡 Windows:</strong> Falls <code>npx</code> nicht in Ihrem PATH ist, verwenden Sie <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> stattdessen.',
 		step2DirectNote:
 			'Clients mit nativer Streamable-HTTP-Unterstützung (Cursor, VS Code, Windsurf, Antigravity und andere IDE-Plugins) verbinden sich direkt, keine Brücke nötig:',
-		step2After: 'Jetzt können Sie mit EDDIs <strong>65 MCP-Tools</strong> direkt aus Ihrem KI-Assistenten interagieren.',
+		step2After: 'Jetzt können Sie mit EDDIs <strong>77 MCP-Tools</strong> direkt aus Ihrem KI-Assistenten interagieren.',
 		step2DocsLink:
 			'📖 Siehe die <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP-Server-Dokumentation</a> für die vollständige Tool-Referenz und erweiterte Konfiguration.',
 		step3Title: '3. API-Key sicher speichern',
@@ -279,7 +282,7 @@ const de: TranslationSchema = {
 		nextAllFeatures: 'Alle Features',
 		nextAllFeaturesDesc: 'Entdecken Sie alles, was EDDI bietet',
 		nextMcpServer: 'MCP Server',
-		nextMcpServerDesc: 'Alle 65 MCP-Tools durchsuchen',
+		nextMcpServerDesc: 'Alle 77 MCP-Tools durchsuchen',
 		nextDocs: 'Dokumentation ↗',
 		nextDocsDesc: 'Deep-Dive in Architektur & APIs',
 		nextWhyEddi: 'Warum EDDI?',
@@ -320,13 +323,13 @@ const de: TranslationSchema = {
 			'Produktempfehlungs-, Bestellsupport- und mehrsprachige Service-Agents, denen intentbasiertes Multi-Agent-Routing vorgeschaltet ist, sodass jede Anfrage den Spezialisten-Agent erreicht, der den passenden Intent deklariert hat. Agents rufen die integrierten Web-, HTTP- und RAG-Tools auf, um Live-Katalog- und Bestelldaten abzurufen, und A/B-Routing lässt Sie Agent-Varianten gegen echten Traffic testen, bevor Sie eine davon ausrollen.',
 		manufacturing: 'Fertigung',
 		manufacturingDesc:
-			'Wartungsassistenten für Anlagen, Qualitätskontroll- und Supply-Chain-Agents, die vollständig selbst gehostet on-premises oder in einer privaten Cloud laufen, ohne Abhängigkeit von einer US-basierten API. Zeitplanungs- und Heartbeat-Trigger lassen Agents periodische Prüfungen und proaktive Zusammenfassungen im Cron-Takt ausführen, und die 65 MCP-Tools plus OpenAPI-Ingestion verbinden Agents mit bestehenden Fachanwendungen.',
+			'Wartungsassistenten für Anlagen, Qualitätskontroll- und Supply-Chain-Agents, die vollständig selbst gehostet on-premises oder in einer privaten Cloud laufen, ohne Abhängigkeit von einer US-basierten API. Zeitplanungs- und Heartbeat-Trigger lassen Agents periodische Prüfungen und proaktive Zusammenfassungen im Cron-Takt ausführen, und die 77 MCP-Tools plus OpenAPI-Ingestion verbinden Agents mit bestehenden Fachanwendungen.',
 		government: 'Öffentlicher Sektor',
 		governmentDesc:
 			'Bürgeranfrage-Agents, interne Prozessautomatisierung und Dokumentenanalyse in vollständig air-gapped Umgebungen, unter Verwendung lokaler Modelle via Ollama oder Jlama, sodass keine Daten das Netzwerk verlassen. Config-as-Code macht jede Agent-Entscheidung für Audits nachvollziehbar, und der unveränderliche Audit-Trail sowie die Kontrollen für menschliche Aufsicht in der Manager-UI bilden die Aufzeichnungs- und Aufsichtspflichten des EU AI Act direkt ab.',
 		devPlatforms: 'Entwickler-Plattformen',
 		devPlatformsDesc:
-			'Interne KI-Services für Engineering-Teams, bereitgestellt als API- und MCP-zugängliche Agents, die sich nahtlos in CI/CD-Pipelines, Code-Review und Dokumentations-Workflows einfügen. Agents werden programmgesteuert mit einem einzigen setup_agent-Aufruf, vorhersagbaren CRUD-APIs und 65 MCP-Tools erstellt und verwaltet, sodass Coding-Agents in Claude, Cursor oder VS Code EDDI direkt steuern können.',
+			'Interne KI-Services für Engineering-Teams, bereitgestellt als API- und MCP-zugängliche Agents, die sich nahtlos in CI/CD-Pipelines, Code-Review und Dokumentations-Workflows einfügen. Agents werden programmgesteuert mit einem einzigen setup_agent-Aufruf, vorhersagbaren CRUD-APIs und 77 MCP-Tools erstellt und verwaltet, sodass Coding-Agents in Claude, Cursor oder VS Code EDDI direkt steuern können.',
 		ctaTitle: 'Bereit, Ihren Anwendungsfall umzusetzen?',
 		ctaDesc: 'Installieren Sie EDDI in fünf Minuten, erstellen Sie Ihren ersten Agent und übertragen Sie eines dieser Muster auf Ihr eigenes Deployment. Möchten Sie lieber zuerst darüber sprechen? Wir helfen gerne.',
 		ctaButton: 'In 5 Minuten starten',
@@ -335,7 +338,7 @@ const de: TranslationSchema = {
 	featuresOverview: {
 		title: 'Features auf einen Blick',
 		description:
-			'Alle Fähigkeiten, die EDDI zum Enterprise-KI-Orchestrator machen, EDDI Manager UI, Config-as-Code, 65 MCP-Tools, Security-First-Architektur und mehr.',
+			'Alle Fähigkeiten, die EDDI zum Enterprise-KI-Orchestrator machen, EDDI Manager UI, Config-as-Code, 77 MCP-Tools, Security-First-Architektur und mehr.',
 		heroTitle: 'Alles was Sie brauchen, um',
 		heroHighlight: 'KI zu orchestrieren',
 		heroDesc:
@@ -348,7 +351,7 @@ const de: TranslationSchema = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'Agent-Logik ist JSON-Konfiguration, kein kompilierter Code. Prompt-Engineers iterieren sofort, <strong>kein Redeployment nötig</strong>.',
-		mcpCardTitle: '🔌 MCP Server (65 Tools)',
+		mcpCardTitle: '🔌 MCP Server (77 Tools)',
 		mcpCardDesc:
 			'Vollständige KI-native Steuerung via <strong>Model Context Protocol</strong>. Claude Desktop, Cursor und benutzerdefinierte Clients verwalten Agents programmgesteuert.',
 		securityCardTitle: '🔐 Security-First',
@@ -360,12 +363,14 @@ const de: TranslationSchema = {
 		multiCardDesc:
 			'Intent-basierte Agent-Discovery, verwaltete Konversationen, Agent-Trigger und <strong>A/B-Routing</strong> über mehrere Agents.',
 
+		hitlCardTitle: `✋ Human-in-the-Loop`,
+		hitlCardDesc: `Turn pausieren, einzelne Tool-Aufrufe freigeben lassen oder Diskussionsphasen abzeichnen. <strong>Freigabe-Workflows</strong> mit Timeout-Richtlinien, Slack-Karten und neustartsicherem Zustand.`,
 		aiCapTitle: 'KI-Fähigkeiten',
 		aiCapDesc: 'Erweiterte KI-Funktionen, die EDDI-Agenten <strong>intelligenter, schneller und kosteneffizienter</strong> machen.',
 		memoryCardTitle: '🧠 Gedächtnis & Kontext',
 		memoryCardDesc: 'Persistentes Gedächtnis, Dream-Konsolidierung, rollende Zusammenfassungen und token-bewusstes Fensterung. <strong>Agenten, die sich erinnern</strong>.',
 		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 Embedding-Provider, 5 Vektorspeicher, httpCall RAG. <strong>Enterprise-Wissensabruf</strong> sofort einsatzbereit.',
+		ragCardDesc: '7 Embedding-Provider, 6 Vektorspeicher, httpCall RAG. <strong>Enterprise-Wissensabruf</strong> sofort einsatzbereit.',
 		cascadingCardTitle: '📈 Modell-Kaskadierung',
 		cascadingCardDesc: 'Kostenoptimiertes Multi-Modell-Routing mit Konfidenzstrategien. <strong>Senkt LLM-Kosten um bis zu 60-80%</strong> in typischen Multi-Modell-Workloads.',
 		schedulingCardTitle: '⏰ Zeitplanung & Heartbeats',
@@ -405,9 +410,9 @@ const de: TranslationSchema = {
 			'Jeder Pipeline-Schritt wird mit <strong>unveränderlichen Audit-Trails</strong> protokolliert, Tokens, Kosten, Timing und Tool-Aufrufe.',
 		cqCardTitle: '🧪 Code-Qualität',
 		cqCardDesc:
-			'<strong>10.000+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-Qualitätskontrolle bei jedem Merge.',
+			'<strong>11.000+ Tests mit null Fehlern.</strong> Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-Qualitätskontrolle bei jedem Merge.',
 		aiCardTitle: '🧩 AI-Ready',
-		aiCardDesc: '65 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. <strong>Für Coding-Agents entwickelt</strong>.',
+		aiCardDesc: '77 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. <strong>Für Coding-Agents entwickelt</strong>.',
 	},
 	pages: {
 		manager: {
@@ -432,12 +437,12 @@ const de: TranslationSchema = {
 				'Visuelle Node-Builder machen das Prototyping schnell. Ihre Architektur bringt jedoch Einschränkungen im Enterprise-Bereich mit sich.',
 		},
 		mcpServer: {
-			title: 'MCP Server: 65 Tools',
+			title: 'MCP Server: 77 Tools',
 			description:
 				'EDDI bietet seine vollständigen Fähigkeiten über das Model Context Protocol, sodass Claude Desktop, Cursor und benutzerdefinierte KI-Clients Agents programmgesteuert verwalten können.',
 			heading1: 'KI-native Steuerungsebene',
 			para1:
-				'Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Assistenten die Interaktion mit externen Tools ermöglicht. EDDI implementiert einen umfassenden MCP-Server mit <strong>65 Tools</strong>, die jeden Aspekt der Plattform abdecken.',
+				'Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Assistenten die Interaktion mit externen Tools ermöglicht. EDDI implementiert einen umfassenden MCP-Server mit <strong>77 Tools</strong>, die jeden Aspekt der Plattform abdecken.',
 			heading2: 'Tool-Kategorien',
 			items: [
 				'<strong>Konversations-Tools (11)</strong>: Mit Agents chatten, Konversationen verwalten, Verlauf lesen, intent-basierter verwalteter Chat',
@@ -593,23 +598,23 @@ const de: TranslationSchema = {
 		codeQuality: {
 			title: 'Code-Qualität',
 			description:
-				'10.000+ Tests mit null Fehlern. Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
+				'11.000+ Tests mit null Fehlern. Null Checkstyle-Warnungen. >90% Code-Coverage. CI/CD-erzwungene Qualitätskontrolle bei jedem Merge.',
 			heading1: 'Engineering-Rigorosität',
 			para1:
 				'EDDI pflegt <strong>außergewöhnliche Code-Qualität</strong> durch umfassende Tests, statische Analyse und CI/CD-Qualitätskontrolle. Jeder Pull Request muss die vollständige Test-Suite bestehen, bevor er gemergt wird.',
 			heading2: 'Qualitätsmetriken',
 			items: [
-				'<strong>10.000+ Tests</strong>: Unit-, Integrations- und End-to-End-Coverage',
+				'<strong>11.000+ Tests</strong>: Unit-, Integrations- und End-to-End-Coverage',
 				'<strong>Null Fehler</strong>: Sauberes CI bei jedem Build',
 				'<strong>Checkstyle-Enforcement</strong>: Null Warnungen, strikte Regeln bei jedem Build erzwungen',
-				'<strong>MCP-Tool-Tests</strong>: Umfassende Coverage aller 65 MCP-Tools',
+				'<strong>MCP-Tool-Tests</strong>: Umfassende Coverage aller 77 MCP-Tools',
 				'<strong>CI/CD-Qualitätskontrolle</strong>: Automatisierte Checks verhindern Regressionen',
 			],
 		},
 		aiReady: {
 			title: 'AI-Ready-Architektur',
 			description:
-				'65 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. Von Grund auf für die Zusammenarbeit mit Coding-Agents entwickelt.',
+				'77 MCP-Tools, vorhersagbare CRUD-Patterns, selbstdokumentierende APIs. Von Grund auf für die Zusammenarbeit mit Coding-Agents entwickelt.',
 			heading1: 'Für KI-Kollaboration entwickelt',
 			para1:
 				'EDDI wird mit der Annahme gebaut, dass <strong>Coding-Agents es verwalten werden</strong>. Jede API folgt vorhersagbaren Patterns, jede Ressource hat konsistente CRUD-Operationen, und der MCP-Server ermöglicht vollständige programmgesteuerte Kontrolle.',
@@ -618,7 +623,7 @@ const de: TranslationSchema = {
 				'<strong>Vorhersagbare Patterns</strong>: Konsistente Ressourcen-Benennung, CRUD-Konventionen und Fehlerbehandlung',
 				'<strong>Selbstdokumentierende APIs</strong>: OpenAPI-Specs und MCP-Tool-Beschreibungen automatisch generiert',
 				'<strong>LLMs.txt-Unterstützung</strong>: KI-entdeckbare Website-Inhalte via llms.txt und llms-full.txt',
-				'<strong>MCP-First</strong>: 65 Tools für KI-Assistenten-Integration entwickelt',
+				'<strong>MCP-First</strong>: 77 Tools für KI-Assistenten-Integration entwickelt',
 				'<strong>Setup-Automatisierung</strong>: Agent-Erstellung in einem Aufruf mit <code>setup_agent</code>',
 			],
 		},
@@ -643,13 +648,13 @@ const de: TranslationSchema = {
 		},
 		rag: {
 			title: 'RAG: Retrieval-Augmented Generation',
-			description: '7 Embedding-Provider, 5 Vektorspeicher, httpCall RAG und asynchrone Dokumentenaufnahme, Enterprise-Wissensabruf für KI-Agenten.',
+			description: '7 Embedding-Provider, 6 Vektorspeicher, httpCall RAG und asynchrone Dokumentenaufnahme, Enterprise-Wissensabruf für KI-Agenten.',
 			heading1: 'Enterprise-Wissensabruf',
 			para1: 'EDDI bietet eine vollständige <strong>Retrieval-Augmented Generation</strong>-Pipeline mit nativer Unterstützung für mehrere Embedding-Provider, Vektorspeicher und eine infrastrukturlose RAG-Option über HTTP-Aufrufe.',
 			heading2: 'RAG-Fähigkeiten',
 			items: [
 				'<strong>7 Embedding-Provider</strong>: OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
-				'<strong>5 Vektorspeicher</strong>: pgvector, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
+				'<strong>6 Vektorspeicher</strong>: pgvector, Chroma, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
 				'<strong>httpCall RAG</strong>: Infrastrukturlose RAG über beliebige Such-APIs (BM25, Elasticsearch, eigene Endpunkte)',
 				'<strong>REST-Aufnahme-API</strong>: Asynchrone Dokumentenaufnahme mit Statusverfolgung und Stapelverarbeitung',
 				'<strong>Hybridsuche</strong>: Dichte Vektorsuche mit spärlicher Schlüsselwortsuche für optimalen Recall kombinieren',
@@ -672,6 +677,38 @@ const de: TranslationSchema = {
 			],
 			heading3: 'So funktioniert es',
 			para2: 'Konfigurieren Sie eine Kaskadenkette von Modellen, sortiert nach Kosten. Für jede Benutzernachricht probiert EDDI zunächst das günstigste Modell aus und bewertet die Konfidenz. Fällt die Konfidenz unter den Schwellenwert, wird automatisch zum nächsten Modell in der Kette eskaliert. Dieser Ansatz kann in typischen Multi-Modell-Workloads, in denen die meisten Anfragen einfach genug für kleinere Modelle sind, die <strong>LLM-Kosten um bis zu 60-80% senken</strong>.',
+		},
+		humanInTheLoop: {
+			title: `Human-in-the-Loop-Governance`,
+			description: `Einen Turn pausieren, einzelne Tool-Aufrufe freigeben lassen oder Diskussionsphasen abzeichnen. Freigabe-Workflows mit Timeout-Richtlinien, Slack-Karten und neustartsicherem Zustand, ausgeliefert mit EDDI ${EDDI_LATEST_VERSION}.`,
+			heading1: `Autonomie mit Not-Aus`,
+			para1: `Autonome Agenten sind genau bis zu dem Moment nützlich, in dem sie etwas Unumkehrbares tun. EDDI ${EDDI_LATEST_VERSION} führt <strong>Human-in-the-Loop-Governance</strong> ein: explizite Freigabe-Gates auf drei Granularitätsstufen, abgesichert durch Timeout-Richtlinien, Schleifenerkennung und einen Zustand, der Neustarts übersteht. Freigaben sind Konfiguration, kein eigener Anwendungscode.`,
+			whyTitle: `Warum Freigabe-Gates in die Plattform gehören`,
+			whyPara: `Die meisten Teams bauen Freigaben auf Anwendungsebene an: hier eine Queue, dort ein Webhook, irgendwo ein Datenbank-Flag. Dieser Ansatz bricht, sobald ein Prozess neu startet, eine freigebende Person offline geht oder ein Agent dieselbe Anfrage in einer Schleife wiederholt. EDDI verankert das Gate in der Konversations-Pipeline selbst. Ein pausierter Turn bleibt pausiert, konkurrierende Eingaben werden mit einem klaren <code>409 Conflict</code> abgewiesen, und jede Entscheidung landet im selben Audit-Trail wie der übrige Agenten-Lebenszyklus.`,
+			heading2: `Drei Freigabe-Ebenen`,
+			items: [
+				`<strong>Freigabe auf Turn-Ebene</strong>: Eine <code>PAUSE_CONVERSATION</code>-Aktion hält die gesamte Pipeline an. Bis ein Mensch fortsetzt, liefern weitere Nutzereingaben <code>409 Conflict</code> zurück, damit nichts an der offenen Entscheidung vorbeiläuft.`,
+				`<strong>Gating pro Tool-Aufruf</strong>: Einzelne Tool-Aufrufe können vor der Ausführung eine menschliche Freigabe verlangen. Allow- und Exempt-Listen mit Glob-Mustern legen exakt fest, was freigabepflichtig ist, über eingebaute, HTTP-, MCP-, A2A-, dynamische und Memory-Tools hinweg.`,
+				`<strong>Freigabe von Gruppenphasen</strong>: Diskussionsphasen in Multi-Agent-Gruppen können eine menschliche Abzeichnung auf <code>PHASE</code>- oder <code>TASK</code>-Ebene verlangen, damit eine Gruppe nicht unbeaufsichtigt von der Planung in die Ausführung wechselt.`,
+			],
+			timeoutTitle: `Timeout-Richtlinien`,
+			timeoutPara: `Menschen sind kein hochverfügbarer Dienst. Jedes Gate legt fest, was passiert, wenn niemand rechtzeitig reagiert:`,
+			timeoutItems: [
+				`<code>WAIT_INDEFINITELY</code>: Der Lauf bleibt pausiert, bis ein Mensch entscheidet. Für Aktionen, die niemals unbeaufsichtigt laufen dürfen.`,
+				`<code>AUTO_APPROVE</code>: Nach Ablauf der Frist wird fortgesetzt. Passend für risikoarme Aktionen, bei denen Aufsicht eine Stichprobe ist und kein hartes Gate.`,
+				`<code>AUTO_REJECT</code>: Die offene Aktion wird abgelehnt, der Agent setzt seinen Ablehnungspfad fort.`,
+				`<code>ABORT</code>: Der Lauf wird sofort beendet, die sicherste Wahl für unumkehrbare Operationen mit großer Wirkung.`,
+			],
+			opsTitle: `Für den Produktivbetrieb gebaut`,
+			opsPara: `Ein Freigabesystem wird an seinem schlechtesten Tag gemessen: ein Neustart mitten in der Prüfung, ein Agent, der dieselbe Frage immer wieder stellt, eine freigebende Person, die in Slack arbeitet statt in der Admin-UI.`,
+			opsItems: [
+				`<strong>No-Progress-Guard</strong>: EDDI bildet für jede Pause einen Fingerabdruck. Tauchen nach automatisierten Entscheidungen identische Fingerabdrücke erneut auf, erkennt EDDI eine endlose Freigabeschleife und durchbricht den Kreislauf, statt Tokens dafür zu verbrennen.`,
+				`<strong>Crash Recovery</strong>: Offene Freigaben überstehen Serverneustarts, und Timeout-Timer werden automatisch neu gesetzt. Ein Rolling Deployment verliert damit nie stillschweigend eine laufende Entscheidung.`,
+				`<strong>Slack-Freigaben</strong>: Interaktive Block-Kit-Karten bringen die Entscheidung zur freigebenden Person, mit redigierten Argumentvorschauen und Whitelists, damit nur autorisierte Personen auf eine Karte reagieren können.`,
+				`<strong>MCP-Freigaben</strong>: Externe Clients listen offene Freigaben auf und genehmigen oder lehnen sie über MCP-Tools ab. Diese gehören zu den 77 Tools und machen IDE oder Agenten-Client zur Steuerungsebene.`,
+			],
+			govTitle: `Governance und Compliance`,
+			govPara: `Menschliche Aufsicht ist nicht nur eine betriebliche Präferenz, sondern eine regulatorische Anforderung. Freigabe-Gates geben der menschlichen Aufsicht nach Art. 14 EU AI Act eine konkrete Umsetzung: Eine namentlich bekannte Person genehmigt eine konkrete Aktion, und die Entscheidung wird protokolliert. Zusammen mit EDDIs <a href="/enterprise/compliance/">Compliance-Framework</a> und dem HMAC-SHA256-Audit-Trail lässt sich einer Prüfstelle nicht nur zeigen, was ein Agent getan hat, sondern auch, wer es wann erlaubt hat.`,
 		},
 		scheduling: {
 			title: 'Zeitplanung & Heartbeats',
@@ -702,7 +739,7 @@ const de: TranslationSchema = {
 			items: [
 				'<strong>Visuelle Management-UI</strong>: Der EDDI Manager zum Erstellen und Überwachen von Agents',
 				'<strong>Configuration-as-Code</strong>: Agent-Logik ist JSON, kein kompilierter Code',
-				'<strong>65 MCP-Tools</strong>: Vollständige KI-native Steuerung via Model Context Protocol',
+				'<strong>77 MCP-Tools</strong>: Vollständige KI-native Steuerung via Model Context Protocol',
 				'<strong>Enterprise-Sicherheit</strong>: OIDC, Vault, Audit-Trails, kein eval()',
 				'<strong>Produktions-Infrastruktur</strong>: REST-APIs, Konversationsverwaltung, Prometheus-Metriken',
 				'<strong>Horizontale Skalierung</strong>: NATS JetStream für verteilte Architekturen',
@@ -741,7 +778,7 @@ const de: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Architektur', question: 'Führt die Plattform zur Laufzeit benutzereigenen Code aus?', eddiAnswer: 'Nein. EDDI nutzt ausschließlich deklarative JSON-Konfiguration: kein eval(), keine Code-Ausführungsblöcke.' },
 				{ category: 'Performance', question: 'Wie bewältigt die Plattform Tausende gleichzeitiger Agent-Konversationen?', eddiAnswer: 'Java 25 Virtual Threads bieten echte Parallelität auf OS-Ebene für Millionen gleichzeitiger I/O-gebundener Operationen.' },
-				{ category: 'Integration', question: 'Können Agents externe Tools und Services über offene Standards nutzen?', eddiAnswer: '65 MCP-Tools, A2A-Protokoll, OpenAPI-3.1-Generierung/-Nutzung und OAuth 2.0/OIDC, alles offene Standards.' },
+				{ category: 'Integration', question: 'Können Agents externe Tools und Services über offene Standards nutzen?', eddiAnswer: '77 MCP-Tools, A2A-Protokoll, OpenAPI-3.1-Generierung/-Nutzung und OAuth 2.0/OIDC, alles offene Standards.' },
 				{ category: 'Datenschutz', question: 'Wie sind Betroffenenrechte (Löschung, Export, Einschränkung) implementiert?', eddiAnswer: 'Eine einheitliche REST-API kaskadiert über alle 5 Datenspeicher. Ein Endpunkt für DSGVO, CCPA, LGPD, PIPEDA und 15+ weitere Rahmenwerke.' },
 				{ category: 'Sicherheit', question: 'Wie sehen CVE-Historie und architektonische Sicherheitslage der Plattform aus?', eddiAnswer: 'Keine dynamische Code-Ausführung, das eliminiert ganze Schwachstellenklassen. OIDC/Keycloak, AES-256-GCM-Vault, HMAC-SHA256-Audit-Trails.' },
 				{ category: 'Compliance', question: 'Bietet die Plattform unveränderliche, kryptografisch signierte Audit-Trails?', eddiAnswer: 'Manipulationssicheres HMAC-SHA256-Ledger mit kryptografischer Signierung pro Agent. Vollständiges Pipeline-Tracing für jede Entscheidung.' },
@@ -1055,7 +1092,7 @@ const de: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon, virtuelles Event für pädagogische Chatbot-Entwicklung.' },
 				{ year: '2023', text: 'EDDI integriert <strong>LLM-Anbindungen</strong>: Verbindung zu modernen großen Sprachmodellen über LangChain4j.' },
 				{ year: '2025', text: 'EDDI adaptiert <strong>Agent-Flows</strong>: Intent-basiertes Routing, verwaltete Konversationen und Multi-Agent-Orchestrierung.' },
-				{ year: '2026', text: '<strong>v6</strong>: 65 MCP-Tools, A2A-Protokoll, 6 Diskussionsstile inkl. Task Force, dynamische Agenten, visuelle Management-UI, Modell-kaskadierung.' },
+				{ year: '2026', text: '<strong>v6</strong>: 77 MCP-Tools, A2A-Protokoll, 6 Diskussionsstile inkl. Task Force, dynamische Agenten, visuelle Management-UI, Modell-kaskadierung.' },
 				{ year: '2026', text: 'Ausgewählt als <strong>UNIDO Trusted Partner</strong> für industrielle KI für den Globalen Süden.' },
 			],
 			institutionsTitle: 'Institutionell gefördert',
@@ -1093,7 +1130,7 @@ const de: TranslationSchema = {
 			devCIDesc: 'Automatisierte Build-Verifizierung bei jedem Commit',
 			devCodeQL: 'CodeQL sauber',
 			devCodeQLDesc: 'GitHub-Sicherheits-Schwachstellenscanning',
-			devTests: '10.000+ Tests',
+			devTests: '11.000+ Tests',
 			devTestsDesc: 'Null Fehler, bei jedem Merge erzwungen',
 			devIntegration: '42 Integrationstests',
 			devIntegrationDesc: 'Full-Stack REST-API-Verifizierung mit echter Datenbank',
