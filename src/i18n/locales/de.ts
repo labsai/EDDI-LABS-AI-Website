@@ -572,7 +572,7 @@ const de: TranslationSchema = {
 				'<strong>Dynamische Agenten</strong>: Agenten in Task-Force-Diskussionen können zur Laufzeit Sub-Agenten erstellen, rekrutieren, delegieren und abbauen, mit Schutzmaßnahmen (Anbieter-/Modell-Whitelists, Obergrenzen pro Diskussion, Lebenszyklus-Richtlinien)',
 				'<strong>Verschachtelte Gruppen</strong>: Gruppen aus Gruppen für Turniermodus, Red-Team vs. Blue-Team und Panel-Reviews zusammenstellen',
 				'<strong>Slack-Integration</strong>: Agenten in Slack-Kanäle deployen und Multi-Agenten-Debatten direkt in Threads führen, mit DM-Unterstützung und Trigger-Keyword-Routing',
-				'<strong>Platform Operator</strong>: Ein Meta-Agent, der Ihr Deployment ausliest und bedient – einschließlich der Erstellung weiterer Agenten – wobei jeder Schreibvorgang eine menschliche Freigabe durchläuft',
+				'<strong>Platform Operator</strong>: Ein Meta-Agent, der Ihr Deployment ausliest und bedient (einschließlich der Erstellung weiterer Agenten), wobei jeder Schreibvorgang eine menschliche Freigabe durchläuft',
 				'<strong>A2A-Protokoll</strong>: Vollständige Agent-zu-Agent-Protokollimplementierung mit Agent Cards und plattformübergreifender Skill-Erkennung',
 				'<strong>Fähigkeitsabgleich</strong>: Agenten nach Skill, Konfidenzbewertung und benutzerdefinierten Attributen entdecken und routen',
 			],

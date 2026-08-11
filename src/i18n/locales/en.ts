@@ -619,7 +619,7 @@ const en = {
 				'<strong>Dynamic Agents</strong>: Agents in Task Force discussions can create, recruit, delegate to, and teardown sub-agents at runtime with guardrails (provider/model whitelists, per-discussion caps, lifecycle policies)',
 				'<strong>Nested Groups</strong>: Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
 				'<strong>Slack Integration</strong>: Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support and trigger-keyword routing',
-				'<strong>Platform Operator</strong>: A meta-agent that reads and operates your deployment — including creating other agents — with every write behind a human approval gate',
+				'<strong>Platform Operator</strong>: A meta-agent that reads and operates your deployment (including creating other agents), with every write behind a human approval gate',
 				'<strong>A2A Protocol</strong>: Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
 				'<strong>Capability Matching</strong>: Discover and route to agents by skill, confidence score, and custom attributes',
 			],

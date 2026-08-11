@@ -571,7 +571,7 @@ const fr: TranslationSchema = {
 				'<strong>Agents Dynamiques</strong>, Les agents dans les discussions Task Force peuvent créer, recruter, déléguer et supprimer des sous-agents en temps réel, avec des garde-fous (listes de fournisseurs/modèles, limites par discussion, politiques de cycle de vie)',
 				'<strong>Groupes Imbriqués</strong>, Composer des groupes de groupes pour des tournois, équipe rouge vs. bleue et revues de panel',
 				'<strong>Intégration Slack</strong>, Déployez des agents dans les canaux Slack et lancez des débats multi-agents directement dans les fils, avec support DM et routage par mots-clés',
-				'<strong>Platform Operator</strong>, Un méta-agent qui consulte et pilote votre déploiement — y compris la création d\'autres agents — chaque écriture étant soumise à une approbation humaine',
+				'<strong>Platform Operator</strong>, Un méta-agent qui consulte et pilote votre déploiement (y compris la création d\'autres agents), chaque écriture étant soumise à une approbation humaine',
 				'<strong>Protocole A2A</strong>, Implémentation complète du protocole Agent-à-Agent avec Agent Cards et découverte de compétences multiplateforme',
 				'<strong>Correspondance de Capacités</strong>, Découvrir et router vers les agents par compétence, score de confiance et attributs personnalisés',
 			],
