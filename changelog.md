@@ -4,6 +4,14 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🗑️ Agent Father → Platform Operator
+- `fix(website)`: **Removed the Agent Father from the Multi-Agent feature list (all 11 locales)** — EDDI deleted the Agent Father: the bundled starter agent, its ZIP, and the `POST /backup/import/initialAgents` endpoint that shipped it are gone, replaced by EDDI-Manager's **Platform Operator** (`/manage/operator`) and its form-based agent wizard. The `items2` bullet therefore advertised a feature that no longer exists, and its "(ships out of the box)" parenthetical was the part that had actually become false — the operator is *activated* by the user with their own provider key, not deployed on install. Bullet replaced with "**Platform Operator**: A meta-agent that reads and operates your deployment — including creating other agents — with every write behind a human approval gate", which also surfaces the HITL gate the operator's write capability depends on. The `para2` lead-in ("…and a meta-agent that creates other agents through conversation") was reworded to "…that operates the platform itself" in 10 locales; `hi` needed no change there — its `para2` only said "a meta-agent", with no claim attached.
+- `fix(website)`: **`ar.ts` was missed by the obvious search** — Arabic had *translated* the name (`الوكيل الأب`, "the Father Agent") rather than keeping it in English like the other ten, so a grep for "Agent Father" returned 10 files when 11 needed changing. The replacement keeps `Platform Operator` in English there, matching how `Task Force`, `Slack` and `A2A` are already handled in that file.
+- `fix(website)`: **Stray English word in `zh.ts`** — the reworded `para2` also removes "通过对话创建other代理" (an untranslated "other" mid-sentence), fixed incidentally rather than deliberately hunted.
+- **Not changed:** this file's own historical entry naming the Agent Father — a dated record, not live copy.
+- **Verified:** `astro check` — 0 errors, 0 warnings (the single hint is pre-existing, in `scripts/update-docker-pulls.mjs`).
+- **Needs a native-speaker pass:** the 10 non-English strings are my translations, unlike the UNIDO copy below which went through a translate→verify reviewer workflow.
+
 ### 🌐 Domain Migration: eddi.labs.ai → eddi.technology
 - `feat(website)`: **Domain migration** — Changed primary site domain from `eddi.labs.ai` to `eddi.technology` across the entire codebase. Updated `astro.config.mjs` site URL, `BaseLayout.astro` meta/OG/Twitter tags, `robots.txt` sitemap URL, `public/CNAME`, `llms.txt`, `llms-full.txt`, `README.md`, `AGENTS.md`, privacy policy references across all 11 locales, and company `https://labs.ai` links to `https://eddi.technology` in FAQ answers and footer. Preserved `docs.labs.ai` links and `contact@labs.ai` email addresses unchanged.
 
