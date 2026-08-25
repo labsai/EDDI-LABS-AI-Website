@@ -4,6 +4,16 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔗 Broken docs.labs.ai Links (all 11 locales)
+
+- `fix(website)`: **Two outbound link patterns were 404ing**, found while verifying the `docsLinks` targets for the new guides. Both had the wrong path structure rather than a missing extension, so they were genuinely broken, not merely non-canonical:
+  - `docs.labs.ai/mcp-server` (23 occurrences) → `docs.labs.ai/protocols-and-integration/mcp-server.md`
+  - `docs.labs.ai/deployment/kubernetes` (11 occurrences) → `docs.labs.ai/deployment-and-infrastructure/kubernetes.md`
+- These sat in the MCP Server feature page and the Getting Started Kubernetes section across all 11 locale files, so every localized copy pointed at a missing page.
+- **Checked, correctly left alone:** the extension-less form of an otherwise *correct* path (for example `security-and-compliance/secrets-vault`) does resolve on the docs site, so those were not touched.
+- **Noticed, not changed:** the docs index describes the MCP server as having "80+ tools" while `src/i18n/stats.ts` declares 77 and `check-stats` enforces that number. One of the two is stale, but reconciling it is not a website decision.
+- **Verified:** build 297 pages, zero occurrences of either broken form anywhere in `dist/`.
+
 ### 📘 Guides Content Collection
 
 Closes the largest gap in the Findable report (25 Aug 2026): "technical tutorials & examples, step-by-step integration guides, sample JSON configs, and reproducible demos". The site had no editorial surface at all before this.

@@ -259,7 +259,7 @@ const ja: TranslationSchema = {
 			'ネイティブStreamable HTTPサポートのあるクライアント（Cursor、VS Code、Windsurf、Antigravity、その他のIDEプラグイン）は直接接続、ブリッジ不要：',
 		step2After: 'AIアシスタントからEDDIの<strong>84のMCPツール</strong>と直接対話できるようになりました。',
 		step2DocsLink:
-			'📖 完全なツールリファレンスと高度な設定については、<a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCPサーバードキュメント</a>をご覧ください。',
+			'📖 完全なツールリファレンスと高度な設定については、<a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCPサーバードキュメント</a>をご覧ください。',
 		step3Title: '3. APIキーを安全に保存',
 		step3VaultIntro: 'エージェントを作成する前に、LLMプロバイダーのAPIキーをEDDIの<a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>（AES-256-GCM暗号化）に安全に保存してください：',
 		step3VaultUiDesc: 'Manager UIを<code>http://localhost:7070</code>で開き、<strong>Secrets Vault</strong>に移動して、キー名<code>my-anthropic-key</code>で新しいシークレットを追加します。',
@@ -302,7 +302,7 @@ const ja: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes デプロイ',
 		k8sDesc: '単一コマンドでKubernetesにデプロイ：',
-		k8sOptions: 'MongoDB、PostgreSQL、認証、モニタリング、プロダクション強化（HPA、PDB、NetworkPolicy）用のKustomizeオーバーレイとHelmチャート（2.0.0）も利用できます。<a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetesガイド</a>をご覧ください。',
+		k8sOptions: 'MongoDB、PostgreSQL、認証、モニタリング、プロダクション強化（HPA、PDB、NetworkPolicy）用のKustomizeオーバーレイとHelmチャート（2.0.0）も利用できます。<a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetesガイド</a>をご覧ください。',
 	},
 	useCases: {
 		title: 'ユースケース',
@@ -444,7 +444,7 @@ const ja: TranslationSchema = {
 			],
 			heading3: 'オープンスタンダード、プロプライエタリAPIではない',
 			para2: 'EDDIエージェントは会話中に<strong>外部MCPツールを利用</strong>することもできます。MCPサーバーエンドポイントを設定すると、エージェントは会話コンテキストに基づいてツールを自動発見し、呼び出します。MCPに加えて、EDDIは<strong>A2A</strong>（Agent-to-Agent Protocol）でクロスプラットフォーム通信、<strong>OpenAPI 3.1</strong>でネイティブspec生成と消費、<strong>OAuth 2.0 / OIDC</strong>（Keycloak経由）、<strong>SSE</strong>でリアルタイムストリーミングを実装、すべてオープンスタンダード、ベンダーロックインなし。デプロイされたエージェントは<strong>OpenAI互換の<code>/v1</code> API</strong>からも利用できるため、Open WebUI、<code>openai</code> SDK、LangChain、LiteLLMから直接対話できます。',
-			clientsNote: 'Claude Desktop、Cursor、VS Code、Windsurf、Antigravity、および任意のMCP互換クライアントで動作します。クライアント設定ガイドについては<a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCPドキュメント</a>を参照してください。',
+			clientsNote: 'Claude Desktop、Cursor、VS Code、Windsurf、Antigravity、および任意のMCP互換クライアントで動作します。クライアント設定ガイドについては<a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCPドキュメント</a>を参照してください。',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

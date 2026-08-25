@@ -264,7 +264,7 @@ const th: TranslationSchema = {
 			'Client ที่รองรับ Streamable HTTP โดยตรง (Cursor, VS Code, Windsurf, Antigravity และ IDE plugins อื่นๆ) เชื่อมต่อได้โดยตรง ไม่ต้องใช้ bridge:',
 		step2After: 'ตอนนี้คุณสามารถโต้ตอบกับ <strong>84 MCP tools</strong> ของ EDDI ได้โดยตรงจาก AI assistant',
 		step2DocsLink:
-			'📖 ดู <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">เอกสาร MCP Server</a> สำหรับข้อมูลอ้างอิงเครื่องมือทั้งหมดและการตั้งค่าขั้นสูง',
+			'📖 ดู <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">เอกสาร MCP Server</a> สำหรับข้อมูลอ้างอิงเครื่องมือทั้งหมดและการตั้งค่าขั้นสูง',
 		step3Title: '3. จัดเก็บ API Key อย่างปลอดภัย',
 		step3VaultIntro: 'ก่อนสร้าง Agent ให้จัดเก็บ API Key ของ LLM Provider อย่างปลอดภัยใน <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> ของ EDDI (เข้ารหัส AES-256-GCM):',
 		step3VaultUiDesc: 'เปิด Manager UI ที่ <code>http://localhost:7070</code> ไปที่ <strong>Secrets Vault</strong> และเพิ่ม Secret ใหม่ด้วยชื่อคีย์ <code>my-anthropic-key</code>',
@@ -307,7 +307,7 @@ const th: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'การ Deploy บน Kubernetes',
 		k8sDesc: 'Deploy บน Kubernetes ด้วยคำสั่งเดียว:',
-		k8sOptions: 'ยังมี Kustomize overlays และ Helm chart (2.0.0) สำหรับ MongoDB, PostgreSQL, auth, monitoring และ production hardening (HPA, PDB, NetworkPolicy) ดู <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">คู่มือ Kubernetes</a>',
+		k8sOptions: 'ยังมี Kustomize overlays และ Helm chart (2.0.0) สำหรับ MongoDB, PostgreSQL, auth, monitoring และ production hardening (HPA, PDB, NetworkPolicy) ดู <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">คู่มือ Kubernetes</a>',
 	},
 	useCases: {
 		title: 'กรณีใช้งาน',
@@ -450,7 +450,7 @@ const th: TranslationSchema = {
 			],
 			heading3: 'Open Standards ไม่ใช่ Proprietary APIs',
 			para2: 'EDDI agents ยัง<strong>ใช้ external MCP tools</strong>ได้ในระหว่างสนทนา กำหนดค่า MCP server endpoints แล้วเอเจนต์จะค้นพบและเรียกใช้เครื่องมืออัตโนมัติตามบริบทการสนทนา นอกจาก MCP แล้ว EDDI ยังใช้ <strong>A2A</strong> (Agent-to-Agent Protocol) สำหรับการสื่อสารข้ามแพลตฟอร์ม, <strong>OpenAPI 3.1</strong> สำหรับการสร้าง spec ดั้งเดิม, <strong>OAuth 2.0 / OIDC</strong> ผ่าน Keycloak และ <strong>SSE</strong> สำหรับการสตรีมแบบเรียลไทม์ ทั้งหมดเป็นมาตรฐานเปิด ไม่มีการล็อคผู้ขาย เอเจนต์ที่ deploy แล้วยังเข้าถึงได้ผ่าน <strong>OpenAI-compatible <code>/v1</code> API</strong> ทำให้ Open WebUI, <code>openai</code> SDK, LangChain และ LiteLLM คุยกับเอเจนต์ได้โดยตรง',
-			clientsNote: 'ใช้งานได้กับ Claude Desktop, Cursor, VS Code, Windsurf, Antigravity และ MCP-compatible client ใดก็ได้ ดู<a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">เอกสาร MCP</a> สำหรับคู่มือการตั้งค่า client',
+			clientsNote: 'ใช้งานได้กับ Claude Desktop, Cursor, VS Code, Windsurf, Antigravity และ MCP-compatible client ใดก็ได้ ดู<a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">เอกสาร MCP</a> สำหรับคู่มือการตั้งค่า client',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

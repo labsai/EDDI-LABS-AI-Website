@@ -302,7 +302,7 @@ const en = {
 			'Clients with native Streamable HTTP support (Cursor, VS Code, Windsurf, Antigravity, and other IDE plugins) connect directly, no bridge needed:',
 		step2After: `Now you can interact with EDDI's <strong>${MCP_TOOLS} MCP tools</strong> directly from your AI assistant.`,
 		step2DocsLink:
-			'📖 See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
+			'📖 See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
 		step3Title: '3. Store Your API Key',
 		step3VaultIntro: 'Before creating an agent, securely store your LLM provider API key in EDDI\'s <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> (AES-256-GCM encrypted):',
 		step3VaultUiDesc: 'Open the Manager UI at <code>http://localhost:7070</code>, navigate to <strong>Secrets Vault</strong>, and add a new secret with key name <code>my-anthropic-key</code>.',
@@ -344,7 +344,7 @@ const en = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes Deployment',
 		k8sDesc: 'Deploy to Kubernetes with a single command:',
-		k8sOptions: 'Kustomize overlays and the Helm chart (2.0.0) are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		k8sOptions: 'Kustomize overlays and the Helm chart (2.0.0) are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetes Guide</a>.',
 
 	},
 
@@ -495,7 +495,7 @@ const en = {
 			description:
 				'EDDI exposes its full capabilities via the Model Context Protocol, enabling Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom AI clients to manage agents programmatically.',
 			heading1: 'AI-Native Control Plane',
-			para1: `The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>${MCP_TOOLS} tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.`,
+			para1: `The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>${MCP_TOOLS} tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.`,
 			heading2: 'Tool Categories',
 			items: [
 				'<strong>Conversation Tools (13)</strong>: Chat with agents, manage conversations, read history, pipeline logs and the per-task audit trail, agent discovery, intent-based managed chat',
@@ -510,7 +510,7 @@ const en = {
 			],
 			heading3: 'Open Standards: Not Proprietary APIs',
 			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming, all open standards, zero vendor lock-in. Deployed agents are also reachable through an <strong>OpenAI-compatible <code>/v1</code> API</strong>, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly.',
-			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
+			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

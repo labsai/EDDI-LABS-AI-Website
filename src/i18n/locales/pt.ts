@@ -271,7 +271,7 @@ const pt: TranslationSchema = {
 			'Clientes com suporte nativo a Streamable HTTP (Cursor, VS Code, Windsurf, Antigravity e outros plugins de IDE) conectam-se diretamente, sem ponte necessária:',
 		step2After: 'Agora você pode interagir com as <strong>84 ferramentas MCP</strong> do EDDI diretamente do seu assistente de IA.',
 		step2DocsLink:
-			'📖 Consulte a <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentação do servidor MCP</a> para a referência completa de ferramentas e configuração avançada.',
+			'📖 Consulte a <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">documentação do servidor MCP</a> para a referência completa de ferramentas e configuração avançada.',
 		step3Title: '3. Armazene sua chave API',
 		step3VaultIntro: 'Antes de criar um agente, armazene com segurança a chave API do seu provedor LLM no <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> do EDDI (criptografado AES-256-GCM):',
 		step3VaultUiDesc: 'Abra a interface do Manager em <code>http://localhost:7070</code>, navegue até <strong>Secrets Vault</strong> e adicione um novo segredo com o nome de chave <code>my-anthropic-key</code>.',
@@ -314,7 +314,7 @@ const pt: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Implantação Kubernetes',
 		k8sDesc: 'Implante no Kubernetes com um único comando:',
-		k8sOptions: 'Overlays do Kustomize e o Helm chart (2.0.0) também estão disponíveis para MongoDB, PostgreSQL, auth, monitoramento e hardening de produção (HPA, PDB, NetworkPolicy). Consulte o <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Guia do Kubernetes</a>.',
+		k8sOptions: 'Overlays do Kustomize e o Helm chart (2.0.0) também estão disponíveis para MongoDB, PostgreSQL, auth, monitoramento e hardening de produção (HPA, PDB, NetworkPolicy). Consulte o <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Guia do Kubernetes</a>.',
 	},
 	useCases: {
 		title: 'Casos de Uso',
@@ -469,7 +469,7 @@ const pt: TranslationSchema = {
 			],
 			heading3: 'Padrões Abertos, Sem APIs Proprietárias',
 			para2: 'Os agentes EDDI também podem <strong>consumir ferramentas MCP externas</strong> durante as conversas. Configure endpoints de servidor MCP, e os agentes autodescobrem e invocam ferramentas com base no contexto. Além do MCP, o EDDI implementa <strong>A2A</strong> (Agent-to-Agent Protocol) para comunicação entre plataformas, <strong>OpenAPI 3.1</strong> para geração e consumo nativo de specs, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, e <strong>SSE</strong> para streaming em tempo real, todos padrões abertos, zero vendor lock-in. Os agentes implantados também são acessíveis por meio de uma <strong>API <code>/v1</code> compatível com OpenAI</strong>, para que Open WebUI, o SDK <code>openai</code>, LangChain e LiteLLM possam conversar com eles diretamente.',
-			clientsNote: 'Funciona com Claude Desktop, Cursor, VS Code, Windsurf, Antigravity e qualquer cliente compatível com MCP. Consulte a <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentação MCP</a> para guias de configuração de clientes.',
+			clientsNote: 'Funciona com Claude Desktop, Cursor, VS Code, Windsurf, Antigravity e qualquer cliente compatível com MCP. Consulte a <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">documentação MCP</a> para guias de configuração de clientes.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

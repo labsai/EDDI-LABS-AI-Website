@@ -258,7 +258,7 @@ const ko: TranslationSchema = {
 			'네이티브 Streamable HTTP를 지원하는 클라이언트(Cursor, VS Code, Windsurf, Antigravity 및 기타 IDE 플러그인)는 직접 연결 가능, 브릿지 불필요:',
 		step2After: '이제 AI 어시스턴트에서 직접 EDDI의 <strong>84개 MCP 도구</strong>와 상호작용할 수 있습니다.',
 		step2DocsLink:
-			'📖 완전한 도구 레퍼런스와 고급 설정은 <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP 서버 문서</a>를 참조하세요.',
+			'📖 완전한 도구 레퍼런스와 고급 설정은 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 서버 문서</a>를 참조하세요.',
 		step3Title: '3. API 키 안전하게 저장',
 		step3VaultIntro: '에이전트를 만들기 전에 LLM 제공자 API 키를 EDDI의 <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>(AES-256-GCM 암호화)에 안전하게 저장하세요:',
 		step3VaultUiDesc: 'Manager UI를 <code>http://localhost:7070</code>에서 열고, <strong>Secrets Vault</strong>로 이동하여 키 이름 <code>my-anthropic-key</code>으로 새 시크릿을 추가하세요.',
@@ -301,7 +301,7 @@ const ko: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes 배포',
 		k8sDesc: '단일 명령으로 Kubernetes에 배포:',
-		k8sOptions: 'MongoDB, PostgreSQL, 인증, 모니터링, 프로덕션 강화(HPA, PDB, NetworkPolicy)를 위한 Kustomize 오버레이 및 Helm 차트(2.0.0)도 사용할 수 있습니다. <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes 가이드</a>를 참조하세요.',
+		k8sOptions: 'MongoDB, PostgreSQL, 인증, 모니터링, 프로덕션 강화(HPA, PDB, NetworkPolicy)를 위한 Kustomize 오버레이 및 Helm 차트(2.0.0)도 사용할 수 있습니다. <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetes 가이드</a>를 참조하세요.',
 	},
 	useCases: {
 		title: '활용 사례',
@@ -428,7 +428,7 @@ const ko: TranslationSchema = {
 			description: 'EDDI는 Model Context Protocol을 통해 완전한 기능을 노출하여 Claude Desktop, Cursor, 커스텀 AI 클라이언트가 에이전트를 프로그래밍 방식으로 관리할 수 있게 합니다.',
 			heading1: 'AI 네이티브 제어 플레인',
 			para1:
-				'Model Context Protocol(MCP)은 AI 어시스턴트가 외부 도구와 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 플랫폼의 모든 측면을 아우르는 <strong>84개 도구</strong>를 갖춘 포괄적인 MCP 서버를 구현합니다. 전체 도구 레퍼런스는 <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP 전체 문서</a>를 참조하세요.',
+				'Model Context Protocol(MCP)은 AI 어시스턴트가 외부 도구와 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 플랫폼의 모든 측면을 아우르는 <strong>84개 도구</strong>를 갖춘 포괄적인 MCP 서버를 구현합니다. 전체 도구 레퍼런스는 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 전체 문서</a>를 참조하세요.',
 			heading2: '도구 카테고리',
 			items: [
 				'<strong>대화 도구 (13)</strong>, 에이전트와 채팅, 대화 관리, 기록 읽기, 파이프라인 로그 및 태스크별 감사 추적, 에이전트 디스커버리, 의도 기반 관리 채팅',
@@ -443,7 +443,7 @@ const ko: TranslationSchema = {
 			],
 			heading3: '오픈 표준, 독점 API가 아님',
 			para2: 'EDDI 에이전트는 대화 중에 <strong>외부 MCP 도구를 사용</strong>할 수도 있습니다. MCP 서버 엔드포인트를 구성하면 에이전트가 대화 컨텍스트를 기반으로 도구를 자동 발견하고 호출합니다. MCP 외에도 EDDI는 <strong>A2A</strong>(Agent-to-Agent Protocol)로 크로스 플랫폼 통신, <strong>OpenAPI 3.1</strong>로 네이티브 스펙 생성 및 소비, <strong>OAuth 2.0 / OIDC</strong>(Keycloak), <strong>SSE</strong>로 실시간 스트리밍을 구현, 모두 오픈 표준, 벤더 종속 없음. 배포된 에이전트는 <strong>OpenAI 호환 <code>/v1</code> API</strong>로도 접근할 수 있어, Open WebUI, <code>openai</code> SDK, LangChain, LiteLLM이 직접 통신할 수 있습니다.',
-			clientsNote: 'Claude Desktop, Cursor, VS Code, Windsurf, Antigravity 및 모든 MCP 호환 클라이언트에서 작동합니다. 클라이언트 구성 가이드는 <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP 문서</a>를 참조하세요.',
+			clientsNote: 'Claude Desktop, Cursor, VS Code, Windsurf, Antigravity 및 모든 MCP 호환 클라이언트에서 작동합니다. 클라이언트 구성 가이드는 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 문서</a>를 참조하세요.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

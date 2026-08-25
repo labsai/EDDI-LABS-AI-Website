@@ -268,7 +268,7 @@ const ar: TranslationSchema = {
 			'العملاء الذين يدعمون Streamable HTTP بشكل أصلي (Cursor، VS Code، Windsurf، Antigravity وإضافات IDE الأخرى) يتصلون مباشرة، لا حاجة لجسر:',
 		step2After: 'الآن يمكنك التفاعل مع <strong>84 أداة MCP</strong> في EDDI مباشرة من مساعدك الذكي.',
 		step2DocsLink:
-			'📖 راجع <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">وثائق خادم MCP</a> للمرجع الكامل للأدوات والتكوين المتقدم.',
+			'📖 راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">وثائق خادم MCP</a> للمرجع الكامل للأدوات والتكوين المتقدم.',
 		step3Title: '3. تخزين مفتاح API الخاص بك',
 		step3VaultIntro: 'قبل إنشاء وكيل، قم بتخزين مفتاح API الخاص بموفر LLM بشكل آمن في <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> الخاص بـ EDDI (مشفر بـ AES-256-GCM):',
 		step3VaultUiDesc: 'افتح واجهة المدير على <code>http://localhost:7070</code>، وانتقل إلى <strong>Secrets Vault</strong> وأضف سرًا جديدًا باسم المفتاح <code>my-anthropic-key</code>.',
@@ -311,7 +311,7 @@ const ar: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'نشر Kubernetes',
 		k8sDesc: 'انشر على Kubernetes بأمر واحد:',
-		k8sOptions: 'تتوفر أيضًا تراكبات Kustomize ومخطط Helm (2.0.0) لـ MongoDB و PostgreSQL والمصادقة والمراقبة وتقوية الإنتاج (HPA، PDB، NetworkPolicy). راجع <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">دليل Kubernetes</a>.',
+		k8sOptions: 'تتوفر أيضًا تراكبات Kustomize ومخطط Helm (2.0.0) لـ MongoDB و PostgreSQL والمصادقة والمراقبة وتقوية الإنتاج (HPA، PDB، NetworkPolicy). راجع <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">دليل Kubernetes</a>.',
 	},
 	useCases: {
 		title: 'حالات الاستخدام',
@@ -446,7 +446,7 @@ const ar: TranslationSchema = {
 				'يكشف EDDI قدراته الكاملة عبر بروتوكول سياق النموذج، مما يتيح لـ Claude Desktop و Cursor والعملاء المخصصين إدارة الوكلاء برمجياً.',
 			heading1: 'مستوى التحكم الأصلي بالذكاء الاصطناعي',
 			para1:
-				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>84 أداة</strong> تغطي كل جانب من جوانب المنصة. راجع <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">توثيق MCP الكامل</a> للمرجع الكامل للأدوات.',
+				'بروتوكول سياق النموذج (MCP) هو معيار مفتوح يسمح لمساعدي الذكاء الاصطناعي بالتفاعل مع الأدوات الخارجية. ينفذ EDDI خادم MCP شامل مع <strong>84 أداة</strong> تغطي كل جانب من جوانب المنصة. راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">توثيق MCP الكامل</a> للمرجع الكامل للأدوات.',
 			heading2: 'فئات الأدوات',
 			items: [
 				'<strong>أدوات المحادثة (13)</strong>: تحدث مع الوكلاء، أدر المحادثات، اقرأ السجل، سجلات خط الأنابيب ومسار التدقيق لكل مهمة، اكتشاف الوكلاء، دردشة مُدارة قائمة على النوايا',
@@ -461,7 +461,7 @@ const ar: TranslationSchema = {
 			],
 			heading3: 'معايير مفتوحة، ليست واجهات برمجة مملوكة',
 			para2: 'يمكن لوكلاء EDDI أيضًا <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. قم بتكوين نقاط نهاية خادم MCP، وسيكتشف الوكلاء الأدوات ويستدعونها تلقائيًا بناءً على سياق المحادثة. بالإضافة إلى MCP، ينفذ EDDI <strong>A2A</strong> (بروتوكول الوكيل إلى الوكيل) للتواصل عبر المنصات، <strong>OpenAPI 3.1</strong> لتوليد واستهلاك المواصفات، <strong>OAuth 2.0 / OIDC</strong> عبر Keycloak، و<strong>SSE</strong> للبث المباشر، جميعها معايير مفتوحة، بدون تبعية لبائع. كما يمكن الوصول إلى الوكلاء المنشورين عبر <strong>واجهة <code>/v1</code> API متوافقة مع OpenAI</strong>، بحيث يمكن لـ Open WebUI و SDK <code>openai</code> و LangChain و LiteLLM التحدث إليهم مباشرة.',
-			clientsNote: 'يعمل مع Claude Desktop وCursor وVS Code وWindsurf وAntigravity وأي عميل متوافق مع MCP. راجع <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">وثائق MCP</a> للحصول على أدلة تكوين العملاء.',
+			clientsNote: 'يعمل مع Claude Desktop وCursor وVS Code وWindsurf وAntigravity وأي عميل متوافق مع MCP. راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">وثائق MCP</a> للحصول على أدلة تكوين العملاء.',
 		},
 		configAsCode: {
 			title: 'التكوين-كشفرة',

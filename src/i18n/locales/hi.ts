@@ -266,7 +266,7 @@ const hi: TranslationSchema = {
 			'नेटिव Streamable HTTP सपोर्ट वाले क्लाइंट (Cursor, VS Code, Windsurf, Antigravity और अन्य IDE प्लगइन्स) सीधे कनेक्ट होते हैं, कोई ब्रिज आवश्यक नहीं:',
 		step2After: 'अब आप अपने AI सहायक से सीधे EDDI के <strong>84 MCP टूल्स</strong> के साथ इंटरैक्ट कर सकते हैं।',
 		step2DocsLink:
-			'📖 पूर्ण टूल संदर्भ और उन्नत कॉन्फ़िगरेशन के लिए <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP सर्वर डॉक्यूमेंटेशन</a> देखें।',
+			'📖 पूर्ण टूल संदर्भ और उन्नत कॉन्फ़िगरेशन के लिए <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP सर्वर डॉक्यूमेंटेशन</a> देखें।',
 		step3Title: '3. अपनी API कुंजी सुरक्षित रूप से स्टोर करें',
 		step3VaultIntro: 'एजेंट बनाने से पहले, अपने LLM प्रदाता की API कुंजी को EDDI के <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> (AES-256-GCM एन्क्रिप्टेड) में सुरक्षित रूप से स्टोर करें:',
 		step3VaultUiDesc: 'Manager UI को <code>http://localhost:7070</code> पर खोलें, <strong>Secrets Vault</strong> पर नेविगेट करें और कुंजी नाम <code>my-anthropic-key</code> के साथ एक नया सीक्रेट जोड़ें।',
@@ -309,7 +309,7 @@ const hi: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes डिप्लॉयमेंट',
 		k8sDesc: 'एक कमांड से Kubernetes पर डिप्लॉय करें:',
-		k8sOptions: 'MongoDB, PostgreSQL, auth, मॉनिटरिंग, और प्रोडक्शन हार्डनिंग (HPA, PDB, NetworkPolicy) के लिए Kustomize overlays और Helm चार्ट (2.0.0) भी उपलब्ध हैं। <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes गाइड</a> देखें।',
+		k8sOptions: 'MongoDB, PostgreSQL, auth, मॉनिटरिंग, और प्रोडक्शन हार्डनिंग (HPA, PDB, NetworkPolicy) के लिए Kustomize overlays और Helm चार्ट (2.0.0) भी उपलब्ध हैं। <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetes गाइड</a> देखें।',
 	},
 	useCases: {
 		title: 'उपयोग मामले',
@@ -438,7 +438,7 @@ const hi: TranslationSchema = {
 			description: 'EDDI Model Context Protocol के माध्यम से अपनी पूर्ण क्षमताएँ उजागर करता है।',
 			heading1: 'AI-नेटिव कंट्रोल प्लेन',
 			para1:
-				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो AI सहायकों को बाहरी टूल्स के साथ इंटरैक्ट करने देता है। EDDI <strong>84 टूल्स</strong> वाला एक व्यापक MCP सर्वर लागू करता है, जो प्लेटफ़ॉर्म के हर पहलू को कवर करता है। पूरे टूल संदर्भ के लिए <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">पूरा MCP डॉक्यूमेंटेशन</a> देखें।',
+				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो AI सहायकों को बाहरी टूल्स के साथ इंटरैक्ट करने देता है। EDDI <strong>84 टूल्स</strong> वाला एक व्यापक MCP सर्वर लागू करता है, जो प्लेटफ़ॉर्म के हर पहलू को कवर करता है। पूरे टूल संदर्भ के लिए <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">पूरा MCP डॉक्यूमेंटेशन</a> देखें।',
 			heading2: 'टूल श्रेणियाँ',
 			items: [
 				'<strong>वार्तालाप टूल्स (13)</strong>, एजेंट्स से चैट, वार्तालाप प्रबंधन, इतिहास पढ़ें, पाइपलाइन लॉग्स और प्रति-कार्य ऑडिट ट्रेल, एजेंट डिस्कवरी, इंटेंट-आधारित प्रबंधित चैट',
@@ -453,7 +453,7 @@ const hi: TranslationSchema = {
 			],
 			heading3: 'खुले मानक, मालिकाना API नहीं',
 			para2: 'EDDI एजेंट बातचीत के दौरान <strong>बाहरी MCP टूल्स का उपभोग</strong> भी कर सकते हैं। MCP सर्वर एंडपॉइंट कॉन्फ़िगर करें, और एजेंट बातचीत के संदर्भ के आधार पर टूल्स को स्वचालित रूप से खोजते और कॉल करते हैं। MCP से परे, EDDI <strong>A2A</strong> (Agent-to-Agent Protocol) क्रॉस-प्लेटफ़ॉर्म संचार, <strong>OpenAPI 3.1</strong> नेटिव spec जनरेशन, <strong>OAuth 2.0 / OIDC</strong> Keycloak द्वारा, और <strong>SSE</strong> रीयल-टाइम स्ट्रीमिंग लागू करता है, सभी खुले मानक, शून्य विक्रेता लॉक-इन। डिप्लॉय किए गए एजेंट्स <strong>OpenAI-संगत <code>/v1</code> API</strong> के माध्यम से भी उपलब्ध हैं, ताकि Open WebUI, <code>openai</code> SDK, LangChain और LiteLLM उनसे सीधे बात कर सकें।',
-			clientsNote: 'Claude Desktop, Cursor, VS Code, Windsurf, Antigravity और किसी भी MCP-संगत क्लाइंट के साथ काम करता है। क्लाइंट कॉन्फ़िगरेशन गाइड के लिए <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP डॉक्यूमेंटेशन</a> देखें।',
+			clientsNote: 'Claude Desktop, Cursor, VS Code, Windsurf, Antigravity और किसी भी MCP-संगत क्लाइंट के साथ काम करता है। क्लाइंट कॉन्फ़िगरेशन गाइड के लिए <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP डॉक्यूमेंटेशन</a> देखें।',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',

@@ -256,7 +256,7 @@ const zh: TranslationSchema = {
 			'原生支持 Streamable HTTP 的客户端（Cursor、VS Code、Windsurf、Antigravity 及其他 IDE 插件）可直接连接，无需桥接：',
 		step2After: '现在您可以直接在AI助手中使用EDDI的84个MCP工具。',
 		step2DocsLink:
-			'📖 查看 <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP 服务器文档</a>获取完整的工具参考和高级配置。',
+			'📖 查看 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 服务器文档</a>获取完整的工具参考和高级配置。',
 		step3Title: '3. 安全存储您的API密钥',
 		step3VaultIntro: '在创建代理之前，请将您的LLM提供商API密钥安全地存储在EDDI的<a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a>中（AES-256-GCM加密）：',
 		step3VaultUiDesc: '打开Manager界面 <code>http://localhost:7070</code>，导航到<strong>Secrets Vault</strong>并添加一个密钥名为<code>my-anthropic-key</code>的新密钥。',
@@ -299,7 +299,7 @@ const zh: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes 部署',
 		k8sDesc: '使用单个命令部署到 Kubernetes：',
-		k8sOptions: '还提供 Kustomize overlay 和 Helm chart（2.0.0），支持 MongoDB、PostgreSQL、认证、监控和生产加固（HPA、PDB、NetworkPolicy）。请参阅 <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes 指南</a>。',
+		k8sOptions: '还提供 Kustomize overlay 和 Helm chart（2.0.0），支持 MongoDB、PostgreSQL、认证、监控和生产加固（HPA、PDB、NetworkPolicy）。请参阅 <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetes 指南</a>。',
 	},
 	useCases: {
 		title: '应用场景',
@@ -440,7 +440,7 @@ const zh: TranslationSchema = {
 			],
 			heading3: '开放标准，非专有 API',
 			para2: 'EDDI 代理还可以在对话中<strong>使用外部 MCP 工具</strong>。配置 MCP 服务器端点，代理会根据对话上下文自动发现和调用工具。除 MCP 外，EDDI 还实现了 <strong>A2A</strong>（Agent-to-Agent 协议）用于跨平台代理通信、<strong>OpenAPI 3.1</strong> 用于原生规范生成和消费、<strong>OAuth 2.0 / OIDC</strong> 通过 Keycloak、以及 <strong>SSE</strong> 用于实时流式传输，全部开放标准，零供应商锁定。已部署的代理还可以通过 <strong>OpenAI 兼容的 <code>/v1</code> API</strong> 访问，因此 Open WebUI、<code>openai</code> SDK、LangChain 和 LiteLLM 可以直接与它们对话。',
-			clientsNote: '适用于 Claude Desktop、Cursor、VS Code、Windsurf、Antigravity 及任何 MCP 兼容客户端。请参阅 <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP 文档</a>获取客户端配置指南。',
+			clientsNote: '适用于 Claude Desktop、Cursor、VS Code、Windsurf、Antigravity 及任何 MCP 兼容客户端。请参阅 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 文档</a>获取客户端配置指南。',
 		},
 		configAsCode: {
 			title: '配置即代码',
