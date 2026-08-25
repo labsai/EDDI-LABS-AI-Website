@@ -31,7 +31,16 @@
 ## Enterprise
 
 - [Why EDDI](https://eddi.technology/enterprise/why-eddi/): Comparison table (6 dimensions), 12 LLM providers, Quarkus SDK
-- [vs. Alternatives](https://eddi.technology/enterprise/vs-alternatives/): Comparison with Flowise, n8n, Dify, Spring AI, LangChain4j, Camunda
+- [vs. Alternatives](https://eddi.technology/enterprise/vs-alternatives/): Landscape by archetype, visual node builders (Flowise, n8n), code libraries (LangGraph, CrewAI, AutoGen, Spring AI, LangChain4j), and cloud platforms (AWS Bedrock, Azure AI Studio, Vertex AI)
+
+## Head-to-Head Comparisons
+
+Direct comparisons, each stating where the alternative is the better choice and how to migrate an existing project. English only.
+
+- [EDDI vs. n8n](https://eddi.technology/compare/eddi-vs-n8n/): Workflow automation platform vs. AI orchestration middleware; runtime, code execution, licensing (Sustainable Use License vs. Apache 2.0), governance
+- [EDDI vs. Flowise](https://eddi.technology/compare/eddi-vs-flowise/): Prototype velocity vs. production operating surface; RAG architecture, multi-tenancy, audit trails
+- [EDDI vs. Rasa](https://eddi.technology/compare/eddi-vs-rasa/): Trained NLU and deterministic dialogue vs. LLM orchestration with config-as-code; determinism trade-offs
+- [EDDI vs. LangChain](https://eddi.technology/compare/eddi-vs-langchain/): Library vs. deployable platform; the Day 2 operations gap. EDDI uses LangChain4j internally
 - [Compliance](https://eddi.technology/enterprise/compliance/): Global Privacy & Regulatory Compliance — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, NIST AI RMF, ISO 42001, SOC 2 & more (15+ frameworks)
 
 ## Integrations & Deployment

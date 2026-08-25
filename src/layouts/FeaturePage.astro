@@ -13,14 +13,32 @@ interface Props {
 	description: string;
 	heroImage?: ImageMetadata;
 	lang?: Locale;
+	/** FAQ entries to fold into the page's structured data. */
+	faqItems?: { question: string; answer: string }[];
+	/** False for English-only pages (see BaseLayout). */
+	localized?: boolean;
 }
 
-const { title, description, heroImage, lang: langProp } = Astro.props;
+const {
+	title,
+	description,
+	heroImage,
+	lang: langProp,
+	faqItems,
+	localized = true,
+} = Astro.props;
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
 ---
 
-<BaseLayout title={title} description={description} fullWidth={true} lang={lang}>
+<BaseLayout
+	title={title}
+	description={description}
+	fullWidth={true}
+	lang={lang}
+	faqItems={faqItems}
+	localized={localized}
+>
 
 <section class="fp-hero hero-gradient hero-gradient-bg">
 	<div class="fp-hero-inner">

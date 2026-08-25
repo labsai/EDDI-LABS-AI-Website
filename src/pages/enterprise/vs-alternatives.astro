@@ -3,6 +3,7 @@ import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_vs_alternatives.webp';
 import { enTranslations as t, localePath } from '../../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
+import { COMPARISONS } from '../../data/comparisons';
 const p = t.pages.vsAlternatives;
 const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
 ---
@@ -61,6 +62,22 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 </div>
 
 <p set:html={p.cloudSovereigntyPara} />
+
+<!--
+	Head-to-head pages (English only, so this block is deliberately absent from
+	the [lang] variant of this page rather than translated).
+-->
+<h2>Head-to-head comparisons</h2>
+<p>
+	This page maps the landscape by archetype. For a direct comparison against a
+	specific alternative, including where that alternative is the better choice
+	and how to migrate an existing project, see:
+</p>
+<ul class="head-to-head">
+	{COMPARISONS.map((c) => (
+		<li><a href={`/compare/${c.slug}/`}>{c.title}</a></li>
+	))}
+</ul>
 
 <!-- Bottom CTA -->
 <h2>{p.ctaTitle}</h2>

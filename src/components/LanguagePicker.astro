@@ -7,10 +7,15 @@ import { LOCALES, LOCALE_CODES, getPathWithoutLocale, localePath, type Locale } 
 
 interface Props {
 	lang: Locale;
+	/**
+	 * False on pages that exist in English only. The current path has no
+	 * translated route, so each locale targets its homepage instead of a 404.
+	 */
+	localized?: boolean;
 }
 
-const { lang } = Astro.props;
-const pagePath = getPathWithoutLocale(Astro.url);
+const { lang, localized = true } = Astro.props;
+const pagePath = localized ? getPathWithoutLocale(Astro.url) : '/';
 ---
 
 <div class="lang-picker">

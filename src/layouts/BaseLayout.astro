@@ -30,6 +30,12 @@ interface Props {
   lang?: Locale;
   /** FAQ entries to emit as FAQPage structured data (only pages with a visible FAQ section should pass this) */
   faqItems?: { question: string; answer: string }[];
+  /**
+   * False for pages that exist in English only (no `/{lang}/` route). Suppresses
+   * hreflang and og:locale:alternate, and re-points the language switcher at the
+   * locale homepages so it cannot link into a 404.
+   */
+  localized?: boolean;
 }
 
 const {
@@ -38,6 +44,7 @@ const {
   fullWidth = false,
   lang: langProp,
   faqItems,
+  localized = true,
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
@@ -74,6 +81,111 @@ const HREFLANG_MAP: Record<string, string> = Object.fromEntries(
 
 // Strip HTML tags from FAQ answers for structured data
 const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
+
+// ─── Structured data ────────────────────────────────────────────────
+// One @graph instead of four disconnected blocks: search engines resolve
+// Organization, WebSite, SoftwareApplication, and the current WebPage as a
+// single connected entity when they reference each other by @id.
+const siteOrigin = new URL(siteUrl).origin;
+const ORG_ID = `${siteOrigin}/#organization`;
+const LOGO_ID = `${siteOrigin}/#logo`;
+const SITE_ID = `${siteOrigin}/#website`;
+const APP_ID = `${siteOrigin}/#eddi`;
+const pageId = `${canonicalURL}#webpage`;
+
+const jsonLdGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "LABS.AI",
+      url: siteOrigin,
+      logo: { "@id": LOGO_ID },
+      image: { "@id": LOGO_ID },
+      // Only profiles that are verifiably ours: adding unowned URLs here
+      // actively harms entity resolution.
+      sameAs: [
+        "https://github.com/labsai",
+        "https://github.com/labsai/EDDI",
+        "https://hub.docker.com/r/labsai/eddi",
+      ],
+    },
+    {
+      "@type": "ImageObject",
+      "@id": LOGO_ID,
+      url: `${siteOrigin}/eddi-icon.png`,
+      contentUrl: `${siteOrigin}/eddi-icon.png`,
+      width: 512,
+      height: 512,
+      caption: "EDDI",
+    },
+    {
+      "@type": "WebSite",
+      "@id": SITE_ID,
+      name: "EDDI",
+      url: siteOrigin,
+      description: `EDDI ${EDDI_VERSION}: The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
+      publisher: { "@id": ORG_ID },
+      inLanguage: HREFLANG_MAP[lang] || lang,
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": APP_ID,
+      name: "EDDI",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Cross-platform (JVM)",
+      description: `Self-hosted enterprise AI orchestration platform with a visual management UI, ${MCP_TOOLS} MCP tools, and built-in compliance.`,
+      url: siteOrigin,
+      downloadUrl: "https://github.com/labsai/EDDI",
+      softwareVersion: EDDI_LATEST_VERSION,
+      releaseNotes: `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`,
+      featureList: [
+        "Configuration-as-code AI agents defined in JSON",
+        `${MCP_TOOLS} MCP tools for AI-native control`,
+        "Multi-agent group discussions with 7 styles, voting, and humans as members",
+        "Human-in-the-loop approval gates for turns, tool calls, and group phases",
+        "Per-user workspaces with resource sharing",
+        "Connections with OAuth2 and per-user credentials",
+        "OpenAI-compatible API for Open WebUI and OpenAI clients",
+        "A2A protocol and OpenAPI 3.1",
+        `${LLM_PROVIDERS} LLM providers with model cascading`,
+        "RAG with 7 embedding providers and 6 vector stores",
+        "Immutable cryptographic audit trail",
+        "GDPR, EU AI Act, and HIPAA compliance tooling",
+      ],
+      license: "https://www.apache.org/licenses/LICENSE-2.0",
+      author: { "@id": ORG_ID },
+      publisher: { "@id": ORG_ID },
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    },
+    {
+      // A page with a visible FAQ is typed as both, so the Q&A pairs hang off
+      // the same node rather than a second, orphaned FAQPage.
+      "@type":
+        faqItems && faqItems.length > 0 ? ["WebPage", "FAQPage"] : "WebPage",
+      "@id": pageId,
+      url: canonicalURL.toString(),
+      name: `${title} | EDDI`,
+      description,
+      isPartOf: { "@id": SITE_ID },
+      about: { "@id": APP_ID },
+      inLanguage: HREFLANG_MAP[lang] || lang,
+      ...(faqItems && faqItems.length > 0
+        ? {
+            mainEntity: faqItems.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: stripHtml(item.answer),
+              },
+            })),
+          }
+        : {}),
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -90,21 +202,25 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
     <title>{title} | EDDI</title>
     <meta name="description" content={description} />
 
-    <!-- Hreflang alternates for all locales -->
+    <!-- Hreflang alternates (localized pages only) -->
     {
-      LOCALE_CODES.map((loc) => (
-        <link
-          rel="alternate"
-          hreflang={HREFLANG_MAP[loc] || loc}
-          href={new URL(localePath(loc, pagePath), siteUrl)}
-        />
-      ))
+      localized && (
+        <>
+          {LOCALE_CODES.map((loc) => (
+            <link
+              rel="alternate"
+              hreflang={HREFLANG_MAP[loc] || loc}
+              href={new URL(localePath(loc, pagePath), siteUrl)}
+            />
+          ))}
+          <link
+            rel="alternate"
+            hreflang="x-default"
+            href={new URL(pagePath, siteUrl)}
+          />
+        </>
+      )
     }
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href={new URL(pagePath, siteUrl)}
-    />
 
     <!-- OG / Twitter -->
     <meta property="og:type" content="website" />
@@ -118,9 +234,10 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
     <meta property="og:image:alt" content="EDDI: The Enterprise AI Orchestrator" />
     <meta property="og:locale" content={ogLocale} />
     {
-      LOCALE_CODES.filter((l) => l !== lang).map((l) => (
-        <meta property="og:locale:alternate" content={OG_LOCALE_MAP[l] || l} />
-      ))
+      localized &&
+        LOCALE_CODES.filter((l) => l !== lang).map((l) => (
+          <meta property="og:locale:alternate" content={OG_LOCALE_MAP[l] || l} />
+        ))
     }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | EDDI`} />
@@ -131,92 +248,12 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
     <link rel="alternate" type="text/markdown" href="/llms.txt" />
     <link rel="alternate" type="text/markdown" href="/llms-full.txt" />
 
-    <!-- JSON-LD: Organization -->
+    <!-- JSON-LD: single @graph (Organization + WebSite + SoftwareApplication + WebPage) -->
     <script
       is:inline
       type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "LABS.AI",
-        url: "https://eddi.technology",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://eddi.technology/eddi-icon.png",
-          width: 512,
-          height: 512,
-        },
-        sameAs: ["https://github.com/labsai/EDDI"],
-      })}
+      set:html={JSON.stringify(jsonLdGraph)}
     />
-
-    <!-- JSON-LD: WebSite -->
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "EDDI",
-        url: "https://eddi.technology",
-        description: `EDDI ${EDDI_VERSION}: The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
-      })}
-    />
-
-    <!-- JSON-LD: SoftwareApplication -->
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: "EDDI",
-        applicationCategory: "DeveloperApplication",
-        operatingSystem: "Cross-platform (JVM)",
-        description: `Self-hosted enterprise AI orchestration platform with a visual management UI, ${MCP_TOOLS} MCP tools, and built-in compliance.`,
-        url: "https://eddi.technology",
-        downloadUrl: "https://github.com/labsai/EDDI",
-        softwareVersion: EDDI_LATEST_VERSION,
-        releaseNotes: `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`,
-        featureList: [
-          "Configuration-as-code AI agents defined in JSON",
-          `${MCP_TOOLS} MCP tools for AI-native control`,
-          "Multi-agent group discussions with 7 styles, voting, and humans as members",
-          "Human-in-the-loop approval gates for turns, tool calls, and group phases",
-          "Per-user workspaces with resource sharing",
-          "Connections with OAuth2 and per-user credentials",
-          "OpenAI-compatible API for Open WebUI and OpenAI clients",
-          "A2A protocol and OpenAPI 3.1",
-          `${LLM_PROVIDERS} LLM providers with model cascading`,
-          "RAG with 7 embedding providers and 6 vector stores",
-          "Immutable cryptographic audit trail",
-          "GDPR, EU AI Act, and HIPAA compliance tooling",
-        ],
-        license: "https://www.apache.org/licenses/LICENSE-2.0",
-        author: { "@type": "Organization", name: "LABS.AI" },
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      })}
-    />
-
-    <!-- JSON-LD: FAQPage (only emitted on pages with a visible FAQ section) -->
-    {faqItems && faqItems.length > 0 && (
-      <script
-        is:inline
-        type="application/ld+json"
-        set:html={JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqItems.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: stripHtml(item.answer),
-            },
-          })),
-        })}
-      />
-    )}
 
     <!-- Theme init (no flash) -->
     <script is:inline>
@@ -246,7 +283,7 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Skip to content</a>
-    <Header lang={lang} />
+    <Header lang={lang} localized={localized} />
 
     {
       fullWidth ? (
@@ -302,7 +339,7 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
     </script>
 
     <CookieConsent lang={lang} t={tMeta} />
-    <LanguageSuggestion lang={lang} />
+    {localized && <LanguageSuggestion lang={lang} />}
 
     <!-- Email deobfuscation: assembles mailto links client-side to prevent scraping -->
     <script is:inline>
