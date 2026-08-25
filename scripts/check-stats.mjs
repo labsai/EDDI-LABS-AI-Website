@@ -43,6 +43,9 @@ const FORBIDDEN = [
 	{ pattern: /18-year-old/, reason: 'stale history claim, anchor to "since 2006, open source since 2018"' },
 	// Old LLM provider count. Current: 12
 	{ pattern: /20\+ LLM provider/, reason: 'stale LLM provider count, use 12 (LLM_PROVIDERS in src/i18n/stats.ts)' },
+	// Vector store count. Current: 6 (pgvector, Chroma, In-Memory, MongoDB Atlas,
+	// Elasticsearch, Qdrant). Added after guide and comparison copy shipped saying 5.
+	{ pattern: /(?<!\d)[0-5]( supported)? vector stores/, reason: 'wrong vector store count, use 6 (see pages.rag in src/i18n/locales/en.ts)' },
 ];
 
 /** Recursively collect files under dir whose names end with one of the given extensions. */

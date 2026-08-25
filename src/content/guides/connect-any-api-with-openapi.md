@@ -94,4 +94,4 @@ Overlapping descriptions. If two tools could plausibly answer the same request, 
 
 ## Next
 
-If the agent should answer from your documents as well as call your systems, the Qdrant guide covers retrieval. And before this reaches production, the Keycloak guide covers authentication, because an agent with write access to your systems is a very good reason not to run an open management API.
+If the agent should answer from your documents as well as call your systems, the Chroma guide covers retrieval. And before this reaches production, the Keycloak guide covers authentication, because an agent with write access to your systems is a very good reason not to run an open management API.

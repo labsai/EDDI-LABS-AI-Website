@@ -74,6 +74,12 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 </table>
 </div>
 
+{c.migrationGuide && (
+	<p class="migration-guide-link">
+		<a href={c.migrationGuide.href}>{c.migrationGuide.label} →</a>
+	</p>
+)}
+
 <h2>Frequently asked</h2>
 {c.faq.map((item) => (
 	<div class="faq-item">
@@ -144,6 +150,11 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 	}
 	.choose-eddi {
 		border-color: color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+	}
+
+	.migration-guide-link {
+		margin: -0.5rem 0 2rem;
+		font-weight: 600;
 	}
 
 	.faq-item {

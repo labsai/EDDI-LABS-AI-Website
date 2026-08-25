@@ -48,6 +48,8 @@ export interface Comparison {
 	migrationTitle: string;
 	migrationIntro: string;
 	migrationSteps: MigrationStep[];
+	/** Full migration playbook under /guides/, when one exists. */
+	migrationGuide?: { label: string; href: string };
 	faq: { question: string; answer: string }[];
 }
 
@@ -139,6 +141,10 @@ export const COMPARISONS: Comparison[] = [
 			{ from: 'AI Agent node', to: 'EDDI agent with persistent memory, intent routing, and model cascading' },
 			{ from: 'Wait or manual trigger', to: 'Human-in-the-loop approval gate with a timeout policy' },
 		],
+		migrationGuide: {
+			label: 'Full playbook: migrate an AI workflow from n8n to EDDI',
+			href: '/guides/migrate-from-n8n/',
+		},
 		faq: [
 			{
 				question: 'Is EDDI a drop-in replacement for n8n?',
@@ -199,7 +205,7 @@ export const COMPARISONS: Comparison[] = [
 			{
 				dimension: 'RAG',
 				them: 'Broad loader and vector store selection, configured per flow',
-				eddi: '7 embedding providers, 5 vector stores, plus zero-infrastructure httpCall RAG',
+				eddi: '7 embedding providers, 6 vector stores, plus zero-infrastructure httpCall RAG',
 			},
 			{
 				dimension: 'Custom logic',
@@ -248,12 +254,16 @@ export const COMPARISONS: Comparison[] = [
 		migrationSteps: [
 			{ from: 'Chatflow', to: 'EDDI package, exportable as a ZIP with secrets automatically scrubbed' },
 			{ from: 'Document loaders and splitters', to: 'EDDI RAG document ingestion configuration' },
-			{ from: 'Vector store node', to: 'One of 5 supported vector stores, selected by configuration' },
+			{ from: 'Vector store node', to: 'One of 6 supported vector stores, selected by configuration' },
 			{ from: 'Embedding node', to: 'One of 7 embedding providers' },
 			{ from: 'Chat model node', to: `LLM configuration across ${LLM_PROVIDERS} providers, with model cascading available` },
 			{ from: 'Custom Function node', to: 'Behavior rules, prompt snippets, or a declared MCP tool' },
 			{ from: 'Memory node', to: 'EDDI persistent memory with commit-flag memory policy' },
 		],
+		migrationGuide: {
+			label: 'Full playbook: migrate a chatflow from Flowise to EDDI',
+			href: '/guides/migrate-from-flowise/',
+		},
 		faq: [
 			{
 				question: 'Should we prototype in Flowise and then move to EDDI?',
@@ -429,7 +439,7 @@ export const COMPARISONS: Comparison[] = [
 			{ from: 'Chain or LangGraph graph', to: 'EDDI pipeline configuration' },
 			{ from: 'Tools and function calling', to: 'MCP tool definitions or httpCall declarations' },
 			{ from: 'Memory classes', to: 'Persistent user memory, rolling summaries, and dream consolidation' },
-			{ from: 'Retriever and vector store setup', to: 'RAG configuration across 7 embedding providers and 5 vector stores' },
+			{ from: 'Retriever and vector store setup', to: 'RAG configuration across 7 embedding providers and 6 vector stores' },
 			{ from: 'Prompt templates', to: 'Versioned prompt snippets, referenced by name' },
 			{ from: 'FastAPI wrapper', to: 'Built-in REST API, OpenAPI 3.1, and SSE streaming' },
 			{ from: 'LangSmith tracing', to: 'Prometheus metrics, Grafana dashboards, and the immutable audit ledger' },

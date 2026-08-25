@@ -147,4 +147,4 @@ The default configuration has no authentication, which is correct for a laptop a
 
 If the destination is a cluster rather than a single host, the Kubernetes guide covers the same deployment with Helm, Kustomize overlays, and production hardening.
 
-And if you want the agent to answer from your own documents rather than from model knowledge alone, the Qdrant guide covers retrieval.
+And if you want the agent to answer from your own documents rather than from model knowledge alone, the Chroma guide covers retrieval.
