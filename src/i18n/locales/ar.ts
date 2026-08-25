@@ -10,6 +10,7 @@ const ar: TranslationSchema = {
 	nav: {
 		features: 'الميزات',
 		docs: 'التوثيق',
+		guides: 'أدلة',
 		solutions: 'المؤسسات',
 		managedCloud: 'السحابة المُدارة',
 		getStarted: 'ابدأ الآن',

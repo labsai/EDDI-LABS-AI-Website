@@ -1,0 +1,66 @@
+---
+/**
+ * Guide pages: /guides/{slug}/
+ *
+ * English only, so GuidePage passes `localized={false}` to BaseLayout.
+ * Drafts are excluded from routes and therefore from the sitemap.
+ */
+import { getCollection, render } from 'astro:content';
+import GuidePage from '../../layouts/GuidePage.astro';
+
+export async function getStaticPaths() {
+	const guides = await getCollection('guides', ({ data }) => !data.draft);
+	return guides.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const d = entry.data;
+---
+
+<GuidePage
+	title={d.title}
+	description={d.description}
+	persona={d.persona}
+	level={d.level}
+	timeMinutes={d.timeMinutes}
+	publishDate={d.publishDate}
+	updatedDate={d.updatedDate}
+	docsLinks={d.docsLinks}
+	faq={d.faq}
+	tags={d.tags}
+	headings={headings}
+>
+	<Content />
+
+	<div slot="footer" class="guide-cta">
+		<h2 id="all-guides">More guides</h2>
+		<p>
+			Every guide takes one task from nothing to working, then hands off to the
+			reference documentation.
+		</p>
+		<a href="/guides/" class="btn-cta-primary">Browse all guides</a>
+	</div>
+</GuidePage>
+
+<style>
+	.guide-cta {
+		margin-top: 3.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+	}
+	.guide-cta h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.75rem;
+	}
+	.guide-cta p {
+		color: var(--color-text-muted);
+		margin: 0 0 1.5rem;
+		max-width: 40rem;
+	}
+</style>

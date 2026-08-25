@@ -77,9 +77,13 @@ const localeFiles = collect(join(ROOT, 'src', 'i18n', 'locales'), ['.ts']);
 // It carries the same marketing claims, so it gets the same stale-stat and
 // em-dash guards as the locale files.
 const dataFiles = collect(join(ROOT, 'src', 'data'), ['.ts']);
+// Guide markdown in src/content: user-facing prose carrying the same claims,
+// so it gets the same stale-stat and em-dash guards.
+const contentFiles = collect(join(ROOT, 'src', 'content'), ['.md']);
 const targets = [
 	...localeFiles,
 	...dataFiles,
+	...contentFiles,
 	...collect(join(ROOT, 'src', 'components'), ['.astro']),
 	...collect(join(ROOT, 'src', 'layouts'), ['.astro']),
 	...collect(join(ROOT, 'src', 'pages'), ['.astro']),
@@ -117,7 +121,7 @@ for (const file of localeFiles) {
 // header comment line is allowed.
 const EM_DASH = String.fromCharCode(0x2014);
 const EM_DASH_ESC = String.fromCharCode(92) + 'u2014';
-for (const file of [...localeFiles, ...dataFiles]) {
+for (const file of [...localeFiles, ...dataFiles, ...contentFiles]) {
 	const lines = readFileSync(file, 'utf8').split(/\r?\n/);
 	lines.forEach((line, index) => {
 		const trimmed = line.trimStart();

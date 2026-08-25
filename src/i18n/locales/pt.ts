@@ -10,6 +10,7 @@ const pt: TranslationSchema = {
 	nav: {
 		features: 'Funcionalidades',
 		docs: 'Documentação',
+		guides: 'Guias',
 		solutions: 'Enterprise',
 		managedCloud: 'Cloud Gerenciada',
 		getStarted: 'Começar',

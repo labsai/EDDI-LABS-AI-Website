@@ -9,6 +9,7 @@ const zh: TranslationSchema = {
 	nav: {
 		features: '功能特性',
 		docs: '文档',
+		guides: '指南',
 		solutions: '企业版',
 		managedCloud: '托管云',
 		getStarted: '立即开始',

@@ -9,6 +9,7 @@ const ko: TranslationSchema = {
 	nav: {
 		features: '기능',
 		docs: '문서',
+		guides: '가이드',
 		solutions: '엔터프라이즈',
 		managedCloud: '매니지드 클라우드',
 		getStarted: '시작하기',

@@ -17,6 +17,7 @@ const en = {
 	nav: {
 		features: 'Features',
 		docs: 'Docs',
+		guides: 'Guides',
 		solutions: 'Enterprise',
 		managedCloud: 'Managed Cloud',
 		getStarted: 'Get Started',

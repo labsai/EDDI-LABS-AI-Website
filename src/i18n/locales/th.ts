@@ -10,6 +10,7 @@ const th: TranslationSchema = {
 	nav: {
 		features: 'คุณสมบัติ',
 		docs: 'เอกสาร',
+		guides: 'คู่มือ',
 		solutions: 'สำหรับองค์กร',
 		managedCloud: 'แมนเนจด์คลาวด์',
 		getStarted: 'เริ่มต้น',

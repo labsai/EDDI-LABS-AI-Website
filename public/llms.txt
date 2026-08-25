@@ -33,6 +33,17 @@
 - [Why EDDI](https://eddi.technology/enterprise/why-eddi/): Comparison table (6 dimensions), 12 LLM providers, Quarkus SDK
 - [vs. Alternatives](https://eddi.technology/enterprise/vs-alternatives/): Landscape by archetype, visual node builders (Flowise, n8n), code libraries (LangGraph, CrewAI, AutoGen, Spring AI, LangChain4j), and cloud platforms (AWS Bedrock, Azure AI Studio, Vertex AI)
 
+## Guides
+
+Task-oriented walkthroughs: one job from nothing to working, then a handoff to the reference documentation. English only.
+
+- [Guides index](https://eddi.technology/guides/): All guides, grouped by audience
+- [Self-host EDDI with Docker Compose](https://eddi.technology/guides/self-host-eddi-with-docker-compose/): Install script and manual Compose paths, database choice, vault setup, first agent
+- [Secure EDDI with Keycloak and OIDC](https://eddi.technology/guides/secure-eddi-with-keycloak-oidc/): OIDC client setup, the admin/editor/viewer roles, service accounts for machine clients
+- [Deploy EDDI on Kubernetes](https://eddi.technology/guides/deploy-eddi-on-kubernetes/): Helm vs. Kustomize vs. the Operator, HPA/PDB/NetworkPolicy hardening, state and egress decisions
+- [Build a RAG agent with Qdrant](https://eddi.technology/guides/build-a-rag-agent-with-qdrant/): Vector store vs. httpCall RAG, embedding residency, chunking as the main quality lever
+- [Give an agent tools with OpenAPI and httpCall](https://eddi.technology/guides/connect-any-api-with-openapi/): httpCall vs. MCP tools, tool descriptions as prompts, human approval gating
+
 ## Head-to-Head Comparisons
 
 Direct comparisons, each stating where the alternative is the better choice and how to migrate an existing project. English only.

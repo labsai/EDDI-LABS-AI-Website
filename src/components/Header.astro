@@ -189,6 +189,8 @@ const t = await getTranslations(lang);
 				</div>
 			</div>
 
+			<!-- Guides are English-only, so this path is deliberately not locale-prefixed -->
+			<a href="/guides/" class="eddi-nav-link">{t.nav.guides}</a>
 			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">{t.nav.docs} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-start:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 		</nav>
 
@@ -254,6 +256,7 @@ const t = await getTranslations(lang);
 		)}
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.resources}</h3>
+			<a href="/guides/"><span class="eddi-mobile-icon">🧭</span> {t.nav.guides}</a>
 			<a href="https://docs.labs.ai" target="_blank" rel="noopener"><span class="eddi-mobile-icon">📖</span> {t.nav.documentation}</a>
 			<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener"><span class="eddi-mobile-icon">🐙</span> {t.nav.github}</a>
 		</div>

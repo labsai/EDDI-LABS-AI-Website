@@ -10,6 +10,7 @@ const hi: TranslationSchema = {
 	nav: {
 		features: 'सुविधाएँ',
 		docs: 'डॉक्यूमेंटेशन',
+		guides: 'गाइड',
 		solutions: 'एंटरप्राइज़',
 		managedCloud: 'प्रबंधित क्लाउड',
 		getStarted: 'शुरू करें',

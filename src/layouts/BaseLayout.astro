@@ -36,6 +36,16 @@ interface Props {
    * locale homepages so it cannot link into a 404.
    */
   localized?: boolean;
+  /**
+   * Set on editorial pages (guides). Appends a TechArticle node to the JSON-LD
+   * graph and emits the article Open Graph tags.
+   */
+  article?: {
+    datePublished: Date;
+    dateModified?: Date;
+    section?: string;
+    keywords?: string[];
+  };
 }
 
 const {
@@ -45,6 +55,7 @@ const {
   lang: langProp,
   faqItems,
   localized = true,
+  article,
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
@@ -184,6 +195,31 @@ const jsonLdGraph = {
           }
         : {}),
     },
+    ...(article
+      ? [
+          {
+            "@type": "TechArticle",
+            "@id": `${pageId}-article`,
+            headline: title,
+            description,
+            mainEntityOfPage: { "@id": pageId },
+            isPartOf: { "@id": SITE_ID },
+            about: { "@id": APP_ID },
+            author: { "@id": ORG_ID },
+            publisher: { "@id": ORG_ID },
+            image: { "@id": LOGO_ID },
+            inLanguage: HREFLANG_MAP[lang] || lang,
+            datePublished: article.datePublished.toISOString(),
+            dateModified: (
+              article.dateModified ?? article.datePublished
+            ).toISOString(),
+            ...(article.section ? { articleSection: article.section } : {}),
+            ...(article.keywords?.length
+              ? { keywords: article.keywords.join(", ") }
+              : {}),
+          },
+        ]
+      : []),
   ],
 };
 ---
@@ -223,7 +259,29 @@ const jsonLdGraph = {
     }
 
     <!-- OG / Twitter -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    {
+      article && (
+        <>
+          <meta
+            property="article:published_time"
+            content={article.datePublished.toISOString()}
+          />
+          <meta
+            property="article:modified_time"
+            content={(
+              article.dateModified ?? article.datePublished
+            ).toISOString()}
+          />
+          {article.section && (
+            <meta property="article:section" content={article.section} />
+          )}
+          {article.keywords?.map((keyword) => (
+            <meta property="article:tag" content={keyword} />
+          ))}
+        </>
+      )
+    }
     <meta property="og:site_name" content="EDDI" />
     <meta property="og:title" content={`${title} | EDDI`} />
     <meta property="og:description" content={description} />

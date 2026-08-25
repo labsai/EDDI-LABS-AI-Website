@@ -9,6 +9,7 @@ const ja: TranslationSchema = {
 	nav: {
 		features: '機能',
 		docs: 'ドキュメント',
+		guides: 'ガイド',
 		solutions: 'エンタープライズ',
 		managedCloud: 'マネージドクラウド',
 		getStarted: '始める',
