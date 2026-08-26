@@ -11,6 +11,7 @@ const ar: TranslationSchema = {
 		features: 'الميزات',
 		docs: 'التوثيق',
 		guides: 'أدلة',
+		benchmarks: 'المقاييس',
 		solutions: 'المؤسسات',
 		managedCloud: 'السحابة المُدارة',
 		getStarted: 'ابدأ الآن',

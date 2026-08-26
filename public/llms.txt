@@ -46,6 +46,10 @@ Task-oriented walkthroughs: one job from nothing to working, then a handoff to t
 - [Migrate an AI workflow from n8n to EDDI](https://eddi.technology/guides/migrate-from-n8n/): Whether to migrate at all, node-by-node mapping, what Code nodes become, running both in parallel
 - [Migrate a chatflow from Flowise to EDDI](https://eddi.technology/guides/migrate-from-flowise/): What carries over, whether the existing index is reusable, what Custom Function nodes become
 
+## Benchmarks & Evidence
+
+- [Benchmarks & Evidence](https://eddi.technology/benchmarks/): Independent published research behind the model cascading, JVM virtual thread, and retrieval quality claims, with DOI citations. Published cascade savings span roughly 30% to 98% depending on workload heterogeneity, escalation-signal calibration, and the price gap between model tiers, so EDDI's "up to 60 to 80%" is an upper-range figure and not a typical result. Includes negative results (virtual threads underperforming Quarkus-reactive in constrained containers; virtual threads slower on CPU-bound work) and the first-party measurement harness, which has NOT been run yet. EDDI publishes no first-party benchmark numbers at this time.
+
 ## Head-to-Head Comparisons
 
 Direct comparisons, each stating where the alternative is the better choice and how to migrate an existing project. English only.

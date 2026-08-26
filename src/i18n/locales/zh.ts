@@ -10,6 +10,7 @@ const zh: TranslationSchema = {
 		features: '功能特性',
 		docs: '文档',
 		guides: '指南',
+		benchmarks: '性能基准',
 		solutions: '企业版',
 		managedCloud: '托管云',
 		getStarted: '立即开始',

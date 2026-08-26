@@ -11,6 +11,7 @@ const fr: TranslationSchema = {
 		features: 'Fonctionnalités',
 		docs: 'Docs',
 		guides: 'Guides',
+		benchmarks: 'Benchmarks',
 		solutions: 'Entreprise',
 		managedCloud: 'Cloud Géré',
 		getStarted: 'Démarrer',

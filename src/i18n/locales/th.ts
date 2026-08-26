@@ -11,6 +11,7 @@ const th: TranslationSchema = {
 		features: 'คุณสมบัติ',
 		docs: 'เอกสาร',
 		guides: 'คู่มือ',
+		benchmarks: 'เกณฑ์วัดประสิทธิภาพ',
 		solutions: 'สำหรับองค์กร',
 		managedCloud: 'แมนเนจด์คลาวด์',
 		getStarted: 'เริ่มต้น',

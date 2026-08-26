@@ -18,6 +18,7 @@ const en = {
 		features: 'Features',
 		docs: 'Docs',
 		guides: 'Guides',
+		benchmarks: 'Benchmarks',
 		solutions: 'Enterprise',
 		managedCloud: 'Managed Cloud',
 		getStarted: 'Get Started',

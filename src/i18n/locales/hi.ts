@@ -11,6 +11,7 @@ const hi: TranslationSchema = {
 		features: 'सुविधाएँ',
 		docs: 'डॉक्यूमेंटेशन',
 		guides: 'गाइड',
+		benchmarks: 'बेंचमार्क',
 		solutions: 'एंटरप्राइज़',
 		managedCloud: 'प्रबंधित क्लाउड',
 		getStarted: 'शुरू करें',
