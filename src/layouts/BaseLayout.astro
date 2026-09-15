@@ -8,8 +8,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import LanguageSuggestion from "../components/LanguageSuggestion.astro";
-import { EDDI_VERSION } from "../i18n/version";
-import { MCP_TOOLS } from "../i18n/stats";
+import { EDDI_VERSION, EDDI_LATEST_VERSION } from "../i18n/version";
+import { MCP_TOOLS, LLM_PROVIDERS } from "../i18n/stats";
 import "../styles/global.css";
 import {
   LOCALE_CODES,
@@ -176,7 +176,22 @@ const stripHtml = (html: string) => html.replace(/<[^>]*>/g, "");
         description: `Self-hosted enterprise AI orchestration platform with a visual management UI, ${MCP_TOOLS} MCP tools, and built-in compliance.`,
         url: "https://eddi.technology",
         downloadUrl: "https://github.com/labsai/EDDI",
-        softwareVersion: EDDI_VERSION.replace("v", ""),
+        softwareVersion: EDDI_LATEST_VERSION,
+        releaseNotes: `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`,
+        featureList: [
+          "Configuration-as-code AI agents defined in JSON",
+          `${MCP_TOOLS} MCP tools for AI-native control`,
+          "Multi-agent group discussions with 7 styles, voting, and humans as members",
+          "Human-in-the-loop approval gates for turns, tool calls, and group phases",
+          "Per-user workspaces with resource sharing",
+          "Connections with OAuth2 and per-user credentials",
+          "OpenAI-compatible API for Open WebUI and OpenAI clients",
+          "A2A protocol and OpenAPI 3.1",
+          `${LLM_PROVIDERS} LLM providers with model cascading`,
+          "RAG with 7 embedding providers and 6 vector stores",
+          "Immutable cryptographic audit trail",
+          "GDPR, EU AI Act, and HIPAA compliance tooling",
+        ],
         license: "https://www.apache.org/licenses/LICENSE-2.0",
         author: { "@type": "Organization", name: "LABS.AI" },
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

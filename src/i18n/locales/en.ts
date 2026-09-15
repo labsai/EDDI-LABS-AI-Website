@@ -258,6 +258,10 @@ const en = {
 		faq6A: 'No. EDDI (by <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
 		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
 		faq7A: `Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs, on-premises, any cloud, or in air-gapped environments. It supports ${LLM_PROVIDERS} LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.`,
+		faq8Q: 'Does EDDI work with Open WebUI and other OpenAI-compatible clients?',
+		faq8A: 'Yes. EDDI includes an OpenAI-compatible <code>/v1</code> API that presents deployed agents as models, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly. It supports streaming and token usage reporting, keeps each chat in its own conversation, and the agent\'s approval gates still apply. The API is disabled by default and has its own API-key authentication.',
+		faq9Q: 'Can multiple users and teams share one EDDI deployment?',
+		faq9A: 'Yes. Per-user workspaces give every agent and configuration an owner, a personal or team space mapped to Keycloak groups, and explicit sharing at use, view, edit, or own level. Connections let agents call external systems with an organization-wide key, a service account, or each user\'s own OAuth account, so an agent can be held to what the person using it may do. Workspaces are opt-in, and existing resources are backfilled so nothing disappears when you turn them on.',
 		// Demo System
 		demoBtn: 'Demo System',
 		demoModalTitle: 'Demo System',

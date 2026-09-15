@@ -226,18 +226,11 @@ const { lang, t, faqItems } = Astro.props;
 	<div class="text-center mb-12">
 		<h2 class="text-3xl font-bold text-white! border-0! text-center">{t.home.faqTitle}</h2>
 	</div>
-	{[
-		{ q: t.home.faq1Q, a: t.home.faq1A },
-		{ q: t.home.faq2Q, a: t.home.faq2A },
-		{ q: t.home.faq3Q, a: t.home.faq3A },
-		{ q: t.home.faq4Q, a: t.home.faq4A },
-		{ q: t.home.faq5Q, a: t.home.faq5A },
-		{ q: t.home.faq6Q, a: t.home.faq6A },
-		{ q: t.home.faq7Q, a: t.home.faq7A },
-	].map((faq) => (
+	{/* Same list the page passes for FAQPage structured data, so visible FAQ and schema cannot drift. */}
+	{(faqItems ?? []).map((faq) => (
 		<details>
-			<summary><strong>{faq.q}</strong></summary>
-			<p set:html={faq.a} />
+			<summary><strong>{faq.question}</strong></summary>
+			<p set:html={faq.answer} />
 		</details>
 	))}
 </section>
