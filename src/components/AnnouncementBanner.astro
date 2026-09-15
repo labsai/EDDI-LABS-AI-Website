@@ -4,17 +4,21 @@
  * Displays across the top of the header.
  * i18n-aware: all text from translations.
  */
-import { getLocaleFromUrl, getTranslations, localePath } from '../i18n';
+import { getLocaleFromUrl, getTranslations } from '../i18n';
+import { EDDI_LATEST_VERSION } from '../i18n/version';
 
 const lang = getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
+const releaseUrl = `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`;
+// Keyed per release, so a visitor who dismissed an earlier announcement still sees the next one.
+const dismissKey = `eddi-banner-dismissed-${EDDI_LATEST_VERSION}`;
 ---
-<div id="eddi-announcement-banner" class="announcement-banner">
+<div id="eddi-announcement-banner" class="announcement-banner" data-dismiss-key={dismissKey}>
 	<div class="announcement-content">
 		<span class="announcement-badge">{t.common.bannerBadge}</span>
 		<p class="announcement-text">
 			{t.common.bannerText}
-			<a href={localePath(lang, '/enterprise/unido-trusted-partner/')} class="announcement-link">
+			<a href={releaseUrl} target="_blank" rel="noopener noreferrer" class="announcement-link">
 				{t.common.bannerLink} <span class="announcement-arrow" aria-hidden="true">&rarr;</span>
 			</a>
 		</p>
@@ -143,9 +147,9 @@ const t = await getTranslations(lang);
 
 <script is:inline>
 	(function() {
-		if (localStorage.getItem('eddi-banner-dismissed-unido') === 'true') {
-			var banner = document.getElementById('eddi-announcement-banner');
-			if (banner) banner.style.display = 'none';
+		var banner = document.getElementById('eddi-announcement-banner');
+		if (banner && localStorage.getItem(banner.dataset.dismissKey) === 'true') {
+			banner.style.display = 'none';
 		}
 	})();
 </script>
@@ -154,9 +158,10 @@ const t = await getTranslations(lang);
 	document.addEventListener('astro:page-load', () => {
 		const banner = document.getElementById('eddi-announcement-banner');
 		const dismissBtn = document.getElementById('eddi-dismiss-banner');
+		const dismissKey = banner?.dataset.dismissKey ?? 'eddi-banner-dismissed';
 
 		// Re-check dismissed state on SPA navigation (ClientRouter)
-		if (banner && localStorage.getItem('eddi-banner-dismissed-unido') === 'true') {
+		if (banner && localStorage.getItem(dismissKey) === 'true') {
 			banner.style.display = 'none';
 			window.dispatchEvent(new Event('resize'));
 			return;
@@ -165,7 +170,7 @@ const t = await getTranslations(lang);
 		if (banner && dismissBtn) {
 			dismissBtn.addEventListener('click', () => {
 				banner.style.display = 'none';
-				localStorage.setItem('eddi-banner-dismissed-unido', 'true');
+				localStorage.setItem(dismissKey, 'true');
 				// Dispatch event so BaseLayout can recalculate height
 				window.dispatchEvent(new Event('resize'));
 			});

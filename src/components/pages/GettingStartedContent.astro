@@ -59,7 +59,11 @@ Unblock-File .\\install.ps1
 			</div>
 			<div class="gs-tab-panel" role="tabpanel" id="panel-compose" aria-labelledby="tab-compose">
 				<p set:html={t.gettingStarted.step1ComposeDesc} />
-				<pre><code>docker compose up</code></pre>
+				<pre><code>{`git clone https://github.com/labsai/EDDI.git
+cd EDDI
+docker compose up`}</code></pre>
+				<p set:html={t.gettingStarted.step1ComposeOllama} />
+				<pre><code>docker compose -f docker-compose.yml -f docker-compose.ollama.yml up -d</code></pre>
 			</div>
 		</div>
 
@@ -148,6 +152,7 @@ Unblock-File .\\install.ps1
 			</div>
 		</div>
 		<p>{t.gettingStarted.step4After}</p>
+		<p class="gs-tip" set:html={t.gettingStarted.step4Operator} />
 	</section>
 	<section class="gs-section">
 		<h2>{t.gettingStarted.step5Title}</h2>

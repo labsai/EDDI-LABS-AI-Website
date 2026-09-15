@@ -36,16 +36,18 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 |---|---|---|
 | 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually, with 11-language i18n |
 | ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration: change prompts, tools, and pipelines without redeployment |
-| 🔌 | **77 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
-| 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, agent triggers, group discussions, and A/B routing |
+| 🔌 | **84 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
+| 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, and group collaboration: 7 discussion styles, voting, shared artifacts, standing teams, and humans as members |
+| 👥 | **Multi-User** | Per-user workspaces with sharing, and Connections that let agents act with each user's own credentials |
+| 🔗 | **OpenAI-Compatible API** | Deployed agents appear as models to Open WebUI, the `openai` SDK, LangChain, and LiteLLM |
 | 🧠 | **Memory & Context** | Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing |
-| 📚 | **RAG** | 7 embedding providers, 5 vector stores, and zero-infrastructure httpCall RAG |
+| 📚 | **RAG** | 7 embedding providers, 6 vector stores, and zero-infrastructure httpCall RAG |
 | 📈 | **Model Cascading** | Cost-optimized multi-model routing: reduce LLM costs by up to 60-80% in typical multi-model workloads |
 | ⏰ | **Scheduling** | Cron triggers, heartbeat wake-ups, and dream cycles for proactive agent behavior |
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
 | 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and Grafana dashboards |
 | 🚀 | **Performance** | Java 25 Virtual Threads, millions of lightweight threads for I/O-bound LLM workloads |
-| 🧪 | **Code Quality** | 11,000+ tests with zero failures, CI/CD quality gates on every merge |
+| 🧪 | **Code Quality** | 20,000+ tests with zero failures, CI/CD quality gates on every merge |
 
 ---
 
@@ -64,11 +66,11 @@ EDDI is designed for **regulated industries** and enterprise teams that need:
 ## ⚡ Get Started in 5 Minutes
 
 ```bash
-# Start EDDI with Docker
-docker run -p 7070:7070 labsai/eddi
+# Linux / macOS / WSL2: installs EDDI + a database via Docker Compose
+curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash
 ```
 
-Then open **http://localhost:7070** to access the EDDI Manager UI.
+Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh install starts with no agents: create the first one with the Platform Operator at `/manage/operator` or the agent wizard at `/manage/agents/wizard`.
 
 👉 **[Full getting-started guide →](https://eddi.technology/getting-started/)**
 

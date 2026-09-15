@@ -8,10 +8,10 @@
  * Usage in locale files:  import { TESTS, MCP_TOOLS } from '../stats';
  * Usage in components:    import { TESTS, MCP_TOOLS } from '../i18n/stats';
  */
-export const TESTS = '11,000+';
-export const MCP_TOOLS = 77;
+export const TESTS = '20,000+';
+export const MCP_TOOLS = 84;
 export const FRAMEWORKS = '15+';
 export const LLM_PROVIDERS = 12;
-export const DOCKER_PULLS = '395K+';
+export const DOCKER_PULLS = '399K+';
 export const FOUNDED = 2006;
 export const OSS_SINCE = 2018;

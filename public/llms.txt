@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 77 MCP tools, 12 built-in agent tools, multi-agent orchestration, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 12 LLM providers. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 84 MCP tools, 12 built-in agent tools, multi-agent group collaboration, human-in-the-loop approval gates, per-user workspaces, an OpenAI-compatible API, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 12 LLM providers. Latest release: 6.4.0. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -12,15 +12,15 @@
 - [Features Overview](https://eddi.technology/features/overview/): Complete platform capabilities summary
 - [EDDI Manager UI](https://eddi.technology/features/manager/): Visual agent lifecycle management with 11-locale i18n
 - [Configuration-as-Code](https://eddi.technology/features/config-as-code/): JSON-based agent configuration without recompilation
-- [MCP Server](https://eddi.technology/features/mcp-server/): 77 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE
-- [Multi-Agent Orchestration](https://eddi.technology/features/multi-agent/): Coordinator-based agent collaboration, 6 group discussion styles
+- [MCP Server](https://eddi.technology/features/mcp-server/): 84 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE + OpenAI-compatible /v1 API
+- [Multi-Agent Orchestration](https://eddi.technology/features/multi-agent/): 7 group discussion styles, voting, shared artifacts, standing teams, humans as group members, preset templates, Platform Operator
 - [Memory & Context](https://eddi.technology/features/memory/): Persistent memory, dream consolidation, memory policy (commit flags)
 - 12 Built-In Agent Tools: Web search, calculator, scraper, PDF reader, weather, HTTP calls, user memory, and more
 - Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
 - [Performance](https://eddi.technology/features/performance/): Java 25 virtual threads and JVM-native throughput
-- [Security](https://eddi.technology/features/security/): Zero eval(), cryptographic audit trails, RBAC
+- [Security](https://eddi.technology/features/security/): Zero eval(), cryptographic audit trails, RBAC, per-user workspaces and sharing, Connections (OAuth2 and per-user credentials), tool-result guardrails
 - [Human-in-the-Loop Governance](https://eddi.technology/features/human-in-the-loop/): Turn-level pause, per-tool-call approval gating, group phase sign-off, timeout policies, Slack and MCP approvals
-- [Observability](https://eddi.technology/features/observability/): Prometheus metrics + Grafana Operations Command Center dashboard
+- [Observability](https://eddi.technology/features/observability/): Prometheus metrics, Grafana operations dashboard and Full Metrics Reference dashboard, OpenTelemetry tracing
 - [Code Quality](https://eddi.technology/features/code-quality/): Testing strategy and engineering standards
 - [AI-Ready Design](https://eddi.technology/features/ai-ready/): Built for AI agents to interact with programmatically
 
@@ -38,12 +38,12 @@
 
 - [Integrations](https://docs.labs.ai/agent-configuration/langchain.md): 12 LLM providers (OpenAI, Anthropic, Google, Mistral, Azure, Bedrock, Oracle, Vertex AI, Ollama, Jlama, Hugging Face, any OpenAI-compatible)
 - [Docker Deployment](https://docs.labs.ai/deployment-and-infrastructure/docker.md): Container-based deployment with Docker Compose
-- [Kubernetes](https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md): Helm charts and Kustomize manifests
+- [Kubernetes](https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md): Helm chart 2.0.0 and Kustomize manifests; production image on Red Hat UBI 10 (x86-64-v3 CPU required), also in the Red Hat certified catalog
 - [Quarkus SDK](https://github.com/quarkiverse/quarkus-eddi): Dev Services, fluent API, SSE streaming, MCP bridge
 
 ## API & MCP
 
-- [MCP Tools Reference](https://docs.labs.ai/protocols-and-integration/mcp-server.md): Complete list of 77 MCP tools
+- [MCP Tools Reference](https://docs.labs.ai/protocols-and-integration/mcp-server.md): Complete list of 84 MCP tools
 
 ## Use Cases
 
