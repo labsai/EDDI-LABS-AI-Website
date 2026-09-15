@@ -5,7 +5,7 @@ const es: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION}: plataforma empresarial de orquestación de agentes de IA. Sistema multi-agente autoalojado y basado en configuración, con interfaz de gestión visual, 77 herramientas MCP, arquitectura centrada en la seguridad y cumplimiento normativo integrado para el RGPD, el Reglamento de IA de la UE, HIPAA y más de 15 marcos regulatorios.`,
+			`EDDI ${EDDI_VERSION}: plataforma empresarial de orquestación de agentes de IA. Sistema multi-agente autoalojado y basado en configuración, con interfaz de gestión visual, 84 herramientas MCP, arquitectura centrada en la seguridad y cumplimiento normativo integrado para el RGPD, el Reglamento de IA de la UE, HIPAA y más de 15 marcos regulatorios.`,
 	},
 	nav: {
 		features: 'Características',
@@ -16,7 +16,7 @@ const es: TranslationSchema = {
 		eddiManager: 'EDDI Manager',
 		eddiManagerDesc: 'Interfaz visual para la gestión de agentes',
 		mcpServer: 'Servidor MCP',
-		mcpServerDesc: '77 herramientas para control nativo de IA',
+		mcpServerDesc: '84 herramientas para control nativo de IA',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'Configuración JSON, sin boilerplate',
 		securityFirst: 'Diseñado para la seguridad',
@@ -24,11 +24,11 @@ const es: TranslationSchema = {
 		performance: 'Rendimiento',
 		performanceDesc: 'Millones de hilos concurrentes',
 		multiAgent: 'Agentes múltiples',
-		multiAgentDesc: 'Enrutamiento y descubrimiento por intenciones',
+		multiAgentDesc: 'Colaboración en grupo y enrutamiento por intenciones',
 		observability: 'Observabilidad',
 		observabilityDesc: 'Registros de pipeline y auditoría',
 		codeQuality: 'Calidad de código',
-		codeQualityDesc: 'Más de 11.000 pruebas, cero fallos, >90% de cobertura',
+		codeQualityDesc: 'Más de 20.000 pruebas, cero fallos, >90% de cobertura',
 		aiReady: 'Listo para IA',
 		aiReadyDesc: 'Creado para agentes de codificación',
 
@@ -54,7 +54,7 @@ const es: TranslationSchema = {
 		useCases: 'Casos de uso',
 		useCasesDesc: 'Patrones de despliegue para industrias reguladas',
 		allFeatures: 'Todas las características',
-		mcpServerMobile: 'Servidor MCP (77 herr.)',
+		mcpServerMobile: 'Servidor MCP (84 herr.)',
 		resources: 'Recursos',
 		documentation: 'Documentación ↗',
 		github: 'GitHub ↗',
@@ -64,9 +64,9 @@ const es: TranslationSchema = {
 	common: {
 		getStartedCta: 'Empezar →',
 		viewOnGithub: 'Ver en GitHub ↗',
-		bannerBadge: '🏆 Reconocimiento de UNIDO',
-		bannerText: 'LABS.AI seleccionado como Socio de Confianza de UNIDO para IA Industrial',
-		bannerLink: 'Leer más',
+		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
+		bannerText: 'Espacios de trabajo por usuario, Connections para un acceso saliente gobernado y una imagen UBI 10 certificada por Red Hat',
+		bannerLink: 'Notas de la versión',
 		notFoundTitle: 'Página no encontrada',
 		notFoundDesc: 'La ruta de orquestación de IA que buscas ha sido desconectada o reubicada.',
 		notFoundCta: 'Volver al sistema',
@@ -80,7 +80,7 @@ const es: TranslationSchema = {
 		subtitle: 'Basado en configuración. Autoalojado. Listo para producción.',
 		redHatCertified: 'Contenedor certificado por Red Hat',
 		apache2: 'Licencia Apache 2.0',
-		tests: 'Más de 11.000 pruebas · Cero fallos',
+		tests: 'Más de 20.000 pruebas · Cero fallos',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Gold',
 		platform: 'Plataforma',
@@ -150,7 +150,7 @@ const es: TranslationSchema = {
 		sol1Title: 'Configuración como código',
 		sol1Desc:
 			'La lógica, pipelines y herramientas del agente son <strong>configuraciones JSON</strong>, no código compilado. Los ingenieros de prompts iteran instantáneamente usando la interfaz en React o la API REST, sin necesidad de redespliegue.',
-		sol2Title: '77 Herramientas MCP',
+		sol2Title: '84 Herramientas MCP',
 		sol2Desc:
 			'EDDI expone sus capacidades a través del <strong>Model Context Protocol</strong> (permitiendo que Claude Desktop y otros clientes interactúen). Los agentes también pueden <strong>consumir herramientas MCP externas</strong>.',
 		sol3Title: 'La seguridad es lo primero',
@@ -164,13 +164,13 @@ const es: TranslationSchema = {
 			'Construido sobre un runtime de nivel empresarial con <strong>millones de hilos ligeros</strong> para cargas de LLM dependientes de E/S. Sin bloqueos en el bucle de eventos, sin los cuellos de botella del nodo único.',
 		sol6Title: 'Orquestación de múltiples agentes',
 		sol6Desc:
-			'Descubrimiento de agentes basado en intención, conversaciones administradas, triggers (disparadores) y enrutamiento A/B. <strong>Una conversación por usuario e intención</strong>, automáticamente administrada y creada por el sistema.',
+			'Descubrimiento de agentes basado en intención, conversaciones administradas y <strong>colaboración en grupo</strong>: los agentes deliberan en siete estilos, votan, coeditan productos de trabajo compartidos y dan a las personas un lugar en la mesa.',
 		trustedTitle: 'Confiable y certificado',
 		trustRedHat: 'Contenedor certificado por Red Hat',
-		trustRedHatDesc: 'Imagen de Docker certificada por IBM',
+		trustRedHatDesc: 'Imagen certificada, publicada en el catálogo de Red Hat',
 		trustApache: 'Licencia Apache 2.0',
 		trustApacheDesc: '100% código abierto y listo para empresas',
-		trustTests: 'Más de 11.000 pruebas · 0 fallos',
+		trustTests: 'Más de 20.000 pruebas · 0 fallos',
 		trustTestsDesc: 'CI/CD riguroso y >90% de cobertura de código',
 		trustOpenSSF: 'OpenSSF Gold',
 		trustOpenSSFDesc: 'Nivel más alto de certificación de seguridad y calidad de la Linux Foundation',
@@ -213,16 +213,16 @@ const es: TranslationSchema = {
 		faqTitle: 'Preguntas frecuentes',
 		faq1Q: '¿Qué es EDDI?',
 		faq1A:
-			'EDDI es una plataforma de orquestación de IA empresarial de código abierto. Permite a los equipos crear, configurar y desplegar agentes de IA mediante configuración JSON, sin necesidad de código compilado. Incluye una <strong>interfaz de administración en React lista para producción</strong> (el EDDI Manager), APIs REST integradas, gestión de conversaciones, seguridad (OIDC/Keycloak), trazas de auditoría inmutables y 77 herramientas MCP, todo desplegable a través de Docker o Kubernetes.',
+			'EDDI es una plataforma de orquestación de IA empresarial de código abierto. Permite a los equipos crear, configurar y desplegar agentes de IA mediante configuración JSON, sin necesidad de código compilado. Incluye una <strong>interfaz de administración en React lista para producción</strong> (el EDDI Manager), APIs REST integradas, gestión de conversaciones, seguridad (OIDC/Keycloak), trazas de auditoría inmutables y 84 herramientas MCP, todo desplegable a través de Docker o Kubernetes.',
 		faq2Q: '¿Cuál es la diferencia entre EDDI y las bibliotecas y frameworks de IA?',
 		faq2A:
 			'Las bibliotecas de IA como LangChain, Spring AI y LangChain4j proporcionan bloques de construcción, pero usted aún debe construir los controladores REST, la autenticación, la gestión de conversaciones, el registro de auditoría y la interfaz de administración por su cuenta. EDDI es una <strong>plataforma middleware desplegable</strong>, no una biblioteca. Proporciona todo esto listo para usar, desplegable vía Docker.',
 		faq3Q: '¿Está EDDI listo para producción a escala empresarial?',
 		faq3A:
-			'Sí. EDDI está construido sobre un runtime empresarial con hilos virtuales ligeros para una concurrencia masiva en operaciones de E/S. Soporta MongoDB y PostgreSQL, incluye autenticación OIDC/Keycloak integrada, proporciona trazas de auditoría criptográficas inmutables para el cumplimiento normativo (incluido el Reglamento Europeo de IA) y escala horizontalmente mediante NATS JetStream.',
+			'Sí. EDDI está construido sobre un runtime empresarial con hilos virtuales ligeros para una concurrencia masiva en operaciones de E/S. Soporta MongoDB y PostgreSQL, incluye autenticación OIDC/Keycloak integrada y espacios de trabajo por usuario con compartición de recursos, proporciona trazas de auditoría criptográficas inmutables para el cumplimiento normativo (incluido el Reglamento Europeo de IA) y escala horizontalmente mediante NATS JetStream.',
 		faq4Q: '¿Qué es el Model Context Protocol (MCP)?',
 		faq4A:
-			'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA como Claude Desktop, los plugins de IDE y los clientes personalizados interactuar con herramientas externas de forma programática. EDDI expone 77 herramientas MCP que abarcan la gestión de conversaciones, la administración de agentes, la automatización de configuración, la planificación de tareas y el diagnóstico.',
+			'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA como Claude Desktop, los plugins de IDE y los clientes personalizados interactuar con herramientas externas de forma programática. EDDI expone 84 herramientas MCP que abarcan la gestión de conversaciones, la administración de agentes, las discusiones grupales, las aprobaciones humanas, la automatización de configuración, la planificación de tareas y el diagnóstico.',
 		faq5Q: '¿Puede EDDI sustituir a Flowise o n8n en entornos de producción?',
 		faq5A:
 			'EDDI cumple un propósito similar de construcción visual, pero con una arquitectura de nivel empresarial. A diferencia de Flowise y n8n, EDDI no utiliza <code>eval()</code> ni bloques de ejecución de código, ejecuta millones de hilos virtuales ligeros para concurrencia de nivel empresarial, soporta autenticación OIDC/Keycloak y almacena datos en MongoDB o PostgreSQL. Está diseñado para industrias reguladas.',
@@ -230,6 +230,10 @@ const es: TranslationSchema = {
 		faq6A: 'No. EDDI (de <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) es una plataforma <strong>de orquestación de agentes de IA empresarial</strong> autoalojada construida sobre Java/Quarkus. No está relacionado con herramientas de edición de video, software de RRHH, constructores de chatbots u otros productos con nombres similares.',
 		faq7Q: '¿Cómo se compara EDDI con plataformas de IA en la nube como AWS Bedrock o Azure AI Studio?',
 		faq7A: 'Las plataformas de IA en la nube ofrecen infraestructura gestionada, pero crean <strong>dependencia del proveedor</strong>. EDDI funciona en cualquier lugar donde funcione Docker: on-premises, en cualquier nube o en entornos aislados. Soporta 12 proveedores LLM y cualquier endpoint compatible con OpenAI, con plena portabilidad de modelos y soberanía de datos. Consulte nuestra <a href="/enterprise/vs-alternatives/">comparación detallada</a>.',
+		faq8Q: '¿Funciona EDDI con Open WebUI y otros clientes compatibles con OpenAI?',
+		faq8A: 'Sí. EDDI incluye una API <code>/v1</code> compatible con OpenAI que presenta los agentes desplegados como modelos, de modo que Open WebUI, el SDK <code>openai</code>, LangChain y LiteLLM pueden comunicarse con ellos directamente. Admite streaming y el informe de uso de tokens, mantiene cada chat en su propia conversación, y las puertas de aprobación del agente siguen aplicándose. La API está desactivada por defecto y tiene su propia autenticación mediante clave de API.',
+		faq9Q: '¿Pueden varios usuarios y equipos compartir un mismo despliegue de EDDI?',
+		faq9A: 'Sí. Los espacios de trabajo por usuario asignan a cada agente y configuración un propietario, un espacio personal o de equipo vinculado a grupos de Keycloak y una compartición explícita a nivel de uso, lectura, edición o propiedad. Con Connections, los agentes llaman a sistemas externos con una clave para toda la organización, una cuenta de servicio o la propia cuenta OAuth de cada usuario, de modo que un agente puede limitarse a lo que la persona que lo usa tiene permitido hacer. Los espacios de trabajo son opcionales y los recursos existentes se asignan retroactivamente, así que nada desaparece al activarlos.',
 		demoBtn: 'Sistema de Demo',
 		demoModalTitle: 'Sistema de Demo',
 		demoModalWarning: 'Solo para exploración. Todos los datos se borran cada 48 horas a las 03:00 UTC.',
@@ -244,17 +248,18 @@ const es: TranslationSchema = {
 		heroSubtitle: 'Instale EDDI, cree su primer agente y comience a conversar en menos de 5 minutos.',
 		promiseLine: 'En cinco minutos tendrá EDDI en ejecución con un solo comando, un agente funcional creado con una llamada a <code>setup_agent</code> y la interfaz del Manager abierta en <code>http://localhost:7070</code>.',
 		prerequisitesTitle: 'Requisitos previos',
-		prereq1: '<strong>Docker</strong> (recomendado) o Java 25+',
+		prereq1: '<strong>Docker</strong> (recomendado) o Java 25+. En hosts x86-64, la imagen de EDDI requiere una CPU x86-64-v3 (Intel Haswell, AMD Excavator o posterior)',
 		prereq2: 'Una clave de API de proveedor LLM (OpenAI, Anthropic, Google Gemini o una instancia local de Ollama)',
 		step1Title: '1. Instalar e iniciar EDDI',
-		step1Desc: 'La forma más rápida de ejecutar EDDI es el <strong>instalador de un solo comando</strong>. Configura EDDI + tu base de datos preferida mediante Docker Compose, despliega un agente inicial y te guía a través de la configuración:',
+		step1Desc: 'La forma más rápida de ejecutar EDDI es el <strong>instalador de un solo comando</strong>. Configura EDDI + tu base de datos preferida mediante Docker Compose, genera una clave de cifrado del vault y te guía a través de la configuración:',
 		step1TabInstaller: 'Script de instalación (Recomendado)',
 		step1TabCompose: 'Docker Compose',
 		step1ComposeDesc: 'Si prefieres control manual, clona el repositorio y utiliza Docker Compose directamente:',
+		step1ComposeOllama: '¿Quieres un modelo local? Añade el overlay de Ollama y los nuevos agentes empezarán con la URL base de Ollama ya rellenada:',
 		step1After: 'EDDI estará disponible en <code>http://localhost:7070</code>.',
 		step2Title: '2. Conéctese vía MCP',
 		step2Desc:
-			'Conecte su asistente de IA a las <strong>77 herramientas MCP</strong> de EDDI. La configuración depende del soporte de transporte de su cliente:',
+			'Conecte su asistente de IA a las <strong>84 herramientas MCP</strong> de EDDI. La configuración depende del soporte de transporte de su cliente:',
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: 'HTTP directo (Cursor, VS Code, Windsurf)',
 		step2ClaudeNote:
@@ -263,7 +268,7 @@ const es: TranslationSchema = {
 			'<strong>💡 Windows:</strong> Si <code>npx</code> no está en su PATH, use <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> en su lugar.',
 		step2DirectNote:
 			'Los clientes con soporte nativo de Streamable HTTP (Cursor, VS Code, Windsurf, Antigravity y otros plugins de IDE) se conectan directamente, sin puente necesario:',
-		step2After: 'Ahora puede interactuar con las <strong>77 herramientas MCP</strong> de EDDI directamente desde su asistente de IA.',
+		step2After: 'Ahora puede interactuar con las <strong>84 herramientas MCP</strong> de EDDI directamente desde su asistente de IA.',
 		step2DocsLink:
 			'📖 Consulte la <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentación del servidor MCP</a> para la referencia completa de herramientas y configuración avanzada.',
 		step3Title: '3. Almacene su clave API',
@@ -273,6 +278,7 @@ const es: TranslationSchema = {
 		step4Title: '4. Cree su primer agente',
 		step4Desc: 'Use <code>setup_agent</code> para crear un agente completamente funcional en una sola llamada, vía MCP o REST API:',
 		step4After: 'Esto crea las reglas, la configuración LLM, el flujo de trabajo, el agente y lo despliega, todo en un solo paso.',
+		step4Operator: '¿Prefiere una conversación o un formulario? Una instalación nueva empieza sin agentes desplegados. Abra el <strong>Platform Operator</strong> en <code>http://localhost:7070/manage/operator</code> y describa el agente que desea, con cada cambio a la espera de su aprobación, o complete el asistente de agentes en <code>http://localhost:7070/manage/agents/wizard</code>.',
 		step5Title: '5. Converse con su agente',
 		step6Title: '6. Abra la interfaz de gestión',
 		step6Desc:
@@ -282,7 +288,7 @@ const es: TranslationSchema = {
 		nextAllFeatures: 'Todas las funcionalidades',
 		nextAllFeaturesDesc: 'Explore todo lo que EDDI ofrece',
 		nextMcpServer: 'Servidor MCP',
-		nextMcpServerDesc: 'Explore las 77 herramientas MCP',
+		nextMcpServerDesc: 'Explore las 84 herramientas MCP',
 		nextDocs: 'Documentación ↗',
 		nextDocsDesc: 'Profundice en la arquitectura y las APIs',
 		nextWhyEddi: '¿Por qué EDDI?',
@@ -295,7 +301,9 @@ const es: TranslationSchema = {
 			'<code>--defaults</code>: Todos los valores predeterminados, sin preguntas',
 			'<code>--db=postgres</code>: Usar PostgreSQL en lugar de MongoDB',
 			'<code>--with-auth</code>: Habilitar autenticación Keycloak',
+			'<code>--with-monitoring</code>: Añadir monitoreo con Prometheus y Grafana',
 			'<code>--full</code>: Todo habilitado (base de datos + auth + monitoreo)',
+			`<code>--eddi-version=${EDDI_LATEST_VERSION}</code>: Fijar una versión específica de EDDI`,
 			'<code>--local</code>: Construir imagen Docker desde fuente local (para contribuidores)',
 		],
 		// Update CLI
@@ -305,7 +313,7 @@ const es: TranslationSchema = {
 		// Kubernetes
 		k8sTitle: 'Despliegue en Kubernetes',
 		k8sDesc: 'Despliegue en Kubernetes con un solo comando:',
-		k8sOptions: 'También hay disponibles overlays de Kustomize y Helm charts para MongoDB, PostgreSQL, auth, monitoreo y endurecimiento de producción (HPA, PDB, NetworkPolicy). Consulte la <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Guía de Kubernetes</a>.',
+		k8sOptions: 'También hay disponibles overlays de Kustomize y el Helm chart (2.0.0) para MongoDB, PostgreSQL, auth, monitoreo y endurecimiento de producción (HPA, PDB, NetworkPolicy). Consulte la <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Guía de Kubernetes</a>.',
 	},
 	useCases: {
 		title: 'Casos de uso',
@@ -323,13 +331,13 @@ const es: TranslationSchema = {
 			'Agentes de recomendación de productos, soporte de pedidos y atención multilingüe orquestados mediante enrutamiento multiagente basado en intenciones, de modo que cada solicitud llega al agente especializado que declaró la intención correspondiente. Los agentes invocan las herramientas integradas de web, HTTP y RAG para obtener datos de catálogo y pedidos en tiempo real, y el enrutamiento A/B permite probar variantes de agentes con tráfico real antes de desplegarlas.',
 		manufacturing: 'Manufactura',
 		manufacturingDesc:
-			'Asistentes de mantenimiento de equipos, control de calidad y optimización de la cadena de suministro que se ejecutan completamente autoalojados en local o en una nube privada, sin dependencia de una API con sede en EE. UU. Los disparadores de programación y heartbeat permiten a los agentes realizar comprobaciones periódicas y resúmenes proactivos con cadencia cron, y las 77 herramientas MCP, junto con la ingesta de OpenAPI, conectan a los agentes con los sistemas de negocio existentes.',
+			'Asistentes de mantenimiento de equipos, control de calidad y optimización de la cadena de suministro que se ejecutan completamente autoalojados en local o en una nube privada, sin dependencia de una API con sede en EE. UU. Los disparadores de programación y heartbeat permiten a los agentes realizar comprobaciones periódicas y resúmenes proactivos con cadencia cron, y las 84 herramientas MCP, junto con la ingesta de OpenAPI, conectan a los agentes con los sistemas de negocio existentes.',
 		government: 'Gobierno',
 		governmentDesc:
 			'Agentes de atención ciudadana, automatización de procesos internos y análisis documental en entornos totalmente aislados, usando modelos locales vía Ollama o Jlama para que ningún dato salga de la red. Config-as-code hace que cada decisión del agente sea reproducible para auditoría, y la pista de auditoría inmutable junto con los controles de supervisión humana de la interfaz del Manager se corresponden directamente con los requisitos de registro y supervisión del Reglamento Europeo de IA.',
 		devPlatforms: 'Plataformas de desarrollo',
 		devPlatformsDesc:
-			'Servicios de IA internos para equipos de ingeniería, expuestos como agentes accesibles por API y por MCP que se integran en pipelines de CI/CD, revisión de código y flujos de documentación. Los agentes se crean y gestionan de forma programática con una sola llamada a setup_agent, APIs CRUD predecibles y 77 herramientas MCP, de modo que los agentes de codificación en Claude, Cursor o VS Code pueden operar EDDI directamente.',
+			'Servicios de IA internos para equipos de ingeniería, expuestos como agentes accesibles por API y por MCP que se integran en pipelines de CI/CD, revisión de código y flujos de documentación. Los agentes se crean y gestionan de forma programática con una sola llamada a setup_agent, APIs CRUD predecibles y 84 herramientas MCP, de modo que los agentes de codificación en Claude, Cursor o VS Code pueden operar EDDI directamente, y una API compatible con OpenAI pone esos mismos agentes detrás de Open WebUI o de cualquier cliente de OpenAI.',
 		ctaTitle: '¿Listo para construir su caso de uso?',
 		ctaDesc: 'Instale EDDI en cinco minutos, cree su primer agente y traslade cualquiera de estos patrones a su propio despliegue. ¿Prefiere hablarlo primero? Estaremos encantados de ayudarle.',
 		ctaButton: 'Empezar en 5 minutos',
@@ -338,7 +346,7 @@ const es: TranslationSchema = {
 	featuresOverview: {
 		title: 'Funcionalidades de un vistazo',
 		description:
-			'Todas las capacidades que hacen de EDDI el orquestador de IA empresarial, EDDI Manager, config-as-code, 77 herramientas MCP, arquitectura de seguridad y más.',
+			'Todas las capacidades que hacen de EDDI el orquestador de IA empresarial, EDDI Manager, config-as-code, 84 herramientas MCP, arquitectura de seguridad y más.',
 		heroTitle: 'Todo lo que necesita para',
 		heroHighlight: 'orquestar la IA',
 		heroDesc:
@@ -351,17 +359,17 @@ const es: TranslationSchema = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'La lógica del agente es configuración JSON, no código compilado. Los ingenieros de prompts iteran al instante, <strong>sin necesidad de redespliegue</strong>.',
-		mcpCardTitle: '🔌 Servidor MCP (77 herramientas)',
+		mcpCardTitle: '🔌 Servidor MCP (84 herramientas)',
 		mcpCardDesc:
 			'Control nativo completo de IA a través del <strong>Model Context Protocol</strong>. Claude Desktop, Cursor y clientes personalizados gestionan agentes de forma programática.',
 		securityCardTitle: '🔐 Seguridad integrada',
 		securityCardDesc:
-			'Sin <code>eval()</code>, integración con Vault, protección contra path traversal, OIDC/Keycloak, <strong>pistas de auditoría criptográficas</strong>.',
+			'Sin <code>eval()</code>, integración con Vault, protección contra path traversal, OIDC/Keycloak, espacios de trabajo por usuario, <strong>pistas de auditoría criptográficas</strong>.',
 		perfCardTitle: '🚀 Rendimiento',
 		perfCardDesc: 'Runtime de nivel empresarial con <strong>millones de hilos ligeros</strong> para cargas de trabajo LLM vinculadas a E/S.',
 		multiCardTitle: '🤖 Multi-agente',
 		multiCardDesc:
-			'Descubrimiento de agentes basado en intenciones, conversaciones gestionadas, disparadores de agentes y <strong>enrutamiento A/B</strong> entre múltiples agentes.',
+			'Descubrimiento basado en intenciones, conversaciones gestionadas y <strong>colaboración en grupo</strong> con votaciones, artefactos compartidos y personas como miembros.',
 
 		hitlCardTitle: `✋ Humano en el bucle`,
 		hitlCardDesc: `Pausa un turno, controla una llamada de herramienta o exige la aprobación de una fase. <strong>Flujos de aprobación</strong> con políticas de tiempo de espera, tarjetas de Slack y estado a prueba de caídas.`,
@@ -410,10 +418,10 @@ const es: TranslationSchema = {
 			'Cada paso del pipeline se registra con <strong>pistas de auditoría inmutables</strong>: tokens, costes, tiempos y llamadas a herramientas.',
 		cqCardTitle: '🧪 Calidad de código',
 		cqCardDesc:
-			'<strong>Más de 11.000 pruebas sin fallos.</strong> >90% de cobertura de código. Cero avisos de Checkstyle. CI/CD aplicado en cada merge.',
+			'<strong>Más de 20.000 pruebas sin fallos.</strong> >90% de cobertura de código. Cero avisos de Checkstyle. CI/CD aplicado en cada merge.',
 		aiCardTitle: '🧩 Preparado para IA',
 		aiCardDesc:
-			'77 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. <strong>Diseñado para que los agentes de codificación trabajen con él</strong>.',
+			'84 herramientas MCP, una API compatible con OpenAI, patrones CRUD predecibles, APIs autodocumentadas. <strong>Diseñado para que los agentes de codificación trabajen con él</strong>.',
 	},
 	pages: {
 		manager: {
@@ -432,34 +440,35 @@ const es: TranslationSchema = {
 				'<strong>Incorporación interactiva</strong>: Visitas guiadas que presentan la plataforma a nuevos usuarios',
 				'<strong>Gestión de recursos</strong>: Operaciones CRUD para reglas, flujos de trabajo, configuraciones LLM y conectores',
 				'<strong>Bóveda de secretos</strong>: Gestión segura de claves API con visualización enmascarada',
+				'<strong>Platform Operator y asistente de agentes</strong>: Describa un agente en una conversación o complete un formulario. Cada escritura que propone el operador espera su aprobación',
+				'<strong>Espacios de trabajo y compartición</strong>: Selector de espacios, un diálogo para compartir cualquier recurso, insignias de propiedad y acciones limitadas a su nivel de acceso',
+				'<strong>Connections</strong>: Cree y edite conexiones con sistemas externos y vincule sus propias cuentas OAuth',
 			],
 			heading3: 'Diseñado para equipos',
 			para2:
 				'Los constructores de nodos visuales agilizan el prototipado. Sin embargo, su arquitectura introduce limitaciones a escala empresarial.',
 		},
 		mcpServer: {
-			title: 'Servidor MCP: 77 herramientas',
+			title: 'Servidor MCP: 84 herramientas',
 			description:
 				'EDDI expone todas sus capacidades a través del Model Context Protocol, permitiendo a Claude Desktop, Cursor y clientes de IA personalizados gestionar agentes de forma programática.',
 			heading1: 'Plano de control nativo para IA',
 			para1:
-				'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA interactuar con herramientas externas. EDDI implementa un servidor MCP completo con <strong>77 herramientas</strong> que abarcan todos los aspectos de la plataforma.',
+				'El Model Context Protocol (MCP) es un estándar abierto que permite a los asistentes de IA interactuar con herramientas externas. EDDI implementa un servidor MCP completo con <strong>84 herramientas</strong> que abarcan todos los aspectos de la plataforma. Consulte la <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentación completa de MCP</a> para ver la referencia de todas las herramientas.',
 			heading2: 'Categorías de herramientas',
 			items: [
-				'<strong>Herramientas de conversación (11)</strong>: Chatee con agentes, gestione conversaciones, consulte el historial, chat gestionado basado en intenciones',
-				'<strong>Herramientas de administración (13)</strong>: Despliegue, retire, cree, actualice y elimine agentes y disparadores',
+				'<strong>Herramientas de conversación (13)</strong>: Chatee con agentes, gestione conversaciones, consulte el historial, los registros del pipeline y la traza de auditoría por tarea, descubrimiento de agentes, chat gestionado basado en intenciones',
+				'<strong>Herramientas de administración (29)</strong>: Despliegue, retire, cree, actualice y elimine agentes, recursos, disparadores, planificaciones e integraciones de canales de Slack o personalizados',
 				'<strong>Herramientas de configuración (2)</strong>: Cree agentes completos en una sola llamada con <code>setup_agent</code>, o a partir de una spec OpenAPI con <code>create_api_agent</code>',
-				'<strong>CRUD de recursos (5)</strong>: Creación, lectura, actualización y eliminación completas para reglas, flujos de trabajo, configuraciones LLM y conectores, con cascada por lotes',
-				'<strong>Herramientas de conversación grupal (11)</strong>: Discusiones multiagente con 6 estilos, grupos anidados, discusiones asíncronas',
+				'<strong>Herramientas de conversación grupal (18)</strong>: Discusiones multiagente en 7 estilos, plantillas predefinidas, seguimientos con miembros, grupos anidados y backlogs de equipos permanentes',
+				'<strong>Herramientas de humano en el bucle (10)</strong>: Liste e inspeccione aprobaciones pendientes, reanude o cancele conversaciones pausadas, apruebe fases de grupo y envíe el turno de un miembro humano',
 				'<strong>Herramientas de memoria (8)</strong>: Memoria de usuario persistente con alcance de visibilidad, búsqueda y operaciones masivas',
-				'<strong>Gestión de planificaciones (6)</strong>: Cree, liste, dispare y reintente disparadores programados de agentes (cron y heartbeat)',
-				'<strong>Herramientas de diagnóstico (2)</strong>: Registros del pipeline del lado del servidor y traza de auditoría por tarea con detalles del LLM, tiempos y coste',
 				'<strong>Herramientas RGPD (2)</strong>: Borrado de datos en cascada (Art. 17) y exportación completa de datos (Art. 15/20)',
-				'<strong>Herramientas de integración de canales (5)</strong>: Gestione integraciones con Slack, Teams y canales personalizados',
+				'<strong>Herramientas de documentación (2)</strong>: Lea la propia documentación de EDDI, también expuesta como recursos MCP y vía REST',
 				'<strong>OpenAPI 3.1</strong>: Especificación OpenAPI generada automáticamente. Pegue cualquier spec OpenAPI externa en EDDI → obtenga un agente que llama APIs completamente desplegado',
 			],
 			heading3: 'Estándares Abiertos, No APIs Propietarias',
-			para2: 'Los agentes EDDI también pueden <strong>consumir herramientas MCP externas</strong> durante las conversaciones. Configure endpoints de servidor MCP, y los agentes auto-descubren e invocan herramientas según el contexto. Más allá de MCP, EDDI implementa <strong>A2A</strong> (Agent-to-Agent Protocol) para comunicación entre plataformas, <strong>OpenAPI 3.1</strong> para generación y consumo nativo de specs, <strong>OAuth 2.0 / OIDC</strong> vía Keycloak, y <strong>SSE</strong> para streaming en tiempo real, todo estándares abiertos, cero vendor lock-in.',
+			para2: 'Los agentes EDDI también pueden <strong>consumir herramientas MCP externas</strong> durante las conversaciones. Configure endpoints de servidor MCP, y los agentes auto-descubren e invocan herramientas según el contexto. Más allá de MCP, EDDI implementa <strong>A2A</strong> (Agent-to-Agent Protocol) para comunicación entre plataformas, <strong>OpenAPI 3.1</strong> para generación y consumo nativo de specs, <strong>OAuth 2.0 / OIDC</strong> vía Keycloak, y <strong>SSE</strong> para streaming en tiempo real, todo estándares abiertos, cero vendor lock-in. Los agentes desplegados también son accesibles a través de una <strong>API <code>/v1</code> compatible con OpenAI</strong>, de modo que Open WebUI, el SDK <code>openai</code>, LangChain y LiteLLM pueden comunicarse con ellos directamente.',
 			clientsNote: 'Funciona con Claude Desktop, Cursor, VS Code, Windsurf, Antigravity y cualquier cliente compatible con MCP. Consulte la <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">documentación MCP</a> para guías de configuración de clientes.',
 		},
 		configAsCode: {
@@ -483,7 +492,7 @@ const es: TranslationSchema = {
 			],
 			heading3: 'Tipos de recursos',
 			para2:
-				'EDDI gestiona estos recursos de configuración: <strong>Reglas</strong> (prompts del sistema), <strong>Flujos de trabajo</strong> (definiciones de pipeline), <strong>Conectores LLM</strong> (ajustes de proveedor), <strong>Conectores HTTP</strong> (integraciones de API externas), <strong>Agentes</strong> (descriptores de despliegue) y <strong>Entornos</strong> (destinos de despliegue).',
+				'EDDI gestiona estos recursos de configuración: <strong>Reglas</strong> (prompts del sistema), <strong>Flujos de trabajo</strong> (definiciones de pipeline), <strong>Conectores LLM</strong> (ajustes de proveedor), <strong>Conectores HTTP</strong> (integraciones de API externas), <strong>Connections</strong> (cómo autenticarse ante un sistema externo), <strong>Grupos</strong> (discusiones multiagente), <strong>Agentes</strong> (descriptores de despliegue) y <strong>Entornos</strong> (destinos de despliegue).',
 		},
 		security: {
 			title: 'Arquitectura de seguridad integrada',
@@ -500,15 +509,19 @@ const es: TranslationSchema = {
 			heading2: 'Funcionalidades de seguridad',
 			items: [
 				'<strong>Cero eval()</strong>: Sin ejecución dinámica de código (elimina riesgos RCE CVSS 10.0)',
-				'<strong>OIDC/Keycloak</strong>: Autenticación y autorización empresarial',
+				'<strong>OIDC/Keycloak</strong>: Autenticación y autorización empresarial con roles RBAC (admin, editor, viewer) y un rol de aprobador dedicado',
+				'<strong>Espacios de trabajo por usuario</strong>: Cada recurso de configuración tiene un propietario, un espacio personal o de equipo y compartición explícita a nivel de uso, lectura, edición o propiedad',
+				'<strong>Connections</strong>: Un único modelo de credenciales para las llamadas salientes, desde claves de toda la organización y cuentas de servicio OAuth2 hasta la propia cuenta OAuth de cada usuario o una credencial que el sistema llamante aporta en cada solicitud. Los secretos son siempre referencias al vault',
+				'<strong>Salvaguardas para resultados de herramientas</strong>: Cada resultado de herramienta lleva su procedencia, y el texto con forma de instrucción que contiene se marca, se oculta, genera una advertencia o se bloquea antes de que el modelo actúe sobre él',
 				'<strong>Integración con Vault</strong>: Gestión segura de secretos para claves API',
 				'<strong>Protección contra path traversal</strong>: Validación de entradas en cada frontera',
-				'<strong>Validación de URL</strong>: Prevención de ataques SSRF y redireccionamientos maliciosos',
+				'<strong>Protección SSRF</strong>: La validación de URL y las listas de dominios permitidos previenen la falsificación de solicitudes del lado del servidor, y los endpoints de metadatos de la nube se rechazan como destino de llamadas HTTP, MCP y A2A, también a través de la resolución DNS y de redirecciones',
 				'<strong>Pistas de auditoría criptográficas</strong>: Registros de operaciones inmutables e inalterables',
 				'<strong>Preparado para el Reglamento de IA de la UE</strong>: Capacidades de gobernanza integradas para el cumplimiento normativo',
 				'<strong>Redacción de Secretos</strong>: Filtro automatizado que elimina claves API, referencias de vault y datos sensibles de todas las entradas de auditoría',
 				'<strong>Registro seguro de PII</strong>: Las operaciones RGPD registran pseudónimos SHA-256, nunca identificadores de usuario sin procesar',
 				'<strong>Sigstore Cosign</strong>: Firma de imágenes de contenedor OIDC sin clave, verificación criptográfica de que cada imagen Docker fue creada por la CI oficial',
+				'<strong>Imagen base reforzada</strong>: Runtime Red Hat UBI 10 fijado por digest, publicado en el catálogo certificado de Red Hat',
 			],
 			// CI/CD Security Pipeline
 			ciTitle: 'Pipeline de Seguridad Automatizada',
@@ -542,9 +555,9 @@ const es: TranslationSchema = {
 				'<strong>Pools de conexión compatibles con Loom</strong>: El pool de conexiones Agroal evita los cuellos de botella ThreadLocal que pueden afectar a los pools tradicionales bajo cargas de hilos virtuales',
 				'<strong>NATS JetStream</strong>: Escalabilidad horizontal con arquitectura basada en eventos',
 				'<strong>Base de datos dual</strong>: MongoDB o PostgreSQL, cambio con una variable de entorno. Una imagen Docker para ambas',
-				'<strong>Streaming SSE</strong>: Respuestas de chat en tiempo real, feeds de discusiones grupales y streaming de logs en vivo a través de Server-Sent Events',
-				'<strong>Instalación con un comando</strong>: Asistente interactivo que despliega EDDI + base de datos + agente inicial vía Docker Compose',
-				'<strong>Red Hat Certificado</strong>: Certificación de contenedores con verificaciones preflight automatizadas en CI/CD',
+				'<strong>Streaming SSE</strong>: Respuestas de chat en tiempo real, feeds de discusiones grupales y streaming de logs en vivo a través de Server-Sent Events, con salida token a token incluso mientras se ejecutan herramientas',
+				'<strong>Instalación con un comando</strong>: Asistente interactivo que despliega EDDI + base de datos vía Docker Compose y genera una clave del vault',
+				'<strong>Red Hat Certificado</strong>: Imagen UBI 10 publicada en el catálogo certificado de Red Hat, con verificaciones preflight automatizadas en CI/CD',
 			],
 			benchTitle: 'Rendimiento en contexto',
 			benchPara: 'Ningún runtime gana en todos los escenarios. Node.js puede superar a Java en escenarios muy específicos de enrutamiento de E/S pura, mientras que Java lidera de forma consistente en cargas de trabajo con tareas intensivas en CPU, que es exactamente lo que requieren los agentes de IA. Los agentes modernos ejecutan una combinación compleja de <strong>E/S masiva</strong> (llamadas a APIs de LLM, consultas vectoriales) y <strong>computación intensiva</strong> (transformación de datos, lógica de enrutamiento, procesamiento de embeddings, evaluación de confianza). Este perfil de carga mixta es donde los hilos virtuales sobre Quarkus ofrecen su mayor ventaja.',
@@ -554,7 +567,7 @@ const es: TranslationSchema = {
 		multiAgent: {
 			title: 'Orquestación multi-agente',
 			description:
-				'Descubrimiento de agentes basado en intenciones, conversaciones gestionadas, disparadores de agentes y enrutamiento A/B, una conversación por intención+usuario, creada y gestionada automáticamente.',
+				'Descubrimiento de agentes basado en intenciones, conversaciones gestionadas y colaboración en grupo: los agentes deliberan, votan, comparten productos de trabajo y trabajan junto a personas.',
 			heading1: 'Enrutamiento inteligente de agentes',
 			para1:
 				'El sistema multi-agente de EDDI va más allá del simple balanceo de carga. Proporciona <strong>descubrimiento de agentes basado en intenciones</strong> que enruta automáticamente las solicitudes al agente más adecuado según las capacidades declaradas.',
@@ -567,12 +580,17 @@ const es: TranslationSchema = {
 				'<strong>Patrón coordinador</strong>: Los agentes delegan a subagentes especializados',
 			],
 			heading3: 'Conversaciones Grupales y Orquestación Avanzada',
-			para2: 'EDDI soporta <strong>conversaciones grupales multi-agente</strong> con 6 estilos de discusión integrados, creación dinámica de agentes, estructuras de grupos anidados y un meta-agente que opera la propia plataforma:',
+			para2: 'EDDI soporta <strong>conversaciones grupales multi-agente</strong> con 7 estilos de discusión integrados, votación explícita, productos de trabajo compartidos, equipos permanentes, estructuras de grupos anidados, creación dinámica de agentes y un meta-agente que opera la propia plataforma:',
 			items2: [
-				'<strong>6 Estilos de Discusión</strong>: Mesa Redonda, Revisión por Pares, Abogado del Diablo, Delphi, Debate y <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>7 Estilos de Discusión</strong>: Mesa Redonda, Revisión por Pares, Abogado del Diablo, Delphi, Debate, <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS) y <strong>Negociación</strong> (ofertas, concesiones y un árbitro)',
+				'<strong>Votación</strong>: Las fases de votación recogen papeletas explícitas (mayoría o aprobación, ponderadas, sujetas a quórum) y registran una decisión con el recuento completo y la disidencia de la parte perdedora',
+				'<strong>Artefactos Compartidos y Pujas por Tareas</strong>: Los miembros coeditan un producto de trabajo compartido y validado, y pujan por tareas en lugar de recibirlas por turno rotatorio',
+				'<strong>Personas como Miembros</strong>: Una persona participa con un turno propio en la discusión, no solo con una aprobación',
+				'<strong>Equipos Permanentes</strong>: Equipos persistentes con un backlog, cadencias cron, un facilitador con movimientos acotados y fases de retrospectiva que recogen la memoria del equipo',
+				'<strong>Plantillas Predefinidas</strong>: Grupo de investigación, equipo editorial, task force de operaciones, junta de decisión y mesa de negociación, listas para instanciar',
 				'<strong>Agentes Dinámicos</strong>: Los agentes en discusiones Task Force pueden crear, reclutar, delegar y eliminar sub-agentes en tiempo de ejecución, con guardrails (listas de proveedores/modelos, límites por discusión, políticas de ciclo de vida)',
 				'<strong>Grupos Anidados</strong>: Componer grupos de grupos para llaves de torneo, equipo rojo vs. azul y revisiones de panel',
-				'<strong>Integración con Slack</strong>: Despliega agentes en canales de Slack y ejecuta debates multi-agente directamente en hilos, con soporte de DM y enrutamiento por palabras clave',
+				'<strong>Integración con Slack</strong>: Despliega agentes en canales de Slack y ejecuta debates multi-agente directamente en hilos, con soporte de DM, enrutamiento por palabras clave y un modo de observación en el que un agente vigila un canal y responde solo cuando coincide una palabra clave o un tipo de archivo, dentro de los límites de tiempo de espera entre respuestas, de respuestas diarias y de coste diario',
 				'<strong>Platform Operator</strong>: Un meta-agente que consulta y opera tu despliegue (incluida la creación de otros agentes), con cada escritura sujeta a aprobación humana',
 				'<strong>Protocolo A2A</strong>: Implementación completa del protocolo Agent-to-Agent con Agent Cards y descubrimiento de habilidades multiplataforma',
 				'<strong>Coincidencia de Capacidades</strong>: Descubrir y enrutar a agentes por habilidad, puntuación de confianza y atributos personalizados',
@@ -591,7 +609,7 @@ const es: TranslationSchema = {
 				'<strong>Seguimiento de tokens y costes</strong>: Métricas de uso por conversación y por agente',
 				'<strong>Trazado del pipeline</strong>: Visibilidad completa de cada paso del pipeline de procesamiento',
 				'<strong>Métricas Prometheus</strong>: 50+ métricas Micrometer en <code>/q/metrics</code> para infraestructura de monitoreo',
-				'<strong>Paneles Grafana</strong>: Paneles preconstruidos para equipos de operaciones',
+				'<strong>Paneles Grafana</strong>: Un panel de operaciones preconstruido y un panel Full Metrics Reference con un gráfico para cada medidor registrado',
 				'<strong>Trazado OpenTelemetry</strong>: Trazas distribuidas por tarea vía OTLP (Jaeger, Tempo, Datadog) con spans para ID de tarea, tipo, conversación y agente',
 				'<strong>Telemetría CQRS</strong>: Registro basado en eventos de todas las operaciones del sistema',
 			],
@@ -599,23 +617,23 @@ const es: TranslationSchema = {
 		codeQuality: {
 			title: 'Calidad de código',
 			description:
-				'Más de 11.000 pruebas sin fallos. >90% de cobertura de código. Cero avisos de Checkstyle. Compuertas de calidad CI/CD aplicadas en cada merge.',
+				'Más de 20.000 pruebas sin fallos. >90% de cobertura de código. Cero avisos de Checkstyle. Compuertas de calidad CI/CD aplicadas en cada merge.',
 			heading1: 'Rigor de ingeniería',
 			para1:
 				'EDDI mantiene una <strong>calidad de código excepcional</strong> mediante pruebas exhaustivas, análisis estático y compuertas de calidad CI/CD. Cada pull request debe pasar la suite completa antes de fusionarse.',
 			heading2: 'Métricas de calidad',
 			items: [
-				'<strong>Más de 11.000 pruebas</strong>: Cobertura unitaria, de integración y de extremo a extremo',
+				'<strong>Más de 20.000 pruebas</strong>: Cobertura unitaria, de integración y de extremo a extremo',
 				'<strong>Cero fallos</strong>: CI limpio en cada build',
 				'<strong>Aplicación de Checkstyle</strong>: Cero avisos, reglas estrictas aplicadas en cada build',
-				'<strong>Pruebas de herramientas MCP</strong>: Cobertura completa de las 77 herramientas MCP',
+				'<strong>Pruebas de herramientas MCP</strong>: Cobertura completa de las 84 herramientas MCP',
 				'<strong>Compuertas de calidad CI/CD</strong>: Verificaciones automatizadas que previenen regresiones',
 			],
 		},
 		aiReady: {
 			title: 'Arquitectura preparada para IA',
 			description:
-				'77 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. Diseñado desde cero para que los agentes de codificación trabajen con él.',
+				'84 herramientas MCP, patrones CRUD predecibles, APIs autodocumentadas. Diseñado desde cero para que los agentes de codificación trabajen con él.',
 			heading1: 'Diseñado para la colaboración con IA',
 			para1:
 				'EDDI está construido con la premisa de que <strong>los agentes de codificación lo gestionarán</strong>. Cada API sigue patrones predecibles, cada recurso tiene operaciones CRUD consistentes y el servidor MCP habilita el control programático completo.',
@@ -624,8 +642,10 @@ const es: TranslationSchema = {
 				'<strong>Patrones predecibles</strong>: Nomenclatura de recursos consistente, convenciones CRUD y manejo de errores',
 				'<strong>APIs autodocumentadas</strong>: Especificaciones OpenAPI y descripciones de herramientas MCP generadas automáticamente',
 				'<strong>Soporte LLMs.txt</strong>: Contenido del sitio descubrible por IA a través de llms.txt y llms-full.txt',
-				'<strong>MCP-First</strong>: 77 herramientas diseñadas para la integración con asistentes de IA',
+				'<strong>MCP-First</strong>: 84 herramientas diseñadas para la integración con asistentes de IA',
 				'<strong>Automatización de configuración</strong>: Creación de agentes en una sola llamada con <code>setup_agent</code>',
+				'<strong>API compatible con OpenAI</strong>: Los agentes desplegados aparecen como modelos para Open WebUI, el SDK <code>openai</code>, LangChain y LiteLLM',
+				'<strong>Documentación para agentes</strong>: La documentación de EDDI se puede leer vía MCP y REST, para que un agente consulte cómo funciona la plataforma antes de actuar',
 			],
 		},
 		memory: {
@@ -681,9 +701,9 @@ const es: TranslationSchema = {
 		},
 		humanInTheLoop: {
 			title: `Gobernanza con humano en el bucle`,
-			description: `Pausa un turno, controla una llamada de herramienta concreta o exige la aprobación de una fase de discusión. Flujos de aprobación con políticas de tiempo de espera, tarjetas de Slack y estado que sobrevive a reinicios, incluidos en EDDI ${EDDI_LATEST_VERSION}.`,
+			description: `Pausa un turno, controla una llamada de herramienta concreta o exige la aprobación de una fase de discusión. Flujos de aprobación con políticas de tiempo de espera, tarjetas de Slack y estado que sobrevive a reinicios, incluidos en EDDI 6.2.0.`,
 			heading1: `Autonomía con botón de parada`,
-			para1: `Los agentes autónomos son útiles justo hasta el momento en que hacen algo irreversible. EDDI ${EDDI_LATEST_VERSION} incorpora <strong>gobernanza con humano en el bucle</strong>: puertas de aprobación explícitas en tres niveles de granularidad, respaldadas por políticas de tiempo de espera, detección de bucles y un estado que sobrevive a un reinicio. Las aprobaciones son configuración, no código de aplicación a medida.`,
+			para1: `Los agentes autónomos son útiles justo hasta el momento en que hacen algo irreversible. EDDI 6.2.0 incorporó <strong>gobernanza con humano en el bucle</strong>: puertas de aprobación explícitas en tres niveles de granularidad, respaldadas por políticas de tiempo de espera, detección de bucles y un estado que sobrevive a un reinicio. Las aprobaciones son configuración, no código de aplicación a medida.`,
 			whyTitle: `Por qué las puertas de aprobación pertenecen a la plataforma`,
 			whyPara: `La mayoría de los equipos añade las aprobaciones en la capa de aplicación: una cola aquí, un webhook allá, una marca en la base de datos en otro sitio. Ese enfoque se rompe en cuanto un proceso se reinicia, un aprobador se desconecta o un agente reintenta la misma petición en bucle. EDDI sitúa la puerta dentro del propio pipeline de conversación. Un turno pausado sigue pausado, la entrada que compite se rechaza con un <code>409 Conflict</code> claro y cada decisión queda en el mismo registro de auditoría que el resto del ciclo de vida del agente.`,
 			heading2: `Tres niveles de aprobación`,
@@ -706,7 +726,9 @@ const es: TranslationSchema = {
 				`<strong>Guardia contra falta de progreso</strong>: EDDI calcula una huella para cada pausa. Cuando reaparecen huellas idénticas tras decisiones automatizadas, reconoce un bucle infinito de aprobación y lo rompe en lugar de gastar tokens en él.`,
 				`<strong>Recuperación ante caídas</strong>: las aprobaciones pendientes sobreviven a los reinicios del servidor y los temporizadores de espera se rearman automáticamente, así un despliegue progresivo nunca pierde en silencio una decisión en curso.`,
 				`<strong>Aprobaciones en Slack</strong>: tarjetas interactivas de Block Kit llevan la decisión al aprobador, con vistas previas de argumentos redactadas y listas blancas de aprobadores para que solo actúen personas autorizadas.`,
-				`<strong>Aprobaciones por MCP</strong>: los clientes externos listan las aprobaciones pendientes y las aceptan o rechazan mediante herramientas MCP, incluidas en las 77 herramientas, convirtiendo tu IDE o cliente de agente en un plano de control.`,
+				`<strong>Aprobaciones por MCP</strong>: los clientes externos listan las aprobaciones pendientes y las aceptan o rechazan mediante herramientas MCP, incluidas en las 84 herramientas, convirtiendo tu IDE o cliente de agente en un plano de control.`,
+				`<strong>Aprueba lo que realmente se ejecutará</strong>: una aprobación se vincula a la solicitud resuelta, y quienes aprueban llamadas MCP y A2A ven el destino y una huella de la solicitud, no solo el nombre de una herramienta.`,
+				`<strong>Un Platform Operator sujeto a aprobación</strong>: el Platform Operator puede crear y modificar agentes a través de la propia API de EDDI, y cada escritura que intenta espera tras la misma puerta de aprobación.`,
 			],
 			govTitle: `Encaje en gobernanza y cumplimiento`,
 			govPara: `La supervisión humana no es solo una preferencia operativa, es un requisito regulatorio. Las puertas de aprobación dan una implementación concreta a la supervisión humana del artículo 14 del Reglamento de IA de la UE: una persona identificada autoriza una acción concreta y la decisión queda registrada. Junto al <a href="/enterprise/compliance/">marco de cumplimiento</a> de EDDI y su registro de auditoría HMAC-SHA256, puedes demostrar ante un auditor no solo qué hizo un agente, sino quién lo permitió y cuándo.`,
@@ -740,8 +762,9 @@ const es: TranslationSchema = {
 			items: [
 				'<strong>Interfaz de gestión visual</strong>: El EDDI Manager para construir y supervisar agentes',
 				'<strong>Configuration-as-Code</strong>: La lógica del agente es JSON, no código compilado',
-				'<strong>77 herramientas MCP</strong>: Control nativo de IA completo a través del Model Context Protocol',
+				'<strong>84 herramientas MCP</strong>: Control nativo de IA completo a través del Model Context Protocol',
 				'<strong>Seguridad empresarial</strong>: OIDC, vault, pistas de auditoría, sin eval()',
+				'<strong>Multiusuario por diseño</strong>: Espacios de trabajo por usuario con compartición, y Connections que permiten a los agentes actuar con las credenciales propias de cada usuario',
 				'<strong>Infraestructura de producción</strong>: APIs REST, gestión de estado de conversaciones, métricas Prometheus',
 				'<strong>Escalabilidad horizontal</strong>: NATS JetStream para arquitecturas distribuidas',
 			],
@@ -761,7 +784,7 @@ const es: TranslationSchema = {
 				{ dimension: 'Modelo de Seguridad', frameworks: 'Depende de ejecución de código sandbox', eddi: 'Sin ejecución dinámica de código; vault con cifrado envelope, protección SSRF' },
 				{ dimension: 'Cumplimiento', frameworks: 'Requiere implementación personalizada', eddi: 'GDPR, HIPAA, EU AI Act, infraestructura integrada' },
 				{ dimension: 'Audit Trail', frameworks: 'Logging a nivel de aplicación', eddi: 'Ledger inmutable HMAC-SHA256 con firma criptográfica de agente' },
-				{ dimension: 'Despliegue', frameworks: 'pip/npm + infraestructura manual', eddi: 'Instalación Docker de un comando, Kubernetes/OpenShift-ready' },
+				{ dimension: 'Despliegue', frameworks: 'pip/npm + infraestructura manual', eddi: 'Instalación Docker de un comando, Kubernetes/OpenShift-ready, imagen certificada por Red Hat' },
 			],
 			// LLM Providers
 			llmTitle: '12 proveedores LLM soportados',
@@ -779,7 +802,7 @@ const es: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Arquitectura', question: '¿Ejecuta la plataforma código proporcionado por el usuario en tiempo de ejecución?', eddiAnswer: 'No. EDDI usa únicamente configuración JSON declarativa: cero eval(), cero bloques de ejecución de código.' },
 				{ category: 'Rendimiento', question: '¿Cómo gestiona la plataforma miles de conversaciones de agentes concurrentes?', eddiAnswer: 'Los hilos virtuales de Java 25 ofrecen paralelismo real a nivel de SO para millones de operaciones concurrentes de E/S.' },
-				{ category: 'Integración', question: '¿Pueden los agentes consumir herramientas y servicios externos mediante estándares abiertos?', eddiAnswer: '77 herramientas MCP, protocolo A2A, generación/consumo de OpenAPI 3.1 y OAuth 2.0/OIDC: todo estándares abiertos.' },
+				{ category: 'Integración', question: '¿Pueden los agentes consumir herramientas y servicios externos mediante estándares abiertos?', eddiAnswer: '84 herramientas MCP, protocolo A2A, generación/consumo de OpenAPI 3.1 y OAuth 2.0/OIDC: todo estándares abiertos, además de una API compatible con OpenAI para cualquier cliente de OpenAI.' },
 				{ category: 'Privacidad de datos', question: '¿Cómo se implementan los derechos de los interesados (supresión, exportación, restricción)?', eddiAnswer: 'API REST unificada con eliminación en cascada en los 5 almacenes de datos. Un solo endpoint para RGPD, CCPA, LGPD, PIPEDA y más de 15 marcos.' },
 				{ category: 'Seguridad', question: '¿Cuál es el historial de CVE y la postura de seguridad arquitectónica de la plataforma?', eddiAnswer: 'Sin ejecución dinámica de código, lo que elimina clases enteras de vulnerabilidades. OIDC/Keycloak, bóveda AES-256-GCM, auditoría HMAC-SHA256.' },
 				{ category: 'Cumplimiento', question: '¿Proporciona la plataforma pistas de auditoría inmutables y firmadas criptográficamente?', eddiAnswer: 'Ledger a prueba de manipulaciones HMAC-SHA256 con firma criptográfica por agente. Trazado completo del pipeline para cada decisión.' },
@@ -842,7 +865,7 @@ const es: TranslationSchema = {
 				{ framework: 'LangGraph (v1.0)', abstraction: 'Nodos y aristas (DAG / m\u00e1quina de estados)', learning: 'Media\u2013alta (2\u20133 semanas)', state: 'Excelente persistencia integrada, pero exige una definici\u00f3n previa r\u00edgida', production: 'Requiere infraestructura propia de REST, auth, UI y escalado' },
 				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Delegaci\u00f3n en equipos por roles', learning: 'Baja (configuraci\u00f3n m\u00e1s r\u00e1pida)', state: 'Ef\u00edmero: depende del desarrollador para la memoria a largo plazo', production: 'Excelente para prototipos, sin gobernanza empresarial integrada' },
 				{ framework: 'Microsoft AutoGen', abstraction: 'Di\u00e1logos conversacionales multiparte', learning: 'Baja\u2013media', state: 'Buen soporte de historial de conversaciones', production: 'Framework en transici\u00f3n; requiere integraci\u00f3n profunda con Azure' },
-				{ framework: 'EDDI', abstraction: 'Plataforma de orquestaci\u00f3n multi-agente', learning: 'Baja (Config-as-Code)', state: 'Memoria persistente nativa, consolidaci\u00f3n on\u00edrica, res\u00famenes continuos', production: 'Totalmente empaquetado: OIDC/Keycloak, b\u00f3veda, auditor\u00eda, UI de gesti\u00f3n, listo para Kubernetes' },
+				{ framework: 'EDDI', abstraction: 'Plataforma de orquestaci\u00f3n multi-agente', learning: 'Baja (Config-as-Code)', state: 'Memoria persistente nativa, consolidaci\u00f3n on\u00edrica, res\u00famenes continuos', production: 'Totalmente empaquetado: OIDC/Keycloak, espacios de trabajo por usuario, b\u00f3veda, auditor\u00eda, UI de gesti\u00f3n, listo para Kubernetes' },
 			],
 
 			libraryPositioning: '<strong>Las bibliotecas proporcionan la lógica; EDDI proporciona la infraestructura.</strong>',
@@ -884,7 +907,7 @@ const es: TranslationSchema = {
 			euAiActItems: [
 				'<strong>Pistas de auditoría inmutables</strong>: Cada operación registrada con integridad criptográfica HMAC-SHA256 (Art. 12, Conservación de registros)',
 				'<strong>Transparencia de decisiones</strong>: El rastreo completo del pipeline muestra cómo se tomaron las decisiones de IA, incluyendo nombre del modelo, prompt y respuesta (Art. 13, Transparencia)',
-				'<strong>Supervisión humana</strong>: La interfaz de gestión permite la revisión humana, intervención y parada de emergencia (Art. 14, Supervisión humana)',
+				'<strong>Supervisión humana</strong>: Puertas de aprobación a nivel de turno, de llamada de herramienta y de fase de grupo, además de revisión humana, intervención y parada de emergencia en la interfaz de gestión (Art. 14, Supervisión humana)',
 				'<strong>Clasificación de riesgos</strong>: La arquitectura soporta los requisitos de sistemas de IA de alto riesgo con controles configurables (Art. 9, Gestión de riesgos)',
 				'<strong>Reproducibilidad</strong>: La configuración como código permite la reproducción exacta del comportamiento de IA para auditorías regulatorias (Art. 17, Gestión de calidad)',
 				'<strong>Gobernanza de datos</strong>: OIDC/Keycloak RBAC, gestión de secretos basada en bóveda, registro de entradas/salidas (Art. 10, Gobernanza de datos)',
@@ -1072,7 +1095,7 @@ const es: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon, evento virtual para el desarrollo de chatbots pedagógicos.' },
 				{ year: '2023', text: 'EDDI integra <strong>conexiones LLM</strong>: conexión a grandes modelos de lenguaje modernos a través de LangChain4j.' },
 				{ year: '2025', text: 'EDDI se adapta a <strong>flujos de agentes</strong>: enrutamiento basado en intención, conversaciones gestionadas y orquestación multi-agente.' },
-				{ year: '2026', text: '<strong>v6</strong>: 77 herramientas MCP, protocolo A2A, discusiones grupales, UI de gestión visual, cascading de modelos.' },
+				{ year: '2026', text: '<strong>v6</strong>: 84 herramientas MCP, protocolo A2A, 7 estilos de discusión con votación y miembros humanos, Platform Operator, espacios de trabajo por usuario, API compatible con OpenAI, cascading de modelos.' },
 				{ year: '2026', text: 'Seleccionado como <strong>Socio de Confianza de UNIDO</strong> para IA Industrial para el Sur Global.' },
 			],
 			institutionsTitle: 'Respaldado por instituciones',
@@ -1088,7 +1111,7 @@ const es: TranslationSchema = {
 			instInitsTitle: 'Incubadora universitaria inits.at',
 			instInitsDesc: 'Incubado en <strong>inits.at</strong> (una incubadora de empresas universitaria), con apoyo institucional en fase temprana priorizando el rigor académico y la modelización empresarial sostenible.',
 			instRedHatTitle: 'Red Hat Certified Container',
-			instRedHatDesc: 'La imagen Docker de EDDI está <strong>certificada por IBM/Red Hat</strong>, pasando verificaciones automatizadas de pre-vuelo para seguridad, estabilidad y preparación para despliegue empresarial.',
+			instRedHatDesc: 'La imagen Docker de EDDI está <strong>certificada por IBM/Red Hat</strong>, supera verificaciones automatizadas preflight de seguridad, estabilidad y preparación para el despliegue empresarial, y las versiones estables se publican en el catálogo certificado de Red Hat.',
 			instUnidoTitle: 'Socio de Confianza de UNIDO',
 			instUnidoDesc: 'Seleccionado por la \u003cstrong\u003eOrganización de las Naciones Unidas para el Desarrollo Industrial\u003c/strong\u003e (UNIDO) como Socio de Confianza en la Convocatoria Global para IA Industrial para el Sur Global.',
 			enterpriseTitle: 'Desplegado en producción empresarial',
@@ -1110,11 +1133,11 @@ const es: TranslationSchema = {
 			devCIDesc: 'Verificación de build automatizada en cada commit',
 			devCodeQL: 'CodeQL limpio',
 			devCodeQLDesc: 'Escaneo de vulnerabilidades de seguridad de GitHub',
-			devTests: '11.000+ Tests',
+			devTests: '20.000+ Tests',
 			devTestsDesc: 'Cero fallos, aplicado en cada merge',
-			devIntegration: '42 Tests de integración',
+			devIntegration: '70 Suites de tests de integración',
 			devIntegrationDesc: 'Verificación REST API full-stack con base de datos real',
-			devE2E: '21 Suites de tests E2E',
+			devE2E: '30+ Suites de tests E2E',
 			devE2EDesc: 'Tests Playwright basados en navegador para la Manager UI',
 			devApache: 'Licencia Apache 2.0',
 			devApacheDesc: 'Totalmente open source, sin vendor lock-in',
@@ -1160,8 +1183,6 @@ const es: TranslationSchema = {
 			whatCard1Desc: 'UNIDO es una agencia especializada de las Naciones Unidas con 170+ estados miembros, dedicada a promover el desarrollo industrial para la reducción de la pobreza, la globalización inclusiva y la sostenibilidad ambiental.',
 			whatCard2Title: 'Alianza AIM Global',
 			whatCard2Desc: 'La Alianza Global de IA para la Industria y la Manufactura (AIM Global) reúne a líderes de la industria, gobiernos y academia para impulsar la adopción responsable de la IA en los sectores manufacturero e industrial a nivel mundial.',
-			whatCard3Title: 'Presentación en WAIC 2026',
-			whatCard3Desc: 'La World Artificial Intelligence Conference (WAIC) en Shanghái es uno de los eventos de IA más influyentes a nivel global, reuniendo a investigadores líderes, responsables políticos y líderes de la industria para dar forma al futuro de la IA.',
 			whatCard4Title: 'Enfoque en el Sur Global',
 			whatCard4Desc: 'El programa se dirige específicamente a soluciones de IA que puedan impulsar el desarrollo industrial en economías emergentes, asegurando que los beneficios de la manufactura y la digitalización impulsadas por IA lleguen a las naciones en desarrollo.',
 
@@ -1175,9 +1196,6 @@ const es: TranslationSchema = {
 			org2Link: 'Visitar AIM Global →',
 			org3Title: 'Shanghai AI Research Institute',
 			org3Desc: 'El <strong>Shanghai Artificial Intelligence Research Institute</strong> es un centro de investigación líder en IA en China, impulsando investigación de vanguardia e innovación en inteligencia artificial y sus aplicaciones industriales.',
-			org4Title: 'WAIC 2026',
-			org4Desc: 'La <strong>World Artificial Intelligence Conference</strong> (WAIC) es uno de los eventos de IA más prestigiosos a nivel global, celebrado anualmente en Shanghái. La WAIC 2026 reúne a investigadores de primer nivel, responsables políticos y líderes de la industria.',
-			org4Link: 'Visitar WAIC →',
 
 			// SDG Alignment
 			sdgTitle: 'Alineado con los Objetivos de Desarrollo Sostenible de la ONU',

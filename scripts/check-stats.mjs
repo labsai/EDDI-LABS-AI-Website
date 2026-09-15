@@ -19,19 +19,24 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const FORBIDDEN = [
 	// Old test counts in any locale rendering: "9,000+", "Über 9.000", "9 000", "+9,000",
 	// and the later "9,600"/"9.600"/"9 600" — no trailing "+" required, since several
-	// locales phrase "more than" in words. Current: 11,000+
-	{ pattern: /(?<!\d)9[,.\s]?000(?!\d)/, reason: 'stale test count, use 11,000+ (TESTS in src/i18n/stats.ts)' },
-	{ pattern: /(?<!\d)9[,.\s]?600(?!\d)/, reason: 'stale test count, use 11,000+ (TESTS in src/i18n/stats.ts)' },
-	// Pre-v6 test count. Current: 11,000+
-	{ pattern: /5,100/, reason: 'stale test count, use 11,000+ (TESTS in src/i18n/stats.ts)' },
+	// locales phrase "more than" in words. Current: 20,000+
+	{ pattern: /(?<!\d)9[,.\s]?000(?!\d)/, reason: 'stale test count, use 20,000+ (TESTS in src/i18n/stats.ts)' },
+	{ pattern: /(?<!\d)9[,.\s]?600(?!\d)/, reason: 'stale test count, use 20,000+ (TESTS in src/i18n/stats.ts)' },
+	// Pre-v6 test count. Current: 20,000+
+	{ pattern: /5,100/, reason: 'stale test count, use 20,000+ (TESTS in src/i18n/stats.ts)' },
 	// Pre-6.2.0 test count. NBSP + narrow NBSP cover the fr-style "10 000" renderings.
-	{ pattern: /(?<!\d)10[,.  \s]?000(?!\d)/, reason: 'stale test count (pre-6.2.0), use 11,000+ (TESTS in src/i18n/stats.ts)' },
+	{ pattern: /(?<!\d)10[,.  \s]?000(?!\d)/, reason: 'stale test count (pre-6.2.0), use 20,000+ (TESTS in src/i18n/stats.ts)' },
 	// Old MCP tool count near "MCP" in either order, so localized word orders ("Alle 42 integrierten
-	// MCP Tools", "42 outils MCP") match too. Current: 77. "42 Integration Tests" stays legit.
-	{ pattern: /\b42\b.{0,40}MCP|MCP.{0,40}\b42\b/, reason: 'stale MCP tool count, use 77 (MCP_TOOLS in src/i18n/stats.ts)' },
+	// MCP Tools", "42 outils MCP") match too. Current: 84. "42 Integration Tests" stays legit.
+	{ pattern: /\b42\b.{0,40}MCP|MCP.{0,40}\b42\b/, reason: 'stale MCP tool count, use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
 	// 65 was the tool count up to EDDI 6.1.2. The lookbehind rejects a preceding digit
 	// OR dot, so 365 / 650 / 1650 and CSS decimals (line-height: 1.65) stay safe.
-	{ pattern: /(?<![\d.])65(?!\d)/, reason: 'stale MCP tool count (6.1.2), use 77 (MCP_TOOLS in src/i18n/stats.ts)' },
+	{ pattern: /(?<![\d.])65(?!\d)/, reason: 'stale MCP tool count (6.1.2), use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
+	// EDDI 6.2.0 counts, superseded by 6.4.0. Same lookarounds as the 65 rule; "Art 77" is a GDPR article.
+	{ pattern: /(?<!\d)11[,.  \s]?000(?!\d)/, reason: 'stale test count (6.2.0), use 20,000+ (TESTS in src/i18n/stats.ts)' },
+	{ pattern: /(?<![\d.]|Art\.? )77(?!\d)/, reason: 'stale MCP tool count (6.2.0), use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
+	// Six discussion styles was correct up to EDDI 6.2.0; NEGOTIATION made it seven in 6.3.0.
+	{ pattern: /\b6 (built-in )?(group )?discussion styles/i, reason: 'stale discussion style count, EDDI 6.3.0+ has 7 built-in styles' },
 	// Old regulatory framework count. Current: 15+
 	{ pattern: /17\+ (regulatory )?frameworks/, reason: 'stale framework count, use 15+ (FRAMEWORKS in src/i18n/stats.ts)' },
 	// Vague age claim. Canonical history: in continuous development since 2006, open source since 2018
@@ -63,8 +68,8 @@ function collect(dir, extensions) {
  * single locale.
  */
 const REQUIRED_IN_LOCALES = [
-	{ pattern: /11[,.  \s]?000|\$\{TESTS\}/, reason: 'canonical test count (11,000+) missing from this locale' },
-	{ pattern: /(?<![\d.])77(?!\d)|\$\{MCP_TOOLS\}/, reason: 'canonical MCP tool count (77) missing from this locale' },
+	{ pattern: /(?<!\d)20[,.  \s]?000|\$\{TESTS\}/, reason: 'canonical test count (20,000+) missing from this locale' },
+	{ pattern: /(?<![\d.])84(?!\d)|\$\{MCP_TOOLS\}/, reason: 'canonical MCP tool count (84) missing from this locale' },
 ];
 
 const localeFiles = collect(join(ROOT, 'src', 'i18n', 'locales'), ['.ts']);

@@ -32,7 +32,7 @@ const en = {
 		performance: 'Performance',
 		performanceDesc: 'Millions of concurrent threads',
 		multiAgent: 'Multi-Agent',
-		multiAgentDesc: 'Intent routing & discovery',
+		multiAgentDesc: 'Group collaboration & intent routing',
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline logs & audit trails',
 		codeQuality: 'Code Quality',
@@ -77,9 +77,9 @@ const en = {
 		getStartedCta: 'Get Started →',
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
-		bannerBadge: '🏆 UNIDO Recognition',
-		bannerText: 'LABS.AI selected as UNIDO Trusted Partner for Industrial AI',
-		bannerLink: 'Read more',
+		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
+		bannerText: 'Per-user workspaces, Connections for governed outbound access, and a Red Hat certified UBI 10 image',
+		bannerLink: 'Release notes',
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
 		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',
@@ -178,7 +178,7 @@ const en = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'Agent logic, pipelines, and tool definitions are <strong>JSON configurations</strong>, not compiled code. Prompt engineers iterate instantly via the React UI or REST API, without redeployment.',
-		sol2Title: '77 MCP Tools',
+		sol2Title: `${MCP_TOOLS} MCP Tools`,
 		sol2Desc:
 			'EDDI exposes its capabilities via the <strong>Model Context Protocol</strong>, enabling Claude Desktop to interact. Agents can also <strong>consume external MCP tools</strong>.',
 		sol3Title: 'Security-First',
@@ -192,14 +192,14 @@ const en = {
 			'Built on an enterprise-grade runtime with <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads. No event loop blocking, no single-threaded bottlenecks.',
 		sol6Title: 'Multi-Agent Orchestration',
 		sol6Desc:
-			'Intent-based agent discovery, managed conversations, agent triggers, and A/B routing. <strong>One conversation per intent+user</strong>, auto-created and auto-managed.',
+			'Intent-based agent discovery, managed conversations, and <strong>group collaboration</strong>: agents deliberate in seven styles, vote, co-edit shared work products, and give humans a seat at the table.',
 		// Trusted & Certified
 		trustedTitle: 'Trusted & Certified',
 		trustRedHat: 'Red Hat Certified Container',
-		trustRedHatDesc: 'Docker image certified by IBM',
+		trustRedHatDesc: 'Certified image, published in the Red Hat catalog',
 		trustApache: 'Apache 2.0 Licensed',
 		trustApacheDesc: '100% open-source & enterprise-ready',
-		trustTests: '11,000+ Tests · 0 Failures',
+		trustTests: `${TESTS} Tests · 0 Failures`,
 		trustTestsDesc: 'Rigorous CI/CD & >90% code coverage',
 		trustOpenSSF: 'OpenSSF Gold',
 		trustOpenSSFDesc: 'Highest tier of Linux Foundation security & quality certification',
@@ -249,15 +249,19 @@ const en = {
 		faq2Q: 'How is EDDI different from AI libraries and frameworks?',
 		faq2A: 'AI libraries like LangChain, Spring AI, and LangChain4j give you building blocks, but you still need to build REST controllers, authentication, conversation state management, audit logging, and management UIs yourself. EDDI is a <strong>deployable middleware platform</strong>, not a library. It provides all of this out of the box, ready to deploy via Docker.',
 		faq3Q: 'Is EDDI production-ready for enterprise use?',
-		faq3A: 'Yes. EDDI is built on an enterprise-grade runtime with lightweight virtual threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream.',
+		faq3A: 'Yes. EDDI is built on an enterprise-grade runtime with lightweight virtual threads for massive I/O-bound concurrency. It supports MongoDB and PostgreSQL, includes built-in OIDC/Keycloak authentication and per-user workspaces with resource sharing, provides immutable cryptographic audit trails for compliance (including EU AI Act), and scales horizontally via NATS JetStream.',
 		faq4Q: 'What is the Model Context Protocol (MCP)?',
-		faq4A: `The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes ${MCP_TOOLS} MCP tools spanning conversation management, agent administration, setup automation, schedule management, and diagnostics.`,
+		faq4A: `The Model Context Protocol (MCP) is an open standard that allows AI assistants like Claude Desktop, IDE plugins, and custom clients to interact with external tools programmatically. EDDI exposes ${MCP_TOOLS} MCP tools spanning conversation management, agent administration, group discussions, human approvals, setup automation, schedule management, and diagnostics.`,
 		faq5Q: 'Can EDDI replace Flowise or n8n for production workloads?',
 		faq5A: 'EDDI serves a similar visual-building purpose but with enterprise-grade architecture. Unlike Flowise and n8n, EDDI uses no <code>eval()</code> or code blocks, runs millions of lightweight virtual threads for enterprise-grade concurrency, supports OIDC/Keycloak authentication, and stores data in MongoDB or PostgreSQL. It is designed for regulated industries.',
 		faq6Q: 'Is EDDI related to "Eddie AI" or other products named "Eddy"?',
 		faq6A: 'No. EDDI (by <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) is a self-hosted <strong>enterprise AI agent orchestration platform</strong> built on Java/Quarkus. It is not related to consumer video editing tools, HR software, chatbot builders, or other products that share similar names. EDDI is designed for enterprise teams deploying governed, multi-agent AI systems in production.',
 		faq7Q: 'How does EDDI compare to cloud AI platforms like AWS Bedrock or Azure AI Studio?',
 		faq7A: `Cloud AI platforms offer managed infrastructure but create <strong>vendor lock-in</strong>. EDDI runs anywhere Docker runs, on-premises, any cloud, or in air-gapped environments. It supports ${LLM_PROVIDERS} LLM providers and any OpenAI-compatible endpoint, providing full model portability and data sovereignty. See our <a href="/enterprise/vs-alternatives/">detailed comparison</a>.`,
+		faq8Q: 'Does EDDI work with Open WebUI and other OpenAI-compatible clients?',
+		faq8A: 'Yes. EDDI includes an OpenAI-compatible <code>/v1</code> API that presents deployed agents as models, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly. It supports streaming and token usage reporting, keeps each chat in its own conversation, and the agent\'s approval gates still apply. The API is disabled by default and has its own API-key authentication.',
+		faq9Q: 'Can multiple users and teams share one EDDI deployment?',
+		faq9A: 'Yes. Per-user workspaces give every agent and configuration an owner, a personal or team space mapped to Keycloak groups, and explicit sharing at use, view, edit, or own level. Connections let agents call external systems with an organization-wide key, a service account, or each user\'s own OAuth account, so an agent can be held to what the person using it may do. Workspaces are opt-in, and existing resources are backfilled so nothing disappears when you turn them on.',
 		// Demo System
 		demoBtn: 'Demo System',
 		demoModalTitle: 'Demo System',
@@ -275,17 +279,18 @@ const en = {
 		heroSubtitle: 'Install EDDI, create your first agent, and start chatting in 5 minutes.',
 		promiseLine: 'In five minutes you will have EDDI running via a single command, a working agent created with one <code>setup_agent</code> call, and the Manager UI open at <code>http://localhost:7070</code>.',
 		prerequisitesTitle: 'Prerequisites',
-		prereq1: '<strong>Docker</strong> (recommended) or Java 25+',
+		prereq1: '<strong>Docker</strong> (recommended) or Java 25+. On x86-64 hosts the EDDI image needs an x86-64-v3 CPU (Intel Haswell, AMD Excavator, or newer)',
 		prereq2: 'An LLM provider API key (OpenAI, Anthropic, Google Gemini, or a local Ollama instance)',
 		step1Title: '1. Install & Start EDDI',
-		step1Desc: 'The fastest way to get EDDI running is the <strong>one-command installer</strong>. It sets up EDDI + your choice of database via Docker Compose, deploys a starter agent, and walks you through configuration:',
+		step1Desc: 'The fastest way to get EDDI running is the <strong>one-command installer</strong>. It sets up EDDI + your choice of database via Docker Compose, generates a vault encryption key, and walks you through configuration:',
 		step1TabInstaller: 'Install Script (Recommended)',
 		step1TabCompose: 'Docker Compose',
 		step1ComposeDesc: 'If you prefer manual control, clone the repo and use Docker Compose directly:',
+		step1ComposeOllama: 'Want a local model? Add the Ollama overlay, and new agents start with the Ollama base URL pre-filled:',
 		step1After: 'EDDI will be available at <code>http://localhost:7070</code>.',
 		step2Title: '2. Connect via MCP',
 		step2Desc:
-			'Connect your AI assistant to EDDI\'s <strong>77 MCP tools</strong>. Configuration depends on your client\'s transport support:',
+			`Connect your AI assistant to EDDI's <strong>${MCP_TOOLS} MCP tools</strong>. Configuration depends on your client's transport support:`,
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: 'Direct HTTP (Cursor, VS Code, Windsurf)',
 		step2ClaudeNote:
@@ -294,7 +299,7 @@ const en = {
 			'<strong>💡 Windows:</strong> If <code>npx</code> is not on your PATH, use <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> instead.',
 		step2DirectNote:
 			'Clients with native Streamable HTTP support (Cursor, VS Code, Windsurf, Antigravity, and other IDE plugins) connect directly, no bridge needed:',
-		step2After: "Now you can interact with EDDI's <strong>77 MCP tools</strong> directly from your AI assistant.",
+		step2After: `Now you can interact with EDDI's <strong>${MCP_TOOLS} MCP tools</strong> directly from your AI assistant.`,
 		step2DocsLink:
 			'📖 See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
 		step3Title: '3. Store Your API Key',
@@ -304,6 +309,7 @@ const en = {
 		step4Title: '4. Create Your First Agent',
 		step4Desc: 'Use <code>setup_agent</code> to create a fully working agent in one call, via MCP or REST API:',
 		step4After: 'This creates the rules, LLM config, workflow, agent, and deploys it, all in one step.',
+		step4Operator: 'Prefer a conversation or a form? A fresh install starts with no agents deployed. Open the <strong>Platform Operator</strong> at <code>http://localhost:7070/manage/operator</code> and describe the agent you want, with every change waiting for your approval, or fill in the agent wizard at <code>http://localhost:7070/manage/agents/wizard</code>.',
 		step5Title: '5. Chat with Your Agent',
 		step6Title: '6. Open the Manager UI',
 		step6Desc:
@@ -313,7 +319,7 @@ const en = {
 		nextAllFeatures: 'All Features',
 		nextAllFeaturesDesc: 'Explore everything EDDI offers',
 		nextMcpServer: 'MCP Server',
-		nextMcpServerDesc: 'Browse all 77 MCP tools',
+		nextMcpServerDesc: `Browse all ${MCP_TOOLS} MCP tools`,
 		nextDocs: 'Documentation ↗',
 		nextDocsDesc: 'Deep-dive into architecture & APIs',
 		nextWhyEddi: 'Why EDDI?',
@@ -325,7 +331,9 @@ const en = {
 			'<code>--defaults</code>: All defaults, no prompts',
 			'<code>--db=postgres</code>: Use PostgreSQL instead of MongoDB',
 			'<code>--with-auth</code>: Enable Keycloak authentication',
+			'<code>--with-monitoring</code>: Add Prometheus and Grafana monitoring',
 			'<code>--full</code>: Everything enabled (database + auth + monitoring)',
+			`<code>--eddi-version=${EDDI_LATEST_VERSION}</code>: Pin a specific EDDI release`,
 			'<code>--local</code>: Build Docker image from local source (for contributors)',
 		],
 		// Update CLI
@@ -335,7 +343,7 @@ const en = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes Deployment',
 		k8sDesc: 'Deploy to Kubernetes with a single command:',
-		k8sOptions: 'Kustomize overlays and Helm charts are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		k8sOptions: 'Kustomize overlays and the Helm chart (2.0.0) are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
 
 	},
 
@@ -356,13 +364,13 @@ const en = {
 			'Product recommendation, order support, and multi-language service agents fronted by intent-based multi-agent routing, so each request reaches the specialist agent that declared the matching intent. Agents call the built-in web, HTTP, and RAG tools to pull live catalog and order data, and A/B routing lets you test agent variants against real traffic before rolling one out.',
 		manufacturing: 'Manufacturing',
 		manufacturingDesc:
-			'Equipment-maintenance, quality-control, and supply-chain assistants that run fully self-hosted on-premises or in a private cloud, with no dependency on a US-based API. Scheduling and heartbeat triggers let agents run periodic checks and proactive summaries on a cron cadence, and the 77 MCP tools plus OpenAPI ingestion connect agents to existing line-of-business systems.',
+			`Equipment-maintenance, quality-control, and supply-chain assistants that run fully self-hosted on-premises or in a private cloud, with no dependency on a US-based API. Scheduling and heartbeat triggers let agents run periodic checks and proactive summaries on a cron cadence, and the ${MCP_TOOLS} MCP tools plus OpenAPI ingestion connect agents to existing line-of-business systems.`,
 		government: 'Government',
 		governmentDesc:
 			'Citizen-inquiry agents, internal process automation, and document analysis in fully air-gapped environments, using local models via Ollama or Jlama so no data leaves the network. Config-as-code makes every agent decision reproducible for audit, and the immutable audit trail plus human-oversight controls in the Manager UI map directly onto EU AI Act record-keeping and oversight requirements.',
 		devPlatforms: 'Developer Platforms',
 		devPlatformsDesc:
-			'Internal AI services for engineering teams, exposed as API- and MCP-accessible agents that drop into CI/CD pipelines, code review, and documentation workflows. Agents are created and managed programmatically with a single setup_agent call, predictable CRUD APIs, and 77 MCP tools, so coding agents in Claude, Cursor, or VS Code can drive EDDI directly.',
+			`Internal AI services for engineering teams, exposed as API- and MCP-accessible agents that drop into CI/CD pipelines, code review, and documentation workflows. Agents are created and managed programmatically with a single setup_agent call, predictable CRUD APIs, and ${MCP_TOOLS} MCP tools, so coding agents in Claude, Cursor, or VS Code can drive EDDI directly, and an OpenAI-compatible API puts the same agents behind Open WebUI or any OpenAI client.`,
 		ctaTitle: 'Ready to build your use case?',
 		ctaDesc: 'Install EDDI in five minutes, create your first agent, and map any of these patterns onto your own deployment. Prefer to talk it through first? We are happy to help.',
 		ctaButton: 'Get Started in 5 Minutes',
@@ -373,7 +381,7 @@ const en = {
 	featuresOverview: {
 		title: 'Features at a Glance',
 		description:
-			'Every capability that makes EDDI the enterprise AI orchestrator, EDDI Manager UI, config-as-code, 77 MCP tools, security-first architecture, and more.',
+			`Every capability that makes EDDI the enterprise AI orchestrator, EDDI Manager UI, config-as-code, ${MCP_TOOLS} MCP tools, security-first architecture, and more.`,
 		heroTitle: 'Everything You Need to',
 		heroHighlight: 'Orchestrate AI',
 		heroDesc:
@@ -388,18 +396,18 @@ const en = {
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc:
 			'Agent logic is JSON configuration, not compiled code. Prompt engineers iterate instantly, <strong>no redeployment needed</strong>.',
-		mcpCardTitle: '🔌 MCP Server (77 Tools)',
+		mcpCardTitle: `🔌 MCP Server (${MCP_TOOLS} Tools)`,
 		mcpCardDesc:
 			'Full AI-native control via the <strong>Model Context Protocol</strong>. Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom clients manage agents programmatically.',
 		securityCardTitle: '🔐 Security-First',
 		securityCardDesc:
-			'No <code>eval()</code>, vault integration, path traversal protection, OIDC/Keycloak, <strong>cryptographic audit trails</strong>.',
+			'No <code>eval()</code>, vault integration, path traversal protection, OIDC/Keycloak, per-user workspaces, <strong>cryptographic audit trails</strong>.',
 		perfCardTitle: '🚀 Performance',
 		perfCardDesc:
 			'Enterprise-grade runtime with <strong>millions of lightweight threads</strong> for I/O-bound LLM workloads.',
 		multiCardTitle: '🤖 Multi-Agent',
 		multiCardDesc:
-			'Intent-based agent discovery, managed conversations, agent triggers, and <strong>A/B routing</strong> across multiple agents.',
+			'Intent-based discovery, managed conversations, and <strong>group collaboration</strong> with voting, shared artifacts, and humans as members.',
 		// AI Capabilities section
 		hitlCardTitle: `✋ Human-in-the-Loop`,
 		hitlCardDesc: `Pause a turn, gate a single tool call, or require sign-off on a discussion phase. <strong>Approval workflows</strong> with timeout policies, Slack cards, and crash-safe state.`,
@@ -451,10 +459,10 @@ const en = {
 			'Every pipeline step logged with <strong>immutable audit trails</strong>: tokens, cost, timing, and tool calls.',
 		cqCardTitle: '🧪 Code Quality',
 		cqCardDesc:
-			'<strong>11,000+ tests with zero failures.</strong> Zero Checkstyle warnings. >90% code coverage. CI/CD enforced on every merge.',
+			`<strong>${TESTS} tests with zero failures.</strong> Zero Checkstyle warnings. >90% code coverage. CI/CD enforced on every merge.`,
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc:
-			'77 MCP tools, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.',
+			`${MCP_TOOLS} MCP tools, an OpenAI-compatible API, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.`,
 	},
 
 	// ─── Feature Pages (FeaturePage layout) ─────────────────────
@@ -474,32 +482,33 @@ const en = {
 				'<strong>Interactive Onboarding</strong>: Guided tours that introduce new users to the platform',
 				'<strong>Resource Management</strong>: CRUD operations for rules, workflows, LLM configs, and connectors',
 				'<strong>Secrets Vault</strong>: Secure API key management with masked display',
+				'<strong>Platform Operator & Agent Wizard</strong>: Describe an agent in conversation or fill in a form. Every write the operator proposes waits for your approval',
+				'<strong>Workspaces & Sharing</strong>: Space switcher, a share dialog for any resource, ownership badges, and actions limited to your access level',
+				'<strong>Connections</strong>: Create and edit connections to external systems, and link your own OAuth accounts',
 			],
 			heading3: 'Built for Teams',
 			para2: 'The Manager enables non-developers to iterate on agent behavior without touching source code. Prompt engineers can modify rules, test conversations, and deploy changes, all from the browser.',
 		},
 		mcpServer: {
-			title: 'MCP Server: 77 tools',
+			title: `MCP Server: ${MCP_TOOLS} tools`,
 			description:
 				'EDDI exposes its full capabilities via the Model Context Protocol, enabling Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom AI clients to manage agents programmatically.',
 			heading1: 'AI-Native Control Plane',
-			para1: 'The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>77 tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.',
+			para1: `The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>${MCP_TOOLS} tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.`,
 			heading2: 'Tool Categories',
 			items: [
-				'<strong>Conversation Tools (11)</strong>: Chat with agents, manage conversations, read history, intent-based managed chat',
-				'<strong>Admin Tools (13)</strong>: Deploy, undeploy, create, update, and delete agents and triggers',
+				'<strong>Conversation Tools (13)</strong>: Chat with agents, manage conversations, read history, pipeline logs and the per-task audit trail, agent discovery, intent-based managed chat',
+				'<strong>Admin Tools (29)</strong>: Deploy, undeploy, create, update, and delete agents, resources, triggers, schedules, and Slack or custom channel integrations',
 				'<strong>Setup Tools (2)</strong>: Create complete agents in a single call with <code>setup_agent</code>, or from an OpenAPI spec with <code>create_api_agent</code>',
-				'<strong>Resource CRUD (5)</strong>: Full create/read/update/delete for rules, workflows, LLM configs, connectors, with batch cascade',
-				'<strong>Group Conversation Tools (11)</strong>: Multi-agent discussions with 6 styles, nested groups, async discussions',
+				'<strong>Group Conversation Tools (18)</strong>: Multi-agent discussions in 7 styles, preset templates, member follow-ups, nested groups, and standing-team backlogs',
+				'<strong>Human-in-the-Loop Tools (10)</strong>: List and inspect pending approvals, resume or cancel paused conversations, approve group phases, and submit a human member\'s turn',
 				'<strong>Memory Tools (8)</strong>: Persistent user memory with visibility scoping, search, and bulk operations',
-				'<strong>Schedule Management (6)</strong>: Create, list, fire, and retry scheduled agent triggers (cron and heartbeat)',
-				'<strong>Diagnostic Tools (2)</strong>: Server-side pipeline logs and per-task audit trail with LLM details, timing, and cost',
 				'<strong>GDPR Tools (2)</strong>: Cascade data erasure (Art. 17) and full data export (Art. 15/20)',
-				'<strong>Channel Integration Tools (5)</strong>: Manage Slack, Teams, and custom channel integrations',
+				'<strong>Documentation Tools (2)</strong>: Read EDDI\'s own documentation, also exposed as MCP resources and over REST',
 				'<strong>OpenAPI 3.1</strong>: Auto-generated OpenAPI spec. Paste any external OpenAPI spec into EDDI → get a fully deployed API-calling agent',
 			],
 			heading3: 'Open Standards: Not Proprietary APIs',
-			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming, all open standards, zero vendor lock-in.',
+			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming, all open standards, zero vendor lock-in. Deployed agents are also reachable through an <strong>OpenAI-compatible <code>/v1</code> API</strong>, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly.',
 			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
 		},
 		configAsCode: {
@@ -521,7 +530,7 @@ const en = {
 				'<strong>Behavior Rules</strong>: IF-THEN logic engine for routing, orchestration, and business logic decisions without code',
 			],
 			heading3: 'Resource Types',
-			para2: 'EDDI manages these configuration resources: <strong>Rules</strong> (system prompts), <strong>Workflows</strong> (pipeline definitions), <strong>LLM Connectors</strong> (provider settings), <strong>HTTP Connectors</strong> (external API integrations), <strong>Agents</strong> (deployment descriptors), and <strong>Environments</strong> (deployment targets).',
+			para2: 'EDDI manages these configuration resources: <strong>Rules</strong> (system prompts), <strong>Workflows</strong> (pipeline definitions), <strong>LLM Connectors</strong> (provider settings), <strong>HTTP Connectors</strong> (external API integrations), <strong>Connections</strong> (how to authenticate to an external system), <strong>Groups</strong> (multi-agent discussions), <strong>Agents</strong> (deployment descriptors), and <strong>Environments</strong> (deployment targets).',
 		},
 		security: {
 			title: 'Security-First Architecture',
@@ -542,15 +551,19 @@ const en = {
 			heading2: 'Security Capabilities',
 			items: [
 				'<strong>Zero eval()</strong>: No dynamic code execution of any kind. Agent logic is declarative JSON only',
-				'<strong>OIDC/Keycloak</strong>: Enterprise authentication and authorization with RBAC roles (admin, editor, viewer)',
+				'<strong>OIDC/Keycloak</strong>: Enterprise authentication and authorization with RBAC roles (admin, editor, viewer) and a dedicated approver role',
+				'<strong>Per-User Workspaces</strong>: Every configuration resource has an owner, a personal or team space, and explicit sharing at use, view, edit, or own level',
+				'<strong>Connections</strong>: One credential model for outbound calls, from organization-wide keys and OAuth2 service accounts to each user\'s own OAuth account or a credential the calling system supplies per request. Secrets are always vault references',
+				'<strong>Tool-Result Guardrails</strong>: Every tool result carries its provenance, and directive-shaped text inside it is marked, redacted, warned on, or blocked before the model acts on it',
 				'<strong>Secrets Vault</strong>: AES-256-GCM envelope encryption for API keys with automatic secret scrubbing on export',
 				'<strong>Path Traversal Protection</strong>: Input validation at every boundary prevents directory escape attacks',
-				'<strong>SSRF Protection</strong>: URL validation and domain allowlisting prevent server-side request forgery',
+				'<strong>SSRF Protection</strong>: URL validation and domain allowlisting prevent server-side request forgery, and cloud metadata endpoints are refused for HTTP call, MCP, and A2A targets, including through DNS resolution and redirects',
 				'<strong>Cryptographic Audit Trails</strong>: HMAC-SHA256 signed, tamper-evident operation logs with per-agent cryptographic signing',
 				'<strong>EU AI Act Ready</strong>: Built-in governance capabilities for regulatory compliance',
 				'<strong>Secret Redaction</strong>: Automated filter scrubs API keys, vault references, and sensitive data from all audit entries',
 				'<strong>PII-Safe Logging</strong>: GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
 				'<strong>Sigstore Cosign</strong>: Keyless OIDC container image signing, cryptographically verify any Docker image was built by official CI',
+				'<strong>Hardened Base Image</strong>: Digest-pinned Red Hat UBI 10 runtime, published to the Red Hat certified catalog',
 			],
 
 			// CI/CD Security Pipeline
@@ -588,9 +601,9 @@ const en = {
 				'<strong>Loom-Friendly Connection Pools</strong>: Agroal connection pooling avoids the ThreadLocal bottlenecks that can affect traditional connection pools under virtual thread workloads',
 				'<strong>NATS JetStream</strong>: Horizontal scaling with event-driven architecture for multi-instance coordination',
 				'<strong>Dual Database</strong>: MongoDB or PostgreSQL, switch with one env var. Single Docker image for both',
-				'<strong>SSE Streaming</strong>: Real-time chat responses, group discussion feeds, and live log streaming via Server-Sent Events',
-				'<strong>One-Command Install</strong>: Interactive wizard deploys EDDI + database + starter agent via Docker Compose',
-				'<strong>Red Hat Certified</strong>: Container certification with automated preflight checks in CI/CD',
+				'<strong>SSE Streaming</strong>: Real-time chat responses, group discussion feeds, and live log streaming via Server-Sent Events, with token-by-token output even while tools run',
+				'<strong>One-Command Install</strong>: Interactive wizard deploys EDDI + database via Docker Compose and generates a vault key',
+				'<strong>Red Hat Certified</strong>: UBI 10 image published to the Red Hat certified catalog, with automated preflight checks in CI/CD',
 			],
 
 			// Honest benchmark context
@@ -601,7 +614,7 @@ const en = {
 		multiAgent: {
 			title: 'Multi-Agent Orchestration',
 			description:
-				'Intent-based agent discovery, managed conversations, agent triggers, and A/B routing, one conversation per intent+user, auto-created and auto-managed.',
+				'Intent-based agent discovery, managed conversations, and group collaboration: agents deliberate, vote, share work products, and work alongside humans.',
 			heading1: 'Intelligent Agent Routing',
 			para1: "EDDI's multi-agent system goes beyond simple load balancing. It provides <strong>intent-based agent discovery</strong> that automatically routes user requests to the most appropriate agent based on declared capabilities.",
 			heading2: 'Orchestration Features',
@@ -613,12 +626,17 @@ const en = {
 				'<strong>Coordinator Pattern</strong>: Agents delegate to specialized sub-agents',
 			],
 			heading3: 'Group Conversations & Advanced Orchestration',
-			para2: 'EDDI supports <strong>multi-agent group conversations</strong> with 6 built-in discussion styles, nested group structures, dynamic agent creation, and a meta-agent that operates the platform itself:',
+			para2: 'EDDI supports <strong>multi-agent group conversations</strong> with 7 built-in discussion styles, explicit voting, shared work products, standing teams, nested group structures, dynamic agent creation, and a meta-agent that operates the platform itself:',
 			items2: [
-				'<strong>6 Discussion Styles</strong>: Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, and <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)',
+				'<strong>7 Discussion Styles</strong>: Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS), and <strong>Negotiation</strong> (offers, concessions, and an arbiter)',
+				'<strong>Voting</strong>: Vote phases collect explicit ballots (majority or approval, weighted, quorum-gated) and record a decision with the full tally and the losing side\'s dissent',
+				'<strong>Shared Artifacts & Task Bidding</strong>: Members co-edit a validated shared work product and bid for tasks instead of being assigned round-robin',
+				'<strong>Humans as Members</strong>: A person takes a real turn in the discussion, not just an approval',
+				'<strong>Standing Teams</strong>: Persistent teams with a backlog, cron cadences, a facilitator with bounded moves, and retro phases that harvest team memory',
+				'<strong>Preset Templates</strong>: Research pod, editorial team, ops task force, decision board, and negotiation table, ready to instantiate',
 				'<strong>Dynamic Agents</strong>: Agents in Task Force discussions can create, recruit, delegate to, and teardown sub-agents at runtime with guardrails (provider/model whitelists, per-discussion caps, lifecycle policies)',
 				'<strong>Nested Groups</strong>: Compose groups of groups for tournament brackets, red-team vs blue-team, and panel reviews',
-				'<strong>Slack Integration</strong>: Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support and trigger-keyword routing',
+				'<strong>Slack Integration</strong>: Deploy agents to Slack channels and run multi-agent debates directly in threads, with DM support, trigger-keyword routing, and an observe mode where an agent watches a channel and replies only when a keyword or file type matches, within cooldown, daily reply, and daily cost limits',
 				'<strong>Platform Operator</strong>: A meta-agent that reads and operates your deployment (including creating other agents), with every write behind a human approval gate',
 				'<strong>A2A Protocol</strong>: Full Agent-to-Agent protocol implementation with Agent Cards and cross-platform skill discovery',
 				'<strong>Capability Matching</strong>: Discover and route to agents by skill, confidence score, and custom attributes',
@@ -636,7 +654,7 @@ const en = {
 				'<strong>Token & Cost Tracking</strong>: Per-conversation and per-agent usage metrics',
 				'<strong>Pipeline Tracing</strong>: Full visibility into every step of the processing pipeline',
 				'<strong>Prometheus Metrics</strong>: 50+ Micrometer metrics at <code>/q/metrics</code> for monitoring infrastructure',
-				'<strong>Grafana Dashboards</strong>: Pre-built dashboards for operations teams',
+				'<strong>Grafana Dashboards</strong>: A pre-built operations dashboard plus a Full Metrics Reference dashboard with a panel for every registered meter',
 				'<strong>OpenTelemetry Tracing</strong>: Per-task distributed traces via OTLP (Jaeger, Tempo, Datadog) with spans for task ID, type, conversation, and agent',
 				'<strong>CQRS Telemetry</strong>: Event-sourced ledger of all system operations',
 			],
@@ -644,22 +662,22 @@ const en = {
 		codeQuality: {
 			title: 'Code Quality',
 			description:
-				'11,000+ tests with zero failures. Zero Checkstyle warnings. >90% code coverage. CI/CD enforced quality gates on every merge.',
+				`${TESTS} tests with zero failures. Zero Checkstyle warnings. >90% code coverage. CI/CD enforced quality gates on every merge.`,
 			heading1: 'Engineering Rigor',
 			para1: 'EDDI maintains <strong>exceptional code quality</strong> through comprehensive testing, static analysis, and CI/CD quality gates. Every pull request must pass the full test suite before merge.',
 			heading2: 'Quality Metrics',
 			items: [
-				'<strong>11,000+ Tests</strong>: Unit, integration, and end-to-end coverage',
+				`<strong>${TESTS} Tests</strong>: Unit, integration, and end-to-end coverage`,
 				'<strong>Zero Failures</strong>: Clean CI on every build',
 				'<strong>Checkstyle Enforcement</strong>: Zero warnings, strict rules enforced on every build',
-				'<strong>MCP Tool Tests</strong>: Comprehensive coverage of all 77 MCP tools',
+				`<strong>MCP Tool Tests</strong>: Comprehensive coverage of all ${MCP_TOOLS} MCP tools`,
 				'<strong>CI/CD Quality Gates</strong>: Automated checks prevent regressions',
 			],
 		},
 		aiReady: {
 			title: 'AI-Ready Architecture',
 			description:
-				'77 MCP tools, predictable CRUD patterns, self-documenting APIs. Built from the ground up for coding agents to work with.',
+				`${MCP_TOOLS} MCP tools, predictable CRUD patterns, self-documenting APIs. Built from the ground up for coding agents to work with.`,
 			heading1: 'Designed for AI Collaboration',
 			para1: 'EDDI is built with the assumption that <strong>coding agents will manage it</strong>. Every API follows predictable patterns, every resource has consistent CRUD operations, and the MCP server enables full programmatic control.',
 			heading2: 'AI-Friendly Design',
@@ -667,8 +685,10 @@ const en = {
 				'<strong>Predictable Patterns</strong>: Consistent resource naming, CRUD conventions, and error handling',
 				'<strong>Self-Documenting APIs</strong>: OpenAPI specs and MCP tool descriptions auto-generated',
 				'<strong>LLMs.txt Support</strong>: AI-discoverable site content via llms.txt and llms-full.txt',
-				'<strong>MCP-First</strong>: 77 tools designed for AI assistant integration',
+				`<strong>MCP-First</strong>: ${MCP_TOOLS} tools designed for AI assistant integration`,
 				'<strong>Setup Automation</strong>: Single-call agent creation with <code>setup_agent</code>',
+				'<strong>OpenAI-Compatible API</strong>: Deployed agents appear as models to Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM',
+				'<strong>Docs for Agents</strong>: EDDI\'s documentation is readable over MCP and REST, so an agent can look up how the platform works before it acts',
 			],
 		},
 		// ─── New Feature Pages ────────────────────────────────────
@@ -728,9 +748,9 @@ const en = {
 		},
 		humanInTheLoop: {
 			title: `Human-in-the-Loop Governance`,
-			description: `Pause a turn, gate a single tool call, or require sign-off on a discussion phase. Approval workflows with timeout policies, Slack cards, and crash-safe state, shipped in EDDI ${EDDI_LATEST_VERSION}.`,
+			description: `Pause a turn, gate a single tool call, or require sign-off on a discussion phase. Approval workflows with timeout policies, Slack cards, and crash-safe state, shipped in EDDI 6.2.0.`,
 			heading1: `Autonomy With a Stop Button`,
-			para1: `Autonomous agents are useful right up to the moment they do something irreversible. EDDI ${EDDI_LATEST_VERSION} introduces <strong>human-in-the-loop governance</strong>: explicit approval gates at three levels of granularity, backed by timeout policies, loop detection, and state that survives a restart. Approvals are configuration, not custom application code.`,
+			para1: `Autonomous agents are useful right up to the moment they do something irreversible. EDDI 6.2.0 introduced <strong>human-in-the-loop governance</strong>: explicit approval gates at three levels of granularity, backed by timeout policies, loop detection, and state that survives a restart. Approvals are configuration, not custom application code.`,
 			whyTitle: `Why Approval Gates Belong in the Platform`,
 			whyPara: `Most teams bolt approvals onto the application layer: a queue here, a webhook there, a database flag somewhere else. That approach breaks the moment a process restarts, an approver goes offline, or an agent retries the same request in a loop. EDDI puts the gate inside the conversation pipeline itself. A paused turn stays paused, competing input is rejected with a clear <code>409 Conflict</code>, and every decision lands in the same audit trail as the rest of the agent lifecycle.`,
 			heading2: `Three Levels of Approval`,
@@ -754,6 +774,8 @@ const en = {
 				`<strong>Crash Recovery</strong>: Pending approvals survive server restarts, and timeout timers are re-armed automatically, so a rolling deployment never silently drops a decision that was in flight.`,
 				`<strong>Slack Approvals</strong>: Interactive Block Kit cards bring the decision to the approver, with redacted argument previews and approver whitelists so only authorized people can act on a card.`,
 				`<strong>MCP Approvals</strong>: External clients list pending approvals and approve or reject them through MCP tools, part of the ${MCP_TOOLS} tool surface, turning your IDE or agent client into a control plane.`,
+				`<strong>Approve What Will Actually Run</strong>: An approval binds to the resolved request, and approvers of MCP and A2A calls see the target and a request fingerprint, not just a tool name.`,
+				`<strong>A Gated Platform Operator</strong>: The Platform Operator can create and change agents through EDDI's own API, and every write it attempts waits behind the same approval gate.`,
 			],
 			govTitle: `Governance and Compliance Fit`,
 			govPara: `Human oversight is not only an operational preference, it is a regulatory requirement. Approval gates give EU AI Act Article 14 human oversight a concrete implementation: a named person authorizes a specific action, and the decision is recorded. Combined with EDDI's <a href="/enterprise/compliance/">compliance framework</a> and its HMAC-SHA256 audit trail, you can show an auditor not just what an agent did, but who allowed it and when.`,
@@ -787,8 +809,9 @@ const en = {
 			items: [
 				'<strong>Visual Management UI</strong>: The EDDI Manager for building and monitoring agents',
 				'<strong>Configuration-as-Code</strong>: Agent logic is JSON, not compiled code',
-				'<strong>77 MCP Tools</strong>: Full AI-native control via Model Context Protocol',
+				`<strong>${MCP_TOOLS} MCP Tools</strong>: Full AI-native control via Model Context Protocol`,
 				'<strong>Enterprise Security</strong>: OIDC, vault, audit trails, no eval()',
+				'<strong>Multi-User by Design</strong>: Per-user workspaces with sharing, and Connections that let agents act with each user\'s own credentials',
 				'<strong>Production Infrastructure</strong>: REST APIs, conversation state management, Prometheus metrics',
 				'<strong>Horizontal Scaling</strong>: NATS JetStream for distributed architectures',
 			],
@@ -808,7 +831,7 @@ const en = {
 				{ dimension: 'Security Model', frameworks: 'Relies on sandboxed code execution', eddi: 'No dynamic code execution; envelope-encrypted vault, SSRF protection' },
 				{ dimension: 'Compliance', frameworks: 'Requires custom implementation', eddi: 'GDPR, HIPAA, EU AI Act infrastructure built-in' },
 				{ dimension: 'Audit Trail', frameworks: 'Application-level logging', eddi: 'HMAC-SHA256 immutable ledger with cryptographic agent signing' },
-				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready' },
+				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready, Red Hat certified image' },
 			],
 			// LLM Providers
 			llmTitle: '12 LLM Providers Supported',
@@ -828,7 +851,7 @@ const en = {
 			rfpItems: [
 				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only, zero eval(), zero code execution blocks.' },
 				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism for millions of concurrent I/O-bound operations.' },
-				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '77 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC, all open standards.' },
+				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: `${MCP_TOOLS} MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC, all open standards, plus an OpenAI-compatible API for any OpenAI client.` },
 				{ category: 'Data Privacy', question: 'How are data subject rights (erasure, export, restriction) implemented?', eddiAnswer: `Unified REST API cascades across all 5 data stores. One endpoint for GDPR, CCPA, LGPD, PIPEDA, and ${FRAMEWORKS} frameworks.` },
 				{ category: 'Security', question: 'What is the platform\'s CVE history and architectural security posture?', eddiAnswer: 'No dynamic code execution eliminates entire vulnerability classes. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable, cryptographically signed audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with per-agent cryptographic signing. Full pipeline tracing for every decision.' },
@@ -920,7 +943,7 @@ const en = {
 				{ framework: 'LangGraph (v1.0)', abstraction: 'Nodes & Edges (DAG / state machine)', learning: 'Moderate–High (2–3 weeks)', state: 'Excellent built-in persistence, but rigid upfront definition required', production: 'Requires custom REST, auth, UI, and scaling infrastructure' },
 				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral, relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
 				{ framework: 'Microsoft AutoGen', abstraction: 'Multi-party conversational dialogues', learning: 'Low–Moderate', state: 'Good conversation history support', production: 'Transitioning to new framework; deep Azure integration required' },
-				{ framework: 'EDDI', abstraction: 'Multi-Agent Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Native persistent memory, dream consolidation, rolling summaries', production: 'Fully packaged: OIDC/Keycloak, vault, audit trails, management UI, Kubernetes-ready' },
+				{ framework: 'EDDI', abstraction: 'Multi-Agent Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Native persistent memory, dream consolidation, rolling summaries', production: 'Fully packaged: OIDC/Keycloak, per-user workspaces, vault, audit trails, management UI, Kubernetes-ready' },
 			],
 
 			libraryPositioning: '<strong>Libraries provide the logic; EDDI provides the infrastructure.</strong> Teams using EDDI ship AI agents to production instead of maintaining internal middleware. This distinction matters most when scaling beyond a single developer, when prompt engineers, operations teams, and compliance officers all need access to the platform.',
@@ -966,7 +989,7 @@ const en = {
 			euAiActItems: [
 				'<strong>Immutable Audit Trails</strong>: Every operation recorded with HMAC-SHA256 cryptographic integrity (Art. 12: Record-Keeping)',
 				'<strong>Decision Transparency</strong>: Full pipeline tracing shows how AI decisions were made, including model name, prompt, and response (Art. 13: Transparency)',
-				'<strong>Human Oversight</strong>: Management UI enables human review, intervention, and emergency stop (Art. 14: Human Oversight)',
+				'<strong>Human Oversight</strong>: Approval gates at turn, tool-call, and group-phase level, plus human review, intervention, and emergency stop in the Management UI (Art. 14: Human Oversight)',
 				'<strong>Risk Classification</strong>: Architecture supports high-risk AI system requirements with configurable controls (Art. 9: Risk Management)',
 				'<strong>Reproducibility</strong>: Configuration-as-code enables exact reproduction of AI behavior for regulatory audits (Art. 17: Quality Management)',
 				'<strong>Data Governance</strong>: OIDC/Keycloak RBAC, vault-based secret management, input/output logging (Art. 10: Data Governance)',
@@ -1171,7 +1194,7 @@ const en = {
 				{ year: '2021', text: 'Online Chatbot Hackathon, virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong>: connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong>: intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: '<strong>v6</strong>: 77 MCP tools, A2A protocol, 6 discussion styles incl. Task Force, dynamic agents, visual management UI, model cascading.' },
+				{ year: '2026', text: `<strong>v6</strong>: ${MCP_TOOLS} MCP tools, A2A protocol, 7 discussion styles with voting and human members, Platform Operator, per-user workspaces, OpenAI-compatible API, model cascading.` },
 				{ year: '2026', text: 'Selected as <strong>UNIDO Trusted Partner</strong> for Industrial AI for the Global South.' },
 			],
 
@@ -1189,7 +1212,7 @@ const en = {
 			instInitsTitle: 'inits.at University Incubator',
 			instInitsDesc: 'Incubated at the <strong>inits.at</strong> university business incubator, with early-stage institutional support prioritizing academic rigor and sustainable business modeling.',
 			instRedHatTitle: 'Red Hat Certified Container',
-			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness.',
+			instRedHatDesc: 'EDDI\'s Docker image is <strong>IBM/Red Hat certified</strong>, passing automated preflight checks for security, stability, and enterprise deployment readiness, and stable releases are published to the Red Hat certified catalog.',
 			instUnidoTitle: 'UNIDO Trusted Partner',
 			instUnidoDesc: 'Selected by the <strong>United Nations Industrial Development Organization</strong> (UNIDO) as a Trusted Partner under the Global Call for Industrial AI for the Global South.',
 
@@ -1216,9 +1239,9 @@ const en = {
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: `${TESTS} Tests`,
 			devTestsDesc: 'Zero failures, enforced on every merge',
-			devIntegration: '42 Integration Tests',
+			devIntegration: '70 Integration Test Suites',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
-			devE2E: '21 E2E Test Suites',
+			devE2E: '30+ E2E Test Suites',
 			devE2EDesc: 'Browser-based Playwright tests for the Manager UI',
 			devApache: 'Apache 2.0 License',
 			devApacheDesc: 'Fully open source, no vendor lock-in',
@@ -1265,8 +1288,6 @@ const en = {
 			whatCard1Desc: 'UNIDO is a specialized agency of the United Nations with 170+ member states, dedicated to promoting industrial development for poverty reduction, inclusive globalization, and environmental sustainability.',
 			whatCard2Title: 'AIM Global Alliance',
 			whatCard2Desc: 'The Global Alliance on AI for Industry & Manufacturing (AIM Global) brings together industry leaders, governments, and academia to drive responsible AI adoption in manufacturing and industrial sectors worldwide.',
-			whatCard3Title: 'WAIC 2026 Showcase',
-			whatCard3Desc: 'The World Artificial Intelligence Conference (WAIC) in Shanghai is one of the most influential AI events globally, bringing together leading researchers, policymakers, and industry leaders to shape the future of AI.',
 			whatCard4Title: 'Global South Focus',
 			whatCard4Desc: 'The program specifically targets AI solutions that can drive industrial development in emerging economies, ensuring that the benefits of AI-powered manufacturing and digitalization reach developing nations.',
 
@@ -1280,9 +1301,6 @@ const en = {
 			org2Link: 'Visit AIM Global →',
 			org3Title: 'Shanghai AI Research Institute',
 			org3Desc: 'The <strong>Shanghai Artificial Intelligence Research Institute</strong> is a leading AI research center in China, driving cutting-edge research and innovation in artificial intelligence and its industrial applications.',
-			org4Title: 'WAIC 2026',
-			org4Desc: 'The <strong>World Artificial Intelligence Conference</strong> (WAIC) is one of the most prestigious AI events globally, held annually in Shanghai. WAIC 2026 brings together world-class researchers, policymakers, and industry leaders.',
-			org4Link: 'Visit WAIC →',
 
 			// SDG Alignment
 			sdgTitle: 'Aligned with the UN Sustainable Development Goals',
