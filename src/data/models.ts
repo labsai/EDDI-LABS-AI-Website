@@ -196,7 +196,7 @@ export const MODELS: ModelFamily[] = [
 		slug: 'gemma', name: 'Gemma (Gemma 4, Gemma 3)', vendor: 'Google', released: '2026-04', category: 'local',
 		contextTokens: null, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: true, openWeights: true, license: 'Gemma 4: Apache 2.0 · Gemma 3: Gemma Terms of Use',
 		docsUrl: 'https://ai.google.dev/gemma/docs/core', pricingUrl: null,
-		routes: [{ type: 'ollama', ids: ['gemma3:4b'] }, { type: 'gemini-vertex', ids: ['google/gemma3@gemma-3-12b-it'] }],
+		routes: [{ type: 'ollama', ids: ['gemma3:4b'] }],
 		tips: ['localAirGap'], related: ['phi-4-mini', 'ministral', 'llama-3-2-1b'],
 	},
 	// ── xAI ───────────────────────────────────────────────────────────
@@ -328,7 +328,6 @@ export const MODELS: ModelFamily[] = [
 		docsUrl: 'https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct', pricingUrl: null,
 		routes: [
 			{ type: 'ollama', ids: ['llama3.3:70b'] },
-			{ type: 'bedrock', ids: ['meta.llama3-3-70b-instruct-v1:0'] },
 			{ type: 'oracle-genai', ids: ['meta.llama-3.3-70b-instruct'] },
 		],
 		tips: ['localAirGap'], related: ['llama-4', 'gpt-oss', 'llama-3-2-1b'],

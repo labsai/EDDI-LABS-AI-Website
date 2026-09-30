@@ -723,7 +723,7 @@ const en = {
 			hardeningPara: 'Security work is continuous, and we publish what it finds. Recent rounds:',
 			hardeningItems: [
 				'<strong>September 2026 (6.5.0)</strong>: A review round of about 30 fixes across template injection, SSRF on outbound calls, vault key handling, secret scoping, workspace authorization, channel identity and the Manager\'s security UI, each with a regression test',
-				'<strong>August 2026 (6.3.0)</strong>: Outbound credentials unified under Connections, tool results carry provenance and directive-shaped text is redacted, and vault grants to agents are enforced',
+				'<strong>August 2026 (6.3.0, 6.4.0)</strong>: Outbound credentials unified under Connections, tool results carry provenance and directive-shaped text is redacted, and vault grants to agents are enforced',
 				'<strong>July 2026 (6.2.0)</strong>: Tool-result caches scoped per identity, secrets redacted from the live tool trace, and a constant-time audit HMAC comparison',
 			],
 
