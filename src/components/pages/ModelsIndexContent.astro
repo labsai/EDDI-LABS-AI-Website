@@ -1,0 +1,181 @@
+---
+/**
+ * Model catalog index (/models/): every model family EDDI runs, with a filter,
+ * plus where models are hosted. Shared by the root and [lang] routes.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localePath, type Locale, type TranslationSchema } from '../../i18n';
+import { getModelsCopy } from '../../i18n/models';
+import { MODELS, HOSTS, PROVIDER_LABELS, formatTokens } from '../../data/models';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const m = t.models;
+const copy = await getModelsCopy(lang);
+const filters = [
+	{ id: 'all', label: m.filterAll },
+	{ id: 'frontier', label: m.filterFrontier },
+	{ id: 'fast', label: m.filterFast },
+	{ id: 'open', label: m.filterOpen },
+	{ id: 'local', label: m.filterLocal },
+];
+---
+<BaseLayout title={m.title} metaTitle={m.metaTitle} description={m.description} fullWidth={true} lang={lang}>
+<section class="mc-hero hero-gradient-bg">
+	<div class="mc-hero-inner">
+		<h1>{m.heroTitle} <span class="text-gradient-dynamic">{m.heroHighlight}</span></h1>
+		<p set:html={m.heroDesc} />
+	</div>
+</section>
+
+<article class="mc-content">
+	<div class="mc-controls">
+		<div class="mc-filters" role="group" aria-label={m.filterLabel}>
+			{filters.map((f, i) => (
+				<button type="button" class:list={['mc-chip', { active: i === 0 }]} data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+			))}
+		</div>
+		<label class="mc-search">
+			<span class="sr-only">{m.searchLabel}</span>
+			<input id="mc-search-input" type="search" placeholder={m.searchPlaceholder} autocomplete="off" />
+		</label>
+	</div>
+
+	<div class="mc-grid" id="mc-grid">
+		{MODELS.map((model) => {
+			const c = copy.models[model.slug];
+			const tags = [model.category, ...(model.openWeights && model.category !== 'open' ? ['open'] : [])];
+			const search = [model.name, model.vendor, ...model.routes.flatMap((r) => r.ids), ...model.routes.map((r) => PROVIDER_LABELS[r.type])].join(' ').toLowerCase();
+			return (
+				<a href={localePath(lang, `/models/${model.slug}/`)} class="mc-card" data-tags={tags.join(' ')} data-search={search}>
+					<div class="mc-card-head">
+						<span class="mc-vendor">{model.vendor}</span>
+						<span class="mc-badge">{m.category[model.category]}</span>
+					</div>
+					<h2>{model.name}</h2>
+					<p>{c.summary}</p>
+					<dl class="mc-facts">
+						<div><dt>{m.colContext}</dt><dd>{formatTokens(model.contextTokens) ?? '–'}</dd></div>
+						<div><dt>{m.colInput}</dt><dd>{model.input.map((x) => m.modality[x]).join(', ')}</dd></div>
+					</dl>
+					<div class="mc-routes" aria-label={m.colProviders}>
+						{model.routes.map((r) => <span class="mc-route">{PROVIDER_LABELS[r.type]}</span>)}
+					</div>
+				</a>
+			);
+		})}
+	</div>
+	<p class="mc-empty" id="mc-empty" hidden>{m.noResults}</p>
+
+	<section class="mc-section">
+		<h2>{m.hostsTitle}</h2>
+		<p class="mc-lead">{m.hostsDesc}</p>
+		<div class="mc-hosts">
+			{HOSTS.map((h) => {
+				const hc = copy.hosts[h.slug];
+				return (
+					<div class="mc-host">
+						<h3>{hc.name}</h3>
+						<p>{hc.summary}</p>
+						<ul>{hc.why.map((w) => <li>{w}</li>)}</ul>
+						<a href={h.docsUrl} target="_blank" rel="noopener" class="mc-link">{m.docsLink} ↗</a>
+					</div>
+				);
+			})}
+		</div>
+	</section>
+
+	<section class="mc-section mc-notes">
+		<div>
+			<h2>{m.anyEndpointTitle}</h2>
+			<p set:html={m.anyEndpointDesc} />
+		</div>
+		<div>
+			<h2>{m.cascadeTitle}</h2>
+			<p set:html={m.cascadeDesc} />
+		</div>
+	</section>
+</article>
+</BaseLayout>
+
+<script>
+	function initModelFilter() {
+		const grid = document.getElementById('mc-grid');
+		if (!grid) return;
+		const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.mc-chip'));
+		const input = document.getElementById('mc-search-input') as HTMLInputElement | null;
+		const empty = document.getElementById('mc-empty');
+		let active = 'all';
+		const apply = () => {
+			const q = (input?.value ?? '').trim().toLowerCase();
+			let shown = 0;
+			grid.querySelectorAll<HTMLElement>('.mc-card').forEach((card) => {
+				const tagOk = active === 'all' || (card.dataset.tags ?? '').split(' ').includes(active);
+				const textOk = !q || (card.dataset.search ?? '').includes(q);
+				card.hidden = !(tagOk && textOk);
+				if (!card.hidden) shown++;
+			});
+			if (empty) empty.hidden = shown > 0;
+		};
+		chips.forEach((chip) => chip.addEventListener('click', () => {
+			active = chip.dataset.filter ?? 'all';
+			chips.forEach((c) => { c.classList.toggle('active', c === chip); c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+			apply();
+		}));
+		input?.addEventListener('input', apply);
+	}
+	document.addEventListener('astro:page-load', initModelFilter);
+</script>
+
+<style>
+	.mc-hero { padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 2.5rem; text-align: center; }
+	.mc-hero-inner { max-width: 52rem; margin: 0 auto; }
+	.mc-hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; color: var(--color-text); margin: 0 0 1rem; text-wrap: balance; }
+	.mc-hero p { color: var(--color-text-muted); font-size: 1.125rem; line-height: 1.6; margin: 0; }
+	.mc-content { max-width: 72rem; margin: 0 auto; padding: 1.5rem 1.5rem 6rem; }
+	.mc-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin-bottom: 1.75rem; }
+	.mc-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+	.mc-chip { font: inherit; font-size: 0.875rem; font-weight: 600; padding: 0.45rem 0.9rem; border-radius: 9999px; cursor: pointer; background: transparent; color: var(--color-text-muted); border: 1px solid var(--color-border, rgba(127, 127, 127, 0.3)); transition: all 0.2s; }
+	.mc-chip:hover { color: var(--color-text); border-color: var(--color-accent); }
+	.mc-chip.active { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+	.mc-chip:focus-visible, .mc-search input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+	.mc-search input { font: inherit; font-size: 0.9375rem; width: min(22rem, 100%); padding: 0.55rem 0.9rem; border-radius: 0.6rem; background: transparent; color: var(--color-text); border: 1px solid var(--color-border, rgba(127, 127, 127, 0.3)); }
+	.mc-search { flex: 1 1 16rem; display: flex; justify-content: flex-end; }
+	.mc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem; }
+	.mc-card { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.5rem; border-radius: 1rem; text-decoration: none; transition: transform 0.2s, border-color 0.2s; min-width: 0; }
+	.mc-card[hidden] { display: none; }
+	html[data-theme='dark'] .mc-card, html[data-theme='dark'] .mc-host { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .mc-card, html[data-theme='light'] .mc-host { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
+	.mc-card:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+	.mc-card:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+	.mc-card-head { display: flex; justify-content: space-between; gap: 0.5rem; align-items: center; }
+	.mc-vendor { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+	.mc-badge { font-size: 0.6875rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 9999px; color: var(--color-accent); border: 1px solid var(--color-accent); white-space: nowrap; }
+	.mc-card h2 { font-size: 1.1875rem; font-weight: 700; color: var(--color-text); margin: 0; }
+	.mc-card p { font-size: 0.875rem; line-height: 1.55; color: var(--color-text-muted); margin: 0; flex-grow: 1; }
+	.mc-facts { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; margin: 0.25rem 0 0; font-size: 0.8125rem; }
+	.mc-facts div { display: contents; }
+	.mc-facts dt { color: var(--color-text-muted); }
+	.mc-facts dd { margin: 0; color: var(--color-text); font-variant-numeric: tabular-nums; }
+	.mc-routes { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+	.mc-route { font-size: 0.6875rem; padding: 0.15rem 0.45rem; border-radius: 0.35rem; color: var(--color-text-muted); border: 1px solid var(--color-border, rgba(127, 127, 127, 0.25)); }
+	.mc-empty { text-align: center; color: var(--color-text-muted); padding: 2rem 0; }
+	.mc-section { margin-top: 4.5rem; }
+	.mc-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.mc-lead { color: var(--color-text-muted); max-width: 48rem; line-height: 1.6; margin: 0 0 1.75rem; }
+	.mc-hosts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 1.25rem; }
+	.mc-host { padding: 1.5rem; border-radius: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+	.mc-host h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0; }
+	.mc-host p { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.55; margin: 0; }
+	.mc-host ul { margin: 0.25rem 0 0; padding-inline-start: 1.1rem; font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.6; flex-grow: 1; }
+	.mc-link { font-size: 0.8125rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+	.mc-link:hover { text-decoration: underline; }
+	.mc-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 2rem; }
+	.mc-notes h2 { font-size: 1.375rem; }
+	.mc-notes p { color: var(--color-text-muted); line-height: 1.65; margin: 0; }
+	.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+</style>

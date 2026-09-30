@@ -31,6 +31,15 @@ const p = t.pages.security;
 <p set:html={p.ciPara} />
 <ul>{p.ciItems.map((item) => <li set:html={item} />)}</ul>
 
+<!-- Evidence -->
+<h3>{p.evidenceTitle}</h3>
+<p set:html={p.evidencePara} />
+
+<!-- Hardening log -->
+<h2>{p.hardeningTitle}</h2>
+<p set:html={p.hardeningPara} />
+<ul>{p.hardeningItems.map((item) => <li set:html={item} />)}</ul>
+
 <!-- Governance -->
 <h3>{p.govTitle}</h3>
 <p set:html={p.govPara} />

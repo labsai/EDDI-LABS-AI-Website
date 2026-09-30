@@ -21,7 +21,7 @@ const cards = [
 	{ icon: '🧑‍💻', title: t.useCases.devPlatforms, desc: t.useCases.devPlatformsDesc, link: localePath(lang, '/features/config-as-code/'), linkLabel: t.nav.configAsCode },
 ];
 ---
-<BaseLayout title={t.useCases.title} description={t.useCases.description} fullWidth={true} lang={lang}>
+<BaseLayout title={t.useCases.title} metaTitle={t.useCases.metaTitle} description={t.useCases.description} fullWidth={true} lang={lang}>
 <section class="uc-hero hero-gradient-bg"><div class="uc-hero-inner"><h1>{t.useCases.heroTitle}</h1><p>{t.useCases.heroSubtitle}</p></div></section>
 <article class="uc-content"><div class="uc-grid">
 {cards.map((c) => (<div class="uc-card"><span class="uc-icon" aria-hidden="true">{c.icon}</span><h3>{c.title}</h3><p>{c.desc}</p><a href={c.link} class="uc-card-link">{c.linkLabel} →</a></div>))}

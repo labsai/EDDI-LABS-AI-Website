@@ -1,0 +1,78 @@
+---
+/**
+ * The conversation pipeline as one diagram: a turn flows through the lifecycle
+ * tasks, rules decide by emitting actions, every tool call crosses the governed
+ * boundary, and memory sits under all of it.
+ *
+ * Node labels are EDDI's own component names and stay in English in every
+ * locale, like code identifiers; the title and caption come from translations.
+ */
+interface Props {
+	title: string;
+	caption: string;
+}
+const { title, caption } = Astro.props;
+
+const steps = [
+	{ x: 20, label: 'Input', sub: 'Chat · Slack · API · MCP' },
+	{ x: 190, label: 'Parser', sub: 'Normalize, dictionaries' },
+	{ x: 360, label: 'Behavior Rules', sub: 'Decide, emit actions' },
+	{ x: 530, label: 'Tasks', sub: 'LLM · HTTP · MCP · RAG' },
+	{ x: 700, label: 'Output', sub: 'Templates, quick replies' },
+];
+---
+<figure class="arch" aria-labelledby="arch-title">
+	<h2 id="arch-title" class="arch-title">{title}</h2>
+	<div class="arch-scroll">
+		<svg viewBox="0 0 860 330" role="img" aria-label="Input, Parser, Behavior Rules, Tasks and Output in sequence. Tool calls from Tasks cross a governed boundary with approvals, allow-lists and vault credentials. Conversation memory underlies every step.">
+			<defs>
+				<marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+					<path d="M0,0 L10,5 L0,10 z" class="arch-arrowhead" />
+				</marker>
+			</defs>
+
+			<!-- Governed tool boundary above the Tasks step -->
+			<rect x="500" y="14" width="200" height="62" rx="10" class="arch-boundary" />
+			<text x="600" y="38" text-anchor="middle" class="arch-label-sm arch-strong">Tool boundary</text>
+			<text x="600" y="58" text-anchor="middle" class="arch-label-sm">Approvals · allow-lists · vault</text>
+			<line x1="600" y1="76" x2="600" y2="112" class="arch-line" marker-end="url(#arch-arrow)" />
+
+			<!-- Pipeline steps -->
+			{steps.map((s, i) => (
+				<g>
+					<rect x={s.x} y="114" width="140" height="78" rx="12" class:list={['arch-node', { 'arch-node-accent': s.label === 'Behavior Rules' }]} />
+					<text x={s.x + 70} y="148" text-anchor="middle" class="arch-label">{s.label}</text>
+					<text x={s.x + 70} y="170" text-anchor="middle" class="arch-label-sm">{s.sub}</text>
+					{i < steps.length - 1 && <line x1={s.x + 142} y1="153" x2={s.x + 168} y2="153" class="arch-line" marker-end="url(#arch-arrow)" />}
+				</g>
+			))}
+
+			<!-- Memory underneath every step -->
+			<rect x="20" y="236" width="820" height="62" rx="12" class="arch-memory" />
+			<text x="430" y="262" text-anchor="middle" class="arch-label">Conversation memory</text>
+			<text x="430" y="283" text-anchor="middle" class="arch-label-sm">Properties that outlive the context window · history · rolling summaries · user memory</text>
+			{steps.map((s) => <line x1={s.x + 70} y1="194" x2={s.x + 70} y2="234" class="arch-line arch-dashed" />)}
+		</svg>
+	</div>
+	<figcaption set:html={caption} />
+</figure>
+
+<style>
+	.arch { max-width: 72rem; margin: 0 auto; padding: 4rem 1.5rem; }
+	.arch-title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text); text-align: center; margin: 0 0 2rem; }
+	.arch-scroll { overflow-x: auto; }
+	.arch svg { display: block; width: 100%; min-width: 40rem; height: auto; }
+	.arch-node { fill: var(--color-surface, rgba(127, 127, 127, 0.08)); stroke: var(--color-border); stroke-width: 1.5; }
+	html[data-theme='dark'] .arch-node { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.14); }
+	html[data-theme='light'] .arch-node { fill: #f5f6f8; stroke: rgba(0, 0, 0, 0.12); }
+	.arch-node-accent { stroke: var(--color-accent) !important; stroke-width: 2; }
+	.arch-boundary { fill: none; stroke: var(--color-accent); stroke-width: 1.5; stroke-dasharray: 5 4; }
+	.arch-memory { fill: none; stroke: var(--color-text-muted); stroke-width: 1.5; opacity: 0.8; }
+	.arch-line { stroke: var(--color-text-muted); stroke-width: 1.5; }
+	.arch-dashed { stroke-dasharray: 3 4; opacity: 0.6; }
+	.arch-arrowhead { fill: var(--color-text-muted); }
+	.arch-label { fill: var(--color-text); font-size: 15px; font-weight: 700; }
+	.arch-label-sm { fill: var(--color-text-muted); font-size: 11.5px; }
+	.arch-strong { fill: var(--color-accent); font-weight: 700; font-size: 13px; }
+	.arch figcaption { max-width: 48rem; margin: 1.5rem auto 0; text-align: center; color: var(--color-text-muted); line-height: 1.65; }
+</style>

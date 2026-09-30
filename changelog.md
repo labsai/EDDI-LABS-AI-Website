@@ -4,6 +4,44 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🚀 EDDI 6.5.0 Sync, Model Catalog, What's New, Evidence (all 11 locales)
+
+Branch `feat/eddi-6-5-0-sync`. Brings the site in line with EDDI 6.5.0 (main at `8febc21`) and works through the review of eddi.technology and eddi.solutions done on 2026-09-30. Also folds in the five unmerged commits from the August improvements branch (comparison pages, guides, docs-link fixes, `/benchmarks/`), rebased onto the 6.4.0 sync; the JSON-LD conflict was resolved by keeping the `@graph` and carrying the 6.4.0 `featureList`, `softwareVersion` and `releaseNotes` into it.
+
+**Accuracy fixes (every locale)**
+- `LLM_PROVIDERS` 12 → **19** (eleven model builders plus eight first-class OpenAI-compatible providers: xAI, DeepSeek, Kimi, Qwen, GLM, MiniMax, OpenRouter, Groq). Hard-coded "12" renderings replaced by the constant; the provider table on Why EDDI gained an "OpenAI-Compatible" row.
+- Embedding providers 7 → **8** (Gemini embeddings), per EDDI `docs/rag.md`. New `EMBEDDING_PROVIDERS` / `VECTOR_STORES` constants.
+- **"Hybrid Search" removed** from the RAG page: EDDI's own docs list it under Future Enhancements.
+- **ZAP removed** from the security pipeline list: EDDI's CI deliberately has no DAST job any more. Replaced with Dependency Review and OpenSSF Scorecard; Jazzer now named as ClusterFuzzLite with Jazzer.
+- **"Zero Checkstyle warnings" removed**: EDDI's FileLength/LineLength rules are advisory, so warnings exist. The Code Quality page now lists gates that are enforced (JaCoCo 90/80, Checkstyle imports and formatter, CodeQL for Java and both UIs, fuzzing, Scorecard, SBOM, signed images), with links.
+- "Zero Failures" / "0 Failures" → "Green in CI". "OpenSSF Gold: highest tier of Linux Foundation security certification" → "OpenSSF Best Practices: Gold badge".
+- The unsourced **"up to 60-80%"** cascade saving (feature overview, cascading page, Why EDDI ROI, vs. Alternatives, README) → the two production measurements, **31% and 58%** at held quality, linking to `/benchmarks/`. The benchmarks page no longer says the feature pages quote 60-80%.
+- Compliance wording: "satisfies every major privacy regulation" and similar absolutes → "provides the technical controls / supports", in line with the rest of that page.
+- Competitor versions dropped from the framework table (LangGraph v1.0, CrewAI v1.8.x) with an "as of September 2026" note; the empty "Ready to Compare?" block got its button.
+- Getting Started: `claude-sonnet-4-6` → `claude-sonnet-5-5` (safe: `setup_agent` writes no temperature, which Claude 5.x rejects), installer flag and banner → 6.5.0, MCP OAuth sign-in note.
+- `check-stats.mjs` now also forbids: "12 … LLM" near each other, "7 embedding", "60-80%", "Hybrid Search", "ZAP". The 6.2.0 "77 tools" rule ignores percentages (CaMeL's "77% of tasks").
+
+**New pages**
+- **Model catalog** at `/models/` and **32 model pages** at `/models/{slug}/` in all 11 locales (352 pages). Each page: what the model is good at, limits (context, output, input types, tools, reasoning, open weights, license), and **how to run it in EDDI** per provider route (vault key, `langchain.json`, one-call `setup_agent`), plus EDDI-specific notes (Claude 5.x temperature, thought-signature echo on Gemini 3, `gemini-vertex` tool limitation, reasoning echo for DeepSeek/Kimi/GLM/MiniMax, xAI US region, Bedrock geo profiles, Jlama cache). Facts come from vendor docs checked 2026-09-30 by three research passes; unverified values render as "not stated"; no prices, only links to vendor pricing. Data: `src/data/models.ts` (language-neutral), copy: `src/i18n/models/{locale}.ts`. Catalog index has category filter, search, a "where models run" host section, and notes on other endpoints and cascading.
+- **What's New in 6.5.0** at `/whats-new/` (11 locales). The announcement banner now links here instead of straight to GitHub.
+
+**Additions to existing pages**
+- `/benchmarks/`: four new evidence sections with DOIs and peer-reviewed/preprint labels: governance and prompt injection (with an unsafe-action chart), human oversight (72% → 16% chart, reviewer fatigue), multi-agent deliberation (voting and model diversity, persuasion attacks), conversation memory. 17 new sources. Each says what it does and does not prove about EDDI.
+- Feature pages: RAG → "Knowledge Bases & RAG" (crawler, file ingestion, scheduled sources); Config-as-Code (version following); Multi-Agent (live discussion overview, REJECTED decisions, evidence note); MCP (OAuth protected resource, `eddi-mcp` client); Observability (per-call LLM telemetry); Security (secret context values, restricted runtime templates, evidence section, dated hardening log); HITL (evidence section); Manager (6.5 capabilities and a four-screenshot gallery from the previously unused `src/assets/screenshots/`).
+- **Pipeline architecture diagram** (`ArchitectureDiagram.astro`) on Home and Features.
+- Home FAQ 10 "Which LLMs can I use?"; features card for the model catalog; Models link in header, mobile menu and footer.
+- Optional `metaTitle` on BaseLayout/FeaturePage for keyword search titles, H1 unchanged: Getting Started, Use Cases, Features, RAG, Code Quality, Why EDDI, vs. Alternatives, Compliance, Track Record, Models, What's New.
+- Language-suggestion toast: "No thanks" is now in the suggested language instead of always English.
+- `llms.txt`, `llms-full.txt`, `README.md` updated; RAG guide covers ingestion sources; stale counts in guides and comparisons fixed (84 tools, 7 styles, 19 providers).
+
+**Dependencies**
+- Astro 6.1 → **7.3.5** (the sibling eddi.solutions site already runs 7); removed the `vite: 7.3.2` override, since Astro 7 requires Vite 8. Tailwind 4.3.3, sharp 0.35.5, sitemap 3.7.4, @astrojs/check 0.9.10, fontsource 5.3.0. TypeScript stays on 5.9: @astrojs/check does not support TypeScript 7.
+- Note: `undici@8` (transitive) asks for Node ≥ 22.19; this machine has 22.14 and builds anyway, Vercel's Node 22 is newer.
+
+**Not changed, on purpose**
+- The "Marketing Cookies" category is the opt-in HubSpot newsletter and contact form, so it is accurate and stays.
+- Use Cases keeps its text-only hero.
+
 ### 📊 Benchmarks & Evidence Page
 
 Closes the Findable report's second gap ("performance & benchmark content"). Also addresses the standing credibility risk flagged during the content audit: the site asserts hard performance and cost numbers with no published methodology behind them.

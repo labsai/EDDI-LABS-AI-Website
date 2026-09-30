@@ -3,9 +3,32 @@ import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_manager.webp';
 import { enTranslations as t } from '../../i18n';
 const p = t.pages.manager;
+import { Image } from 'astro:assets';
+import shotDashboard from '../../assets/screenshots/eddi-v6-screenshot-dashboard-1.png';
+import shotGroups from '../../assets/screenshots/eddi-v6-screenshot-group-conversations-1.png';
+import shotVault from '../../assets/screenshots/eddi-v6-screenshot-secret-vault-1.png';
+import shotLogs from '../../assets/screenshots/eddi-v6-screenshot-logs-1.png';
+const shots = [shotDashboard, shotGroups, shotVault, shotLogs];
 ---
 <FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
 <h2>{p.heading1}</h2><p>{p.para1}</p>
 <h3>{p.heading2}</h3><ul>{p.items.map((item) => <li set:html={item} />)}</ul>
+<h2>{p.galleryTitle}</h2>
+<div class="shot-grid">
+	{shots.map((img, i) => (
+		<figure class="shot">
+			<Image src={img} alt={p.gallery[i]} widths={[800, 1400]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+			<figcaption>{p.gallery[i]}</figcaption>
+		</figure>
+	))}
+</div>
+
 <h3>{p.heading3}</h3><p>{p.para2}</p>
 </FeaturePage>
+
+<style>
+	.shot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.25rem; margin: 1rem 0 2.5rem; }
+	.shot { margin: 0; }
+	.shot :global(img) { width: 100%; height: auto; border-radius: 0.75rem; border: 1px solid var(--color-border); }
+	.shot figcaption { font-size: 0.8125rem; color: var(--color-text-muted); margin-top: 0.5rem; line-height: 1.5; }
+</style>

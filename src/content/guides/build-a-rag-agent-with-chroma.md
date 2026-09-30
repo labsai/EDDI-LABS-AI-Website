@@ -33,7 +33,7 @@ faq:
       Yes, the store is a configuration choice rather than a code dependency. What does not carry over is the index itself: a different store means re-embedding the corpus, so the cost of switching is the embedding run, not a rewrite.
 ---
 
-Retrieval-augmented generation is how an agent answers from your documents instead of from what the model happened to memorize. EDDI supports 7 embedding providers and 6 vector stores, so most of this guide is about the decisions rather than the wiring.
+Retrieval-augmented generation is how an agent answers from your documents instead of from what the model happened to memorize. EDDI supports 8 embedding providers and 6 vector stores, so most of this guide is about the decisions rather than the wiring.
 
 This one uses Chroma, because it is the lowest-friction of the six and keeps document text inside your infrastructure, which is usually why people are running EDDI in the first place.
 
@@ -100,6 +100,8 @@ What matters conceptually, and does not change:
 
 Once the configuration is in place, ingestion pushes documents through the embedding model and into the collection. EDDI handles the loading, splitting, and embedding as part of the RAG pipeline.
 
+Since EDDI 6.5 the knowledge base can fetch its own documents. Add an **ingestion source** to it: a **website** source crawls a site within the scope you set and honours robots.txt, and a **files** source takes uploaded PDF, Word, Excel, PowerPoint, text, Markdown, CSV and HTML files. In the Manager both live in the knowledge-base editor, with Run now, Preview and a run history. You can still push documents yourself through the REST ingestion endpoint when neither fits.
+
 Start with a subset. Embedding is the slow and, on hosted providers, the expensive part of this process, and discovering a chunking problem after embedding the full corpus means paying for it twice.
 
 ## Verify retrieval before you trust it
@@ -124,7 +126,7 @@ The other frequent cause is a corpus that genuinely does not contain the answer,
 
 ## Keeping it current
 
-An index built once is accurate once. Decide now how re-ingestion happens: EDDI's scheduling supports cron triggers, so a periodic re-ingest of changed documents is a configuration rather than a script somebody has to remember.
+An index built once is accurate once. Decide now how re-ingestion happens: every ingestion source takes a cron schedule, skips pages and files whose content has not changed, and removes documents that have gone from the source, so a periodic refresh is configuration rather than a script somebody has to remember.
 
 The failure mode to design against is not the index being wrong, it is the index being confidently out of date while everyone assumes it is live.
 

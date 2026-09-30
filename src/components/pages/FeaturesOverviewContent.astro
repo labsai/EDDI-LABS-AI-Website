@@ -16,13 +16,16 @@ interface Props {
 }
 
 const { lang, t } = Astro.props;
+import ArchitectureDiagram from '../ArchitectureDiagram.astro';
 ---
-<BaseLayout title={t.featuresOverview.title} description={t.featuresOverview.description} fullWidth={true} lang={lang}>
+<BaseLayout title={t.featuresOverview.title} metaTitle={t.featuresOverview.metaTitle} description={t.featuresOverview.description} fullWidth={true} lang={lang}>
 <section class="fo-hero hero-gradient hero-gradient-bg"><div class="fo-hero-inner"><div class="fo-hero-text">
 <h1>{t.featuresOverview.heroTitle} <span class="text-gradient-dynamic">{t.featuresOverview.heroHighlight}</span></h1>
 <p>{t.featuresOverview.heroDesc}</p>
 <div class="fo-hero-actions"><a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{t.common.getStartedCta}</a><a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">{t.common.viewOnGithub}</a></div>
 </div><div class="fo-hero-image premium-image-wrapper"><Image src={heroImage} alt="EDDI Features" width={1024} height={1024} loading="eager" decoding="async" /></div></div></section>
+
+<ArchitectureDiagram title={t.home.archTitle} caption={t.home.archCaption} />
 
 <!-- Core Platform -->
 <section class="py-24 max-w-7xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.coreTitle}</h2><p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.featuresOverview.coreDesc} /></div>
@@ -45,6 +48,7 @@ const { lang, t } = Astro.props;
 	{ href: localePath(lang, '/features/memory/'), title: t.featuresOverview.memoryCardTitle, desc: t.featuresOverview.memoryCardDesc },
 	{ href: localePath(lang, '/features/rag/'), title: t.featuresOverview.ragCardTitle, desc: t.featuresOverview.ragCardDesc },
 	{ href: localePath(lang, '/features/model-cascading/'), title: t.featuresOverview.cascadingCardTitle, desc: t.featuresOverview.cascadingCardDesc },
+	{ href: localePath(lang, '/models/'), title: t.featuresOverview.modelsCardTitle, desc: t.featuresOverview.modelsCardDesc },
 	{ href: localePath(lang, '/features/scheduling/'), title: t.featuresOverview.schedulingCardTitle, desc: t.featuresOverview.schedulingCardDesc },
 ].map((card) => (<a href={card.href} class="relative overflow-hidden flex flex-col h-full p-8 rounded-3xl bg-zinc-900/40 backdrop-blur border border-zinc-700/50 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-2 shadow-xl group no-underline"><h3 class="text-xl font-bold text-white mb-3">{card.title}</h3><p class="text-zinc-400 text-sm leading-relaxed grow" set:html={card.desc} /></a>))}
 </div></section>

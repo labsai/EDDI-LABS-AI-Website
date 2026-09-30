@@ -34,15 +34,26 @@ const FORBIDDEN = [
 	{ pattern: /(?<![\d.])65(?!\d)/, reason: 'stale MCP tool count (6.1.2), use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
 	// EDDI 6.2.0 counts, superseded by 6.4.0. Same lookarounds as the 65 rule; "Art 77" is a GDPR article.
 	{ pattern: /(?<!\d)11[,.  \s]?000(?!\d)/, reason: 'stale test count (6.2.0), use 20,000+ (TESTS in src/i18n/stats.ts)' },
-	{ pattern: /(?<![\d.]|Art\.? )77(?!\d)/, reason: 'stale MCP tool count (6.2.0), use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
+	{ pattern: /(?<![\d.]|Art\.? )77(?![\d%])/, reason: 'stale MCP tool count (6.2.0), use 84 (MCP_TOOLS in src/i18n/stats.ts)' },
 	// Six discussion styles was correct up to EDDI 6.2.0; NEGOTIATION made it seven in 6.3.0.
 	{ pattern: /\b6 (built-in )?(group )?discussion styles/i, reason: 'stale discussion style count, EDDI 6.3.0+ has 7 built-in styles' },
 	// Old regulatory framework count. Current: 15+
 	{ pattern: /17\+ (regulatory )?frameworks/, reason: 'stale framework count, use 15+ (FRAMEWORKS in src/i18n/stats.ts)' },
 	// Vague age claim. Canonical history: in continuous development since 2006, open source since 2018
 	{ pattern: /18-year-old/, reason: 'stale history claim, anchor to "since 2006, open source since 2018"' },
-	// Old LLM provider count. Current: 12
-	{ pattern: /20\+ LLM provider/, reason: 'stale LLM provider count, use 12 (LLM_PROVIDERS in src/i18n/stats.ts)' },
+	// Old LLM provider count. Current: 19 (6.5.0 added eight first-class OpenAI-compatible providers)
+	{ pattern: /20\+ LLM provider/, reason: 'stale LLM provider count, use 19 (LLM_PROVIDERS in src/i18n/stats.ts)' },
+	// 12 was the count up to 6.4.0. Matched near "LLM" in either order so localized word orders
+	// ("12 LLM-Anbieter", "LLM 12") match too; "12 ready-to-use tools" has no LLM nearby.
+	{ pattern: /(?<![\d.])12\b.{0,30}LLM|LLM.{0,30}(?<![\d.])12(?![\d.])/, reason: 'stale LLM provider count (6.4.0), use LLM_PROVIDERS (19)' },
+	// Embedding providers were 7 until Gemini embeddings; now 8.
+	{ pattern: /(?<!\d)7 (embedding|Embedding)/, reason: 'stale embedding provider count, use EMBEDDING_PROVIDERS (8)' },
+	// The cascade saving had no source. Cite the /benchmarks/ range instead.
+	{ pattern: /60\s?[-–]\s?80\s?%/, reason: 'unsourced cascade saving, cite the /benchmarks/ range instead' },
+	// Hybrid search is a RAG "future enhancement" in EDDI's docs, not a shipped feature.
+	{ pattern: /Hybrid Search/, reason: 'hybrid search is not shipped (EDDI docs/rag.md, Future Enhancements)' },
+	// ZAP was removed from EDDI's CI; there is deliberately no DAST job.
+	{ pattern: /\bZAP\b/, reason: 'EDDI CI has no ZAP/DAST job any more' },
 	// Vector store count. Current: 6 (pgvector, Chroma, In-Memory, MongoDB Atlas,
 	// Elasticsearch, Qdrant). Added after guide and comparison copy shipped saying 5.
 	{ pattern: /(?<!\d)[0-5]( supported)? vector stores/, reason: 'wrong vector store count, use 6 (see pages.rag in src/i18n/locales/en.ts)' },

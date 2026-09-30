@@ -1,4 +1,5 @@
 import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { TESTS, MCP_TOOLS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 import type { TranslationSchema } from './en';
 
 const ar: TranslationSchema = {
@@ -11,6 +12,8 @@ const ar: TranslationSchema = {
 		features: 'الميزات',
 		docs: 'التوثيق',
 		guides: 'أدلة',
+		models: 'النماذج',
+		whatsNew: 'ما الجديد',
 		benchmarks: 'المقاييس',
 		solutions: 'المؤسسات',
 		managedCloud: 'السحابة المُدارة',
@@ -30,14 +33,14 @@ const ar: TranslationSchema = {
 		observability: 'المراقبة',
 		observabilityDesc: 'سجلات خطوط الأنابيب ومسارات التدقيق',
 		codeQuality: 'جودة الشفرة',
-		codeQualityDesc: '+20,000 اختبار، صفر إخفاقات، >90% تغطية',
+		codeQualityDesc: `${TESTS} اختبار، بوابة تغطية >90%`,
 		aiReady: 'جاهز للذكاء الاصطناعي',
 		aiReadyDesc: 'مصمم لوكلاء البرمجة',
 
 		memory: 'الذاكرة والسياق',
 		memoryDesc: 'ذاكرة مستمرة وتوحيد الأحلام',
-		rag: 'RAG',
-		ragDesc: '7 مزودي تضمين، 6 مخازن متجهات',
+		rag: 'المعرفة وRAG',
+		ragDesc: 'زحف المواقع واستيعاب الملفات وفق جدول زمني',
 		modelCascading: 'تتابع النماذج',
 		modelCascadingDesc: 'توجيه متعدد النماذج محسّن للتكلفة',
 		scheduling: 'الجدولة',
@@ -67,8 +70,9 @@ const ar: TranslationSchema = {
 		getStartedCta: 'ابدأ الآن →',
 		viewOnGithub: 'عرض على GitHub ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: 'مساحات عمل لكل مستخدم، وConnections للوصول الخارجي المحكوم، وصورة UBI 10 معتمدة من Red Hat',
-		bannerLink: 'ملاحظات الإصدار',
+		bannerText:
+			`${LLM_PROVIDERS} مزود LLM، وقواعد معرفة تزحف إلى موقعك وتقرأ ملفاتك، ومحادثات تنتقل إلى إصدارات الوكيل المتوافقة`,
+		bannerLink: 'ما الجديد',
 		notFoundTitle: 'الصفحة غير موجودة',
 		notFoundDesc: 'مسار تنسيق الذكاء الاصطناعي الذي تبحث عنه غير متصل أو تم نقله.',
 		notFoundCta: 'العودة إلى النظام',
@@ -82,9 +86,9 @@ const ar: TranslationSchema = {
 		subtitle: 'قائم على التكوين. مستضاف ذاتياً. جاهز للإنتاج.',
 		redHatCertified: 'حاوية معتمدة من Red Hat',
 		apache2: 'مرخص بـ Apache 2.0',
-		tests: '+20,000 اختبار · صفر إخفاقات',
+		tests: `${TESTS} اختبار · ناجحة في CI`,
 		techStack: 'Java 25 · Quarkus · LangChain4j',
-		openSSFGold: 'OpenSSF Gold',
+		openSSFGold: 'OpenSSF Best Practices: Gold',
 		platform: 'المنصة',
 		develop: 'التطوير',
 		resourcesCol: 'الموارد',
@@ -96,10 +100,12 @@ const ar: TranslationSchema = {
 		multiAgent: 'متعدد الوكلاء',
 
 		memoryLink: 'الذاكرة والسياق',
-		ragLink: 'RAG',
+		ragLink: 'المعرفة وRAG',
 		modelCascadingLink: 'تتابع النماذج',
 		schedulingLink: 'الجدولة',
 		humanInTheLoopLink: `مشاركة بشرية في الحلقة`,
+		modelsLink: 'كتالوج النماذج',
+		whatsNewLink: 'الجديد في 6.5',
 		gettingStarted: 'البدء',
 		documentation: 'التوثيق ↗',
 		githubLink: 'GitHub ↗',
@@ -170,12 +176,12 @@ const ar: TranslationSchema = {
 		trustRedHatDesc: 'صورة معتمدة، منشورة في كتالوج Red Hat',
 		trustApache: 'مرخص بـ Apache 2.0',
 		trustApacheDesc: '100% مفتوح المصدر وجاهز للمؤسسات',
-		trustTests: '+20,000 اختبار · 0 إخفاقات',
-		trustTestsDesc: 'CI/CD صارم و>90% تغطية الشفرة',
-		trustOpenSSF: 'OpenSSF Gold',
-		trustOpenSSFDesc: 'أعلى مستوى من شهادة الأمان والجودة من Linux Foundation',
+		trustTests: `${TESTS} اختبار · ناجحة في CI`,
+		trustTestsDesc: 'كل دمج يجتاز مجموعة الاختبارات الكاملة، مع فرض تغطية تعليمات تزيد على 90%',
+		trustOpenSSF: 'OpenSSF Best Practices: Gold',
+		trustOpenSSFDesc: 'شارة Gold، أعلى مستوى في برنامج OpenSSF Best Practices',
 		trustDocker: 'Docker Hub',
-		trustDockerDesc: 'مئات الآلاف من عمليات السحب الإنتاجية',
+		trustDockerDesc: `${DOCKER_PULLS} عملية سحب على Docker Hub`,
 		trustCI: 'CI ناجح · CodeQL نظيف',
 		trustCIDesc: 'بناء تلقائي، فحص أمني وتحليل الشفرة',
 		// UNIDO Recognition Callout
@@ -183,6 +189,9 @@ const ar: TranslationSchema = {
 		unidoCalloutTitle: 'شريك موثوق لدى UNIDO للذكاء الاصطناعي الصناعي',
 		unidoCalloutDesc: 'تم اختيار LABS.AI من قبل منظمة الأمم المتحدة للتنمية الصناعية (UNIDO) كشريك موثوق للذكاء الاصطناعي الصناعي للجنوب العالمي.',
 		unidoCalloutLink: 'اعرف المزيد عن الشراكة →',
+		archTitle: 'كيف تسير دورة المحادثة',
+		archCaption:
+			'تمر كل دورة عبر خط الأنابيب نفسه. تقرر قواعد السلوك ما يحدث بإطلاق إجراءات، وتستمع المهام إليها: استدعاء LLM، أو استدعاء HTTP، أو أداة MCP، أو بحث في قاعدة معرفة. ويعبر كل استدعاء أداة الحدود المحكومة نفسها، وتنقل الذاكرة ما يهم من دورة إلى أخرى، ومن محادثة إلى أخرى.',
 		philosophyQuote: 'المحرك صارم حتى يتمكن الذكاء الاصطناعي من الإبداع.',
 		techTitle: 'مبني على تقنية مثبتة',
 		techJava: 'Java 25',
@@ -229,11 +238,15 @@ const ar: TranslationSchema = {
 		faq6Q: 'هل EDDI مرتبط بـ "Eddie AI" أو منتجات أخرى تحمل اسم "Eddy"؟',
 		faq6A: 'لا. EDDI (من <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) هو منصة <strong>تنسيق وكلاء الذكاء الاصطناعي للمؤسسات</strong> مستضافة ذاتياً ومبنية على Java/Quarkus. لا علاقة له بأدوات تحرير الفيديو أو برامج الموارد البشرية أو منشئي الروبوتات أو المنتجات الأخرى التي تحمل أسماء مشابهة.',
 		faq7Q: 'كيف يقارن EDDI بمنصات الذكاء الاصطناعي السحابية مثل AWS Bedrock أو Azure AI Studio؟',
-		faq7A: 'توفر منصات الذكاء الاصطناعي السحابية بنية تحتية مُدارة لكنها تخلق <strong>تقييداً بالمورد</strong>. يعمل EDDI في أي مكان يعمل فيه Docker، محلياً أو في أي سحابة أو في بيئات معزولة. يدعم 12 مزود LLM وأي نقطة نهاية متوافقة مع OpenAI، مما يوفر قابلية نقل كاملة للنماذج وسيادة تامة على البيانات. راجع <a href="/enterprise/vs-alternatives/">المقارنة التفصيلية</a>.',
+		faq7A: `توفر منصات الذكاء الاصطناعي السحابية بنية تحتية مُدارة لكنها تخلق <strong>تقييداً بالمورد</strong>. يعمل EDDI في أي مكان يعمل فيه Docker، محلياً أو في أي سحابة أو في بيئات معزولة. يدعم ${LLM_PROVIDERS} مزود LLM وأي نقطة نهاية متوافقة مع OpenAI، مما يوفر قابلية نقل كاملة للنماذج وسيادة تامة على البيانات. راجع <a href="/enterprise/vs-alternatives/">المقارنة التفصيلية</a>.`,
 		faq8Q: 'هل يعمل EDDI مع Open WebUI وغيره من العملاء المتوافقين مع OpenAI؟',
 		faq8A: 'نعم. يتضمن EDDI واجهة <code>/v1</code> API متوافقة مع OpenAI تعرض الوكلاء المنشورين كنماذج، بحيث يمكن لـ Open WebUI وحزمة <code>openai</code> SDK وLangChain وLiteLLM التحدث إليهم مباشرة. تدعم الواجهة البث والإبلاغ عن استهلاك الرموز، وتحتفظ بكل دردشة في محادثة مستقلة خاصة بها، وتظل بوابات الموافقة الخاصة بالوكيل سارية. الواجهة معطلة افتراضياً، ولها مصادقة مستقلة عبر مفتاح API.',
 		faq9Q: 'هل يمكن لعدة مستخدمين وفرق مشاركة نسخة واحدة منشورة من EDDI؟',
-		faq9A: 'نعم. تمنح مساحات العمل لكل مستخدم كل وكيل وكل تكوين مالكاً، ومساحة شخصية أو للفريق مرتبطة بمجموعات Keycloak، ومشاركة صريحة بمستوى الاستخدام أو العرض أو التعديل أو الملكية. وتتيح Connections للوكلاء استدعاء الأنظمة الخارجية بمفتاح على مستوى المؤسسة، أو بحساب خدمة، أو بحساب OAuth الخاص بكل مستخدم، بحيث يمكن حصر الوكيل في ما يُسمح به للشخص الذي يستخدمه. تفعيل مساحات العمل اختياري، وتُرحَّل الموارد الموجودة إليها تلقائياً حتى لا يختفي شيء عند تفعيلها.',
+		faq9A:
+			'نعم. تمنح مساحات العمل لكل مستخدم كل وكيل وكل تكوين مالكاً، ومساحة شخصية أو للفريق مرتبطة بمجموعات Keycloak، ومشاركة صريحة بمستوى الاستخدام أو العرض أو التعديل أو الملكية. تشارك مع الأشخاص بأسمائهم من دليل للمستخدمين المسجّلين فيتلقون إشعاراً، ويستطيع أي شخص يتبع رابطاً إلى شيء لا يمكنه فتحه أن يطلب الوصول من المالك. وتتيح Connections للوكلاء استدعاء الأنظمة الخارجية بمفتاح على مستوى المؤسسة، أو بحساب خدمة، أو بحساب OAuth الخاص بكل مستخدم، بحيث يمكن حصر الوكيل في ما يُسمح به للشخص الذي يستخدمه. تفعيل مساحات العمل اختياري، وتُرحَّل الموارد الموجودة إليها تلقائياً حتى لا يختفي شيء عند تفعيلها.',
+		faq10Q: 'ما نماذج LLM التي يمكنني استخدامها مع EDDI؟',
+		faq10A:
+			`يتصل EDDI بـ ${LLM_PROVIDERS} مزود LLM: OpenAI وAnthropic وGoogle Gemini وMistral وAzure OpenAI وAmazon Bedrock وOracle GenAI وGoogle Vertex AI وOllama وHugging Face وJlama، إضافة إلى دعم من الدرجة الأولى لكل من xAI Grok وDeepSeek وMoonshot Kimi وAlibaba Qwen وZ.ai GLM وMiniMax وOpenRouter وGroq. وتعمل أي نقطة نهاية أخرى متوافقة مع OpenAI عبر عنوان URL أساسي. يشرح <a href="/models/">كتالوج النماذج</a> نقاط قوة كل نموذج ويعرض التكوين الدقيق لتشغيله في EDDI.`,
 		demoBtn: 'النظام التجريبي',
 		demoModalTitle: 'النظام التجريبي',
 		demoModalWarning: 'للاستكشاف فقط. تُمسح جميع البيانات كل 48 ساعة في الساعة 03:00 UTC.',
@@ -243,13 +256,15 @@ const ar: TranslationSchema = {
 	},
 	gettingStarted: {
 		title: 'البدء',
+		metaTitle: 'البدء: ثبّت EDDI وابنِ أول وكيل ذكاء اصطناعي لك في 5 دقائق',
 		description: 'ثبّت EDDI، أنشئ وكيلك الأول، وابدأ المحادثة في 5 دقائق.',
 		heroTitle: 'ابدأ مع EDDI',
 		heroSubtitle: 'ثبّت EDDI، أنشئ وكيلك الأول، وابدأ المحادثة في 5 دقائق.',
 		promiseLine: 'خلال خمس دقائق سيكون لديك EDDI يعمل بأمر واحد، ووكيل جاهز أُنشئ باستدعاء واحد لـ <code>setup_agent</code>، وواجهة Manager مفتوحة على <code>http://localhost:7070</code>.',
 		prerequisitesTitle: 'المتطلبات الأساسية',
 		prereq1: '<strong>Docker</strong> (موصى به) أو Java 25+. على أجهزة x86-64، تتطلب صورة EDDI معالجاً من فئة x86-64-v3 (Intel Haswell أو AMD Excavator أو أحدث)',
-		prereq2: 'مفتاح API لمزود LLM (OpenAI أو Anthropic أو Google Gemini أو مثيل Ollama محلي)',
+		prereq2:
+			`مفتاح API لأحد مزودي LLM الـ ${LLM_PROVIDERS} في EDDI (مثل Anthropic أو OpenAI أو Google Gemini أو DeepSeek)، أو مثيل Ollama محلي. يساعدك <a href="/models/">كتالوج النماذج</a> على الاختيار.`,
 		step1Title: '1. تثبيت وتشغيل EDDI',
 		step1Desc: 'أسرع طريقة لتشغيل EDDI هي <strong>مُثبِّت الأمر الواحد</strong>. يقوم بإعداد EDDI + قاعدة البيانات التي تختارها عبر Docker Compose، ويولّد مفتاح تشفير للخزنة، ويرشدك خلال الإعداد:',
 		step1TabInstaller: 'سكربت التثبيت (موصى به)',
@@ -268,6 +283,8 @@ const ar: TranslationSchema = {
 		step2DirectNote:
 			'العملاء الذين يدعمون Streamable HTTP بشكل أصلي (Cursor، VS Code، Windsurf، Antigravity وإضافات IDE الأخرى) يتصلون مباشرة، لا حاجة لجسر:',
 		step2After: 'الآن يمكنك التفاعل مع <strong>84 أداة MCP</strong> في EDDI مباشرة من مساعدك الذكي.',
+		step2OAuthNote:
+			'<strong>هل المصادقة مفعّلة؟</strong> تسجّل عملاء MCP دخولها بنفسها: يعلن EDDI عن <code>/mcp</code> كمورد محمي بـ OAuth 2.0، ويأتي realm الخاص بـ Keycloak المرفق بعميل <code>eddi-mcp</code> مخصص لها، فلا حاجة إلى نسخ أي رمز يدوياً.',
 		step2DocsLink:
 			'📖 راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">وثائق خادم MCP</a> للمرجع الكامل للأدوات والتكوين المتقدم.',
 		step3Title: '3. تخزين مفتاح API الخاص بك',
@@ -316,6 +333,7 @@ const ar: TranslationSchema = {
 	},
 	useCases: {
 		title: 'حالات الاستخدام',
+		metaTitle: 'حالات استخدام وكلاء الذكاء الاصطناعي للصناعات المنظمة',
 		description: 'أنماط نشر للصناعات المنظمة وفرق المؤسسات باستخدام منصة تنسيق الذكاء الاصطناعي EDDI.',
 		heroTitle: 'حالات الاستخدام',
 		heroSubtitle: 'أنماط نشر للصناعات المنظمة وفرق المؤسسات.',
@@ -344,6 +362,7 @@ const ar: TranslationSchema = {
 	},
 	featuresOverview: {
 		title: 'نظرة عامة على الميزات',
+		metaTitle: 'الميزات: منصة مستضافة ذاتياً لتنسيق وكلاء الذكاء الاصطناعي',
 		description:
 			'كل القدرات التي تجعل EDDI منسّق الذكاء الاصطناعي للمؤسسات، واجهة EDDI Manager، التكوين-كشفرة، 84 أداة MCP، بنية الأمان أولاً، والمزيد.',
 		heroTitle: 'كل ما تحتاجه',
@@ -372,10 +391,15 @@ const ar: TranslationSchema = {
 		aiCapDesc: 'ميزات ذكاء اصطناعي متقدمة تجعل وكلاء EDDI <strong>أذكى وأسرع وأكثر كفاءة في التكلفة</strong>.',
 		memoryCardTitle: '🧠 الذاكرة والسياق',
 		memoryCardDesc: 'ذاكرة مستمرة، توحيد الأحلام، ملخصات متجددة ونوافذ واعية بالرموز. <strong>وكلاء يتذكرون</strong>.',
-		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 مزودي تضمين، 6 مخازن متجهات، httpCall RAG. <strong>استرجاع معرفة مؤسسي</strong> جاهز للاستخدام.',
+		ragCardTitle: '📚 المعرفة وRAG',
+		ragCardDesc:
+			`ازحف إلى موقع ويب أو ارفع ملفات PDF وWord وExcel وPowerPoint إلى قاعدة معرفة تُحدَّث وفق جدول زمني. ${EMBEDDING_PROVIDERS} مزودي تضمين، و${VECTOR_STORES} مخازن متجهات. <strong>استرجاع معرفة مؤسسي</strong> جاهز للاستخدام.`,
 		cascadingCardTitle: '📈 تتابع النماذج',
-		cascadingCardDesc: 'توجيه متعدد النماذج محسّن للتكلفة مع استراتيجيات الثقة. <strong>خفض تكاليف LLM بنسبة تصل إلى 60-80%</strong> في أحمال العمل النموذجية متعددة النماذج.',
+		cascadingCardDesc:
+			'توجيه متعدد النماذج محسّن للتكلفة مع استراتيجيات الثقة. تشير عمليات نشر منشورة لهذا النمط إلى <strong>خفض تكلفة الاستدلال بنسبة 31 إلى 58%</strong> مع الحفاظ على الجودة (<a href="/benchmarks/">الأدلة</a>).',
+		modelsCardTitle: `🧭 ${LLM_PROVIDERS} مزود LLM`,
+		modelsCardDesc:
+			'Claude وGPT وGemini وGrok وDeepSeek وKimi وQwen وGLM وMistral وLlama وغيرها، مستضافة أو محلية. يوضح <strong>كتالوج النماذج</strong> نقاط قوة كل نموذج وكيفية تشغيله.',
 		schedulingCardTitle: '⏰ الجدولة والنبضات',
 		schedulingCardDesc: 'مشغلات مجدولة، إيقاظ بالنبضات، دورات أحلام. <strong>وكلاء استباقيون</strong> يعملون بشكل مستقل.',
 
@@ -412,9 +436,130 @@ const ar: TranslationSchema = {
 		obsCardDesc:
 			'كل خطوة في خط الأنابيب مسجلة مع <strong>مسارات تدقيق غير قابلة للتغيير</strong>: الرموز والتكلفة والتوقيت واستدعاءات الأدوات.',
 		cqCardTitle: '🧪 جودة الشفرة',
-		cqCardDesc: '<strong>+20,000 اختبار بصفر إخفاقات.</strong> صفر تنبيهات Checkstyle. >90% تغطية الشفرة. CI/CD مطبق في كل دمج.',
+		cqCardDesc:
+			`<strong>${TESTS} اختبار، ناجحة عند كل دمج.</strong> فرض تغطية تعليمات تزيد على 90% وتغطية فروع تزيد على 80%. بوابات CodeQL وCheckstyle والمنسّق في CI.`,
 		aiCardTitle: '🧩 جاهز للذكاء الاصطناعي',
 		aiCardDesc: '84 أداة MCP، واجهة API متوافقة مع OpenAI، أنماط CRUD قابلة للتنبؤ، واجهات API ذاتية التوثيق. <strong>مصمم لوكلاء البرمجة</strong> للعمل معه.',
+	},
+
+	// ─── Model Catalog ──────────────────────────────────────────
+	models: {
+		title: 'كتالوج النماذج',
+		metaTitle: 'كتالوج نماذج LLM: شغّل Claude وGPT وGemini وDeepSeek وQwen وغيرها في EDDI',
+		description:
+			`عائلات النماذج التي يشغّلها EDDI عبر مزودي LLM الـ ${LLM_PROVIDERS}: نقاط قوة كل منها، والتكوين الدقيق لتشغيلها.`,
+		heroTitle: 'كل نموذج،',
+		heroHighlight: 'منصة واحدة',
+		heroDesc:
+			`يتصل EDDI بـ ${LLM_PROVIDERS} مزود LLM، من المختبرات الكبرى إلى المزودين الإقليميين والنماذج التي تعمل على أجهزتك الخاصة. اختر نموذجاً لترى نقاط قوته وكيفية تشغيله في EDDI، وصولاً إلى التكوين.`,
+		filterLabel: 'عرض',
+		filterAll: 'الكل',
+		filterFrontier: 'النماذج الرائدة',
+		filterFast: 'سريعة ومنخفضة التكلفة',
+		filterOpen: 'أوزان مفتوحة',
+		filterLocal: 'تعمل محلياً',
+		searchLabel: 'البحث في النماذج',
+		searchPlaceholder: 'ابحث بالاسم أو المورّد أو معرّف النموذج',
+		noResults: 'لا يوجد نموذج يطابق هذا الفلتر.',
+		colModel: 'النموذج',
+		colContext: 'السياق',
+		colInput: 'المدخلات',
+		colProviders: 'شغّله عبر',
+		hostsTitle: 'أين تعمل النماذج',
+		hostsDesc:
+			'غالباً ما يتوفر النموذج نفسه من أكثر من مصدر. اختر بحسب المكان المسموح أن تذهب إليه بياناتك، وما يشغّله فريقك بالفعل، وطريقة المصادقة لديك.',
+		anyEndpointTitle: 'ليس في الكتالوج؟',
+		anyEndpointDesc:
+			'تعمل أي نقطة نهاية متوافقة مع OpenAI عبر <code>type: openai</code> و<code>baseUrl</code>، بما في ذلك Cohere وTogether وvLLM وllama-server والبوابات المؤسسية. ويصل OpenRouter إلى مئات النماذج الأخرى بمفتاح واحد.',
+		cascadeTitle: 'استخدم أكثر من نموذج',
+		cascadeDesc:
+			'يستطيع EDDI ربط النماذج في تتابع: يجيب نموذج سريع ومنخفض التكلفة أولاً، ولا يُستدعى نموذج أقوى إلا عند انخفاض الثقة. راجع <a href="/features/model-cascading/">تتابع النماذج</a>.',
+		// Detail page
+		backToCatalog: 'كل النماذج',
+		atAGlance: 'نظرة سريعة',
+		labelVendor: 'المورّد',
+		labelReleased: 'تاريخ الإصدار',
+		labelContext: 'نافذة السياق',
+		labelMaxOutput: 'الحد الأقصى للمخرجات',
+		labelInput: 'المدخلات',
+		labelTools: 'استدعاء الأدوات',
+		labelReasoning: 'الاستدلال',
+		labelOpenWeights: 'أوزان مفتوحة',
+		labelLicense: 'الترخيص',
+		tokens: 'رمز',
+		yes: 'نعم',
+		no: 'لا',
+		notStated: 'لم يذكره المورّد',
+		strengthsTitle: 'نقاط القوة',
+		bestForTitle: 'الأنسب لـ',
+		runTitle: 'شغّله في EDDI',
+		runDesc:
+			'أسرع طريق هو Manager: افتح معالج الوكلاء أو Platform Operator واختر المزود والنموذج. ولتكوينه بنفسك، اتبع هذه الخطوات للمزود الذي تريده.',
+		routesLabel: 'المزود',
+		modelIdsLabel: 'معرّفات النموذج',
+		step1Title: '1. خزّن بيانات الاعتماد',
+		step1Key:
+			'أضف مفتاح API الخاص بالمزود إلى Secrets Vault في Manager، أو عبر <code>PUT /secretstore/secrets/default/{name}</code>، تحت الاسم المستخدم أدناه. تشير إليه التكوينات بصيغة <code>${vault:…}</code>، فلا يظهر المفتاح أبداً كنص صريح.',
+		step1NoKey: 'لا يستخدم هذا المزود مفتاح API:',
+		step2Title: '2. كوّن مهمة LLM',
+		step2Desc:
+			'استخدم هذا كملف <code>langchain.json</code> في سير عمل الوكيل، أو الصق المعاملات في محرر LLM في Manager.',
+		step3Title: 'أو أنشئ الوكيل كاملاً باستدعاء واحد',
+		step3Desc:
+			'يكتب <code>setup_agent</code> القواعد وتكوين LLM وسير العمل، ثم ينشر الوكيل. استدعِه عبر MCP أو <code>POST /administration/agents/setup</code>.',
+		authBedrock:
+			'يصادق Amazon Bedrock عبر سلسلة بيانات اعتماد AWS: متغيرات البيئة، أو دور IAM، أو <code>~/.aws/credentials</code>.',
+		authVertex:
+			'يصادق Vertex AI باستخدام Google Application Default Credentials. عيّن <code>projectId</code> و<code>location</code> لمشروعك.',
+		authOracle:
+			'يصادق OCI Generative AI بملف تعريف تكوين OCI من <code>~/.oci/config</code>. عيّن <code>compartmentId</code> لمستأجرك.',
+		authOllama:
+			'لا يحتاج Ollama إلى مفتاح. وجّه <code>baseUrl</code> إلى خادم Ollama لديك؛ ومع طبقة Ollama الإضافية في EDDI تكون القيمة <code>http://ollama:11434</code>.',
+		authJlama:
+			'لا يحتاج Jlama إلى مفتاح: يعمل النموذج داخل JVM الخاص بـ EDDI ويُنزَّل من Hugging Face عند أول استخدام.',
+		tipsTitle: 'ملاحظات خاصة بـ EDDI',
+		relatedTitle: 'نماذج ذات صلة',
+		sourcesTitle: 'المصادر',
+		sourcesDesc:
+			'الحقائق في هذه الصفحة مأخوذة من وثائق المورّد، وقد جرى التحقق منها في {date}. تتغير النماذج بسرعة، لذا تحقّق من الحدود لدى المورّد قبل الاعتماد عليها. الأسعار غير مدرجة هنا: راجع صفحة الأسعار لدى المورّد.',
+		docsLink: 'وثائق المورّد',
+		pricingLink: 'الأسعار',
+		copy: 'نسخ',
+		copied: 'تم النسخ',
+		modality: { text: 'نص', image: 'صورة', video: 'فيديو', audio: 'صوت', pdf: 'PDF' },
+		category: { frontier: 'رائد', fast: 'سريع ومنخفض التكلفة', open: 'أوزان مفتوحة', local: 'يعمل محلياً' },
+	},
+
+	// ─── What's New ─────────────────────────────────────────────
+	whatsNew: {
+		title: `الجديد في ${EDDI_LATEST_VERSION}`,
+		metaTitle:
+			`الجديد في EDDI ${EDDI_LATEST_VERSION}: ${LLM_PROVIDERS} مزود LLM، واستيعاب المعرفة، واتباع الإصدارات`,
+		description:
+			`يضيف EDDI ${EDDI_LATEST_VERSION} ثمانية مزودي LLM من الدرجة الأولى، وقواعد معرفة تزحف إلى المواقع وتستوعب الملفات، ومحادثات تنتقل إلى إصدارات الوكيل المتوافقة، وعرضاً مباشراً للنقاشات الجماعية.`,
+		heroBadge: `الإصدار ${EDDI_LATEST_VERSION}`,
+		heroTitle: 'الجديد في',
+		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroDesc: 'أبرز ما في هذا الإصدار، والغرض من كل ميزة، وأين تقرأ المزيد.',
+		sections: [
+			{ icon: '🧭', title: `${LLM_PROVIDERS} مزود LLM`, desc: 'يحصل كل من xAI Grok وDeepSeek وMoonshot Kimi وAlibaba Qwen وZ.ai GLM وMiniMax وOpenRouter وGroq على نوع خاص به. المفتاح هو كل ما تكوّنه: نقطة النهاية والمناطق والنموذج الافتراضي وخصوصيات الاستدلال لدى كل مورّد تأتي من إعداد مسبق، ويجمع Manager كل المزودين في قائمة اختيار واحدة.', link: '/models/', linkText: 'تصفّح كتالوج النماذج' },
+			{ icon: '📚', title: 'قواعد معرفة تملأ نفسها بنفسها', desc: 'وجّه قاعدة معرفة إلى موقع ويب فيزحف إليه EDDI ضمن حدود robots.txt، أو أضف ملفات PDF وWord وExcel وPowerPoint وملفات نصية. تعمل المصادر وفق جدول زمني، وتتخطى ما لم يتغير، وتزيل ما اختفى، وتحتفظ بسجل لكل تشغيل.', link: '/features/rag/', linkText: 'قواعد المعرفة وRAG' },
+			{ icon: '🔁', title: 'ترقيات لا توقف المحادثات', desc: 'احفظ إصداراً جديداً من الوكيل على أنه متوافق مع الإصدار السابق، فتستمر المحادثات الجارية عليه بدلاً من إنهائها. وقبل النشر، يعرض Manager ما سيفعله النشر بالمحادثات على كل إصدار آخر.', link: '/features/config-as-code/', linkText: 'التكوين كشفرة' },
+			{ icon: '🗳️', title: 'تابع النقاش لحظة بلحظة', desc: 'لوحة معلومات لنقاش جماعي جارٍ: الموقف الحالي لكل عضو، والتكلفة المباشرة، والعروض، والأدوار الموجّهة، مع مبدّل للجولات السابقة. والتصويت الذي يرفض مقترحاً ينتهي الآن بقرار مرفوض، لا بإخفاق.', link: '/features/multi-agent/', linkText: 'تنسيق متعدد الوكلاء' },
+			{ icon: '🤝', title: 'مشاركة يستطيع الناس استخدامها فعلاً', desc: 'شارك مع أشخاص بأسمائهم من دليل المستخدمين المسجّلين، فيتلقون إشعاراً. والرابط إلى شيء لا يمكنك فتحه يتيح لك طلب الوصول من المالك. ويستطيع المحررون الاحتفاظ بمفاتيحهم الخاصة في مساحة، وتعرض المراجعة كل ما هو مُشارَك.', link: '/features/manager/', linkText: 'EDDI Manager' },
+			{ icon: '📊', title: 'التشغيل والمراقبة', desc: 'يبلّغ كل استدعاء LLM الآن عن زمن الاستجابة والرموز والأخطاء لدى كل مزود. وتسجّل عملاء MCP دخولها بنفسها عبر OAuth. وتعرض الدردشة الأداة التي يستخدمها الوكيل لحظة استخدامها، ويستطيع المستدعي تسليم الوكيل بيانات اعتماد لدورة واحدة فقط.', link: '/features/observability/', linkText: 'المراقبة' },
+		],
+		alsoTitle: 'وأيضاً في هذا الإصدار',
+		alsoItems: [
+			'جولة مراجعة أمنية من نحو 30 إصلاحاً شملت حقن القوالب والطلبات الصادرة ومفاتيح الخزنة ونطاق الأسرار وتفويض مساحات العمل وهوية القنوات، ولكل منها اختبار انحدار',
+			'يحمل تصدير الوكلاء والمزامنة بين الخوادم قواميس المحلل مع الوكيل، وتبلّغ المزامنة عما قامت به',
+			'Claude 5.5 وGPT-6 ضمن اقتراحات النماذج في Manager',
+			'إصلاحات للتشغيل الأول بعد الترقية من EDDI 5، وإصلاحات أصغر كثيرة في Manager وChat UI والمحرك',
+		],
+		upgradeTitle: 'الترقية',
+		upgradeDesc:
+			'إذا ثبّتّ EDDI باستخدام المثبّت ذي الأمر الواحد، فإن أمراً واحداً يسحب الصورة الجديدة ويعيد تشغيل EDDI:',
+		releaseNotes: 'ملاحظات الإصدار الكاملة على GitHub',
 	},
 	pages: {
 		manager: {
@@ -436,6 +581,17 @@ const ar: TranslationSchema = {
 				'<strong>Platform Operator ومعالج الوكلاء</strong>: صِف وكيلاً في محادثة أو املأ استمارة. كل عملية كتابة يقترحها المشغّل تنتظر موافقتك',
 				'<strong>مساحات العمل والمشاركة</strong>: مبدّل المساحات، ونافذة مشاركة لأي مورد، وشارات الملكية، وإجراءات مقيدة بمستوى وصولك',
 				'<strong>Connections</strong>: أنشئ اتصالات بالأنظمة الخارجية وعدّلها، واربط حسابات OAuth الخاصة بك',
+				'<strong>نظرة مباشرة على النقاش</strong>: تابع نقاشاً جماعياً كلوحة معلومات، مع الموقف الحالي لكل عضو والتكلفة المباشرة والعروض والأدوار الموجّهة، ومبدّل للجولات السابقة',
+				'<strong>مصادر قواعد المعرفة</strong>: أضف موقع ويب أو أسقط ملفات في قاعدة معرفة، وشغّل الاستيعاب أو عاينه، واقرأ سجل كل تشغيل وأخطاءه',
+				'<strong>مشاركة يستطيع الناس استخدامها فعلاً</strong>: شارك مع أشخاص بأسمائهم، واحصل على إشعار عند مشاركة شيء معك، واطلب الوصول من المالك عبر رابط لا يمكنك فتحه',
+				'<strong>علامات الإصدارات</strong>: احفظ تغييراً على أنه متوافق مع الإصدار السابق، واطّلع على ما يفعله النشر بالمحادثات الجارية',
+			],
+			galleryTitle: 'نظرة من الداخل',
+			gallery: [
+				'لوحة المعلومات: حالة المنصة والوكلاء وسير العمل وأحدث المحادثات في لمحة',
+				'نقاش جماعي بأسلوب مراجعة الأقران، مع رأي كل عضو وخلاصة المنسّق',
+				'Secrets Vault: تُخزَّن المفاتيح مشفرة ويُشار إليها بالاسم، ولا تُعرض كاملة أبداً',
+				'سجلات خط الأنابيب لكل دورة محادثة، تُبث مباشرة',
 			],
 			heading3: 'مصمم للفرق',
 			para2:
@@ -462,7 +618,8 @@ const ar: TranslationSchema = {
 			],
 			heading3: 'معايير مفتوحة، ليست واجهات برمجة مملوكة',
 			para2: 'يمكن لوكلاء EDDI أيضًا <strong>استهلاك أدوات MCP خارجية</strong> أثناء المحادثات. قم بتكوين نقاط نهاية خادم MCP، وسيكتشف الوكلاء الأدوات ويستدعونها تلقائيًا بناءً على سياق المحادثة. بالإضافة إلى MCP، ينفذ EDDI <strong>A2A</strong> (بروتوكول الوكيل إلى الوكيل) للتواصل عبر المنصات، <strong>OpenAPI 3.1</strong> لتوليد واستهلاك المواصفات، <strong>OAuth 2.0 / OIDC</strong> عبر Keycloak، و<strong>SSE</strong> للبث المباشر، جميعها معايير مفتوحة، بدون تبعية لبائع. كما يمكن الوصول إلى الوكلاء المنشورين عبر <strong>واجهة <code>/v1</code> API متوافقة مع OpenAI</strong>، بحيث يمكن لـ Open WebUI و SDK <code>openai</code> و LangChain و LiteLLM التحدث إليهم مباشرة.',
-			clientsNote: 'يعمل مع Claude Desktop وCursor وVS Code وWindsurf وAntigravity وأي عميل متوافق مع MCP. راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">وثائق MCP</a> للحصول على أدلة تكوين العملاء.',
+			clientsNote:
+				'يعمل مع Claude Desktop وCursor وVS Code وWindsurf وAntigravity وأي عميل متوافق مع MCP. على مثيل مفعّلة فيه المصادقة، تسجّل العملاء دخولها بنفسها: يُعلَن عن <code>/mcp</code> كمورد محمي بـ OAuth 2.0 (RFC 9728)، ويأتي realm الخاص بـ Keycloak المرفق بعميل <code>eddi-mcp</code> يدعم رمز التفويض وPKCE. راجع <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">وثائق MCP</a> للحصول على أدلة تكوين العملاء.',
 		},
 		configAsCode: {
 			title: 'التكوين-كشفرة',
@@ -481,6 +638,7 @@ const ar: TranslationSchema = {
 				'<strong>Agent Sync</strong>: مزامنة مباشرة بين الخوادم مع مطابقة هيكلية ومقارنة المحتوى واختيار انتقائي للموارد، لا حاجة لوسيط ZIP',
 				'<strong>Prompt Snippets</strong>: كتل system prompt قابلة لإعادة الاستخدام ومُدارة الإصدارات يُشار إليها كـ <code>{{snippets.safety_rules}}</code>، تأليف prompts من مكتبات مشتركة',
 				'<strong>Behavior Rules</strong>: محرك منطق IF-THEN للتوجيه والتنسيق وقرارات منطق الأعمال بدون كود',
+				'<strong>اتباع الإصدارات</strong>: علّم إصداراً جديداً من الوكيل على أنه متوافق مع السابق، فتستمر المحادثات المفتوحة عليه بدلاً من إنهائها. ويعرض Manager ما يفعله كل نشر بالمحادثات الجارية',
 			],
 			heading3: 'أنواع الموارد',
 			para2:
@@ -513,19 +671,33 @@ const ar: TranslationSchema = {
 				'<strong>تسجيل آمن للبيانات الشخصية</strong>: عمليات GDPR تسجل أسماء مستعارة SHA-256، وليس معرفات المستخدم الخام',
 				'<strong>Sigstore Cosign</strong>: توقيع صور الحاويات عبر OIDC بدون مفتاح، التحقق التشفيري من أن كل صورة Docker تم بناؤها بواسطة CI الرسمي',
 				'<strong>صورة أساسية مقوّاة</strong>: بيئة تشغيل Red Hat UBI 10 مثبتة بالبصمة (digest)، منشورة في كتالوج Red Hat المعتمد',
+				'<strong>قيم سياق سرية</strong>: يستطيع المستدعي تسليم الوكيل بيانات اعتماد صالحة لدورة واحدة، لا تُخزَّن ولا تُعاد أبداً',
+				'<strong>قوالب تشغيل مقيّدة</strong>: تُعرض القوالب المبنية من بيانات وقت التشغيل على محرك مقيّد بلا وصول إلى التكوين أو إلى الـ beans ومع حدود لكل عملية عرض، وتُستبدل مدخلات المستخدم دائماً كبيانات ولا تُحلَّل أبداً كقالب',
 			],
 			ciTitle: 'خط أنابيب الأمان الآلي',
-			ciPara: 'يتم فحص كل push وpull request بواسطة 6 أدوات أمان آلية، جميع إجراءات GitHub Actions مثبتة بـ SHA لمنع هجمات سلسلة التوريد:',
+			ciPara: 'يمر كل تغيير عبر أدوات أمان آلية، مع تثبيت كل GitHub Action بـ SHA لمنع هجمات سلسلة التوريد:',
 			ciItems: [
 				'<strong>CodeQL</strong>: تحليل SAST دلالي مع استعلامات <code>security-extended</code>',
 				'<strong>Trivy</strong>: فحص CVE لتبعيات نظام الملفات وصور Docker (حظر عند CRITICAL/HIGH)',
 				'<strong>Gitleaks</strong>: فحص تاريخ Git لمنع تسريب الأسرار وبيانات الاعتماد',
-				'<strong>ZAP</strong>: فحص DAST للـ API ضد صورة Docker الحية',
+				'<strong>Dependency Review</strong>: تُعلَّم التبعيات الجديدة ذات الثغرات المعروفة في طلب السحب الذي يضيفها',
 				'<strong>CycloneDX</strong>: إنشاء SBOM لشفافية سلسلة التوريد',
-				'<strong>Jazzer</strong>: اختبار Fuzz موجه بالتغطية للمحللات الأمنية الحرجة',
+				'<strong>ClusterFuzzLite مع Jazzer</strong>: اختبار Fuzz موجه بالتغطية للمحللات الأمنية الحرجة',
+				'<strong>OpenSSF Scorecard</strong>: تقييم مستمر لممارسات أمان سلسلة التوريد في المستودع',
+			],
+			evidenceTitle: 'لماذا يجب أن تكون القواعد خارج النموذج',
+			evidencePara:
+				'حقن الموجّهات هو الهجوم الأهم للوكلاء الذين يستخدمون الأدوات. في أحد المقاييس المعيارية لوكلاء يستخدمون الأدوات، دفعت تعليمات مخفية في التذاكر والسجلات الوكلاء إلى اتخاذ إجراءات غير آمنة في 82.5% من الحالات دون أي دفاع. وتركت الدفاعات على مستوى الموجّه ما بين 10 و26% من الحالات غير آمنة؛ ولم يصل إلى الصفر إلا بوابة سياسات تُفرض عند استدعاء الأداة، مع السماح بمرور التغييرات المعتمدة. لهذا يفرض EDDI قواعده في المحرك، عند حدود الأدوات، حيث لا يستطيع النص المحقون أن يجادل ليتجاوزها. تسرد <a href="/benchmarks/">صفحة الأدلة</a> الدراسات.',
+			hardeningTitle: 'سجل التقوية',
+			hardeningPara: 'العمل الأمني مستمر، وننشر ما يكشفه. أحدث الجولات:',
+			hardeningItems: [
+				'<strong>سبتمبر 2026 (6.5.0)</strong>: جولة مراجعة من نحو 30 إصلاحاً شملت حقن القوالب وSSRF في الاستدعاءات الصادرة ومعالجة مفاتيح الخزنة ونطاق الأسرار وتفويض مساحات العمل وهوية القنوات وواجهة الأمان في Manager، ولكل منها اختبار انحدار',
+				'<strong>أغسطس 2026 (6.3.0)</strong>: توحيد بيانات الاعتماد الصادرة تحت Connections، وحمل نتائج الأدوات لمصدرها مع تنقيح النص ذي الطابع التوجيهي، وفرض منح الخزنة للوكلاء',
+				'<strong>يوليو 2026 (6.2.0)</strong>: حصر ذاكرات التخزين المؤقت لنتائج الأدوات في كل هوية، وتنقيح الأسرار من تتبع الأدوات المباشر، ومقارنة HMAC للتدقيق بزمن ثابت',
 			],
 			govTitle: 'تكامل الحوكمة والامتثال',
-			govPara: 'تغذي القدرات الأمنية مباشرة <a href="/enterprise/compliance/">إطار الامتثال</a> في EDDI. يلبي مسار التدقيق غير القابل للتغيير متطلبات حفظ السجلات في قانون الذكاء الاصطناعي الأوروبي (المادة 12)، ويوفر تتبع خط الأنابيب شفافية قرارات الذكاء الاصطناعي (المادة 13)، وتتيح واجهة الإدارة الرقابة البشرية مع إمكانيات الإيقاف الطارئ (المادة 14). البنية التحتية نفسها تدعم GDPR وHIPAA وSOC 2 وأكثر من 15 إطاراً تنظيمياً إضافياً، كل ذلك عبر واجهة API موحدة واحدة.',
+			govPara:
+				'تغذي القدرات الأمنية مباشرة <a href="/enterprise/compliance/">إطار الامتثال</a> في EDDI. يدعم مسار التدقيق غير القابل للتغيير متطلبات حفظ السجلات في قانون الذكاء الاصطناعي الأوروبي (المادة 12)، ويوفر تتبع خط الأنابيب شفافية قرارات الذكاء الاصطناعي (المادة 13)، وتتيح واجهة الإدارة الرقابة البشرية مع إمكانيات الإيقاف الطارئ (المادة 14). البنية التحتية نفسها تدعم GDPR وHIPAA وSOC 2 وأكثر من 15 إطاراً تنظيمياً إضافياً، كل ذلك عبر واجهة API موحدة واحدة.',
 
 		},
 		performance: {
@@ -569,13 +741,17 @@ const ar: TranslationSchema = {
 				'<strong>توجيه A/B</strong>: اختبر وكلاء مختلفين ضد نفس حركة المرور',
 				'<strong>نمط المنسق</strong>: يفوض الوكلاء إلى وكلاء فرعيين متخصصين',
 			],
-				heading3: 'المحادثات الجماعية والتنسيق المتقدم',
+			heading3: 'المحادثات الجماعية والتنسيق المتقدم',
+			evidencePara:
+				'لماذا التصويت بدلاً من مجرد النقاش؟ تجد الأبحاث حول النقاش متعدد الوكلاء أن التصويت بالأغلبية يفسّر معظم المكاسب المقيسة، وأن وكيلاً واحداً واثقاً ومقنعاً قادر على جرّ مجموعة نحو إجابة خاطئة. في EDDI تُدلى الأصوات باستقلال بعضها عن بعض، ويُسجَّل اعتراض الطرف الخاسر، ويمكن لكل عضو أن يعمل على نموذج مختلف. تضم <a href="/benchmarks/">صفحة الأدلة</a> الدراسات.',
 			para2: 'يدعم EDDI <strong>محادثات جماعية متعددة الوكلاء</strong> مع 7 أنماط مناقشة مدمجة، وتصويت صريح، ونواتج عمل مشتركة، وفرق دائمة، وهياكل مجموعات متداخلة، وإنشاء وكلاء ديناميكي، ووكيل وصفي يشغّل المنصة نفسها:',
 			items2: [
 				'<strong>7 أنماط مناقشة</strong>: طاولة مستديرة، مراجعة الأقران، محامي الشيطان، دلفي، مناظرة، <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS)، و<strong>التفاوض</strong> (عروض وتنازلات وحَكَم)',
 				'<strong>التصويت</strong>: تجمع مراحل التصويت أصواتاً صريحة (بالأغلبية أو بتصويت الموافقة، مع ترجيح الأصوات واشتراط النصاب) وتسجل القرار مع الحصيلة الكاملة ورأي الطرف الخاسر المخالف',
 				'<strong>نواتج العمل المشتركة وتقديم العروض على المهام</strong>: يحرر الأعضاء معاً ناتج عمل مشتركاً مُتحقَّقاً منه ويقدمون عروضاً على المهام بدلاً من إسنادها بالتناوب',
 				'<strong>البشر كأعضاء</strong>: يأخذ شخص دوراً حقيقياً في النقاش، لا مجرد إبداء الموافقة',
+				'<strong>نظرة مباشرة على النقاش</strong>: لوحة معلومات لنقاش جارٍ في Manager وفي لوحة Workforce: الموقف الحالي لكل عضو، والتكلفة المباشرة، والعروض، والأدوار الموجّهة، مع مبدّل للجولات السابقة',
+				'<strong>قرارات يمكنك قراءتها</strong>: التصويت الذي يرفض مقترحاً ينتهي بـ <code>REJECTED</code> لا بإخفاق، ويوضح المحرر متى تحوّل أدوار المناظرة الخلاصة إلى حكم',
 				'<strong>الفرق الدائمة</strong>: فرق مستمرة لديها قائمة مهام، وإيقاعات cron، وميسّر بصلاحيات محدودة، ومراحل مراجعة استعادية تجمع ذاكرة الفريق',
 				'<strong>قوالب جاهزة</strong>: فريق بحث، فريق تحرير، فريق عمل للعمليات، مجلس قرار، وطاولة تفاوض، جاهزة للإنشاء',
 				'<strong>وكلاء ديناميكيون</strong>: يمكن للوكلاء في مناقشات Task Force إنشاء وتجنيد وتفويض وتفكيك وكلاء فرعيين في وقت التشغيل مع حواجز حماية (قوائم بيضاء للمزودين/النماذج، حدود لكل مناقشة، سياسات دورة الحياة)',
@@ -601,22 +777,28 @@ const ar: TranslationSchema = {
 				'<strong>مقاييس Prometheus</strong>: أكثر من 50 مقياساً عبر <code>/q/metrics</code> للبنية التحتية للمراقبة',
 				'<strong>لوحات Grafana</strong>: لوحة معلومات جاهزة للعمليات، إضافة إلى لوحة Full Metrics Reference تضم مخططاً لكل مقياس مسجَّل',
 				'<strong>تتبع OpenTelemetry</strong>: تتبعات موزعة لكل مهمة عبر OTLP (Jaeger، Tempo، Datadog) مع spans لمعرف المهمة والنوع والمحادثة والوكيل',
+				'<strong>قياس عن بُعد لكل استدعاء LLM</strong>: زمن الاستجابة ورموز المدخلات والمخرجات والأخطاء لكل استدعاء LLM، لدى كل مزود، مع البث أو بدونه، إلى جانب span من نوع OpenTelemetry GenAI',
 				'<strong>قياس CQRS</strong>: دفتر أستاذ مدفوع بالأحداث لجميع عمليات النظام',
 			],
 		},
 		codeQuality: {
 			title: 'جودة الشفرة',
-			description: '+20,000 اختبار بصفر إخفاقات. صفر تنبيهات Checkstyle. >90% تغطية الشفرة. بوابات جودة CI/CD مطبقة في كل دمج.',
+			metaTitle: 'جودة الشفرة وتغطية الاختبارات وبوابات CI',
+			description:
+				`${TESTS} اختبار، ناجحة عند كل دمج. فرض تغطية تعليمات تزيد على 90% وتغطية فروع تزيد على 80%، مع بوابات CodeQL وCheckstyle والمنسّق في CI.`,
 			heading1: 'صرامة هندسية',
 			para1:
 				'يحافظ EDDI على <strong>جودة شفرة استثنائية</strong> من خلال الاختبارات الشاملة والتحليل الثابت وبوابات جودة CI/CD. كل طلب سحب يجب أن يجتاز مجموعة الاختبارات الكاملة قبل الدمج.',
 			heading2: 'مقاييس الجودة',
 			items: [
-				'<strong>+20,000 اختبار</strong>: تغطية وحدات وتكامل وشاملة',
-				'<strong>صفر إخفاقات</strong>: CI نظيف في كل بناء',
-				'<strong>تطبيق Checkstyle</strong>: صفر تنبيهات، قواعد صارمة مطبقة في كل بناء',
-				'<strong>اختبارات أدوات MCP</strong>: تغطية شاملة لجميع أدوات MCP الـ 84',
-				'<strong>بوابات جودة CI/CD</strong>: فحوصات آلية تمنع التراجع',
+				`<strong>${TESTS} اختبار</strong>: تغطية وحدات وتكامل وشاملة، تُشغَّل كاملة في كل طلب سحب (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)`,
+				'<strong>بوابة التغطية</strong>: يفشل البناء إذا قلّت تغطية التعليمات عن 90% أو تغطية الفروع عن 80% (JaCoCo)',
+				'<strong>بوابات الأسلوب</strong>: تُفشل قواعد الاستيراد في Checkstyle ومنسّق Eclipse البناء بدلاً من إعادة كتابة الشفرة دون علمك',
+				'<strong>CodeQL</strong>: تحليل دلالي للواجهة الخلفية بلغة Java ولواجهتي React عند كل تغيير',
+				'<strong>اختبار Fuzz</strong>: يشغّل ClusterFuzzLite أداة Jazzer على المحللات الأمنية الحرجة',
+				'<strong>OpenSSF</strong>: <a href="https://www.bestpractices.dev/projects/12355" target="_blank" rel="noopener">شارة Best Practices Gold</a> و<a href="https://securityscorecards.dev/viewer/?uri=github.com/labsai/EDDI" target="_blank" rel="noopener">Scorecard</a> منشورة باستمرار',
+				'<strong>سلسلة التوريد</strong>: SBOM بصيغة CycloneDX لكل بناء وتوقيعات Sigstore بدون مفتاح على صور الإصدارات',
+				`<strong>اختبارات أدوات MCP</strong>: تغطية لجميع أدوات MCP الـ ${MCP_TOOLS}`,
 			],
 		},
 		aiReady: {
@@ -657,18 +839,22 @@ const ar: TranslationSchema = {
 			para2: 'مستوحاة من أبحاث Anthropic حول توحيد الذاكرة الخلفية، تعمل دورات أحلام EDDI وفق <strong>جدول زمني قابل للتكوين</strong> للحفاظ على جودة الذاكرة. يتم تنظيف الإدخالات القديمة واكتشاف التناقضات وحلها وتلخيص الحقائق، كل ذلك مع سقوف تكلفة لكل تشغيل. تُجدول الأحلام عبر تعبيرات cron ويمكنها استخدام استراتيجيات محادثة مستمرة أو جديدة.',
 		},
 		rag: {
-			title: 'RAG، التوليد المعزز بالاسترجاع',
+			title: 'قواعد المعرفة وRAG',
+			metaTitle: 'قواعد المعرفة وRAG: الزحف إلى المواقع واستيعاب الملفات لوكلاء الذكاء الاصطناعي',
 			description:
-				'7 مزودي تضمين، 6 مخازن متجهات، httpCall RAG، واستيعاب مستندات غير متزامن، استرجاع معرفة بمستوى مؤسسي لوكلاء الذكاء الاصطناعي.',
+				`وجّه قاعدة معرفة إلى موقعك أو أسقط ملفاتك فيها، ويحافظ EDDI على تحديثها وفق جدول زمني. ${EMBEDDING_PROVIDERS} مزودي تضمين، و${VECTOR_STORES} مخازن متجهات، وخيار httpCall بدون بنية تحتية.`,
 			heading1: 'استرجاع معرفة المؤسسات',
-			para1: 'يوفر EDDI خط أنابيب <strong>توليد معزز بالاسترجاع</strong> كاملاً مع دعم أصلي لمزودي تضمين متعددين ومخازن متجهات وخيار RAG بدون بنية تحتية عبر استدعاءات HTTP.',
+			para1:
+				'يوفر EDDI خط أنابيب <strong>توليد معزز بالاسترجاع</strong> كاملاً: قواعد معرفة تملأ نفسها من موقع ويب أو من ملفات مرفوعة، ودعم أصلي لمزودي تضمين متعددين ومخازن متجهات، وخيار RAG بدون بنية تحتية عبر استدعاءات HTTP.',
 			heading2: 'قدرات RAG',
 			items: [
-				'<strong>7 مزودي تضمين</strong>: OpenAI، Ollama، Azure OpenAI، Mistral، Amazon Bedrock، Cohere، Google Vertex AI',
-				'<strong>6 مخازن متجهات</strong>: pgvector، Chroma، في الذاكرة، MongoDB Atlas، Elasticsearch، Qdrant',
+				'<strong>زاحف الويب</strong>: ازحف إلى موقع ضمن الحدود التي تضعها، مع احترام robots.txt ومهلة الزحف فيه وخرائط الموقع. تُتخطى الصفحات التي لم تتغير في التشغيل التالي، وتُزال الصفحات المحذوفة من قاعدة المعرفة',
+				'<strong>استيعاب الملفات</strong>: ارفع ملفات PDF وWord وExcel وPowerPoint والنصوص وMarkdown وCSV وHTML، ويُعلَّم كل ملف بأنه مفهرس أو متغيّر أو غير مفهرس',
+				'<strong>مصادر مجدولة</strong>: يمكن تشغيل كل مصدر وفق جدول cron، مع معاينة، وسجل تشغيل بعدّادات وأخطاء، وإمكانية الإفراغ',
+				`<strong>${EMBEDDING_PROVIDERS} مزودي تضمين</strong>: OpenAI، Azure OpenAI، Ollama، Mistral، Amazon Bedrock، Cohere، Google Gemini، Google Vertex AI`,
+				`<strong>${VECTOR_STORES} مخازن متجهات</strong>: pgvector، Chroma، في الذاكرة، MongoDB Atlas، Elasticsearch، Qdrant`,
 				'<strong>httpCall RAG</strong>: RAG بدون بنية تحتية عبر أي واجهة بحث API (BM25، Elasticsearch، نقاط نهاية مخصصة)',
-				'<strong>واجهة استيعاب REST</strong>: استيعاب مستندات غير متزامن مع تتبع الحالة ومعالجة دفعات',
-				'<strong>بحث هجين</strong>: دمج الاسترجاع المتجهي الكثيف مع مطابقة الكلمات المفتاحية المتفرقة لاستدعاء أمثل',
+				'<strong>واجهة استيعاب REST</strong>: ادفع المستندات بنفسك عندما لا يناسبك مصدر يعتمد على السحب',
 			],
 			heading3: 'نشر مرن',
 			para2: 'RAG قائم بالكامل على التكوين. اختر مزود التضمين ومخزن المتجهات عبر تكوين JSON، بدون تغييرات في الشفرة. خيار <code>httpCall RAG</code> يتيح لك استخدام <strong>أي بنية بحث تحتية موجودة</strong> (Elasticsearch، Solr، واجهات API مخصصة) بدون نشر قاعدة بيانات متجهات منفصلة.',
@@ -685,10 +871,11 @@ const ar: TranslationSchema = {
 				'<strong>4 استراتيجيات ثقة</strong>: مخرجات منظمة، استدلال، نموذج حاكم، أو بدون، اختر طريقة التقييم المناسبة لحالتك',
 				'<strong>ميزانيات لكل محادثة</strong>: تتبع تلقائي للتكاليف مع سقوف الميزانية وإخلاء المحادثة عند تجاوزها',
 				'<strong>سقوف تكلفة المستأجر</strong>: ميزانيات تكلفة شهرية لكل مستأجر مع تطبيق تلقائي في النشر متعدد المستأجرين',
-				'<strong>12 مزود LLM</strong>: OpenAI، Anthropic، Google Gemini، Mistral، Azure OpenAI، Amazon Bedrock، Oracle GenAI، Vertex AI، Ollama، Jlama، Hugging Face، وأي نقطة نهاية متوافقة مع OpenAI',
+				`<strong>${LLM_PROVIDERS} مزود LLM</strong>: امزج أياً منها في تتابع واحد، مثل طبقة Gemini Flash أو DeepSeek أمام Claude أو GPT. راجع <a href="/models/">كتالوج النماذج</a>`,
 			],
 			heading3: 'كيف يعمل',
-			para2: 'كوّن سلسلة تتابع من النماذج مرتبة حسب التكلفة. لكل رسالة مستخدم، يجرب EDDI النموذج الأرخص أولاً ويقيّم الثقة. إذا انخفضت الثقة عن الحد، يصعّد تلقائياً إلى النموذج التالي في السلسلة. يمكن لهذا النهج <strong>تقليل تكاليف LLM بنسبة تصل إلى 60-80%</strong> في أحمال العمل النموذجية متعددة النماذج حيث معظم الاستعلامات بسيطة بما يكفي للنماذج الأصغر.',
+			para2:
+				'كوّن سلسلة تتابع من النماذج مرتبة حسب التكلفة. لكل رسالة مستخدم، يجرب EDDI النموذج الأرخص أولاً ويقيّم الثقة. إذا انخفضت الثقة عن الحد، يصعّد تلقائياً إلى النموذج التالي في السلسلة. تشير عمليات نشر منشورة لهذا النمط إلى <strong>خفض تكلفة الاستدلال بنسبة 31% (حمل إنتاجي من 75,000 استعلام) إلى 58% (تجربة مؤسسية لمدة 8 أسابيع)</strong> مع الحفاظ على الجودة. يعتمد مقدار توفيرك على نسبة الاستعلامات السهلة لديك ومدى تباعد أسعار طبقاتك: راجع <a href="/benchmarks/">الأدلة وتحفظاتها</a>.',
 		},
 		humanInTheLoop: {
 			title: `الحوكمة بمشاركة بشرية`,
@@ -703,6 +890,9 @@ const ar: TranslationSchema = {
 				`<strong>ضبط البوابات لكل استدعاء أداة</strong>: يمكن أن يشترط كل استدعاء أداة موافقة بشرية قبل التنفيذ. تحدد قوائم السماح والاستثناء بأنماط glob ما الذي يخضع للموافقة بالضبط، عبر الأدوات المدمجة وHTTP وMCP وA2A والأدوات الديناميكية وأدوات الذاكرة.`,
 				`<strong>الموافقة على مراحل المجموعة</strong>: يمكن أن تشترط مراحل النقاش متعدد الوكلاء اعتماداً بشرياً بدقة <code>PHASE</code> أو <code>TASK</code>، حتى لا تنتقل المجموعة من التخطيط إلى التنفيذ دون إشراف.`,
 			],
+			evidenceTitle: 'بوابات قليلة، في مواضعها الصحيحة',
+			evidencePara:
+				'البوابات البشرية تنجح: في دراسة مضبوطة، خفّضت ثلاث بوابات قرار بشرية مُلزِمة الإخفاقات الحرجة في جولات بحث بمساعدة الذكاء الاصطناعي من 72% إلى 16%. لكن انتباه المراجعين ينفد، وبعد حدٍّ معين يجعل المزيد من التصعيد النظام أقل أماناً لا أكثر. لهذا يضبط EDDI احتكاك الموافقة لكل نقطة نهاية ولكل أداة، بقوائم سماح واستثناء بأنماط glob، حتى يرى الناس القرارات التي تحتاج فعلاً إلى إنسان. تضم <a href="/benchmarks/">صفحة الأدلة</a> الدراسات.',
 			timeoutTitle: `سياسات المهلة`,
 			timeoutPara: `البشر ليسوا خدمة عالية التوافر. تعلن كل بوابة ما الذي يحدث حين لا يستجيب أحد في الوقت المحدد:`,
 			timeoutItems: [
@@ -743,6 +933,7 @@ const ar: TranslationSchema = {
 		},
 		whyEddi: {
 			title: 'لماذا EDDI؟',
+			metaTitle: 'لماذا EDDI: منصة وكلاء الذكاء الاصطناعي المؤسسية المستضافة ذاتياً',
 			description:
 				'منصة تنسيق ذكاء اصطناعي مؤسسية مستضافة ذاتياً. منطق وكلاء قائم على التكوين، واجهة إدارة كاملة، وأمان على مستوى المؤسسات، كل ذلك في منصة واحدة قابلة للنشر.',
 			heading1: 'الفجوة في الذكاء الاصطناعي المؤسسي',
@@ -778,15 +969,17 @@ const ar: TranslationSchema = {
 				{ dimension: 'النشر', frameworks: 'pip/npm + بنية تحتية يدوية', eddi: 'تثبيت Docker بأمر واحد، جاهز لـ Kubernetes/OpenShift، صورة معتمدة من Red Hat' },
 			],
 			// LLM Providers
-			llmTitle: 'دعم 12 موفر LLM',
-			llmDesc: 'اتصل بأي مزود LLM رئيسي، أو أحضر الخاص بك عبر أي نقطة نهاية متوافقة مع OpenAI.',
+			llmTitle: `دعم ${LLM_PROVIDERS} مزود LLM`,
+			llmDesc:
+				'اتصل بأي مزود LLM رئيسي، أو أحضر الخاص بك عبر أي نقطة نهاية متوافقة مع OpenAI. يغطي <a href="/models/">كتالوج النماذج</a> كل عائلة نماذج وكيفية تشغيلها.',
 			llmHeaderCategory: 'الفئة',
 			llmHeaderProviders: 'المزودون',
 			llmCategories: [
-				{ category: 'واجهات السحابة', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'مختبرات النماذج', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'متوافقة مع OpenAI', providers: 'xAI Grok · DeepSeek · Moonshot Kimi · Alibaba Qwen · Z.ai GLM · MiniMax · OpenRouter · Groq' },
 				{ category: 'سحابة المؤسسات', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'استضافة ذاتية', providers: 'Ollama · Jlama · Hugging Face' },
-				{ category: 'متوافق', providers: 'أي نقطة نهاية متوافقة مع OpenAI (DeepSeek، Cohere، إلخ) عبر baseUrl' },
+				{ category: 'أي شيء آخر', providers: 'Cohere أو Together أو vLLM أو بوابة مؤسسية، عبر type openai وbaseUrl' },
 			],
 			rfpTitle: '8 أسئلة يجب أن يطرحها كل مدير تقنية معلومات',
 			rfpDesc: 'عند تقييم منصات تنسيق وكلاء الذكاء الاصطناعي، هذه هي الأسئلة التي تفصل البنية التحتية الإنتاجية عن النماذج الأولية الهشة:',
@@ -798,7 +991,7 @@ const ar: TranslationSchema = {
 				{ category: 'الأمان', question: 'ما هو تاريخ المنصة مع ثغرات CVE وما وضعها الأمني المعماري؟', eddiAnswer: 'غياب تنفيذ الشفرة الديناميكي يزيل فئات كاملة من الثغرات. OIDC/Keycloak، خزنة AES-256-GCM، مسارات تدقيق HMAC-SHA256.' },
 				{ category: 'الامتثال', question: 'هل توفر المنصة مسارات تدقيق غير قابلة للتغيير وموقعة تشفيرياً؟', eddiAnswer: 'دفتر أستاذ مقاوم للعبث بـ HMAC-SHA256 مع توقيع تشفيري لكل وكيل. تتبع كامل لخط الأنابيب لكل قرار.' },
 				{ category: 'العمليات', question: 'هل يمكن لغير المطورين (مهندسي الموجهات، مسؤولي الامتثال) استخدام المنصة؟', eddiAnswer: 'مدير EDDI هو واجهة React جاهزة للإنتاج مع بناء مرئي للوكلاء وتصحيح أخطاء الدردشة المباشرة ولوحات التدقيق.' },
-				{ category: 'قابلية النقل', question: 'هل يمكن للمنصة العمل محلياً وفي أي سحابة وفي بيئات معزولة؟', eddiAnswer: 'بنية Docker أصلية تعمل في أي مكان. تدعم 12 مزود LLM وأي نقطة نهاية متوافقة مع OpenAI. دعم كامل للبيئات المعزولة عبر Ollama.' },
+				{ category: 'قابلية النقل', question: 'هل يمكن للمنصة العمل محلياً وفي أي سحابة وفي بيئات معزولة؟', eddiAnswer: `بنية Docker أصلية تعمل في أي مكان. تدعم ${LLM_PROVIDERS} مزود LLM وأي نقطة نهاية متوافقة مع OpenAI. دعم كامل للبيئات المعزولة عبر Ollama أو Jlama.` },
 			],
 			tcoTitle: 'التكلفة الإجمالية للملكية: البناء مقابل النشر',
 			tcoDesc: 'التكلفة الخفية هي <strong>البنية التحتية غير المرئية</strong> التي يجب على الفرق بناؤها:',
@@ -807,12 +1000,14 @@ const ar: TranslationSchema = {
 			tcoDeployTitle: 'نشر EDDI',
 			tcoDeployItems: ['تثبيت بأمر واحد (5 دقائق)','كل ما سبق مضمّن جاهزاً','يركز الفريق على منطق الأعمال، وليس البنية التحتية','مُطوَّر باستمرار منذ 2006، ومفتوح المصدر منذ 2018'],
 			roiTitle: 'الحالة التجارية',
-			roiPara: 'تُقاس قيمة EDDI بما <strong>لا تحتاج الفرق لبنائه</strong>: واجهات REST API وأنظمة المصادقة والبنية التحتية للتدقيق وواجهات الإدارة وأدوات الامتثال التي كانت ستستهلك شهوراً من وقت الهندسة. تتابع النماذج وحده يمكن أن يقلل تكاليف LLM بنسبة تصل إلى 60–80% في أحمال العمل النموذجية متعددة النماذج عبر توجيه الاستعلامات البسيطة إلى نماذج أرخص، والتصعيد إلى النماذج القوية فقط عند انخفاض الثقة.',
+			roiPara:
+				'تُقاس قيمة EDDI بما <strong>لا تحتاج الفرق لبنائه</strong>: واجهات REST API وأنظمة المصادقة والبنية التحتية للتدقيق وواجهات الإدارة وأدوات الامتثال التي كانت ستستهلك شهوراً من وقت الهندسة. ويمكن لتتابع النماذج أن يخفض إنفاق LLM أكثر بتوجيه الاستعلامات البسيطة إلى نماذج أرخص والتصعيد فقط عند انخفاض الثقة: تشير عمليات نشر منشورة لهذا النمط إلى خفض تكلفة الاستدلال بنسبة 31 إلى 58% مع الحفاظ على الجودة (<a href="/benchmarks/">الأدلة</a>).',
 			roiPara2: 'بالنسبة للصناعات المنظمة، معادلة التكلفة أوضح: البديل عن البنية التحتية للامتثال المدمجة في EDDI هو تنفيذ مخصص يغطي GDPR وقانون الذكاء الاصطناعي الأوروبي وHIPAA وربما أكثر من 15 إطاراً تنظيمياً إضافياً، كل منها يتطلب تنفيذه الخاص لحقوق أصحاب البيانات ومسار التدقيق وأدوات الحوكمة.',
 
 		},
 		vsAlternatives: {
 			title: 'EDDI مقابل البدائل',
+			metaTitle: 'EDDI مقابل Flowise وn8n وLangGraph وCrewAI ومنصات الذكاء الاصطناعي السحابية',
 			description: 'كيف يقارن EDDI مع Spring AI و LangChain4j و Flowise و n8n وأساليب تنسيق الذكاء الاصطناعي الأخرى.',
 			heading1: 'منصة أم مكتبة أم أداة بناء؟',
 			para1: 'سوق تنسيق الذكاء الاصطناعي له ثلاثة أنماط: <strong>أدوات البناء المرئية</strong>، و<strong>مكتبات الكود</strong>، و<strong>المنصات السحابية</strong>. EDDI هو <strong>منصة وسيطة قابلة للنشر</strong>.',
@@ -858,6 +1053,7 @@ const ar: TranslationSchema = {
 				{ framework: 'AutoGen', abstraction: '\u062d\u0648\u0627\u0631\u0627\u062a \u0645\u062a\u0639\u062f\u062f\u0629 \u0627\u0644\u0623\u0637\u0631\u0627\u0641', learning: '\u0645\u0646\u062e\u0641\u0636 \u0625\u0644\u0649 \u0645\u062a\u0648\u0633\u0637', state: '\u0633\u062c\u0644 \u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629', production: '\u0625\u0637\u0627\u0631 \u0641\u064a \u0645\u0631\u062d\u0644\u0629 \u0627\u0646\u062a\u0642\u0627\u0644\u064a\u0629' },
 				{ framework: 'EDDI', abstraction: 'منصة تنسيق', learning: 'منخفض (التكوين-كشفرة)', state: 'ذاكرة مستمرة + توحيد الأحلام', production: 'مُغلف بالكامل: OIDC/Keycloak، مساحات عمل لكل مستخدم، خزنة، مسارات تدقيق، واجهة إدارة، جاهز لـ Kubernetes' },
 			],
+			libraryComparisonNote: 'أوصاف الأطر كما هي في سبتمبر 2026. تتطور هذه المشاريع بسرعة، لذا راجع وثائقها الحالية.',
 
 			libraryPositioning: '<strong>توفر المكتبات المنطق؛ يوفر EDDI البنية التحتية.</strong>',
 
@@ -869,8 +1065,8 @@ const ar: TranslationSchema = {
 			cloudComparisonHeaders: { dimension: 'البُعد', cloud: 'منصات الذكاء الاصطناعي السحابية', eddi: 'EDDI' },
 			cloudComparisonRows: [
 				{ dimension: '\u0627\u0644\u0646\u0634\u0631', cloud: '\u0645\u0642\u064a\u062f \u0628\u0645\u0633\u062a\u0623\u062c\u0631 \u0633\u062d\u0627\u0628\u0629 \u0627\u0644\u0645\u0632\u0648\u062f', eddi: 'Docker \u0623\u0635\u0644\u064a، \u064a\u0639\u0645\u0644 \u0645\u062d\u0644\u064a\u0627\u064b \u0623\u0648 \u0641\u064a \u0623\u064a \u0633\u062d\u0627\u0628\u0629 \u0623\u0648 \u0641\u064a \u0628\u064a\u0626\u0627\u062a \u0645\u0639\u0632\u0648\u0644\u0629' },
-				{ dimension: 'اختيار النموذج', cloud: 'محفظة نماذج المزود (غالباً مقيدة)', eddi: '12 مزود LLM + أي نقطة نهاية متوافقة مع OpenAI عبر baseUrl' },
-				{ dimension: '\u0627\u0644\u062a\u062d\u0643\u0645 \u0628\u0627\u0644\u062a\u0643\u0644\u0641\u0629', cloud: '\u062a\u0633\u0639\u064a\u0631 \u064a\u062d\u062f\u062f\u0647 \u0627\u0644\u0645\u0632\u0648\u062f\u060c \u0631\u0648\u0627\u0641\u0639 \u062a\u062d\u0633\u064a\u0646 \u0645\u062d\u062f\u0648\u062f\u0629', eddi: '\u062a\u062a\u0627\u0628\u0639 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u064a\u0642\u0644\u0644 \u062a\u0643\u0627\u0644\u064a\u0641 LLM \u0628\u0646\u0633\u0628\u0629 \u062a\u0635\u0644 \u0625\u0644\u0649 60\u201380% \u0641\u064a \u0623\u062d\u0645\u0627\u0644 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0646\u0645\u0648\u0630\u062c\u064a\u0629 \u0645\u062a\u0639\u062f\u062f\u0629 \u0627\u0644\u0646\u0645\u0627\u0630\u062c \u0639\u0628\u0631 \u0627\u0644\u062a\u0648\u062c\u064a\u0647 \u0627\u0644\u0642\u0627\u0626\u0645 \u0639\u0644\u0649 \u0627\u0644\u062b\u0642\u0629' },
+				{ dimension: 'اختيار النموذج', cloud: 'محفظة نماذج المزود (غالباً مقيدة)', eddi: `${LLM_PROVIDERS} مزود LLM + أي نقطة نهاية متوافقة مع OpenAI عبر baseUrl` },
+				{ dimension: 'التحكم بالتكلفة', cloud: 'تسعير يحدده المزود، روافع تحسين محدودة', eddi: 'يوجّه تتابع النماذج الاستعلامات السهلة إلى نماذج أرخص؛ وتشير عمليات نشر منشورة إلى خفض تكلفة الاستدلال بنسبة 31 إلى 58% مع الحفاظ على الجودة' },
 				{ dimension: 'إقامة البيانات', cloud: 'البيانات تقيم في البنية التحتية للمزود', eddi: 'سيادة كاملة على البيانات، أنت تتحكم في مكان تخزين البيانات ومعالجتها' },
 				{ dimension: 'قابلية النقل', cloud: 'واجهات API و SDK وتجريدات خاصة بالمزود', eddi: 'معايير MCP و A2A و OpenAPI و REST القياسية، صفر تقييد مملوك' },
 				{ dimension: 'تعدد السحابات', cloud: 'صعب أو مستحيل عبر المزودين', eddi: 'نفس صورة Docker تُنشر بشكل متطابق في أي بيئة' },
@@ -881,9 +1077,11 @@ const ar: TranslationSchema = {
 
 			ctaTitle: 'مستعد للمقارنة؟',
 			ctaPara: 'ثبّت EDDI في 5 دقائق وقيّمه مقارنة بمجموعتك التقنية الحالية.',
+			ctaButton: 'ثبّت EDDI في 5 دقائق',
 		},
 		compliance: {
 			title: 'الخصوصية العالمية والامتثال التنظيمي',
+			metaTitle: 'امتثال الذكاء الاصطناعي: قانون الذكاء الاصطناعي الأوروبي وGDPR وHIPAA وقوانين الخصوصية العالمية',
 			description:
 				'يوفر EDDI امتثالاً مدمجاً لـ GDPR و CCPA وقانون الذكاء الاصطناعي الأوروبي و HIPAA و PIPEDA و LGPD و APPI و POPIA و PDPA و PDPA الماليزي و PIPL والمزيد، مع حذف البيانات المتتالي ومسارات التدقيق المشفرة وواجهة API موحدة.',
 			heading1: 'الامتثال بالتصميم المعماري',
@@ -923,7 +1121,7 @@ const ar: TranslationSchema = {
 			],
 			privacyHeading: 'لوائح خصوصية البيانات',
 			privacyIntro:
-				'يوفر EDDI <strong>نقاط نهاية موحدة لحقوق أصحاب البيانات</strong> تلبي المتطلبات التقنية لكل لائحة خصوصية رئيسية في العالم. واجهة API واحدة تغطي الحذف المتتالي والتصدير الكامل للبيانات وتقييد المعالجة، بغض النظر عن الولاية القضائية.',
+				'يوفر EDDI <strong>نقاط نهاية موحدة لحقوق أصحاب البيانات</strong> توفر الضوابط التقنية التي تقوم عليها حقوق أصحاب البيانات في كل ولاية قضائية مدرجة أدناه. واجهة API واحدة تغطي الحذف المتتالي والتصدير الكامل للبيانات وتقييد المعالجة، بغض النظر عن الولاية القضائية.',
 			gdprHeading: 'GDPR، الاتحاد الأوروبي / المنطقة الاقتصادية الأوروبية',
 			gdprPara:
 				'اللائحة العامة لحماية البيانات (EU 2016/679) هي المعيار الذهبي لخصوصية البيانات. ينفذ EDDI حقوق أصحاب البيانات وفق GDPR كـ<strong>نقاط نهاية API من الدرجة الأولى</strong> مدعومة بعمليات متتالية عبر جميع مخازن البيانات الخمسة:',
@@ -937,7 +1135,7 @@ const ar: TranslationSchema = {
 			],
 			ccpaHeading: 'CCPA / CPRA، كاليفورنيا، الولايات المتحدة',
 			ccpaPara:
-				'يمنح قانون خصوصية المستهلك في كاليفورنيا وقانون حقوق الخصوصية في كاليفورنيا المستهلكين حقوق المعرفة والحذف وإلغاء الاشتراك في بيع البيانات. يلبي EDDI المتطلبات التقنية لـ CCPA من خلال واجهة API المتوافقة مع GDPR:',
+				'يمنح قانون خصوصية المستهلك في كاليفورنيا وقانون حقوق الخصوصية في كاليفورنيا المستهلكين حقوق المعرفة والحذف وإلغاء الاشتراك في بيع البيانات. يدعم EDDI حقوق المستهلكين هذه من خلال واجهة API المتوافقة مع GDPR:',
 			ccpaItems: [
 				'<strong>حق المعرفة (§1798.100)</strong>: توفر نقطة نهاية التصدير الخاصة بـ GDPR جميع المعلومات الشخصية بصيغة منظمة وقابلة للقراءة آلياً',
 				'<strong>حق الحذف (§1798.105)</strong>: توفر نقطة نهاية المحو الخاصة بـ GDPR حذفاً متتالياً عبر جميع مخازن البيانات',
@@ -956,7 +1154,7 @@ const ar: TranslationSchema = {
 			],
 			lgpdHeading: 'LGPD، البرازيل',
 			lgpdPara:
-				'يمنح القانون العام لحماية البيانات البرازيلي (2018، ساري 2020) حقوقاً واسعة لأصحاب البيانات تعكس GDPR بشكل وثيق. يغطي EDDI جميع حقوق المادة 18 بقدرات تقنية مدمجة:',
+				'يمنح القانون العام لحماية البيانات البرازيلي (2018، ساري 2020) حقوقاً واسعة لأصحاب البيانات تعكس GDPR بشكل وثيق. يوفر EDDI آليات تقنية لحقوق المادة 18:',
 			lgpdItems: [
 				'<strong>الوصول إلى البيانات (المادة 18، II)</strong>: تصدير بيانات JSON كامل',
 				'<strong>التصحيح (المادة 18، III)</strong>: ذاكرة المستخدم قابلة للتحديث عبر <code>PUT /usermemorystore/memories</code>',
@@ -972,7 +1170,7 @@ const ar: TranslationSchema = {
 				'<strong>التدابير الأمنية (المادة 23)</strong>: تشفير خزنة AES-256-GCM، سلامة تدقيق HMAC-SHA256، Keycloak OIDC، RBAC، حماية SSRF',
 				'<strong>الإفصاح لأصحاب البيانات (المادة 33)</strong>: تصدير بيانات كامل عبر REST API',
 				'<strong>التصحيح والحذف (المادة 34-35)</strong>: تحديثات الذاكرة للتصحيح؛ حذف متتالي للمحو',
-				'<strong>المعلومات المُستعارة (تعديل 2022)</strong>: يستخدم محو GDPR استعارة SHA-256، مما يلبي فئة المعلومات المُستعارة في APPI',
+				'<strong>المعلومات المُستعارة (تعديل 2022)</strong>: يستخدم محو GDPR استعارة SHA-256، مما يدعم فئة المعلومات المُستعارة في APPI',
 				'<strong>توثيق النقل عبر الحدود (المادة 28)</strong>: تدفقات بيانات مزود LLM موثقة؛ يسجل مسار التدقيق أي نموذج/مزود عالج كل جولة',
 			],
 			popiaHeading: 'POPIA، جنوب أفريقيا',
@@ -1016,13 +1214,14 @@ const ar: TranslationSchema = {
 				'<strong>الاحتفاظ بالبيانات (المادة 19)</strong>: سياسات احتفاظ قابلة للتكوين مع تنظيف تلقائي تفرض فترات تخزين ضرورية كحد أدنى',
 			],
 			otherRegionsHeading: 'ولايات قضائية إضافية',
-			otherRegionsPara: 'تلبي بنية حماية البيانات في EDDI المعايير الدولية. الولايات القضائية التالية مدعومة أيضاً من خلال نفس واجهة API الموحدة:',
+			otherRegionsPara:
+				'بُنيت بنية حماية البيانات في EDDI حول المعايير الدولية. الولايات القضائية التالية مدعومة أيضاً من خلال نفس واجهة API الموحدة:',
 			otherRegionsItems: [
-				'<strong>UK GDPR</strong> (المملكة المتحدة)، يعكس بشكل جوهري GDPR الأوروبي؛ تلبي نقاط نهاية GDPR في EDDI جميع حقوق أصحاب البيانات وفق UK GDPR. إشراف ICO.',
+				'<strong>UK GDPR</strong> (المملكة المتحدة)، يعكس بشكل جوهري GDPR الأوروبي؛ تغطي نقاط نهاية GDPR في EDDI حقوق أصحاب البيانات وفق UK GDPR. إشراف ICO.',
 				'<strong>PIPA</strong> (كوريا الجنوبية)، متطلبات موافقة صارمة، DPO إلزامي، إشعار بالخرق خلال 72 ساعة. يوفر EDDI البنية التحتية التقنية للتدقيق والمحو.',
-				'<strong>DPDPA</strong> (الهند، 2023)، إطار قائم على الموافقة مع قيود عبر الحدود. تلبي نقاط نهاية التصدير والمحو في EDDI متطلبات قانون حماية البيانات الشخصية الرقمية.',
+				'<strong>DPDPA</strong> (الهند، 2023)، إطار قائم على الموافقة مع قيود عبر الحدود. تدعم نقاط نهاية التصدير والمحو في EDDI حقوق أصحاب البيانات في قانون حماية البيانات الشخصية الرقمية.',
 				'<strong>Privacy Act + APPs</strong> (أستراليا)، 13 مبدأً أسترالياً للخصوصية. تغطي مسارات التدقيق وتصدير البيانات في EDDI الالتزامات التقنية.',
-				'<strong>قوانين الولايات على نمط CCPA</strong> (فرجينيا VCDPA، كولورادو CPA، كونيتيكت CTDPA، إلخ)، تلبي واجهة API المتوافقة مع GDPR/CCPA جميع قوانين الخصوصية الناشئة في الولايات الأمريكية.',
+				'<strong>قوانين الولايات على نمط CCPA</strong> (فرجينيا VCDPA، كولورادو CPA، كونيتيكت CTDPA، إلخ)، تدعم واجهة API المتوافقة مع GDPR/CCPA حقوق الوصول والحذف التي تمنحها هذه القوانين.',
 			],
 			industryHeading: 'الامتثال الخاص بالصناعة',
 			hipaaHeading: 'HIPAA، الرعاية الصحية في الولايات المتحدة',
@@ -1058,17 +1257,18 @@ const ar: TranslationSchema = {
 			],
 			heading3: 'مبني للصناعات المنظمة في جميع أنحاء العالم',
 			para2:
-				'يمكن لقطاعات الرعاية الصحية والخدمات المالية والحكومة والتصنيع والقطاعات المنظمة الأخرى نشر EDDI بثقة. توفر المنصة الشفافية والقابلية للتدقيق وآليات التحكم المطلوبة من أكثر من 15 إطاراً تنظيمياً، من قانون الذكاء الاصطناعي الأوروبي وGDPR في أوروبا إلى HIPAA في الولايات المتحدة وPIPEDA في كندا وLGPD في البرازيل وAPPI في اليابان وPOPIA في جنوب أفريقيا وPDPA في جنوب شرق آسيا وPDPA الماليزي وPIPL في الصين. الامتثال ليس فكرة لاحقة، إنه أساس معماري.',
+				'يمكن لقطاعات الرعاية الصحية والخدمات المالية والحكومة والتصنيع والقطاعات المنظمة الأخرى نشر EDDI على أساس تقني متين. توفر المنصة الشفافية والقابلية للتدقيق وآليات التحكم التي تتطلبها أكثر من 15 إطاراً تنظيمياً، من قانون الذكاء الاصطناعي الأوروبي وGDPR في أوروبا إلى HIPAA في الولايات المتحدة وPIPEDA في كندا وLGPD في البرازيل وAPPI في اليابان وPOPIA في جنوب أفريقيا وPDPA في جنوب شرق آسيا وPDPA الماليزي وPIPL في الصين. الامتثال ليس فكرة لاحقة، إنه أساس معماري.',
 		},
 		// ─── Track Record ─────────────────────────────────────
 		trust: {
 			title: 'السجل الحافل',
+			metaTitle: 'السجل الحافل: دعم مؤسسي وعمليات نشر إنتاجية',
 			description: 'EDDI مدعوم بأبحاث ممولة حكومياً، ومنشور في بيئة إنتاج المؤسسات، ومعتمد من مؤسسات أكاديمية أوروبية، مع شهادات OpenSSF وCodacy وRed Hat.',
 			heroTitle: 'بجودة المؤسسات.',
 			heroHighlight: 'معتمد من المجتمع.',
 			heroDesc: 'EDDI ليس مشروع عطلة نهاية الأسبوع. إنه مدعوم بـ<strong>أبحاث ممولة حكومياً</strong>، ومنشور في <strong>بيئة إنتاج المؤسسات</strong>، ومعتمد من <strong>مؤسسات أكاديمية أوروبية</strong>.',
 			statPulls: 'Docker Pulls',
-			statTests: 'اختبار \u00b7 0 إخفاقات',
+			statTests: 'اختبار · ناجحة في CI',
 			statProviders: 'مزودو LLM',
 			statCertified: 'معتمد من Red Hat',
 			timelineTitle: 'عقدان من الهندسة',
@@ -1085,7 +1285,7 @@ const ar: TranslationSchema = {
 				{ year: '2021', text: 'هاكاثون روبوتات المحادثة عبر الإنترنت، حدث افتراضي لتطوير روبوتات محادثة تعليمية.' },
 				{ year: '2023', text: 'EDDI يتبنى <strong>تكاملات LLM</strong>: الاتصال بنماذج اللغة الكبيرة الحديثة عبر LangChain4j.' },
 				{ year: '2025', text: 'EDDI يتكيف مع <strong>تدفقات الوكلاء</strong>: التوجيه القائم على النوايا، والمحادثات المُدارة، وتنسيق الوكلاء المتعددين.' },
-				{ year: '2026', text: '<strong>v6</strong>: 84 أداة MCP، بروتوكول A2A، 7 أنماط مناقشة مع التصويت والأعضاء البشريين، Platform Operator، مساحات عمل لكل مستخدم، واجهة API متوافقة مع OpenAI، تتابع النماذج.' },
+				{ year: '2026', text: `<strong>v6</strong>: ${MCP_TOOLS} أداة MCP، بروتوكول A2A، 7 أنماط مناقشة مع التصويت والأعضاء البشريين، Platform Operator، مساحات عمل لكل مستخدم، واجهة API متوافقة مع OpenAI، تتابع النماذج، ${LLM_PROVIDERS} مزود LLM، وقواعد معرفة تزحف إلى المواقع وتستوعب الملفات.` },
 				{ year: '2026', text: 'تم اختياره كـ<strong>شريك موثوق لدى UNIDO</strong> للذكاء الاصطناعي الصناعي للجنوب العالمي.' },
 			],
 			institutionsTitle: 'مدعوم من المؤسسات',
@@ -1111,20 +1311,20 @@ const ar: TranslationSchema = {
 
 			devTrustTitle: 'معتمد من المجتمع',
 			devTrustDesc: 'كل إشارة ثقة مباشرة وآلية وقابلة للتحقق بشكل مستقل.',
-			devOpenSSF: 'OpenSSF Gold',
-			devOpenSSFDesc: 'أعلى مستوى من شهادة الأمان والجودة من Linux Foundation',
+			devOpenSSF: 'OpenSSF Best Practices: Gold',
+			devOpenSSFDesc: 'شارة Gold، أعلى مستوى في برنامج OpenSSF Best Practices (Linux Foundation)',
 			devScorecard: 'OpenSSF Scorecard',
 			devScorecardDesc: 'تقييم آلي لأمان سلسلة التوريد من Linux Foundation',
 			devCodacy: 'جودة كود Codacy',
 			devCodacyDesc: 'تحليل كود آلي من طرف ثالث',
 			devDocker: 'Docker Hub',
-			devDockerDesc: 'مئات الآلاف من عمليات السحب الإنتاجية',
+			devDockerDesc: `${DOCKER_PULLS} عملية سحب على Docker Hub`,
 			devCI: 'CI ناجح',
 			devCIDesc: 'تحقق بناء آلي عند كل commit',
 			devCodeQL: 'CodeQL نظيف',
 			devCodeQLDesc: 'فحص ثغرات الأمان من GitHub',
 			devTests: '+20,000 اختبار',
-			devTestsDesc: 'صفر إخفاقات، مفروض عند كل دمج',
+			devTestsDesc: 'يجب أن تنجح جميعها قبل كل دمج',
 			devIntegration: '70 مجموعة اختبارات تكامل',
 			devIntegrationDesc: 'التحقق من REST API الكامل مع قاعدة بيانات حقيقية',
 			devE2E: '+30 مجموعة اختبارات E2E',
@@ -1164,8 +1364,9 @@ const ar: TranslationSchema = {
 			solCard2Desc: 'صفر تكاليف ترخيص، شفافية كاملة، بدون تقييد بالمورد. يمكن للمنظمات فحص المنصة وتعديلها وتوسيعها دون دفع رسوم ترخيص مؤسسية، أمر بالغ الأهمية للاقتصادات الناشئة.',
 			solCard3Title: 'قائم على التكوين',
 			solCard3Desc: 'يتم تعريف وكلاء الذكاء الاصطناعي عبر تكوين JSON، وليس كود مجمع. يمكن لمهندسي الإرشادات وخبراء المجال البناء والتكرار دون خبرة برمجية عميقة، مما يخفض حاجز تبني الذكاء الاصطناعي.',
-			solCard4Title: '12 مزود LLM',
-			solCard4Desc: 'يعمل مع النماذج المحلية (Ollama)، والنماذج مفتوحة المصدر، وأي نقطة نهاية متوافقة مع OpenAI، غير مرتبط حصرياً بواجهات API أمريكية. يتيح استخدام نماذج لغوية إقليمية ومستضافة محلياً.',
+			solCard4Title: `${LLM_PROVIDERS} مزود LLM`,
+			solCard4Desc:
+				'يعمل مع النماذج المحلية (Ollama وJlama)، والنماذج ذات الأوزان المفتوحة، والمزودين الإقليميين مثل Qwen وGLM وKimi وDeepSeek، وأي نقطة نهاية متوافقة مع OpenAI، غير مرتبط حصرياً بواجهات API أمريكية.',
 
 			// What this means
 			whatTitle: 'ماذا يعني هذا',

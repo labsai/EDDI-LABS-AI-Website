@@ -7,7 +7,7 @@ import { COMPARISONS } from '../../data/comparisons';
 const p = t.pages.vsAlternatives;
 const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
 ---
-<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<FeaturePage title={p.title} metaTitle={p.metaTitle} description={p.description} heroImage={heroImage} lang="en">
 
 <!-- Section 1: Overview -->
 <h2>{p.heading1}</h2><p set:html={p.para1} />
@@ -46,6 +46,8 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 </table>
 </div>
 
+<p class="section-sub">{p.libraryComparisonNote}</p>
+
 <p set:html={p.libraryPositioning} />
 
 <!-- Section 4: vs. Cloud AI Platforms -->
@@ -82,6 +84,7 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 <!-- Bottom CTA -->
 <h2>{p.ctaTitle}</h2>
 <p>{p.ctaPara}</p>
+<p><a href={localePath('en', '/getting-started/')} class="btn-cta-primary">{p.ctaButton}</a></p>
 
 <!-- Enterprise & Commercial CTA -->
 <div class="enterprise-cta">

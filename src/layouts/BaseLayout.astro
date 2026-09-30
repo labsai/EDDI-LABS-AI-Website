@@ -9,7 +9,7 @@ import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
 import LanguageSuggestion from "../components/LanguageSuggestion.astro";
 import { EDDI_VERSION, EDDI_LATEST_VERSION } from "../i18n/version";
-import { MCP_TOOLS, LLM_PROVIDERS } from "../i18n/stats";
+import { MCP_TOOLS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES } from "../i18n/stats";
 import "../styles/global.css";
 import {
   LOCALE_CODES,
@@ -23,6 +23,8 @@ import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
+  /** Longer, keyword-bearing title for search results; the H1 keeps `title`. */
+  metaTitle?: string;
   description?: string;
   /** Full-bleed page (no content wrapper) — used by homepage */
   fullWidth?: boolean;
@@ -50,6 +52,7 @@ interface Props {
 
 const {
   title,
+  metaTitle,
   description: descProp,
   fullWidth = false,
   lang: langProp,
@@ -59,6 +62,7 @@ const {
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
+const fullTitle = `${metaTitle ?? title} | EDDI`;
 const dir = getDir(lang);
 
 // Use locale-aware description fallback instead of hardcoded English
@@ -161,7 +165,7 @@ const jsonLdGraph = {
         "OpenAI-compatible API for Open WebUI and OpenAI clients",
         "A2A protocol and OpenAPI 3.1",
         `${LLM_PROVIDERS} LLM providers with model cascading`,
-        "RAG with 7 embedding providers and 6 vector stores",
+        `RAG with ${EMBEDDING_PROVIDERS} embedding providers and ${VECTOR_STORES} vector stores, fed by a web crawler and file ingestion`,
         "Immutable cryptographic audit trail",
         "GDPR, EU AI Act, and HIPAA compliance tooling",
       ],
@@ -177,7 +181,7 @@ const jsonLdGraph = {
         faqItems && faqItems.length > 0 ? ["WebPage", "FAQPage"] : "WebPage",
       "@id": pageId,
       url: canonicalURL.toString(),
-      name: `${title} | EDDI`,
+      name: fullTitle,
       description,
       isPartOf: { "@id": SITE_ID },
       about: { "@id": APP_ID },
@@ -235,7 +239,7 @@ const jsonLdGraph = {
     <link rel="apple-touch-icon" href="/eddi-icon.png" />
     <link rel="canonical" href={canonicalURL} />
 
-    <title>{title} | EDDI</title>
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
 
     <!-- Hreflang alternates (localized pages only) -->
@@ -283,7 +287,7 @@ const jsonLdGraph = {
       )
     }
     <meta property="og:site_name" content="EDDI" />
-    <meta property="og:title" content={`${title} | EDDI`} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content="https://eddi.technology/og-image.png" />
@@ -298,7 +302,7 @@ const jsonLdGraph = {
         ))
     }
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | EDDI`} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://eddi.technology/og-image.png" />
 

@@ -31,6 +31,10 @@ const p = t.pages.humanInTheLoop;
 <p set:html={p.opsPara} />
 <ul>{p.opsItems.map((item) => <li set:html={item} />)}</ul>
 
+<!-- Evidence -->
+<h3>{p.evidenceTitle}</h3>
+<p set:html={p.evidencePara} />
+
 <!-- Governance -->
 <h3>{p.govTitle}</h3>
 <p set:html={p.govPara} />

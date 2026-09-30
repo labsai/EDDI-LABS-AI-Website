@@ -1,0 +1,252 @@
+---
+/**
+ * One model family (/models/{slug}/): what it is good at, its limits, and how to
+ * run it in EDDI through each provider that serves it. Shared by root and [lang].
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localePath, type Locale, type TranslationSchema } from '../../i18n';
+import { getModelsCopy } from '../../i18n/models';
+import {
+	MODEL_BY_SLUG,
+	PROVIDER_LABELS,
+	KEY_PROVIDERS,
+	CHECKED_ON,
+	langchainJson,
+	setupAgentCall,
+	formatTokens,
+	type ModelFamily,
+	type ProviderType,
+} from '../../data/models';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+	model: ModelFamily;
+}
+
+const { lang, t, model } = Astro.props;
+const m = t.models;
+const copy = await getModelsCopy(lang);
+const c = copy.models[model.slug];
+
+const authNote: Partial<Record<ProviderType, string>> = {
+	bedrock: m.authBedrock,
+	'gemini-vertex': m.authVertex,
+	'oracle-genai': m.authOracle,
+	ollama: m.authOllama,
+	jlama: m.authJlama,
+};
+
+const fmt = (n: number | null) => (n == null ? m.notStated : `${n.toLocaleString('en-US')} ${m.tokens} (${formatTokens(n)})`);
+const yesNo = (b: boolean | null) => (b == null ? m.notStated : b ? m.yes : m.no);
+const facts: [string, string][] = [
+	[m.labelVendor, model.vendor],
+	[m.labelReleased, model.released ?? m.notStated],
+	[m.labelContext, fmt(model.contextTokens)],
+	[m.labelMaxOutput, fmt(model.maxOutputTokens)],
+	[m.labelInput, model.input.map((x) => m.modality[x]).join(', ')],
+	[m.labelTools, yesNo(model.tools)],
+	[m.labelReasoning, yesNo(model.reasoning)],
+	[m.labelOpenWeights, yesNo(model.openWeights)],
+	[m.labelLicense, model.license ?? '–'],
+];
+const related = model.related.map((s) => MODEL_BY_SLUG[s]).filter(Boolean);
+const title = model.name;
+const description = c.summary;
+
+// Structured data: this page describes a software model the reader can run in EDDI.
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: `${model.name} in EDDI`,
+	about: { '@type': 'SoftwareApplication', name: model.name, applicationCategory: 'Large language model', author: { '@type': 'Organization', name: model.vendor } },
+	dateModified: CHECKED_ON,
+	inLanguage: lang,
+};
+---
+<BaseLayout title={title} metaTitle={`${model.name}: ${m.runTitle}`} description={description} fullWidth={true} lang={lang}>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<section class="md-hero hero-gradient-bg">
+	<div class="md-hero-inner">
+		<a href={localePath(lang, '/models/')} class="md-back"><span class="md-back-arrow" aria-hidden="true">←</span> {m.backToCatalog}</a>
+		<div class="md-kicker"><span>{model.vendor}</span><span class="md-badge">{m.category[model.category]}</span></div>
+		<h1>{model.name}</h1>
+		<p class="md-summary">{c.summary}</p>
+		<div class="md-actions">
+			<a href="#run" class="btn-cta-primary">{m.runTitle}</a>
+			<a href={model.docsUrl} target="_blank" rel="noopener" class="btn-cta-outline">{m.docsLink} ↗</a>
+		</div>
+	</div>
+</section>
+
+<article class="md-content">
+	<div class="md-two">
+		<section>
+			<h2>{m.strengthsTitle}</h2>
+			<ul class="md-list">{c.strengths.map((s) => <li>{s}</li>)}</ul>
+			<h2>{m.bestForTitle}</h2>
+			<ul class="md-list">{c.bestFor.map((s) => <li>{s}</li>)}</ul>
+		</section>
+		<aside class="md-glance">
+			<h2>{m.atAGlance}</h2>
+			<dl>
+				{facts.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+			</dl>
+			{model.pricingUrl && <a href={model.pricingUrl} target="_blank" rel="noopener" class="md-link">{m.pricingLink} ↗</a>}
+		</aside>
+	</div>
+
+	<section id="run" class="md-run">
+		<h2>{m.runTitle}</h2>
+		<p class="md-lead">{m.runDesc}</p>
+		{model.routes.length > 1 && (
+			<div class="md-tabs" role="tablist" aria-label={m.routesLabel}>
+				{model.routes.map((r, i) => (
+					<button type="button" role="tab" class:list={['md-tab', { active: i === 0 }]} id={`tab-${r.type}`} aria-controls={`route-${r.type}`} aria-selected={i === 0 ? 'true' : 'false'} data-route={r.type}>{PROVIDER_LABELS[r.type]}</button>
+				))}
+			</div>
+		)}
+		{model.routes.map((r, i) => {
+			const id = r.ids[0];
+			const keyed = KEY_PROVIDERS.includes(r.type) || r.type === 'azure-openai' || r.type === 'huggingface';
+			return (
+				<div class="md-route" id={`route-${r.type}`} role={model.routes.length > 1 ? 'tabpanel' : undefined} aria-labelledby={model.routes.length > 1 ? `tab-${r.type}` : undefined} data-route-panel={r.type} data-initial={i === 0 ? 'true' : 'false'}>
+					<h3 class="md-route-title">{PROVIDER_LABELS[r.type]} · <code>type: "{r.type}"</code></h3>
+					<p class="md-ids"><strong>{m.modelIdsLabel}:</strong> {r.ids.map((x, j) => <>{j > 0 && ', '}<code>{x}</code></>)}</p>
+
+					<h4>{m.step1Title}</h4>
+					{keyed
+						? <p set:html={m.step1Key.replace('{name}', `${r.type}-key`)} />
+						: <p><span>{m.step1NoKey}</span> <span set:html={authNote[r.type] ?? ''} /></p>}
+					{keyed && <pre><code>{`\${vault:${r.type}-key}`}</code></pre>}
+
+					<h4>{m.step2Title}</h4>
+					<p set:html={m.step2Desc} />
+					<div class="md-code"><button type="button" class="md-copy" data-copied={m.copied}>{m.copy}</button><pre><code>{langchainJson(r.type, id)}</code></pre></div>
+
+					{KEY_PROVIDERS.includes(r.type) && (
+						<>
+							<h4>{m.step3Title}</h4>
+							<p set:html={m.step3Desc} />
+							<div class="md-code"><button type="button" class="md-copy" data-copied={m.copied}>{m.copy}</button><pre><code>{setupAgentCall(r.type, id)}</code></pre></div>
+						</>
+					)}
+				</div>
+			);
+		})}
+	</section>
+
+	{model.tips.length > 0 && (
+		<section class="md-tips">
+			<h2>{m.tipsTitle}</h2>
+			<ul>{model.tips.map((k) => <li set:html={(lang === 'en' ? copy.tips[k] : copy.tips[k].replaceAll('href="/', `href="/${lang}/`))} />)}</ul>
+		</section>
+	)}
+
+	{related.length > 0 && (
+		<section>
+			<h2>{m.relatedTitle}</h2>
+			<div class="md-related">
+				{related.map((r) => (
+					<a href={localePath(lang, `/models/${r.slug}/`)} class="md-rel">
+						<span class="md-rel-vendor">{r.vendor}</span>
+						<strong>{r.name}</strong>
+						<span class="md-rel-sum">{copy.models[r.slug].summary}</span>
+					</a>
+				))}
+			</div>
+		</section>
+	)}
+
+	<section class="md-sources">
+		<h2>{m.sourcesTitle}</h2>
+		<p>{m.sourcesDesc.replace('{date}', CHECKED_ON)}</p>
+		<p><a href={model.docsUrl} target="_blank" rel="noopener" class="md-link">{m.docsLink} ↗</a>{model.pricingUrl && <> · <a href={model.pricingUrl} target="_blank" rel="noopener" class="md-link">{m.pricingLink} ↗</a></>}</p>
+	</section>
+</article>
+</BaseLayout>
+
+<script>
+	function initModelDetail() {
+		const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.md-tab'));
+		const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-route-panel]'));
+		if (tabs.length > 1) {
+			const show = (route: string) => {
+				tabs.forEach((t) => { const on = t.dataset.route === route; t.classList.toggle('active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
+				panels.forEach((p) => { p.hidden = p.dataset.routePanel !== route; });
+			};
+			tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.route ?? '')));
+			show(tabs[0].dataset.route ?? '');
+		}
+		document.querySelectorAll<HTMLButtonElement>('.md-copy').forEach((btn) => {
+			btn.addEventListener('click', async () => {
+				const code = btn.parentElement?.querySelector('code')?.textContent ?? '';
+				const label = btn.textContent;
+				try {
+					await navigator.clipboard.writeText(code);
+					btn.textContent = btn.dataset.copied ?? label;
+				} catch {
+					const range = document.createRange();
+					const node = btn.parentElement?.querySelector('code');
+					if (node) { range.selectNodeContents(node); const sel = window.getSelection(); sel?.removeAllRanges(); sel?.addRange(range); }
+				}
+				setTimeout(() => { btn.textContent = label; }, 1500);
+			});
+		});
+	}
+	document.addEventListener('astro:page-load', initModelDetail);
+</script>
+
+<style>
+	.md-hero { padding: calc(var(--total-header-height, 6rem) + 3rem) 1.5rem 2.5rem; }
+	.md-hero-inner { max-width: 72rem; margin: 0 auto; }
+	.md-back { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; }
+	.md-back:hover { color: var(--color-accent); }
+	.md-back-arrow { display: inline-block; }
+	html[dir='rtl'] .md-back-arrow { transform: scaleX(-1); }
+	.md-run { scroll-margin-top: calc(var(--total-header-height, 6rem) + 1rem); }
+	.md-kicker { display: flex; gap: 0.75rem; align-items: center; margin: 1.25rem 0 0.5rem; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+	.md-badge { font-size: 0.6875rem; letter-spacing: 0.02em; text-transform: none; padding: 0.15rem 0.55rem; border-radius: 9999px; color: var(--color-accent); border: 1px solid var(--color-accent); }
+	.md-hero h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.md-summary { font-size: 1.1875rem; line-height: 1.6; color: var(--color-text-muted); max-width: 48rem; margin: 0 0 1.75rem; }
+	.md-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.md-content { max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem 6rem; display: flex; flex-direction: column; gap: 3.5rem; }
+	.md-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--color-text); margin: 0 0 1rem; }
+	.md-two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+	@media (max-width: 860px) { .md-two { grid-template-columns: 1fr; } }
+	.md-list { margin: 0 0 2rem; padding-inline-start: 1.2rem; color: var(--color-text-muted); line-height: 1.8; }
+	.md-glance { padding: 1.5rem; border-radius: 1rem; }
+	html[data-theme='dark'] .md-glance, html[data-theme='dark'] .md-rel, html[data-theme='dark'] .md-route { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .md-glance, html[data-theme='light'] .md-rel, html[data-theme='light'] .md-route { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
+	.md-glance h2 { font-size: 1.125rem; }
+	.md-glance dl { margin: 0 0 1rem; display: grid; gap: 0.6rem; }
+	.md-glance dl div { display: grid; grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); gap: 0.75rem; font-size: 0.875rem; }
+	.md-glance dt { color: var(--color-text-muted); }
+	.md-glance dd { margin: 0; color: var(--color-text); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+	.md-link { font-size: 0.875rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+	.md-link:hover { text-decoration: underline; }
+	.md-lead { color: var(--color-text-muted); line-height: 1.65; max-width: 52rem; margin: 0 0 1.5rem; }
+	.md-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+	.md-tab { font: inherit; font-size: 0.875rem; font-weight: 600; padding: 0.45rem 0.9rem; border-radius: 0.6rem; cursor: pointer; background: transparent; color: var(--color-text-muted); border: 1px solid var(--color-border, rgba(127, 127, 127, 0.3)); }
+	.md-tab.active { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+	.md-tab:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+	.md-route { padding: 1.5rem; border-radius: 1rem; margin-bottom: 1rem; min-width: 0; }
+	.md-route[hidden] { display: none; }
+	.md-route-title { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+	.md-route h4 { font-size: 0.9375rem; font-weight: 700; color: var(--color-text); margin: 1.5rem 0 0.4rem; }
+	.md-route p { color: var(--color-text-muted); line-height: 1.6; margin: 0 0 0.6rem; }
+	.md-ids code, .md-route-title code { font-size: 0.8125rem; }
+	.md-code { position: relative; }
+	.md-code pre { overflow-x: auto; max-width: 100%; }
+	.md-copy { position: absolute; top: 0.5rem; inset-inline-end: 0.5rem; font: inherit; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 0.4rem; cursor: pointer; background: rgba(127, 127, 127, 0.2); color: var(--color-text); border: 1px solid rgba(127, 127, 127, 0.3); }
+	.md-copy:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+	.md-tips ul { margin: 0; padding-inline-start: 1.2rem; color: var(--color-text-muted); line-height: 1.75; }
+	.md-related { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+	.md-rel { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.25rem; border-radius: 0.9rem; text-decoration: none; transition: border-color 0.2s; }
+	.md-rel:hover { border-color: var(--color-accent); }
+	.md-rel-vendor { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+	.md-rel strong { color: var(--color-text); }
+	.md-rel-sum { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.5; }
+	.md-sources p { color: var(--color-text-muted); line-height: 1.6; max-width: 52rem; }
+</style>

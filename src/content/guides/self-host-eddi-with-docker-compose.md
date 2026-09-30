@@ -122,7 +122,7 @@ curl -X POST http://localhost:7070/administration/agents/setup \
     "agentName": "My first agent",
     "systemPrompt": "You are a helpful assistant that answers questions clearly.",
     "provider": "anthropic",
-    "model": "claude-sonnet-4-6",
+    "model": "claude-sonnet-5-5",
     "apiKey": "${vault:my-anthropic-key}"
   }'
 ```

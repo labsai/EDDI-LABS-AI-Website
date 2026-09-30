@@ -10,6 +10,8 @@ import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i
 
 interface Props {
 	title: string;
+	/** See BaseLayout: search-result title, the H1 keeps `title`. */
+	metaTitle?: string;
 	description: string;
 	heroImage?: ImageMetadata;
 	lang?: Locale;
@@ -21,6 +23,7 @@ interface Props {
 
 const {
 	title,
+	metaTitle,
 	description,
 	heroImage,
 	lang: langProp,
@@ -33,6 +36,7 @@ const t = await getTranslations(lang);
 
 <BaseLayout
 	title={title}
+	metaTitle={metaTitle}
 	description={description}
 	fullWidth={true}
 	lang={lang}

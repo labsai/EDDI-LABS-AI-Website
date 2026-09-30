@@ -203,6 +203,173 @@ export const RETRIEVAL_EVIDENCE: EvidenceRow[] = [
 	},
 ];
 
+// ─── Governance: prompt injection and where rules are enforced ──────
+
+export const GOVERNANCE_EVIDENCE: EvidenceRow[] = [
+	{
+		study: 'NetInjectBench (2026)',
+		result: '0 of 240 injected attacks led to an unsafe action behind a policy gate at the tool call, against 82.5% with no defence and 10 to 26% with prompt-level defences',
+		setting: '130 network-operations scenarios on three 7 to 8B open models. A static allowlist reached 5%, but blocked every legitimate change',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2607.10490',
+	},
+	{
+		study: 'Indirect prompt injection (2023)',
+		result: 'Retrieved content becomes instructions: data theft, worming, and control over which APIs an application calls',
+		setting: 'Demonstrated against real systems, including Bing Chat and code-completion engines',
+		venue: 'ACM AISec 2023',
+		reviewed: true,
+		doi: '10.1145/3605764.3623985',
+	},
+	{
+		study: 'HouYi (2023)',
+		result: '31 of 36 commercial LLM-integrated applications were vulnerable to prompt injection',
+		setting: 'Black-box attack against deployed applications; 10 vendors confirmed the findings',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2306.05499',
+	},
+	{
+		study: 'Adaptive attacks on agent defences (2025)',
+		result: 'All eight evaluated defences were bypassed, with attack success above 50%',
+		setting: 'Indirect prompt injection defences for tool-using agents, tested against attacks adapted to each defence',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2503.00061',
+	},
+	{
+		study: 'CaMeL (2025)',
+		result: '77% of tasks solved with provable security, against 84% undefended',
+		setting: 'AgentDojo. Control and data flow come from the trusted request, so untrusted data cannot change what the program does',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2503.18813',
+	},
+];
+
+/** The unsafe-action rates from NetInjectBench, for the chart. */
+export const INJECTION_CHART = [
+	{ label: 'No defence', value: 82.5 },
+	{ label: 'Safety prompt', value: 25.63 },
+	{ label: 'Self-reminder', value: 21.67 },
+	{ label: 'Spotlighting', value: 18.33 },
+	{ label: 'Second LLM as judge', value: 10.0 },
+	{ label: 'Static allowlist*', value: 5.0 },
+	{ label: 'Policy gate at the tool call', value: 0 },
+];
+
+// ─── Human oversight ─────────────────────────────────────────────────
+
+export const OVERSIGHT_EVIDENCE: EvidenceRow[] = [
+	{
+		study: 'Human decision gates (2026)',
+		result: 'Critical failures fell from 72% to 16% of runs (Fisher\'s exact test, p < 0.001)',
+		setting: '280 AI-assisted research runs with the same model and prompts; the gated version adds deterministic computation and three binding human decisions',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2606.12848',
+	},
+	{
+		study: 'Oversight has a capacity (2026)',
+		result: 'Realized safety is an inverted U in the escalation rate: past a point, more human review makes the system less safe',
+		setting: '125 hand-labelled agent actions with a fatiguing reviewer; reviewers agreed only moderately on what is risky (Fleiss\' kappa 0.52)',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2606.08919',
+	},
+	{
+		study: 'Dynamic intervention (2026)',
+		result: 'Task success statistically equivalent to full oversight, with a person reviewing 14.5% of steps and 89% lower latency',
+		setting: '5,000 synthetic enterprise automation tasks; oversight allocated by a confidence score rather than at fixed checkpoints',
+		venue: 'Discover Artificial Intelligence',
+		reviewed: true,
+		doi: '10.1007/s44163-026-01373-2',
+	},
+	{
+		study: 'Effective human oversight (2024)',
+		result: 'Oversight works only when the overseer has causal power, access to the relevant facts, self-control and fitting intentions',
+		setting: 'Interdisciplinary analysis, tested against Article 14 of the EU AI Act',
+		venue: 'ACM FAccT 2024',
+		reviewed: true,
+		doi: '10.1145/3630106.3659051',
+	},
+];
+
+// ─── Multi-agent deliberation ────────────────────────────────────────
+
+export const DELIBERATION_EVIDENCE: EvidenceRow[] = [
+	{
+		study: 'Multiagent debate (2023)',
+		result: 'Debate improved mathematical and strategic reasoning and reduced hallucinated facts',
+		setting: 'Several instances of the same black-box model proposing and critiquing answers over rounds',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2305.14325',
+	},
+	{
+		study: 'Debate or vote (2025)',
+		result: 'Majority voting alone accounts for most of the gain usually attributed to debate',
+		setting: 'Seven NLP benchmarks, with a proof that debate by itself does not raise expected correctness',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2508.17536',
+	},
+	{
+		study: 'If debate is the answer, what is the question? (2025)',
+		result: 'Debate methods often failed to beat single-agent baselines, but mixing different models consistently helped',
+		setting: 'Five debate methods, nine benchmarks, four models',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2502.08788',
+	},
+	{
+		study: 'Heterogeneous debate (2025)',
+		result: '4 to 6 points more accurate than standard debate, and over 30% fewer factual errors',
+		setting: 'Agents with distinct roles, dynamic routing and a learned consensus, across six benchmarks',
+		venue: 'J. King Saud Univ. Computer and Information Sciences',
+		reviewed: true,
+		doi: '10.1007/s44443-025-00353-3',
+	},
+	{
+		study: 'Persuasion as an attack (2026)',
+		result: 'One persuasive adversarial agent cut group accuracy by 10 to 40% and raised agreement on wrong answers by over 30%',
+		setting: 'LLM-to-LLM debate; adding agents or rounds did not reliably help',
+		venue: 'Scientific Reports',
+		reviewed: true,
+		doi: '10.1038/s41598-026-42705-7',
+	},
+];
+
+// ─── Conversation memory ─────────────────────────────────────────────
+
+export const MEMORY_EVIDENCE: EvidenceRow[] = [
+	{
+		study: 'LongMemEval (2024)',
+		result: 'Commercial assistants and long-context models lost about 30% accuracy recalling information across sustained interactions',
+		setting: '500 questions embedded in long user-assistant histories',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2410.10813',
+	},
+	{
+		study: 'Recursive summarization (2023)',
+		result: 'Recursively summarized memory produced more consistent responses in long conversations',
+		setting: 'Open and closed models; complements long-context and retrieval-based approaches',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2308.15022',
+	},
+	{
+		study: 'Mem0 (2025)',
+		result: '91% lower p95 latency and over 90% lower token cost than sending the full conversation',
+		setting: 'LOCOMO benchmark. The authors sell a memory product, so weigh the comparison accordingly',
+		venue: 'arXiv',
+		reviewed: false,
+		doi: '10.48550/arxiv.2504.19413',
+	},
+];
+
 // ─── The harness we have not run yet ────────────────────────────────
 
 export interface HarnessItem {

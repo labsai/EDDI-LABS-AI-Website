@@ -36,7 +36,7 @@ An agent that can only talk is a chatbot. An agent that can call your systems is
 
 **httpCall** declares an HTTP request that EDDI makes on the agent's behalf: method, URL, headers, body, and how the response maps back into the conversation. Use it for your own REST endpoints and anything with an OpenAPI description.
 
-**MCP tools** are capabilities exposed over the Model Context Protocol. EDDI ships 77 of them covering the platform itself, plus 12 built-in agent tools for common jobs like web search, calculation, scraping, and PDF reading. External MCP servers plug in the same way.
+**MCP tools** are capabilities exposed over the Model Context Protocol. EDDI ships 84 of them covering the platform itself, plus 12 built-in agent tools for common jobs like web search, calculation, scraping, and PDF reading. External MCP servers plug in the same way.
 
 The rule of thumb: httpCall for your APIs, MCP when something already speaks the protocol. Do not build an MCP server to expose a REST endpoint you could declare directly.
 

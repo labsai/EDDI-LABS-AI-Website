@@ -1,4 +1,5 @@
 import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { TESTS, MCP_TOOLS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 import type { TranslationSchema } from './en';
 
 const th: TranslationSchema = {
@@ -11,6 +12,8 @@ const th: TranslationSchema = {
 		features: 'คุณสมบัติ',
 		docs: 'เอกสาร',
 		guides: 'คู่มือ',
+		models: 'โมเดล',
+		whatsNew: 'มีอะไรใหม่',
 		benchmarks: 'เกณฑ์วัดประสิทธิภาพ',
 		solutions: 'สำหรับองค์กร',
 		managedCloud: 'แมนเนจด์คลาวด์',
@@ -30,14 +33,14 @@ const th: TranslationSchema = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline Logs และ Audit Trails',
 		codeQuality: 'คุณภาพโค้ด',
-		codeQualityDesc: '20,000+ เทสต์ ไม่มีข้อผิดพลาด, >90% coverage',
+		codeQualityDesc: `${TESTS} เทสต์, เกณฑ์ coverage >90%`,
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'ออกแบบสำหรับ Coding Agents',
 
 		memory: 'หน่วยความจำและบริบท',
 		memoryDesc: 'หน่วยความจำถาวรและการรวม Dream',
-		rag: 'RAG',
-		ragDesc: '7 ผู้ให้บริการ Embedding, 6 Vector Store',
+		rag: 'ความรู้และ RAG',
+		ragDesc: 'ครอลเว็บไซต์ นำเข้าไฟล์ ตามกำหนดเวลา',
 		modelCascading: 'การเรียงซ้อนโมเดล',
 		modelCascadingDesc: 'การกำหนดเส้นทางหลายโมเดลที่ปรับต้นทุน',
 		scheduling: 'การจัดตาราง',
@@ -67,8 +70,9 @@ const th: TranslationSchema = {
 		getStartedCta: 'เริ่มต้น →',
 		viewOnGithub: 'ดูบน GitHub ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: 'พื้นที่ทำงานรายผู้ใช้, Connections สำหรับการเข้าถึงระบบภายนอกอย่างมีการกำกับดูแล และอิมเมจ UBI 10 ที่ได้รับการรับรองจาก Red Hat',
-		bannerLink: 'บันทึกประจำรุ่น',
+		bannerText:
+			`ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย ฐานความรู้ที่ครอลเว็บไซต์และอ่านไฟล์ของคุณ และบทสนทนาที่ย้ายตามเวอร์ชันเอเจนต์ที่เข้ากันได้`,
+		bannerLink: 'มีอะไรใหม่',
 		notFoundTitle: 'ไม่พบหน้า',
 		notFoundDesc: 'เส้นทาง AI orchestration ที่คุณค้นหาถูกยกเลิกหรือย้ายแล้ว',
 		notFoundCta: 'กลับสู่ระบบ',
@@ -82,9 +86,9 @@ const th: TranslationSchema = {
 		subtitle: 'ขับเคลื่อนด้วย Configuration Java-Native พร้อมใช้งาน Production',
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 License',
-		tests: '20,000+ เทสต์ · ไม่มีข้อผิดพลาด',
+		tests: `${TESTS} เทสต์ · ผ่านใน CI`,
 		techStack: 'Java 25 · Quarkus · LangChain4j',
-		openSSFGold: 'OpenSSF Gold',
+		openSSFGold: 'OpenSSF Best Practices: Gold',
 		platform: 'แพลตฟอร์ม',
 		develop: 'พัฒนา',
 		resourcesCol: 'ทรัพยากร',
@@ -96,10 +100,12 @@ const th: TranslationSchema = {
 		multiAgent: 'มัลติเอเจนต์',
 
 		memoryLink: 'หน่วยความจำและบริบท',
-		ragLink: 'RAG',
+		ragLink: 'ความรู้และ RAG',
 		modelCascadingLink: 'การเรียงซ้อนโมเดล',
 		schedulingLink: 'การจัดตาราง',
 		humanInTheLoopLink: `มนุษย์ร่วมตัดสินใจ`,
+		modelsLink: 'แคตตาล็อกโมเดล',
+		whatsNewLink: 'มีอะไรใหม่ใน 6.5',
 		gettingStarted: 'เริ่มต้นใช้งาน',
 		documentation: 'เอกสาร ↗',
 		githubLink: 'GitHub ↗',
@@ -166,12 +172,12 @@ const th: TranslationSchema = {
 		trustRedHatDesc: 'อิมเมจที่ได้รับการรับรอง เผยแพร่ในแคตตาล็อกของ Red Hat',
 		trustApache: 'Apache 2.0 License',
 		trustApacheDesc: '100% open-source พร้อมสำหรับองค์กร',
-		trustTests: '20,000+ เทสต์ · 0 ข้อผิดพลาด',
-		trustTestsDesc: 'CI/CD เข้มงวดและ >90% code coverage',
-		trustOpenSSF: 'OpenSSF Gold',
-		trustOpenSSFDesc: 'การรับรองความปลอดภัยและคุณภาพระดับสูงสุดของ Linux Foundation',
+		trustTests: `${TESTS} เทสต์ · ผ่านใน CI`,
+		trustTestsDesc: 'ทุกการ merge ต้องผ่านชุดทดสอบทั้งหมด พร้อมบังคับ instruction coverage >90%',
+		trustOpenSSF: 'OpenSSF Best Practices: Gold',
+		trustOpenSSFDesc: 'ตรา Gold ระดับสูงสุดของโครงการ OpenSSF Best Practices',
 		trustDocker: 'Docker Hub',
-		trustDockerDesc: 'ยอดดึงใช้งานจริงหลายแสนครั้ง',
+		trustDockerDesc: `ยอดดึง ${DOCKER_PULLS} ครั้งบน Docker Hub`,
 		trustCI: 'CI ผ่าน · CodeQL สะอาด',
 		trustCIDesc: 'Build อัตโนมัติ, การสแกนความปลอดภัย และการวิเคราะห์โค้ด',
 		// UNIDO Recognition Callout
@@ -179,6 +185,9 @@ const th: TranslationSchema = {
 		unidoCalloutTitle: 'พันธมิตรที่ไว้วางใจ UNIDO สำหรับ AI อุตสาหกรรม',
 		unidoCalloutDesc: 'LABS.AI ได้รับเลือกโดยองค์การพัฒนาอุตสาหกรรมแห่งสหประชาชาติ (UNIDO) เป็นพันธมิตรที่ไว้วางใจสำหรับ AI อุตสาหกรรมเพื่อกลุ่มประเทศกำลังพัฒนา',
 		unidoCalloutLink: 'เรียนรู้เพิ่มเติมเกี่ยวกับความร่วมมือ →',
+		archTitle: 'หนึ่งเทิร์นของบทสนทนาทำงานอย่างไร',
+		archCaption:
+			'ทุกเทิร์นวิ่งผ่านไปป์ไลน์เดียวกัน Behavior rules ตัดสินว่าจะเกิดอะไรขึ้นด้วยการปล่อยแอ็กชัน และ task ต่างๆ รอฟังแอ็กชันเหล่านั้น: การเรียก LLM, การเรียก HTTP, เครื่องมือ MCP หรือการค้นหาในฐานความรู้ การเรียกเครื่องมือทุกครั้งต้องผ่านขอบเขตที่มีการกำกับดูแลเดียวกัน และหน่วยความจำจะส่งต่อสิ่งที่สำคัญจากเทิร์นหนึ่งไปยังเทิร์นถัดไป และจากบทสนทนาหนึ่งไปยังบทสนทนาถัดไป',
 		philosophyQuote: 'เอ็นจินเข้มงวดเพื่อให้ AI สร้างสรรค์ได้อย่างอิสระ',
 		techTitle: 'สร้างด้วยเทคโนโลยีที่พิสูจน์แล้ว',
 		techJava: 'Java 25',
@@ -225,11 +234,15 @@ const th: TranslationSchema = {
 		faq6Q: 'EDDI เกี่ยวข้องกับ "Eddie AI" หรือผลิตภัณฑ์อื่นที่ชื่อ "Eddy" หรือไม่?',
 		faq6A: 'ไม่ EDDI (โดย <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) เป็น<strong>แพลตฟอร์มการจัดการ AI Agent ระดับองค์กร</strong>แบบโฮสต์เอง ที่สร้างบน Java/Quarkus ไม่เกี่ยวข้องกับเครื่องมือตัดต่อวิดีโอสำหรับผู้บริโภค ซอฟต์แวร์ HR เครื่องมือสร้างแชทบอท หรือผลิตภัณฑ์อื่น ๆ ที่มีชื่อคล้ายกัน',
 		faq7Q: 'EDDI เทียบกับแพลตฟอร์ม AI บนคลาวด์อย่าง AWS Bedrock หรือ Azure AI Studio อย่างไร?',
-		faq7A: 'แพลตฟอร์ม AI บนคลาวด์มีโครงสร้างพื้นฐานที่จัดการให้ แต่สร้าง<strong>การผูกขาดกับผู้ขาย</strong> EDDI ทำงานได้ทุกที่ที่ Docker ทำงานได้ on-premises, คลาวด์ใดก็ได้ หรือสภาพแวดล้อม air-gapped รองรับผู้ให้บริการ LLM 12 ราย และ endpoint ที่เข้ากันได้กับ OpenAI ใดก็ได้ ให้ความสามารถในการย้ายโมเดลและอธิปไตยข้อมูลอย่างเต็มที่ ดู<a href="/enterprise/vs-alternatives/">การเปรียบเทียบโดยละเอียด</a>ของเรา',
+		faq7A: `แพลตฟอร์ม AI บนคลาวด์มีโครงสร้างพื้นฐานที่จัดการให้ แต่สร้าง<strong>การผูกขาดกับผู้ขาย</strong> EDDI ทำงานได้ทุกที่ที่ Docker ทำงานได้ on-premises, คลาวด์ใดก็ได้ หรือสภาพแวดล้อม air-gapped รองรับผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย และ endpoint ที่เข้ากันได้กับ OpenAI ใดก็ได้ ให้ความสามารถในการย้ายโมเดลและอธิปไตยข้อมูลอย่างเต็มที่ ดู<a href="/enterprise/vs-alternatives/">การเปรียบเทียบโดยละเอียด</a>ของเรา`,
 		faq8Q: 'EDDI ใช้งานร่วมกับ Open WebUI และไคลเอนต์อื่นที่เข้ากันได้กับ OpenAI ได้หรือไม่?',
 		faq8A: 'ได้ EDDI มี API <code>/v1</code> ที่เข้ากันได้กับ OpenAI ซึ่งแสดงเอเจนต์ที่ deploy แล้วเป็นโมเดล ทำให้ Open WebUI, <code>openai</code> SDK, LangChain และ LiteLLM คุยกับเอเจนต์ได้โดยตรง API นี้รองรับการสตรีมและการรายงานการใช้โทเค็น แยกแต่ละแชทไว้ในบทสนทนาของตัวเอง และจุดอนุมัติของเอเจนต์ยังคงมีผลเช่นเดิม API นี้ปิดไว้โดยค่าเริ่มต้น และมีการยืนยันตัวตนด้วย API key แยกต่างหาก',
 		faq9Q: 'ผู้ใช้หลายคนและหลายทีมใช้งาน EDDI ที่ deploy ไว้ชุดเดียวกันร่วมกันได้หรือไม่?',
-		faq9A: 'ได้ พื้นที่ทำงานรายผู้ใช้ทำให้ทุกเอเจนต์และทุกการกำหนดค่ามีเจ้าของ มีพื้นที่ส่วนตัวหรือพื้นที่ทีมที่แมปกับกลุ่มใน Keycloak และมีการแชร์อย่างชัดเจนในระดับใช้งาน ดู แก้ไข หรือเป็นเจ้าของ ส่วน Connections ช่วยให้เอเจนต์เรียกระบบภายนอกด้วยคีย์ระดับองค์กร บัญชีบริการ หรือบัญชี OAuth ของผู้ใช้แต่ละคน จึงจำกัดเอเจนต์ให้ทำได้เฉพาะสิ่งที่ผู้ที่ใช้งานเอเจนต์นั้นมีสิทธิ์ทำ พื้นที่ทำงานเป็นฟีเจอร์ที่เลือกเปิดใช้ได้ และทรัพยากรที่มีอยู่เดิมจะได้รับการกำหนดเจ้าของและพื้นที่ย้อนหลังโดยอัตโนมัติ จึงไม่มีสิ่งใดหายไปเมื่อคุณเปิดใช้งาน',
+		faq9A:
+			'ได้ พื้นที่ทำงานรายผู้ใช้ทำให้ทุกเอเจนต์และทุกการกำหนดค่ามีเจ้าของ มีพื้นที่ส่วนตัวหรือพื้นที่ทีมที่แมปกับกลุ่มใน Keycloak และมีการแชร์อย่างชัดเจนในระดับใช้งาน ดู แก้ไข หรือเป็นเจ้าของ คุณแชร์ให้บุคคลได้ด้วยชื่อจากไดเรกทอรีของผู้ใช้ที่ลงชื่อเข้าใช้แล้ว ผู้รับจะได้รับการแจ้งเตือน และใครก็ตามที่เปิดลิงก์ไปยังสิ่งที่ตนเปิดไม่ได้ สามารถขอสิทธิ์เข้าถึงจากเจ้าของได้ ส่วน Connections ช่วยให้เอเจนต์เรียกระบบภายนอกด้วยคีย์ระดับองค์กร บัญชีบริการ หรือบัญชี OAuth ของผู้ใช้แต่ละคน จึงจำกัดเอเจนต์ให้ทำได้เฉพาะสิ่งที่ผู้ที่ใช้งานเอเจนต์นั้นมีสิทธิ์ทำ พื้นที่ทำงานเป็นฟีเจอร์ที่เลือกเปิดใช้ได้ และทรัพยากรที่มีอยู่เดิมจะได้รับการกำหนดเจ้าของและพื้นที่ย้อนหลังโดยอัตโนมัติ จึงไม่มีสิ่งใดหายไปเมื่อคุณเปิดใช้งาน',
+		faq10Q: 'ใช้ LLM ตัวไหนกับ EDDI ได้บ้าง?',
+		faq10A:
+			`EDDI เชื่อมต่อกับผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย ได้แก่ OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Google Vertex AI, Ollama, Hugging Face และ Jlama พร้อมการรองรับระดับเฟิร์สคลาสสำหรับ xAI Grok, DeepSeek, Moonshot Kimi, Alibaba Qwen, Z.ai GLM, MiniMax, OpenRouter และ Groq ส่วน endpoint อื่นที่เข้ากันได้กับ OpenAI ใช้งานได้ผ่าน base URL <a href="/models/">แคตตาล็อกโมเดล</a>อธิบายว่าแต่ละโมเดลเก่งด้านใด และแสดงการกำหนดค่าที่แน่นอนสำหรับรันใน EDDI`,
 		demoBtn: 'ระบบสาธิต',
 		demoModalTitle: 'ระบบสาธิต',
 		demoModalWarning: 'สำหรับการสำรวจเท่านั้น ข้อมูลทั้งหมดจะถูกลบทุก 48 ชั่วโมงเวลา 03:00 UTC',
@@ -239,13 +252,15 @@ const th: TranslationSchema = {
 	},
 	gettingStarted: {
 		title: 'เริ่มต้นใช้งาน',
+		metaTitle: 'เริ่มต้นใช้งาน: ติดตั้ง EDDI และสร้าง AI เอเจนต์ตัวแรกใน 5 นาที',
 		description: 'ติดตั้ง EDDI สร้างเอเจนต์แรก และเริ่มสนทนาใน 5 นาที',
 		heroTitle: 'เริ่มต้นกับ EDDI',
 		heroSubtitle: 'ติดตั้ง EDDI สร้างเอเจนต์แรก และเริ่มสนทนาใน 5 นาที',
 		promiseLine: 'ภายในห้านาที คุณจะมี EDDI ทำงานอยู่ด้วยคำสั่งเดียว มีเอเจนต์ที่ใช้งานได้จริงซึ่งสร้างขึ้นด้วยการเรียก <code>setup_agent</code> เพียงครั้งเดียว และเปิด Manager UI ที่ <code>http://localhost:7070</code>',
 		prerequisitesTitle: 'ข้อกำหนดเบื้องต้น',
 		prereq1: '<strong>Docker</strong> (แนะนำ) หรือ Java 25+ ทั้งนี้บนโฮสต์ x86-64 อิมเมจ EDDI ต้องใช้ CPU ที่รองรับ x86-64-v3 (Intel Haswell, AMD Excavator หรือรุ่นใหม่กว่า)',
-		prereq2: 'LLM Provider API Key (OpenAI, Anthropic, Google Gemini, หรือ local Ollama)',
+		prereq2:
+			`API Key ของผู้ให้บริการ LLM รายใดรายหนึ่งจาก ${LLM_PROVIDERS} รายที่ EDDI รองรับ (เช่น Anthropic, OpenAI, Google Gemini หรือ DeepSeek) หรือ Ollama ในเครื่อง <a href="/models/">แคตตาล็อกโมเดล</a>ช่วยคุณเลือกได้`,
 		step1Title: '1. ติดตั้งและเริ่มต้น EDDI',
 		step1Desc: 'วิธีที่เร็วที่สุดในการรัน EDDI คือ<strong>ตัวติดตั้งคำสั่งเดียว</strong> ซึ่งจะตั้งค่า EDDI + ฐานข้อมูลที่คุณเลือกผ่าน Docker Compose, สร้างคีย์เข้ารหัสสำหรับ vault และแนะนำคุณผ่านการกำหนดค่า:',
 		step1TabInstaller: 'สคริปต์ติดตั้ง (แนะนำ)',
@@ -264,6 +279,8 @@ const th: TranslationSchema = {
 		step2DirectNote:
 			'Client ที่รองรับ Streamable HTTP โดยตรง (Cursor, VS Code, Windsurf, Antigravity และ IDE plugins อื่นๆ) เชื่อมต่อได้โดยตรง ไม่ต้องใช้ bridge:',
 		step2After: 'ตอนนี้คุณสามารถโต้ตอบกับ <strong>84 MCP tools</strong> ของ EDDI ได้โดยตรงจาก AI assistant',
+		step2OAuthNote:
+			'<strong>เปิดการยืนยันตัวตนอยู่หรือไม่?</strong> MCP client จะลงชื่อเข้าใช้เอง: EDDI ประกาศ <code>/mcp</code> เป็น protected resource ของ OAuth 2.0 และ Keycloak realm ที่มาพร้อมกันมี client ชื่อ <code>eddi-mcp</code> ไว้ให้ จึงไม่ต้องคัดลอก token ด้วยมือ',
 		step2DocsLink:
 			'📖 ดู <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">เอกสาร MCP Server</a> สำหรับข้อมูลอ้างอิงเครื่องมือทั้งหมดและการตั้งค่าขั้นสูง',
 		step3Title: '3. จัดเก็บ API Key อย่างปลอดภัย',
@@ -312,6 +329,7 @@ const th: TranslationSchema = {
 	},
 	useCases: {
 		title: 'กรณีใช้งาน',
+		metaTitle: 'กรณีใช้งาน AI เอเจนต์สำหรับอุตสาหกรรมที่มีการกำกับดูแล',
 		description: 'รูปแบบการ deploy สำหรับอุตสาหกรรมที่มีการกำกับดูแลและทีมองค์กรที่ใช้ EDDI AI Orchestration Platform',
 		heroTitle: 'กรณีใช้งาน',
 		heroSubtitle: 'รูปแบบการ deploy สำหรับอุตสาหกรรมที่มีการกำกับดูแลและทีมองค์กร',
@@ -340,6 +358,7 @@ const th: TranslationSchema = {
 	},
 	featuresOverview: {
 		title: 'ภาพรวมคุณสมบัติ',
+		metaTitle: 'คุณสมบัติ: แพลตฟอร์มประสานงาน AI เอเจนต์แบบโฮสต์เอง',
 		description:
 			'ทุกความสามารถที่ทำให้ EDDI เป็น Enterprise AI Orchestrator EDDI Manager UI, Config-as-Code, 84 MCP tools, Security-First Architecture และอื่นๆ',
 		heroTitle: 'ทุกอย่างที่ต้องการ',
@@ -367,10 +386,15 @@ const th: TranslationSchema = {
 		aiCapDesc: 'ฟีเจอร์ AI ขั้นสูงที่ทำให้เอเจนต์ EDDI <strong>ฉลาดขึ้น เร็วขึ้น และประหยัดต้นทุนมากขึ้น</strong>',
 		memoryCardTitle: '🧠 หน่วยความจำและบริบท',
 		memoryCardDesc: 'หน่วยความจำถาวร, การรวม Dream, สรุปแบบต่อเนื่อง และการจัดหน้าต่างที่รับรู้โทเค็น <strong>เอเจนต์ที่จำได้</strong>',
-		ragCardTitle: '📚 RAG',
-		ragCardDesc: '7 ผู้ให้บริการ embedding, 6 vector stores, httpCall RAG. <strong>การดึงข้อมูลความรู้ระดับองค์กร</strong>พร้อมใช้งาน',
+		ragCardTitle: '📚 ความรู้และ RAG',
+		ragCardDesc:
+			`ครอลเว็บไซต์หรืออัปโหลดไฟล์ PDF, Word, Excel และ PowerPoint เข้าสู่ฐานความรู้ที่รีเฟรชตามกำหนดเวลา ${EMBEDDING_PROVIDERS} ผู้ให้บริการ embedding, ${VECTOR_STORES} vector stores <strong>การดึงข้อมูลความรู้ระดับองค์กร</strong>พร้อมใช้งาน`,
 		cascadingCardTitle: '📈 การเรียงซ้อนโมเดล',
-		cascadingCardDesc: 'การกำหนดเส้นทางหลายโมเดลที่ปรับต้นทุนด้วยกลยุทธ์ความเชื่อมั่น <strong>ลดต้นทุน LLM ได้สูงสุด 60-80%</strong> ในเวิร์กโหลดแบบหลายโมเดลทั่วไป',
+		cascadingCardDesc:
+			'การกำหนดเส้นทางหลายโมเดลที่ปรับต้นทุนด้วยกลยุทธ์ความเชื่อมั่น การใช้งานจริงของรูปแบบนี้ที่เผยแพร่แล้วรายงาน<strong>ต้นทุน inference ลดลง 31 ถึง 58%</strong> โดยคุณภาพคงเดิม (<a href="/benchmarks/">หลักฐาน</a>)',
+		modelsCardTitle: `🧭 ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย`,
+		modelsCardDesc:
+			'Claude, GPT, Gemini, Grok, DeepSeek, Kimi, Qwen, GLM, Mistral, Llama และอื่นๆ ทั้งแบบโฮสต์และแบบรันในเครื่อง <strong>แคตตาล็อกโมเดล</strong>แสดงว่าแต่ละโมเดลเก่งด้านใดและรันอย่างไร',
 		schedulingCardTitle: '⏰ การจัดตารางและ Heartbeats',
 		schedulingCardDesc: 'ทริกเกอร์ Cron, การปลุก Heartbeat, วงจร Dream <strong>เอเจนต์เชิงรุก</strong>ที่ดำเนินการด้วยตนเอง',
 
@@ -406,9 +430,128 @@ const th: TranslationSchema = {
 		obsCardTitle: '📊 Observability',
 		obsCardDesc: 'ทุกขั้นตอนถูกบันทึกใน <strong>immutable audit trails</strong>',
 		cqCardTitle: '🧪 คุณภาพโค้ด',
-		cqCardDesc: '<strong>20,000+ เทสต์ ไม่มีข้อผิดพลาด</strong> Checkstyle ศูนย์คำเตือน >90% coverage',
+		cqCardDesc:
+			`<strong>${TESTS} เทสต์ ผ่านทุกการ merge</strong> บังคับ instruction coverage >90% และ branch coverage >80% มีเกต CodeQL, Checkstyle และ formatter ใน CI`,
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc: '84 MCP tools, API ที่เข้ากันได้กับ OpenAI, CRUD patterns ที่คาดเดาได้, API ที่มีเอกสารในตัว <strong>สร้างสำหรับ coding agents</strong>',
+	},
+
+	// ─── Model Catalog ──────────────────────────────────────────
+	models: {
+		title: 'แคตตาล็อกโมเดล',
+		metaTitle: 'แคตตาล็อกโมเดล LLM: รัน Claude, GPT, Gemini, DeepSeek, Qwen และอื่นๆ ใน EDDI',
+		description:
+			`ตระกูลโมเดลที่ EDDI รันได้ผ่านผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย: แต่ละโมเดลเก่งด้านใด และการกำหนดค่าที่แน่นอนสำหรับรัน`,
+		heroTitle: 'ทุกโมเดล',
+		heroHighlight: 'แพลตฟอร์มเดียว',
+		heroDesc:
+			`EDDI เชื่อมต่อกับผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย ตั้งแต่แล็บรายใหญ่ไปจนถึงผู้ให้บริการระดับภูมิภาคและโมเดลที่รันบนฮาร์ดแวร์ของคุณเอง เลือกโมเดลเพื่อดูว่าเก่งด้านใดและรันใน EDDI อย่างไร ลงลึกถึงการกำหนดค่า`,
+		filterLabel: 'แสดง',
+		filterAll: 'ทั้งหมด',
+		filterFrontier: 'ระดับแนวหน้า',
+		filterFast: 'เร็วและต้นทุนต่ำ',
+		filterOpen: 'Open weights',
+		filterLocal: 'รันในเครื่องได้',
+		searchLabel: 'ค้นหาโมเดล',
+		searchPlaceholder: 'ค้นหาด้วยชื่อ ผู้ผลิต หรือ model id',
+		noResults: 'ไม่มีโมเดลที่ตรงกับตัวกรองนี้',
+		colModel: 'โมเดล',
+		colContext: 'Context',
+		colInput: 'อินพุต',
+		colProviders: 'รันผ่าน',
+		hostsTitle: 'โมเดลรันที่ไหน',
+		hostsDesc:
+			'โมเดลเดียวกันมักมีให้ใช้จากหลายแหล่ง เลือกตามว่าข้อมูลของคุณไปได้ที่ไหน ทีมของคุณใช้อะไรอยู่แล้ว และคุณยืนยันตัวตนอย่างไร',
+		anyEndpointTitle: 'ไม่มีในแคตตาล็อก?',
+		anyEndpointDesc:
+			'endpoint ใดก็ตามที่เข้ากันได้กับ OpenAI ใช้งานได้ผ่าน <code>type: openai</code> และ <code>baseUrl</code> รวมถึง Cohere, Together, vLLM, llama-server และเกตเวย์ขององค์กร ส่วน OpenRouter เข้าถึงโมเดลอีกหลายร้อยตัวด้วยคีย์เดียว',
+		cascadeTitle: 'ใช้มากกว่าหนึ่งโมเดล',
+		cascadeDesc:
+			'EDDI เชื่อมโมเดลเป็น cascade ได้: โมเดลที่เร็วและราคาไม่แพงตอบก่อน และจะเรียกโมเดลที่แข็งแกร่งกว่าเฉพาะเมื่อความเชื่อมั่นต่ำ ดู <a href="/features/model-cascading/">การเรียงซ้อนโมเดล</a>',
+		// Detail page
+		backToCatalog: 'โมเดลทั้งหมด',
+		atAGlance: 'ภาพรวม',
+		labelVendor: 'ผู้ผลิต',
+		labelReleased: 'วันที่เปิดตัว',
+		labelContext: 'Context window',
+		labelMaxOutput: 'เอาต์พุตสูงสุด',
+		labelInput: 'อินพุต',
+		labelTools: 'การเรียกใช้เครื่องมือ',
+		labelReasoning: 'การใช้เหตุผล',
+		labelOpenWeights: 'Open weights',
+		labelLicense: 'สัญญาอนุญาต',
+		tokens: 'โทเค็น',
+		yes: 'ใช่',
+		no: 'ไม่',
+		notStated: 'ผู้ผลิตไม่ได้ระบุ',
+		strengthsTitle: 'จุดแข็ง',
+		bestForTitle: 'เหมาะที่สุดสำหรับ',
+		runTitle: 'รันใน EDDI',
+		runDesc:
+			'เส้นทางที่เร็วที่สุดคือ Manager: เปิด agent wizard หรือ Platform Operator แล้วเลือกผู้ให้บริการและโมเดล หากต้องการกำหนดค่าเอง ให้ทำตามขั้นตอนเหล่านี้สำหรับผู้ให้บริการที่คุณต้องการ',
+		routesLabel: 'ผู้ให้บริการ',
+		modelIdsLabel: 'Model id',
+		step1Title: '1. เก็บ credential',
+		step1Key:
+			'เพิ่ม API key ของผู้ให้บริการลงใน Secrets Vault ใน Manager หรือด้วย <code>PUT /secretstore/secrets/default/{name}</code> โดยใช้ชื่อตามด้านล่าง การกำหนดค่าจะอ้างอิงคีย์เป็น <code>${vault:…}</code> คีย์จึงไม่ปรากฏเป็นข้อความธรรมดาเลย',
+		step1NoKey: 'ผู้ให้บริการนี้ไม่ใช้ API key:',
+		step2Title: '2. กำหนดค่า LLM task',
+		step2Desc:
+			'ใช้สิ่งนี้เป็น <code>langchain.json</code> ของเวิร์กโฟลว์เอเจนต์ หรือวางพารามิเตอร์ลงใน LLM editor ใน Manager',
+		step3Title: 'หรือสร้างทั้งเอเจนต์ในการเรียกครั้งเดียว',
+		step3Desc:
+			'<code>setup_agent</code> เขียน rules, การกำหนดค่า LLM และเวิร์กโฟลว์ แล้ว deploy เอเจนต์ให้ เรียกผ่าน MCP หรือ <code>POST /administration/agents/setup</code>',
+		authBedrock:
+			'Amazon Bedrock ยืนยันตัวตนผ่าน AWS credential chain: ตัวแปรสภาพแวดล้อม, IAM role หรือ <code>~/.aws/credentials</code>',
+		authVertex:
+			'Vertex AI ยืนยันตัวตนด้วย Google Application Default Credentials ตั้งค่า <code>projectId</code> และ <code>location</code> สำหรับโปรเจกต์ของคุณ',
+		authOracle:
+			'OCI Generative AI ยืนยันตัวตนด้วยโปรไฟล์ OCI config จาก <code>~/.oci/config</code> ตั้งค่า <code>compartmentId</code> สำหรับ tenancy ของคุณ',
+		authOllama:
+			'Ollama ไม่ต้องใช้คีย์ ชี้ <code>baseUrl</code> ไปที่เซิร์ฟเวอร์ Ollama ของคุณ หากใช้ Ollama overlay ของ EDDI ค่าคือ <code>http://ollama:11434</code>',
+		authJlama: 'Jlama ไม่ต้องใช้คีย์: โมเดลรันภายใน JVM ของ EDDI และดาวน์โหลดจาก Hugging Face เมื่อใช้งานครั้งแรก',
+		tipsTitle: 'หมายเหตุสำหรับ EDDI',
+		relatedTitle: 'โมเดลที่เกี่ยวข้อง',
+		sourcesTitle: 'แหล่งที่มา',
+		sourcesDesc:
+			'ข้อมูลในหน้านี้มาจากเอกสารของผู้ผลิต ตรวจสอบเมื่อ {date} โมเดลเปลี่ยนแปลงเร็ว จึงควรยืนยันขีดจำกัดกับผู้ผลิตก่อนนำไปใช้ ราคาไม่ได้แสดงไว้ที่นี่: ดูหน้าราคาของผู้ผลิต',
+		docsLink: 'เอกสารของผู้ผลิต',
+		pricingLink: 'ราคา',
+		copy: 'คัดลอก',
+		copied: 'คัดลอกแล้ว',
+		modality: { text: 'ข้อความ', image: 'รูปภาพ', video: 'วิดีโอ', audio: 'เสียง', pdf: 'PDF' },
+		category: { frontier: 'ระดับแนวหน้า', fast: 'เร็วและต้นทุนต่ำ', open: 'Open weights', local: 'รันในเครื่องได้' },
+	},
+
+	// ─── What's New ─────────────────────────────────────────────
+	whatsNew: {
+		title: `มีอะไรใหม่ใน ${EDDI_LATEST_VERSION}`,
+		metaTitle:
+			`มีอะไรใหม่ใน EDDI ${EDDI_LATEST_VERSION}: ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย การนำเข้าความรู้ และการย้ายตามเวอร์ชัน`,
+		description:
+			`EDDI ${EDDI_LATEST_VERSION} เพิ่มผู้ให้บริการ LLM ระดับเฟิร์สคลาสแปดราย ฐานความรู้ที่ครอลเว็บไซต์และนำเข้าไฟล์ บทสนทนาที่ย้ายตามเวอร์ชันเอเจนต์ที่เข้ากันได้ และมุมมองสดของการสนทนากลุ่ม`,
+		heroBadge: `รุ่น ${EDDI_LATEST_VERSION}`,
+		heroTitle: 'มีอะไรใหม่ใน',
+		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroDesc: 'ไฮไลต์ของรุ่นนี้ แต่ละอย่างมีไว้เพื่ออะไร และอ่านเพิ่มเติมได้ที่ไหน',
+		sections: [
+			{ icon: '🧭', title: `ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย`, desc: 'xAI Grok, DeepSeek, Moonshot Kimi, Alibaba Qwen, Z.ai GLM, MiniMax, OpenRouter และ Groq ต่างได้ type ของตัวเอง สิ่งเดียวที่คุณต้องกำหนดคือคีย์: endpoint, region, โมเดลเริ่มต้น และลักษณะเฉพาะด้านการใช้เหตุผลของแต่ละผู้ผลิตมาจาก preset และ Manager รวมผู้ให้บริการทั้งหมดไว้ในตัวเลือกเดียว', link: '/models/', linkText: 'ดูแคตตาล็อกโมเดล' },
+			{ icon: '📚', title: 'ฐานความรู้ที่เติมข้อมูลเอง', desc: 'ชี้ฐานความรู้ไปที่เว็บไซต์ แล้ว EDDI จะครอลภายในขอบเขตของ robots.txt หรือใส่ไฟล์ PDF, Word, Excel, PowerPoint และไฟล์ข้อความ แหล่งข้อมูลทำงานตามกำหนดเวลา ข้ามสิ่งที่ไม่เปลี่ยน ลบสิ่งที่หายไป และเก็บประวัติของทุกการรัน', link: '/features/rag/', linkText: 'ฐานความรู้และ RAG' },
+			{ icon: '🔁', title: 'อัปเกรดโดยที่บทสนทนาไม่สะดุด', desc: 'บันทึกเอเจนต์เวอร์ชันใหม่ให้เข้ากันได้กับเวอร์ชันก่อน แล้วบทสนทนาที่กำลังดำเนินอยู่จะไปต่อบนเวอร์ชันนั้นแทนที่จะถูกปิด ก่อน deploy ตัว Manager จะแสดงว่าการ deploy ส่งผลอย่างไรกับบทสนทนาบนเวอร์ชันอื่นทุกเวอร์ชัน', link: '/features/config-as-code/', linkText: 'Configuration-as-code' },
+			{ icon: '🗳️', title: 'ติดตามการสนทนาแบบเรียลไทม์', desc: 'แดชบอร์ดสำหรับการสนทนากลุ่มที่กำลังดำเนินอยู่: จุดยืนปัจจุบันของสมาชิกแต่ละคน ต้นทุนสด การเสนอตัว และเทิร์นแบบกำหนดทิศทาง พร้อมตัวสลับไปดูรอบก่อนหน้า การลงคะแนนที่ปฏิเสธข้อเสนอจะจบลงเป็นการตัดสินใจที่ถูกปฏิเสธ ไม่ใช่ความล้มเหลว', link: '/features/multi-agent/', linkText: 'การประสานงานหลายเอเจนต์' },
+			{ icon: '🤝', title: 'การแชร์ที่คนใช้งานได้จริง', desc: 'แชร์ให้บุคคลด้วยชื่อจากไดเรกทอรีของผู้ใช้ที่ลงชื่อเข้าใช้แล้ว และผู้รับจะได้รับการแจ้งเตือน ลิงก์ไปยังสิ่งที่คุณเปิดไม่ได้จะให้คุณขอสิทธิ์เข้าถึงจากเจ้าของ ผู้แก้ไขเก็บคีย์ของตัวเองไว้ในพื้นที่ทำงานได้ และหน้ารีวิวแสดงทุกสิ่งที่ถูกแชร์', link: '/features/manager/', linkText: 'EDDI Manager' },
+			{ icon: '📊', title: 'การดำเนินงานและการสังเกตการณ์', desc: 'ทุกการเรียก LLM รายงาน latency, token และข้อผิดพลาดบนทุกผู้ให้บริการ MCP client ลงชื่อเข้าใช้เองผ่าน OAuth แชทแสดงว่าเอเจนต์กำลังใช้เครื่องมือใดในขณะนั้น และผู้เรียกสามารถมอบ credential ให้เอเจนต์ใช้ได้เพียงเทิร์นเดียว', link: '/features/observability/', linkText: 'Observability' },
+		],
+		alsoTitle: 'สิ่งอื่นในรุ่นนี้',
+		alsoItems: [
+			'รอบตรวจสอบความปลอดภัยที่แก้ไขราว 30 จุด ครอบคลุม template injection, คำขอขาออก, คีย์ vault, ขอบเขตของ secret, การอนุญาตในพื้นที่ทำงาน และตัวตนของช่องทาง โดยแต่ละจุดมี regression test',
+			'การส่งออกเอเจนต์และการซิงค์ระหว่างอินสแตนซ์นำ parser dictionary ไปพร้อมกับเอเจนต์ และการซิงค์รายงานว่าทำอะไรไปบ้าง',
+			'Claude 5.5 และ GPT-6 ในรายการโมเดลแนะนำของ Manager',
+			'แก้ไขการบูตครั้งแรกหลังอัปเกรดจาก EDDI 5 และการแก้ไขเล็กๆ อีกมากใน Manager, Chat UI และเอนจิน',
+		],
+		upgradeTitle: 'อัปเกรด',
+		upgradeDesc: 'หากคุณติดตั้งด้วยตัวติดตั้งแบบคำสั่งเดียว คำสั่งเดียวจะดึงอิมเมจใหม่และรีสตาร์ท EDDI:',
+		releaseNotes: 'บันทึกประจำรุ่นฉบับเต็มบน GitHub',
 	},
 	pages: {
 		manager: {
@@ -428,6 +571,17 @@ const th: TranslationSchema = {
 				'<strong>Platform Operator และ Agent Wizard</strong> อธิบายเอเจนต์ผ่านการสนทนาหรือกรอกแบบฟอร์ม ทุกการเขียนข้อมูลที่ operator เสนอจะรอการอนุมัติจากคุณ',
 				'<strong>Workspaces และการแชร์</strong> ตัวสลับพื้นที่ทำงาน, หน้าต่างแชร์สำหรับทุกทรัพยากร, ป้ายแสดงความเป็นเจ้าของ และการดำเนินการที่จำกัดตามระดับสิทธิ์ของคุณ',
 				'<strong>Connections</strong> สร้างและแก้ไขการเชื่อมต่อไปยังระบบภายนอก และเชื่อมโยงบัญชี OAuth ของคุณเอง',
+				'<strong>ภาพรวมการสนทนาสด</strong> ดูการสนทนากลุ่มในรูปแดชบอร์ด พร้อมจุดยืนปัจจุบันของสมาชิกแต่ละคน ต้นทุนสด การเสนอตัว และเทิร์นแบบกำหนดทิศทาง รวมถึงตัวสลับไปดูรอบก่อนหน้า',
+				'<strong>แหล่งข้อมูลของฐานความรู้</strong> เพิ่มเว็บไซต์หรือวางไฟล์ลงในฐานความรู้ สั่งรันหรือดูตัวอย่างการนำเข้า และอ่านประวัติกับข้อผิดพลาดของแต่ละการรัน',
+				'<strong>การแชร์ที่คนใช้งานได้จริง</strong> แชร์ให้บุคคลด้วยชื่อ รับการแจ้งเตือนเมื่อมีคนแชร์บางอย่างให้คุณ และขอสิทธิ์เข้าถึงจากเจ้าของผ่านลิงก์ที่คุณเปิดไม่ได้',
+				'<strong>Version Markers</strong> บันทึกการเปลี่ยนแปลงให้เข้ากันได้กับเวอร์ชันก่อน และดูว่าการ deploy ส่งผลอย่างไรกับบทสนทนาที่กำลังดำเนินอยู่',
+			],
+			galleryTitle: 'มองเข้าไปข้างใน',
+			gallery: [
+				'แดชบอร์ด: สถานะแพลตฟอร์ม เอเจนต์ เวิร์กโฟลว์ และบทสนทนาล่าสุดในหน้าเดียว',
+				'การสนทนากลุ่มแบบ peer review พร้อมความเห็นของสมาชิกแต่ละคนและบทสรุปของผู้ดำเนินการ',
+				'Secrets Vault: คีย์ถูกเก็บแบบเข้ารหัสและอ้างอิงด้วยชื่อ ไม่แสดงเต็มเลย',
+				'Pipeline logs ของทุกเทิร์นในบทสนทนา สตรีมแบบสด',
 			],
 			heading3: 'สร้างสำหรับทีม',
 			para2: 'Manager ช่วยให้ผู้ที่ไม่ใช่นักพัฒนาปรับปรุงพฤติกรรมเอเจนต์ได้โดยไม่ต้องแตะ Java code',
@@ -451,7 +605,8 @@ const th: TranslationSchema = {
 			],
 			heading3: 'Open Standards ไม่ใช่ Proprietary APIs',
 			para2: 'EDDI agents ยัง<strong>ใช้ external MCP tools</strong>ได้ในระหว่างสนทนา กำหนดค่า MCP server endpoints แล้วเอเจนต์จะค้นพบและเรียกใช้เครื่องมืออัตโนมัติตามบริบทการสนทนา นอกจาก MCP แล้ว EDDI ยังใช้ <strong>A2A</strong> (Agent-to-Agent Protocol) สำหรับการสื่อสารข้ามแพลตฟอร์ม, <strong>OpenAPI 3.1</strong> สำหรับการสร้าง spec ดั้งเดิม, <strong>OAuth 2.0 / OIDC</strong> ผ่าน Keycloak และ <strong>SSE</strong> สำหรับการสตรีมแบบเรียลไทม์ ทั้งหมดเป็นมาตรฐานเปิด ไม่มีการล็อคผู้ขาย เอเจนต์ที่ deploy แล้วยังเข้าถึงได้ผ่าน <strong>OpenAI-compatible <code>/v1</code> API</strong> ทำให้ Open WebUI, <code>openai</code> SDK, LangChain และ LiteLLM คุยกับเอเจนต์ได้โดยตรง',
-			clientsNote: 'ใช้งานได้กับ Claude Desktop, Cursor, VS Code, Windsurf, Antigravity และ MCP-compatible client ใดก็ได้ ดู<a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">เอกสาร MCP</a> สำหรับคู่มือการตั้งค่า client',
+			clientsNote:
+				'ใช้งานได้กับ Claude Desktop, Cursor, VS Code, Windsurf, Antigravity และ MCP-compatible client ใดก็ได้ บนอินสแตนซ์ที่เปิดการยืนยันตัวตน client จะลงชื่อเข้าใช้เอง: <code>/mcp</code> ถูกประกาศเป็น protected resource ของ OAuth 2.0 (RFC 9728) และ Keycloak realm ที่มาพร้อมกันมี client <code>eddi-mcp</code> ที่รองรับ authorization code และ PKCE ดู<a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">เอกสาร MCP</a> สำหรับคู่มือการตั้งค่า client',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -469,6 +624,7 @@ const th: TranslationSchema = {
 				'<strong>Agent Sync</strong> การซิงค์แบบสดระหว่างอินสแตนซ์ด้วยการจับคู่โครงสร้าง การเปรียบเทียบเนื้อหา และการเลือกทรัพยากร ไม่ต้องใช้ ZIP เป็นตัวกลาง',
 				'<strong>Prompt Snippets</strong> บล็อก system prompt ที่ใช้ซ้ำได้และมีการจัดการเวอร์ชัน อ้างอิงเป็น <code>{{snippets.safety_rules}}</code> สร้าง prompt จากไลบรารีที่ใช้ร่วมกัน',
 				'<strong>Behavior Rules</strong> เอ็นจินลอจิก IF-THEN สำหรับการกำหนดเส้นทาง การจัดการ และการตัดสินใจลอจิกทางธุรกิจโดยไม่ต้องเขียนโค้ด',
+				'<strong>Version Following</strong> ทำเครื่องหมายเอเจนต์เวอร์ชันใหม่ว่าเข้ากันได้กับเวอร์ชันก่อน แล้วบทสนทนาที่เปิดอยู่จะไปต่อบนเวอร์ชันนั้นแทนที่จะถูกปิด Manager แสดงว่าการ deploy แต่ละครั้งส่งผลอย่างไรกับบทสนทนาที่กำลังดำเนินอยู่',
 			],
 			heading3: 'ประเภททรัพยากร',
 			para2:
@@ -500,19 +656,34 @@ const th: TranslationSchema = {
 				'<strong>การบันทึกที่ปลอดภัยต่อ PII</strong> การดำเนินการ GDPR บันทึกนามแฝง SHA-256 ไม่บันทึกตัวระบุผู้ใช้ดิบ',
 				'<strong>Sigstore Cosign</strong> การเซ็นอิมเมจคอนเทนเนอร์ OIDC แบบไม่ต้องใช้คีย์ ตรวจสอบเข้ารหัสว่าทุกอิมเมจ Docker ถูกสร้างโดย CI อย่างเป็นทางการ',
 				'<strong>Hardened Base Image</strong> runtime Red Hat UBI 10 ที่ตรึงด้วย digest เผยแพร่ในแคตตาล็อกที่ได้รับการรับรองของ Red Hat',
+				'<strong>Secret Context Values</strong> ผู้เรียกสามารถมอบ credential ให้เอเจนต์ที่ใช้ได้เพียงเทิร์นเดียว และไม่ถูกจัดเก็บหรือส่งกลับเลย',
+				'<strong>Restricted Runtime Templates</strong> เทมเพลตที่สร้างจากข้อมูล runtime จะเรนเดอร์บนเอนจินแบบจำกัด ไม่มีสิทธิ์เข้าถึงการกำหนดค่าหรือ bean และมีขีดจำกัดต่อการเรนเดอร์ ส่วนอินพุตของผู้ใช้จะถูกแทนค่าเป็นข้อมูลเสมอ ไม่ถูก parse เป็นเทมเพลต',
 			],
 			ciTitle: 'ไปป์ไลน์ความปลอดภัยอัตโนมัติ',
-			ciPara: 'ทุก push และ pull request จะถูกสแกนโดยเครื่องมือความปลอดภัยอัตโนมัติ 6 ตัว GitHub Actions ทั้งหมดถูกตรึงด้วย SHA เพื่อป้องกันการโจมตีห่วงโซ่อุปทาน:',
+			ciPara:
+				'ทุกการเปลี่ยนแปลงต้องผ่านเครื่องมือความปลอดภัยอัตโนมัติ โดย GitHub Action ทุกตัวถูกตรึงด้วย SHA เพื่อป้องกันการโจมตีห่วงโซ่อุปทาน:',
 			ciItems: [
 				'<strong>CodeQL</strong> การวิเคราะห์ SAST เชิงความหมายด้วยคิวรี <code>security-extended</code>',
 				'<strong>Trivy</strong> สแกน CVE สำหรับ dependency ระบบไฟล์และอิมเมจ Docker (บล็อกที่ CRITICAL/HIGH)',
 				'<strong>Gitleaks</strong> สแกนประวัติ Git เพื่อป้องกันการรั่วไหลของ secret และ credential',
-				'<strong>ZAP</strong> สแกน DAST API ต่ออิมเมจ Docker แบบสด',
+				'<strong>Dependency Review</strong> dependency ใหม่ที่มีช่องโหว่ที่ทราบแล้วจะถูกแจ้งเตือนใน pull request ที่เพิ่มเข้ามา',
 				'<strong>CycloneDX</strong> สร้าง SBOM เพื่อความโปร่งใสของห่วงโซ่อุปทาน',
-				'<strong>Jazzer</strong> การทดสอบ Fuzz แบบนำทางด้วย coverage สำหรับ parser ที่สำคัญด้านความปลอดภัย',
+				'<strong>ClusterFuzzLite ร่วมกับ Jazzer</strong> การทดสอบ Fuzz แบบนำทางด้วย coverage สำหรับ parser ที่สำคัญด้านความปลอดภัย',
+				'<strong>OpenSSF Scorecard</strong> ให้คะแนนแนวปฏิบัติด้านความปลอดภัยของห่วงโซ่อุปทานของ repository อย่างต่อเนื่อง',
+			],
+			evidenceTitle: 'ทำไมกฎจึงควรอยู่นอกโมเดล',
+			evidencePara:
+				'Prompt injection คือการโจมตีที่สำคัญที่สุดสำหรับเอเจนต์ที่ใช้เครื่องมือ ในเบนช์มาร์กหนึ่งของเอเจนต์ที่ใช้เครื่องมือ คำสั่งที่ซ่อนอยู่ในทิกเก็ตและ log ทำให้เอเจนต์ทำการที่ไม่ปลอดภัยถึง 82.5% ของครั้งเมื่อไม่มีการป้องกัน การป้องกันระดับ prompt ยังเหลือกรณีไม่ปลอดภัย 10 ถึง 26% มีเพียง policy gate ที่บังคับใช้ ณ จุดเรียกเครื่องมือเท่านั้นที่ลดลงเหลือศูนย์ โดยยังปล่อยการเปลี่ยนแปลงที่ได้รับอนุมัติผ่านไปได้ นี่คือเหตุผลที่ EDDI บังคับใช้กฎในเอนจิน ที่ขอบเขตของเครื่องมือ ซึ่งข้อความที่ถูกแทรกเข้ามาไม่สามารถโน้มน้าวให้ผ่านไปได้ <a href="/benchmarks/">หน้าหลักฐาน</a>รวบรวมงานวิจัยไว้',
+			hardeningTitle: 'บันทึกการเสริมความแข็งแกร่ง',
+			hardeningPara: 'งานด้านความปลอดภัยดำเนินไปอย่างต่อเนื่อง และเราเผยแพร่สิ่งที่พบ รอบล่าสุด:',
+			hardeningItems: [
+				'<strong>กันยายน 2026 (6.5.0)</strong> รอบตรวจสอบที่แก้ไขราว 30 จุด ครอบคลุม template injection, SSRF ในการเรียกขาออก, การจัดการคีย์ vault, ขอบเขตของ secret, การอนุญาตในพื้นที่ทำงาน, ตัวตนของช่องทาง และ UI ความปลอดภัยของ Manager โดยแต่ละจุดมี regression test',
+				'<strong>สิงหาคม 2026 (6.3.0)</strong> รวม credential ขาออกไว้ใต้ Connections ผลลัพธ์ของเครื่องมือระบุแหล่งที่มาและปกปิดข้อความที่มีลักษณะเป็นคำสั่ง และบังคับใช้การมอบสิทธิ์ vault ให้เอเจนต์',
+				'<strong>กรกฎาคม 2026 (6.2.0)</strong> แคชผลลัพธ์เครื่องมือแยกตามตัวตน ปกปิด secret ออกจาก live tool trace และการเปรียบเทียบ audit HMAC แบบ constant-time',
 			],
 			govTitle: 'การบูรณาการธรรมาภิบาลและการปฏิบัติตามข้อกำหนด',
-			govPara: 'ความสามารถด้านความปลอดภัยป้อนเข้าสู่<a href="/enterprise/compliance/">กรอบการปฏิบัติตามข้อกำหนด</a>ของ EDDI โดยตรง ร่องรอยการตรวจสอบที่เปลี่ยนแปลงไม่ได้เป็นไปตามข้อกำหนด EU AI Act (มาตรา 12-14) โครงสร้างพื้นฐานเดียวกันรองรับ GDPR, HIPAA, SOC 2 และกรอบกฎระเบียบ 15+ กรอบ',
+			govPara:
+				'ความสามารถด้านความปลอดภัยป้อนเข้าสู่<a href="/enterprise/compliance/">กรอบการปฏิบัติตามข้อกำหนด</a>ของ EDDI โดยตรง ร่องรอยการตรวจสอบที่เปลี่ยนแปลงไม่ได้รองรับข้อกำหนดการเก็บบันทึกของ EU AI Act (มาตรา 12) การติดตามไปป์ไลน์ให้ความโปร่งใสในการตัดสินใจของ AI (มาตรา 13) และ UI การจัดการช่วยให้มนุษย์กำกับดูแลได้พร้อมความสามารถในการหยุดฉุกเฉิน (มาตรา 14) โครงสร้างพื้นฐานเดียวกันรองรับ GDPR, HIPAA, SOC 2 และกรอบกฎระเบียบเพิ่มเติม 15+ กรอบ ทั้งหมดผ่าน API รวมเดียว',
 		},
 		performance: {
 			title: 'ประสิทธิภาพระดับองค์กร',
@@ -551,12 +722,16 @@ const th: TranslationSchema = {
 				'<strong>Coordinator Pattern</strong> delegate ให้ sub-agents',
 			],
 			heading3: 'การสนทนากลุ่มและการประสานงานขั้นสูง',
+			evidencePara:
+				'ทำไมต้องลงคะแนน ไม่ใช่แค่ถกเถียง? งานวิจัยเรื่องการถกเถียงแบบหลายเอเจนต์พบว่าการลงคะแนนเสียงข้างมากคือที่มาของผลลัพธ์ที่วัดได้ส่วนใหญ่ และเอเจนต์ที่มั่นใจและโน้มน้าวเก่งเพียงตัวเดียวก็ดึงทั้งกลุ่มไปสู่คำตอบที่ผิดได้ การลงคะแนนใน EDDI เป็นอิสระต่อกัน บันทึกความเห็นแย้งของฝ่ายที่แพ้ และสมาชิกแต่ละคนรันบนโมเดลต่างกันได้ <a href="/benchmarks/">หน้าหลักฐาน</a>มีงานวิจัยเหล่านี้',
 			para2: 'EDDI รองรับ<strong>การสนทนากลุ่มของหลายเอเจนต์</strong>พร้อมรูปแบบการสนทนาในตัว 7 แบบ, การลงคะแนนอย่างชัดเจน, ผลงานที่ใช้ร่วมกัน, ทีมถาวร, การสร้างเอเจนต์แบบไดนามิก, โครงสร้างกลุ่มซ้อน และ meta-agent ที่ควบคุมแพลตฟอร์มเอง:',
 			items2: [
 				'<strong>7 รูปแบบการสนทนา</strong> Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS) และ <strong>Negotiation</strong> (ข้อเสนอ, การยอมผ่อนปรน และผู้ชี้ขาด)',
 				'<strong>การลงคะแนน</strong> เฟสลงคะแนนเก็บบัตรลงคะแนนอย่างชัดเจน (เสียงข้างมากหรือแบบ approval, ถ่วงน้ำหนักได้, ต้องครบองค์ประชุม) และบันทึกการตัดสินใจพร้อมผลนับคะแนนทั้งหมดและความเห็นแย้งของฝ่ายเสียงข้างน้อย',
 				'<strong>Shared Artifacts และการเสนอตัวรับงาน</strong> สมาชิกร่วมกันแก้ไขผลงานที่ใช้ร่วมกันซึ่งผ่านการตรวจสอบความถูกต้อง และเสนอตัวรับงานแทนการถูกมอบหมายแบบวนรอบ',
 				'<strong>มนุษย์ในฐานะสมาชิก</strong> บุคคลได้เทิร์นจริงในการสนทนา ไม่ใช่แค่การอนุมัติ',
+				'<strong>ภาพรวมการสนทนาสด</strong> แดชบอร์ดของการสนทนาที่กำลังดำเนินอยู่ใน Manager และบอร์ด Workforce: จุดยืนปัจจุบันของสมาชิกแต่ละคน ต้นทุนสด การเสนอตัว และเทิร์นแบบกำหนดทิศทาง พร้อมตัวสลับไปดูรอบก่อนหน้า',
+				'<strong>การตัดสินใจที่อ่านเข้าใจได้</strong> การลงคะแนนที่ปฏิเสธข้อเสนอจะจบเป็น <code>REJECTED</code> ไม่ใช่ความล้มเหลว และ editor จะบอกเมื่อบทบาทในการถกเถียงเปลี่ยนบทสรุปให้เป็นคำตัดสิน',
 				'<strong>ทีมถาวร</strong> ทีมที่คงอยู่ต่อเนื่องพร้อม backlog, รอบเวลาแบบ cron, facilitator ที่มีขอบเขตการดำเนินการจำกัด และเฟส retro ที่สรุปบทเรียนเก็บไว้ในหน่วยความจำของทีม',
 				'<strong>เทมเพลตสำเร็จรูป</strong> ทีมวิจัย (research pod), ทีมบรรณาธิการ, คณะทำงานเฉพาะกิจด้านปฏิบัติการ, คณะกรรมการตัดสินใจ และโต๊ะเจรจาต่อรอง พร้อมให้สร้างใช้งานได้ทันที',
 				'<strong>เอเจนต์แบบไดนามิก</strong> เอเจนต์ในการสนทนา Task Force สามารถสร้าง, สรรหา, มอบหมาย และยุติ sub-agents ณ runtime พร้อม guardrails (provider/model whitelists, เพดานต่อการสนทนา, lifecycle policies)',
@@ -580,21 +755,27 @@ const th: TranslationSchema = {
 				'<strong>Prometheus Metrics</strong> เปิดเผย 50+ เมตริกที่ <code>/q/metrics</code> เป็น endpoint เมตริกมาตรฐาน',
 				'<strong>Grafana Dashboards</strong> dashboard สำเร็จรูปสำหรับทีมปฏิบัติการ และ dashboard Full Metrics Reference ที่มี panel สำหรับทุก meter ที่ลงทะเบียนไว้',
 				'<strong>การติดตาม OpenTelemetry</strong> การติดตามแบบกระจายต่อ task ผ่าน OTLP (Jaeger, Tempo, Datadog) พร้อม span สำหรับ task ID, ประเภท, การสนทนา และเอเจนต์',
+				'<strong>Per-Call LLM Telemetry</strong> latency, token อินพุตและเอาต์พุต และข้อผิดพลาดของทุกการเรียก LLM บนทุกผู้ให้บริการ ทั้งแบบสตรีมและไม่สตรีม พร้อม span ของ OpenTelemetry GenAI',
 				'<strong>CQRS Telemetry</strong> event-sourced ledger',
 			],
 		},
 		codeQuality: {
 			title: 'คุณภาพโค้ด',
-			description: '20,000+ เทสต์ไม่มีข้อผิดพลาด >90% coverage',
+			metaTitle: 'คุณภาพโค้ด Test Coverage และ CI Gates',
+			description:
+				`${TESTS} เทสต์ ผ่านทุกการ merge บังคับ instruction coverage >90% และ branch coverage >80% พร้อมเกต CodeQL, Checkstyle และ formatter ใน CI`,
 			heading1: 'ความเข้มงวดทางวิศวกรรม',
 			para1: 'EDDI รักษา<strong>คุณภาพโค้ดยอดเยี่ยม</strong>ผ่านการทดสอบ static analysis และ CI/CD quality gates',
 			heading2: 'เมทริกซ์คุณภาพ',
 			items: [
-				'<strong>20,000+ เทสต์</strong> unit, integration, E2E',
-				'<strong>ไม่มีข้อผิดพลาด</strong> CI สะอาดทุก build',
-				'<strong>Checkstyle Enforcement</strong> ศูนย์คำเตือน กฎเข้มงวดทุกบิลด์',
-				'<strong>MCP Tool Tests</strong> coverage ครบ 84 tools',
-				'<strong>CI/CD Quality Gates</strong> ป้องกัน regression',
+				`<strong>${TESTS} เทสต์</strong> unit, integration และ E2E รันครบทุก pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)`,
+				'<strong>Coverage Gate</strong> บิลด์จะล้มเหลวหาก instruction coverage ต่ำกว่า 90% หรือ branch coverage ต่ำกว่า 80% (JaCoCo)',
+				'<strong>Style Gates</strong> กฎ import ของ Checkstyle และ Eclipse formatter ทำให้บิลด์ล้มเหลว แทนที่จะแก้โค้ดลับหลังคุณ',
+				'<strong>CodeQL</strong> การวิเคราะห์เชิงความหมายของ Java backend และ React UI ทั้งสองตัวในทุกการเปลี่ยนแปลง',
+				'<strong>Fuzzing</strong> ClusterFuzzLite รัน Jazzer กับ parser ที่สำคัญด้านความปลอดภัย',
+				'<strong>OpenSSF</strong> <a href="https://www.bestpractices.dev/projects/12355" target="_blank" rel="noopener">ตรา Best Practices Gold</a> และ <a href="https://securityscorecards.dev/viewer/?uri=github.com/labsai/EDDI" target="_blank" rel="noopener">Scorecard</a> ที่เผยแพร่อย่างต่อเนื่อง',
+				'<strong>Supply Chain</strong> CycloneDX SBOM ทุกบิลด์ และลายเซ็น Sigstore แบบไม่ใช้คีย์บนอิมเมจรุ่นเผยแพร่',
+				`<strong>MCP Tool Tests</strong> coverage ครบ ${MCP_TOOLS} tools`,
 			],
 		},
 		aiReady: {
@@ -635,17 +816,22 @@ const th: TranslationSchema = {
 			para2: 'ได้รับแรงบันดาลใจจากงานวิจัยของ Anthropic เรื่องการรวมหน่วยความจำเบื้องหลัง Dream Cycles ของ EDDI ทำงานตาม<strong>ตารางเวลาที่กำหนดได้</strong>เพื่อรักษาคุณภาพหน่วยความจำ รายการเก่าจะถูกตัด ความขัดแย้งจะถูกตรวจพบและแก้ไข และข้อเท็จจริงจะถูกสรุป ทั้งหมดมีเพดานต้นทุนต่อการรัน',
 		},
 		rag: {
-			title: 'RAG การสร้างเนื้อหาเสริมด้วยการค้นหา',
-			description: '7 embedding providers, 6 vector stores, httpCall RAG และการนำเข้าเอกสารแบบอะซิงโครนัส การค้นหาความรู้ระดับองค์กรสำหรับ AI agents',
+			title: 'ฐานความรู้และ RAG',
+			metaTitle: 'ฐานความรู้และ RAG: ครอลเว็บไซต์และนำเข้าไฟล์สำหรับ AI เอเจนต์',
+			description:
+				`ชี้ฐานความรู้ไปที่เว็บไซต์ของคุณหรือใส่ไฟล์ของคุณ แล้ว EDDI จะอัปเดตให้ตามกำหนดเวลา ${EMBEDDING_PROVIDERS} embedding providers, ${VECTOR_STORES} vector stores และตัวเลือก httpCall แบบไม่ต้องมีโครงสร้างพื้นฐาน`,
 			heading1: 'การค้นหาความรู้ระดับองค์กร',
-			para1: 'EDDI มีไปป์ไลน์ <strong>Retrieval-Augmented Generation</strong> ที่สมบูรณ์พร้อมการรองรับหลาย embedding providers, vector stores และตัวเลือก RAG แบบไม่ต้องมีโครงสร้างพื้นฐานผ่าน HTTP calls',
+			para1:
+				'EDDI มีไปป์ไลน์ <strong>Retrieval-Augmented Generation</strong> ที่สมบูรณ์: ฐานความรู้ที่เติมข้อมูลเองจากเว็บไซต์หรือไฟล์ที่อัปโหลด การรองรับหลาย embedding providers และ vector stores แบบเนทีฟ และตัวเลือก RAG แบบไม่ต้องมีโครงสร้างพื้นฐานผ่าน HTTP calls',
 			heading2: 'ความสามารถ RAG',
 			items: [
-				'<strong>7 Embedding Providers</strong> OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
-				'<strong>6 Vector Stores</strong> pgvector, Chroma, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
+				'<strong>Web Crawler</strong> ครอลเว็บไซต์ภายในขอบเขตที่คุณกำหนด โดยเคารพ robots.txt, crawl delay และ sitemap ของเว็บไซต์ หน้าที่ไม่เปลี่ยนจะถูกข้ามในการรันครั้งถัดไป และหน้าที่ถูกลบจะถูกนำออกจากฐานความรู้',
+				'<strong>การนำเข้าไฟล์</strong> อัปโหลดไฟล์ PDF, Word, Excel, PowerPoint, ข้อความ, Markdown, CSV และ HTML แต่ละไฟล์จะถูกทำเครื่องหมายเป็น Indexed, Changed หรือ Not indexed',
+				'<strong>แหล่งข้อมูลตามกำหนดเวลา</strong> ทุกแหล่งข้อมูลรันตาม cron schedule ได้ พร้อมการดูตัวอย่าง ประวัติการรันที่มีตัวนับและข้อผิดพลาด และการล้างข้อมูล',
+				`<strong>${EMBEDDING_PROVIDERS} Embedding Providers</strong> OpenAI, Azure OpenAI, Ollama, Mistral, Amazon Bedrock, Cohere, Google Gemini, Google Vertex AI`,
+				`<strong>${VECTOR_STORES} Vector Stores</strong> pgvector, Chroma, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant`,
 				'<strong>httpCall RAG</strong> RAG แบบไม่ต้องมีโครงสร้างพื้นฐานผ่าน search API ใดก็ได้ (BM25, Elasticsearch, custom endpoints)',
-				'<strong>REST Ingestion API</strong> การนำเข้าเอกสารแบบอะซิงโครนัสพร้อมการติดตามสถานะและการประมวลผลแบบเป็นชุด',
-				'<strong>Hybrid Search</strong> รวมการค้นหาเวกเตอร์หนาแน่นกับการจับคู่คีย์เวิร์ดแบบเบาบางเพื่อการเรียกคืนที่ดีที่สุด',
+				'<strong>REST Ingestion API</strong> ส่งเอกสารเข้าเองเมื่อแหล่งข้อมูลแบบดึงไม่เหมาะ',
 			],
 			heading3: 'การปรับใช้แบบยืดหยุ่น',
 			para2: 'RAG เป็นแบบกำหนดค่าทั้งหมด เลือก embedding provider และ vector store ผ่านการกำหนดค่า JSON ไม่ต้องแก้โค้ด ตัวเลือก <code>httpCall RAG</code> ช่วยให้คุณใช้<strong>โครงสร้างพื้นฐานการค้นหาที่มีอยู่</strong> (Elasticsearch, Solr, custom APIs) ได้โดยไม่ต้อง deploy vector database แยกต่างหาก',
@@ -661,10 +847,11 @@ const th: TranslationSchema = {
 				'<strong>4 กลยุทธ์ความเชื่อมั่น</strong> Structured output, heuristic, judge model หรือไม่มี เลือกวิธีประเมินที่เหมาะกับกรณีใช้งาน',
 				'<strong>งบประมาณต่อสนทนา</strong> การติดตามต้นทุนอัตโนมัติพร้อมเพดานงบประมาณและการยกเลิกสนทนาเมื่อเกิน',
 				'<strong>เพดานต้นทุนต่อผู้เช่า</strong> งบประมาณรายเดือนต่อผู้เช่าพร้อมการบังคับใช้อัตโนมัติในการใช้งานแบบหลายผู้เช่า',
-				'<strong>12 LLM Providers</strong> OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Vertex AI, Ollama, Jlama, Hugging Face และ endpoint ที่เข้ากันได้กับ OpenAI',
+				`<strong>${LLM_PROVIDERS} LLM Providers</strong> ผสมรายใดก็ได้ใน cascade เดียว เช่น ชั้น Gemini Flash หรือ DeepSeek ไว้ด้านหน้า Claude หรือ GPT ดู<a href="/models/">แคตตาล็อกโมเดล</a>`,
 			],
 			heading3: 'วิธีการทำงาน',
-			para2: 'กำหนดค่า cascade chain ของโมเดลเรียงตามต้นทุน สำหรับแต่ละข้อความผู้ใช้ EDDI จะลองโมเดลถูกที่สุดก่อนและประเมินความเชื่อมั่น หากความเชื่อมั่นต่ำกว่าเกณฑ์จะเพิ่มระดับไปยังโมเดลถัดไปใน chain โดยอัตโนมัติ วิธีนี้สามารถ<strong>ลดต้นทุน LLM ได้สูงสุด 60-80%</strong> ในเวิร์กโหลดแบบหลายโมเดลทั่วไปที่คำถามส่วนใหญ่ง่ายพอสำหรับโมเดลขนาดเล็ก',
+			para2:
+				'กำหนดค่า cascade chain ของโมเดลเรียงตามต้นทุน สำหรับแต่ละข้อความผู้ใช้ EDDI จะลองโมเดลถูกที่สุดก่อนและประเมินความเชื่อมั่น หากความเชื่อมั่นต่ำกว่าเกณฑ์จะเพิ่มระดับไปยังโมเดลถัดไปใน chain โดยอัตโนมัติ การใช้งานจริงของรูปแบบนี้ที่เผยแพร่แล้วรายงาน<strong>ต้นทุน inference ลดลง 31% (เวิร์กโหลดโปรดักชัน 75,000 คำถาม) ถึง 58% (โครงการนำร่องในองค์กร 8 สัปดาห์)</strong> โดยคุณภาพคงเดิม คุณจะประหยัดได้เท่าไรขึ้นอยู่กับสัดส่วนคำถามง่ายของคุณ และราคาของแต่ละชั้นห่างกันเท่าใด: ดู<a href="/benchmarks/">หลักฐานและข้อจำกัด</a>',
 		},
 		humanInTheLoop: {
 			title: `การกำกับดูแลแบบมีมนุษย์ร่วมตัดสินใจ`,
@@ -679,6 +866,9 @@ const th: TranslationSchema = {
 				`<strong>การกำกับรายการเรียกใช้เครื่องมือ</strong>: การเรียกใช้เครื่องมือแต่ละครั้งกำหนดให้ต้องผ่านการอนุมัติจากมนุษย์ก่อนทำงานได้ รายการอนุญาตและรายการยกเว้นแบบ glob ระบุได้แม่นยำว่าสิ่งใดต้องผ่านการอนุมัติ ครอบคลุมเครื่องมือในตัว, HTTP, MCP, A2A, แบบไดนามิก และเครื่องมือหน่วยความจำ`,
 				`<strong>การอนุมัติเฟสของกลุ่ม</strong>: เฟสการอภิปรายแบบหลายเอเจนต์กำหนดให้ต้องมีการอนุมัติจากมนุษย์ได้ที่ระดับ <code>PHASE</code> หรือ <code>TASK</code> เพื่อไม่ให้กลุ่มข้ามจากการวางแผนไปสู่การลงมือโดยไม่มีการกำกับ`,
 			],
+			evidenceTitle: 'ด่านน้อย แต่วางถูกที่',
+			evidencePara:
+				'ด่านอนุมัติโดยมนุษย์ได้ผล: ในการศึกษาแบบควบคุมหนึ่ง ด่านตัดสินใจโดยมนุษย์ที่มีผลผูกพันสามด่านลดความล้มเหลวร้ายแรงในงานวิจัยที่ใช้ AI ช่วยจาก 72% เหลือ 16% แต่ความใส่ใจของผู้ตรวจมีจำกัด และเมื่อเกินจุดหนึ่ง การยกระดับมากขึ้นทำให้ระบบปลอดภัยน้อยลง ไม่ใช่มากขึ้น นี่คือเหตุผลที่ EDDI กำหนดระดับความเข้มงวดของการอนุมัติแยกตาม endpoint และตามเครื่องมือ ด้วยรายการอนุญาตและรายการยกเว้นแบบ glob เพื่อให้คนเห็นเฉพาะการตัดสินใจที่ต้องใช้มนุษย์จริงๆ <a href="/benchmarks/">หน้าหลักฐาน</a>มีงานวิจัยเหล่านี้',
 			timeoutTitle: `นโยบายหมดเวลา`,
 			timeoutPara: `มนุษย์ไม่ใช่บริการที่พร้อมใช้งานตลอดเวลา ทุกจุดอนุมัติจึงต้องประกาศว่าจะเกิดอะไรขึ้นเมื่อไม่มีใครตอบทันเวลา:`,
 			timeoutItems: [
@@ -718,6 +908,7 @@ const th: TranslationSchema = {
 		},
 		whyEddi: {
 			title: 'ทำไมต้อง EDDI?',
+			metaTitle: 'ทำไมต้อง EDDI: แพลตฟอร์ม AI เอเจนต์ระดับองค์กรแบบโฮสต์เอง',
 			description: 'Self-Hosted Enterprise AI Orchestration Platform',
 			heading1: 'ช่องว่างใน Enterprise Java',
 			para1: 'Enterprise Java <strong>ขาด Visual AI Orchestration Middleware</strong>',
@@ -751,15 +942,17 @@ const th: TranslationSchema = {
 				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready, Red Hat certified image' },
 			],
 			// LLM Providers
-			llmTitle: 'รองรับ 12 LLM Providers',
-			llmDesc: 'เชื่อมต่อกับ LLM provider หลักใดก็ได้ หรือใช้ของคุณเองผ่าน OpenAI-compatible endpoint',
+			llmTitle: `รองรับ ${LLM_PROVIDERS} LLM Providers`,
+			llmDesc:
+				'เชื่อมต่อกับ LLM provider หลักใดก็ได้ หรือใช้ของคุณเองผ่าน OpenAI-compatible endpoint <a href="/models/">แคตตาล็อกโมเดล</a>ครอบคลุมทุกตระกูลโมเดลและวิธีรัน',
 			llmHeaderCategory: 'หมวดหมู่',
 			llmHeaderProviders: 'ผู้ให้บริการ',
 			llmCategories: [
-				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'Model Labs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'OpenAI-Compatible', providers: 'xAI Grok · DeepSeek · Moonshot Kimi · Alibaba Qwen · Z.ai GLM · MiniMax · OpenRouter · Groq' },
 				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
-				{ category: 'Compatible', providers: 'OpenAI-compatible endpoint ใดก็ได้ (DeepSeek, Cohere ฯลฯ) ผ่าน baseUrl' },
+				{ category: 'อื่นๆ ทั้งหมด', providers: 'Cohere, Together, vLLM หรือเกตเวย์ขององค์กร ผ่าน type openai และ baseUrl' },
 			],
 			rfpTitle: '8 คำถามที่ CIO ทุกคนควรถาม',
 			rfpDesc: 'เมื่อประเมินแพลตฟอร์มการจัดการ AI Agent คำถามเหล่านี้คือสิ่งที่แยกโครงสร้างพื้นฐานระดับ production ออกจากโปรโตไทป์ที่เปราะบาง:',
@@ -771,7 +964,7 @@ const th: TranslationSchema = {
 				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },
 				{ category: 'Operations', question: 'Can non-developers use the platform?', eddiAnswer: 'EDDI Manager: production-ready React UI with visual agent building.' },
-				{ category: 'Portability', question: 'Can it run on-premises and air-gapped?', eddiAnswer: 'Docker-native. 12 LLM providers. Full air-gap via Ollama.' },
+				{ category: 'Portability', question: 'Can it run on-premises and air-gapped?', eddiAnswer: `Docker-native. ${LLM_PROVIDERS} LLM providers. Full air-gap via Ollama or Jlama.` },
 			],
 			tcoTitle: 'ต้นทุนรวมของการเป็นเจ้าของ: สร้างเอง vs. ปรับใช้',
 			tcoDesc: 'ต้นทุนแอบแฝงของการใช้ไลบรารี AI ไม่ใช่ตัวไลบรารีเอง แต่คือ<strong>โครงสร้างพื้นฐานที่มองไม่เห็น</strong>ที่ทีมต้องสร้างขึ้นรอบๆ มัน:',
@@ -794,11 +987,13 @@ const th: TranslationSchema = {
 				'ดูแลรักษาอย่างต่อเนื่องมาตั้งแต่ปี 2006 และเป็นโอเพนซอร์สตั้งแต่ปี 2018',
 			],
 			roiTitle: 'กรณีทางธุรกิจ',
-			roiPara: 'คุณค่าของ EDDI วัดจาก<strong>สิ่งที่ทีมไม่ต้องสร้างเอง</strong>: REST APIs, ระบบยืนยันตัวตน, โครงสร้างพื้นฐานการตรวจสอบ, UI จัดการ และเครื่องมือ compliance ที่มิฉะนั้นจะกินเวลาวิศวกรรมหลายเดือน เพียง model cascading อย่างเดียวก็สามารถลดต้นทุน LLM ได้สูงสุด 60-80% ในเวิร์กโหลดแบบหลายโมเดลทั่วไป โดยเราท์คำถามง่ายไปยังโมเดลที่ถูกกว่า และยกระดับไปยังโมเดลที่ทรงพลังเฉพาะเมื่อความเชื่อมั่นต่ำ',
+			roiPara:
+				'คุณค่าของ EDDI วัดจาก<strong>สิ่งที่ทีมไม่ต้องสร้างเอง</strong>: REST APIs, ระบบยืนยันตัวตน, โครงสร้างพื้นฐานการตรวจสอบ, UI จัดการ และเครื่องมือ compliance ที่มิฉะนั้นจะกินเวลาวิศวกรรมหลายเดือน model cascading ยังลดค่าใช้จ่าย LLM ลงได้อีกด้วยการเราท์คำถามง่ายไปยังโมเดลที่ถูกกว่า และยกระดับเฉพาะเมื่อความเชื่อมั่นต่ำ: การใช้งานจริงของรูปแบบนี้ที่เผยแพร่แล้วรายงานต้นทุน inference ลดลง 31 ถึง 58% โดยคุณภาพคงเดิม (<a href="/benchmarks/">หลักฐาน</a>)',
 			roiPara2: 'สำหรับอุตสาหกรรมที่มีการกำกับดูแล สมการต้นทุนยิ่งชัดเจนกว่า: ทางเลือกอื่นคือการนำระบบปฏิบัติตามข้อกำหนดแบบกำหนดเองที่ครอบคลุมกรอบกฎระเบียบ 15+ กรอบ',
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. ทางเลือก',
+			metaTitle: 'EDDI เทียบกับ Flowise, n8n, LangGraph, CrewAI และแพลตฟอร์ม AI บนคลาวด์',
 			description: 'เปรียบเทียบ EDDI กับ Spring AI, LangChain4j, Flowise, n8n',
 			heading1: 'Platform vs. Library vs. Builder',
 			para1: 'ตลาดการจัดการ AI มีสามรูปแบบ: <strong>ตัวสร้างโหนดวิชวล</strong>, <strong>ไลบรารีโค้ด</strong> และ <strong>แพลตฟอร์มคลาวด์</strong> EDDI เป็น<strong>แพลตฟอร์มมิดเดิลแวร์ที่ปรับใช้ได้</strong>',
@@ -844,6 +1039,8 @@ const th: TranslationSchema = {
 			{ framework: 'AutoGen', abstraction: 'Multi-party dialogues', learning: 'Low\u2013Moderate', state: 'Conversation history', production: 'Transitioning framework' },
 			{ framework: 'EDDI', abstraction: 'Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Persistent memory + dream consolidation', production: 'Fully packaged: OIDC/Keycloak, per-user workspaces, vault, audit trails, management UI, Kubernetes-ready' },
 			],
+			libraryComparisonNote:
+				'คำอธิบายเฟรมเวิร์กอ้างอิง ณ เดือนกันยายน 2026 โปรเจกต์เหล่านี้เปลี่ยนแปลงเร็ว จึงควรตรวจสอบเอกสารล่าสุดของแต่ละโปรเจกต์',
 
 			libraryPositioning: '<strong>ไลบรารีให้ตรรกะ EDDI ให้โครงสร้างพื้นฐาน</strong>',
 
@@ -855,8 +1052,8 @@ const th: TranslationSchema = {
 			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
 			cloudComparisonRows: [
 			{ dimension: 'Deployment', cloud: 'Locked to provider', eddi: 'Docker-native any environment' },
-			{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: '12 LLM providers + OpenAI-compatible' },
-			{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading reduces costs by up to 60\u201380% in typical multi-model workloads' },
+			{ dimension: 'Model Choice', cloud: 'Provider portfolio', eddi: `${LLM_PROVIDERS} LLM providers + OpenAI-compatible` },
+			{ dimension: 'Cost Control', cloud: 'Provider pricing', eddi: 'Model cascading routes easy queries to cheaper models; published deployments report 31 to 58% lower inference cost at held quality' },
 			{ dimension: 'Data Residency', cloud: 'Provider infrastructure', eddi: 'Full data sovereignty' },
 			{ dimension: 'Portability', cloud: 'Provider-specific APIs', eddi: 'MCP, A2A, OpenAPI, REST' },
 			{ dimension: 'Multi-Cloud', cloud: 'Difficult or impossible to span providers', eddi: 'Same Docker image deploys identically to any environment' },
@@ -867,9 +1064,11 @@ const th: TranslationSchema = {
 
 			ctaTitle: 'พร้อมที่จะเปรียบเทียบหรือยัง?',
 			ctaPara: 'ติดตั้ง EDDI ใน 5 นาที และประเมินกับสแต็กปัจจุบันของคุณ',
+			ctaButton: 'ติดตั้ง EDDI ใน 5 นาที',
 		},
 		compliance: {
 			title: 'ความเป็นส่วนตัวทั่วโลกและการปฏิบัติตามข้อกำหนด',
+			metaTitle: 'การปฏิบัติตามข้อกำหนดด้าน AI: EU AI Act, GDPR, HIPAA และกฎหมายความเป็นส่วนตัวทั่วโลก',
 			description:
 				'EDDI มีการปฏิบัติตามข้อกำหนดในตัวสำหรับ GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA PDPA มาเลเซีย, PIPL และอื่นๆ พร้อมการลบข้อมูลแบบ Cascade, Cryptographic Audit Trails และ API รวม',
 			heading1: 'การปฏิบัติตามข้อกำหนดจากสถาปัตยกรรม',
@@ -909,7 +1108,7 @@ const th: TranslationSchema = {
 			],
 			privacyHeading: 'กฎหมายความเป็นส่วนตัวของข้อมูล',
 			privacyIntro:
-				'EDDI ให้<strong>จุดเชื่อมต่อสิทธิ์เจ้าของข้อมูลรวม</strong>ที่ตอบสนองข้อกำหนดทางเทคนิคของกฎหมายความเป็นส่วนตัวหลักทุกฉบับทั่วโลก API เดียวครอบคลุมการลบแบบ cascade, การส่งออกข้อมูลเต็ม และข้อจำกัดการประมวลผล ไม่ว่าเขตอำนาจศาลใด',
+				'EDDI ให้<strong>จุดเชื่อมต่อสิทธิ์เจ้าของข้อมูลรวม</strong>ที่ให้การควบคุมทางเทคนิคเบื้องหลังสิทธิ์ของเจ้าของข้อมูลในทุกเขตอำนาจศาลที่ระบุด้านล่าง API เดียวครอบคลุมการลบแบบ cascade, การส่งออกข้อมูลเต็ม และข้อจำกัดการประมวลผล ไม่ว่าเขตอำนาจศาลใด',
 			gdprHeading: 'GDPR สหภาพยุโรป / EEA',
 			gdprPara:
 				'General Data Protection Regulation (EU 2016/679) เป็นมาตรฐานทองของความเป็นส่วนตัวข้อมูล EDDI ดำเนินการสิทธิ์เจ้าของข้อมูล GDPR เป็น<strong>API endpoints ระดับ first-class</strong> สนับสนุนด้วยการดำเนินการ cascade ข้ามทั้ง 5 data stores:',
@@ -923,7 +1122,7 @@ const th: TranslationSchema = {
 			],
 			ccpaHeading: 'CCPA / CPRA แคลิฟอร์เนีย สหรัฐอเมริกา',
 			ccpaPara:
-				'California Consumer Privacy Act และ California Privacy Rights Act ให้สิทธิ์ผู้บริโภคในการรับรู้ ลบ และปฏิเสธการขายข้อมูล EDDI ตอบสนองข้อกำหนดทางเทคนิค CCPA ผ่าน GDPR-compatible API:',
+				'California Consumer Privacy Act และ California Privacy Rights Act ให้สิทธิ์ผู้บริโภคในการรับรู้ ลบ และปฏิเสธการขายข้อมูล EDDI รองรับสิทธิ์ของผู้บริโภคเหล่านี้ผ่าน GDPR-compatible API:',
 			ccpaItems: [
 				'<strong>สิทธิ์ในการรับรู้ (§1798.100)</strong> GDPR export endpoint ให้ข้อมูลส่วนบุคคลทั้งหมดในรูปแบบ structured, machine-readable',
 				'<strong>สิทธิ์ในการลบ (§1798.105)</strong> GDPR erasure endpoint ให้การลบ cascade ข้าม data stores ทั้งหมด',
@@ -942,7 +1141,7 @@ const th: TranslationSchema = {
 			],
 			lgpdHeading: 'LGPD บราซิล',
 			lgpdPara:
-				'Lei Geral de Proteção de Dados ของบราซิล (2018, มีผลบังคับ 2020) ให้สิทธิ์เจ้าของข้อมูลอย่างกว้างขวางสอดคล้องกับ GDPR EDDI ครอบคลุมสิทธิ์มาตรา 18 ทั้งหมดด้วยความสามารถทางเทคนิคในตัว:',
+				'Lei Geral de Proteção de Dados ของบราซิล (2018, มีผลบังคับ 2020) ให้สิทธิ์เจ้าของข้อมูลอย่างกว้างขวางสอดคล้องกับ GDPR EDDI มีกลไกทางเทคนิคสำหรับสิทธิ์ตามมาตรา 18:',
 			lgpdItems: [
 				'<strong>การเข้าถึงข้อมูล (มาตรา 18, II)</strong> การส่งออกข้อมูล JSON เต็ม',
 				'<strong>การแก้ไข (มาตรา 18, III)</strong> User memories อัปเดตได้ผ่าน <code>PUT /usermemorystore/memories</code>',
@@ -958,7 +1157,7 @@ const th: TranslationSchema = {
 				'<strong>มาตรการรักษาความปลอดภัย (มาตรา 23)</strong> AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
 				'<strong>การเปิดเผยต่อเจ้าของข้อมูล (มาตรา 33)</strong> การส่งออกข้อมูลเต็มผ่าน REST API',
 				'<strong>การแก้ไขและการลบ (มาตรา 34-35)</strong> Memory updates สำหรับการแก้ไข; cascade deletion สำหรับการลบ',
-				'<strong>Pseudonymized Information (แก้ไข 2022)</strong> GDPR erasure ใช้ SHA-256 pseudonymization ตอบสนองหมวด pseudonymized information ของ APPI',
+				'<strong>Pseudonymized Information (แก้ไข 2022)</strong> GDPR erasure ใช้ SHA-256 pseudonymization รองรับหมวด pseudonymized information ของ APPI',
 				'<strong>Cross-Border Transfer Documentation (มาตรา 28)</strong> LLM provider data flows ถูกจัดทำเอกสาร; audit trail บันทึกว่า model/provider ใดประมวลผลแต่ละ turn',
 			],
 			popiaHeading: 'POPIA แอฟริกาใต้',
@@ -1003,13 +1202,13 @@ const th: TranslationSchema = {
 			],
 			otherRegionsHeading: 'เขตอำนาจศาลเพิ่มเติม',
 			otherRegionsPara:
-				'โครงสร้างพื้นฐานการคุ้มครองข้อมูลของ EDDI เป็นไปตามมาตรฐานสากล เขตอำนาจศาลต่อไปนี้ก็ได้รับการสนับสนุนผ่าน API รวมเดียวกัน:',
+				'โครงสร้างพื้นฐานการคุ้มครองข้อมูลของ EDDI ถูกออกแบบโดยยึดมาตรฐานสากล เขตอำนาจศาลต่อไปนี้ก็ได้รับการสนับสนุนผ่าน API รวมเดียวกัน:',
 			otherRegionsItems: [
-				'<strong>UK GDPR</strong> (สหราชอาณาจักร) สะท้อน EU GDPR อย่างสำคัญ; GDPR endpoints ของ EDDI ตอบสนองสิทธิ์เจ้าของข้อมูล UK GDPR ทั้งหมด กำกับดูแลโดย ICO',
+				'<strong>UK GDPR</strong> (สหราชอาณาจักร) สะท้อน EU GDPR อย่างสำคัญ; GDPR endpoints ของ EDDI ครอบคลุมสิทธิ์เจ้าของข้อมูลตาม UK GDPR กำกับดูแลโดย ICO',
 				'<strong>PIPA</strong> (เกาหลีใต้) ข้อกำหนดความยินยอมเข้มงวด, DPO บังคับ, แจ้งเตือนการละเมิด 72 ชั่วโมง EDDI ให้โครงสร้างพื้นฐาน audit และ erasure ทางเทคนิค',
-				'<strong>DPDPA</strong> (อินเดีย, 2023) กรอบงานตามความยินยอมพร้อมข้อจำกัดข้ามพรมแดน Export และ erasure endpoints ของ EDDI ตอบสนองข้อกำหนด DPDPA',
+				'<strong>DPDPA</strong> (อินเดีย, 2023) กรอบงานตามความยินยอมพร้อมข้อจำกัดข้ามพรมแดน Export และ erasure endpoints ของ EDDI รองรับสิทธิ์ของเจ้าของข้อมูล (data principal) ตาม Digital Personal Data Protection Act',
 				'<strong>Privacy Act + APPs</strong> (ออสเตรเลีย) 13 Australian Privacy Principles Audit trail และ data export ของ EDDI ครอบคลุมข้อผูกพันทางเทคนิค',
-				'<strong>กฎหมายรัฐรูปแบบ CCPA</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA ฯลฯ) GDPR/CCPA-compatible API ตอบสนองกฎหมายความเป็นส่วนตัวของรัฐ US ที่เกิดขึ้นใหม่ทั้งหมด',
+				'<strong>กฎหมายรัฐรูปแบบ CCPA</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA ฯลฯ) GDPR/CCPA-compatible API รองรับสิทธิ์ในการเข้าถึงและการลบที่กฎหมายเหล่านี้ให้ไว้',
 			],
 			industryHeading: 'การปฏิบัติตามข้อกำหนดเฉพาะอุตสาหกรรม',
 			hipaaHeading: 'HIPAA การแพทย์สหรัฐอเมริกา',
@@ -1045,17 +1244,18 @@ const th: TranslationSchema = {
 			],
 			heading3: 'สร้างสำหรับอุตสาหกรรมที่ถูกกำกับดูแลทั่วโลก',
 			para2:
-				'การแพทย์ บริการทางการเงิน ภาครัฐ การผลิต และภาคส่วนที่ถูกกำกับดูแลอื่นๆ สามารถ deploy EDDI ได้อย่างมั่นใจ แพลตฟอร์มให้ความโปร่งใส ความสามารถในการตรวจสอบ และกลไกควบคุมที่กำหนดโดยกรอบงานกำกับดูแล 15+ กรอบ ตั้งแต่ EU AI Act และ GDPR ในยุโรป ไปจนถึง HIPAA ในสหรัฐอเมริกา PIPEDA ในแคนาดา LGPD ในบราซิล APPI ในญี่ปุ่น POPIA ในแอฟริกาใต้ PDPA ในเอเชียตะวันออกเฉียงใต้ PDPA ของมาเลเซีย และ PIPL ของจีน การปฏิบัติตามข้อกำหนดไม่ใช่ความคิดภายหลัง เป็นรากฐานสถาปัตยกรรม',
+				'การแพทย์ บริการทางการเงิน ภาครัฐ การผลิต และภาคส่วนที่ถูกกำกับดูแลอื่นๆ สามารถ deploy EDDI บนรากฐานทางเทคนิคที่มั่นคง แพลตฟอร์มให้ความโปร่งใส ความสามารถในการตรวจสอบ และกลไกควบคุมที่กรอบงานกำกับดูแล 15+ กรอบต้องการ ตั้งแต่ EU AI Act และ GDPR ในยุโรป ไปจนถึง HIPAA ในสหรัฐอเมริกา PIPEDA ในแคนาดา LGPD ในบราซิล APPI ในญี่ปุ่น POPIA ในแอฟริกาใต้ PDPA ในเอเชียตะวันออกเฉียงใต้ PDPA ของมาเลเซีย และ PIPL ของจีน การปฏิบัติตามข้อกำหนดไม่ใช่ความคิดภายหลัง เป็นรากฐานสถาปัตยกรรม',
 		},
 		// ─── Track Record ─────────────────────────────────────
 		trust: {
 			title: 'ผลงาน',
+			metaTitle: 'ผลงานที่ผ่านมา: การสนับสนุนจากสถาบันและการใช้งานจริงในโปรดักชัน',
 			description: 'EDDI ได้รับการสนับสนุนจากการวิจัยที่ได้รับทุนจากรัฐบาล ถูกนำไปใช้งานในระบบผลิตภัณฑ์ขององค์กร และได้รับการรับรองจากสถาบันการศึกษาในยุโรป พร้อมการรับรอง OpenSSF, Codacy และ Red Hat',
 			heroTitle: 'ระดับองค์กร',
 			heroHighlight: 'พิสูจน์โดยชุมชน',
 			heroDesc: 'EDDI ไม่ใช่โปรเจกต์สุดสัปดาห์ ได้รับการสนับสนุนจาก<strong>การวิจัยที่ได้รับทุนจากรัฐบาล</strong> ถูกนำไปใช้ใน<strong>ระบบผลิตภัณฑ์ขององค์กร</strong> และได้รับการรับรองจาก<strong>สถาบันการศึกษาในยุโรป</strong>',
 			statPulls: 'Docker Pulls',
-			statTests: 'การทดสอบ · 0 ล้มเหลว',
+			statTests: 'การทดสอบ · ผ่านใน CI',
 			statProviders: 'ผู้ให้บริการ LLM',
 			statCertified: 'Red Hat รับรอง',
 			timelineTitle: 'สองทศวรรษแห่งวิศวกรรม',
@@ -1072,7 +1272,7 @@ const th: TranslationSchema = {
 				{ year: '2021', text: 'Online Chatbot Hackathon กิจกรรมเสมือนสำหรับการพัฒนาแชทบอทเพื่อการศึกษา' },
 				{ year: '2023', text: 'EDDI เพิ่ม<strong>การเชื่อมต่อ LLM</strong> เชื่อมต่อกับโมเดลภาษาขนาดใหญ่สมัยใหม่ผ่าน LangChain4j' },
 				{ year: '2025', text: 'EDDI ปรับตัวเข้ากับ<strong>เวิร์กโฟลว์เอเจนต์</strong> การกำหนดเส้นทางตามเจตนา การสนทนาที่จัดการ และการจัดการหลายเอเจนต์' },
-				{ year: '2026', text: '<strong>v6</strong> 84 เครื่องมือ MCP, โปรโตคอล A2A, รูปแบบการสนทนา 7 แบบพร้อมการลงคะแนนและสมาชิกที่เป็นมนุษย์, Platform Operator, พื้นที่ทำงานรายผู้ใช้, API ที่เข้ากันได้กับ OpenAI, model cascading' },
+				{ year: '2026', text: `<strong>v6</strong> ${MCP_TOOLS} เครื่องมือ MCP, โปรโตคอล A2A, รูปแบบการสนทนา 7 แบบพร้อมการลงคะแนนและสมาชิกที่เป็นมนุษย์, Platform Operator, พื้นที่ทำงานรายผู้ใช้, API ที่เข้ากันได้กับ OpenAI, model cascading, ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย และฐานความรู้ที่ครอลเว็บไซต์และนำเข้าไฟล์` },
 				{ year: '2026', text: 'ได้รับเลือกเป็น<strong>พันธมิตรที่ไว้วางใจ UNIDO</strong> สำหรับ AI อุตสาหกรรมเพื่อกลุ่มประเทศกำลังพัฒนา' },
 			],
 			institutionsTitle: 'สนับสนุนโดยสถาบัน',
@@ -1098,20 +1298,20 @@ const th: TranslationSchema = {
 
 			devTrustTitle: 'ตรวจสอบโดยชุมชน',
 			devTrustDesc: 'ทุกสัญญาณความน่าเชื่อถือเป็นแบบเรียลไทม์ อัตโนมัติ และตรวจสอบได้อย่างอิสระ',
-			devOpenSSF: 'OpenSSF Gold',
-			devOpenSSFDesc: 'การรับรองความปลอดภัยและคุณภาพระดับสูงสุดของ Linux Foundation',
+			devOpenSSF: 'OpenSSF Best Practices: Gold',
+			devOpenSSFDesc: 'ตรา Gold ระดับสูงสุดของโครงการ OpenSSF Best Practices (Linux Foundation)',
 			devScorecard: 'OpenSSF Scorecard',
 			devScorecardDesc: 'การให้คะแนนความปลอดภัยห่วงโซ่อุปทานอัตโนมัติโดย Linux Foundation',
 			devCodacy: 'Codacy Code Quality',
 			devCodacyDesc: 'การวิเคราะห์โค้ดอัตโนมัติโดยบุคคลที่สาม',
 			devDocker: 'Docker Hub',
-			devDockerDesc: 'ยอดดึงใช้งานจริงหลายแสนครั้ง',
+			devDockerDesc: `ยอดดึง ${DOCKER_PULLS} ครั้งบน Docker Hub`,
 			devCI: 'CI ผ่าน',
 			devCIDesc: 'การตรวจสอบ build อัตโนมัติทุกการ commit',
 			devCodeQL: 'CodeQL สะอาด',
 			devCodeQLDesc: 'การสแกนช่องโหว่ความปลอดภัยของ GitHub',
 			devTests: '20,000+ การทดสอบ',
-			devTestsDesc: 'ล้มเหลวเป็นศูนย์ บังคับใช้ทุกการ merge',
+			devTestsDesc: 'ทุกเทสต์ต้องผ่านก่อนทุกการ merge',
 			devIntegration: '70 ชุดทดสอบการรวม',
 			devIntegrationDesc: 'การตรวจสอบ REST API แบบ full-stack ด้วยฐานข้อมูลจริง',
 			devE2E: '30+ ชุดทดสอบ E2E',
@@ -1151,8 +1351,9 @@ const th: TranslationSchema = {
 			solCard2Desc: 'ไม่มีค่าลิขสิทธิ์ โปร่งใสเต็มที่ ไม่มีการผูกมัดกับ vendor องค์กรสามารถตรวจสอบ ปรับแต่ง และขยายแพลตฟอร์มได้โดยไม่ต้องจ่ายค่าลิขสิทธิ์องค์กร สำคัญสำหรับเศรษฐกิจเกิดใหม่',
 			solCard3Title: 'ขับเคลื่อนด้วยการกำหนดค่า',
 			solCard3Desc: 'AI Agent ถูกกำหนดผ่านการกำหนดค่า JSON ไม่ใช่โค้ดที่คอมไพล์แล้ว Prompt Engineer และผู้เชี่ยวชาญด้านโดเมนสามารถสร้างและปรับปรุงได้โดยไม่ต้องมีความเชี่ยวชาญด้านการเขียนโปรแกรมเชิงลึก ลดอุปสรรคในการนำ AI มาใช้',
-			solCard4Title: '12 ผู้ให้บริการ LLM',
-			solCard4Desc: 'ทำงานร่วมกับโมเดลท้องถิ่น (Ollama), โมเดลโอเพนซอร์ส และ endpoint ที่เข้ากันได้กับ OpenAI ไม่ผูกมัดกับ API ของสหรัฐอเมริกา รองรับการใช้โมเดลภาษาในภูมิภาคและที่โฮสต์เองในท้องถิ่น',
+			solCard4Title: `ผู้ให้บริการ LLM ${LLM_PROVIDERS} ราย`,
+			solCard4Desc:
+				'ทำงานร่วมกับโมเดลท้องถิ่น (Ollama, Jlama), โมเดล open-weight, ผู้ให้บริการระดับภูมิภาคอย่าง Qwen, GLM, Kimi และ DeepSeek และ endpoint ที่เข้ากันได้กับ OpenAI ไม่ผูกมัดกับ API ของสหรัฐอเมริกาเท่านั้น',
 
 			// What this means
 			whatTitle: 'สิ่งนี้หมายความว่าอะไร',

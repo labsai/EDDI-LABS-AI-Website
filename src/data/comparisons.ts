@@ -205,7 +205,7 @@ export const COMPARISONS: Comparison[] = [
 			{
 				dimension: 'RAG',
 				them: 'Broad loader and vector store selection, configured per flow',
-				eddi: '7 embedding providers, 6 vector stores, plus zero-infrastructure httpCall RAG',
+				eddi: '8 embedding providers, 6 vector stores, plus zero-infrastructure httpCall RAG',
 			},
 			{
 				dimension: 'Custom logic',
@@ -255,7 +255,7 @@ export const COMPARISONS: Comparison[] = [
 			{ from: 'Chatflow', to: 'EDDI package, exportable as a ZIP with secrets automatically scrubbed' },
 			{ from: 'Document loaders and splitters', to: 'EDDI RAG document ingestion configuration' },
 			{ from: 'Vector store node', to: 'One of 6 supported vector stores, selected by configuration' },
-			{ from: 'Embedding node', to: 'One of 7 embedding providers' },
+			{ from: 'Embedding node', to: 'One of 8 embedding providers' },
 			{ from: 'Chat model node', to: `LLM configuration across ${LLM_PROVIDERS} providers, with model cascading available` },
 			{ from: 'Custom Function node', to: 'Behavior rules, prompt snippets, or a declared MCP tool' },
 			{ from: 'Memory node', to: 'EDDI persistent memory with commit-flag memory policy' },
@@ -329,7 +329,7 @@ export const COMPARISONS: Comparison[] = [
 			{
 				dimension: 'Multi-agent',
 				them: 'One assistant per deployment is the common pattern',
-				eddi: 'Coordinator-based orchestration and 6 group discussion styles',
+				eddi: 'Coordinator-based orchestration and 7 group discussion styles',
 			},
 			{
 				dimension: 'Licensing',
@@ -439,7 +439,7 @@ export const COMPARISONS: Comparison[] = [
 			{ from: 'Chain or LangGraph graph', to: 'EDDI pipeline configuration' },
 			{ from: 'Tools and function calling', to: 'MCP tool definitions or httpCall declarations' },
 			{ from: 'Memory classes', to: 'Persistent user memory, rolling summaries, and dream consolidation' },
-			{ from: 'Retriever and vector store setup', to: 'RAG configuration across 7 embedding providers and 6 vector stores' },
+			{ from: 'Retriever and vector store setup', to: 'RAG configuration across 8 embedding providers and 6 vector stores' },
 			{ from: 'Prompt templates', to: 'Versioned prompt snippets, referenced by name' },
 			{ from: 'FastAPI wrapper', to: 'Built-in REST API, OpenAPI 3.1, and SSE streaming' },
 			{ from: 'LangSmith tracing', to: 'Prometheus metrics, Grafana dashboards, and the immutable audit ledger' },

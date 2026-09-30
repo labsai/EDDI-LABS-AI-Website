@@ -103,6 +103,11 @@ const localeData = Object.fromEntries(
 		switchBtn.textContent = nativeName;
 		switchBtn.href = switchUrl;
 
+		// Dismiss label in the suggested language, like the rest of the toast.
+		var dismissLabels = { en: 'No thanks', de: 'Nein danke', es: 'No, gracias', fr: 'Non merci', pt: 'Não, obrigado', ar: 'لا، شكرًا', zh: '不用了', ja: '結構です', ko: '괜찮습니다', hi: 'नहीं, धन्यवाद', th: 'ไม่เป็นไร' };
+		dismissBtn.textContent = dismissLabels[matchedLocale] || dismissLabels.en;
+		dismissBtn.setAttribute('aria-label', dismissLabels[matchedLocale] || dismissLabels.en);
+
 		// Show with animation
 		container.classList.remove('hidden');
 

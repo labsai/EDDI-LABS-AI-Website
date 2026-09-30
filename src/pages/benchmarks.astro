@@ -19,12 +19,17 @@ import {
 	CASCADE_DRIVERS,
 	CONCURRENCY_EVIDENCE,
 	RETRIEVAL_EVIDENCE,
+	GOVERNANCE_EVIDENCE,
+	INJECTION_CHART,
+	OVERSIGHT_EVIDENCE,
+	DELIBERATION_EVIDENCE,
+	MEMORY_EVIDENCE,
 	HARNESS,
 } from '../data/benchmarks';
 
 const title = 'Benchmarks & Evidence';
 const description =
-	'What the published research supports about LLM cascading cost savings, JVM virtual thread throughput, and retrieval quality, what EDDI claims, and which numbers we have not measured yet.';
+	'What the published research supports about LLM cascading cost, prompt-injection defences, human oversight, multi-agent deliberation, memory, JVM virtual threads and retrieval quality, what EDDI claims, and which numbers we have not measured yet.';
 
 const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
 
@@ -35,9 +40,9 @@ const faqItems = [
 			'Because we have not run the harness yet, and publishing numbers we have not measured is how benchmark pages lose their credibility. What this page does publish is the evidence that the underlying mechanisms work, the conditions that determine how much they help, and the exact measurement plan, so that when the numbers land you can check them against a methodology that was fixed in advance.',
 	},
 	{
-		question: 'How should the 60 to 80% cost reduction figure be read?',
+		question: 'How should EDDI\'s cascade cost figure be read?',
 		answer:
-			'As an upper-range figure for favourable conditions, not a typical result. Published cascade savings span roughly 30% to 98% depending on how many queries are genuinely easy, how well calibrated the escalation signal is, and how far apart the model tiers are priced. The most methodologically careful production study on this page measured 31%. Your number depends on your workload, and nobody can quote it to you in advance.',
+			'EDDI quotes the range measured in production, 31% to 58% lower inference cost at held quality, rather than the benchmark ceiling. Published savings span roughly 30% to 98% depending on how many queries are genuinely easy, how well calibrated the escalation signal is, and how far apart the model tiers are priced. Your number depends on your workload, and nobody can quote it to you in advance.',
 	},
 	{
 		question: 'Are virtual threads always faster?',
@@ -99,7 +104,7 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 	EDDI, and they are included for that reason.
 </p>
 
-<h2>Model cascading: what the evidence supports</h2>
+<h2 id="cascade">Model cascading: what the evidence supports</h2>
 
 <p>
 	Model cascading sends easy queries to a small model and escalates hard ones. The
@@ -153,17 +158,17 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 <h3>How to read EDDI's own figure</h3>
 
 <p>
-	EDDI's feature pages state that model cascading can reduce LLM costs by
-	<strong>up to 60 to 80%</strong>. Against the table above, that is a defensible
-	upper-range figure and it is <em>not</em> a typical result. It sits below
-	FrugalGPT's 98% ceiling and above the 31% measured on a real production
-	named-entity workload.
+	EDDI's feature pages quote the two production measurements in the table:
+	<strong>31% to 58% lower inference cost at held quality</strong>. We chose them over
+	the benchmark results on purpose. They are the lowest numbers here, and the ones
+	measured on real traffic rather than simulated, so they are the fairer expectation
+	for a deployment you have not measured yet.
 </p>
 
 <p>
 	The honest version is a conditional: if a large share of your traffic is routine, if
 	your escalation signal is calibrated, and if there is a wide price gap between your
-	tiers, savings in that range are achievable and the literature supports it. If any of
+	tiers, savings in that range or above are achievable and the literature supports it. If any of
 	those three is absent, expect substantially less. We would rather you arrive at your
 	own number than adopt ours.
 </p>
@@ -222,7 +227,7 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 <h2>Retrieval quality: chunking dominates</h2>
 
 <p>
-	EDDI supports 7 embedding providers and 6 vector stores. The evidence says that
+	EDDI supports 8 embedding providers and 6 vector stores. The evidence says that
 	choice matters far less than how documents are split, which is why our
 	<a href={'/guides/build-a-rag-agent-with-chroma/'}>RAG guide</a> tells you to vary
 	chunking before swapping models.
@@ -254,6 +259,186 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 	<em>not</em> beat simpler strategies on academic theses. More sophisticated chunking
 	is not automatically better, which is another reason to measure on your own corpus
 	rather than adopt a recommended default.
+</p>
+
+<h2 id="governance">Governance: where the rules are enforced</h2>
+
+<p>
+	EDDI's security model puts its rules in the engine, not in the prompt: tool
+	approvals, allow-lists, vault references and the SSRF-safe HTTP client apply at the
+	boundary where a tool call leaves the model. The research on prompt injection is the
+	reason. Instructions hidden in a ticket, a web page or a tool result reach the model
+	as ordinary text, and a model cannot reliably tell them apart from yours.
+</p>
+
+<figure class="chart" aria-labelledby="inj-cap">
+	<svg viewBox="0 0 640 300" role="img" aria-label="Share of injected attacks that led to an unsafe tool action, by defence: none 82.5%, safety prompt 25.6%, self-reminder 21.7%, spotlighting 18.3%, second LLM as judge 10%, static allowlist 5%, policy gate at the tool call 0%">
+		{INJECTION_CHART.map((row, i) => {
+			const y = 14 + i * 40;
+			const w = (row.value / 100) * 380;
+			const last = i === INJECTION_CHART.length - 1;
+			return (
+				<g>
+					<text x="210" y={y + 17} text-anchor="end" class="chart-label">{row.label}</text>
+					{w > 0
+						? <rect x="220" y={y + 4} width={w} height="20" rx="4" class={last ? 'bar-accent' : 'bar'} />
+						: <rect x="220" y={y + 4} width="3" height="20" class="bar-accent" />}
+					<text x={220 + Math.max(w, 3) + 8} y={y + 18} class="chart-value">{row.value === 0 ? '0 of 240' : `${row.value.toFixed(1)}%`}</text>
+				</g>
+			);
+		})}
+	</svg>
+	<figcaption id="inj-cap">
+		Unsafe tool actions under injected instructions, by defence (NetInjectBench, 240 attacks,
+		preprint). *The static allowlist also blocked every approved change, so it was unusable.
+	</figcaption>
+</figure>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{GOVERNANCE_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<div class="callout">
+	<p class="callout-label">How this maps to EDDI, and what it does not prove</p>
+	<p>
+		EDDI's per-tool approval gates, glob allow and exempt lists, and vault-only
+		credentials are execution-time boundaries of the kind these studies favour, and an
+		approval binds to the resolved request rather than to a tool name. We have
+		<strong>not</strong> measured EDDI against these benchmarks, and a gate is only as
+		good as the policy behind it: an allow-list that is too wide lets the attack
+		through, and one that is too narrow blocks the work, as the static allowlist above did.
+	</p>
+</div>
+
+<h2 id="oversight">Human oversight: few gates, well placed</h2>
+
+<p>
+	Human approval gates are one of EDDI's core controls. The literature says they work,
+	and also that human attention is a finite resource. A gate that fires on everything
+	trains people to click Approve.
+</p>
+
+<figure class="chart" aria-labelledby="hitl-cap">
+	<svg viewBox="0 0 640 110" role="img" aria-label="Critical failure rate: 72% for unconstrained agents, 16% with deterministic computation and human decision gates">
+		<text x="210" y="31" text-anchor="end" class="chart-label">Unconstrained agents</text>
+		<rect x="220" y="18" width={0.72 * 380} height="20" rx="4" class="bar" />
+		<text x={220 + 0.72 * 380 + 8} y="32" class="chart-value">72%</text>
+		<text x="210" y="71" text-anchor="end" class="chart-label">With human gates</text>
+		<rect x="220" y="58" width={0.16 * 380} height="20" rx="4" class="bar-accent" />
+		<text x={220 + 0.16 * 380 + 8} y="72" class="chart-value">16%</text>
+	</svg>
+	<figcaption id="hitl-cap">Share of AI-assisted research runs with a critical failure (280 runs, preprint).</figcaption>
+</figure>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{OVERSIGHT_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	That is why EDDI sets approval friction per endpoint and per tool, lets a gate time out
+	to approve, reject, abort or wait, and detects a loop of identical pauses instead of
+	asking the same person the same question again.
+</p>
+
+<h2 id="deliberation">Multi-agent deliberation: diversity and the vote</h2>
+
+<p>
+	EDDI's group conversations let several agents discuss, vote and decide. The research is
+	more mixed than the enthusiasm around multi-agent debate suggests, and it shapes how
+	the feature is built.
+</p>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{DELIBERATION_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	Three design choices follow. Members can run on <strong>different models</strong>, since
+	diversity is what consistently helps. Decisions go to a <strong>formal vote</strong> with
+	the tally and the losing side's dissent recorded, since voting carries most of the gain.
+	And ballots are cast <strong>independently of each other</strong>, so one confident,
+	persuasive member cannot talk the room into its answer during the vote itself.
+</p>
+
+<h2 id="memory">Conversation memory</h2>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{MEMORY_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	EDDI keeps the full conversation in storage and controls what the model sees: long-term
+	properties that outlive the context window, token-aware windowing, rolling summaries with
+	a recall tool to drill back in, and Dream consolidation of persistent memory in the
+	background. We have not benchmarked this against LongMemEval or LOCOMO.
 </p>
 
 <h2>What we have not measured</h2>
@@ -326,7 +511,7 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 </p>
 
 <ol class="refs">
-	{[...CASCADE_EVIDENCE, ...CONCURRENCY_EVIDENCE, ...RETRIEVAL_EVIDENCE].map((row) => (
+	{[...CASCADE_EVIDENCE, ...GOVERNANCE_EVIDENCE, ...OVERSIGHT_EVIDENCE, ...DELIBERATION_EVIDENCE, ...MEMORY_EVIDENCE, ...CONCURRENCY_EVIDENCE, ...RETRIEVAL_EVIDENCE].map((row) => (
 		<li>
 			{row.study}. <a href={doiUrl(row.doi)} target="_blank" rel="noopener">doi.org/{row.doi}</a>
 		</li>
@@ -343,6 +528,13 @@ const doiUrl = (doi: string) => `https://doi.org/${doi}`;
 </FeaturePage>
 
 <style>
+	.chart { margin: 1.5rem 0 2rem; }
+	.chart svg { display: block; width: 100%; max-width: 40rem; height: auto; }
+	.chart .chart-label { fill: var(--color-text-muted); font-size: 13px; }
+	.chart .chart-value { fill: var(--color-text); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+	.chart .bar { fill: var(--color-text-muted); opacity: 0.45; }
+	.chart .bar-accent { fill: var(--color-accent); }
+	.chart figcaption { font-size: 0.8125rem; color: var(--color-text-muted); margin-top: 0.5rem; }
 	.verdict {
 		margin: 0 0 2.5rem;
 		padding: 1.5rem 1.75rem;

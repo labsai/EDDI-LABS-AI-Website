@@ -4,12 +4,13 @@
  * Displays across the top of the header.
  * i18n-aware: all text from translations.
  */
-import { getLocaleFromUrl, getTranslations } from '../i18n';
+import { getLocaleFromUrl, getTranslations, localePath } from '../i18n';
 import { EDDI_LATEST_VERSION } from '../i18n/version';
 
 const lang = getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
-const releaseUrl = `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`;
+// The What's New page summarises the release and links to the GitHub release notes.
+const whatsNewUrl = localePath(lang, '/whats-new/');
 // Keyed per release, so a visitor who dismissed an earlier announcement still sees the next one.
 const dismissKey = `eddi-banner-dismissed-${EDDI_LATEST_VERSION}`;
 ---
@@ -18,7 +19,7 @@ const dismissKey = `eddi-banner-dismissed-${EDDI_LATEST_VERSION}`;
 		<span class="announcement-badge">{t.common.bannerBadge}</span>
 		<p class="announcement-text">
 			{t.common.bannerText}
-			<a href={releaseUrl} target="_blank" rel="noopener noreferrer" class="announcement-link">
+			<a href={whatsNewUrl} class="announcement-link">
 				{t.common.bannerLink} <span class="announcement-arrow" aria-hidden="true">&rarr;</span>
 			</a>
 		</p>

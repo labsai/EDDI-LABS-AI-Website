@@ -60,9 +60,9 @@ This is the friendlier of the two migrations, because Flowise chatflows are alre
 | Chatflow | Package, exportable as a ZIP with secrets automatically scrubbed |
 | Document Loaders | RAG document ingestion configuration |
 | Text Splitters | Chunking configuration |
-| Embeddings node | One of 7 embedding providers |
+| Embeddings node | One of 8 embedding providers |
 | Vector Store node | One of 6 vector stores, selected by configuration |
-| Chat Model node | LLM configuration across 12 providers, with model cascading available |
+| Chat Model node | LLM configuration across 19 providers, with model cascading available |
 | Memory node | Persistent memory, rolling summaries, dream consolidation |
 | Chain / Agent | Pipeline configuration and agent definition |
 | Tool node | MCP tool or `httpCall` declaration |
