@@ -71,6 +71,8 @@ const t = await getTranslations(lang);
 				<a href={localePath(lang, '/features/config-as-code/')}>{t.footer.configAsCode}</a>
 				<a href={localePath(lang, '/features/security/')}>{t.footer.securityFirst}</a>
 				<a href={localePath(lang, '/features/human-in-the-loop/')}>{t.footer.humanInTheLoopLink}</a>
+				<a href={localePath(lang, '/models/')}>{t.footer.modelsLink}</a>
+				<a href={localePath(lang, '/whats-new/')}>{t.footer.whatsNewLink}</a>
 				<a href={localePath(lang, '/features/performance/')}>{t.footer.performanceLink}</a>
 				<a href={localePath(lang, '/features/multi-agent/')}>{t.footer.multiAgent}</a>
 				<a href={localePath(lang, '/features/memory/')}>{t.footer.memoryLink}</a>
@@ -83,6 +85,9 @@ const t = await getTranslations(lang);
 			<div class="eddi-footer-col">
 				<h3>{t.footer.develop}</h3>
 				<a href={localePath(lang, '/getting-started/')}>{t.footer.gettingStarted}</a>
+				{/* English-only, so not locale-prefixed */}
+				<a href="/guides/">{t.nav.guides}</a>
+				<a href="/benchmarks/">{t.nav.benchmarks}</a>
 				<a href="https://docs.labs.ai" target="_blank" rel="noopener">{t.footer.documentation}</a>
 				<a href="https://github.com/labsai/EDDI" target="_blank" rel="noopener">{t.footer.githubLink}</a>
 			</div>

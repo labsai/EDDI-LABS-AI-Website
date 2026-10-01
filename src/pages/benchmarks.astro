@@ -1,0 +1,661 @@
+---
+/**
+ * /benchmarks/ — the evidence behind EDDI's performance and cost claims.
+ *
+ * English only (localized={false}).
+ *
+ * Deliberate editorial position: this page publishes the literature and the
+ * measurement plan, and states plainly that EDDI's own numbers are not yet
+ * measured. It cites results that cut against EDDI's claims as well as for
+ * them. A benchmarks page that only flatters the vendor is the kind a
+ * technical buyer discounts on sight.
+ */
+import FeaturePage from '../layouts/FeaturePage.astro';
+import heroImage from '../assets/hero_performance.webp';
+import { enTranslations as t, localePath } from '../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../config';
+import {
+	CASCADE_EVIDENCE,
+	CASCADE_DRIVERS,
+	CONCURRENCY_EVIDENCE,
+	RETRIEVAL_EVIDENCE,
+	GOVERNANCE_EVIDENCE,
+	INJECTION_CHART,
+	OVERSIGHT_EVIDENCE,
+	DELIBERATION_EVIDENCE,
+	MEMORY_EVIDENCE,
+	HARNESS,
+} from '../data/benchmarks';
+
+const title = 'Benchmarks & Evidence';
+const description =
+	'What the published research supports about LLM cascading cost, prompt-injection defences, human oversight, multi-agent deliberation, memory, JVM virtual threads and retrieval quality, what EDDI claims, and which numbers we have not measured yet.';
+
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
+
+const faqItems = [
+	{
+		question: 'Why does this page not contain EDDI benchmark numbers?',
+		answer:
+			'Because we have not run the harness yet, and publishing numbers we have not measured is how benchmark pages lose their credibility. What this page does publish is the evidence that the underlying mechanisms work, the conditions that determine how much they help, and the exact measurement plan, so that when the numbers land you can check them against a methodology that was fixed in advance.',
+	},
+	{
+		question: 'How should EDDI\'s cascade cost figure be read?',
+		answer:
+			'EDDI quotes the range measured in production, 31% to 58% lower inference cost at held quality, rather than the benchmark ceiling. Published savings span roughly 30% to 98% depending on how many queries are genuinely easy, how well calibrated the escalation signal is, and how far apart the model tiers are priced. Your number depends on your workload, and nobody can quote it to you in advance.',
+	},
+	{
+		question: 'Are virtual threads always faster?',
+		answer:
+			'No. The literature is consistent that virtual threads improve throughput on blocking, I/O-bound workloads and impose overhead on CPU-bound ones. One study found them slightly slower than platform threads on a CPU-bound parallel task, and a Quarkus-specific study found virtual threads did not match Quarkus-reactive in a resource-constrained container. EDDI\'s workload is I/O-bound, which is the case the mechanism suits, but that is an argument about workload fit rather than a universal claim.',
+	},
+	{
+		question: 'Can we run these benchmarks ourselves?',
+		answer:
+			'That is the intent. EDDI is Apache 2.0 and self-hosted, so nothing prevents you measuring it on your own hardware with your own workload. Given that cost savings depend heavily on workload composition, your own measurement is worth more than ours.',
+	},
+];
+
+const doiUrl = (doi: string) => `https://doi.org/${doi}`;
+---
+
+<FeaturePage
+	title={title}
+	description={description}
+	heroImage={heroImage}
+	lang="en"
+	faqItems={faqItems}
+	localized={false}
+>
+
+<aside class="verdict" aria-label="Summary">
+	<p class="verdict-label">In short</p>
+	<p class="verdict-body">
+		The mechanisms EDDI relies on are well supported in the published literature.
+		The <em>magnitude</em> of the benefit is workload-dependent in every case, and
+		anyone quoting you a single number without asking about your workload is
+		guessing. EDDI's own measurements are not published yet. This page says what
+		the evidence supports, what it does not, and exactly what we will measure.
+	</p>
+</aside>
+
+<h2>Why this page is shaped like this</h2>
+
+<p>
+	Vendor benchmark pages have a credibility problem, and it is deserved. The numbers
+	are produced by the party they flatter, on hardware nobody names, against a
+	baseline chosen after the fact.
+</p>
+
+<p>
+	So this page separates three things that usually get blended together:
+	<strong>what independent published research establishes</strong> about the
+	mechanisms EDDI uses, <strong>what EDDI claims</strong> and how those claims
+	should be read against that evidence, and <strong>what has not been measured</strong>,
+	stated plainly rather than omitted.
+</p>
+
+<p>
+	Every citation below resolves to a DOI, and each is labelled
+	<strong>peer-reviewed</strong> or <strong>preprint</strong>. Several of the most
+	widely quoted cascade results, including FrugalGPT, are arXiv preprints. That does
+	not make them wrong, but you should weigh them accordingly, and we would rather
+	label them than have you discover it. Several of these results also cut against
+	EDDI, and they are included for that reason.
+</p>
+
+<h2 id="cascade">Model cascading: what the evidence supports</h2>
+
+<p>
+	Model cascading sends easy queries to a small model and escalates hard ones. The
+	mechanism is well established and the savings are real. The <em>range</em> is very
+	wide, and where you land in it is a property of your workload, not of the platform.
+</p>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{CASCADE_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<div class="callout callout-warn">
+	<p class="callout-label">Read the methodology, not just the headline</p>
+	<p>
+		The UCCI authors make a point worth carrying into any cascade claim you evaluate,
+		including ours: their results use end-to-end routing on actual model outputs and
+		measured GPU latency, <strong>not simulated routing from global accuracies or
+		nominal API prices</strong>. A large share of published cascade savings come from
+		simulation. Simulated savings are systematically more optimistic than measured ones,
+		which is part of why the most carefully measured figure in the table above is also
+		the lowest.
+	</p>
+</div>
+
+<h3>What actually determines your number</h3>
+
+{CASCADE_DRIVERS.map((driver) => (
+	<div class="driver">
+		<h4>{driver.title}</h4>
+		<p>{driver.body}</p>
+	</div>
+))}
+
+<h3>How to read EDDI's own figure</h3>
+
+<p>
+	EDDI's feature pages quote the two production measurements in the table:
+	<strong>31% to 58% lower inference cost at held quality</strong>. We chose them over
+	the benchmark results on purpose. They are the lowest numbers here, and the ones
+	measured on real traffic rather than simulated, so they are the fairer expectation
+	for a deployment you have not measured yet.
+</p>
+
+<p>
+	The honest version is a conditional: if a large share of your traffic is routine, if
+	your escalation signal is calibrated, and if there is a wide price gap between your
+	tiers, savings in that range or above are achievable and the literature supports it. If any of
+	those three is absent, expect substantially less. We would rather you arrive at your
+	own number than adopt ours.
+</p>
+
+<h2>JVM concurrency: what the evidence supports</h2>
+
+<p>
+	EDDI runs on the JVM and uses virtual threads, on the argument that agent workloads
+	are I/O-bound: they spend most of their time waiting on LLM responses, vector store
+	queries, and tool calls. The literature supports that argument <em>for that workload
+	shape</em>, and is equally clear about where it stops holding.
+</p>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{CONCURRENCY_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<div class="callout callout-warn">
+	<p class="callout-label">The inconvenient one</p>
+	<p>
+		A study of virtual thread integration in <strong>Quarkus</strong>, the framework
+		EDDI is built on, found that virtual threads did not perform as well as
+		Quarkus-reactive in a resource-constrained container, attributing it to a mismatch
+		between Netty's assumptions and virtual threads. That is a directly relevant
+		negative result and it belongs on this page. It bounds the claim: virtual threads
+		buy a simpler programming model at competitive throughput, not a guaranteed win
+		over every alternative concurrency design.
+	</p>
+</div>
+
+<p>
+	Two further qualifications the evidence supports. Virtual threads <strong>impose
+	overhead on CPU-bound work</strong>, so "millions of threads" is a statement about
+	I/O-bound capacity and not a general throughput claim. And as concurrency rises,
+	<strong>memory rather than CPU becomes the binding constraint</strong>, which means
+	heap configuration is part of any honest capacity number.
+</p>
+
+<h2>Retrieval quality: chunking dominates</h2>
+
+<p>
+	EDDI supports 8 embedding providers and 6 vector stores. The evidence says that
+	choice matters far less than how documents are split, which is why our
+	<a href={'/guides/build-a-rag-agent-with-chroma/'}>RAG guide</a> tells you to vary
+	chunking before swapping models.
+</p>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{RETRIEVAL_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	Note the counterweight in that table: cluster-based semantic chunking did
+	<em>not</em> beat simpler strategies on academic theses. More sophisticated chunking
+	is not automatically better, which is another reason to measure on your own corpus
+	rather than adopt a recommended default.
+</p>
+
+<h2 id="governance">Governance: where the rules are enforced</h2>
+
+<p>
+	EDDI's security model puts its rules in the engine, not in the prompt: tool
+	approvals, allow-lists, vault references and the SSRF-safe HTTP client apply at the
+	boundary where a tool call leaves the model. The research on prompt injection is the
+	reason. Instructions hidden in a ticket, a web page or a tool result reach the model
+	as ordinary text, and a model cannot reliably tell them apart from yours.
+</p>
+
+<figure class="chart" aria-labelledby="inj-cap">
+	<svg viewBox="0 0 640 300" role="img" aria-label="Share of injected attacks that led to an unsafe tool action, by defence: none 82.5%, safety prompt 25.6%, self-reminder 21.7%, spotlighting 18.3%, second LLM as judge 10%, static allowlist 5%, policy gate at the tool call 0%">
+		{INJECTION_CHART.map((row, i) => {
+			const y = 14 + i * 40;
+			const w = (row.value / 100) * 380;
+			const last = i === INJECTION_CHART.length - 1;
+			return (
+				<g>
+					<text x="210" y={y + 17} text-anchor="end" class="chart-label">{row.label}</text>
+					{w > 0
+						? <rect x="220" y={y + 4} width={w} height="20" rx="4" class={last ? 'bar-accent' : 'bar'} />
+						: <rect x="220" y={y + 4} width="3" height="20" class="bar-accent" />}
+					<text x={220 + Math.max(w, 3) + 8} y={y + 18} class="chart-value">{row.value === 0 ? '0 of 240' : `${row.value.toFixed(1)}%`}</text>
+				</g>
+			);
+		})}
+	</svg>
+	<figcaption id="inj-cap">
+		Unsafe tool actions under injected instructions, by defence (NetInjectBench, 240 attacks,
+		preprint). *The static allowlist also blocked every approved change, so it was unusable.
+	</figcaption>
+</figure>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{GOVERNANCE_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<div class="callout">
+	<p class="callout-label">How this maps to EDDI, and what it does not prove</p>
+	<p>
+		EDDI's per-tool approval gates, glob allow and exempt lists, and vault-only
+		credentials are execution-time boundaries of the kind these studies favour, and an
+		approval binds to the resolved request rather than to a tool name. We have
+		<strong>not</strong> measured EDDI against these benchmarks, and a gate is only as
+		good as the policy behind it: an allow-list that is too wide lets the attack
+		through, and one that is too narrow blocks the work, as the static allowlist above did.
+	</p>
+</div>
+
+<h2 id="oversight">Human oversight: few gates, well placed</h2>
+
+<p>
+	Human approval gates are one of EDDI's core controls. The literature says they work,
+	and also that human attention is a finite resource. A gate that fires on everything
+	trains people to click Approve.
+</p>
+
+<figure class="chart" aria-labelledby="hitl-cap">
+	<svg viewBox="0 0 640 110" role="img" aria-label="Critical failure rate: 72% for unconstrained agents, 16% with deterministic computation and human decision gates">
+		<text x="210" y="31" text-anchor="end" class="chart-label">Unconstrained agents</text>
+		<rect x="220" y="18" width={0.72 * 380} height="20" rx="4" class="bar" />
+		<text x={220 + 0.72 * 380 + 8} y="32" class="chart-value">72%</text>
+		<text x="210" y="71" text-anchor="end" class="chart-label">With human gates</text>
+		<rect x="220" y="58" width={0.16 * 380} height="20" rx="4" class="bar-accent" />
+		<text x={220 + 0.16 * 380 + 8} y="72" class="chart-value">16%</text>
+	</svg>
+	<figcaption id="hitl-cap">Share of AI-assisted research runs with a critical failure (280 runs, preprint).</figcaption>
+</figure>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{OVERSIGHT_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	That is why EDDI sets approval friction per endpoint and per tool, lets a gate time out
+	to approve, reject, abort or wait, and detects a loop of identical pauses instead of
+	asking the same person the same question again.
+</p>
+
+<h2 id="deliberation">Multi-agent deliberation: diversity and the vote</h2>
+
+<p>
+	EDDI's group conversations let several agents discuss, vote and decide. The research is
+	more mixed than the enthusiasm around multi-agent debate suggests, and it shapes how
+	the feature is built.
+</p>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{DELIBERATION_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	Three design choices follow. Members can run on <strong>different models</strong>, since
+	diversity is what consistently helps. Decisions go to a <strong>formal vote</strong> with
+	the tally and the losing side's dissent recorded, since voting carries most of the gain.
+	And ballots are cast <strong>independently of each other</strong>, so one confident,
+	persuasive member cannot talk the room into its answer during the vote itself.
+</p>
+
+<h2 id="memory">Conversation memory</h2>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Study</th><th>Source</th><th>Reported result</th><th>Setting</th></tr></thead>
+	<tbody>
+		{MEMORY_EVIDENCE.map((row) => (
+			<tr>
+				<td><a href={doiUrl(row.doi)} target="_blank" rel="noopener">{row.study}</a></td>
+				<td class="setting">
+					{row.venue}<br />
+					<span class:list={['src-tag', row.reviewed ? 'src-reviewed' : 'src-preprint']}>
+						{row.reviewed ? 'peer-reviewed' : 'preprint'}
+					</span>
+				</td>
+				<td>{row.result}</td>
+				<td class="setting">{row.setting}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>
+	EDDI keeps the full conversation in storage and controls what the model sees: long-term
+	properties that outlive the context window, token-aware windowing, rolling summaries with
+	a recall tool to drill back in, and Dream consolidation of persistent memory in the
+	background. We have not benchmarked this against LongMemEval or LOCOMO.
+</p>
+
+<h2>What we have not measured</h2>
+
+<div class="callout callout-gap">
+	<p class="callout-label">Not yet published</p>
+	<p>
+		EDDI has no published first-party benchmark numbers. Rather than fill this section
+		with figures produced under conditions chosen to flatter them, here is the harness
+		we intend to run and publish, fixed in advance so the methodology cannot be tuned
+		to the result.
+	</p>
+</div>
+
+<div class="overflow-x-auto mb-8">
+<table>
+	<thead><tr><th>Dimension</th><th>Metric</th><th>Why this metric</th></tr></thead>
+	<tbody>
+		{HARNESS.map((item) => (
+			<tr>
+				<td><strong>{item.dimension}</strong></td>
+				<td>{item.metric}</td>
+				<td class="setting">{item.why}</td>
+			</tr>
+		))}
+	</tbody>
+</table>
+</div>
+
+<p>Alongside the numbers, every run will publish the things that make a benchmark checkable:</p>
+
+<ul>
+	<li>Exact EDDI version, JVM version, and JVM flags.</li>
+	<li>Hardware, including instance type, core count, and memory.</li>
+	<li>Database engine and version, and whether it ran in or out of the cluster.</li>
+	<li>The workload generator and the query distribution, published so it can be replayed.</li>
+	<li>The baseline configuration, and why it is a fair comparison rather than a strawman.</li>
+	<li>Raw results, not only summary statistics.</li>
+</ul>
+
+<h2>Measure it yourself</h2>
+
+<p>
+	The strongest argument for self-hosted, Apache 2.0 software in a benchmarks context
+	is that you do not have to take our word for it. EDDI runs wherever Docker runs, so
+	you can measure it on your hardware, with your workload, at your quality bar.
+</p>
+
+<p>
+	Given how strongly cascade savings depend on workload composition, a measurement you
+	run is worth considerably more than one we publish. The
+	<a href={'/guides/self-host-eddi-with-docker-compose/'}>Docker Compose guide</a> gets
+	you to a working deployment in about fifteen minutes.
+</p>
+
+<h2>Frequently asked</h2>
+
+{faqItems.map((item) => (
+	<div class="faq-item">
+		<h3>{item.question}</h3>
+		<p>{item.answer}</p>
+	</div>
+))}
+
+<h2>References</h2>
+
+<p class="refs-note">
+	All results above are from independent published research, not from LABS.AI. Links
+	resolve via DOI.
+</p>
+
+<ol class="refs">
+	{[...CASCADE_EVIDENCE, ...GOVERNANCE_EVIDENCE, ...OVERSIGHT_EVIDENCE, ...DELIBERATION_EVIDENCE, ...MEMORY_EVIDENCE, ...CONCURRENCY_EVIDENCE, ...RETRIEVAL_EVIDENCE].map((row) => (
+		<li>
+			{row.study}. <a href={doiUrl(row.doi)} target="_blank" rel="noopener">doi.org/{row.doi}</a>
+		</li>
+	))}
+</ol>
+
+<!-- Enterprise & Commercial CTA -->
+<div class="enterprise-cta">
+	<h2>{t.common.enterpriseCtaTitle}</h2>
+	<p>{t.common.enterpriseCtaDesc}</p>
+	<a href={enterpriseCtaHref} class="btn-cta-primary" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+</div>
+
+</FeaturePage>
+
+<style>
+	.chart { margin: 1.5rem 0 2rem; }
+	.chart svg { display: block; width: 100%; max-width: 40rem; height: auto; }
+	.chart .chart-label { fill: var(--color-text-muted); font-size: 13px; }
+	.chart .chart-value { fill: var(--color-text); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+	.chart .bar { fill: var(--color-text-muted); opacity: 0.45; }
+	.chart .bar-accent { fill: var(--color-accent); }
+	.chart figcaption { font-size: 0.8125rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+	.verdict {
+		margin: 0 0 2.5rem;
+		padding: 1.5rem 1.75rem;
+		border-radius: 0.75rem;
+		border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	}
+	.verdict-label {
+		margin: 0 0 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+	.verdict-body {
+		margin: 0;
+		font-size: 1.0625rem;
+		line-height: 1.65;
+	}
+
+	/* Callouts: warn = evidence against us, gap = something unmeasured */
+	.callout {
+		margin: 0 0 2rem;
+		padding: 1.25rem 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+		border-inline-start: 3px solid var(--color-text-subtle);
+	}
+	.callout-warn {
+		border-inline-start-color: color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 70%, transparent);
+	}
+	.callout-gap {
+		border-inline-start-color: var(--color-text-subtle);
+	}
+	.callout-label {
+		margin: 0 0 0.5rem !important;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+	.callout p:last-child {
+		margin-bottom: 0 !important;
+	}
+
+	.driver {
+		margin-bottom: 1.5rem;
+	}
+	.driver h4 {
+		font-size: 1.0625rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 0 0 0.5rem;
+	}
+	.driver p {
+		margin: 0;
+	}
+
+	/* Study-setting column: supporting detail, not the headline */
+	.setting {
+		font-size: 0.875rem;
+		color: var(--color-text-subtle);
+	}
+
+	/* Source provenance: peer-reviewed vs preprint, stated rather than implied */
+	.src-tag {
+		display: inline-block;
+		margin-top: 0.25rem;
+		padding: 0.0625rem 0.375rem;
+		border-radius: 0.25rem;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		border: 1px solid currentColor;
+	}
+	.src-reviewed {
+		color: var(--color-accent, hsl(45, 100%, 51%));
+	}
+	.src-preprint {
+		color: var(--color-text-subtle);
+	}
+
+	.faq-item {
+		margin-bottom: 1.5rem;
+	}
+	.faq-item h3 {
+		margin-bottom: 0.5rem;
+		font-size: 1.0625rem;
+	}
+
+	.refs-note {
+		font-size: 0.9375rem;
+		color: var(--color-text-subtle);
+	}
+	.refs {
+		font-size: 0.875rem;
+		color: var(--color-text-subtle);
+		line-height: 1.6;
+	}
+	.refs li {
+		margin-bottom: 0.5rem;
+	}
+
+	.enterprise-cta {
+		margin-top: 3rem;
+		padding: 2.5rem 2rem;
+		border-radius: 1rem;
+		border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+		text-align: center;
+	}
+	.enterprise-cta h2 {
+		margin-top: 0 !important;
+	}
+	.enterprise-cta p {
+		max-width: 38rem;
+		margin: 0 auto 1.5rem;
+	}
+</style>

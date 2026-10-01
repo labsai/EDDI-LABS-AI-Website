@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.4.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.5.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -142,11 +142,13 @@ EDDI uses a pipeline-based architecture:
 - **Conversations**: stateful interaction sessions with memory
 
 ### LLM Integration
-Supports 12 providers simultaneously:
-- **Cloud APIs**: OpenAI, Anthropic Claude, Google Gemini, Mistral AI
+Supports 19 named providers simultaneously:
+- **Model labs**: OpenAI, Anthropic Claude, Google Gemini, Mistral AI
+- **OpenAI-compatible, first-class** (a `type` of their own with endpoint, region and reasoning presets): xAI Grok, DeepSeek, Moonshot Kimi, Alibaba Qwen, Z.ai GLM, MiniMax, OpenRouter, Groq
 - **Enterprise Cloud**: Azure OpenAI, Amazon Bedrock, Oracle GenAI, Google Vertex AI
-- **Self-Hosted**: Ollama (local models), Jlama, Hugging Face
-- **Compatible**: Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl
+- **Self-Hosted**: Ollama (local models), Jlama (in-process), Hugging Face
+- **Anything else**: any other OpenAI-compatible endpoint (Cohere, Together, vLLM, gateways) via `type: openai` and `baseUrl`
+- Model catalog with per-model configuration: https://eddi.technology/models/
 
 ## API
 

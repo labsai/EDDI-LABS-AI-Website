@@ -1,0 +1,213 @@
+---
+/**
+ * Guides hub: /guides/
+ *
+ * Grouped by search-intent persona rather than by topic, because the grouping
+ * is how a reader self-selects. Empty persona groups are not rendered.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { PERSONAS, type PersonaKey } from '../../content.config';
+
+const guides = await getCollection('guides', ({ data }) => !data.draft);
+
+const PERSONA_ORDER: PersonaKey[] = [
+	'platform-operator',
+	'ml-engineer',
+	'technical-buyer',
+];
+
+const PERSONA_BLURBS: Record<PersonaKey, string> = {
+	'platform-operator': 'Deploying, securing, and operating EDDI.',
+	'ml-engineer': 'Building agents, retrieval, and tool integrations.',
+	'technical-buyer': 'Evaluating EDDI against a real requirement.',
+};
+
+const LEVEL_LABELS = {
+	beginner: 'Beginner',
+	intermediate: 'Intermediate',
+	advanced: 'Advanced',
+} as const;
+
+const groups = PERSONA_ORDER.map((persona) => ({
+	persona,
+	guides: guides
+		.filter((g) => g.data.persona === persona)
+		.sort((a, b) => a.data.order - b.data.order),
+})).filter((group) => group.guides.length > 0);
+
+const title = 'Guides';
+const description =
+	'Task-oriented walkthroughs for deploying, securing, and building on EDDI. Each one goes from nothing to working, then hands off to the reference documentation.';
+---
+
+<BaseLayout title={title} description={description} fullWidth={true} lang="en" localized={false}>
+
+<div class="hub">
+	<header class="hub-header">
+		<p class="hub-eyebrow">Guides</p>
+		<h1>Get something working</h1>
+		<p class="hub-standfirst">
+			Each guide takes a single task from nothing to running, covers the
+			decisions worth making deliberately, and then points at the reference
+			documentation for the full field-level detail.
+		</p>
+		<p class="hub-note">
+			Looking for the complete API and configuration reference instead?
+			<a href="https://docs.labs.ai" target="_blank" rel="noopener">docs.labs.ai ↗</a>
+		</p>
+	</header>
+
+	{groups.map((group) => (
+		<section class="hub-group">
+			<div class="hub-group-head">
+				<h2>{PERSONAS[group.persona]}</h2>
+				<p>{PERSONA_BLURBS[group.persona]}</p>
+			</div>
+
+			<ul class="hub-list">
+				{group.guides.map((guide) => (
+					<li>
+						<a href={`/guides/${guide.id}/`} class="hub-card">
+							<h3>{guide.data.title}</h3>
+							<p class="hub-card-desc">{guide.data.description}</p>
+							<p class="hub-card-meta">
+								<span>{LEVEL_LABELS[guide.data.level]}</span>
+								<span aria-hidden="true">·</span>
+								<span>{guide.data.timeMinutes} min</span>
+							</p>
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	))}
+</div>
+
+</BaseLayout>
+
+<style>
+	.hub {
+		max-width: 60rem;
+		margin: 0 auto;
+		padding: calc(var(--total-header-height, 6rem) + 2.5rem) 1.5rem 6rem;
+	}
+
+	.hub-eyebrow {
+		font-size: 0.6875rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-accent, hsl(45, 100%, 51%));
+		margin: 0 0 0.875rem;
+	}
+
+	.hub-header h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		line-height: 1.15;
+		margin: 0 0 1rem;
+		color: var(--color-text);
+		text-wrap: balance;
+	}
+
+	.hub-standfirst {
+		font-size: 1.125rem;
+		line-height: 1.65;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+		max-width: 44rem;
+	}
+
+	.hub-note {
+		font-size: 0.9375rem;
+		color: var(--color-text-subtle);
+		margin: 0 0 1rem;
+	}
+
+	.hub-group {
+		margin-top: 3.5rem;
+	}
+
+	.hub-group-head {
+		padding-bottom: 0.875rem;
+		margin-bottom: 1.5rem;
+		border-bottom: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+	}
+	.hub-group-head h2 {
+		font-size: 1.375rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.25rem;
+	}
+	.hub-group-head p {
+		margin: 0;
+		font-size: 0.9375rem;
+		color: var(--color-text-subtle);
+	}
+
+	.hub-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+		gap: 1rem;
+	}
+
+	.hub-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+		text-decoration: none;
+		transition: border-color 0.15s, transform 0.15s;
+	}
+	.hub-card:hover {
+		border-color: color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 50%, transparent);
+		transform: translateY(-2px);
+	}
+	.hub-card:focus-visible {
+		outline: 2px solid var(--color-accent, hsl(45, 100%, 51%));
+		outline-offset: 3px;
+	}
+
+	.hub-card h3 {
+		font-size: 1.0625rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin: 0 0 0.5rem;
+		line-height: 1.35;
+	}
+
+	.hub-card-desc {
+		font-size: 0.9375rem;
+		line-height: 1.6;
+		color: var(--color-text-muted);
+		margin: 0 0 1rem;
+		flex: 1;
+	}
+
+	.hub-card-meta {
+		display: flex;
+		gap: 0.5rem;
+		margin: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hub-card {
+			transition: none;
+		}
+		.hub-card:hover {
+			transform: none;
+		}
+	}
+</style>

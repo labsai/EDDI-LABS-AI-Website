@@ -3,10 +3,11 @@ import FeaturePage from '../../layouts/FeaturePage.astro';
 import heroImage from '../../assets/hero_vs_alternatives.webp';
 import { enTranslations as t, localePath } from '../../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
+import { COMPARISONS } from '../../data/comparisons';
 const p = t.pages.vsAlternatives;
 const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en', '/contact/');
 ---
-<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang="en">
+<FeaturePage title={p.title} metaTitle={p.metaTitle} description={p.description} heroImage={heroImage} lang="en">
 
 <!-- Section 1: Overview -->
 <h2>{p.heading1}</h2><p set:html={p.para1} />
@@ -45,6 +46,8 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 </table>
 </div>
 
+<p class="section-sub">{p.libraryComparisonNote}</p>
+
 <p set:html={p.libraryPositioning} />
 
 <!-- Section 4: vs. Cloud AI Platforms -->
@@ -62,9 +65,26 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl('en') : localePath('en',
 
 <p set:html={p.cloudSovereigntyPara} />
 
+<!--
+	Head-to-head pages (English only, so this block is deliberately absent from
+	the [lang] variant of this page rather than translated).
+-->
+<h2>Head-to-head comparisons</h2>
+<p>
+	This page maps the landscape by archetype. For a direct comparison against a
+	specific alternative, including where that alternative is the better choice
+	and how to migrate an existing project, see:
+</p>
+<ul class="head-to-head">
+	{COMPARISONS.map((c) => (
+		<li><a href={`/compare/${c.slug}/`}>{c.title}</a></li>
+	))}
+</ul>
+
 <!-- Bottom CTA -->
 <h2>{p.ctaTitle}</h2>
 <p>{p.ctaPara}</p>
+<p><a href={localePath('en', '/getting-started/')} class="btn-cta-primary">{p.ctaButton}</a></p>
 
 <!-- Enterprise & Commercial CTA -->
 <div class="enterprise-cta">

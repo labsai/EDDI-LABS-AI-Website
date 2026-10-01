@@ -3,7 +3,7 @@
  * All other locale files must export the same shape.
  */
 import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
-import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS } from '../stats';
+import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 
 const en = {
 	// ─── Site Meta ──────────────────────────────────────────────
@@ -17,6 +17,10 @@ const en = {
 	nav: {
 		features: 'Features',
 		docs: 'Docs',
+		guides: 'Guides',
+		models: 'Models',
+		whatsNew: "What's New",
+		benchmarks: 'Benchmarks',
 		solutions: 'Enterprise',
 		managedCloud: 'Managed Cloud',
 		getStarted: 'Get Started',
@@ -36,13 +40,13 @@ const en = {
 		observability: 'Observability',
 		observabilityDesc: 'Pipeline logs & audit trails',
 		codeQuality: 'Code Quality',
-		codeQualityDesc: `${TESTS} tests, zero failures, >90% coverage`,
+		codeQualityDesc: `${TESTS} tests, >90% coverage gate`,
 		aiReady: 'AI-Ready',
 		aiReadyDesc: 'Built for coding agents',
 		memory: 'Memory & Context',
 		memoryDesc: 'Persistent memory & dream consolidation',
-		rag: 'RAG',
-		ragDesc: '7 embedding providers, 6 vector stores',
+		rag: 'Knowledge & RAG',
+		ragDesc: 'Crawl sites, ingest files, on a schedule',
 		modelCascading: 'Model Cascading',
 		modelCascadingDesc: 'Cost-optimized multi-model routing',
 		scheduling: 'Scheduling',
@@ -78,8 +82,8 @@ const en = {
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: 'Per-user workspaces, Connections for governed outbound access, and a Red Hat certified UBI 10 image',
-		bannerLink: 'Release notes',
+		bannerText: `${LLM_PROVIDERS} LLM providers, knowledge bases that crawl your site and read your files, and conversations that follow compatible agent versions`,
+		bannerLink: "What's new",
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
 		notFoundDesc: 'The AI orchestration route you are looking for has been disconnected or relocated.',
@@ -97,9 +101,9 @@ const en = {
 		// Trust bar
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Licensed',
-		tests: `${TESTS} Tests · Zero Failures`,
+		tests: `${TESTS} Tests · Green in CI`,
 		techStack: 'Java 25 · Quarkus · LangChain4j',
-		openSSFGold: 'OpenSSF Gold',
+		openSSFGold: 'OpenSSF Best Practices: Gold',
 		// Column headers
 		platform: 'Platform',
 		develop: 'Develop',
@@ -112,10 +116,12 @@ const en = {
 		performanceLink: 'Performance',
 		multiAgent: 'Multi-Agent',
 		memoryLink: 'Memory & Context',
-		ragLink: 'RAG',
+		ragLink: 'Knowledge & RAG',
 		modelCascadingLink: 'Model Cascading',
 		schedulingLink: 'Scheduling',
 		humanInTheLoopLink: `Human-in-the-Loop`,
+		modelsLink: 'Model Catalog',
+		whatsNewLink: "What's New in 6.5",
 		// Develop links
 		gettingStarted: 'Getting Started',
 		documentation: 'Documentation ↗',
@@ -199,12 +205,12 @@ const en = {
 		trustRedHatDesc: 'Certified image, published in the Red Hat catalog',
 		trustApache: 'Apache 2.0 Licensed',
 		trustApacheDesc: '100% open-source & enterprise-ready',
-		trustTests: `${TESTS} Tests · 0 Failures`,
-		trustTestsDesc: 'Rigorous CI/CD & >90% code coverage',
-		trustOpenSSF: 'OpenSSF Gold',
-		trustOpenSSFDesc: 'Highest tier of Linux Foundation security & quality certification',
+		trustTests: `${TESTS} Tests · Green in CI`,
+		trustTestsDesc: 'Every merge passes the full suite, with >90% instruction coverage enforced',
+		trustOpenSSF: 'OpenSSF Best Practices: Gold',
+		trustOpenSSFDesc: 'Gold badge, the top level of the OpenSSF Best Practices program',
 		trustDocker: 'Docker Hub',
-		trustDockerDesc: 'Hundreds of thousands of production pulls',
+		trustDockerDesc: `${DOCKER_PULLS} pulls on Docker Hub`,
 		trustCI: 'CI Passing · CodeQL Clean',
 		trustCIDesc: 'Automated builds, security scanning & code analysis',
 		// UNIDO Recognition Callout
@@ -212,6 +218,9 @@ const en = {
 		unidoCalloutTitle: 'UNIDO Trusted Partner for Industrial AI',
 		unidoCalloutDesc: 'LABS.AI has been selected by the United Nations Industrial Development Organization (UNIDO) as a Trusted Partner for Industrial AI for the Global South.',
 		unidoCalloutLink: 'Learn more about the partnership →',
+		// Architecture diagram
+		archTitle: 'How a Conversation Turn Flows',
+		archCaption: 'Every turn runs the same pipeline. Behavior rules decide what happens by emitting actions, and tasks listen for them: an LLM call, an HTTP call, an MCP tool, a knowledge-base lookup. Each tool call crosses the same governed boundary, and memory carries what matters from one turn, and one conversation, to the next.',
 		// Philosophy
 		philosophyQuote: 'The engine is strict so the AI can be creative.',
 		// Built on Proven Technology
@@ -261,7 +270,9 @@ const en = {
 		faq8Q: 'Does EDDI work with Open WebUI and other OpenAI-compatible clients?',
 		faq8A: 'Yes. EDDI includes an OpenAI-compatible <code>/v1</code> API that presents deployed agents as models, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly. It supports streaming and token usage reporting, keeps each chat in its own conversation, and the agent\'s approval gates still apply. The API is disabled by default and has its own API-key authentication.',
 		faq9Q: 'Can multiple users and teams share one EDDI deployment?',
-		faq9A: 'Yes. Per-user workspaces give every agent and configuration an owner, a personal or team space mapped to Keycloak groups, and explicit sharing at use, view, edit, or own level. Connections let agents call external systems with an organization-wide key, a service account, or each user\'s own OAuth account, so an agent can be held to what the person using it may do. Workspaces are opt-in, and existing resources are backfilled so nothing disappears when you turn them on.',
+		faq9A: 'Yes. Per-user workspaces give every agent and configuration an owner, a personal or team space mapped to Keycloak groups, and explicit sharing at use, view, edit, or own level. You share with people by name from a directory of signed-in users, they are notified, and anyone who follows a link to something they cannot open can ask the owner for access. Connections let agents call external systems with an organization-wide key, a service account, or each user\'s own OAuth account, so an agent can be held to what the person using it may do. Workspaces are opt-in, and existing resources are backfilled so nothing disappears when you turn them on.',
+		faq10Q: 'Which LLMs can I use with EDDI?',
+		faq10A: `EDDI connects to ${LLM_PROVIDERS} LLM providers: OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Google Vertex AI, Ollama, Hugging Face and Jlama, plus first-class support for xAI Grok, DeepSeek, Moonshot Kimi, Alibaba Qwen, Z.ai GLM, MiniMax, OpenRouter and Groq. Any other OpenAI-compatible endpoint works through a base URL. The <a href="/models/">model catalog</a> explains what each model is good at and shows the exact configuration to run it in EDDI.`,
 		// Demo System
 		demoBtn: 'Demo System',
 		demoModalTitle: 'Demo System',
@@ -274,13 +285,14 @@ const en = {
 	// ─── Getting Started ────────────────────────────────────────
 	gettingStarted: {
 		title: 'Getting Started',
+		metaTitle: 'Getting Started: Install EDDI and Build Your First AI Agent in 5 Minutes',
 		description: 'Install EDDI, create your first agent, and start chatting in 5 minutes.',
 		heroTitle: 'Get Started with EDDI',
 		heroSubtitle: 'Install EDDI, create your first agent, and start chatting in 5 minutes.',
 		promiseLine: 'In five minutes you will have EDDI running via a single command, a working agent created with one <code>setup_agent</code> call, and the Manager UI open at <code>http://localhost:7070</code>.',
 		prerequisitesTitle: 'Prerequisites',
 		prereq1: '<strong>Docker</strong> (recommended) or Java 25+. On x86-64 hosts the EDDI image needs an x86-64-v3 CPU (Intel Haswell, AMD Excavator, or newer)',
-		prereq2: 'An LLM provider API key (OpenAI, Anthropic, Google Gemini, or a local Ollama instance)',
+		prereq2: `An API key for one of EDDI's ${LLM_PROVIDERS} LLM providers (for example Anthropic, OpenAI, Google Gemini or DeepSeek), or a local Ollama instance. The <a href="/models/">model catalog</a> helps you choose.`,
 		step1Title: '1. Install & Start EDDI',
 		step1Desc: 'The fastest way to get EDDI running is the <strong>one-command installer</strong>. It sets up EDDI + your choice of database via Docker Compose, generates a vault encryption key, and walks you through configuration:',
 		step1TabInstaller: 'Install Script (Recommended)',
@@ -300,8 +312,10 @@ const en = {
 		step2DirectNote:
 			'Clients with native Streamable HTTP support (Cursor, VS Code, Windsurf, Antigravity, and other IDE plugins) connect directly, no bridge needed:',
 		step2After: `Now you can interact with EDDI's <strong>${MCP_TOOLS} MCP tools</strong> directly from your AI assistant.`,
+		step2OAuthNote:
+			'<strong>Authentication on?</strong> MCP clients sign themselves in: EDDI advertises <code>/mcp</code> as an OAuth 2.0 protected resource, and the bundled Keycloak realm ships an <code>eddi-mcp</code> client for them, so no token has to be copied by hand.',
 		step2DocsLink:
-			'📖 See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
+			'📖 See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP Server documentation</a> for the complete tool reference and advanced configuration.',
 		step3Title: '3. Store Your API Key',
 		step3VaultIntro: 'Before creating an agent, securely store your LLM provider API key in EDDI\'s <a href="https://docs.labs.ai/security-and-compliance/secrets-vault" target="_blank" rel="noopener">Secrets Vault</a> (AES-256-GCM encrypted):',
 		step3VaultUiDesc: 'Open the Manager UI at <code>http://localhost:7070</code>, navigate to <strong>Secrets Vault</strong>, and add a new secret with key name <code>my-anthropic-key</code>.',
@@ -343,13 +357,14 @@ const en = {
 		// Kubernetes
 		k8sTitle: 'Kubernetes Deployment',
 		k8sDesc: 'Deploy to Kubernetes with a single command:',
-		k8sOptions: 'Kustomize overlays and the Helm chart (2.0.0) are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment/kubernetes" target="_blank" rel="noopener">Kubernetes Guide</a>.',
+		k8sOptions: 'Kustomize overlays and the Helm chart (2.0.0) are also available for MongoDB, PostgreSQL, auth, monitoring, and production hardening (HPA, PDB, NetworkPolicy). See the <a href="https://docs.labs.ai/deployment-and-infrastructure/kubernetes.md" target="_blank" rel="noopener">Kubernetes Guide</a>.',
 
 	},
 
 	// ─── Use Cases ──────────────────────────────────────────────
 	useCases: {
 		title: 'Use Cases',
+		metaTitle: 'AI Agent Use Cases for Regulated Industries',
 		description: 'Deployment patterns for regulated industries and enterprise teams using the EDDI AI orchestration platform.',
 		heroTitle: 'Use Cases',
 		heroSubtitle: 'Deployment patterns for regulated industries and enterprise teams.',
@@ -380,6 +395,7 @@ const en = {
 	// ─── Features Overview ──────────────────────────────────────
 	featuresOverview: {
 		title: 'Features at a Glance',
+		metaTitle: 'Features: Self-Hosted AI Agent Orchestration Platform',
 		description:
 			`Every capability that makes EDDI the enterprise AI orchestrator, EDDI Manager UI, config-as-code, ${MCP_TOOLS} MCP tools, security-first architecture, and more.`,
 		heroTitle: 'Everything You Need to',
@@ -416,12 +432,15 @@ const en = {
 		memoryCardTitle: '🧠 Memory & Context',
 		memoryCardDesc:
 			'Persistent memory, dream consolidation, rolling summaries, and token-aware windowing. <strong>Agents that remember</strong>.',
-		ragCardTitle: '📚 RAG',
+		ragCardTitle: '📚 Knowledge & RAG',
 		ragCardDesc:
-			'7 embedding providers, 6 vector stores, httpCall RAG. <strong>Enterprise knowledge retrieval</strong> out of the box.',
+			`Crawl a website or upload PDF, Word, Excel and PowerPoint files into a knowledge base, refreshed on a schedule. ${EMBEDDING_PROVIDERS} embedding providers, ${VECTOR_STORES} vector stores. <strong>Enterprise knowledge retrieval</strong> out of the box.`,
 		cascadingCardTitle: '📈 Model Cascading',
 		cascadingCardDesc:
-			'Cost-optimized multi-model routing with confidence strategies. <strong>Reduce LLM costs by up to 60-80%</strong> in typical multi-model workloads.',
+			`Cost-optimized multi-model routing with confidence strategies. Published deployments of the pattern report <strong>31 to 58% lower inference cost</strong> at held quality (<a href="/benchmarks/">evidence</a>).`,
+		modelsCardTitle: `🧭 ${LLM_PROVIDERS} LLM Providers`,
+		modelsCardDesc:
+			'Claude, GPT, Gemini, Grok, DeepSeek, Kimi, Qwen, GLM, Mistral, Llama and more, hosted or local. The <strong>model catalog</strong> shows what each is good at and how to run it.',
 		schedulingCardTitle: '⏰ Scheduling & Heartbeats',
 		schedulingCardDesc:
 			'Cron triggers, heartbeat wake-ups, dream cycles. <strong>Proactive agents</strong> that act on their own.',
@@ -459,10 +478,112 @@ const en = {
 			'Every pipeline step logged with <strong>immutable audit trails</strong>: tokens, cost, timing, and tool calls.',
 		cqCardTitle: '🧪 Code Quality',
 		cqCardDesc:
-			`<strong>${TESTS} tests with zero failures.</strong> Zero Checkstyle warnings. >90% code coverage. CI/CD enforced on every merge.`,
+			`<strong>${TESTS} tests, green on every merge.</strong> >90% instruction and >80% branch coverage enforced. CodeQL, Checkstyle and formatter gates in CI.`,
 		aiCardTitle: '🧩 AI-Ready',
 		aiCardDesc:
 			`${MCP_TOOLS} MCP tools, an OpenAI-compatible API, predictable CRUD patterns, self-documenting APIs. <strong>Built for coding agents</strong> to work with.`,
+	},
+
+	// ─── Model Catalog ──────────────────────────────────────────
+	models: {
+		title: 'Model Catalog',
+		metaTitle: 'LLM Model Catalog: Run Claude, GPT, Gemini, DeepSeek, Qwen and More in EDDI',
+		description: `The model families EDDI runs across its ${LLM_PROVIDERS} LLM providers: what each is good at, and the exact configuration to run it.`,
+		heroTitle: 'Every Model,',
+		heroHighlight: 'One Platform',
+		heroDesc: `EDDI connects to ${LLM_PROVIDERS} LLM providers, from the major labs to regional providers and models that run on your own hardware. Pick a model to see what it is good at and how to run it in EDDI, down to the configuration.`,
+		filterLabel: 'Show',
+		filterAll: 'All',
+		filterFrontier: 'Frontier',
+		filterFast: 'Fast and low-cost',
+		filterOpen: 'Open weights',
+		filterLocal: 'Runs locally',
+		searchLabel: 'Search models',
+		searchPlaceholder: 'Search by name, vendor or model id',
+		noResults: 'No model matches this filter.',
+		colModel: 'Model',
+		colContext: 'Context',
+		colInput: 'Input',
+		colProviders: 'Run it through',
+		hostsTitle: 'Where Models Run',
+		hostsDesc: 'The same model is often available from more than one place. Choose by where your data may go, what your team already runs, and how you authenticate.',
+		anyEndpointTitle: 'Not in the catalog?',
+		anyEndpointDesc: 'Any OpenAI-compatible endpoint works through <code>type: openai</code> and a <code>baseUrl</code>, including Cohere, Together, vLLM, llama-server and corporate gateways. OpenRouter reaches hundreds more models with one key.',
+		cascadeTitle: 'Use More Than One',
+		cascadeDesc: 'EDDI can chain models in a cascade: a fast, inexpensive model answers first, and a stronger one is called only when confidence is low. See <a href="/features/model-cascading/">Model Cascading</a>.',
+		// Detail page
+		backToCatalog: 'All models',
+		atAGlance: 'At a Glance',
+		labelVendor: 'Vendor',
+		labelReleased: 'Released',
+		labelContext: 'Context window',
+		labelMaxOutput: 'Maximum output',
+		labelInput: 'Input',
+		labelTools: 'Tool calling',
+		labelReasoning: 'Reasoning',
+		labelOpenWeights: 'Open weights',
+		labelLicense: 'License',
+		tokens: 'tokens',
+		yes: 'Yes',
+		no: 'No',
+		notStated: 'Not stated by the vendor',
+		strengthsTitle: 'Strengths',
+		bestForTitle: 'Best For',
+		runTitle: 'Run It in EDDI',
+		runDesc: 'The fastest route is the Manager: open the agent wizard or the Platform Operator and pick the provider and model. To configure it yourself, follow these steps for the provider you want.',
+		routesLabel: 'Provider',
+		modelIdsLabel: 'Model ids',
+		step1Title: '1. Store the credential',
+		step1Key: 'Add the provider\'s API key to the Secrets Vault in the Manager, or with <code>PUT /secretstore/secrets/default/{name}</code>, under the name used below. Configurations reference it as <code>${vault:…}</code>, so the key never appears in plain text.',
+		step1NoKey: 'This provider does not use an API key:',
+		step2Title: '2. Configure the LLM task',
+		step2Desc: 'Use this as the <code>langchain.json</code> of the agent\'s workflow, or paste the parameters into the LLM editor in the Manager.',
+		step3Title: 'Or create the whole agent in one call',
+		step3Desc: '<code>setup_agent</code> writes the rules, LLM configuration and workflow, then deploys the agent. Call it over MCP or <code>POST /administration/agents/setup</code>.',
+		authBedrock: 'Amazon Bedrock authenticates through the AWS credential chain: environment variables, an IAM role, or <code>~/.aws/credentials</code>.',
+		authVertex: 'Vertex AI authenticates with Google Application Default Credentials. Set <code>projectId</code> and <code>location</code> for your project.',
+		authOracle: 'OCI Generative AI authenticates with an OCI config profile from <code>~/.oci/config</code>. Set <code>compartmentId</code> for your tenancy.',
+		authOllama: 'Ollama needs no key. Point <code>baseUrl</code> at your Ollama server; with EDDI\'s Ollama overlay it is <code>http://ollama:11434</code>.',
+		authJlama: 'Jlama needs no key: the model runs inside the EDDI JVM and is downloaded from Hugging Face on first use.',
+		tipsTitle: 'Notes for EDDI',
+		relatedTitle: 'Related Models',
+		sourcesTitle: 'Sources',
+		sourcesDesc: 'The facts on this page come from the vendor\'s documentation, checked on {date}. Models change quickly, so confirm limits with the vendor before you rely on them. Prices are not listed here: see the vendor\'s pricing page.',
+		docsLink: 'Vendor documentation',
+		pricingLink: 'Pricing',
+		copy: 'Copy',
+		copied: 'Copied',
+		modality: { text: 'Text', image: 'Image', video: 'Video', audio: 'Audio', pdf: 'PDF' },
+		category: { frontier: 'Frontier', fast: 'Fast and low-cost', open: 'Open weights', local: 'Runs locally' },
+	},
+
+	// ─── What's New ─────────────────────────────────────────────
+	whatsNew: {
+		title: `What's New in ${EDDI_LATEST_VERSION}`,
+		metaTitle: `What's New in EDDI ${EDDI_LATEST_VERSION}: ${LLM_PROVIDERS} LLM Providers, Knowledge Ingestion, Version Following`,
+		description: `EDDI ${EDDI_LATEST_VERSION} adds eight first-class LLM providers, knowledge bases that crawl websites and ingest files, conversations that follow compatible agent versions, and a live view of group discussions.`,
+		heroBadge: `Release ${EDDI_LATEST_VERSION}`,
+		heroTitle: `What's New in`,
+		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroDesc: 'The highlights of this release, what each one is for, and where to read more.',
+		sections: [
+			{ icon: '🧭', title: `${LLM_PROVIDERS} LLM Providers`, desc: 'xAI Grok, DeepSeek, Moonshot Kimi, Alibaba Qwen, Z.ai GLM, MiniMax, OpenRouter and Groq each get a type of their own. A key is all you configure: the endpoint, regions, default model and each vendor\'s reasoning quirks come from a preset, and the Manager groups every provider in one picker.', link: '/models/', linkText: 'Browse the model catalog' },
+			{ icon: '📚', title: 'Knowledge Bases That Fill Themselves', desc: 'Point a knowledge base at a website and EDDI crawls it within robots.txt, or drop in PDF, Word, Excel, PowerPoint and text files. Sources run on a schedule, skip what has not changed, remove what has gone, and keep a history of every run.', link: '/features/rag/', linkText: 'Knowledge bases and RAG' },
+			{ icon: '🔁', title: 'Upgrades That Keep Conversations Going', desc: 'Save a new agent version as compatible with the previous one, and conversations already running continue on it instead of being ended. Before you deploy, the Manager shows what the deploy does to the conversations on every other version.', link: '/features/config-as-code/', linkText: 'Configuration-as-code' },
+			{ icon: '🗳️', title: 'Watch a Discussion as It Happens', desc: 'A dashboard for a running group discussion: each member\'s current stance, live cost, bids and directional turns, with a switcher for earlier rounds. A vote that turns a proposal down now ends as a rejected decision, not a failure.', link: '/features/multi-agent/', linkText: 'Multi-agent orchestration' },
+			{ icon: '🤝', title: 'Sharing People Can Use', desc: 'Share with people by name from a directory of signed-in users, and they are notified. A link to something you cannot open lets you ask the owner for access. Editors can keep their own keys in a space, and a review shows everything that is shared.', link: '/features/manager/', linkText: 'The EDDI Manager' },
+			{ icon: '📊', title: 'Operate and Observe', desc: 'Every LLM call now reports latency, tokens and errors on every provider. MCP clients sign themselves in through OAuth. The chat shows which tool an agent is using as it happens, and a caller can hand an agent a credential for one turn only.', link: '/features/observability/', linkText: 'Observability' },
+		],
+		alsoTitle: 'Also in This Release',
+		alsoItems: [
+			'A security review round of about 30 fixes across template injection, outbound requests, vault keys, secret scoping, workspace authorization and channel identity, each with a regression test',
+			'Agent export and instance-to-instance sync carry parser dictionaries along with the agent, and sync reports what it did',
+			'Claude 5.5 and GPT-6 in the Manager\'s model suggestions',
+			'Fixes for first boot after an upgrade from EDDI 5, and many smaller fixes across the Manager, the Chat UI and the engine',
+		],
+		upgradeTitle: 'Upgrade',
+		upgradeDesc: 'If you installed with the one-command installer, one command pulls the new image and restarts EDDI:',
+		releaseNotes: 'Full release notes on GitHub',
 	},
 
 	// ─── Feature Pages (FeaturePage layout) ─────────────────────
@@ -485,6 +606,17 @@ const en = {
 				'<strong>Platform Operator & Agent Wizard</strong>: Describe an agent in conversation or fill in a form. Every write the operator proposes waits for your approval',
 				'<strong>Workspaces & Sharing</strong>: Space switcher, a share dialog for any resource, ownership badges, and actions limited to your access level',
 				'<strong>Connections</strong>: Create and edit connections to external systems, and link your own OAuth accounts',
+				'<strong>Live Discussion Overview</strong>: Watch a group discussion as a dashboard, with each member\'s current stance, live cost, bids and directional turns, and a switcher for earlier rounds',
+				'<strong>Knowledge-Base Sources</strong>: Add a website or drop files into a knowledge base, run or preview ingestion, and read each run\'s history and errors',
+				'<strong>Sharing People Can Use</strong>: Share with people by name, get notified when something is shared with you, and ask the owner for access from a link you cannot open',
+				'<strong>Version Markers</strong>: Save a change as compatible with the previous version, and see what a deploy does to the conversations already running',
+			],
+			galleryTitle: 'A Look Inside',
+			gallery: [
+				'The dashboard: platform status, agents, workflows and recent conversations at a glance',
+				'A group discussion in peer-review style, with each member\'s opinion and the moderator\'s synthesis',
+				'The Secrets Vault: keys are stored encrypted and referenced by name, never shown in full',
+				'Pipeline logs for every conversation turn, streamed live',
 			],
 			heading3: 'Built for Teams',
 			para2: 'The Manager enables non-developers to iterate on agent behavior without touching source code. Prompt engineers can modify rules, test conversations, and deploy changes, all from the browser.',
@@ -494,7 +626,7 @@ const en = {
 			description:
 				'EDDI exposes its full capabilities via the Model Context Protocol, enabling Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and custom AI clients to manage agents programmatically.',
 			heading1: 'AI-Native Control Plane',
-			para1: `The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>${MCP_TOOLS} tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.`,
+			para1: `The Model Context Protocol (MCP) is an open standard that allows AI assistants to interact with external tools. EDDI implements a comprehensive MCP server with <strong>${MCP_TOOLS} tools</strong> spanning every aspect of the platform. See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">full MCP documentation</a> for the complete tool reference.`,
 			heading2: 'Tool Categories',
 			items: [
 				'<strong>Conversation Tools (13)</strong>: Chat with agents, manage conversations, read history, pipeline logs and the per-task audit trail, agent discovery, intent-based managed chat',
@@ -509,7 +641,7 @@ const en = {
 			],
 			heading3: 'Open Standards: Not Proprietary APIs',
 			para2: 'EDDI agents can also <strong>consume external MCP tools</strong> during conversations. Configure MCP server endpoints, and agents auto-discover and invoke tools based on conversation context. Beyond MCP, EDDI implements <strong>A2A</strong> (Agent-to-Agent Protocol) for cross-platform agent communication, <strong>OpenAPI 3.1</strong> for native spec generation and consumption, <strong>OAuth 2.0 / OIDC</strong> via Keycloak, and <strong>SSE</strong> for real-time streaming, all open standards, zero vendor lock-in. Deployed agents are also reachable through an <strong>OpenAI-compatible <code>/v1</code> API</strong>, so Open WebUI, the <code>openai</code> SDK, LangChain, and LiteLLM can talk to them directly.',
-			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. See the <a href="https://docs.labs.ai/mcp-server" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
+			clientsNote: 'Works with Claude Desktop, Cursor, VS Code, Windsurf, Antigravity, and any MCP-compatible client. On an instance with authentication, clients sign themselves in: <code>/mcp</code> is advertised as an OAuth 2.0 protected resource (RFC 9728), and the bundled Keycloak realm ships an <code>eddi-mcp</code> client with authorization code and PKCE. See the <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP documentation</a> for client configuration guides.',
 		},
 		configAsCode: {
 			title: 'Configuration-as-Code',
@@ -528,6 +660,7 @@ const en = {
 				'<strong>Agent Sync</strong>: Live instance-to-instance sync with structural matching, content diffing, and selective resource picking, no ZIP intermediary needed',
 				'<strong>Prompt Snippets</strong>: Reusable, versioned system prompt building blocks referenced as <code>{{snippets.safety_rules}}</code>, compose prompts from shared libraries',
 				'<strong>Behavior Rules</strong>: IF-THEN logic engine for routing, orchestration, and business logic decisions without code',
+				'<strong>Version Following</strong>: Mark a new agent version as compatible with the previous one, and open conversations continue on it instead of being ended. The Manager shows what each deploy does to the conversations already running',
 			],
 			heading3: 'Resource Types',
 			para2: 'EDDI manages these configuration resources: <strong>Rules</strong> (system prompts), <strong>Workflows</strong> (pipeline definitions), <strong>LLM Connectors</strong> (provider settings), <strong>HTTP Connectors</strong> (external API integrations), <strong>Connections</strong> (how to authenticate to an external system), <strong>Groups</strong> (multi-agent discussions), <strong>Agents</strong> (deployment descriptors), and <strong>Environments</strong> (deployment targets).',
@@ -564,23 +697,39 @@ const en = {
 				'<strong>PII-Safe Logging</strong>: GDPR operations log SHA-256 pseudonyms, never raw user identifiers',
 				'<strong>Sigstore Cosign</strong>: Keyless OIDC container image signing, cryptographically verify any Docker image was built by official CI',
 				'<strong>Hardened Base Image</strong>: Digest-pinned Red Hat UBI 10 runtime, published to the Red Hat certified catalog',
+				'<strong>Secret Context Values</strong>: A caller can hand an agent a credential that is usable for one turn and is never stored or returned',
+				'<strong>Restricted Runtime Templates</strong>: Templates built from runtime data render on a restricted engine with no configuration or bean access and per-render limits, and user input is always substituted as data, never parsed as a template',
 			],
 
 			// CI/CD Security Pipeline
 			ciTitle: 'Automated Security Pipeline',
-			ciPara: 'Every push and pull request is scanned by 6 automated security tools, all GitHub Actions SHA-pinned to prevent supply-chain attacks:',
+			ciPara: 'Every change passes through automated security tooling, with every GitHub Action pinned by SHA to prevent supply-chain attacks:',
 			ciItems: [
 				'<strong>CodeQL</strong>: Semantic SAST analysis with <code>security-extended</code> queries',
 				'<strong>Trivy</strong>: CVE scanning for filesystem dependencies and Docker images (blocking on CRITICAL/HIGH)',
 				'<strong>Gitleaks</strong>: Git history scanning to prevent secret and credential leakage',
-				'<strong>ZAP</strong>: DAST API scanning against the live Docker image',
+				'<strong>Dependency Review</strong>: New dependencies with known vulnerabilities are flagged on the pull request that adds them',
 				'<strong>CycloneDX</strong>: SBOM generation for supply chain transparency',
-				'<strong>Jazzer</strong>: Coverage-guided fuzz testing for security-critical parsers',
+				'<strong>ClusterFuzzLite with Jazzer</strong>: Coverage-guided fuzz testing for security-critical parsers',
+				'<strong>OpenSSF Scorecard</strong>: Continuous scoring of the repository\'s supply-chain security practices',
+			],
+
+			// Evidence
+			evidenceTitle: 'Why Rules Belong Outside the Model',
+			evidencePara: `Prompt injection is the attack that matters for agents with tools. In one benchmark of tool-using agents, instructions hidden in tickets and logs made agents take unsafe actions 82.5% of the time with no defence. Prompt-level defences left 10 to 26% unsafe; only a policy gate enforced at the tool call reached zero while still letting approved changes through. That is why EDDI enforces its rules in the engine, at the tool boundary, where injected text cannot argue its way past them. The <a href="/benchmarks/">evidence page</a> lists the studies.`,
+
+			// Hardening log
+			hardeningTitle: 'Hardening Log',
+			hardeningPara: 'Security work is continuous, and we publish what it finds. Recent rounds:',
+			hardeningItems: [
+				'<strong>September 2026 (6.5.0)</strong>: A review round of about 30 fixes across template injection, SSRF on outbound calls, vault key handling, secret scoping, workspace authorization, channel identity and the Manager\'s security UI, each with a regression test',
+				'<strong>August 2026 (6.3.0, 6.4.0)</strong>: Outbound credentials unified under Connections, tool results carry provenance and directive-shaped text is redacted, and vault grants to agents are enforced',
+				'<strong>July 2026 (6.2.0)</strong>: Tool-result caches scoped per identity, secrets redacted from the live tool trace, and a constant-time audit HMAC comparison',
 			],
 
 			// Governance
 			govTitle: 'Governance & Compliance Integration',
-			govPara: `Security capabilities feed directly into EDDI's <a href="/enterprise/compliance/">compliance framework</a>. The immutable audit trail satisfies EU AI Act record-keeping requirements (Art. 12), pipeline tracing provides AI decision transparency (Art. 13), and the Management UI enables human oversight with emergency stop capabilities (Art. 14). The same infrastructure supports GDPR, HIPAA, SOC 2, and ${FRAMEWORKS} additional regulatory frameworks, all through one unified API.`,
+			govPara: `Security capabilities feed directly into EDDI's <a href="/enterprise/compliance/">compliance framework</a>. The immutable audit trail supports EU AI Act record-keeping requirements (Art. 12), pipeline tracing provides AI decision transparency (Art. 13), and the Management UI enables human oversight with emergency stop capabilities (Art. 14). The same infrastructure supports GDPR, HIPAA, SOC 2, and ${FRAMEWORKS} additional regulatory frameworks, all through one unified API.`,
 		},
 		performance: {
 			title: 'Enterprise Performance',
@@ -626,12 +775,15 @@ const en = {
 				'<strong>Coordinator Pattern</strong>: Agents delegate to specialized sub-agents',
 			],
 			heading3: 'Group Conversations & Advanced Orchestration',
+			evidencePara: `Why vote rather than just debate? Research on multi-agent debate finds that majority voting accounts for most of its measured gains, and that one confident, persuasive agent can pull a group toward a wrong answer. EDDI's votes are cast independently of each other, record the losing side's dissent, and let each member run on a different model. The <a href="/benchmarks/">evidence page</a> has the studies.`,
 			para2: 'EDDI supports <strong>multi-agent group conversations</strong> with 7 built-in discussion styles, explicit voting, shared work products, standing teams, nested group structures, dynamic agent creation, and a meta-agent that operates the platform itself:',
 			items2: [
 				'<strong>7 Discussion Styles</strong>: Round Table, Peer Review, Devil\'s Advocate, Delphi, Debate, <strong>Task Force</strong> (PLAN → EXECUTE → VERIFY → SYNTHESIS), and <strong>Negotiation</strong> (offers, concessions, and an arbiter)',
 				'<strong>Voting</strong>: Vote phases collect explicit ballots (majority or approval, weighted, quorum-gated) and record a decision with the full tally and the losing side\'s dissent',
 				'<strong>Shared Artifacts & Task Bidding</strong>: Members co-edit a validated shared work product and bid for tasks instead of being assigned round-robin',
 				'<strong>Humans as Members</strong>: A person takes a real turn in the discussion, not just an approval',
+				'<strong>Live Discussion Overview</strong>: A dashboard of a running discussion in the Manager and the Workforce board: each member\'s current stance, live cost, bids and directional turns, with a switcher for earlier rounds',
+				'<strong>Decisions You Can Read</strong>: A vote that turns a proposal down ends as <code>REJECTED</code>, not as a failure, and the editor says when debate roles turn a synthesis into a verdict',
 				'<strong>Standing Teams</strong>: Persistent teams with a backlog, cron cadences, a facilitator with bounded moves, and retro phases that harvest team memory',
 				'<strong>Preset Templates</strong>: Research pod, editorial team, ops task force, decision board, and negotiation table, ready to instantiate',
 				'<strong>Dynamic Agents</strong>: Agents in Task Force discussions can create, recruit, delegate to, and teardown sub-agents at runtime with guardrails (provider/model whitelists, per-discussion caps, lifecycle policies)',
@@ -656,22 +808,27 @@ const en = {
 				'<strong>Prometheus Metrics</strong>: 50+ Micrometer metrics at <code>/q/metrics</code> for monitoring infrastructure',
 				'<strong>Grafana Dashboards</strong>: A pre-built operations dashboard plus a Full Metrics Reference dashboard with a panel for every registered meter',
 				'<strong>OpenTelemetry Tracing</strong>: Per-task distributed traces via OTLP (Jaeger, Tempo, Datadog) with spans for task ID, type, conversation, and agent',
+				'<strong>Per-Call LLM Telemetry</strong>: Latency, input and output tokens and errors for every LLM call, on every provider, streaming or not, with an OpenTelemetry GenAI span alongside',
 				'<strong>CQRS Telemetry</strong>: Event-sourced ledger of all system operations',
 			],
 		},
 		codeQuality: {
 			title: 'Code Quality',
+			metaTitle: 'Code Quality, Test Coverage and CI Gates',
 			description:
-				`${TESTS} tests with zero failures. Zero Checkstyle warnings. >90% code coverage. CI/CD enforced quality gates on every merge.`,
+				`${TESTS} tests, green on every merge. >90% instruction and >80% branch coverage enforced, with CodeQL, Checkstyle and formatter gates in CI.`,
 			heading1: 'Engineering Rigor',
 			para1: 'EDDI maintains <strong>exceptional code quality</strong> through comprehensive testing, static analysis, and CI/CD quality gates. Every pull request must pass the full test suite before merge.',
 			heading2: 'Quality Metrics',
 			items: [
-				`<strong>${TESTS} Tests</strong>: Unit, integration, and end-to-end coverage`,
-				'<strong>Zero Failures</strong>: Clean CI on every build',
-				'<strong>Checkstyle Enforcement</strong>: Zero warnings, strict rules enforced on every build',
-				`<strong>MCP Tool Tests</strong>: Comprehensive coverage of all ${MCP_TOOLS} MCP tools`,
-				'<strong>CI/CD Quality Gates</strong>: Automated checks prevent regressions',
+				`<strong>${TESTS} Tests</strong>: Unit, integration, and end-to-end coverage, run in full on every pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)`,
+				'<strong>Coverage Gate</strong>: The build fails below 90% instruction or 80% branch coverage (JaCoCo)',
+				'<strong>Style Gates</strong>: Checkstyle import rules and the Eclipse formatter fail the build instead of rewriting code behind your back',
+				'<strong>CodeQL</strong>: Semantic analysis of the Java backend and both React UIs on every change',
+				'<strong>Fuzzing</strong>: ClusterFuzzLite runs Jazzer against security-critical parsers',
+				'<strong>OpenSSF</strong>: <a href="https://www.bestpractices.dev/projects/12355" target="_blank" rel="noopener">Best Practices Gold badge</a> and a continuously published <a href="https://securityscorecards.dev/viewer/?uri=github.com/labsai/EDDI" target="_blank" rel="noopener">Scorecard</a>',
+				'<strong>Supply Chain</strong>: A CycloneDX SBOM for every build and keyless Sigstore signatures on release images',
+				`<strong>MCP Tool Tests</strong>: Coverage of all ${MCP_TOOLS} MCP tools`,
 			],
 		},
 		aiReady: {
@@ -713,18 +870,21 @@ const en = {
 			para2: 'Inspired by Anthropic\'s research on background memory consolidation, EDDI\'s Dream Cycles run on a <strong>configurable schedule</strong> to maintain memory quality. Stale entries are pruned, contradictions are detected and resolved, and facts are summarized, all with cost ceilings per run. Dreams are scheduled via cron expressions and can use persistent or fresh conversation strategies.',
 		},
 		rag: {
-			title: 'RAG: Retrieval-Augmented Generation',
+			title: 'Knowledge Bases & RAG',
+			metaTitle: 'Knowledge Bases & RAG: Crawl Websites and Ingest Files for AI Agents',
 			description:
-				'7 embedding providers, 6 vector stores, httpCall RAG, and async document ingestion, enterprise-grade knowledge retrieval for AI agents.',
+				`Point a knowledge base at your website or drop in your files, and EDDI keeps it current on a schedule. ${EMBEDDING_PROVIDERS} embedding providers, ${VECTOR_STORES} vector stores, and a zero-infrastructure httpCall option.`,
 			heading1: 'Enterprise Knowledge Retrieval',
-			para1: 'EDDI provides a complete <strong>Retrieval-Augmented Generation</strong> pipeline with native support for multiple embedding providers, vector stores, and a zero-infrastructure RAG option via HTTP calls.',
+			para1: 'EDDI provides a complete <strong>Retrieval-Augmented Generation</strong> pipeline: knowledge bases that fill themselves from a website or from uploaded files, native support for multiple embedding providers and vector stores, and a zero-infrastructure RAG option via HTTP calls.',
 			heading2: 'RAG Capabilities',
 			items: [
-				'<strong>7 Embedding Providers</strong>: OpenAI, Ollama, Azure OpenAI, Mistral, Amazon Bedrock, Cohere, Google Vertex AI',
-				'<strong>6 Vector Stores</strong>: pgvector, Chroma, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant',
+				'<strong>Web Crawler</strong>: Crawl a site within the limits you set, honouring robots.txt, its crawl delay and its sitemaps. Unchanged pages are skipped on the next run, and removed pages leave the knowledge base',
+				'<strong>File Ingestion</strong>: Upload PDF, Word, Excel, PowerPoint, text, Markdown, CSV and HTML files, and each one is marked Indexed, Changed or Not indexed',
+				'<strong>Scheduled Sources</strong>: Every source can run on a cron schedule, with a preview, a run history with counters and errors, and a purge',
+				`<strong>${EMBEDDING_PROVIDERS} Embedding Providers</strong>: OpenAI, Azure OpenAI, Ollama, Mistral, Amazon Bedrock, Cohere, Google Gemini, Google Vertex AI`,
+				`<strong>${VECTOR_STORES} Vector Stores</strong>: pgvector, Chroma, In-Memory, MongoDB Atlas, Elasticsearch, Qdrant`,
 				'<strong>httpCall RAG</strong>: Zero-infrastructure RAG via any search API (BM25, Elasticsearch, custom endpoints)',
-				'<strong>REST Ingestion API</strong>: Async document ingestion with status tracking and batch processing',
-				'<strong>Hybrid Search</strong>: Combine dense vector retrieval with sparse keyword matching for optimal recall',
+				'<strong>REST Ingestion API</strong>: Push documents yourself when a pull source does not fit',
 			],
 			heading3: 'Flexible Deployment',
 			para2: 'RAG is fully configuration-driven. Choose your embedding provider and vector store via JSON configuration, no code changes needed. The <code>httpCall RAG</code> option lets you use <strong>any existing search infrastructure</strong> (Elasticsearch, Solr, custom APIs) without deploying a separate vector database.',
@@ -741,10 +901,10 @@ const en = {
 				'<strong>4 Confidence Strategies</strong>: Structured output, heuristic, judge model, or none, choose the evaluation method that fits your use case',
 				'<strong>Per-Conversation Budgets</strong>: Automatic cost tracking with budget caps and conversation eviction when exceeded',
 				'<strong>Tenant Cost Ceilings</strong>: Monthly cost budgets per tenant with automatic enforcement in multi-tenant deployments',
-				'<strong>12 LLM Providers</strong>: OpenAI, Anthropic, Google Gemini, Mistral, Azure OpenAI, Amazon Bedrock, Oracle GenAI, Vertex AI, Ollama, Jlama, Hugging Face, and any OpenAI-compatible endpoint',
+				`<strong>${LLM_PROVIDERS} LLM Providers</strong>: Mix any of them in one cascade, for example a Gemini Flash or DeepSeek tier in front of Claude or GPT. See the <a href="/models/">model catalog</a>`,
 			],
 			heading3: 'How It Works',
-			para2: 'Configure a cascade chain of models ordered by cost. For each user message, EDDI tries the cheapest model first and evaluates confidence. If confidence falls below the threshold, it automatically escalates to the next model in the chain. This approach can <strong>reduce LLM costs by up to 60-80%</strong> in typical multi-model workloads where most queries are simple enough for smaller models.',
+			para2: `Configure a cascade chain of models ordered by cost. For each user message, EDDI tries the cheapest model first and evaluates confidence. If confidence falls below the threshold, it automatically escalates to the next model in the chain. Published deployments of this pattern report <strong>31% (a 75,000-query production workload) to 58% (an 8-week enterprise pilot) lower inference cost</strong> at held quality. How much you save depends on how many of your queries are easy and how far apart your tiers are priced: see the <a href="/benchmarks/">evidence and its caveats</a>.`,
 		},
 		humanInTheLoop: {
 			title: `Human-in-the-Loop Governance`,
@@ -777,6 +937,8 @@ const en = {
 				`<strong>Approve What Will Actually Run</strong>: An approval binds to the resolved request, and approvers of MCP and A2A calls see the target and a request fingerprint, not just a tool name.`,
 				`<strong>A Gated Platform Operator</strong>: The Platform Operator can create and change agents through EDDI's own API, and every write it attempts waits behind the same approval gate.`,
 			],
+			evidenceTitle: `Few Gates, Well Placed`,
+			evidencePara: `Human gates work: in one controlled study, three binding human decision gates cut critical failures in AI-assisted research runs from 72% to 16%. But reviewer attention runs out, and past a point more escalation makes a system less safe, not more. That is why EDDI sets approval friction per endpoint and per tool, with glob allow and exempt lists, so people see the decisions that need a person. The <a href="/benchmarks/">evidence page</a> has the studies.`,
 			govTitle: `Governance and Compliance Fit`,
 			govPara: `Human oversight is not only an operational preference, it is a regulatory requirement. Approval gates give EU AI Act Article 14 human oversight a concrete implementation: a named person authorizes a specific action, and the decision is recorded. Combined with EDDI's <a href="/enterprise/compliance/">compliance framework</a> and its HMAC-SHA256 audit trail, you can show an auditor not just what an agent did, but who allowed it and when.`,
 		},
@@ -800,6 +962,7 @@ const en = {
 		// Enterprise pages
 		whyEddi: {
 			title: 'Why EDDI?',
+			metaTitle: 'Why EDDI: The Self-Hosted Enterprise AI Agent Platform',
 			description:
 				'The self-hosted enterprise AI orchestration platform. Configuration-driven agent logic, a complete management UI, and enterprise-grade security, all in one deployable platform.',
 			heading1: 'The Gap in Enterprise AI',
@@ -834,15 +997,16 @@ const en = {
 				{ dimension: 'Deployment', frameworks: 'pip/npm + manual infrastructure', eddi: 'One-command Docker install, Kubernetes/OpenShift-ready, Red Hat certified image' },
 			],
 			// LLM Providers
-			llmTitle: '12 LLM Providers Supported',
-			llmDesc: 'Connect to any major LLM provider, or bring your own via any OpenAI-compatible endpoint.',
+			llmTitle: `${LLM_PROVIDERS} LLM Providers Supported`,
+			llmDesc: 'Connect to any major LLM provider, or bring your own via any OpenAI-compatible endpoint. The <a href="/models/">model catalog</a> covers each model family and how to run it.',
 			llmHeaderCategory: 'Category',
 			llmHeaderProviders: 'Providers',
 			llmCategories: [
-				{ category: 'Cloud APIs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'Model Labs', providers: 'OpenAI · Anthropic Claude · Google Gemini · Mistral AI' },
+				{ category: 'OpenAI-Compatible', providers: 'xAI Grok · DeepSeek · Moonshot Kimi · Alibaba Qwen · Z.ai GLM · MiniMax · OpenRouter · Groq' },
 				{ category: 'Enterprise Cloud', providers: 'Azure OpenAI · Amazon Bedrock · Oracle GenAI · Google Vertex AI' },
 				{ category: 'Self-Hosted', providers: 'Ollama · Jlama · Hugging Face' },
-				{ category: 'Compatible', providers: 'Any OpenAI-compatible endpoint (DeepSeek, Cohere, etc.) via baseUrl' },
+				{ category: 'Anything Else', providers: 'Cohere, Together, vLLM or a corporate gateway, through type openai and a baseUrl' },
 			],
 
 			// ── RFP Evaluation Checklist ───────────────────────────
@@ -856,7 +1020,7 @@ const en = {
 				{ category: 'Security', question: 'What is the platform\'s CVE history and architectural security posture?', eddiAnswer: 'No dynamic code execution eliminates entire vulnerability classes. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable, cryptographically signed audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with per-agent cryptographic signing. Full pipeline tracing for every decision.' },
 				{ category: 'Operations', question: 'Can non-developers (prompt engineers, compliance officers) use the platform?', eddiAnswer: 'The EDDI Manager is a production-ready React UI with visual agent building, live chat debugging, and audit dashboards.' },
-				{ category: 'Portability', question: 'Can the platform run on-premises, in any cloud, and in air-gapped environments?', eddiAnswer: 'Docker-native architecture runs anywhere. Supports 12 LLM providers + any OpenAI-compatible endpoint. Full air-gap support via Ollama.' },
+				{ category: 'Portability', question: 'Can the platform run on-premises, in any cloud, and in air-gapped environments?', eddiAnswer: `Docker-native architecture runs anywhere. Supports ${LLM_PROVIDERS} LLM providers + any OpenAI-compatible endpoint. Full air-gap support via Ollama or Jlama.` },
 			],
 
 			// ── TCO / Build vs. Deploy ────────────────────────────
@@ -883,11 +1047,12 @@ const en = {
 
 			// ── ROI Framing ──────────────────────────────────────
 			roiTitle: 'The Business Case',
-			roiPara: 'EDDI\'s value is measured in <strong>what teams don\'t have to build</strong>: the REST APIs, authentication systems, audit infrastructure, management UIs, and compliance tooling that would otherwise consume months of engineering time. Model cascading alone can reduce LLM costs by up to 60–80% in typical multi-model workloads by routing simple queries to cheaper models, escalating to powerful models only when confidence is low.',
+			roiPara: `EDDI's value is measured in <strong>what teams don\'t have to build</strong>: the REST APIs, authentication systems, audit infrastructure, management UIs, and compliance tooling that would otherwise consume months of engineering time. Model cascading can cut LLM spend further by routing simple queries to cheaper models and escalating only when confidence is low: published deployments of the pattern report 31 to 58% lower inference cost at held quality (<a href="/benchmarks/">evidence</a>).`,
 			roiPara2: `For regulated industries, the cost equation is even clearer: the alternative to EDDI's built-in compliance infrastructure is a custom implementation covering GDPR, EU AI Act, HIPAA, and potentially ${FRAMEWORKS} additional regulatory frameworks, each requiring its own data subject rights implementation, audit trail, and governance tooling.`,
 		},
 		vsAlternatives: {
 			title: 'EDDI vs. Alternatives',
+			metaTitle: 'EDDI vs. Flowise, n8n, LangGraph, CrewAI and Cloud AI Platforms',
 			description:
 				'How EDDI compares with Flowise, n8n, LangGraph, CrewAI, AutoGen, AWS Bedrock, Azure AI Studio, and other AI orchestration approaches, architecture, security, and enterprise readiness.',
 
@@ -940,12 +1105,13 @@ const en = {
 			libraryComparisonTitle: 'Framework Comparison',
 			libraryComparisonHeaders: { framework: 'Framework / Platform', abstraction: 'Primary Abstraction', learning: 'Learning Curve', state: 'State & Memory', production: 'Production Infrastructure' },
 			libraryComparisonRows: [
-				{ framework: 'LangGraph (v1.0)', abstraction: 'Nodes & Edges (DAG / state machine)', learning: 'Moderate–High (2–3 weeks)', state: 'Excellent built-in persistence, but rigid upfront definition required', production: 'Requires custom REST, auth, UI, and scaling infrastructure' },
-				{ framework: 'CrewAI (v1.8.x)', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral, relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
+				{ framework: 'LangGraph', abstraction: 'Nodes & Edges (DAG / state machine)', learning: 'Moderate–High (2–3 weeks)', state: 'Excellent built-in persistence, but rigid upfront definition required', production: 'Requires custom REST, auth, UI, and scaling infrastructure' },
+				{ framework: 'CrewAI', abstraction: 'Role-based team delegation', learning: 'Low (fastest setup)', state: 'Ephemeral, relies on developer integration for long-term memory', production: 'Excellent for prototyping, lacks built-in enterprise governance' },
 				{ framework: 'Microsoft AutoGen', abstraction: 'Multi-party conversational dialogues', learning: 'Low–Moderate', state: 'Good conversation history support', production: 'Transitioning to new framework; deep Azure integration required' },
 				{ framework: 'EDDI', abstraction: 'Multi-Agent Orchestration Platform', learning: 'Low (Config-as-Code)', state: 'Native persistent memory, dream consolidation, rolling summaries', production: 'Fully packaged: OIDC/Keycloak, per-user workspaces, vault, audit trails, management UI, Kubernetes-ready' },
 			],
 
+			libraryComparisonNote: 'Framework descriptions as of September 2026. These projects move quickly, so check their current documentation.',
 			libraryPositioning: '<strong>Libraries provide the logic; EDDI provides the infrastructure.</strong> Teams using EDDI ship AI agents to production instead of maintaining internal middleware. This distinction matters most when scaling beyond a single developer, when prompt engineers, operations teams, and compliance officers all need access to the platform.',
 
 			// ── Section 4: vs. Cloud AI Platforms ────────────────
@@ -957,8 +1123,8 @@ const en = {
 			cloudComparisonHeaders: { dimension: 'Dimension', cloud: 'Cloud AI Platforms', eddi: 'EDDI' },
 			cloudComparisonRows: [
 				{ dimension: 'Deployment', cloud: 'Locked to provider\'s cloud tenant', eddi: 'Docker-native, runs on-premises, any cloud, or air-gapped' },
-				{ dimension: 'Model Choice', cloud: 'Provider\'s model portfolio (often restricted)', eddi: '12 LLM providers + any OpenAI-compatible endpoint via baseUrl' },
-				{ dimension: 'Cost Control', cloud: 'Provider-set pricing, limited optimization levers', eddi: 'Model cascading reduces LLM costs by up to 60–80% in typical multi-model workloads via confidence-based routing' },
+				{ dimension: 'Model Choice', cloud: 'Provider\'s model portfolio (often restricted)', eddi: `${LLM_PROVIDERS} LLM providers + any OpenAI-compatible endpoint via baseUrl` },
+				{ dimension: 'Cost Control', cloud: 'Provider-set pricing, limited optimization levers', eddi: 'Model cascading routes easy queries to cheaper models; published deployments report 31 to 58% lower inference cost at held quality' },
 				{ dimension: 'Data Residency', cloud: 'Data resides in provider\'s infrastructure', eddi: 'Full data sovereignty, you control where data is stored and processed' },
 				{ dimension: 'Portability', cloud: 'Provider-specific APIs, SDKs, and abstractions', eddi: 'Standard MCP, A2A, OpenAPI, REST, zero proprietary lock-in' },
 				{ dimension: 'Multi-Cloud', cloud: 'Difficult or impossible to span providers', eddi: 'Same Docker image deploys identically to any environment' },
@@ -970,9 +1136,11 @@ const en = {
 			// ── Bottom CTA ─────────────────────────────────────────
 			ctaTitle: 'Ready to Compare?',
 			ctaPara: 'Install EDDI in 5 minutes and evaluate it side-by-side against your current stack.',
+			ctaButton: 'Install EDDI in 5 Minutes',
 		},
 		compliance: {
 			title: 'Global Privacy & Regulatory Compliance',
+			metaTitle: 'AI Compliance: EU AI Act, GDPR, HIPAA and Global Privacy Laws',
 			description:
 				'EDDI provides built-in compliance for GDPR, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, Malaysia PDPA, PIPL, and more, with cascade data erasure, cryptographic audit trails, and one unified API.',
 
@@ -1015,7 +1183,7 @@ const en = {
 
 			// ── Section 3: Data Privacy Regulations ──────────────
 			privacyHeading: 'Data Privacy Regulations',
-			privacyIntro: 'EDDI provides <strong>unified data subject rights endpoints</strong> that satisfy the technical requirements of every major privacy regulation worldwide. One API covers cascade erasure, full data export, and processing restriction, regardless of jurisdiction.',
+			privacyIntro: 'EDDI provides <strong>unified data subject rights endpoints</strong> that provide the technical controls behind data subject rights in every jurisdiction listed below. One API covers cascade erasure, full data export, and processing restriction, regardless of jurisdiction.',
 
 			gdprHeading: 'GDPR: European Union / EEA',
 			gdprPara: 'The General Data Protection Regulation (EU 2016/679) is the gold standard for data privacy. EDDI implements GDPR data subject rights as <strong>first-class API endpoints</strong> backed by cascade operations across all 5 data stores:',
@@ -1029,7 +1197,7 @@ const en = {
 			],
 
 			ccpaHeading: 'CCPA / CPRA: California, United States',
-			ccpaPara: 'The California Consumer Privacy Act and California Privacy Rights Act grant consumers rights to know, delete, and opt out of data sales. EDDI satisfies CCPA\'s technical requirements through its GDPR-compatible API:',
+			ccpaPara: 'The California Consumer Privacy Act and California Privacy Rights Act grant consumers rights to know, delete, and opt out of data sales. EDDI supports these consumer rights through its GDPR-compatible API:',
 			ccpaItems: [
 				'<strong>Right to Know (§1798.100)</strong>: The GDPR export endpoint provides all personal information in a structured, machine-readable format',
 				'<strong>Right to Delete (§1798.105)</strong>: The GDPR erasure endpoint provides cascade deletion across all data stores',
@@ -1048,7 +1216,7 @@ const en = {
 			],
 
 			lgpdHeading: 'LGPD: Brazil',
-			lgpdPara: 'Brazil\'s Lei Geral de Proteção de Dados (2018, effective 2020) grants extensive data subject rights closely mirroring GDPR. EDDI covers all Article 18 rights with built-in technical capabilities:',
+			lgpdPara: 'Brazil\'s Lei Geral de Proteção de Dados (2018, effective 2020) grants extensive data subject rights closely mirroring GDPR. EDDI provides technical mechanisms for the Article 18 rights:',
 			lgpdItems: [
 				'<strong>Access to Data (Art. 18, II)</strong>: Full JSON data export',
 				'<strong>Correction (Art. 18, III)</strong>: User memories updatable via <code>PUT /usermemorystore/memories</code>',
@@ -1064,7 +1232,7 @@ const en = {
 				'<strong>Security Measures (Art. 23)</strong>: AES-256-GCM vault encryption, HMAC-SHA256 audit integrity, Keycloak OIDC, RBAC, SSRF protection',
 				'<strong>Disclosure to Data Subjects (Art. 33)</strong>: Full data export via REST API',
 				'<strong>Correction and Deletion (Art. 34-35)</strong>: Memory updates for correction; cascade deletion for erasure',
-				'<strong>Pseudonymized Information (2022 amendment)</strong>: GDPR erasure uses SHA-256 pseudonymization, satisfying APPI\'s pseudonymized information category',
+				'<strong>Pseudonymized Information (2022 amendment)</strong>: GDPR erasure uses SHA-256 pseudonymization, supporting APPI\'s pseudonymized information category',
 				'<strong>Cross-Border Transfer Documentation (Art. 28)</strong>: LLM provider data flows documented; audit trail records which model/provider processed each turn',
 			],
 
@@ -1111,13 +1279,13 @@ const en = {
 			],
 
 			otherRegionsHeading: 'Additional Jurisdictions',
-			otherRegionsPara: 'EDDI\'s data protection infrastructure meets international standards. The following jurisdictions are also supported through the same unified API:',
+			otherRegionsPara: 'EDDI\'s data protection infrastructure is built around international standards. The following jurisdictions are also supported through the same unified API:',
 			otherRegionsItems: [
-				'<strong>UK GDPR</strong> (United Kingdom): Substantially mirrors EU GDPR; EDDI\'s GDPR endpoints satisfy all UK GDPR data subject rights. ICO oversight.',
+				'<strong>UK GDPR</strong> (United Kingdom): Substantially mirrors EU GDPR; EDDI\'s GDPR endpoints cover the UK GDPR data subject rights. ICO oversight.',
 				'<strong>PIPA</strong> (South Korea): Strict consent requirements, mandatory DPO, 72-hour breach notification. EDDI provides the technical audit and erasure infrastructure.',
-				'<strong>DPDPA</strong> (India, 2023): Consent-based framework with cross-border restrictions. EDDI\'s export and erasure endpoints satisfy the Digital Personal Data Protection Act requirements.',
+				'<strong>DPDPA</strong> (India, 2023): Consent-based framework with cross-border restrictions. EDDI\'s export and erasure endpoints support the data principal rights of the Digital Personal Data Protection Act.',
 				'<strong>Privacy Act + APPs</strong> (Australia): 13 Australian Privacy Principles; notifiable data breach scheme. EDDI\'s audit trail and data export cover the technical obligations.',
-				'<strong>CCPA-style state laws</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA, etc.): The GDPR/CCPA-compatible API satisfies all emerging US state privacy laws.',
+				'<strong>CCPA-style state laws</strong> (Virginia VCDPA, Colorado CPA, Connecticut CTDPA, etc.): The GDPR/CCPA-compatible API supports the access and deletion rights these laws grant.',
 			],
 
 			// ── Section 4: Industry-Specific Compliance ──────────
@@ -1157,11 +1325,12 @@ const en = {
 
 			// ── Section 6: Closing ───────────────────────────────
 			heading3: 'Built for Regulated Industries Worldwide',
-			para2: `Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI with confidence. The platform provides the transparency, auditability, and control mechanisms required by ${FRAMEWORKS} regulatory frameworks, from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia's PDPA, and China's PIPL. Compliance is not an afterthought. It is an architectural foundation.`,
+			para2: `Healthcare, financial services, government, manufacturing, and other regulated sectors can deploy EDDI on a solid technical foundation. The platform provides the transparency, auditability, and control mechanisms that ${FRAMEWORKS} regulatory frameworks call for, from the EU AI Act and GDPR in Europe to HIPAA in the United States, PIPEDA in Canada, LGPD in Brazil, APPI in Japan, POPIA in South Africa, PDPA in Southeast Asia, Malaysia's PDPA, and China's PIPL. Compliance is not an afterthought. It is an architectural foundation.`,
 		},
 		// ─── Track Record ─────────────────────────────────────
 		trust: {
 			title: 'Track Record',
+			metaTitle: 'Track Record: Institutional Backing and Production Deployments',
 			description:
 				'EDDI is backed by government-funded research, deployed in enterprise production, and validated by academic institutions, with OpenSSF, Codacy, and Red Hat certifications.',
 
@@ -1175,7 +1344,7 @@ const en = {
 			statPulls: 'Docker Pulls',
 			// Label only: the stats bar renders the {TESTS} value above this line,
 			// so the label must stay number-free (as statPulls/statProviders are).
-			statTests: 'Tests · 0 Failures',
+			statTests: 'Tests · Green in CI',
 			statProviders: 'LLM Providers',
 			statCertified: 'Red Hat Certified',
 
@@ -1194,7 +1363,7 @@ const en = {
 				{ year: '2021', text: 'Online Chatbot Hackathon, virtual event for pedagogical chatbot development.' },
 				{ year: '2023', text: 'EDDI adapts <strong>LLM integrations</strong>: connecting to modern large language models via LangChain4j.' },
 				{ year: '2025', text: 'EDDI adapts to <strong>agent flows</strong>: intent-based routing, managed conversations, and multi-agent orchestration.' },
-				{ year: '2026', text: `<strong>v6</strong>: ${MCP_TOOLS} MCP tools, A2A protocol, 7 discussion styles with voting and human members, Platform Operator, per-user workspaces, OpenAI-compatible API, model cascading.` },
+				{ year: '2026', text: `<strong>v6</strong>: ${MCP_TOOLS} MCP tools, A2A protocol, 7 discussion styles with voting and human members, Platform Operator, per-user workspaces, OpenAI-compatible API, model cascading, ${LLM_PROVIDERS} LLM providers, and knowledge bases that crawl websites and ingest files.` },
 				{ year: '2026', text: 'Selected as <strong>UNIDO Trusted Partner</strong> for Industrial AI for the Global South.' },
 			],
 
@@ -1225,20 +1394,20 @@ const en = {
 			// Developer trust
 			devTrustTitle: 'Verified by the Community',
 			devTrustDesc: 'Every trust signal is live, automated, and independently verifiable.',
-			devOpenSSF: 'OpenSSF Gold',
-			devOpenSSFDesc: 'Highest tier of Linux Foundation security and quality certification',
+			devOpenSSF: 'OpenSSF Best Practices: Gold',
+			devOpenSSFDesc: 'Gold badge, the top level of the OpenSSF Best Practices program (Linux Foundation)',
 			devScorecard: 'OpenSSF Scorecard',
 			devScorecardDesc: 'Automated supply-chain security scoring by the Linux Foundation',
 			devCodacy: 'Codacy Code Quality',
 			devCodacyDesc: 'Automated third-party code analysis',
 			devDocker: 'Docker Hub',
-			devDockerDesc: 'Hundreds of thousands of production pulls',
+			devDockerDesc: `${DOCKER_PULLS} pulls on Docker Hub`,
 			devCI: 'CI Passing',
 			devCIDesc: 'Automated build verification on every commit',
 			devCodeQL: 'CodeQL Clean',
 			devCodeQLDesc: 'GitHub security vulnerability scanning',
 			devTests: `${TESTS} Tests`,
-			devTestsDesc: 'Zero failures, enforced on every merge',
+			devTestsDesc: 'All must pass before every merge',
 			devIntegration: '70 Integration Test Suites',
 			devIntegrationDesc: 'Full-stack REST API verification with real database',
 			devE2E: '30+ E2E Test Suites',
@@ -1279,8 +1448,8 @@ const en = {
 			solCard2Desc: 'Zero licensing costs, full transparency, no vendor lock-in. Organizations can inspect, modify, and extend the platform without paying enterprise license fees, critical for emerging economies.',
 			solCard3Title: 'Configuration-Driven',
 			solCard3Desc: 'AI agents are defined via JSON configuration, not compiled code. Prompt engineers and domain experts can build and iterate without deep programming expertise, lowering the barrier to AI adoption.',
-			solCard4Title: '12 LLM Providers',
-			solCard4Desc: 'Works with local models (Ollama), open-source models, and any OpenAI-compatible endpoint, not tied exclusively to US-based APIs. Enables use of regional and locally-hosted language models.',
+			solCard4Title: `${LLM_PROVIDERS} LLM Providers`,
+			solCard4Desc: 'Works with local models (Ollama, Jlama), open-weight models, regional providers such as Qwen, GLM, Kimi and DeepSeek, and any OpenAI-compatible endpoint, not tied exclusively to US-based APIs.',
 
 			// What this means
 			whatTitle: 'What This Means',

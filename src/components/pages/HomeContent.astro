@@ -18,6 +18,7 @@ interface Props {
 }
 
 const { lang, t, faqItems } = Astro.props;
+import ArchitectureDiagram from '../ArchitectureDiagram.astro';
 ---
 
 <BaseLayout title={t.home.title} fullWidth={true} lang={lang} faqItems={faqItems}>
@@ -118,6 +119,9 @@ const { lang, t, faqItems } = Astro.props;
 	</blockquote>
 	<cite class="block mt-4 text-sm text-zinc-500 not-italic"><a href="https://github.com/labsai/EDDI/blob/main/docs/project-philosophy.md" target="_blank" rel="noopener" class="text-accent-400 hover:text-accent-300 transition-colors">Project Philosophy</a></cite>
 </section>
+<!-- How a turn flows -->
+<ArchitectureDiagram title={t.home.archTitle} caption={t.home.archCaption} />
+
 <!-- UNIDO Recognition Callout -->
 <section class="py-16 max-w-5xl mx-auto px-6">
 	<a href={localePath(lang, '/enterprise/unido-trusted-partner/')} class="unido-callout-card group no-underline! block">

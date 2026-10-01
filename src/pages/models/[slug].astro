@@ -1,0 +1,11 @@
+---
+import ModelDetailContent from '../../components/pages/ModelDetailContent.astro';
+import { enTranslations as t } from '../../i18n';
+import { MODELS, type ModelFamily } from '../../data/models';
+
+export function getStaticPaths() {
+	return MODELS.map((model) => ({ params: { slug: model.slug }, props: { model } }));
+}
+const { model } = Astro.props as { model: ModelFamily };
+---
+<ModelDetailContent lang="en" t={t} model={model} />

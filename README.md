@@ -41,13 +41,14 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 | 👥 | **Multi-User** | Per-user workspaces with sharing, and Connections that let agents act with each user's own credentials |
 | 🔗 | **OpenAI-Compatible API** | Deployed agents appear as models to Open WebUI, the `openai` SDK, LangChain, and LiteLLM |
 | 🧠 | **Memory & Context** | Persistent user memory, dream consolidation, rolling summaries, and token-aware context windowing |
-| 📚 | **RAG** | 7 embedding providers, 6 vector stores, and zero-infrastructure httpCall RAG |
-| 📈 | **Model Cascading** | Cost-optimized multi-model routing: reduce LLM costs by up to 60-80% in typical multi-model workloads |
+| 📚 | **Knowledge & RAG** | Knowledge bases that crawl websites and ingest PDF, Word, Excel and PowerPoint files on a schedule; 8 embedding providers, 6 vector stores, and zero-infrastructure httpCall RAG |
+| 🧭 | **19 LLM Providers** | From Claude, GPT and Gemini to DeepSeek, Qwen, Kimi and local models; the site's model catalog shows how to run each one |
+| 📈 | **Model Cascading** | Cost-optimized multi-model routing; published production deployments of the pattern report 31 to 58% lower inference cost (see /benchmarks/) |
 | ⏰ | **Scheduling** | Cron triggers, heartbeat wake-ups, and dream cycles for proactive agent behavior |
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
 | 📊 | **Observability** | Immutable audit trails, Prometheus metrics, and Grafana dashboards |
 | 🚀 | **Performance** | Java 25 Virtual Threads, millions of lightweight threads for I/O-bound LLM workloads |
-| 🧪 | **Code Quality** | 20,000+ tests with zero failures, CI/CD quality gates on every merge |
+| 🧪 | **Code Quality** | 20,000+ tests, green on every merge, with coverage and style gates in CI |
 
 ---
 
@@ -82,7 +83,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh insta
 |---|---|
 | ☕ Java 25 | Enterprise runtime with Virtual Threads |
 | ⚡ Quarkus | Cloud-native framework |
-| 🔗 LangChain4j | 12 LLM providers |
+| 🔗 LangChain4j | 19 LLM providers |
 | 🗃️ MongoDB / PostgreSQL | Dual database support (switch via env var) |
 | 🐳 Docker & Kubernetes | Container-native deployment |
 | 🔴 OpenShift | Red Hat Certified Container |

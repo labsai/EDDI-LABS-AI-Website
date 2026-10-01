@@ -46,11 +46,19 @@
 | `public/_headers`  | Security headers (Cloudflare/Netlify fallback)    |
 | `CNAME`            | GitHub Pages domain (legacy, remove after migration) |
 
+### Content policy: guides vs. docs
+
+`src/content/guides/` holds **task-oriented walkthroughs** published at `/guides/`. These are acquisition content: they take one job from nothing to working, cover the decisions worth making deliberately, and then hand off to docs.labs.ai for the field-level reference.
+
+That is the line. A guide may show a command, a request, and a config decision. A guide must NOT reproduce reference material: field tables, complete config schemas, or full API surfaces. Those version with the platform, so a copy on this site is wrong within a release. Link instead, via the `docsLinks` frontmatter field.
+
+Guides and comparison pages (`src/data/comparisons.ts`) are **English only**. `TranslationSchema` is `typeof en`, so putting them in `src/i18n/locales/` would force all 10 non-English files to implement the same shape. Their routes pass `localized={false}`, which suppresses hreflang and re-points the language switcher, so do not add `[lang]/` variants for them.
+
 ### DO NOT
 
 - Do NOT weaken or remove security headers in `vercel.json` or `public/_headers` — required for OpenSSF Gold badge
 - Do NOT change the domain without coordination
-- Do NOT embed docs content — link to docs.labs.ai instead
+- Do NOT embed **reference** docs content (field tables, complete schemas, full API surfaces) — link to docs.labs.ai instead. See the content policy above for what guides may include.
 
 ---
 

@@ -10,7 +10,7 @@ const { lang } = Astro.params as { lang: Locale };
 const t = await getTranslations(lang);
 const p = t.pages.rag;
 ---
-<FeaturePage title={p.title} description={p.description} heroImage={heroImage} lang={lang}>
+<FeaturePage title={p.title} metaTitle={p.metaTitle} description={p.description} heroImage={heroImage} lang={lang}>
 <h2>{p.heading1}</h2>
 <p set:html={p.para1} />
 <h3>{p.heading2}</h3>

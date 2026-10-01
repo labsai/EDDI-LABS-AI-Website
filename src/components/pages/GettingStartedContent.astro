@@ -17,7 +17,7 @@ interface Props {
 const { lang, t } = Astro.props;
 ---
 
-<BaseLayout title={t.gettingStarted.title} description={t.gettingStarted.description} fullWidth={true} lang={lang}>
+<BaseLayout title={t.gettingStarted.title} metaTitle={t.gettingStarted.metaTitle} description={t.gettingStarted.description} fullWidth={true} lang={lang}>
 
 <section class="gs-hero hero-gradient-bg">
 	<div class="gs-hero-inner">
@@ -101,6 +101,7 @@ docker compose up`}</code></pre>
 		</div>
 	</div>
 		<p set:html={t.gettingStarted.step2After} />
+		<p class="gs-tip" set:html={t.gettingStarted.step2OAuthNote} />
 		<p set:html={t.gettingStarted.step2DocsLink} />
 	</section>
 	<section class="gs-section">
@@ -135,7 +136,7 @@ docker compose up`}</code></pre>
   agentName: "My first agent",
   systemPrompt: "You are a helpful assistant that answers questions clearly.",
   provider: "anthropic",
-  model: "claude-sonnet-4-6",
+  model: "claude-sonnet-5-5",
   apiKey: "\${vault:my-anthropic-key}"
 )`}</code></pre>
 			</div>
@@ -146,7 +147,7 @@ docker compose up`}</code></pre>
     "agentName": "My first agent",
     "systemPrompt": "You are a helpful assistant that answers questions clearly.",
     "provider": "anthropic",
-    "model": "claude-sonnet-4-6",
+    "model": "claude-sonnet-5-5",
     "apiKey": "\${vault:my-anthropic-key}"
   }'`}</code></pre>
 			</div>

@@ -1,0 +1,75 @@
+---
+/**
+ * What's New in the current release (/whats-new/). The announcement banner links
+ * here. Shared by the root and [lang] routes; copy lives in t.whatsNew.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localePath, type Locale, type TranslationSchema } from '../../i18n';
+import { EDDI_LATEST_VERSION } from '../../i18n/version';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+}
+
+const { lang, t } = Astro.props;
+const w = t.whatsNew;
+const releaseUrl = `https://github.com/labsai/EDDI/releases/tag/${EDDI_LATEST_VERSION}`;
+---
+<BaseLayout title={w.title} metaTitle={w.metaTitle} description={w.description} fullWidth={true} lang={lang}>
+<section class="wn-hero hero-gradient-bg">
+	<div class="wn-hero-inner">
+		<span class="wn-badge">{w.heroBadge}</span>
+		<h1>{w.heroTitle} <span class="text-gradient-dynamic">{w.heroHighlight}</span></h1>
+		<p>{w.heroDesc}</p>
+	</div>
+</section>
+
+<article class="wn-content">
+	<div class="wn-grid">
+		{w.sections.map((s) => (
+			<section class="wn-card">
+				<span class="wn-icon" aria-hidden="true">{s.icon}</span>
+				<h2>{s.title}</h2>
+				<p>{s.desc}</p>
+				<a href={localePath(lang, s.link)} class="wn-link">{s.linkText} →</a>
+			</section>
+		))}
+	</div>
+
+	<section class="wn-also">
+		<h2>{w.alsoTitle}</h2>
+		<ul>{w.alsoItems.map((item) => <li>{item}</li>)}</ul>
+	</section>
+
+	<section class="wn-upgrade">
+		<h2>{w.upgradeTitle}</h2>
+		<p>{w.upgradeDesc}</p>
+		<pre><code>eddi update</code></pre>
+		<a href={releaseUrl} target="_blank" rel="noopener" class="btn-cta-outline">{w.releaseNotes} ↗</a>
+	</section>
+</article>
+</BaseLayout>
+
+<style>
+	.wn-hero { padding: calc(var(--total-header-height, 6rem) + 4rem) 1.5rem 2.5rem; text-align: center; }
+	.wn-hero-inner { max-width: 48rem; margin: 0 auto; }
+	.wn-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 9999px; color: var(--color-accent); border: 1px solid var(--color-accent); margin-bottom: 1rem; }
+	.wn-hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.wn-hero p { color: var(--color-text-muted); font-size: 1.125rem; line-height: 1.6; margin: 0; }
+	.wn-content { max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+	.wn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem; }
+	.wn-card { display: flex; flex-direction: column; padding: 1.75rem; border-radius: 1rem; }
+	html[data-theme='dark'] .wn-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .wn-card { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
+	.wn-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+	.wn-card h2 { font-size: 1.1875rem; font-weight: 700; color: var(--color-text); margin: 0 0 0.5rem; }
+	.wn-card p { font-size: 0.9375rem; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 1rem; flex-grow: 1; }
+	.wn-link { font-size: 0.875rem; font-weight: 600; color: var(--color-accent); text-decoration: none; }
+	.wn-link:hover { text-decoration: underline; }
+	.wn-also, .wn-upgrade { margin-top: 3.5rem; max-width: 52rem; }
+	.wn-also h2, .wn-upgrade h2 { font-size: 1.5rem; font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.wn-also ul { margin: 0; padding-inline-start: 1.2rem; color: var(--color-text-muted); line-height: 1.8; }
+	.wn-upgrade p { color: var(--color-text-muted); margin: 0 0 0.75rem; }
+	.wn-upgrade pre { margin: 0 0 1.25rem; }
+</style>
