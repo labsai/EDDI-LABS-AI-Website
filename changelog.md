@@ -6,7 +6,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ### 🧭 Dual-Funnel Review: Quickstart, Interactive Pipeline, Comparisons and Integrations in 11 Locales, Privacy-First Consent
 
-Branch `feat/dual-funnel-feedback`. Works through an external review of eddi.technology and eddi.solutions (2026-10-14). Planned and reviewed by Opus 5.5, implemented by Sonnet 5.5 in four parallel workstreams. The sibling eddi.solutions branch of the same name carries the buyer-side half.
+Branch `feat/dual-funnel-feedback`. Works through an external review of eddi.technology and eddi.solutions (2026-10-14). The sibling eddi.solutions branch of the same name carries the buyer-side half.
 
 **Checked and found already fixed:** the review reported stat drift on `/features/performance/` ("7 embedding providers", "zero failures"). The live site already says 8, "Green in CI" and ">90% coverage gate"; counts are centralised in `stats.ts` and guarded by `check-stats`. No change.
 
