@@ -35,6 +35,7 @@
 
 - [Why EDDI](https://eddi.technology/enterprise/why-eddi/): Comparison table (6 dimensions), 19 LLM providers, Quarkus SDK
 - [vs. Alternatives](https://eddi.technology/enterprise/vs-alternatives/): Landscape by archetype, visual node builders (Flowise, n8n), code libraries (LangGraph, CrewAI, AutoGen, Spring AI, LangChain4j), and cloud platforms (AWS Bedrock, Azure AI Studio, Vertex AI)
+- [EDDI Solutions](https://eddi.solutions): The managed and enterprise offering of EDDI by the same company (LABS.AI): dedicated instances, SLAs, custom connectors and MCP tools, sovereign and air-gapped deployments. This site covers the free, self-hosted, open source EDDI.
 
 ## Guides
 

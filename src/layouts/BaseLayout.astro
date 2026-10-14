@@ -105,6 +105,9 @@ const siteOrigin = new URL(siteUrl).origin;
 const ORG_ID = `${siteOrigin}/#organization`;
 const LOGO_ID = `${siteOrigin}/#logo`;
 const SITE_ID = `${siteOrigin}/#website`;
+// Stable node ids: eddi.solutions references these two ids from its own
+// JSON-LD (https://eddi.technology/#organization and https://eddi.technology/#eddi).
+// Do not change them without updating that site.
 const APP_ID = `${siteOrigin}/#eddi`;
 const pageId = `${canonicalURL}#webpage`;
 
@@ -124,6 +127,8 @@ const jsonLdGraph = {
         "https://github.com/labsai",
         "https://github.com/labsai/EDDI",
         "https://hub.docker.com/r/labsai/eddi",
+        "https://docs.labs.ai",
+        "https://eddi.solutions",
       ],
     },
     {
@@ -170,6 +175,11 @@ const jsonLdGraph = {
         "GDPR, EU AI Act, and HIPAA compliance tooling",
       ],
       license: "https://www.apache.org/licenses/LICENSE-2.0",
+      isAccessibleForFree: true,
+      sameAs: [
+        "https://github.com/labsai/EDDI",
+        "https://hub.docker.com/r/labsai/eddi",
+      ],
       author: { "@id": ORG_ID },
       publisher: { "@id": ORG_ID },
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
