@@ -1,0 +1,200 @@
+---
+/**
+ * One head-to-head comparison (/compare/{slug}/). Shared by root and [lang].
+ * Copy: src/i18n/compare/{locale}.ts. Skeleton: src/data/comparisons.ts.
+ */
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_vs_alternatives.webp';
+import { COMPARISONS, COMPARISON_BY_SLUG } from '../../data/comparisons';
+import { getCompareCopy } from '../../i18n/compare';
+import { localePath, type Locale, type TranslationSchema } from '../../i18n';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
+
+interface Props {
+	lang: Locale;
+	t: TranslationSchema;
+	slug: string;
+}
+
+const { lang, t, slug } = Astro.props;
+const copy = await getCompareCopy(lang);
+const ui = copy.ui;
+const c = copy.comparisons[slug];
+const meta = COMPARISON_BY_SLUG[slug];
+const others = COMPARISONS.filter((o) => o.slug !== slug);
+const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang, '/contact/');
+---
+
+<FeaturePage title={c.title} description={c.description} heroImage={heroImage} lang={lang} faqItems={c.faq}>
+
+<p class="back-link"><a href={localePath(lang, '/compare/')}><span aria-hidden="true" class="back-arrow">←</span> {ui.backToHub}</a></p>
+
+<!-- Short answer first: the part worth quoting -->
+<aside class="verdict" aria-label={ui.shortAnswer}>
+	<p class="verdict-label">{ui.shortAnswer}</p>
+	<p class="verdict-body" set:html={c.verdict} />
+</aside>
+
+<h2>{c.whatItIsTitle}</h2>
+<p set:html={c.whatItIs} />
+
+<h2>{c.archetypeTitle}</h2>
+<p set:html={c.archetype} />
+
+<h2>{c.tableTitle}</h2>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{c.tableHeaders.dimension}</th><th>{c.tableHeaders.them}</th><th>{c.tableHeaders.eddi}</th></tr></thead>
+<tbody>{c.rows.map((row) => <tr><td><strong>{row.dimension}</strong></td><td>{row.them}</td><td>{row.eddi}</td></tr>)}</tbody>
+</table>
+</div>
+<p class="as-of">{ui.asOfNote}</p>
+
+<h2>{ui.chooseTitle}</h2>
+<div class="choose-grid">
+	<div class="choose-col choose-them">
+		<h3>{c.betterThemTitle}</h3>
+		<ul>{c.betterThem.map((item) => <li>{item}</li>)}</ul>
+	</div>
+	<div class="choose-col choose-eddi">
+		<h3>{c.betterEddiTitle}</h3>
+		<ul>{c.betterEddi.map((item) => <li>{item}</li>)}</ul>
+	</div>
+</div>
+
+<h2>{c.migrationTitle}</h2>
+<p>{c.migrationIntro}</p>
+<div class="overflow-x-auto mb-8">
+<table>
+<thead><tr><th>{meta.competitor}</th><th>EDDI</th></tr></thead>
+<tbody>{c.migrationSteps.map((step) => <tr><td><strong>{step.from}</strong></td><td>{step.to}</td></tr>)}</tbody>
+</table>
+</div>
+
+{meta.migrationGuide && c.migrationGuideLabel && (
+	<p class="migration-guide-link">
+		<!-- Guides are English-only, so this path is deliberately not locale-prefixed -->
+		<a href={meta.migrationGuide}>{c.migrationGuideLabel} →</a>
+	</p>
+)}
+
+<h2>{ui.faqTitle}</h2>
+{c.faq.map((item) => (
+	<div class="faq-item">
+		<h3>{item.question}</h3>
+		<p>{item.answer}</p>
+	</div>
+))}
+
+<h2>{ui.otherTitle}</h2>
+<ul class="other-comparisons">
+	{others.map((o) => (
+		<li><a href={localePath(lang, `/compare/${o.slug}/`)}>{copy.comparisons[o.slug].title}</a></li>
+	))}
+	<li><a href={localePath(lang, '/enterprise/vs-alternatives/')}>{ui.allAlternatives}</a></li>
+</ul>
+
+<!-- Enterprise & Commercial CTA -->
+<div class="enterprise-cta">
+	<h2>{t.common.enterpriseCtaTitle}</h2>
+	<p>{t.common.enterpriseCtaDesc}</p>
+	<a href={enterpriseCtaHref} class="btn-cta-primary" target={SOLUTIONS_LIVE ? '_blank' : undefined} rel={SOLUTIONS_LIVE ? 'noopener' : undefined}>{t.common.enterpriseCtaBtn}</a>
+</div>
+
+</FeaturePage>
+
+<style>
+	.back-link {
+		margin: 0 0 1.5rem;
+		font-size: 0.9375rem;
+	}
+	[dir='rtl'] .back-arrow {
+		display: inline-block;
+		transform: scaleX(-1);
+	}
+	/* Short answer callout */
+	.verdict {
+		margin: 0 0 2.5rem;
+		padding: 1.5rem 1.75rem;
+		border-radius: 0.75rem;
+		border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	}
+	.verdict-label {
+		margin: 0 0 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-text-subtle);
+	}
+	.verdict-body {
+		margin: 0;
+		font-size: 1.0625rem;
+		line-height: 1.65;
+	}
+
+	.as-of {
+		margin: -0.5rem 0 2rem;
+		font-size: 0.875rem;
+		color: var(--color-text-subtle);
+	}
+
+	/* Balanced two-column "who should pick what" */
+	.choose-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	.choose-col {
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+	}
+	.choose-col h3 {
+		margin-top: 0 !important;
+		font-size: 1.0625rem;
+	}
+	.choose-col ul {
+		margin-bottom: 0;
+	}
+	.choose-eddi {
+		border-color: color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+	}
+
+	.migration-guide-link {
+		margin: -0.5rem 0 2rem;
+		font-weight: 600;
+	}
+
+	.faq-item {
+		margin-bottom: 1.5rem;
+	}
+	.faq-item h3 {
+		margin-bottom: 0.5rem;
+		font-size: 1.0625rem;
+	}
+
+	.other-comparisons {
+		margin-bottom: 2rem;
+	}
+
+	/* Enterprise & Commercial CTA (matches /enterprise/vs-alternatives/) */
+	.enterprise-cta {
+		margin-top: 3rem;
+		padding: 2.5rem 2rem;
+		border-radius: 1rem;
+		border: 1px solid color-mix(in srgb, var(--color-accent, hsl(45, 100%, 51%)) 35%, transparent);
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+		text-align: center;
+	}
+	.enterprise-cta h2 {
+		margin-top: 0 !important;
+	}
+	.enterprise-cta p {
+		max-width: 38rem;
+		margin: 0 auto 1.5rem;
+	}
+</style>
