@@ -143,6 +143,7 @@ const hitProps = (id: StageId) => ({
 	.arch-hit { cursor: pointer; outline: none; }
 	.arch-hit rect { transition: stroke 0.15s ease, stroke-width 0.15s ease, fill 0.15s ease; }
 	.arch-hit:hover rect { stroke: var(--color-accent); }
+	.arch-hit:hover .arch-node { fill: color-mix(in srgb, var(--color-accent) 7%, transparent); }
 	.arch-hit[aria-pressed='true'] .arch-node,
 	.arch-hit[aria-pressed='true'] .arch-boundary,
 	.arch-hit[aria-pressed='true'] .arch-memory {
