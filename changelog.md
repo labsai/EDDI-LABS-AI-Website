@@ -4,6 +4,35 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🧭 Dual-Funnel Review: Quickstart, Interactive Pipeline, Comparisons and Integrations in 11 Locales, Privacy-First Consent
+
+Branch `feat/dual-funnel-feedback`. Works through an external review of eddi.technology and eddi.solutions (2026-10-14). Planned and reviewed by Opus 5.5, implemented by Sonnet 5.5 in four parallel workstreams. The sibling eddi.solutions branch of the same name carries the buyer-side half.
+
+**Checked and found already fixed:** the review reported stat drift on `/features/performance/` ("7 embedding providers", "zero failures"). The live site already says 8, "Green in CI" and ">90% coverage gate"; counts are centralised in `stats.ts` and guarded by `check-stats`. No change.
+
+**Consent and structured data**
+- Cookie banner reduced to two categories, Strictly Necessary and Analytics, matching eddi.solutions. The Marketing category is gone: nothing read it (the HubSpot form was already click-to-reveal) and its description ("track visitors across websites to display relevant advertisements") was inaccurate. Analytics is described as privacy-friendly Umami plus Google Analytics with advertising features off. Stored consents with the old `marketing` key still load. Privacy page section renamed to "Newsletter & Contact Form (HubSpot)".
+- Fixed a missing space between the banner text and "For more information" (both sites).
+- JSON-LD: Organization `sameAs` adds eddi.solutions and docs.labs.ai; SoftwareApplication gains `sameAs` and `isAccessibleForFree`. The `#organization` / `#eddi` ids are now referenced by eddi.solutions, so they must stay stable.
+
+**Homepage**
+- Copyable quickstart under the hero CTAs (bash / PowerShell tabs, aria-live "Copied").
+- "Config and UI, side by side": real Behavior Rule and LLM task JSON next to Manager screenshots; the approval tab shows an illustrative card because no approvals screenshot exists yet.
+- The pipeline diagram (Home and Features) is interactive: every stage opens a drawer with what happens, the config or memory at that stage, and an example audit-ledger entry (field names from `AuditEntry`, `hitl.approval` from `ConversationHitlService`).
+
+**Comparisons, now in 11 locales**
+- `/compare/` hub plus seven pages: new **Dify**, **CrewAI**, **Microsoft Agent Framework** (AutoGen and Semantic Kernel); **LangChain and LangGraph** retitled; n8n, Flowise, Rasa kept. Language-neutral data in `src/data/comparisons.ts`, copy in `src/i18n/compare/`. Competitor facts researched against official sources, dated October 2026, sources in the data file header.
+- EDDI claims corrected on the older pages: roles are `eddi-admin` / `eddi-approver`; deployment is Helm, Kustomize and the OpenShift Operator; the ledger is "HMAC-signed, append-only, sequence-checked" (not "immutable").
+- Compare added to the Enterprise menu, footer and mobile menu.
+
+**Integrations catalog, 11 locales**
+- `/integrations/` with 18 pages modelled on `/models/`: Slack, Open WebUI, web chat, Keycloak/OIDC, Secrets Vault, MCP server, MCP client, A2A, OpenAPI, SAP, Chroma, pgvector, Qdrant, Elasticsearch, MongoDB Atlas Vector Search, Kubernetes/Helm, OpenShift, Ollama. Snippets checked against the EDDI 6.5.0 docs. The SAP page states plainly that there is no native connector (OData/REST via OpenAPI or HTTP calls, or MCP). No HashiCorp Vault or Teams claims: EDDI has neither natively.
+
+**Not done, on purpose**
+- Quantified case studies: no first-party numbers exist yet; the owner chose to skip.
+- LangGraph and Dify migration guides (English guides collection): follow-up.
+- Translations have not had a native-speaker pass.
+
 ### 🚀 EDDI 6.5.0 Sync, Model Catalog, What's New, Evidence (all 11 locales)
 
 Branch `feat/eddi-6-5-0-sync`. Brings the site in line with EDDI 6.5.0 (main at `8febc21`) and works through the review of eddi.technology and eddi.solutions done on 2026-09-30. Also folds in the five unmerged commits from the August improvements branch (comparison pages, guides, docs-link fixes, `/benchmarks/`), rebased onto the 6.4.0 sync; the JSON-LD conflict was resolved by keeping the `@graph` and carrying the 6.4.0 `featureList`, `softwareVersion` and `releaseNotes` into it.
