@@ -27,6 +27,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: 'Direktvergleiche',
 		headToHeadIntro: 'Diese Seite ordnet die Landschaft nach Archetypen. Für einen direkten Vergleich mit einer bestimmten Alternative, einschließlich der Fälle, in denen diese Alternative die bessere Wahl ist, und der Migration eines bestehenden Projekts, siehe:',
 		navLabel: 'Vergleich',
+		navDesc: 'Dify, CrewAI, LangGraph und mehr im direkten Vergleich',
 	},
 	comparisons: {
 		// ─── LangChain and LangGraph ──────────────────────────────────

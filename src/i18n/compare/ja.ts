@@ -27,6 +27,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: '1対1の比較',
 		headToHeadIntro: 'このページではタイプ別に全体像を整理しています。特定の代替手段との直接比較（その代替手段が適している場面や、既存プロジェクトの移行方法を含む）は、次のページをご覧ください。',
 		navLabel: '比較',
+		navDesc: 'Dify、CrewAI、LangGraph などとの直接比較',
 	},
 	comparisons: {
 		// ─── LangChain and LangGraph ──────────────────────────────────

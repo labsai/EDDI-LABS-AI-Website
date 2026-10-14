@@ -167,6 +167,13 @@ const compareCopy = await getCompareCopy(lang);
 							<span>{t.nav.vsAlternativesDesc}</span>
 						</div>
 					</a>
+					<a href={localePath(lang, '/compare/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">🆚</span>
+						<div>
+							<strong>{compareCopy.ui.navLabel}</strong>
+							<span>{compareCopy.ui.navDesc}</span>
+						</div>
+					</a>
 					<a href={localePath(lang, '/enterprise/compliance/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">🏛️</span>
 						<div>

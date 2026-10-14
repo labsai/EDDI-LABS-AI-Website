@@ -48,6 +48,7 @@ export interface CompareUi {
 	headToHeadTitle: string;
 	headToHeadIntro: string;
 	navLabel: string;
+	navDesc: string;
 }
 
 export interface CompareCopy {
@@ -76,6 +77,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: 'Head-to-head comparisons',
 		headToHeadIntro: 'This page maps the landscape by archetype. For a direct comparison against a specific alternative, including where that alternative is the better choice and how to migrate an existing project, see:',
 		navLabel: 'Compare',
+		navDesc: 'Dify, CrewAI, LangGraph and more, head to head',
 	},
 	comparisons: {
 		// ─── LangChain and LangGraph ──────────────────────────────────

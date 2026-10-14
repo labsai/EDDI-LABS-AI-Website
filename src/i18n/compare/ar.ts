@@ -27,6 +27,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: 'مقارنات وجهاً لوجه',
 		headToHeadIntro: 'ترسم هذه الصفحة خريطة المجال بحسب النمط. وللحصول على مقارنة مباشرة مع بديل محدد، بما في ذلك الحالات التي يكون فيها ذلك البديل هو الخيار الأفضل وكيفية ترحيل مشروع قائم، راجع:',
 		navLabel: 'مقارنة',
+		navDesc: 'مقارنة مباشرة مع Dify وCrewAI وLangGraph وغيرها',
 	},
 	comparisons: {
 		// ─── LangChain and LangGraph ──────────────────────────────────

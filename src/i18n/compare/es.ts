@@ -25,6 +25,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: 'Comparativas directas',
 		headToHeadIntro: 'Esta página recorre el panorama por arquetipos. Para una comparación directa con una alternativa concreta, incluidos los casos en que esa alternativa es la mejor opción y cómo migrar un proyecto existente, consulte:',
 		navLabel: 'Comparar',
+		navDesc: 'Dify, CrewAI, LangGraph y más, cara a cara',
 	},
 	comparisons: {
 		// ─── LangChain y LangGraph ──────────────────────────────────

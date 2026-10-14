@@ -27,6 +27,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: '일대일 비교',
 		headToHeadIntro: '이 페이지는 유형별로 지형을 정리합니다. 특정 대안과의 직접 비교, 즉 그 대안이 더 나은 선택인 경우와 기존 프로젝트를 마이그레이션하는 방법은 다음을 참고하세요.',
 		navLabel: '비교',
+		navDesc: 'Dify, CrewAI, LangGraph 등과의 직접 비교',
 	},
 	comparisons: {
 		// ─── LangChain and LangGraph ──────────────────────────────────

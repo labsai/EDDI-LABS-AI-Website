@@ -26,6 +26,7 @@ const copy: CompareCopy = {
 		headToHeadTitle: 'Comparatifs en face-à-face',
 		headToHeadIntro: 'Cette page cartographie le paysage par archétype. Pour une comparaison directe avec une alternative précise, y compris les cas où cette alternative est le meilleur choix et la façon de migrer un projet existant, consultez :',
 		navLabel: 'Comparer',
+		navDesc: "Dify, CrewAI, LangGraph et d'autres, face à face",
 	},
 	comparisons: {
 		// ─── LangChain et LangGraph ───────────────────────────────────
