@@ -1,0 +1,81 @@
+---
+/**
+ * A read-only, syntax-highlighted JSON snippet. Highlighting happens at build
+ * time (src/data/highlight.ts), so no client JS and no library. The box scrolls
+ * horizontally on its own; the page never does. Code is always LTR, even inside
+ * an RTL page.
+ */
+import { highlightJson } from '../data/highlight';
+
+interface Props {
+	code: string;
+	label?: string;
+	maxHeight?: string;
+}
+const { code, label, maxHeight } = Astro.props;
+const html = highlightJson(code);
+---
+<div class="jb not-content" dir="ltr">
+	{label && <div class="jb-label">{label}</div>}
+	<pre class="jb-pre" tabindex="0" style={maxHeight ? `max-height:${maxHeight}` : undefined}><code set:html={html} /></pre>
+</div>
+
+<style>
+	.jb {
+		--jb-bg: rgba(0, 0, 0, 0.38);
+		--jb-border: rgba(255, 255, 255, 0.1);
+		--jb-key: #7dd3fc;
+		--jb-str: #86efac;
+		--jb-num: #fdba74;
+		--jb-kw: #c4b5fd;
+		--jb-pun: #8b8b96;
+		--jb-text: #e4e4e7;
+		min-width: 0;
+		border: 1px solid var(--jb-border);
+		border-radius: 0.75rem;
+		background: var(--jb-bg);
+		overflow: hidden;
+		text-align: left;
+	}
+	:global(html[data-theme='light']) .jb {
+		--jb-bg: #f4f4f2;
+		--jb-border: rgba(0, 0, 0, 0.12);
+		--jb-key: #0369a1;
+		--jb-str: #15803d;
+		--jb-num: #b45309;
+		--jb-kw: #6d28d9;
+		--jb-pun: #6b6b74;
+		--jb-text: #1c1c1e;
+	}
+	.jb-label {
+		padding: 0.4rem 0.9rem;
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: var(--color-text-muted);
+		border-bottom: 1px solid var(--jb-border);
+		background: color-mix(in srgb, var(--jb-border) 35%, transparent);
+	}
+	.jb-pre {
+		margin: 0;
+		padding: 0.9rem 1rem;
+		overflow: auto;
+		font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+		font-size: 0.8rem;
+		line-height: 1.6;
+		color: var(--jb-text);
+		background: transparent;
+		border: 0;
+		white-space: pre;
+		tab-size: 2;
+		scrollbar-width: thin;
+		scrollbar-color: var(--jb-pun) transparent;
+	}
+	.jb-pre code { font: inherit; background: none; border: 0; padding: 0; color: inherit; }
+	.jb :global(.tok-key) { color: var(--jb-key); }
+	.jb :global(.tok-str) { color: var(--jb-str); }
+	.jb :global(.tok-num) { color: var(--jb-num); }
+	.jb :global(.tok-kw) { color: var(--jb-kw); }
+	.jb :global(.tok-pun) { color: var(--jb-pun); }
+</style>
