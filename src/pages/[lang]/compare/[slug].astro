@@ -1,0 +1,12 @@
+---
+import CompareContent from '../../../components/pages/CompareContent.astro';
+import { COMPARISONS } from '../../../data/comparisons';
+import { NON_DEFAULT_LOCALES, getTranslations, type Locale } from '../../../i18n';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.flatMap((lang) => COMPARISONS.map((c) => ({ params: { lang, slug: c.slug } })));
+}
+const { lang, slug } = Astro.params as { lang: Locale; slug: string };
+const t = await getTranslations(lang);
+---
+<CompareContent lang={lang} t={t} slug={slug} />

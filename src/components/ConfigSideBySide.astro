@@ -1,0 +1,195 @@
+---
+/**
+ * "Config and UI, side by side": three tabs (Behavior rule, LLM task, Human
+ * approval). Each shows a real EDDI JSON document on the start side and the
+ * matching Manager screenshot on the other. EDDI has no screenshot of the
+ * approvals page in src/assets/screenshots, so the third tab shows a stylised,
+ * labelled approval card instead of a wrong screenshot.
+ * All panels are in the DOM; the first is visible without JS.
+ */
+import { Image } from 'astro:assets';
+import JsonBlock from './JsonBlock.astro';
+import { toJson } from '../data/highlight';
+import { getDevHomeCopy } from '../i18n/devhome';
+import type { Locale } from '../i18n';
+import agentDetail from '../assets/screenshots/eddi-v6-screenshot-agents-detail-1.png';
+import llmConfig from '../assets/screenshots/eddi-v6-screenshot-agents-llm-config-1.png';
+
+interface Props {
+	lang: Locale;
+}
+const { lang } = Astro.props;
+const { sbs: c } = await getDevHomeCopy(lang);
+
+// Real shapes: behavior rule from the EDDI weather test agent; LLM task from docs/langchain.md
+// (the key is a vault reference); the pause rule uses the PAUSE_CONVERSATION action from docs/hitl.md.
+const ruleJson = toJson({
+	behaviorGroups: [
+		{
+			name: '',
+			behaviorRules: [
+				{
+					name: 'Ask for City',
+					actions: ['ask_for_city'],
+					conditions: [{ type: 'inputmatcher', configs: { expressions: 'trigger(current_weather)' }, conditions: [] }],
+				},
+			],
+		},
+	],
+});
+const llmJson = toJson({
+	tasks: [
+		{
+			actions: ['send_message'],
+			id: 'simpleChat',
+			type: 'openai',
+			description: 'Simple chat interaction',
+			parameters: {
+				apiKey: '${vault:openai-key}',
+				modelName: 'gpt-4o',
+				systemMessage: 'You are a helpful assistant',
+				addToOutput: 'true',
+			},
+		},
+	],
+});
+const pauseJson = toJson({
+	behaviorGroups: [
+		{
+			name: '',
+			behaviorRules: [
+				{
+					name: 'Refund needs approval',
+					actions: ['PAUSE_CONVERSATION'],
+					conditions: [{ type: 'inputmatcher', configs: { expressions: 'trigger(refund_request)' }, conditions: [] }],
+				},
+			],
+		},
+	],
+});
+
+const tabs = [
+	{ id: 'rule', label: c.tabs.rule, caption: c.captions.rule, json: ruleJson, file: 'behavior.json' },
+	{ id: 'llm', label: c.tabs.llm, caption: c.captions.llm, json: llmJson, file: 'langchain.json' },
+	{ id: 'approval', label: c.tabs.approval, caption: c.captions.approval, json: pauseJson, file: 'behavior.json' },
+] as const;
+---
+<section class="sbs not-content" data-sbs aria-labelledby="sbs-title">
+	<div class="sbs-head">
+		<h2 id="sbs-title">{c.title}</h2>
+		<p>{c.subtitle}</p>
+	</div>
+
+	<div class="sbs-tabs" role="tablist" aria-label={c.tabsLabel}>
+		{tabs.map((t, i) => (
+			<button type="button" role="tab" class="sbs-tab" id={`sbs-tab-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`sbs-panel-${t.id}`} tabindex={i === 0 ? 0 : -1}>{t.label}</button>
+		))}
+	</div>
+
+	{tabs.map((t, i) => (
+		<div class="sbs-panel" role="tabpanel" id={`sbs-panel-${t.id}`} aria-labelledby={`sbs-tab-${t.id}`} hidden={i !== 0}>
+			<div class="sbs-grid">
+				<JsonBlock code={t.json} label={t.file} />
+				<div class="sbs-visual">
+					{t.id === 'rule' && (
+						<figure class="sbs-shot">
+							<Image src={agentDetail} alt={c.shotAlts.rule} widths={[480, 720, 960]} sizes="(min-width: 64rem) 36rem, 100vw" loading="lazy" decoding="async" />
+							<figcaption>{c.shotLabel}</figcaption>
+						</figure>
+					)}
+					{t.id === 'llm' && (
+						<figure class="sbs-shot">
+							<Image src={llmConfig} alt={c.shotAlts.llm} widths={[480, 720, 960]} sizes="(min-width: 64rem) 36rem, 100vw" loading="lazy" decoding="async" />
+							<figcaption>{c.shotLabel}</figcaption>
+						</figure>
+					)}
+					{t.id === 'approval' && (
+						<div class="sbs-card-wrap">
+							<div class="sbs-card">
+								<div class="sbs-card-top">
+									<span class="sbs-card-icon" aria-hidden="true">
+										<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></svg>
+									</span>
+									<strong>{c.card.title}</strong>
+									<code class="sbs-card-state" dir="ltr">{c.card.state}</code>
+								</div>
+								<p class="sbs-card-reason">{c.card.pausedBy}</p>
+								<p class="sbs-card-rule" dir="ltr"><code>Refund needs approval</code></p>
+								<div class="sbs-card-actions" aria-hidden="true">
+									<span class="sbs-btn sbs-btn-approve">{c.card.approve}</span>
+									<span class="sbs-btn sbs-btn-reject">{c.card.reject}</span>
+								</div>
+								<p class="sbs-card-foot">{c.card.foot}</p>
+							</div>
+							<span class="sbs-example">{c.example}</span>
+						</div>
+					)}
+				</div>
+			</div>
+			<p class="sbs-caption">{t.caption}</p>
+		</div>
+	))}
+</section>
+
+<style>
+	.sbs { max-width: 72rem; margin: 0 auto; padding: 5rem 1.5rem; }
+	.sbs-head { text-align: center; margin-bottom: 2rem; }
+	.sbs-head h2 { margin: 0 0 0.75rem; font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--color-text); border: 0; }
+	.sbs-head p { max-width: 42rem; margin: 0 auto; line-height: 1.65; color: var(--color-text-muted); font-size: 1.05rem; }
+
+	.sbs-tabs {
+		display: flex; justify-content: center; flex-wrap: wrap; gap: 0.35rem;
+		width: fit-content; max-width: 100%; margin: 0 auto 1.5rem; padding: 0.3rem;
+		border: 1px solid var(--color-border); border-radius: 0.85rem; background: var(--color-surface);
+	}
+	.sbs-tab {
+		appearance: none; border: 0; background: transparent; cursor: pointer;
+		padding: 0.5rem 1.1rem; border-radius: 0.6rem;
+		font: inherit; font-size: 0.9rem; font-weight: 600; color: var(--color-text-muted);
+		transition: background 0.15s ease, color 0.15s ease;
+	}
+	.sbs-tab:hover { color: var(--color-text); }
+	.sbs-tab[aria-selected='true'] { background: color-mix(in srgb, var(--color-accent) 18%, transparent); color: var(--color-accent-text); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-accent) 40%, transparent); }
+	.sbs-tab:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+	.sbs-panel[hidden] { display: none; }
+	.sbs-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: stretch; }
+	.sbs-grid > :global(.jb) { height: 100%; display: flex; flex-direction: column; }
+	.sbs-grid > :global(.jb) :global(.jb-pre) { flex: 1; }
+	.sbs-visual { min-width: 0; display: flex; }
+	.sbs-shot { margin: 0; width: 100%; display: flex; flex-direction: column; border: 1px solid var(--color-border); border-radius: 0.75rem; overflow: hidden; background: var(--color-bg-elevated); }
+	.sbs-shot :global(img) { display: block; width: 100%; height: 100%; min-height: 0; flex: 1; object-fit: cover; object-position: top left; margin: 0; border-radius: 0; }
+	.sbs-shot figcaption { padding: 0.4rem 0.9rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-muted); border-top: 1px solid var(--color-border); }
+	.sbs-caption { max-width: 52rem; margin: 1.25rem auto 0; text-align: center; line-height: 1.65; color: var(--color-text-muted); }
+
+	/* Stylised approval card (illustration, not a screenshot) */
+	.sbs-card-wrap { width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.5rem; border: 1px dashed var(--color-border); border-radius: 0.75rem; background: color-mix(in srgb, var(--color-surface) 60%, transparent); }
+	.sbs-card { width: 100%; max-width: 24rem; padding: 1.25rem; border-radius: 0.9rem; border: 1px solid color-mix(in srgb, var(--color-accent) 40%, var(--color-border)); background: var(--color-bg-elevated); box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.5); }
+	.sbs-card-top { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; color: var(--color-text); }
+	.sbs-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 0.6rem; color: var(--color-accent-text); background: color-mix(in srgb, var(--color-accent) 16%, transparent); }
+	.sbs-card-state { margin-inline-start: auto; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 9999px; color: var(--color-accent-text); background: color-mix(in srgb, var(--color-accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent); }
+	.sbs-card-reason { margin: 0.9rem 0 0.25rem; font-size: 0.85rem; color: var(--color-text-muted); }
+	.sbs-card-rule { margin: 0 0 1rem; }
+	.sbs-card-rule code { font-size: 0.85rem; color: var(--color-text); }
+	.sbs-card-actions { display: flex; gap: 0.6rem; }
+	.sbs-btn { flex: 1; text-align: center; padding: 0.5rem 0.75rem; border-radius: 0.6rem; font-size: 0.85rem; font-weight: 700; }
+	.sbs-btn-approve { color: #052e16; background: #4ade80; }
+	.sbs-btn-reject { color: var(--color-text); border: 1px solid var(--color-border); background: var(--color-surface); }
+	.sbs-card-foot { margin: 0.9rem 0 0; font-size: 0.75rem; line-height: 1.5; color: var(--color-text-subtle); }
+	.sbs-example { font-size: 0.75rem; font-style: italic; color: var(--color-text-subtle); }
+
+	@media (max-width: 56rem) {
+		.sbs { padding: 3rem 1rem; }
+		.sbs-grid { grid-template-columns: minmax(0, 1fr); }
+		.sbs-tabs { width: 100%; }
+		.sbs-tab { flex: 1 1 auto; padding-inline: 0.6rem; }
+	}
+</style>
+
+<script>
+	import { initTabs } from '../scripts/tabs';
+	function initSideBySide() {
+		document.querySelectorAll<HTMLElement>('[data-sbs]').forEach(initTabs);
+	}
+	document.addEventListener('astro:page-load', initSideBySide);
+</script>

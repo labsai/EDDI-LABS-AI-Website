@@ -1,0 +1,151 @@
+---
+/**
+ * Copyable quickstart under the hero CTAs: two tabs (macOS/Linux bash, Windows
+ * PowerShell), a copy button with aria-live feedback, and a link to the other
+ * install paths. Commands are the ones in docs/getting-started (not translated).
+ * Without JS the bash tab is visible and selectable; the copy button and the
+ * second tab appear only once the script runs.
+ */
+import { getDevHomeCopy } from '../i18n/devhome';
+import { localePath, type Locale } from '../i18n';
+
+interface Props {
+	lang: Locale;
+}
+const { lang } = Astro.props;
+const { quickstart: q } = await getDevHomeCopy(lang);
+
+const BASH = 'curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash';
+const POWERSHELL = [
+	'Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/labsai/EDDI/main/install.ps1" -OutFile "install.ps1"',
+	'Unblock-File .\\install.ps1',
+	'.\\install.ps1',
+].join('\n');
+---
+<div class="qs" data-qs>
+	<div class="qs-head">
+		<span class="qs-label" id="qs-label">{q.label}</span>
+		<div class="qs-tabs" role="tablist" aria-labelledby="qs-label">
+			<button type="button" role="tab" id="qs-tab-bash" aria-selected="true" aria-controls="qs-panel-bash" tabindex="0" class="qs-tab">{q.tabBash}</button>
+			<button type="button" role="tab" id="qs-tab-ps" aria-selected="false" aria-controls="qs-panel-ps" tabindex="-1" class="qs-tab qs-js">{q.tabPowershell}</button>
+		</div>
+		<button type="button" class="qs-copy qs-js" data-qs-copy data-copy-label={q.copy} data-copied-label={q.copied}>
+			<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+			<span data-qs-copy-text>{q.copy}</span>
+		</button>
+	</div>
+	<div class="qs-box" dir="ltr" data-no-copy>
+		<div class="qs-panel" id="qs-panel-bash" role="tabpanel" aria-labelledby="qs-tab-bash">
+			<pre tabindex="0"><code data-qs-code>{BASH}</code></pre>
+		</div>
+		<div class="qs-panel" id="qs-panel-ps" role="tabpanel" aria-labelledby="qs-tab-ps" hidden>
+			<pre tabindex="0"><code data-qs-code>{POWERSHELL}</code></pre>
+		</div>
+	</div>
+	<span class="qs-status" role="status" aria-live="polite" data-qs-status></span>
+	<a class="qs-other" href={localePath(lang, '/getting-started/')}>{q.other}</a>
+</div>
+
+<style>
+	.qs { margin-top: 1.75rem; width: 100%; max-width: 36rem; min-width: 0; text-align: start; }
+	.qs-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+	.qs-label { margin-inline-end: auto; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-muted); }
+	.qs-tabs { display: inline-flex; gap: 0.25rem; padding: 0.2rem; border-radius: 0.6rem; background: var(--color-surface); border: 1px solid var(--color-border); }
+	.qs-tab {
+		appearance: none; border: 0; background: transparent; cursor: pointer;
+		padding: 0.3rem 0.7rem; border-radius: 0.45rem;
+		font: inherit; font-size: 0.78rem; font-weight: 600; color: var(--color-text-muted);
+		transition: background 0.15s ease, color 0.15s ease;
+	}
+	.qs-tab:hover { color: var(--color-text); }
+	.qs-tab[aria-selected='true'] { background: color-mix(in srgb, var(--color-accent) 18%, transparent); color: var(--color-accent-text); }
+	.qs-tab:focus-visible, .qs-copy:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+	.qs-box {
+		position: relative; min-width: 0;
+		border: 1px solid var(--color-border); border-radius: 0.75rem;
+		background: rgba(0, 0, 0, 0.4);
+		text-align: left;
+	}
+	:global(html[data-theme='light']) .qs-box { background: #f4f4f2; border-color: rgba(0, 0, 0, 0.14); }
+	.qs-panel pre {
+		display: block;
+		margin: 0; padding: 0.9rem 0.75rem; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #71717a transparent;
+		font-family: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+		font-size: 0.74rem; line-height: 1.65; white-space: pre; overflow-wrap: normal;
+		background: transparent; border: 0; color: #e4e4e7;
+	}
+	:global(html[data-theme='light']) .qs-panel pre {
+		display: block; color: #1c1c1e; }
+	.qs-panel code { font: inherit; background: none; border: 0; padding: 0; color: inherit; }
+	.qs-copy {
+		display: inline-flex; align-items: center; gap: 0.35rem;
+		padding: 0.3rem 0.6rem; border-radius: 0.45rem; cursor: pointer;
+		font: inherit; font-size: 0.75rem; font-weight: 600;
+		color: var(--color-text); background: var(--color-bg-elevated); border: 1px solid var(--color-border);
+		transition: border-color 0.15s ease, color 0.15s ease;
+	}
+	.qs-copy:hover { border-color: var(--color-accent); }
+	.qs-copy[data-done='1'] { color: var(--color-accent-text); border-color: var(--color-accent); }
+	.qs-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+	.qs-other { display: inline-block; color: var(--color-accent-text); margin-top: 0.6rem; font-size: 0.85rem; font-weight: 600; }
+
+	/* Enhancement-only controls stay hidden until the script runs. */
+	.qs:not([data-qs-ready]) .qs-js { display: none; }
+</style>
+
+<script>
+	import { initTabs } from '../scripts/tabs';
+
+	function initQuickstart() {
+		document.querySelectorAll<HTMLElement>('[data-qs]').forEach((root) => {
+			if (root.hasAttribute('data-qs-ready')) return;
+			root.setAttribute('data-qs-ready', '');
+			initTabs(root);
+
+			const btn = root.querySelector<HTMLButtonElement>('[data-qs-copy]');
+			const label = root.querySelector<HTMLElement>('[data-qs-copy-text]');
+			const status = root.querySelector<HTMLElement>('[data-qs-status]');
+			if (!btn || !label || !status) return;
+			let timer: number | undefined;
+
+			const text = () => {
+				const panel = root.querySelector<HTMLElement>('.qs-panel:not([hidden]) [data-qs-code]');
+				return panel?.textContent ?? '';
+			};
+			// If the Clipboard API is unavailable, select the command so Ctrl/Cmd+C works.
+			const selectText = () => {
+				const code = root.querySelector<HTMLElement>('.qs-panel:not([hidden]) [data-qs-code]');
+				if (!code) return;
+				const range = document.createRange();
+				range.selectNodeContents(code);
+				const sel = window.getSelection();
+				sel?.removeAllRanges();
+				sel?.addRange(range);
+			};
+
+			btn.addEventListener('click', async () => {
+				const value = text();
+				let ok = false;
+				try {
+					await navigator.clipboard.writeText(value);
+					ok = true;
+				} catch {
+					selectText();
+				}
+				if (!ok) return;
+				const done = btn.dataset.copiedLabel ?? '';
+				label.textContent = done;
+				status.textContent = done;
+				btn.dataset.done = '1';
+				window.clearTimeout(timer);
+				timer = window.setTimeout(() => {
+					label.textContent = btn.dataset.copyLabel ?? '';
+					status.textContent = '';
+					delete btn.dataset.done;
+				}, 2000);
+			});
+		});
+	}
+	document.addEventListener('astro:page-load', initQuickstart);
+</script>

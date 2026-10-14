@@ -1,0 +1,207 @@
+---
+/**
+ * One integration (/integrations/{slug}/): what you get, how it works in EDDI, the
+ * real configuration, governance notes and links. Shared by root and [lang] routes.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localePath, type Locale } from '../../i18n';
+import { getIntegrationsCopy } from '../../i18n/integrations';
+import { INTEGRATION_BY_SLUG, CHECKED_ON, type Integration } from '../../data/integrations';
+import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
+
+interface Props {
+	lang: Locale;
+	integration: Integration;
+}
+
+const { lang, integration } = Astro.props;
+const copy = await getIntegrationsCopy(lang);
+const ui = copy.ui;
+const c = copy.integrations[integration.slug];
+const withLocale = (html: string) => (lang === 'en' ? html : html.replaceAll('href="/', `href="/${lang}/`));
+const related = integration.related.map((s) => INTEGRATION_BY_SLUG[s]).filter(Boolean);
+const title = integration.name;
+const metaTitle = ui.pageTitle.replace('{name}', integration.name);
+const description = ui.pageDescription.replace('{name}', integration.name).replace('{summary}', c.summary);
+const contactHref = solutionsUrl(lang, '/contact/');
+
+// Structured data: a technical article about connecting this system to EDDI.
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'TechArticle',
+	headline: metaTitle,
+	description: c.summary,
+	about: { '@type': 'Thing', name: integration.name },
+	dateModified: CHECKED_ON,
+	inLanguage: lang,
+	proficiencyLevel: 'Expert',
+};
+---
+<BaseLayout title={title} metaTitle={metaTitle} description={description} fullWidth={true} lang={lang}>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<section class="id-hero hero-gradient-bg">
+	<div class="id-hero-inner">
+		<a href={localePath(lang, '/integrations/')} class="id-back"><span class="id-back-arrow" aria-hidden="true">←</span> {ui.backToCatalog}</a>
+		<div class="id-kicker"><span>{copy.categories[integration.category]}</span><span class="id-badge" dir="ltr">{integration.tag}</span></div>
+		<h1>{integration.name}</h1>
+		<p class="id-summary">{c.summary}</p>
+		<div class="id-actions">
+			<a href="#config" class="btn-cta-primary">{ui.configTitle}</a>
+			<a href={integration.docs[0].href} target="_blank" rel="noopener" class="btn-cta-outline">{ui.docsLink} ↗</a>
+		</div>
+	</div>
+</section>
+
+<article class="id-content">
+	<div class="id-two">
+		<section>
+			<h2>{ui.whatYouGet}</h2>
+			<ul class="id-list">{c.gets.map((s) => <li set:html={s} />)}</ul>
+		</section>
+		<aside class="id-glance">
+			<h2>{ui.linksTitle}</h2>
+			<ul>
+				{integration.docs.map((d) => <li><a href={d.href} target="_blank" rel="noopener" class="id-link">{ui.docsLink}: {d.label} ↗</a></li>)}
+				{integration.guides.map((g) => <li><a href={`/guides/${g.slug}/`} class="id-link">{ui.guidesLabel}: {g.title}</a></li>)}
+				{integration.modelsLink && <li><a href={localePath(lang, '/models/')} class="id-link">{ui.modelsLinkText}</a></li>}
+			</ul>
+		</aside>
+	</div>
+
+	<section>
+		<h2>{ui.howItWorks}</h2>
+		<ol class="id-steps">{c.steps.map((s) => <li set:html={s} />)}</ol>
+	</section>
+
+	<section id="config" class="id-config">
+		<h2>{ui.configTitle}</h2>
+		<p class="id-lead">{ui.configDesc}</p>
+		{integration.snippets.map((snip, i) => (
+			<figure class="id-snippet">
+				<figcaption>
+					<span class="id-snippet-label">{snip.label}</span>
+					{c.captions[i] && <span class="id-snippet-caption">{c.captions[i]}</span>}
+				</figcaption>
+				<div class="id-code"><button type="button" class="id-copy" data-copied={ui.copied}>{ui.copy}</button><pre dir="ltr"><code>{snip.code}</code></pre></div>
+			</figure>
+		))}
+	</section>
+
+	<section class="id-gov">
+		<h2>{ui.governanceTitle}</h2>
+		<ul class="id-list">{c.governance.map((s) => <li set:html={withLocale(s)} />)}</ul>
+	</section>
+
+	{c.goodToKnow && c.goodToKnow.length > 0 && (
+		<section class="id-know">
+			<h2>{ui.goodToKnowTitle}</h2>
+			<ul class="id-list">{c.goodToKnow.map((s) => <li set:html={withLocale(s)} />)}</ul>
+		</section>
+	)}
+
+	<section class="id-cta">
+		<div class="id-cta-actions">
+			<a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{ui.getStarted}</a>
+			<a href={integration.docs[0].href} target="_blank" rel="noopener" class="btn-cta-outline">{ui.docsLink} ↗</a>
+		</div>
+		{integration.solutionsCta && SOLUTIONS_LIVE && (
+			<div class="id-solutions">
+				<h3>{ui.solutionsTitle}</h3>
+				<p>{ui.solutionsDesc}</p>
+				<a href={contactHref} target="_blank" rel="noopener" class="btn-cta-outline">{ui.solutionsBtn} ↗</a>
+			</div>
+		)}
+	</section>
+
+	{related.length > 0 && (
+		<section>
+			<h2>{ui.relatedTitle}</h2>
+			<div class="id-related">
+				{related.map((r) => (
+					<a href={localePath(lang, `/integrations/${r.slug}/`)} class="id-rel">
+						<span class="id-rel-cat">{copy.categories[r.category]}</span>
+						<strong>{r.name}</strong>
+						<span class="id-rel-sum">{copy.integrations[r.slug].summary}</span>
+					</a>
+				))}
+			</div>
+		</section>
+	)}
+
+	<section class="id-sources">
+		<p>{ui.sourcesDesc.replace('{date}', CHECKED_ON)}</p>
+	</section>
+</article>
+</BaseLayout>
+
+<script>
+	function initIntegrationDetail() {
+		document.querySelectorAll<HTMLButtonElement>('.id-copy').forEach((btn) => {
+			btn.addEventListener('click', async () => {
+				const code = btn.parentElement?.querySelector('code')?.textContent ?? '';
+				const label = btn.textContent;
+				try {
+					await navigator.clipboard.writeText(code);
+					btn.textContent = btn.dataset.copied ?? label;
+				} catch {
+					const range = document.createRange();
+					const node = btn.parentElement?.querySelector('code');
+					if (node) { range.selectNodeContents(node); const sel = window.getSelection(); sel?.removeAllRanges(); sel?.addRange(range); }
+				}
+				setTimeout(() => { btn.textContent = label; }, 1500);
+			});
+		});
+	}
+	document.addEventListener('astro:page-load', initIntegrationDetail);
+</script>
+
+<style>
+	.id-hero { padding: calc(var(--total-header-height, 6rem) + 3rem) 1.5rem 2.5rem; }
+	.id-hero-inner { max-width: 72rem; margin: 0 auto; }
+	.id-back { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; }
+	.id-back:hover { color: var(--color-accent); }
+	.id-back-arrow { display: inline-block; }
+	html[dir='rtl'] .id-back-arrow { transform: scaleX(-1); }
+	.id-kicker { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin: 1.25rem 0 0.5rem; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+	.id-badge { font-size: 0.6875rem; letter-spacing: 0.02em; text-transform: none; padding: 0.15rem 0.55rem; border-radius: 9999px; color: var(--color-accent); border: 1px solid var(--color-accent); font-family: ui-monospace, monospace; }
+	.id-hero h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 800; color: var(--color-text); margin: 0 0 0.75rem; }
+	.id-summary { font-size: 1.1875rem; line-height: 1.6; color: var(--color-text-muted); max-width: 48rem; margin: 0 0 1.75rem; }
+	.id-actions, .id-cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.id-content { max-width: 72rem; margin: 0 auto; padding: 2rem 1.5rem 6rem; display: flex; flex-direction: column; gap: 3.5rem; }
+	.id-content h2 { font-size: 1.5rem; font-weight: 800; color: var(--color-text); margin: 0 0 1rem; }
+	.id-two { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+	@media (max-width: 860px) { .id-two { grid-template-columns: 1fr; } }
+	.id-list { margin: 0; padding-inline-start: 1.2rem; color: var(--color-text-muted); line-height: 1.8; }
+	.id-list :global(code), .id-steps :global(code) { font-size: 0.85em; overflow-wrap: anywhere; }
+	.id-list :global(a) { color: var(--color-accent); }
+	.id-glance { padding: 1.5rem; border-radius: 1rem; }
+	html[data-theme='dark'] .id-glance, html[data-theme='dark'] .id-rel, html[data-theme='dark'] .id-solutions { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+	html[data-theme='light'] .id-glance, html[data-theme='light'] .id-rel, html[data-theme='light'] .id-solutions { background: #f5f6f8; border: 1px solid rgba(0, 0, 0, 0.06); }
+	.id-glance h2 { font-size: 1.125rem; }
+	.id-glance ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+	.id-link { font-size: 0.875rem; font-weight: 600; color: var(--color-accent); text-decoration: none; overflow-wrap: anywhere; }
+	.id-link:hover { text-decoration: underline; }
+	.id-steps { margin: 0; padding-inline-start: 1.4rem; color: var(--color-text-muted); line-height: 1.75; display: grid; gap: 0.6rem; max-width: 52rem; }
+	.id-lead { color: var(--color-text-muted); line-height: 1.65; max-width: 52rem; margin: 0 0 1.5rem; }
+	.id-config { scroll-margin-top: calc(var(--total-header-height, 6rem) + 1rem); }
+	.id-snippet { margin: 0 0 1.5rem; min-width: 0; }
+	.id-snippet figcaption { display: flex; flex-direction: column; gap: 0.15rem; margin-bottom: 0.5rem; }
+	.id-snippet-label { font-size: 0.875rem; font-weight: 700; color: var(--color-text); overflow-wrap: anywhere; }
+	.id-snippet-caption { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.5; }
+	.id-code { position: relative; }
+	.id-code pre { overflow-x: auto; max-width: 100%; margin: 0; padding-top: 2.25rem; text-align: left; }
+	.id-copy { position: absolute; top: 0.5rem; inset-inline-end: 0.5rem; font: inherit; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 0.4rem; cursor: pointer; background: rgba(127, 127, 127, 0.2); color: var(--color-text); border: 1px solid rgba(127, 127, 127, 0.3); }
+	.id-copy:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+	.id-cta { display: flex; flex-direction: column; gap: 1.5rem; }
+	.id-solutions { padding: 1.5rem; border-radius: 1rem; max-width: 40rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+	.id-solutions h3 { font-size: 1.0625rem; font-weight: 700; color: var(--color-text); margin: 0; }
+	.id-solutions p { color: var(--color-text-muted); line-height: 1.6; margin: 0 0 0.5rem; font-size: 0.9375rem; }
+	.id-related { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+	.id-rel { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.25rem; border-radius: 0.9rem; text-decoration: none; transition: border-color 0.2s; }
+	.id-rel:hover { border-color: var(--color-accent); }
+	.id-rel-cat { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text-muted); }
+	.id-rel strong { color: var(--color-text); }
+	.id-rel-sum { font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.5; }
+	.id-sources p { color: var(--color-text-muted); line-height: 1.6; max-width: 52rem; font-size: 0.875rem; }
+</style>

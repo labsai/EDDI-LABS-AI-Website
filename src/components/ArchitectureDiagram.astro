@@ -1,58 +1,122 @@
 ---
 /**
- * The conversation pipeline as one diagram: a turn flows through the lifecycle
- * tasks, rules decide by emitting actions, every tool call crosses the governed
- * boundary, and memory sits under all of it.
+ * The conversation pipeline as one interactive diagram: a turn flows through the
+ * lifecycle tasks, rules decide by emitting actions, every tool call crosses the
+ * governed boundary, and memory sits under all of it.
+ *
+ * Every node is a focusable button. Selecting one shows, below the SVG, what
+ * happens at that stage, a real config or memory snippet, and the audit-ledger
+ * entry the stage produces. Behavior Rules is selected by default and all panels
+ * are in the DOM, so the section reads without JS (the other panels start hidden
+ * and the script reveals them on selection).
  *
  * Node labels are EDDI's own component names and stay in English in every
- * locale, like code identifiers; the title and caption come from translations.
+ * locale, like code identifiers; the title, caption and drawer prose come from
+ * translations (src/i18n/pipeline/). JSON and audit values live in
+ * src/data/pipeline.ts and are labelled as examples.
  */
+import JsonBlock from './JsonBlock.astro';
+import { DEFAULT_STAGE, STAGE_BLOCKS, type StageId } from '../data/pipeline';
+import { getPipelineCopy } from '../i18n/pipeline';
+import { DEFAULT_LOCALE, type Locale } from '../i18n';
+
 interface Props {
 	title: string;
 	caption: string;
+	lang?: Locale;
 }
-const { title, caption } = Astro.props;
+const { title, caption, lang = DEFAULT_LOCALE } = Astro.props;
+const copy = await getPipelineCopy(lang);
 
-const steps = [
-	{ x: 20, label: 'Input', sub: 'Chat · Slack · API · MCP' },
-	{ x: 190, label: 'Parser', sub: 'Normalize, dictionaries' },
-	{ x: 360, label: 'Behavior Rules', sub: 'Decide, emit actions' },
-	{ x: 530, label: 'Tasks', sub: 'LLM · HTTP · MCP · RAG' },
-	{ x: 700, label: 'Output', sub: 'Templates, quick replies' },
+const steps: { id: StageId; x: number; label: string; sub: string }[] = [
+	{ id: 'input', x: 20, label: 'Input', sub: 'Chat · Slack · API · MCP' },
+	{ id: 'parser', x: 190, label: 'Parser', sub: 'Normalize, dictionaries' },
+	{ id: 'rules', x: 360, label: 'Behavior Rules', sub: 'Decide, emit actions' },
+	{ id: 'tasks', x: 530, label: 'Tasks', sub: 'LLM · HTTP · MCP · RAG' },
+	{ id: 'output', x: 700, label: 'Output', sub: 'Templates, quick replies' },
 ];
+const stageNames: Record<StageId, string> = {
+	input: 'Input',
+	parser: 'Parser',
+	rules: 'Behavior Rules',
+	tasks: 'Tasks',
+	tools: 'Tool boundary',
+	output: 'Output',
+	memory: 'Conversation memory',
+};
+// DOM and Tab order: the five steps, then the tool boundary, then memory.
+const panelOrder: StageId[] = ['input', 'parser', 'rules', 'tasks', 'output', 'tools', 'memory'];
+const blockLabel = { config: copy.ui.config, memory: copy.ui.memory, audit: copy.ui.audit } as const;
+const sel = (id: StageId) => id === DEFAULT_STAGE;
+const hitProps = (id: StageId) => ({
+	role: 'button' as const,
+	tabindex: 0,
+	'aria-pressed': sel(id) ? ('true' as const) : ('false' as const),
+	'aria-controls': `arch-panel-${id}`,
+	'aria-label': stageNames[id],
+	'data-stage': id,
+});
 ---
 <figure class="arch" aria-labelledby="arch-title">
 	<h2 id="arch-title" class="arch-title">{title}</h2>
 	<div class="arch-scroll">
-		<svg viewBox="0 0 860 330" role="img" aria-label="Input, Parser, Behavior Rules, Tasks and Output in sequence. Tool calls from Tasks cross a governed boundary with approvals, allow-lists and vault credentials. Conversation memory underlies every step.">
+		<svg viewBox="0 0 860 330" style="direction: ltr" role="group" aria-label={copy.ui.svgLabel}>
 			<defs>
 				<marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 					<path d="M0,0 L10,5 L0,10 z" class="arch-arrowhead" />
 				</marker>
 			</defs>
 
-			<!-- Governed tool boundary above the Tasks step -->
-			<rect x="500" y="14" width="200" height="62" rx="10" class="arch-boundary" />
-			<text x="600" y="38" text-anchor="middle" class="arch-label-sm arch-strong">Tool boundary</text>
-			<text x="600" y="58" text-anchor="middle" class="arch-label-sm">Approvals · allow-lists · vault</text>
+			<!-- Arrow from the tool boundary into Tasks -->
 			<line x1="600" y1="76" x2="600" y2="112" class="arch-line" marker-end="url(#arch-arrow)" />
 
 			<!-- Pipeline steps -->
 			{steps.map((s, i) => (
 				<g>
-					<rect x={s.x} y="114" width="140" height="78" rx="12" class:list={['arch-node', { 'arch-node-accent': s.label === 'Behavior Rules' }]} />
-					<text x={s.x + 70} y="148" text-anchor="middle" class="arch-label">{s.label}</text>
-					<text x={s.x + 70} y="170" text-anchor="middle" class="arch-label-sm">{s.sub}</text>
+					<g class="arch-hit" {...hitProps(s.id)}>
+						<rect x={s.x} y="114" width="140" height="78" rx="12" class="arch-node" />
+						<text x={s.x + 70} y="148" text-anchor="middle" class="arch-label">{s.label}</text>
+						<text x={s.x + 70} y="170" text-anchor="middle" class="arch-label-sm">{s.sub}</text>
+					</g>
 					{i < steps.length - 1 && <line x1={s.x + 142} y1="153" x2={s.x + 168} y2="153" class="arch-line" marker-end="url(#arch-arrow)" />}
 				</g>
 			))}
 
+			<!-- Governed tool boundary (after the steps so Tab order follows the stages) -->
+			<g class="arch-hit" {...hitProps('tools')}>
+				<rect x="500" y="14" width="200" height="62" rx="10" class="arch-boundary" />
+				<text x="600" y="38" text-anchor="middle" class="arch-label-sm arch-strong">Tool boundary</text>
+				<text x="600" y="58" text-anchor="middle" class="arch-label-sm">Approvals · allow-lists · vault</text>
+			</g>
+
 			<!-- Memory underneath every step -->
-			<rect x="20" y="236" width="820" height="62" rx="12" class="arch-memory" />
-			<text x="430" y="262" text-anchor="middle" class="arch-label">Conversation memory</text>
-			<text x="430" y="283" text-anchor="middle" class="arch-label-sm">Properties that outlive the context window · history · rolling summaries · user memory</text>
 			{steps.map((s) => <line x1={s.x + 70} y1="194" x2={s.x + 70} y2="234" class="arch-line arch-dashed" />)}
+			<g class="arch-hit" {...hitProps('memory')}>
+				<rect x="20" y="236" width="820" height="62" rx="12" class="arch-memory" />
+				<text x="430" y="262" text-anchor="middle" class="arch-label">Conversation memory</text>
+				<text x="430" y="283" text-anchor="middle" class="arch-label-sm">Properties that outlive the context window · history · rolling summaries · user memory</text>
+			</g>
 		</svg>
+	</div>
+	<p class="arch-hint">{copy.ui.hint}</p>
+
+	<div class="arch-detail">
+		{panelOrder.map((id) => (
+			<div class="arch-panel" id={`arch-panel-${id}`} role="region" aria-labelledby={`arch-panel-h-${id}`} hidden={!sel(id)}>
+				<div class="arch-panel-text">
+					<h3 id={`arch-panel-h-${id}`}>{stageNames[id]}</h3>
+					<p class="arch-what-label">{copy.ui.what}</p>
+					<p class="arch-what">{copy.stages[id]}</p>
+					{STAGE_BLOCKS[id].some((b) => b.kind === 'audit') && <p class="arch-note">{copy.ui.auditNote}</p>}
+					<p class="arch-example">{copy.ui.example}</p>
+				</div>
+				<div class="arch-blocks">
+					{STAGE_BLOCKS[id].map((b) => (
+						<JsonBlock code={b.code} label={blockLabel[b.kind]} maxHeight="22rem" />
+					))}
+				</div>
+			</div>
+		))}
 	</div>
 	<figcaption set:html={caption} />
 </figure>
@@ -65,14 +129,102 @@ const steps = [
 	.arch-node { fill: var(--color-surface, rgba(127, 127, 127, 0.08)); stroke: var(--color-border); stroke-width: 1.5; }
 	html[data-theme='dark'] .arch-node { fill: rgba(255, 255, 255, 0.04); stroke: rgba(255, 255, 255, 0.14); }
 	html[data-theme='light'] .arch-node { fill: #f5f6f8; stroke: rgba(0, 0, 0, 0.12); }
-	.arch-node-accent { stroke: var(--color-accent) !important; stroke-width: 2; }
-	.arch-boundary { fill: none; stroke: var(--color-accent); stroke-width: 1.5; stroke-dasharray: 5 4; }
-	.arch-memory { fill: none; stroke: var(--color-text-muted); stroke-width: 1.5; opacity: 0.8; }
+	.arch-boundary { fill: transparent; stroke: var(--color-accent); stroke-width: 1.5; stroke-dasharray: 5 4; pointer-events: all; }
+	.arch-memory { fill: transparent; stroke: var(--color-text-muted); stroke-width: 1.5; opacity: 0.8; pointer-events: all; }
 	.arch-line { stroke: var(--color-text-muted); stroke-width: 1.5; }
 	.arch-dashed { stroke-dasharray: 3 4; opacity: 0.6; }
 	.arch-arrowhead { fill: var(--color-text-muted); }
 	.arch-label { fill: var(--color-text); font-size: 15px; font-weight: 700; }
 	.arch-label-sm { fill: var(--color-text-muted); font-size: 11.5px; }
 	.arch-strong { fill: var(--color-accent); font-weight: 700; font-size: 13px; }
-	.arch figcaption { max-width: 48rem; margin: 1.5rem auto 0; text-align: center; color: var(--color-text-muted); line-height: 1.65; }
+	.arch figcaption { max-width: 48rem; margin: 2rem auto 0; text-align: center; color: var(--color-text-muted); line-height: 1.65; }
+
+	/* Interactive nodes */
+	.arch-hit { cursor: pointer; outline: none; }
+	.arch-hit rect { transition: stroke 0.15s ease, stroke-width 0.15s ease, fill 0.15s ease; }
+	.arch-hit:hover rect { stroke: var(--color-accent); }
+	.arch-hit:hover .arch-node { fill: color-mix(in srgb, var(--color-accent) 7%, transparent); }
+	.arch-hit[aria-pressed='true'] .arch-node,
+	.arch-hit[aria-pressed='true'] .arch-boundary,
+	.arch-hit[aria-pressed='true'] .arch-memory {
+		stroke: var(--color-accent) !important;
+		stroke-width: 2.5;
+		opacity: 1;
+	}
+	html[data-theme] .arch-hit[aria-pressed='true'] .arch-node {
+		fill: color-mix(in srgb, var(--color-accent) 12%, transparent);
+	}
+	.arch-hit[aria-pressed='true'] .arch-boundary,
+	.arch-hit[aria-pressed='true'] .arch-memory {
+		fill: color-mix(in srgb, var(--color-accent) 8%, transparent);
+	}
+	.arch-hit:focus-visible rect { stroke: var(--color-accent); stroke-width: 3; }
+	.arch-hit:focus-visible { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--color-accent) 70%, transparent)); }
+
+	.arch-hint { margin: 0.75rem 0 0; text-align: center; font-size: 0.85rem; color: var(--color-text-muted); }
+
+	/* Drawer */
+	.arch-detail { margin-top: 1rem; }
+	.arch-panel {
+		display: grid;
+		grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+		gap: 1.5rem 2rem;
+		align-items: start;
+		padding: 1.5rem;
+		border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+		border-radius: 1rem;
+		background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+	}
+	.arch-panel[hidden] { display: none; }
+	.arch-panel h3 { margin: 0 0 0.75rem; font-size: 1.25rem; font-weight: 800; color: var(--color-accent-text); border: 0; }
+	.arch-what-label { margin: 0 0 0.25rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-muted); }
+	.arch-what { margin: 0 0 1rem; line-height: 1.65; color: var(--color-text); }
+	.arch-note { margin: 0 0 0.5rem; font-size: 0.85rem; line-height: 1.55; color: var(--color-text-muted); }
+	.arch-example { margin: 0; font-size: 0.78rem; font-style: italic; color: var(--color-text-subtle); }
+	.arch-blocks { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; min-width: 0; }
+	@media (max-width: 56rem) {
+		.arch-panel { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+		.arch { padding-inline: 1rem; }
+	}
 </style>
+
+<script>
+	function initPipelineDiagrams() {
+		document.querySelectorAll<HTMLElement>('.arch').forEach((root) => {
+			if (root.dataset.archBound === '1') return;
+			root.dataset.archBound = '1';
+			const nodes = Array.from(root.querySelectorAll<SVGGElement>('.arch-hit'));
+			const panels = Array.from(root.querySelectorAll<HTMLElement>('.arch-panel'));
+
+			const select = (id: string | undefined) => {
+				if (!id) return;
+				nodes.forEach((n) => n.setAttribute('aria-pressed', String(n.dataset.stage === id)));
+				panels.forEach((p) => {
+					p.hidden = p.id !== `arch-panel-${id}`;
+				});
+			};
+
+			nodes.forEach((node, i) => {
+				node.addEventListener('click', () => select(node.dataset.stage));
+				node.addEventListener('keydown', (e) => {
+					const key = e.key;
+					if (key === 'Enter' || key === ' ') {
+						e.preventDefault();
+						select(node.dataset.stage);
+						return;
+					}
+					let target = -1;
+					if (key === 'ArrowRight' || key === 'ArrowDown') target = (i + 1) % nodes.length;
+					else if (key === 'ArrowLeft' || key === 'ArrowUp') target = (i - 1 + nodes.length) % nodes.length;
+					else if (key === 'Home') target = 0;
+					else if (key === 'End') target = nodes.length - 1;
+					if (target >= 0) {
+						e.preventDefault();
+						nodes[target].focus();
+					}
+				});
+			});
+		});
+	}
+	document.addEventListener('astro:page-load', initPipelineDiagrams);
+</script>

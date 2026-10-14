@@ -1,0 +1,97 @@
+---
+/**
+ * Comparison hub (/compare/): one card per head-to-head page. Shared by root and [lang].
+ */
+import FeaturePage from '../../layouts/FeaturePage.astro';
+import heroImage from '../../assets/hero_vs_alternatives.webp';
+import { COMPARISONS } from '../../data/comparisons';
+import { getCompareCopy } from '../../i18n/compare';
+import { localePath, type Locale } from '../../i18n';
+
+interface Props {
+	lang: Locale;
+}
+
+const { lang } = Astro.props;
+const copy = await getCompareCopy(lang);
+const ui = copy.ui;
+---
+
+<FeaturePage title={ui.hubTitle} metaTitle={ui.hubMetaTitle} description={ui.hubDescription} heroImage={heroImage} lang={lang}>
+
+<p class="hub-intro">{ui.hubIntro}</p>
+<p class="as-of">{ui.asOfNote}</p>
+
+<div class="hub-grid">
+	{COMPARISONS.map((o) => {
+		const c = copy.comparisons[o.slug];
+		return (
+			<a href={localePath(lang, `/compare/${o.slug}/`)} class="hub-card">
+				<h2>{c.title}</h2>
+				<p>{c.summary}</p>
+				<span class="hub-more">{ui.hubReadMore} <span aria-hidden="true" class="hub-arrow">→</span></span>
+			</a>
+		);
+	})}
+</div>
+
+<h2>{ui.hubLandscapeTitle}</h2>
+<p>{ui.hubLandscapeDesc}</p>
+<p><a href={localePath(lang, '/enterprise/vs-alternatives/')}>{ui.allAlternatives} →</a></p>
+
+</FeaturePage>
+
+<style>
+	.hub-intro {
+		max-width: 48rem;
+	}
+	.as-of {
+		font-size: 0.875rem;
+		color: var(--color-text-subtle);
+		margin-bottom: 2rem;
+	}
+	.hub-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+		gap: 1.25rem;
+		margin-bottom: 3rem;
+	}
+	.hub-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+		background: var(--color-surface-elevated, rgba(255, 255, 255, 0.03));
+		text-decoration: none;
+		color: inherit;
+		transition: border-color 0.2s;
+	}
+	.hub-card:hover,
+	.hub-card:focus-visible {
+		border-color: var(--color-accent, hsl(45, 100%, 51%));
+	}
+	.hub-card h2 {
+		margin: 0 !important;
+		font-size: 1.125rem !important;
+		color: var(--color-text);
+	}
+	.hub-card p {
+		margin: 0;
+		flex: 1;
+	}
+	.hub-more {
+		font-weight: 600;
+		color: var(--color-accent, hsl(45, 100%, 51%));
+	}
+	[dir='rtl'] .hub-arrow {
+		display: inline-block;
+		transform: scaleX(-1);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.hub-card {
+			transition: none;
+		}
+	}
+</style>

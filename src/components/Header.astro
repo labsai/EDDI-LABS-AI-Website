@@ -10,6 +10,7 @@ import LanguagePicker from './LanguagePicker.astro';
 import AnnouncementBanner from './AnnouncementBanner.astro';
 import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../config';
+import { getCompareCopy } from '../i18n/compare';
 
 interface Props {
 	lang?: Locale;
@@ -20,6 +21,7 @@ interface Props {
 const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
 const { localized = true } = Astro.props;
 const t = await getTranslations(lang);
+const compareCopy = await getCompareCopy(lang);
 ---
 
 <AnnouncementBanner />
@@ -165,6 +167,13 @@ const t = await getTranslations(lang);
 							<span>{t.nav.vsAlternativesDesc}</span>
 						</div>
 					</a>
+					<a href={localePath(lang, '/compare/')} class="eddi-dropdown-item">
+						<span class="eddi-dropdown-icon">🆚</span>
+						<div>
+							<strong>{compareCopy.ui.navLabel}</strong>
+							<span>{compareCopy.ui.navDesc}</span>
+						</div>
+					</a>
 					<a href={localePath(lang, '/enterprise/compliance/')} class="eddi-dropdown-item">
 						<span class="eddi-dropdown-icon">🏛️</span>
 						<div>
@@ -191,6 +200,7 @@ const t = await getTranslations(lang);
 
 			<!-- Guides are English-only, so this path is deliberately not locale-prefixed -->
 			<a href={localePath(lang, '/models/')} class="eddi-nav-link">{t.nav.models}</a>
+			<a href={localePath(lang, '/integrations/')} class="eddi-nav-link">{t.nav.integrations}</a>
 			<a href="/guides/" class="eddi-nav-link">{t.nav.guides}</a>
 			<a href="https://docs.labs.ai" class="eddi-nav-link" target="_blank" rel="noopener">{t.nav.docs} <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-inline-start:2px;opacity:0.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
 		</nav>
@@ -258,6 +268,8 @@ const t = await getTranslations(lang);
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.resources}</h3>
 			<a href={localePath(lang, '/models/')}><span class="eddi-mobile-icon">🔀</span> {t.nav.models}</a>
+			<a href={localePath(lang, '/integrations/')}><span class="eddi-mobile-icon">🔌</span> {t.nav.integrations}</a>
+			<a href={localePath(lang, '/compare/')}><span class="eddi-mobile-icon">⚖️</span> {compareCopy.ui.navLabel}</a>
 			<a href={localePath(lang, '/whats-new/')}><span class="eddi-mobile-icon">🆕</span> {t.nav.whatsNew}</a>
 			<a href="/guides/"><span class="eddi-mobile-icon">🧭</span> {t.nav.guides}</a>
 			<a href="/benchmarks/"><span class="eddi-mobile-icon">📊</span> {t.nav.benchmarks}</a>

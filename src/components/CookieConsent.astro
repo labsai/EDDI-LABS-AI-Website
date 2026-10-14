@@ -2,12 +2,19 @@
 /**
  * Cookie Consent Banner + Settings Modal.
  *
+ * Two categories only: Strictly Necessary (always on) and Analytics.
  * Both analytics tools load ONLY after explicit opt-in to the Analytics
  * category (§ 165 TKG / GDPR Art 6(1)(a)):
  * - Umami (cloud.umami.is): loaded on analytics consent.
- * - Google Analytics (G-L1011GL1PY): loaded on analytics consent.
+ * - Google Analytics (G-L1011GL1PY): loaded on analytics consent, with
+ *   Consent Mode v2 advertising signals (ad_storage, ad_user_data,
+ *   ad_personalization) denied.
+ * There is no Marketing category: the HubSpot newsletter/contact form is not
+ * gated here, it is click-to-reveal (see NewsletterSignup.astro).
  * Nothing that reads the device or sends data to a third party fires before
- * consent. Analytics/Marketing toggles default to OFF (no pre-ticked boxes).
+ * consent. The Analytics toggle defaults to OFF (no pre-ticked boxes).
+ * Stored object: { necessary, analytics, timestamp }. Older stored consents
+ * may still carry a legacy `marketing` key; it is ignored.
  */
 import { localePath, type Locale } from '../i18n';
 import type { TranslationSchema } from '../i18n';
@@ -91,7 +98,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 	<div class="cookie-card">
 		<h2 class="cookie-title">{cb.title}</h2>
 		<p class="cookie-text">
-			{cb.text}
+			{cb.text}{" "}
 			{cb.privacyNote} <a href={privacyUrl} class="cookie-privacy-link">{t.legal.privacyLink}</a>.
 		</p>
 		<div class="cookie-actions">
@@ -156,18 +163,6 @@ const privacyUrl = localePath(lang, '/privacy/');
 				</div>
 				<p class="cookie-pref-desc">{cb.analyticsDesc}</p>
 			</div>
-
-			<!-- Marketing -->
-			<div class="cookie-pref-item">
-				<div class="cookie-pref-header">
-					<label class="cookie-pref-label" for="marketing-cookies">{cb.marketingLabel}</label>
-					<label class="cookie-toggle">
-						<input id="marketing-cookies" name="marketing-cookies" type="checkbox" class="cookie-toggle-input" />
-						<div class="cookie-toggle-track"><div class="cookie-toggle-thumb"></div></div>
-					</label>
-				</div>
-				<p class="cookie-pref-desc">{cb.marketingDesc}</p>
-			</div>
 		</div>
 
 		<div class="cookie-actions">
@@ -212,10 +207,9 @@ const privacyUrl = localePath(lang, '/privacy/');
 			modal.classList.remove('hidden');
 			document.body.style.overflow = 'hidden';
 
-			// Pre-fill checkboxes: use stored consent, or default to enabled
+			// Pre-fill checkbox: use stored consent, or default to OFF
 			var consent = getConsent();
 			document.getElementById('analytics-cookies').checked = consent ? !!consent.analytics : false;
-			document.getElementById('marketing-cookies').checked = consent ? !!consent.marketing : false;
 
 			var closeBtn = document.getElementById('close-cookie-settings');
 			setTimeout(function () { closeBtn.focus(); }, 100);
@@ -237,7 +231,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 			modal.addEventListener('keydown', _trapHandler);
 		}
 
-		// --- Init: show banner or enable GA from stored consent ---
+		// --- Init: show banner or enable analytics from stored consent ---
 		var initial = getConsent();
 		if (!initial) {
 			banner.classList.remove('hidden');
@@ -248,7 +242,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 
 		// Accept all
 		document.getElementById('cookie-accept-all').addEventListener('click', function () {
-			var data = { necessary: true, analytics: true, marketing: true, timestamp: new Date().toISOString() };
+			var data = { necessary: true, analytics: true, timestamp: new Date().toISOString() };
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			banner.classList.add('hidden');
 			document.body.style.overflow = '';
@@ -257,7 +251,7 @@ const privacyUrl = localePath(lang, '/privacy/');
 
 		// Reject all (from modal)
 		document.getElementById('cookie-accept-necessary').addEventListener('click', function () {
-			var data = { necessary: true, analytics: false, marketing: false, timestamp: new Date().toISOString() };
+			var data = { necessary: true, analytics: false, timestamp: new Date().toISOString() };
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			closeModal();
 			banner.classList.add('hidden');
@@ -290,11 +284,11 @@ const privacyUrl = localePath(lang, '/privacy/');
 		// Save preferences
 		document.getElementById('save-cookie-preferences').addEventListener('click', function () {
 			var analytics = document.getElementById('analytics-cookies').checked;
-			var marketing = document.getElementById('marketing-cookies').checked;
-			var data = { necessary: true, analytics: analytics, marketing: marketing, timestamp: new Date().toISOString() };
+			var data = { necessary: true, analytics: analytics, timestamp: new Date().toISOString() };
 			localStorage.setItem('cookieConsent', JSON.stringify(data));
 			closeModal();
 			banner.classList.add('hidden');
+			document.body.style.overflow = '';
 			if (analytics) enableAnalytics();
 		});
 	});

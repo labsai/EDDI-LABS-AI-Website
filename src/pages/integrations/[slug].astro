@@ -1,0 +1,10 @@
+---
+import IntegrationDetailContent from '../../components/pages/IntegrationDetailContent.astro';
+import { INTEGRATIONS, type Integration } from '../../data/integrations';
+
+export function getStaticPaths() {
+	return INTEGRATIONS.map((integration) => ({ params: { slug: integration.slug }, props: { integration } }));
+}
+const { integration } = Astro.props as { integration: Integration };
+---
+<IntegrationDetailContent lang="en" integration={integration} />

@@ -149,6 +149,7 @@ Supports 19 named providers simultaneously:
 - **Self-Hosted**: Ollama (local models), Jlama (in-process), Hugging Face
 - **Anything else**: any other OpenAI-compatible endpoint (Cohere, Together, vLLM, gateways) via `type: openai` and `baseUrl`
 - Model catalog with per-model configuration: https://eddi.technology/models/
+- Integration catalog (Slack, Open WebUI, MCP, A2A, OpenAPI, SAP via its APIs, vector stores, Kubernetes, OpenShift, Ollama) with configuration: https://eddi.technology/integrations/
 
 ## API
 

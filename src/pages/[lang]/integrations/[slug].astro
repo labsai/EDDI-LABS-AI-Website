@@ -1,0 +1,12 @@
+---
+import IntegrationDetailContent from '../../../components/pages/IntegrationDetailContent.astro';
+import { NON_DEFAULT_LOCALES, type Locale } from '../../../i18n';
+import { INTEGRATIONS, type Integration } from '../../../data/integrations';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.flatMap((lang) => INTEGRATIONS.map((integration) => ({ params: { lang, slug: integration.slug }, props: { integration } })));
+}
+const { lang } = Astro.params as { lang: Locale };
+const { integration } = Astro.props as { integration: Integration };
+---
+<IntegrationDetailContent lang={lang} integration={integration} />
