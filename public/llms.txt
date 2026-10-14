@@ -17,6 +17,7 @@
 - [Memory & Context](https://eddi.technology/features/memory/): Persistent memory, dream consolidation, memory policy (commit flags)
 - [Knowledge Bases & RAG](https://eddi.technology/features/rag/): Web crawler (robots.txt aware), file ingestion (PDF, Word, Excel, PowerPoint, text), scheduled sources with run history, 8 embedding providers, 6 vector stores, httpCall RAG
 - [Model Catalog](https://eddi.technology/models/): 32 model families across 19 LLM providers, with strengths, limits and the exact EDDI configuration for each provider route
+- [Integrations](https://eddi.technology/integrations/): 18 integration pages with real configuration: Slack, Open WebUI, web chat, Keycloak/OIDC, Secrets Vault, MCP server and client, A2A, OpenAPI, SAP (through its APIs, no native connector), five vector stores, Kubernetes and Helm, OpenShift, Ollama
 - [What's New in 6.5.0](https://eddi.technology/whats-new/): Release highlights
 - 12 Built-In Agent Tools: Web search, calculator, scraper, PDF reader, weather, HTTP calls, user memory, and more
 - Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
