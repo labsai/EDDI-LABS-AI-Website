@@ -194,11 +194,12 @@ const copy: IntegrationsCopy = {
 				'Run EDDI. The Chat UI ships inside the EDDI image and the installer includes it.',
 				'Open <code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code> on your EDDI host.',
 				'Adjust it with URL parameters such as <code>theme</code>, <code>title</code>, <code>hideUndo</code> and <code>hideNewConversation</code>.',
-				'To embed it, put the same URL in an iframe on your page.',
+				'To embed it, allow your site\'s origin with <code>eddi.chat.frame-ancestors</code> (default <code>\'none\'</code>), then put the same URL in an iframe on your page.',
 			],
 			captions: [
 				'The URL patterns the Chat UI serves.',
 				'An embedded widget from the Chat UI README. Combine the display parameters as needed.',
+				'By default the chat refuses to be framed. Set this property, or the environment variable EDDI_CHAT_FRAME_ANCESTORS, to the origin of the site that embeds it (separate several origins with spaces).',
 			],
 			governance: [
 				'The chat talks to the same conversation API as every other client, so behavior rules, approval gates and the audit ledger apply unchanged.',
@@ -206,7 +207,7 @@ const copy: IntegrationsCopy = {
 				'Treat any text an agent produces as untrusted output. The Chat UI renders Markdown from the agent.',
 			],
 			goodToKnow: [
-				'By default EDDI answers with a policy that forbids framing, so a browser will not render the chat inside another site until the operator allows that origin. Check the Chat UI README for the framing settings of your version.',
+				'Embedding the chat on another site requires setting <code>eddi.chat.frame-ancestors</code> to that site\'s origin. Until then browsers refuse to render it in a frame. Everything else EDDI serves refuses framing.',
 			],
 		},
 		'keycloak-oidc': {
@@ -367,7 +368,7 @@ const copy: IntegrationsCopy = {
 				'Allow-list the operations the agent should have. An endpoint that is not declared cannot be called.',
 				'EDDI generates the HTTP call configurations, builds the full pipeline and deploys the agent.',
 				'Keep credentials as <code>${vault:...}</code> references.',
-				'Gate writes with <code>http.*:*</code> and exempt reads with <code>http.get:*</code>.',
+				'Gate writes with <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> and exempt reads with <code>http.get:*</code>.',
 			],
 			captions: [
 				'The httpCalls model that generated tools are built from. Written out by hand here to show the fields.',
@@ -394,7 +395,7 @@ const copy: IntegrationsCopy = {
 				'Pick the route. Use OpenAPI import if the SAP service publishes an OpenAPI description. Use HTTP calls to declare individual OData or REST requests. Use MCP if you already run an MCP server in front of SAP.',
 				'Store the SAP credential or token in the Secrets Vault and reference it as <code>${vault:...}</code>.',
 				'Declare only the read operations the agent needs first, such as listing or reading business objects.',
-				'Gate every write with <code>http.*:*</code> and exempt reads with <code>http.get:*</code>. Approvers decide in the Manager or in Slack.',
+				'Gate every write with <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> and exempt reads with <code>http.get:*</code>. Approvers decide in the Manager or in Slack.',
 				'Check the audit ledger for each call before you widen what the agent may do.',
 			],
 			captions: [

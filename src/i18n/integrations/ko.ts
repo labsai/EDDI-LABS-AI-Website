@@ -128,11 +128,12 @@ const copy: IntegrationsCopy = {
 				'EDDI를 실행합니다. 채팅 UI는 EDDI 이미지에 포함되어 있으며 설치 프로그램에도 들어 있습니다.',
 				'EDDI 호스트에서 <code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code>를 엽니다.',
 				'<code>theme</code>, <code>title</code>, <code>hideUndo</code>, <code>hideNewConversation</code> 같은 URL 매개변수로 조정합니다.',
-				'임베드하려면 같은 URL을 페이지의 iframe에 넣습니다.',
+				'임베드하려면 <code>eddi.chat.frame-ancestors</code>(기본값 <code>\'none\'</code>)로 사이트의 오리진을 허용한 다음, 같은 URL을 페이지의 iframe에 넣습니다.',
 			],
 			captions: [
 				'채팅 UI가 제공하는 URL 패턴입니다.',
 				'채팅 UI README의 임베드 위젯 예시입니다. 표시 매개변수는 필요에 따라 조합하세요.',
+				'기본적으로 채팅은 프레임 안에 표시되는 것을 거부합니다. 이 속성 또는 환경 변수 EDDI_CHAT_FRAME_ANCESTORS를 임베드하는 사이트의 오리진으로 설정하세요(여러 오리진은 공백으로 구분합니다).',
 			],
 			governance: [
 				'채팅은 다른 모든 클라이언트와 같은 대화 API를 사용하므로 behavior rules, 승인 게이트, 감사 원장이 그대로 적용됩니다.',
@@ -140,7 +141,7 @@ const copy: IntegrationsCopy = {
 				'에이전트가 생성한 텍스트는 모두 신뢰할 수 없는 출력으로 취급하세요. 채팅 UI는 에이전트가 보낸 Markdown을 렌더링합니다.',
 			],
 			goodToKnow: [
-				'EDDI는 기본적으로 프레임 삽입을 금지하는 정책으로 응답하므로, 운영자가 해당 오리진을 허용하기 전에는 브라우저가 다른 사이트 안에 채팅을 표시하지 않습니다. 사용 중인 버전의 프레임 설정은 채팅 UI README를 확인하세요.',
+				'다른 사이트에 채팅을 임베드하려면 <code>eddi.chat.frame-ancestors</code>를 해당 사이트의 오리진으로 설정해야 합니다. 그 전까지 브라우저는 프레임 안에서 표시하기를 거부합니다. EDDI가 제공하는 그 밖의 모든 것은 프레임 삽입을 거부합니다.',
 			],
 		},
 		'keycloak-oidc': {
@@ -301,7 +302,7 @@ const copy: IntegrationsCopy = {
 				'에이전트가 사용할 오퍼레이션을 허용 목록에 등록합니다. 선언되지 않은 엔드포인트는 호출할 수 없습니다.',
 				'EDDI가 HTTP 호출 설정을 생성하고, 전체 파이프라인을 구성한 뒤 에이전트를 배포합니다.',
 				'자격 증명은 <code>${vault:...}</code> 참조로 유지합니다.',
-				'쓰기는 <code>http.*:*</code>로 게이트를 적용하고, 읽기는 <code>http.get:*</code>로 제외합니다.',
+				'쓰기는 <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code>로 게이트를 적용하고, 읽기는 <code>http.get:*</code>로 제외합니다.',
 			],
 			captions: [
 				'생성된 도구의 바탕이 되는 httpCalls 모델입니다. 필드를 보여 주기 위해 여기서는 직접 작성했습니다.',
@@ -328,7 +329,7 @@ const copy: IntegrationsCopy = {
 				'방식을 선택합니다. SAP 서비스가 OpenAPI 명세를 공개한다면 OpenAPI 가져오기를 사용합니다. 개별 OData 또는 REST 요청을 선언하려면 HTTP 호출을 사용합니다. 이미 SAP 앞단에서 MCP 서버를 운영하고 있다면 MCP를 사용합니다.',
 				'SAP 자격 증명이나 토큰을 시크릿 볼트에 저장하고 <code>${vault:...}</code>로 참조합니다.',
 				'먼저 비즈니스 객체 목록 조회나 읽기처럼 에이전트에 필요한 읽기 오퍼레이션만 선언합니다.',
-				'모든 쓰기에 <code>http.*:*</code>로 게이트를 적용하고 읽기는 <code>http.get:*</code>로 제외합니다. 승인자는 Manager 또는 Slack에서 결정합니다.',
+				'모든 쓰기에 <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code>로 게이트를 적용하고 읽기는 <code>http.get:*</code>로 제외합니다. 승인자는 Manager 또는 Slack에서 결정합니다.',
 				'에이전트가 할 수 있는 범위를 넓히기 전에 각 호출에 대한 감사 원장을 확인합니다.',
 			],
 			captions: [

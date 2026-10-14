@@ -128,11 +128,12 @@ const copy: IntegrationsCopy = {
 				'运行 EDDI。聊天界面随 EDDI 镜像一起发布，安装程序也包含它。',
 				'在你的 EDDI 主机上打开 <code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code>。',
 				'通过 <code>theme</code>、<code>title</code>、<code>hideUndo</code> 和 <code>hideNewConversation</code> 等 URL 参数进行调整。',
-				'如需嵌入，把相同的 URL 放进页面的 iframe 中。',
+				'要嵌入它，请用 <code>eddi.chat.frame-ancestors</code>（默认 <code>\'none\'</code>）允许您网站的 origin，然后把同一个 URL 放进页面的 iframe 中。',
 			],
 			captions: [
 				'聊天界面提供的 URL 模式。',
 				'摘自聊天界面 README 的嵌入式小组件。可按需组合显示参数。',
+				'默认情况下，聊天界面拒绝被嵌入框架。请把此属性，或环境变量 EDDI_CHAT_FRAME_ANCESTORS，设置为嵌入它的网站的 origin（多个 origin 用空格分隔）。',
 			],
 			governance: [
 				'聊天界面与其他所有客户端使用同一套对话 API，因此行为规则、审批关口和审计账本原样适用。',
@@ -140,7 +141,7 @@ const copy: IntegrationsCopy = {
 				'请把代理生成的任何文本视为不受信任的输出。聊天界面会渲染来自代理的 Markdown。',
 			],
 			goodToKnow: [
-				'默认情况下，EDDI 返回的策略禁止被嵌入框架，因此在运维人员允许该来源之前，浏览器不会在其他站点内渲染聊天界面。请查阅聊天界面 README，了解你所用版本的框架嵌入设置。',
+				'在其他网站上嵌入聊天，需要把 <code>eddi.chat.frame-ancestors</code> 设置为该网站的 origin。在此之前，浏览器会拒绝在框架中显示它。EDDI 提供的其他所有内容都拒绝被嵌入框架。',
 			],
 		},
 		'keycloak-oidc': {
@@ -301,7 +302,7 @@ const copy: IntegrationsCopy = {
 				'用允许列表列出代理应具备的操作。未声明的端点无法被调用。',
 				'EDDI 生成 HTTP 调用配置，构建完整的管道并部署代理。',
 				'凭据以 <code>${vault:...}</code> 引用的形式保存。',
-				'用 <code>http.*:*</code> 为写操作设置审批，并用 <code>http.get:*</code> 豁免读操作。',
+				'用 <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> 为写操作设置审批，并用 <code>http.get:*</code> 豁免读操作。',
 			],
 			captions: [
 				'生成的工具所基于的 httpCalls 模型。此处手工写出，以展示各字段。',
@@ -328,7 +329,7 @@ const copy: IntegrationsCopy = {
 				'选择途径。如果 SAP 服务发布了 OpenAPI 描述，就使用 OpenAPI 导入。要声明单个 OData 或 REST 请求，就使用 HTTP 调用。如果你已经在 SAP 前面运行了 MCP 服务器，就使用 MCP。',
 				'把 SAP 凭据或令牌存入密钥保管库，并以 <code>${vault:...}</code> 的形式引用。',
 				'先只声明代理需要的读操作，例如列出或读取业务对象。',
-				'用 <code>http.*:*</code> 为每个写操作设置审批，并用 <code>http.get:*</code> 豁免读操作。审批人在 Manager 或 Slack 中做出决定。',
+				'用 <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> 为每个写操作设置审批，并用 <code>http.get:*</code> 豁免读操作。审批人在 Manager 或 Slack 中做出决定。',
 				'在放宽代理的权限之前，先在审计账本中检查每一次调用。',
 			],
 			captions: [

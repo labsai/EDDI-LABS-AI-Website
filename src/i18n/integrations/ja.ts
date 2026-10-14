@@ -128,11 +128,12 @@ const copy: IntegrationsCopy = {
 				'EDDIを起動します。チャットUIはEDDIイメージに同梱されており、インストーラーにも含まれています。',
 				'EDDIホストで <code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code> を開きます。',
 				'<code>theme</code>、<code>title</code>、<code>hideUndo</code>、<code>hideNewConversation</code> などのURLパラメーターで調整します。',
-				'埋め込むには、同じURLをページ上のiframeに指定します。',
+				'埋め込むには、<code>eddi.chat.frame-ancestors</code>（デフォルトは <code>\'none\'</code>）で自社サイトのオリジンを許可し、同じ URL をページ内の iframe に置きます。',
 			],
 			captions: [
 				'チャットUIが提供するURLパターンです。',
 				'チャットUIのREADMEにある埋め込みウィジェットの例です。表示用のパラメーターは必要に応じて組み合わせてください。',
+				'デフォルトでは、チャットはフレーム内での表示を拒否します。このプロパティ、または環境変数 EDDI_CHAT_FRAME_ANCESTORS に、埋め込み元サイトのオリジンを設定します（複数ある場合はスペースで区切ります）。',
 			],
 			governance: [
 				'チャットは他のすべてのクライアントと同じ会話APIを使用するため、behavior rules、承認ゲート、監査台帳はそのまま適用されます。',
@@ -140,7 +141,7 @@ const copy: IntegrationsCopy = {
 				'エージェントが生成するテキストは、すべて信頼できない出力として扱ってください。チャットUIはエージェントからの Markdown を表示します。',
 			],
 			goodToKnow: [
-				'EDDIはデフォルトでフレーミングを禁止するポリシーで応答するため、運用者がそのオリジンを許可するまで、ブラウザーは他のサイト内にチャットを表示しません。お使いのバージョンのフレーミング設定は、チャットUIのREADMEを確認してください。',
+				'別のサイトにチャットを埋め込むには、<code>eddi.chat.frame-ancestors</code> をそのサイトのオリジンに設定する必要があります。設定するまで、ブラウザーはフレーム内での表示を拒否します。EDDI が配信するそれ以外のものは、フレームへの埋め込みを拒否します。',
 			],
 		},
 		'keycloak-oidc': {
@@ -301,7 +302,7 @@ const copy: IntegrationsCopy = {
 				'エージェントに持たせるオペレーションを許可リストに登録します。宣言されていないエンドポイントは呼び出せません。',
 				'EDDIが HTTP 呼び出しの設定を生成し、完全なパイプラインを構築して、エージェントをデプロイします。',
 				'認証情報は <code>${vault:...}</code> 参照として保管します。',
-				'書き込みは <code>http.*:*</code> でゲートし、読み取りは <code>http.get:*</code> で除外します。',
+				'書き込みは <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> でゲートし、読み取りは <code>http.get:*</code> で除外します。',
 			],
 			captions: [
 				'生成されるツールの元になる httpCalls モデルです。フィールドを示すため、ここでは手書きで記載しています。',
@@ -328,7 +329,7 @@ const copy: IntegrationsCopy = {
 				'接続方法を選びます。SAP のサービスが OpenAPI の記述を公開している場合は OpenAPI インポートを使用します。個々の OData や REST のリクエストを宣言するには HTTP 呼び出しを使用します。すでに SAP の前段で MCP サーバーを運用している場合は MCP を使用します。',
 				'SAP の認証情報またはトークンをシークレットボルトに保存し、<code>${vault:...}</code> として参照します。',
 				'まず、ビジネスオブジェクトの一覧取得や読み取りなど、エージェントに必要な読み取りオペレーションだけを宣言します。',
-				'すべての書き込みを <code>http.*:*</code> でゲートし、読み取りは <code>http.get:*</code> で除外します。承認者は Manager または Slack で判断します。',
+				'すべての書き込みを <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> でゲートし、読み取りは <code>http.get:*</code> で除外します。承認者は Manager または Slack で判断します。',
 				'エージェントに許可する範囲を広げる前に、各呼び出しについて監査台帳を確認します。',
 			],
 			captions: [

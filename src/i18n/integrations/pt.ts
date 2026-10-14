@@ -129,11 +129,12 @@ const copy: IntegrationsCopy = {
 				'Execute o EDDI. A interface de chat já vem dentro da imagem do EDDI e o instalador a inclui.',
 				'Abra <code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code> no seu host do EDDI.',
 				'Ajuste-a com parâmetros de URL como <code>theme</code>, <code>title</code>, <code>hideUndo</code> e <code>hideNewConversation</code>.',
-				'Para incorporá-la, coloque a mesma URL em um iframe na sua página.',
+				'Para incorporá-lo, permita a origem do seu site com <code>eddi.chat.frame-ancestors</code> (padrão <code>\'none\'</code>) e depois coloque a mesma URL em um iframe na sua página.',
 			],
 			captions: [
 				'Os padrões de URL que a interface de chat serve.',
 				'Um widget incorporado, do README da interface de chat. Combine os parâmetros de exibição conforme necessário.',
+				'Por padrão, o chat recusa ser exibido em um frame. Defina esta propriedade, ou a variável de ambiente EDDI_CHAT_FRAME_ANCESTORS, com a origem do site que o incorpora (separe várias origens com espaços).',
 			],
 			governance: [
 				'O chat usa a mesma API de conversa que qualquer outro cliente, portanto as Behavior Rules, os portões de aprovação e o registro de auditoria se aplicam sem alterações.',
@@ -141,7 +142,7 @@ const copy: IntegrationsCopy = {
 				'Trate qualquer texto produzido por um agente como saída não confiável. A interface de chat renderiza o Markdown gerado pelo agente.',
 			],
 			goodToKnow: [
-				'Por padrão, o EDDI responde com uma política que proíbe o enquadramento (framing), então o navegador não exibirá o chat dentro de outro site até que o operador permita aquela origem. Consulte o README da interface de chat para ver as configurações de framing da sua versão.',
+				'Incorporar o chat em outro site exige definir <code>eddi.chat.frame-ancestors</code> com a origem desse site. Até lá, os navegadores se recusam a exibi-lo em um frame. Todo o resto que o EDDI serve recusa ser incorporado.',
 			],
 		},
 		'keycloak-oidc': {
@@ -302,7 +303,7 @@ const copy: IntegrationsCopy = {
 				'Inclua na lista de permitidos as operações que o agente deve ter. Um endpoint não declarado não pode ser chamado.',
 				'O EDDI gera as configurações de chamadas HTTP, monta o pipeline completo e implanta o agente.',
 				'Mantenha as credenciais como referências <code>${vault:...}</code>.',
-				'Coloque portão nas escritas com <code>http.*:*</code> e isente as leituras com <code>http.get:*</code>.',
+				'Coloque portão nas escritas com <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> e isente as leituras com <code>http.get:*</code>.',
 			],
 			captions: [
 				'O modelo httpCalls a partir do qual as ferramentas geradas são construídas. Escrito à mão aqui para mostrar os campos.',
@@ -329,7 +330,7 @@ const copy: IntegrationsCopy = {
 				'Escolha o caminho. Use a importação de OpenAPI se o serviço SAP publica uma descrição OpenAPI. Use chamadas HTTP para declarar requisições OData ou REST individuais. Use MCP se você já opera um servidor MCP na frente do SAP.',
 				'Guarde a credencial ou o token do SAP no cofre de segredos e referencie-o como <code>${vault:...}</code>.',
 				'Declare primeiro apenas as operações de leitura de que o agente precisa, como listar ou ler objetos de negócio.',
-				'Coloque portão em toda escrita com <code>http.*:*</code> e isente as leituras com <code>http.get:*</code>. Os aprovadores decidem no Manager ou no Slack.',
+				'Coloque portão em toda escrita com <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> e isente as leituras com <code>http.get:*</code>. Os aprovadores decidem no Manager ou no Slack.',
 				'Verifique o registro de auditoria de cada chamada antes de ampliar o que o agente pode fazer.',
 			],
 			captions: [

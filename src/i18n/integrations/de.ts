@@ -129,11 +129,12 @@ const copy: IntegrationsCopy = {
 				'EDDI starten. Die Chat-Oberfläche steckt im EDDI-Image und ist im Installer enthalten.',
 				'<code>/chat/&lt;environment&gt;/&lt;agentId&gt;</code> auf Ihrem EDDI-Host öffnen.',
 				'Mit URL-Parametern wie <code>theme</code>, <code>title</code>, <code>hideUndo</code> und <code>hideNewConversation</code> anpassen.',
-				'Zum Einbetten dieselbe URL in einem iframe auf Ihrer Seite verwenden.',
+				'Zum Einbetten erlauben Sie den Origin Ihrer Website mit <code>eddi.chat.frame-ancestors</code> (Standard <code>\'none\'</code>) und binden dieselbe URL dann per iframe in Ihre Seite ein.',
 			],
 			captions: [
 				'Die URL-Muster, die die Chat-Oberfläche bedient.',
 				'Ein eingebettetes Widget aus der README der Chat-Oberfläche. Die Anzeigeparameter nach Bedarf kombinieren.',
+				'Standardmäßig lässt sich der Chat nicht einbetten. Setzen Sie diese Property oder die Umgebungsvariable EDDI_CHAT_FRAME_ANCESTORS auf den Origin der einbettenden Website (mehrere Origins durch Leerzeichen trennen).',
 			],
 			governance: [
 				'Der Chat nutzt dieselbe Konversations-API wie jeder andere Client, sodass Behavior Rules, Freigabe-Schranken und das Audit-Protokoll unverändert gelten.',
@@ -141,7 +142,7 @@ const copy: IntegrationsCopy = {
 				'Behandeln Sie jeden von einem Agenten erzeugten Text als nicht vertrauenswürdige Ausgabe. Die Chat-Oberfläche rendert Markdown vom Agenten.',
 			],
 			goodToKnow: [
-				'Standardmäßig antwortet EDDI mit einer Richtlinie, die das Einbetten in Frames verbietet. Ein Browser zeigt den Chat daher nicht in einer anderen Seite an, bis der Betreiber diesen Origin erlaubt. Die Frame-Einstellungen Ihrer Version stehen in der README der Chat-Oberfläche.',
+				'Um den Chat auf einer anderen Website einzubetten, muss <code>eddi.chat.frame-ancestors</code> auf den Origin dieser Website gesetzt werden. Bis dahin verweigern Browser die Darstellung in einem Frame. Alles andere, was EDDI ausliefert, verweigert das Einbetten.',
 			],
 		},
 		'keycloak-oidc': {
@@ -302,7 +303,7 @@ const copy: IntegrationsCopy = {
 				'Die Operationen, die der Agent haben soll, auf die Allowlist setzen. Ein nicht deklarierter Endpunkt kann nicht aufgerufen werden.',
 				'EDDI generiert die HTTP-Call-Konfigurationen, baut die vollständige Pipeline und deployt den Agenten.',
 				'Zugangsdaten als <code>${vault:...}</code>-Referenzen halten.',
-				'Schreibzugriffe mit <code>http.*:*</code> schützen und lesende Zugriffe mit <code>http.get:*</code> ausnehmen.',
+				'Schreibzugriffe mit <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> schützen und lesende Zugriffe mit <code>http.get:*</code> ausnehmen.',
 			],
 			captions: [
 				'Das httpCalls-Modell, aus dem generierte Tools gebaut werden. Hier von Hand ausgeschrieben, um die Felder zu zeigen.',
@@ -329,7 +330,7 @@ const copy: IntegrationsCopy = {
 				'Den Weg wählen. OpenAPI-Import, wenn der SAP-Dienst eine OpenAPI-Beschreibung veröffentlicht. HTTP-Aufrufe, um einzelne OData- oder REST-Anfragen zu deklarieren. MCP, wenn Sie bereits einen MCP-Server vor SAP betreiben.',
 				'Das SAP-Credential oder -Token im Secrets Vault speichern und als <code>${vault:...}</code> referenzieren.',
 				'Zuerst nur die lesenden Operationen deklarieren, die der Agent braucht, etwa das Auflisten oder Lesen von Geschäftsobjekten.',
-				'Jeden Schreibzugriff mit <code>http.*:*</code> schützen und lesende mit <code>http.get:*</code> ausnehmen. Freigeber entscheiden im Manager oder in Slack.',
+				'Jeden Schreibzugriff mit <code>http.post:*</code>, <code>http.put:*</code>, <code>http.patch:*</code>, <code>http.delete:*</code> schützen und lesende mit <code>http.get:*</code> ausnehmen. Freigeber entscheiden im Manager oder in Slack.',
 				'Das Audit-Protokoll für jeden Aufruf prüfen, bevor Sie erweitern, was der Agent darf.',
 			],
 			captions: [

@@ -85,6 +85,8 @@ const guide = {
 	compose: { slug: 'self-host-eddi-with-docker-compose', title: 'Self-host EDDI with Docker Compose' },
 };
 
+const HTTP_WRITES = ['http.post:*', 'http.put:*', 'http.patch:*', 'http.delete:*'];
+
 /** Tool approvals as documented in hitl.md (agent-level `hitlConfig.toolApprovals`). */
 const toolApprovals = (patterns: string[], exempt: string[] | null, label = 'agent configuration (hitlConfig)'): Snippet => ({
 	lang: 'json',
@@ -262,6 +264,11 @@ http://localhost:7070/chat/demo/showcase`,
   src="https://your-eddi-server/chat/production/your-agent-id?hideNewConversation=true&theme=dark"
   style="width: 400px; height: 600px; border: none; border-radius: 12px;"
 ></iframe>`,
+			},
+			{
+				lang: 'bash',
+				label: 'application.properties (or EDDI_CHAT_FRAME_ANCESTORS)',
+				code: `eddi.chat.frame-ancestors=https://portal.example.com`,
 			},
 		],
 		docs: [doc.chatUi],
@@ -470,7 +477,7 @@ http://localhost:7070/chat/demo/showcase`,
   ]
 }`,
 			},
-			toolApprovals(['http.*:*'], ['http.get:*']),
+			toolApprovals(HTTP_WRITES, ['http.get:*']),
 		],
 		docs: [doc.httpcalls, doc.mcpServer, doc.hitl],
 		guides: [guide.openapi],
@@ -504,7 +511,7 @@ http://localhost:7070/chat/demo/showcase`,
   ]
 }`,
 			},
-			toolApprovals(['http.*:*'], ['http.get:*']),
+			toolApprovals(HTTP_WRITES, ['http.get:*']),
 		],
 		docs: [doc.httpcalls, doc.mcpClient, doc.hitl, doc.audit],
 		guides: [guide.openapi],
