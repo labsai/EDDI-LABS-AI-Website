@@ -1,0 +1,10 @@
+---
+import IntegrationsIndexContent from '../../../components/pages/IntegrationsIndexContent.astro';
+import { NON_DEFAULT_LOCALES, type Locale } from '../../../i18n';
+
+export async function getStaticPaths() {
+	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params as { lang: Locale };
+---
+<IntegrationsIndexContent lang={lang} />

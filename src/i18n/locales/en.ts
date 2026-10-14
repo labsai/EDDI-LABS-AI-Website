@@ -19,6 +19,7 @@ const en = {
 		docs: 'Docs',
 		guides: 'Guides',
 		models: 'Models',
+		integrations: 'Integrations',
 		whatsNew: "What's New",
 		benchmarks: 'Benchmarks',
 		solutions: 'Enterprise',
@@ -121,6 +122,7 @@ const en = {
 		schedulingLink: 'Scheduling',
 		humanInTheLoopLink: `Human-in-the-Loop`,
 		modelsLink: 'Model Catalog',
+		integrationsLink: 'Integrations',
 		whatsNewLink: "What's New in 6.5",
 		// Develop links
 		gettingStarted: 'Getting Started',
