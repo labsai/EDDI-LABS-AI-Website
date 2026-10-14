@@ -56,12 +56,16 @@ Task-oriented walkthroughs: one job from nothing to working, then a handoff to t
 
 ## Head-to-Head Comparisons
 
-Direct comparisons, each stating where the alternative is the better choice and how to migrate an existing project. English only.
+Direct comparisons, each stating where the alternative is the better choice and how to migrate an existing project. Available in 11 languages (English at /compare/, others at /{locale}/compare/). Competitor details checked October 2026.
 
+- [All comparisons](https://eddi.technology/compare/): Hub for the head-to-head pages below
+- [EDDI vs. Dify](https://eddi.technology/compare/eddi-vs-dify/): Visual workflow builder, code node and Human Input node vs. config-as-code with no runtime code execution; Dify Open Source License (Apache 2.0 plus multi-tenant and logo conditions) vs. plain Apache 2.0
+- [EDDI vs. CrewAI](https://eddi.technology/compare/eddi-vs-crewai/): Role-based crews and flows in Python vs. deterministic behavior rules, group discussion styles and approval gates
+- [EDDI vs. Microsoft Agent Framework (AutoGen and Semantic Kernel)](https://eddi.technology/compare/eddi-vs-microsoft-agent-framework/): Code-defined workflows in .NET and Python vs. config-as-code; the successor to AutoGen and Semantic Kernel
+- [EDDI vs. LangChain and LangGraph](https://eddi.technology/compare/eddi-vs-langchain/): Library and code-defined graphs vs. deployable platform; the Day 2 operations gap. EDDI uses LangChain4j internally
 - [EDDI vs. n8n](https://eddi.technology/compare/eddi-vs-n8n/): Workflow automation platform vs. AI orchestration middleware; runtime, code execution, licensing (Sustainable Use License vs. Apache 2.0), governance
 - [EDDI vs. Flowise](https://eddi.technology/compare/eddi-vs-flowise/): Prototype velocity vs. production operating surface; RAG architecture, multi-tenancy, audit trails
 - [EDDI vs. Rasa](https://eddi.technology/compare/eddi-vs-rasa/): Trained NLU and deterministic dialogue vs. LLM orchestration with config-as-code; determinism trade-offs
-- [EDDI vs. LangChain](https://eddi.technology/compare/eddi-vs-langchain/): Library vs. deployable platform; the Day 2 operations gap. EDDI uses LangChain4j internally
 - [Compliance](https://eddi.technology/enterprise/compliance/): Global Privacy & Regulatory Compliance — EU AI Act, GDPR, CCPA, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, NIST AI RMF, ISO 42001, SOC 2 & more (15+ frameworks)
 
 ## Integrations & Deployment

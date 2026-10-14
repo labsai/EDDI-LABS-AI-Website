@@ -3,6 +3,8 @@ import FeaturePage from '../../../layouts/FeaturePage.astro';
 import heroImage from '../../../assets/hero_vs_alternatives.webp';
 import { NON_DEFAULT_LOCALES, getTranslations, localePath, type Locale } from '../../../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../../../config';
+import { COMPARISONS } from '../../../data/comparisons';
+import { getCompareCopy } from '../../../i18n/compare';
 
 export async function getStaticPaths() {
 	return NON_DEFAULT_LOCALES.map((lang) => ({ params: { lang } }));
@@ -10,6 +12,7 @@ export async function getStaticPaths() {
 const { lang } = Astro.params as { lang: Locale };
 const t = await getTranslations(lang);
 const p = t.pages.vsAlternatives;
+const cc = await getCompareCopy(lang);
 const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang, '/contact/');
 ---
 <FeaturePage title={p.title} metaTitle={p.metaTitle} description={p.description} heroImage={heroImage} lang={lang}>
@@ -69,6 +72,16 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang,
 </div>
 
 <p set:html={p.cloudSovereigntyPara} />
+
+<!-- Head-to-head comparisons (11 locales, copy in src/i18n/compare/) -->
+<h2>{cc.ui.headToHeadTitle}</h2>
+<p>{cc.ui.headToHeadIntro}</p>
+<ul class="head-to-head">
+	{COMPARISONS.map((c) => (
+		<li><a href={localePath(lang, `/compare/${c.slug}/`)}>{cc.comparisons[c.slug].title}</a></li>
+	))}
+</ul>
+<p><a href={localePath(lang, '/compare/')}>{cc.ui.backToHub} →</a></p>
 
 <!-- Bottom CTA -->
 <h2>{p.ctaTitle}</h2>

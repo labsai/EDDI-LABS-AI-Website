@@ -7,6 +7,7 @@ import eddiLogoDark from '../assets/eddi-logo-dark.svg';
 import eddiLogoLight from '../assets/eddi-logo-light.svg';
 import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../config';
+import { getCompareCopy } from '../i18n/compare';
 
 interface Props {
 	lang?: Locale;
@@ -14,6 +15,7 @@ interface Props {
 
 const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
+const compareCopy = await getCompareCopy(lang);
 ---
 
 <footer class="eddi-site-footer">
@@ -72,6 +74,7 @@ const t = await getTranslations(lang);
 				<a href={localePath(lang, '/features/security/')}>{t.footer.securityFirst}</a>
 				<a href={localePath(lang, '/features/human-in-the-loop/')}>{t.footer.humanInTheLoopLink}</a>
 				<a href={localePath(lang, '/models/')}>{t.footer.modelsLink}</a>
+				<a href={localePath(lang, '/compare/')}>{compareCopy.ui.navLabel}</a>
 				<a href={localePath(lang, '/whats-new/')}>{t.footer.whatsNewLink}</a>
 				<a href={localePath(lang, '/features/performance/')}>{t.footer.performanceLink}</a>
 				<a href={localePath(lang, '/features/multi-agent/')}>{t.footer.multiAgent}</a>

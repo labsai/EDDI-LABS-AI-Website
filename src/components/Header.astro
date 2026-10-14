@@ -10,6 +10,7 @@ import LanguagePicker from './LanguagePicker.astro';
 import AnnouncementBanner from './AnnouncementBanner.astro';
 import { localePath, getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../config';
+import { getCompareCopy } from '../i18n/compare';
 
 interface Props {
 	lang?: Locale;
@@ -20,6 +21,7 @@ interface Props {
 const lang = Astro.props.lang ?? getLocaleFromUrl(Astro.url);
 const { localized = true } = Astro.props;
 const t = await getTranslations(lang);
+const compareCopy = await getCompareCopy(lang);
 ---
 
 <AnnouncementBanner />
@@ -258,6 +260,7 @@ const t = await getTranslations(lang);
 		<div class="eddi-mobile-section">
 			<h3>{t.nav.resources}</h3>
 			<a href={localePath(lang, '/models/')}><span class="eddi-mobile-icon">🔀</span> {t.nav.models}</a>
+			<a href={localePath(lang, '/compare/')}><span class="eddi-mobile-icon">⚖️</span> {compareCopy.ui.navLabel}</a>
 			<a href={localePath(lang, '/whats-new/')}><span class="eddi-mobile-icon">🆕</span> {t.nav.whatsNew}</a>
 			<a href="/guides/"><span class="eddi-mobile-icon">🧭</span> {t.nav.guides}</a>
 			<a href="/benchmarks/"><span class="eddi-mobile-icon">📊</span> {t.nav.benchmarks}</a>
