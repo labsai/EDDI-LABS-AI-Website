@@ -1328,20 +1328,18 @@ const zh: TranslationSchema = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: '我们重视您的隐私',
-		text: '我们使用 Cookie 来改善您的浏览体验并分析我们的流量。点击"全部接受"即表示您同意使用 Cookie。',
-		privacyNote: '如需了解更多信息，请参阅我们的',
+		text: '我们使用注重隐私保护的分析工具 （Umami 和已关闭广告功能的 Google Analytics）来了解网站的使用情况。这些工具仅在您选择加入后才会加载。维持网站正常运行所必需的严格必要存储始终处于启用状态。',
+		privacyNote: '欲了解更多信息，请参阅我们的',
 		acceptAll: '全部接受',
 		manageCookies: '管理 Cookie',
-		modalTitle: '管理偏好设置',
-		modalDesc: '您可以在下方调整 Cookie 设置。必要的 Cookie 无法禁用。',
-		necessaryLabel: '必要 Cookie',
-		necessaryDesc: '网站正常运行所必需。',
-		analyticsLabel: '分析与性能',
-		analyticsDesc: '帮助我们了解访问者如何与我们的网站互动。',
-		marketingLabel: '营销 Cookie',
-		marketingDesc: '用于跨网站跟踪访问者以展示相关广告。',
+		modalTitle: '管理您的偏好设置',
+		modalDesc: '请在下方调整您的偏好设置。由于网站运行依赖必要存储，该项无法禁用。',
+		necessaryLabel: '严格必要',
+		necessaryDesc: '网站正常运行所必需，包括您的主题选择和 Cookie 同意选择。始终启用。',
+		analyticsLabel: '分析',
+		analyticsDesc: '注重隐私保护的分析工具 （Umami 和已关闭广告功能的 Google Analytics），帮助我们了解访客如何使用本网站。仅在您同意后才会加载。',
 		rejectAll: '全部拒绝',
-		savePreferences: '保存设置',
+		savePreferences: '保存偏好设置',
 	},
 
 	// ─── Contact Page ───────────────────────────────────────────
@@ -1468,8 +1466,8 @@ const zh: TranslationSchema = {
 			cookieNecessaryDesc: '对网站正常运行必不可少。仅限于本地存储您的主题选择和同意选择。根据《电信法》（TKG）第165条，此类内容无需同意，且无法被禁用。',
 			cookieAnalyticsHeading: '分析与性能',
 			cookieAnalyticsDesc: 'Google Analytics（G-L1011GL1PY）和 Umami Analytics：追踪网站使用情况。两者均仅在您通过 Cookie 横幅明确选择加入后才会加载（GDPR 第6条第1款(a)项）。Google Analytics 的数据由 Google LLC（美国）处理；数据传输依据欧盟-美国数据隐私框架的充分性认定，并以欧盟标准合同条款作为后备保障。',
-			cookieMarketingHeading: '营销',
-			cookieMarketingDesc: 'HubSpot 新闻通讯与联系表单嵌入内容仅在您选择加入后才会加载。目前未使用其他营销追踪工具。',
+			cookieFormsHeading: '新闻通讯与联系表单（HubSpot）',
+			cookieFormsDesc: '不存在单独的营销 Cookie 类别。HubSpot 新闻通讯与联系表单仅在您于页面上点击显示后才会加载。目前未使用其他营销追踪工具。',
 			cookieManage: '您可以随时通过页脚中的“Cookie 设置”链接撤回或更改您的同意，该链接会重新打开偏好设置对话框。',
 
 			// 5. Third-Party Services

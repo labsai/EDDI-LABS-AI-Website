@@ -17,6 +17,6 @@ export const COMPATIBLE_PROVIDERS = 8;
 /** RAG embedding providers (docs/rag.md in EDDI). Was 7 until Gemini embeddings. */
 export const EMBEDDING_PROVIDERS = 8;
 export const VECTOR_STORES = 6;
-export const DOCKER_PULLS = '399K+';
+export const DOCKER_PULLS = '409K+';
 export const FOUNDED = 2006;
 export const OSS_SINCE = 2018;
