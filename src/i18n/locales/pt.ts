@@ -1397,7 +1397,7 @@ const pt: TranslationSchema = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: 'Valorizamos a sua privacidade',
-		text: 'Usamos análises que respeitam a privacidade (Umami e Google Analytics com os recursos de publicidade desativados) para entender como nosso site é utilizado. Elas só são carregadas se você optar por participar. O armazenamento estritamente necessário que mantém o site funcionando está sempre ativo.',
+		text: 'Usamos análises (Umami, que respeita a privacidade, e Google Analytics com os recursos de publicidade desativados) para entender como nosso site é utilizado. Elas só são carregadas se você optar por participar. O armazenamento estritamente necessário que mantém o site funcionando está sempre ativo.',
 		privacyNote: 'Para mais informações, consulte nossa',
 		acceptAll: 'Aceitar Tudo',
 		manageCookies: 'Gerenciar Cookies',
@@ -1406,7 +1406,7 @@ const pt: TranslationSchema = {
 		necessaryLabel: 'Estritamente Necessário',
 		necessaryDesc: 'Necessário para o funcionamento do site, incluindo sua escolha de tema e sua escolha de consentimento de cookies. Sempre ativo.',
 		analyticsLabel: 'Análises',
-		analyticsDesc: 'Análises que respeitam a privacidade (Umami e Google Analytics com os recursos de publicidade desativados) e nos ajudam a entender como os visitantes usam o site. Carregadas somente com o seu consentimento.',
+		analyticsDesc: 'Umami (que respeita a privacidade) e Google Analytics (recursos de publicidade desativados) nos ajudam a entender como os visitantes usam o site. Carregados somente com o seu consentimento.',
 		rejectAll: 'Rejeitar Tudo',
 		savePreferences: 'Salvar Preferências',
 	},

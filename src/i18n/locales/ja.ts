@@ -1341,7 +1341,7 @@ const ja: TranslationSchema = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: 'プライバシーを大切にしています',
-		text: 'サイトの利用状況を把握するため、プライバシーに配慮した分析ツール （Umami と、広告機能をオフにした Google Analytics）を使用しています。これはお客様が同意された場合にのみ読み込まれます。サイトの動作に必要な厳密に必要なストレージは常に有効です。',
+		text: 'サイトの利用状況を把握するため、分析ツール（プライバシーに配慮した Umami と、広告機能をオフにした Google Analytics）を使用しています。これらはお客様が同意された場合にのみ読み込まれます。サイトの動作に必要な厳密に必要なストレージは常に有効です。',
 		privacyNote: '詳細については、以下をご覧ください',
 		acceptAll: 'すべて同意する',
 		manageCookies: 'Cookieを管理',
@@ -1350,7 +1350,7 @@ const ja: TranslationSchema = {
 		necessaryLabel: '必須項目',
 		necessaryDesc: 'テーマ設定や Cookie 同意の選択を含む、サイトの動作に必要な項目です。常に有効です。',
 		analyticsLabel: '分析',
-		analyticsDesc: '訪問者がサイトをどのように利用しているかを把握するための、プライバシーに配慮した分析 （Umami と、広告機能をオフにした Google Analytics）です。お客様の同意がある場合にのみ読み込まれます。',
+		analyticsDesc: 'Umami（プライバシーに配慮）と Google Analytics（広告機能オフ）は、訪問者がサイトをどのように利用しているかを把握するのに役立ちます。お客様の同意がある場合にのみ読み込まれます。',
 		rejectAll: 'すべて拒否する',
 		savePreferences: '設定を保存',
 	},

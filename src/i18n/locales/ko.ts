@@ -1344,7 +1344,7 @@ const ko: TranslationSchema = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: '개인정보를 소중히 여깁니다',
-		text: '당사는 사이트 이용 현황을 파악하기 위해 개인정보를 보호하는 분석 도구 (Umami 및 광고 기능을 끈 Google Analytics)를 사용합니다. 이는 귀하가 동의하신 경우에만 로드됩니다. 사이트 운영에 반드시 필요한 저장소는 항상 활성화되어 있습니다.',
+		text: '당사는 사이트 이용 현황을 파악하기 위해 분석 도구(개인정보를 보호하는 Umami 및 광고 기능을 끈 Google Analytics)를 사용합니다. 이는 귀하가 동의하신 경우에만 로드됩니다. 사이트 운영에 반드시 필요한 저장소는 항상 활성화되어 있습니다.',
 		privacyNote: '자세한 내용은 다음을 참고하세요',
 		acceptAll: '모두 동의',
 		manageCookies: '쿠키 관리',
@@ -1353,7 +1353,7 @@ const ko: TranslationSchema = {
 		necessaryLabel: '필수 저장소',
 		necessaryDesc: '테마 선택 및 쿠키 동의 선택을 포함하여 사이트가 작동하는 데 필요합니다. 항상 활성화되어 있습니다.',
 		analyticsLabel: '분석',
-		analyticsDesc: '방문자가 사이트를 어떻게 이용하는지 파악하는 데 도움이 되는 개인정보 보호 분석 (Umami 및 광고 기능을 끈 Google Analytics)입니다. 귀하가 동의한 경우에만 로드됩니다.',
+		analyticsDesc: 'Umami(개인정보 보호)와 Google Analytics(광고 기능 끔)는 방문자가 사이트를 어떻게 이용하는지 파악하는 데 도움이 됩니다. 귀하가 동의한 경우에만 로드됩니다.',
 		rejectAll: '모두 거부',
 		savePreferences: '설정 저장',
 	},

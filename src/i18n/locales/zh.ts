@@ -1328,7 +1328,7 @@ const zh: TranslationSchema = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: '我们重视您的隐私',
-		text: '我们使用注重隐私保护的分析工具 （Umami 和已关闭广告功能的 Google Analytics）来了解网站的使用情况。这些工具仅在您选择加入后才会加载。维持网站正常运行所必需的严格必要存储始终处于启用状态。',
+		text: '我们使用分析工具（注重隐私保护的 Umami，以及已关闭广告功能的 Google Analytics）来了解网站的使用情况。这些工具仅在您选择加入后才会加载。维持网站正常运行所必需的严格必要存储始终处于启用状态。',
 		privacyNote: '欲了解更多信息，请参阅我们的',
 		acceptAll: '全部接受',
 		manageCookies: '管理 Cookie',
@@ -1337,7 +1337,7 @@ const zh: TranslationSchema = {
 		necessaryLabel: '严格必要',
 		necessaryDesc: '网站正常运行所必需，包括您的主题选择和 Cookie 同意选择。始终启用。',
 		analyticsLabel: '分析',
-		analyticsDesc: '注重隐私保护的分析工具 （Umami 和已关闭广告功能的 Google Analytics），帮助我们了解访客如何使用本网站。仅在您同意后才会加载。',
+		analyticsDesc: 'Umami（注重隐私保护）和 Google Analytics（已关闭广告功能）帮助我们了解访客如何使用本网站。仅在您同意后才会加载。',
 		rejectAll: '全部拒绝',
 		savePreferences: '保存偏好设置',
 	},

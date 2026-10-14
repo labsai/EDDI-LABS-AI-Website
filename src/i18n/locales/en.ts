@@ -1496,7 +1496,7 @@ const en = {
 	// ─── Cookie Consent Banner ──────────────────────────────────
 	cookieBanner: {
 		title: 'We Value Your Privacy',
-		text: 'We use privacy-friendly analytics (Umami and Google Analytics with advertising features off) to understand how our site is used. These load only if you opt in. Strictly necessary storage that keeps the site working is always active.',
+		text: 'We use analytics (privacy-friendly Umami, and Google Analytics with advertising features off) to understand how our site is used. These load only if you opt in. Strictly necessary storage that keeps the site working is always active.',
 		privacyNote: 'For more information, see our',
 		acceptAll: 'Accept All',
 		manageCookies: 'Manage Cookies',
@@ -1505,7 +1505,7 @@ const en = {
 		necessaryLabel: 'Strictly Necessary',
 		necessaryDesc: 'Required for the site to work, including your theme choice and your cookie-consent choice. Always on.',
 		analyticsLabel: 'Analytics',
-		analyticsDesc: 'Privacy-friendly analytics (Umami and Google Analytics with advertising features off) that help us understand how visitors use the site. Loaded only with your consent.',
+		analyticsDesc: 'Umami (privacy-friendly) and Google Analytics (advertising features off) help us understand how visitors use the site. Loaded only with your consent.',
 		rejectAll: 'Reject All',
 		savePreferences: 'Save Preferences',
 	},
