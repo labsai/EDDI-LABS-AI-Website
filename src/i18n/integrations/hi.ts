@@ -1,7 +1,6 @@
 /**
  * Integration catalog copy, Hindi. Keys match ./en.ts and src/data/integrations.ts.
  */
-import type { IntegrationCategory } from '../../data/integrations';
 import { MCP_TOOLS, VECTOR_STORES } from '../stats';
 import type { IntegrationsCopy } from './en';
 

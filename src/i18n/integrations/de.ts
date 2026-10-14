@@ -2,7 +2,6 @@
  * Integrationskatalog, deutsche Texte. Schlüssel und Struktur folgen en.ts.
  * Mit HTML markierte Strings werden per set:html gerendert.
  */
-import type { IntegrationCategory } from '../../data/integrations';
 import { MCP_TOOLS, VECTOR_STORES } from '../stats';
 import type { IntegrationsCopy } from './en';
 

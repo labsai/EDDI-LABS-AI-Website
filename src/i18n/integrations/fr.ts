@@ -2,7 +2,6 @@
  * Catalogue des intégrations, textes français. Les clés et la structure suivent en.ts.
  * Les chaînes marquées HTML sont rendues avec set:html.
  */
-import type { IntegrationCategory } from '../../data/integrations';
 import { MCP_TOOLS, VECTOR_STORES } from '../stats';
 import type { IntegrationsCopy } from './en';
 

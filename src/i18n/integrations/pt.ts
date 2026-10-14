@@ -2,7 +2,6 @@
  * Catálogo de integrações, português (Brasil). Traduzido de ./en.ts; mantenha as chaves idênticas.
  * As strings marcadas como HTML são renderizadas com set:html, portanto só aparecem <code> e <a>.
  */
-import type { IntegrationCategory } from '../../data/integrations';
 import { MCP_TOOLS, VECTOR_STORES } from '../stats';
 import type { IntegrationsCopy } from './en';
 

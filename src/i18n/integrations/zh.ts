@@ -1,7 +1,6 @@
 /**
  * Integration catalog copy, Simplified Chinese. Keys match ./en.ts; facts must stay in sync with it.
  */
-import type { IntegrationCategory } from '../../data/integrations';
 import { MCP_TOOLS, VECTOR_STORES } from '../stats';
 import type { IntegrationsCopy } from './en';
 
