@@ -25,7 +25,7 @@ import ArchitectureDiagram from '../ArchitectureDiagram.astro';
 <div class="fo-hero-actions"><a href={localePath(lang, '/getting-started/')} class="btn-cta-primary">{t.common.getStartedCta}</a><a href="https://github.com/labsai/EDDI" class="btn-cta-outline" target="_blank" rel="noopener">{t.common.viewOnGithub}</a></div>
 </div><div class="fo-hero-image premium-image-wrapper"><Image src={heroImage} alt="EDDI Features" width={1024} height={1024} loading="eager" decoding="async" /></div></div></section>
 
-<ArchitectureDiagram title={t.home.archTitle} caption={t.home.archCaption} />
+<ArchitectureDiagram title={t.home.archTitle} caption={t.home.archCaption} lang={lang} />
 
 <!-- Core Platform -->
 <section class="py-24 max-w-7xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-3xl md:text-5xl font-bold mb-6 text-white! border-0! text-center">{t.featuresOverview.coreTitle}</h2><p class="text-xl text-zinc-400 max-w-3xl mx-auto font-light leading-relaxed" set:html={t.featuresOverview.coreDesc} /></div>

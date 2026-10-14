@@ -376,7 +376,7 @@ const jsonLdGraph = {
       document.addEventListener("astro:page-load", () => {
         document.querySelectorAll("pre").forEach((pre) => {
           // Skip if already wrapped (idempotency guard for ClientRouter transitions)
-          if (pre.closest(".eddi-pre-wrapper")) return;
+          if (pre.closest(".eddi-pre-wrapper, [data-no-copy]")) return;
 
           const button = document.createElement("button");
           button.className = "eddi-copy-btn";
