@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.5.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.6.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -34,7 +34,7 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Dark/light theme, interactive onboarding tours
 
 ### MCP (Model Context Protocol) Server
-- 84 MCP tools exposing all EDDI capabilities to external AI agents
+- 89 MCP tools exposing all EDDI capabilities to external AI agents
 - Claude Desktop, Cursor, and other MCP clients can manage EDDI agents programmatically
 - EDDI agents can also consume external MCP tools as part of their pipelines; stdio-only MCP servers are reachable through a sidecar bridge
 - OpenAPI 3.1 — Auto-generated spec; paste external specs to create API-calling agents
@@ -167,13 +167,13 @@ Full CRUD operations for all resources (selection):
 - `/conversationstore/conversations`, `/usermemorystore/memories`: conversations and persistent user memory
 - `/administration/agents/setup`: create a complete agent in one call
 
-### MCP Tools (84 total)
+### MCP Tools (89 total)
 Organized by domain:
 - Conversation tools (13): chat, conversations, history, pipeline logs, audit trail, agent discovery, managed chat
-- Admin tools (29): deploy/undeploy, agents, resources, triggers, schedules, channel integrations
+- Admin tools (30): deploy/undeploy, agents, resources, triggers, schedules, channel integrations, moving conversations to a newer agent version
 - Group tools (18): group discussions, templates, follow-ups, standing-team backlogs
 - Human-in-the-loop tools (10): pending approvals, resume/cancel, group phase approval, human member input
-- Memory tools (8), Setup tools (2: setup_agent, create_api_agent), GDPR tools (2), Documentation tools (2)
+- Memory tools (8), Setup tools (2: setup_agent, create_api_agent), GDPR tools (2), Documentation tools (2), agent test tools (3: run, read and list agent test runs), version tool (1: running EDDI version and commit)
 
 ### Quarkus SDK
 - Quarkiverse extension: `quarkus-eddi`
@@ -188,7 +188,7 @@ Organized by domain:
 | Visual Builder | ✅ | ✅ | ❌ | ✅ |
 | User Code Execution | ❌ None | Yes (eval/sandbox) | N/A (library) | Scripts |
 | Config-as-Code | Full JSON | Partial | ❌ | BPMN |
-| MCP Support | 84 Tools | ❌ | ❌ | ❌ |
+| MCP Support | 89 Tools | ❌ | ❌ | ❌ |
 | Concurrency | Virtual threads | Event loop / GIL | Platform threads | Platform threads |
 | Audit Trail | Cryptographic (HMAC) | Basic logging | DIY | Process history |
 | Compliance | 15+ frameworks (EU AI Act, GDPR, HIPAA, etc.) | DIY | DIY | Partial |
