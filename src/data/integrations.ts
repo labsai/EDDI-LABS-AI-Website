@@ -299,7 +299,7 @@ http://localhost:7070/chat/demo/showcase`,
   -e QUARKUS_OIDC_AUTH_SERVER_URL='https://keycloak.example.com/realms/eddi' \\
   -e QUARKUS_OIDC_CLIENT_ID=eddi \\
   -e QUARKUS_OIDC_CREDENTIALS_SECRET="$OIDC_CLIENT_SECRET" \\
-  labsai/eddi:6.4.0`,
+  labsai/eddi:6.6.0`,
 			},
 		],
 		docs: [doc.security, doc.hitl],

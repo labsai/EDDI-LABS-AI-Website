@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 84 MCP tools, 12 built-in agent tools, multi-agent group collaboration, human-in-the-loop approval gates, per-user workspaces, an OpenAI-compatible API, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 19 LLM providers. Latest release: 6.4.0. Apache 2.0 licensed.
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 89 MCP tools, 12 built-in agent tools, multi-agent group collaboration, human-in-the-loop approval gates, per-user workspaces, an OpenAI-compatible API, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 19 LLM providers. Latest release: 6.6.0. Apache 2.0 licensed.
 
 ## Documentation
 
@@ -12,13 +12,13 @@
 - [Features Overview](https://eddi.technology/features/overview/): Complete platform capabilities summary
 - [EDDI Manager UI](https://eddi.technology/features/manager/): Visual agent lifecycle management with 11-locale i18n
 - [Configuration-as-Code](https://eddi.technology/features/config-as-code/): JSON-based agent configuration without recompilation
-- [MCP Server](https://eddi.technology/features/mcp-server/): 84 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE + OpenAI-compatible /v1 API
+- [MCP Server](https://eddi.technology/features/mcp-server/): 89 MCP tools + OpenAPI 3.1 + A2A Protocol + OAuth 2.0/OIDC + SSE + OpenAI-compatible /v1 API
 - [Multi-Agent Orchestration](https://eddi.technology/features/multi-agent/): 7 group discussion styles, voting, shared artifacts, standing teams, humans as group members, preset templates, Platform Operator
 - [Memory & Context](https://eddi.technology/features/memory/): Persistent memory, dream consolidation, memory policy (commit flags)
 - [Knowledge Bases & RAG](https://eddi.technology/features/rag/): Web crawler (robots.txt aware), file ingestion (PDF, Word, Excel, PowerPoint, text), scheduled sources with run history, 8 embedding providers, 6 vector stores, httpCall RAG
 - [Model Catalog](https://eddi.technology/models/): 32 model families across 19 LLM providers, with strengths, limits and the exact EDDI configuration for each provider route
 - [Integrations](https://eddi.technology/integrations/): 18 integration pages with real configuration: Slack, Open WebUI, web chat, Keycloak/OIDC, Secrets Vault, MCP server and client, A2A, OpenAPI, SAP (through its APIs, no native connector), five vector stores, Kubernetes and Helm, OpenShift, Ollama
-- [What's New in 6.5.0](https://eddi.technology/whats-new/): Release highlights
+- [What's New in 6.6.0](https://eddi.technology/whats-new/): Release highlights
 - 12 Built-In Agent Tools: Web search, calculator, scraper, PDF reader, weather, HTTP calls, user memory, and more
 - Config & Portability: Import/export (ZIP), agent sync, prompt snippets, behavior rules
 - [Performance](https://eddi.technology/features/performance/): Java 25 virtual threads and JVM-native throughput
@@ -78,7 +78,7 @@ Direct comparisons, each stating where the alternative is the better choice and 
 
 ## API & MCP
 
-- [MCP Tools Reference](https://docs.labs.ai/protocols-and-integration/mcp-server.md): Complete list of 84 MCP tools
+- [MCP Tools Reference](https://docs.labs.ai/protocols-and-integration/mcp-server.md): Complete list of 89 MCP tools
 
 ## Use Cases
 

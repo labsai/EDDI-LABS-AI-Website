@@ -36,7 +36,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 |---|---|---|
 | 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually, with 11-language i18n |
 | ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration: change prompts, tools, and pipelines without redeployment |
-| 🔌 | **84 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
+| 🔌 | **89 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
 | 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, and group collaboration: 7 discussion styles, voting, shared artifacts, standing teams, and humans as members |
 | 👥 | **Multi-User** | Per-user workspaces with sharing, and Connections that let agents act with each user's own credentials |
 | 🔗 | **OpenAI-Compatible API** | Deployed agents appear as models to Open WebUI, the `openai` SDK, LangChain, and LiteLLM |

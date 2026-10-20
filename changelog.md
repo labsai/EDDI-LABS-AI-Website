@@ -4,6 +4,15 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🚀 EDDI 6.6.0 Sync: Version, MCP Tool Count and What's New in 11 Locales
+
+Brings eddi.technology in line with EDDI 6.6.0 (tag `6.6.0`, released 2026-10-20). Counts were taken at the tag, not at `main`: **89 MCP tools** (up from 84; `@Tool(` annotations under `src/main/**/mcp/**`), **19 LLM providers** (unchanged), and the **20,000+ tests** headline (the README badge still reads 20,000+; the raw annotation count is higher, so the headline is conservative).
+
+- `EDDI_LATEST_VERSION` → 6.6.0 (announcement banner, dismiss key, JSON-LD `softwareVersion` and `releaseNotes`).
+- `MCP_TOOLS` → 89 in `src/i18n/stats.ts`. `scripts/check-stats.mjs` now requires 89 in every locale and forbids the 6.5 rendering (84 near "MCP") in every scanned file.
+- What's New: the page copy is rewritten for 6.6.0 (scale out on NATS JetStream, LLM turns that survive failure, every provider parameter, inspectable knowledge bases, guardrails and cost ceilings, signed webhooks and A2A 1.0) in all 11 locales, with the breaking-change reminder. The banner link reads "What's New in 6.6", and the hardening log gets an October 2026 (6.6.0) entry.
+- Install pin in `src/data/integrations.ts` → `labsai/eddi:6.6.0`. `README.md`, `public/llms.txt`, `public/llms-full.txt`, the OpenAPI guide and the MCP counts in all locale and compare pages follow the same numbers.
+
 ### 🧭 Dual-Funnel Review: Quickstart, Interactive Pipeline, Comparisons and Integrations in 11 Locales, Privacy-First Consent
 
 Branch `feat/dual-funnel-feedback`. Works through an external review of eddi.technology and eddi.solutions (2026-10-14). The sibling eddi.solutions branch of the same name carries the buyer-side half.
