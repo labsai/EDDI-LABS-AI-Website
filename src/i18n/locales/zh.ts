@@ -5,7 +5,7 @@ import type { TranslationSchema } from './en';
 const zh: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: `EDDI ${EDDI_VERSION}，企业级AI代理编排平台。自托管、配置驱动的多代理系统，内置可视化管理界面、89个MCP工具和安全优先架构，并为GDPR、欧盟AI法案、HIPAA及15+个监管框架提供内置合规支持。`,
+		siteDescription: `EDDI ${EDDI_VERSION}，企业级AI代理编排平台。自托管、配置驱动的多代理系统，内置可视化管理界面、108个MCP工具和安全优先架构，并为GDPR、欧盟AI法案、HIPAA及15+个监管框架提供内置合规支持。`,
 	},
 	nav: {
 		features: '功能特性',
@@ -21,7 +21,7 @@ const zh: TranslationSchema = {
 		eddiManager: 'EDDI管理器',
 		eddiManagerDesc: '可视化代理管理界面',
 		mcpServer: 'MCP服务器',
-		mcpServerDesc: '89个AI原生控制工具',
+		mcpServerDesc: '108个AI原生控制工具',
 		configAsCode: '配置即代码',
 		configAsCodeDesc: 'JSON配置，零样板代码',
 		securityFirst: '安全优先',
@@ -59,7 +59,7 @@ const zh: TranslationSchema = {
 		useCases: '应用场景',
 		useCasesDesc: '面向受监管行业的部署模式',
 		allFeatures: '全部功能',
-		mcpServerMobile: 'MCP服务器（89个工具）',
+		mcpServerMobile: 'MCP服务器（108个工具）',
 		resources: '资源',
 		documentation: '文档 ↗',
 		github: 'GitHub ↗',
@@ -151,7 +151,7 @@ const zh: TranslationSchema = {
 		solutionDesc: 'EDDI是一个<strong>可部署的AI编排平台</strong>，不是库。可视化管理、配置即代码和企业级安全，开箱即用：',
 		sol1Title: '配置即代码',
 		sol1Desc: '代理逻辑、管道和工具定义都是<strong>JSON配置</strong>，而非编译的代码。提示词工程师通过React UI或REST API即时迭代，无需重新部署。',
-		sol2Title: '89个MCP工具',
+		sol2Title: '108个MCP工具',
 		sol2Desc: 'EDDI通过<strong>模型上下文协议</strong>暴露其功能，支持Claude Desktop交互。代理还可以<strong>消费外部MCP工具</strong>。',
 		sol3Title: '安全优先',
 		sol3Desc: '无<code>eval()</code>，无逃逸。密钥库集成、URL验证和加密审计跟踪是<strong>架构基础</strong>。',
@@ -211,7 +211,7 @@ const zh: TranslationSchema = {
 		faqTitle: '常见问题',
 		faq1Q: '什么是EDDI？',
 		faq1A:
-			'EDDI是一个开源的企业级AI编排平台。它使团队能够使用JSON配置而非编译代码来构建、配置和部署AI代理。EDDI提供了一个完整的平台，包括<strong>生产就绪的React管理界面</strong>（EDDI管理器）、内置REST API、对话状态管理、安全性（OIDC/Keycloak）、不可变审计跟踪和89个MCP工具，所有这些都可通过Docker或Kubernetes部署。',
+			'EDDI是一个开源的企业级AI编排平台。它使团队能够使用JSON配置而非编译代码来构建、配置和部署AI代理。EDDI提供了一个完整的平台，包括<strong>生产就绪的React管理界面</strong>（EDDI管理器）、内置REST API、对话状态管理、安全性（OIDC/Keycloak）、不可变审计跟踪和108个MCP工具，所有这些都可通过Docker或Kubernetes部署。',
 		faq2Q: 'EDDI与AI库和框架有什么不同？',
 		faq2A:
 			'Spring AI和LangChain4j是优秀的<strong>库</strong>，EDDI实际上在内部使用了LangChain4j。关键区别在于EDDI是一个<strong>可部署的中间件平台</strong>，而不是库。使用Spring AI，您仍然需要自己构建REST控制器、认证、对话状态管理、审计日志和管理界面。EDDI开箱即提供所有这些。',
@@ -219,7 +219,7 @@ const zh: TranslationSchema = {
 		faq3A:
 			'是的。EDDI基于企业级运行时构建，利用轻量级虚拟线程实现IO密集型操作的大规模并发。支持MongoDB和PostgreSQL，内置OIDC/Keycloak认证以及支持资源共享的按用户工作空间，提供不可变的加密审计跟踪以确保合规（包括欧盟AI法案），并通过NATS JetStream实现水平扩展。',
 		faq4Q: '什么是模型上下文协议（MCP）？',
-		faq4A: '模型上下文协议（MCP）是一个开放标准，允许Claude Desktop、IDE插件和自定义客户端等AI助手以编程方式与外部工具交互。EDDI公开了89个MCP工具，涵盖对话管理、代理管理、群组讨论、人工审批、设置自动化、调度管理和诊断。',
+		faq4A: '模型上下文协议（MCP）是一个开放标准，允许Claude Desktop、IDE插件和自定义客户端等AI助手以编程方式与外部工具交互。EDDI公开了108个MCP工具，涵盖对话管理、代理管理、群组讨论、人工审批、设置自动化、调度管理和诊断。',
 		faq5Q: 'EDDI能否替代Flowise或n8n用于生产工作负载？',
 		faq5A:
 			'EDDI服务于类似的可视化构建目的，但具有企业级架构。与Flowise和n8n不同，EDDI不使用<code>eval()</code>或代码块，运行数百万轻量级虚拟线程以实现企业级并发，支持OIDC/Keycloak认证，并将数据存储在MongoDB或PostgreSQL中。它专为受监管行业设计。',
@@ -258,7 +258,7 @@ const zh: TranslationSchema = {
 		step1ComposeOllama: '想使用本地模型？添加 Ollama overlay，新建的代理会预先填好 Ollama base URL：',
 		step1After: 'EDDI将在<code>http://localhost:7070</code>上可用。',
 		step2Title: '2. 通过MCP连接',
-		step2Desc: '将您的AI助手连接到EDDI的<strong>89个MCP工具</strong>。配置取决于您客户端的传输支持：',
+		step2Desc: '将您的AI助手连接到EDDI的<strong>108个MCP工具</strong>。配置取决于您客户端的传输支持：',
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: '直连 HTTP（Cursor、VS Code、Windsurf）',
 		step2ClaudeNote:
@@ -267,7 +267,7 @@ const zh: TranslationSchema = {
 			'<strong>💡 Windows：</strong>如果 <code>npx</code> 不在 PATH 中，请使用 <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code>。',
 		step2DirectNote:
 			'原生支持 Streamable HTTP 的客户端（Cursor、VS Code、Windsurf、Antigravity 及其他 IDE 插件）可直接连接，无需桥接：',
-		step2After: '现在您可以直接在AI助手中使用EDDI的89个MCP工具。',
+		step2After: '现在您可以直接在AI助手中使用EDDI的108个MCP工具。',
 		step2OAuthNote: '<strong>已启用身份验证？</strong>MCP客户端会自行登录：EDDI将<code>/mcp</code>声明为OAuth 2.0受保护资源，内置的Keycloak realm为这些客户端提供了<code>eddi-mcp</code>客户端，因此无需手动复制任何令牌。',
 		step2DocsLink:
 			'📖 查看 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 服务器文档</a>获取完整的工具参考和高级配置。',
@@ -288,7 +288,7 @@ const zh: TranslationSchema = {
 		nextAllFeatures: '全部功能',
 		nextAllFeaturesDesc: '探索EDDI提供的一切',
 		nextMcpServer: 'MCP服务器',
-		nextMcpServerDesc: '浏览全部89个MCP工具',
+		nextMcpServerDesc: '浏览全部108个MCP工具',
 		nextDocs: '文档 ↗',
 		nextDocsDesc: '深入了解架构和API',
 		nextWhyEddi: '为什么选择EDDI？',
@@ -332,13 +332,13 @@ const zh: TranslationSchema = {
 			'产品推荐、订单支持和多语言客服代理由基于意图的多代理路由统一调度，每个请求都会被送达声明了匹配意图的专属代理。代理调用内置的网络搜索、HTTP和RAG工具来获取实时商品目录和订单数据，A/B路由让您可以在真实流量中测试不同代理版本，再决定全面上线。',
 		manufacturing: '制造业',
 		manufacturingDesc:
-			'设备维护、质量控制和供应链助手完全自托管运行于本地或私有云中，不依赖任何位于美国的API。调度与心跳触发器让代理按cron节奏执行周期性检查和主动汇总，89个MCP工具加上OpenAPI导入功能则将代理与现有业务系统连接起来。',
+			'设备维护、质量控制和供应链助手完全自托管运行于本地或私有云中，不依赖任何位于美国的API。调度与心跳触发器让代理按cron节奏执行周期性检查和主动汇总，108个MCP工具加上OpenAPI导入功能则将代理与现有业务系统连接起来。',
 		government: '政府',
 		governmentDesc:
 			'公民咨询代理、内部流程自动化和文档分析在完全气隙隔离的环境中运行，通过Ollama或Jlama使用本地模型，确保数据不出网络。配置即代码让每一次代理决策都可复现以供审计，不可变审计跟踪与管理器界面中的人工监督控制则直接对应欧盟AI法案的记录保存与监督要求。',
 		devPlatforms: '开发者平台',
 		devPlatformsDesc:
-			'面向工程团队的内部AI服务，以API和MCP可访问的代理形式接入CI/CD管道、代码审查和文档工作流。代理可通过一次setup_agent调用、可预测的CRUD API和89个MCP工具以编程方式创建和管理，让Claude、Cursor或VS Code中的编码代理能够直接驱动EDDI，OpenAI兼容API还能让Open WebUI或任何OpenAI客户端使用同样的代理。',
+			'面向工程团队的内部AI服务，以API和MCP可访问的代理形式接入CI/CD管道、代码审查和文档工作流。代理可通过一次setup_agent调用、可预测的CRUD API和108个MCP工具以编程方式创建和管理，让Claude、Cursor或VS Code中的编码代理能够直接驱动EDDI，OpenAI兼容API还能让Open WebUI或任何OpenAI客户端使用同样的代理。',
 		ctaTitle: '准备好构建您的应用场景了吗？',
 		ctaDesc: '五分钟内安装EDDI，创建您的第一个代理，并将上述任意模式映射到您自己的部署中。想先聊聊细节？我们很乐意提供帮助。',
 		ctaButton: '5分钟快速开始',
@@ -347,7 +347,7 @@ const zh: TranslationSchema = {
 	featuresOverview: {
 		title: '功能一览',
 		metaTitle: '功能特性：自托管AI代理编排平台',
-		description: '使EDDI成为企业AI编排器的所有功能，EDDI管理器UI、配置即代码、89个MCP工具、安全优先架构等。',
+		description: '使EDDI成为企业AI编排器的所有功能，EDDI管理器UI、配置即代码、108个MCP工具、安全优先架构等。',
 		heroTitle: '编排AI所需的',
 		heroHighlight: '一切',
 		heroDesc: 'EDDI提供完整的、生产就绪的平台，用于构建、部署和管理AI代理，无需编写样板代码。',
@@ -357,7 +357,7 @@ const zh: TranslationSchema = {
 		managerCardDesc: '<strong>生产就绪的React UI</strong>，用于可视化构建、部署和监控代理，支持11种语言的i18n、实时聊天调试和审计仪表板。',
 		configCardTitle: '⚙️ 配置即代码',
 		configCardDesc: '代理逻辑是JSON配置，不是编译代码。提示词工程师即时迭代，<strong>无需重新部署</strong>。',
-		mcpCardTitle: '🔌 MCP服务器（89个工具）',
+		mcpCardTitle: '🔌 MCP服务器（108个工具）',
 		mcpCardDesc: '通过<strong>模型上下文协议</strong>实现完整的AI原生控制。Claude Desktop、Cursor和自定义客户端以编程方式管理代理。',
 		securityCardTitle: '🔐 安全优先',
 		securityCardDesc: '无<code>eval()</code>，密钥库集成，路径遍历保护，OIDC/Keycloak，按用户工作空间，<strong>加密审计跟踪</strong>。',
@@ -415,7 +415,7 @@ const zh: TranslationSchema = {
 		cqCardTitle: '🧪 代码质量',
 		cqCardDesc: `<strong>${TESTS}测试，每次合并全部通过。</strong>强制执行>90%指令覆盖率和>80%分支覆盖率。CI中设有CodeQL、Checkstyle和格式化门禁。`,
 		aiCardTitle: '🧩 AI就绪',
-		aiCardDesc: '89个MCP工具，OpenAI兼容API，可预测的CRUD模式，自文档API。<strong>为编码代理</strong>而构建。',
+		aiCardDesc: '108个MCP工具，OpenAI兼容API，可预测的CRUD模式，自文档API。<strong>为编码代理</strong>而构建。',
 	},
 	models: {
 		title: '模型目录',
@@ -548,10 +548,10 @@ const zh: TranslationSchema = {
 			para2: '管理器使非开发人员能够在不触碰源代码的情况下迭代代理行为。提示词工程师可以修改规则、测试对话并部署更改，全部在浏览器中完成。',
 		},
 		mcpServer: {
-			title: 'MCP服务器，89个工具',
+			title: 'MCP服务器，108个工具',
 			description: 'EDDI通过模型上下文协议公开其完整功能，使Claude Desktop、Cursor和自定义AI客户端能够以编程方式管理代理。',
 			heading1: 'AI原生控制平面',
-			para1: '模型上下文协议（MCP）是一个开放标准，允许AI助手与外部工具交互。EDDI实现了一个全面的MCP服务器，包含<strong>89个工具</strong>，覆盖平台的各个方面。',
+			para1: '模型上下文协议（MCP）是一个开放标准，允许AI助手与外部工具交互。EDDI实现了一个全面的MCP服务器，包含<strong>108个工具</strong>，覆盖平台的各个方面。',
 			heading2: '工具类别',
 			items: [
 				'<strong>对话工具 (13)</strong>，与代理聊天、管理对话、查看历史、管道日志和每任务审计跟踪、代理发现、基于意图的托管聊天',
@@ -738,7 +738,7 @@ const zh: TranslationSchema = {
 		},
 		aiReady: {
 			title: 'AI就绪架构',
-			description: '89个MCP工具，可预测的CRUD模式，自文档API。从头为编码代理而构建。',
+			description: '108个MCP工具，可预测的CRUD模式，自文档API。从头为编码代理而构建。',
 			heading1: '为AI协作而设计',
 			para1: 'EDDI的构建假设是<strong>编码代理将管理它</strong>。每个API遵循可预测的模式，每个资源都有一致的CRUD操作，MCP服务器实现完全的编程控制。',
 			heading2: 'AI友好设计',
@@ -746,7 +746,7 @@ const zh: TranslationSchema = {
 				'<strong>可预测模式</strong>，一致的资源命名、CRUD约定和错误处理',
 				'<strong>自文档API</strong>，OpenAPI规范和MCP工具描述自动生成',
 				'<strong>LLMs.txt支持</strong>，通过llms.txt和llms-full.txt实现AI可发现的网站内容',
-				'<strong>MCP优先</strong>，89个为AI助手集成设计的工具',
+				'<strong>MCP优先</strong>，108个为AI助手集成设计的工具',
 				'<strong>设置自动化</strong>，使用<code>setup_agent</code>单次调用创建代理',
 				'<strong>OpenAI 兼容 API</strong>，已部署的代理会以模型形式出现在 Open WebUI、<code>openai</code> SDK、LangChain 和 LiteLLM 中',
 				'<strong>面向代理的文档</strong>，EDDI 的文档可通过 MCP 和 REST 读取，代理在行动前可以先查阅平台的工作方式',
@@ -835,7 +835,7 @@ const zh: TranslationSchema = {
 				`<strong>无进展防护</strong>：EDDI 为每次暂停生成指纹。当自动决策之后再次出现相同指纹时，它会识别出无限审批循环并打破它，而不是继续消耗 token。`,
 				`<strong>崩溃恢复</strong>：待处理审批可在服务器重启后保留，超时计时器会自动重新装载，滚动发布因此不会悄悄丢掉正在进行的决定。`,
 				`<strong>Slack 审批</strong>：交互式 Block Kit 卡片把决定送到审批人面前，参数预览经过脱敏处理，并有审批人白名单，确保只有授权人员可以操作。`,
-				`<strong>MCP 审批</strong>：外部客户端可以列出待处理审批，并通过 MCP 工具批准或拒绝，这些工具是 89 个工具中的一部分，让你的 IDE 或代理客户端成为控制平面。`,
+				`<strong>MCP 审批</strong>：外部客户端可以列出待处理审批，并通过 MCP 工具批准或拒绝，这些工具是 108 个工具中的一部分，让你的 IDE 或代理客户端成为控制平面。`,
 				`<strong>批准实际将要运行的内容</strong>：审批绑定到解析后的请求，MCP 和 A2A 调用的审批人看到的是目标和请求指纹，而不只是工具名称。`,
 				`<strong>受关卡约束的 Platform Operator</strong>：Platform Operator 可以通过 EDDI 自身的 API 创建和修改代理，它尝试的每一次写入都要经过同一个审批关卡。`,
 			],
@@ -871,7 +871,7 @@ const zh: TranslationSchema = {
 			items: [
 				'<strong>可视化管理界面</strong>，EDDI管理器用于构建和监控代理',
 				'<strong>配置即代码</strong>，代理逻辑是JSON，不是编译的代码',
-				'<strong>89个MCP工具</strong>，通过模型上下文协议实现完整的AI原生控制',
+				'<strong>108个MCP工具</strong>，通过模型上下文协议实现完整的AI原生控制',
 				'<strong>企业安全</strong>，OIDC、密钥库、审计跟踪、无eval()',
 				'<strong>天生多用户</strong>，支持共享的按用户工作空间，以及让代理使用每个用户自己的凭证行事的 Connections',
 				'<strong>生产基础设施</strong>，REST API、对话状态管理、Prometheus指标',
@@ -912,7 +912,7 @@ const zh: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only.' },
 				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism.' },
-				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '89 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC, all open standards, plus an OpenAI-compatible API for any OpenAI client.' },
+				{ category: 'Integration', question: 'Can agents consume external tools and services through open standards?', eddiAnswer: '108 MCP tools, A2A protocol, OpenAPI 3.1 generation/consumption, and OAuth 2.0/OIDC, all open standards, plus an OpenAI-compatible API for any OpenAI client.' },
 				{ category: 'Data Privacy', question: 'How are data subject rights implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. 15+ frameworks.' },
 				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },

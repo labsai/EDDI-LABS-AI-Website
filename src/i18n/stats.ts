@@ -9,7 +9,7 @@
  * Usage in components:    import { TESTS, MCP_TOOLS } from '../i18n/stats';
  */
 export const TESTS = '20,000+';
-export const MCP_TOOLS = 89;
+export const MCP_TOOLS = 108;
 export const FRAMEWORKS = '15+';
 export const LLM_PROVIDERS = 19;
 /** Of the LLM providers, the OpenAI-compatible ones with a first-class type (xAI, DeepSeek, Kimi, Qwen, GLM, MiniMax, OpenRouter, Groq). */

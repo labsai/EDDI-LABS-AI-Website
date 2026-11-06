@@ -5,7 +5,7 @@ import type { TranslationSchema } from './en';
 const ko: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: `EDDI ${EDDI_VERSION}, 엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼. 비주얼 관리 UI, 89개 MCP 도구, 보안 우선 아키텍처, 그리고 GDPR, EU AI법, HIPAA를 비롯한 15개 이상의 프레임워크를 위한 내장 규제 컴플라이언스를 갖춘 자체 호스팅 구성 기반 멀티 에이전트 시스템.`,
+		siteDescription: `EDDI ${EDDI_VERSION}, 엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼. 비주얼 관리 UI, 108개 MCP 도구, 보안 우선 아키텍처, 그리고 GDPR, EU AI법, HIPAA를 비롯한 15개 이상의 프레임워크를 위한 내장 규제 컴플라이언스를 갖춘 자체 호스팅 구성 기반 멀티 에이전트 시스템.`,
 	},
 	nav: {
 		features: '기능',
@@ -21,7 +21,7 @@ const ko: TranslationSchema = {
 		eddiManager: 'EDDI 매니저',
 		eddiManagerDesc: '비주얼 에이전트 관리 UI',
 		mcpServer: 'MCP 서버',
-		mcpServerDesc: '89개 AI 네이티브 제어 도구',
+		mcpServerDesc: '108개 AI 네이티브 제어 도구',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON 구성, Java 컴파일 불필요',
 		securityFirst: '보안 우선',
@@ -59,7 +59,7 @@ const ko: TranslationSchema = {
 		useCases: '활용 사례',
 		useCasesDesc: '규제 산업을 위한 배포 패턴',
 		allFeatures: '모든 기능',
-		mcpServerMobile: 'MCP 서버 (89개 도구)',
+		mcpServerMobile: 'MCP 서버 (108개 도구)',
 		resources: '리소스',
 		documentation: '문서 ↗',
 		github: 'GitHub ↗',
@@ -151,7 +151,7 @@ const ko: TranslationSchema = {
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'에이전트 로직, 파이프라인, 도구 정의는 <strong>JSON 구성</strong>입니다, 컴파일된 코드가 아닙니다. 프롬프트 엔지니어가 React UI 또는 REST API를 통해 즉시 반복하며, Java 코드를 건드릴 필요가 없습니다.',
-		sol2Title: '89개 MCP 도구',
+		sol2Title: '108개 MCP 도구',
 		sol2Desc:
 			'EDDI는 <strong>Model Context Protocol</strong>을 통해 기능을 노출합니다, Claude Desktop과의 상호작용을 가능하게 합니다. 에이전트는 <strong>외부 MCP 도구를 소비</strong>할 수도 있습니다.',
 		sol3Title: '보안 우선',
@@ -212,7 +212,7 @@ const ko: TranslationSchema = {
 		faqTitle: '자주 묻는 질문',
 		faq1Q: 'EDDI란 무엇인가요?',
 		faq1A:
-			'EDDI는 오픈소스 엔터프라이즈 AI 오케스트레이션 플랫폼입니다. 팀이 컴파일된 코드 대신 JSON 구성을 사용하여 AI 에이전트를 구축, 구성, 배포할 수 있게 합니다. EDDI는 <strong>프로덕션 대응 React 관리 UI</strong>(EDDI 매니저), 내장 REST API, 대화 상태 관리, 보안(OIDC/Keycloak), 불변 감사 추적, 89개 MCP 도구를 갖춘 완전한 플랫폼을 제공합니다, 모두 Docker 또는 Kubernetes로 배포 가능.',
+			'EDDI는 오픈소스 엔터프라이즈 AI 오케스트레이션 플랫폼입니다. 팀이 컴파일된 코드 대신 JSON 구성을 사용하여 AI 에이전트를 구축, 구성, 배포할 수 있게 합니다. EDDI는 <strong>프로덕션 대응 React 관리 UI</strong>(EDDI 매니저), 내장 REST API, 대화 상태 관리, 보안(OIDC/Keycloak), 불변 감사 추적, 108개 MCP 도구를 갖춘 완전한 플랫폼을 제공합니다, 모두 Docker 또는 Kubernetes로 배포 가능.',
 		faq2Q: 'EDDI는 AI 라이브러리 및 프레임워크와 어떻게 다른가요?',
 		faq2A:
 			'LangChain, Spring AI, LangChain4j 같은 AI 라이브러리는 빌딩 블록을 제공합니다. 하지만 REST 컨트롤러, 인증, 대화 상태 관리, 감사 로깅, 관리 UI는 여전히 직접 구축해야 합니다. EDDI는 라이브러리가 아닌 <strong>배포 가능한 미들웨어 플랫폼</strong>으로, 이 모든 것을 기본 제공하며 Docker로 바로 배포할 수 있습니다.',
@@ -221,7 +221,7 @@ const ko: TranslationSchema = {
 			'네. EDDI는 경량 가상 스레드를 갖춘 엔터프라이즈 런타임에 구축되어 I/O 바운드 동시성을 위한 대규모 병렬 처리를 제공합니다. MongoDB와 PostgreSQL을 지원하고, 내장 OIDC/Keycloak 인증과 리소스 공유가 가능한 사용자별 워크스페이스를 포함하며, 규정 준수(EU AI법 포함)를 위한 불변 암호화 감사 추적을 제공하고, NATS JetStream으로 수평 확장합니다.',
 		faq4Q: 'Model Context Protocol(MCP)이란 무엇인가요?',
 		faq4A:
-			'Model Context Protocol(MCP)은 Claude Desktop, IDE 플러그인, 커스텀 클라이언트 같은 AI 어시스턴트가 외부 도구와 프로그래밍 방식으로 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 대화 관리, 에이전트 관리, 그룹 토론, 사람의 승인, 설정 자동화, 스케줄 관리, 진단에 걸친 89개 MCP 도구를 공개합니다.',
+			'Model Context Protocol(MCP)은 Claude Desktop, IDE 플러그인, 커스텀 클라이언트 같은 AI 어시스턴트가 외부 도구와 프로그래밍 방식으로 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 대화 관리, 에이전트 관리, 그룹 토론, 사람의 승인, 설정 자동화, 스케줄 관리, 진단에 걸친 108개 MCP 도구를 공개합니다.',
 		faq5Q: 'EDDI가 프로덕션 워크로드에서 Flowise나 n8n을 대체할 수 있나요?',
 		faq5A:
 			'EDDI는 엔터프라이즈급 아키텍처로 유사한 비주얼 빌딩 목적을 수행합니다. Flowise, n8n과 달리 EDDI는 <code>eval()</code>이나 코드 블록을 사용하지 않고, 엔터프라이즈 급 동시성을 위해 Java 25 가상 스레드를 실행하며, OIDC/Keycloak 인증을 지원하고, MongoDB 또는 PostgreSQL에 데이터를 저장합니다. 규제 산업을 위해 설계되었습니다.',
@@ -260,7 +260,7 @@ const ko: TranslationSchema = {
 		step1ComposeOllama: '로컬 모델을 원하시나요? Ollama 오버레이를 추가하면 새 에이전트가 Ollama 기본 URL이 미리 입력된 상태로 시작합니다:',
 		step1After: 'EDDI가 <code>http://localhost:7070</code>에서 사용 가능합니다.',
 		step2Title: '2. MCP로 연결',
-		step2Desc: 'AI 어시스턴트를 EDDI의 <strong>89개 MCP 도구</strong>에 연결하세요. 구성은 클라이언트의 전송 지원에 따라 다릅니다:',
+		step2Desc: 'AI 어시스턴트를 EDDI의 <strong>108개 MCP 도구</strong>에 연결하세요. 구성은 클라이언트의 전송 지원에 따라 다릅니다:',
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: '직접 HTTP (Cursor, VS Code, Windsurf)',
 		step2ClaudeNote:
@@ -269,7 +269,7 @@ const ko: TranslationSchema = {
 			'<strong>💡 Windows:</strong> <code>npx</code>가 PATH에 없는 경우, <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code>를 사용하세요.',
 		step2DirectNote:
 			'네이티브 Streamable HTTP를 지원하는 클라이언트(Cursor, VS Code, Windsurf, Antigravity 및 기타 IDE 플러그인)는 직접 연결 가능, 브릿지 불필요:',
-		step2After: '이제 AI 어시스턴트에서 직접 EDDI의 <strong>89개 MCP 도구</strong>와 상호작용할 수 있습니다.',
+		step2After: '이제 AI 어시스턴트에서 직접 EDDI의 <strong>108개 MCP 도구</strong>와 상호작용할 수 있습니다.',
 		step2OAuthNote: '<strong>인증을 켜 두셨나요?</strong> MCP 클라이언트는 스스로 로그인합니다: EDDI는 <code>/mcp</code>를 OAuth 2.0 보호 리소스로 알리고, 번들된 Keycloak realm에는 이를 위한 <code>eddi-mcp</code> 클라이언트가 포함되어 있으므로 토큰을 직접 복사할 필요가 없습니다.',
 		step2DocsLink:
 			'📖 완전한 도구 레퍼런스와 고급 설정은 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 서버 문서</a>를 참조하세요.',
@@ -290,7 +290,7 @@ const ko: TranslationSchema = {
 		nextAllFeatures: '모든 기능',
 		nextAllFeaturesDesc: 'EDDI가 제공하는 모든 것을 탐색',
 		nextMcpServer: 'MCP 서버',
-		nextMcpServerDesc: '89개 MCP 도구 모두 보기',
+		nextMcpServerDesc: '108개 MCP 도구 모두 보기',
 		nextDocs: '문서 ↗',
 		nextDocsDesc: '아키텍처와 API 심층 분석',
 		nextWhyEddi: '왜 EDDI인가?',
@@ -334,13 +334,13 @@ const ko: TranslationSchema = {
 			'제품 추천, 주문 지원, 다국어 서비스 에이전트가 의도 기반 멀티 에이전트 라우팅의 앞단에 배치되어, 각 요청이 해당 의도를 선언한 전문 에이전트에 도달합니다. 에이전트는 내장 웹, HTTP, RAG 도구를 호출해 실시간 카탈로그 및 주문 데이터를 가져오며, A/B 라우팅으로 실제 트래픽에 대해 에이전트 변형을 출시 전에 테스트할 수 있습니다.',
 		manufacturing: '제조',
 		manufacturingDesc:
-			'장비 유지보수, 품질 관리, 공급망 어시스턴트가 미국 기반 API에 대한 의존 없이 온프레미스 또는 프라이빗 클라우드에서 완전히 자체 호스팅으로 운영됩니다. 스케줄링 및 하트비트 트리거로 에이전트가 크론 주기에 따라 정기 점검과 선제적 요약을 실행할 수 있으며, 89개 MCP 도구와 OpenAPI 수집 기능이 에이전트를 기존 기간계 시스템에 연결합니다.',
+			'장비 유지보수, 품질 관리, 공급망 어시스턴트가 미국 기반 API에 대한 의존 없이 온프레미스 또는 프라이빗 클라우드에서 완전히 자체 호스팅으로 운영됩니다. 스케줄링 및 하트비트 트리거로 에이전트가 크론 주기에 따라 정기 점검과 선제적 요약을 실행할 수 있으며, 108개 MCP 도구와 OpenAPI 수집 기능이 에이전트를 기존 기간계 시스템에 연결합니다.',
 		government: '정부',
 		governmentDesc:
 			'시민 문의 에이전트, 내부 프로세스 자동화, 문서 분석이 완전히 에어갭된 환경에서 Ollama 또는 Jlama를 통한 로컬 모델로 운영되어 데이터가 네트워크를 벗어나지 않습니다. Config-as-code는 모든 에이전트 결정을 감사 가능하도록 재현 가능하게 만들며, 불변 감사 추적과 Manager UI의 인간 감독 제어 기능은 EU AI법의 기록 보관 및 감독 요구사항과 직접 맞닿아 있습니다.',
 		devPlatforms: '개발자 플랫폼',
 		devPlatformsDesc:
-			'엔지니어링 팀을 위한 내부 AI 서비스로, API 및 MCP로 접근 가능한 에이전트가 CI/CD 파이프라인, 코드 리뷰, 문서 워크플로우에 그대로 통합됩니다. 에이전트는 setup_agent 호출 한 번, 예측 가능한 CRUD API, 89개 MCP 도구로 프로그래밍 방식으로 생성 및 관리되므로 Claude, Cursor, VS Code의 코딩 에이전트가 EDDI를 직접 조작할 수 있으며, OpenAI 호환 API를 통해 동일한 에이전트를 Open WebUI나 모든 OpenAI 클라이언트에서 사용할 수 있습니다.',
+			'엔지니어링 팀을 위한 내부 AI 서비스로, API 및 MCP로 접근 가능한 에이전트가 CI/CD 파이프라인, 코드 리뷰, 문서 워크플로우에 그대로 통합됩니다. 에이전트는 setup_agent 호출 한 번, 예측 가능한 CRUD API, 108개 MCP 도구로 프로그래밍 방식으로 생성 및 관리되므로 Claude, Cursor, VS Code의 코딩 에이전트가 EDDI를 직접 조작할 수 있으며, OpenAI 호환 API를 통해 동일한 에이전트를 Open WebUI나 모든 OpenAI 클라이언트에서 사용할 수 있습니다.',
 		ctaTitle: '활용 사례를 구축할 준비가 되셨나요?',
 		ctaDesc: '5분 만에 EDDI를 설치하고, 첫 번째 에이전트를 만들고, 이 패턴들을 여러분의 배포 환경에 적용해 보세요. 먼저 이야기를 나누고 싶으신가요? 언제든 도와드리겠습니다.',
 		ctaButton: '5분 만에 시작하기',
@@ -349,7 +349,7 @@ const ko: TranslationSchema = {
 	featuresOverview: {
 		title: '기능 한눈에 보기',
 		metaTitle: '기능: 셀프 호스팅 AI 에이전트 오케스트레이션 플랫폼',
-		description: 'EDDI를 엔터프라이즈 AI 오케스트레이터로 만드는 모든 기능, EDDI 매니저 UI, Config-as-Code, 89개 MCP 도구, 보안 우선 아키텍처 등.',
+		description: 'EDDI를 엔터프라이즈 AI 오케스트레이터로 만드는 모든 기능, EDDI 매니저 UI, Config-as-Code, 108개 MCP 도구, 보안 우선 아키텍처 등.',
 		heroTitle: 'AI를 오케스트레이션하는 데',
 		heroHighlight: '필요한 모든 것',
 		heroDesc: 'EDDI는 AI 에이전트를 구축, 배포, 관리하기 위한 완전한 프로덕션 대응 플랫폼을 제공합니다, 보일러플레이트 없이.',
@@ -359,7 +359,7 @@ const ko: TranslationSchema = {
 		managerCardDesc: '에이전트를 비주얼하게 구축, 배포, 모니터링하기 위한 <strong>프로덕션 대응 React UI</strong>, 11개 로케일 i18n, 라이브 채팅 디버깅, 감사 대시보드.',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc: '에이전트 로직은 JSON 구성이며, 컴파일된 코드가 아닙니다. 프롬프트 엔지니어가 즉시 반복, <strong>재컴파일 불필요</strong>.',
-		mcpCardTitle: '🔌 MCP 서버 (89개 도구)',
+		mcpCardTitle: '🔌 MCP 서버 (108개 도구)',
 		mcpCardDesc: '<strong>Model Context Protocol</strong>을 통한 완전한 AI 네이티브 제어. Claude Desktop, Cursor, 커스텀 클라이언트가 에이전트를 프로그래밍 방식으로 관리.',
 		securityCardTitle: '🔐 보안 우선',
 		securityCardDesc: '<code>eval()</code> 없음, Vault 통합, 경로 순회 보호, OIDC/Keycloak, 사용자별 워크스페이스, <strong>암호화 감사 추적</strong>.',
@@ -417,7 +417,7 @@ const ko: TranslationSchema = {
 		cqCardTitle: '🧪 코드 품질',
 		cqCardDesc: `<strong>${TESTS} 테스트, 모든 머지에서 통과.</strong> >90% 명령어 커버리지와 >80% 브랜치 커버리지 강제. CI에 CodeQL, Checkstyle, 포매터 게이트.`,
 		aiCardTitle: '🧩 AI 대응',
-		aiCardDesc: '89개 MCP 도구, OpenAI 호환 API, 예측 가능한 CRUD 패턴, 자기 문서화 API. <strong>코딩 에이전트</strong>를 위해 구축.',
+		aiCardDesc: '108개 MCP 도구, OpenAI 호환 API, 예측 가능한 CRUD 패턴, 자기 문서화 API. <strong>코딩 에이전트</strong>를 위해 구축.',
 	},
 	models: {
 		title: '모델 카탈로그',
@@ -550,11 +550,11 @@ const ko: TranslationSchema = {
 			para2: '매니저를 통해 비개발자도 소스 코드를 건드리지 않고 에이전트 동작을 반복할 수 있습니다. 프롬프트 엔지니어는 규칙 수정, 대화 테스트, 변경 배포, 모두 브라우저에서.',
 		},
 		mcpServer: {
-			title: 'MCP 서버, 89개 도구',
+			title: 'MCP 서버, 108개 도구',
 			description: 'EDDI는 Model Context Protocol을 통해 완전한 기능을 노출하여 Claude Desktop, Cursor, 커스텀 AI 클라이언트가 에이전트를 프로그래밍 방식으로 관리할 수 있게 합니다.',
 			heading1: 'AI 네이티브 제어 플레인',
 			para1:
-				'Model Context Protocol(MCP)은 AI 어시스턴트가 외부 도구와 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 플랫폼의 모든 측면을 아우르는 <strong>89개 도구</strong>를 갖춘 포괄적인 MCP 서버를 구현합니다. 전체 도구 레퍼런스는 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 전체 문서</a>를 참조하세요.',
+				'Model Context Protocol(MCP)은 AI 어시스턴트가 외부 도구와 상호작용할 수 있게 하는 개방형 표준입니다. EDDI는 플랫폼의 모든 측면을 아우르는 <strong>108개 도구</strong>를 갖춘 포괄적인 MCP 서버를 구현합니다. 전체 도구 레퍼런스는 <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">MCP 전체 문서</a>를 참조하세요.',
 			heading2: '도구 카테고리',
 			items: [
 				'<strong>대화 도구 (13)</strong>, 에이전트와 채팅, 대화 관리, 기록 읽기, 파이프라인 로그 및 태스크별 감사 추적, 에이전트 디스커버리, 의도 기반 관리 채팅',
@@ -742,7 +742,7 @@ const ko: TranslationSchema = {
 		},
 		aiReady: {
 			title: 'AI 대응 아키텍처',
-			description: '89개 MCP 도구, 예측 가능한 CRUD 패턴, 자기 문서화 API.',
+			description: '108개 MCP 도구, 예측 가능한 CRUD 패턴, 자기 문서화 API.',
 			heading1: 'AI 협업을 위한 설계',
 			para1: 'EDDI는 <strong>코딩 에이전트가 이를 관리할 것</strong>이라는 가정 하에 구축되었습니다.',
 			heading2: 'AI 친화적 설계',
@@ -750,7 +750,7 @@ const ko: TranslationSchema = {
 				'<strong>예측 가능한 패턴</strong>, 일관된 리소스 네이밍, CRUD 규약, 오류 처리',
 				'<strong>자기 문서화 API</strong>, OpenAPI 스펙과 MCP 도구 설명 자동 생성',
 				'<strong>LLMs.txt 지원</strong>, llms.txt와 llms-full.txt를 통한 AI 발견 가능 사이트 콘텐츠',
-				'<strong>MCP 우선</strong>, AI 어시스턴트 통합을 위해 설계된 89개 도구',
+				'<strong>MCP 우선</strong>, AI 어시스턴트 통합을 위해 설계된 108개 도구',
 				'<strong>설정 자동화</strong>, <code>setup_agent</code>로 단일 호출 에이전트 생성',
 				'<strong>OpenAI 호환 API</strong>, 배포된 에이전트가 Open WebUI, <code>openai</code> SDK, LangChain, LiteLLM에 모델로 표시됨',
 				'<strong>에이전트를 위한 문서</strong>, EDDI 문서를 MCP와 REST로 읽을 수 있어, 에이전트가 행동하기 전에 플랫폼 작동 방식을 확인 가능',
@@ -839,7 +839,7 @@ const ko: TranslationSchema = {
 				`<strong>무진행 가드</strong>: EDDI는 모든 일시 중지에 지문을 만듭니다. 자동 결정 이후 동일한 지문이 다시 나타나면 무한 승인 루프로 인식하고, 토큰을 낭비하는 대신 순환을 끊습니다.`,
 				`<strong>장애 복구</strong>: 보류 중인 승인은 서버 재시작 후에도 유지되고 타임아웃 타이머가 자동으로 재설정되므로, 롤링 배포가 진행 중이던 결정을 조용히 잃는 일이 없습니다.`,
 				`<strong>Slack 승인</strong>: 대화형 Block Kit 카드가 결정을 승인자에게 전달합니다. 인수 미리보기는 마스킹되고 승인자 화이트리스트로 권한이 있는 사람만 조작할 수 있습니다.`,
-				`<strong>MCP 승인</strong>: 외부 클라이언트가 보류 중인 승인을 조회하고 MCP 도구로 승인하거나 거부할 수 있습니다. 89개 도구의 일부이므로 IDE나 에이전트 클라이언트가 제어 평면이 됩니다.`,
+				`<strong>MCP 승인</strong>: 외부 클라이언트가 보류 중인 승인을 조회하고 MCP 도구로 승인하거나 거부할 수 있습니다. 108개 도구의 일부이므로 IDE나 에이전트 클라이언트가 제어 평면이 됩니다.`,
 				`<strong>실제로 실행될 작업을 승인</strong>: 승인은 변수가 모두 해석된 최종 요청에 바인딩되며, MCP 및 A2A 호출의 승인자는 도구 이름만이 아니라 대상과 요청 지문을 확인합니다.`,
 				`<strong>게이트가 적용된 Platform Operator</strong>: Platform Operator는 EDDI 자체 API를 통해 에이전트를 생성하고 변경할 수 있으며, 시도하는 모든 쓰기 작업은 동일한 승인 게이트 뒤에서 대기합니다.`,
 			],
@@ -875,7 +875,7 @@ const ko: TranslationSchema = {
 			items: [
 				'<strong>비주얼 관리 UI</strong>, 에이전트 구축과 모니터링을 위한 EDDI 매니저',
 				'<strong>Configuration-as-Code</strong>, 에이전트 로직은 JSON, 컴파일된 Java가 아님',
-				'<strong>89개 MCP 도구</strong>, Model Context Protocol을 통한 완전한 AI 네이티브 제어',
+				'<strong>108개 MCP 도구</strong>, Model Context Protocol을 통한 완전한 AI 네이티브 제어',
 				'<strong>엔터프라이즈 보안</strong>, OIDC, Vault, 감사 추적, eval() 없음',
 				'<strong>처음부터 멀티 유저를 위한 설계</strong>, 공유 기능을 갖춘 사용자별 워크스페이스, 그리고 에이전트가 각 사용자 자신의 자격 증명으로 동작하게 하는 Connections',
 				'<strong>프로덕션 인프라</strong>, REST API, 대화 상태 관리, Prometheus 메트릭',
@@ -916,7 +916,7 @@ const ko: TranslationSchema = {
 			rfpItems: [
 				{ category: '아키텍처', question: '플랫폼이 런타임에 사용자 제공 코드를 실행하나요?', eddiAnswer: '아니요. EDDI는 선언적 JSON 구성만 사용합니다, eval() 제로, 코드 실행 블록 제로.' },
 				{ category: '성능', question: '수천 건의 동시 에이전트 대화를 어떻게 처리하나요?', eddiAnswer: 'Java 25 가상 스레드가 수백만 건의 동시 I/O 바운드 작업에 진정한 OS 수준 병렬 처리를 제공합니다.' },
-				{ category: '통합', question: '에이전트가 오픈 표준을 통해 외부 도구와 서비스를 사용할 수 있나요?', eddiAnswer: '89개 MCP 도구, A2A 프로토콜, OpenAPI 3.1 생성/소비, OAuth 2.0/OIDC, 모두 오픈 표준이며, 모든 OpenAI 클라이언트를 위한 OpenAI 호환 API도 제공합니다.' },
+				{ category: '통합', question: '에이전트가 오픈 표준을 통해 외부 도구와 서비스를 사용할 수 있나요?', eddiAnswer: '108개 MCP 도구, A2A 프로토콜, OpenAPI 3.1 생성/소비, OAuth 2.0/OIDC, 모두 오픈 표준이며, 모든 OpenAI 클라이언트를 위한 OpenAI 호환 API도 제공합니다.' },
 				{ category: '데이터 프라이버시', question: '데이터 주체 권리(삭제, 내보내기, 제한)는 어떻게 구현되나요?', eddiAnswer: '통합 REST API가 5개 데이터 저장소 전체에 캐스케이드됩니다. GDPR, CCPA, LGPD, PIPEDA 및 15개 이상의 프레임워크를 위한 단일 엔드포인트.' },
 				{ category: '보안', question: '플랫폼의 CVE 이력과 아키텍처 보안 태세는 어떤가요?', eddiAnswer: '동적 코드 실행이 없어 취약점 클래스 전체가 제거됩니다. OIDC/Keycloak, AES-256-GCM Vault, HMAC-SHA256 감사 추적.' },
 				{ category: '컴플라이언스', question: '불변의 암호화 서명된 감사 추적을 제공하나요?', eddiAnswer: '에이전트별 암호화 서명이 포함된 HMAC-SHA256 변조 방지 원장. 모든 의사결정에 대한 완전한 파이프라인 트레이싱.' },

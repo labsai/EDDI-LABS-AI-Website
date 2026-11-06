@@ -6,7 +6,7 @@ const hi: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION}: एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म। सेल्फ-होस्टेड, कॉन्फ़िगरेशन-संचालित मल्टी-एजेंट सिस्टम, जिसमें विज़ुअल मैनेजमेंट UI, 89 MCP टूल्स, सिक्योरिटी-फ़र्स्ट आर्किटेक्चर और GDPR, EU AI अधिनियम, HIPAA तथा 15+ फ्रेमवर्क के लिए बिल्ट-इन नियामक अनुपालन शामिल है।`,
+			`EDDI ${EDDI_VERSION}: एंटरप्राइज़ AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म। सेल्फ-होस्टेड, कॉन्फ़िगरेशन-संचालित मल्टी-एजेंट सिस्टम, जिसमें विज़ुअल मैनेजमेंट UI, 108 MCP टूल्स, सिक्योरिटी-फ़र्स्ट आर्किटेक्चर और GDPR, EU AI अधिनियम, HIPAA तथा 15+ फ्रेमवर्क के लिए बिल्ट-इन नियामक अनुपालन शामिल है।`,
 	},
 	nav: {
 		features: 'सुविधाएँ',
@@ -22,7 +22,7 @@ const hi: TranslationSchema = {
 		eddiManager: 'EDDI मैनेजर',
 		eddiManagerDesc: 'विज़ुअल एजेंट प्रबंधन UI',
 		mcpServer: 'MCP सर्वर',
-		mcpServerDesc: '89 AI-नेटिव कंट्रोल टूल्स',
+		mcpServerDesc: '108 AI-नेटिव कंट्रोल टूल्स',
 		configAsCode: 'Config-as-Code',
 		configAsCodeDesc: 'JSON कॉन्फ़िगरेशन, कंपाइल्ड Java नहीं',
 		securityFirst: 'सुरक्षा पहले',
@@ -60,7 +60,7 @@ const hi: TranslationSchema = {
 		useCases: 'उपयोग मामले',
 		useCasesDesc: 'विनियमित उद्योगों के लिए डिप्लॉयमेंट पैटर्न',
 		allFeatures: 'सभी सुविधाएँ',
-		mcpServerMobile: 'MCP सर्वर (89 टूल्स)',
+		mcpServerMobile: 'MCP सर्वर (108 टूल्स)',
 		resources: 'संसाधन',
 		documentation: 'डॉक्यूमेंटेशन ↗',
 		github: 'GitHub ↗',
@@ -158,7 +158,7 @@ const hi: TranslationSchema = {
 			'EDDI एक <strong>डिप्लॉय करने योग्य AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म</strong> है, लाइब्रेरी नहीं। विज़ुअल मैनेजमेंट, Config-as-Code और एंटरप्राइज़ सिक्योरिटी, सब बिल्ट-इन करने योग्य मिडलवेयर प्लेटफ़ॉर्म:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc: 'एजेंट लॉजिक, पाइपलाइन और टूल डेफ़िनिशन <strong>JSON कॉन्फ़िगरेशन</strong> हैं, कंपाइल्ड Java नहीं।',
-		sol2Title: '89 MCP टूल्स',
+		sol2Title: '108 MCP टूल्स',
 		sol2Desc:
 			'EDDI अपनी क्षमताओं को <strong>Model Context Protocol</strong> के माध्यम से उजागर करता है, Claude Desktop के साथ इंटरैक्शन सक्षम करता है।',
 		sol3Title: 'सुरक्षा पहले',
@@ -222,7 +222,7 @@ const hi: TranslationSchema = {
 		faqTitle: 'अक्सर पूछे जाने वाले प्रश्न',
 		faq1Q: 'EDDI क्या है?',
 		faq1A:
-			'EDDI एक ओपन-सोर्स, एंटरप्राइज़-ग्रेड AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म है। यह टीमों को कंपाइल्ड कोड के बजाय JSON कॉन्फ़िगरेशन का उपयोग करके AI-संचालित एजेंट्स बनाने, कॉन्फ़िगर करने और डिप्लॉय करने में सक्षम बनाता है। EDDI <strong>प्रोडक्शन-तैयार React मैनेजमेंट UI</strong> (EDDI मैनेजर), बिल्ट-इन REST APIs, कन्वर्सेशन स्टेट मैनेजमेंट, सिक्योरिटी (OIDC/Keycloak), अपरिवर्तनीय ऑडिट ट्रेल्स और 89 MCP टूल्स के साथ एक पूर्ण प्लेटफ़ॉर्म प्रदान करता है, जो Docker या Kubernetes के माध्यम से डिप्लॉय किया जा सकता है।',
+			'EDDI एक ओपन-सोर्स, एंटरप्राइज़-ग्रेड AI ऑर्केस्ट्रेशन प्लेटफ़ॉर्म है। यह टीमों को कंपाइल्ड कोड के बजाय JSON कॉन्फ़िगरेशन का उपयोग करके AI-संचालित एजेंट्स बनाने, कॉन्फ़िगर करने और डिप्लॉय करने में सक्षम बनाता है। EDDI <strong>प्रोडक्शन-तैयार React मैनेजमेंट UI</strong> (EDDI मैनेजर), बिल्ट-इन REST APIs, कन्वर्सेशन स्टेट मैनेजमेंट, सिक्योरिटी (OIDC/Keycloak), अपरिवर्तनीय ऑडिट ट्रेल्स और 108 MCP टूल्स के साथ एक पूर्ण प्लेटफ़ॉर्म प्रदान करता है, जो Docker या Kubernetes के माध्यम से डिप्लॉय किया जा सकता है।',
 		faq2Q: 'EDDI AI लाइब्रेरी और फ्रेमवर्क से कैसे अलग है?',
 		faq2A:
 			'LangChain, Spring AI और LangChain4j जैसी AI लाइब्रेरी आपको बिल्डिंग ब्लॉक देती हैं, लेकिन REST कंट्रोलर, ऑथेंटिकेशन, कन्वर्सेशन स्टेट मैनेजमेंट, ऑडिट लॉगिंग और मैनेजमेंट UI आपको फिर भी खुद बनाने पड़ते हैं। EDDI एक <strong>डिप्लॉय करने योग्य मिडलवेयर प्लेटफ़ॉर्म</strong> है, लाइब्रेरी नहीं। यह सब EDDI में बॉक्स से बाहर शामिल है, Docker के माध्यम से डिप्लॉय के लिए तैयार।',
@@ -231,7 +231,7 @@ const hi: TranslationSchema = {
 			'हाँ। EDDI एक एंटरप्राइज़-ग्रेड रनटाइम पर बना है, जिसमें भारी I/O-बाउंड कंकरेंसी के लिए हल्के वर्चुअल थ्रेड्स हैं। यह MongoDB और PostgreSQL को सपोर्ट करता है, इसमें बिल्ट-इन OIDC/Keycloak ऑथेंटिकेशन और रिसोर्स शेयरिंग वाले प्रति-उपयोगकर्ता वर्कस्पेस शामिल हैं, यह अनुपालन (EU AI अधिनियम सहित) के लिए अपरिवर्तनीय क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स देता है, और NATS JetStream के ज़रिए क्षैतिज रूप से स्केल होता है।',
 		faq4Q: 'Model Context Protocol (MCP) क्या है?',
 		faq4A:
-			'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो Claude Desktop, IDE प्लगइन्स और कस्टम क्लाइंट्स जैसे AI सहायकों को बाहरी टूल्स के साथ प्रोग्रामेटिक रूप से इंटरैक्ट करने की अनुमति देता है। EDDI 89 MCP टूल्स उजागर करता है, जो वार्तालाप प्रबंधन, एजेंट प्रशासन, ग्रुप चर्चाओं, मानवीय अनुमोदनों, सेटअप ऑटोमेशन, शेड्यूल प्रबंधन और डायग्नोस्टिक्स को कवर करते हैं।',
+			'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो Claude Desktop, IDE प्लगइन्स और कस्टम क्लाइंट्स जैसे AI सहायकों को बाहरी टूल्स के साथ प्रोग्रामेटिक रूप से इंटरैक्ट करने की अनुमति देता है। EDDI 108 MCP टूल्स उजागर करता है, जो वार्तालाप प्रबंधन, एजेंट प्रशासन, ग्रुप चर्चाओं, मानवीय अनुमोदनों, सेटअप ऑटोमेशन, शेड्यूल प्रबंधन और डायग्नोस्टिक्स को कवर करते हैं।',
 		faq5Q: 'क्या EDDI प्रोडक्शन वर्कलोड के लिए Flowise या n8n की जगह ले सकता है?',
 		faq5A:
 			'EDDI Node.js के बजाय JVM पर समान विज़ुअल बिल्डिंग उद्देश्य पूरा करता है। Flowise और n8n के विपरीत, EDDI कोई <code>eval()</code> या कोड ब्लॉक उपयोग नहीं करता और नियंत्रित उद्योगों के लिए डिज़ाइन किया गया है।',
@@ -273,7 +273,7 @@ const hi: TranslationSchema = {
 		step1ComposeOllama: 'लोकल मॉडल चाहिए? Ollama overlay जोड़ें, और नए एजेंट्स में Ollama बेस URL पहले से भरा हुआ मिलेगा:',
 		step1After: 'EDDI <code>http://localhost:7070</code> पर उपलब्ध होगा।',
 		step2Title: '2. MCP से कनेक्ट करें',
-		step2Desc: 'अपने AI सहायक को EDDI के <strong>89 MCP टूल्स</strong> से कनेक्ट करें। कॉन्फ़िगरेशन आपके क्लाइंट के ट्रांसपोर्ट सपोर्ट पर निर्भर करता है:',
+		step2Desc: 'अपने AI सहायक को EDDI के <strong>108 MCP टूल्स</strong> से कनेक्ट करें। कॉन्फ़िगरेशन आपके क्लाइंट के ट्रांसपोर्ट सपोर्ट पर निर्भर करता है:',
 		step2TabClaude: 'Claude Desktop (stdio)',
 		step2TabDirect: 'Direct HTTP (Cursor, VS Code, Windsurf)',
 		step2ClaudeNote:
@@ -282,7 +282,7 @@ const hi: TranslationSchema = {
 			'<strong>💡 Windows:</strong> यदि <code>npx</code> आपके PATH में नहीं है, तो इसके बजाय <code>"command": "cmd", "args": ["/c", "npx", "-y", "mcp-remote", "http://localhost:7070/mcp"]</code> का उपयोग करें।',
 		step2DirectNote:
 			'नेटिव Streamable HTTP सपोर्ट वाले क्लाइंट (Cursor, VS Code, Windsurf, Antigravity और अन्य IDE प्लगइन्स) सीधे कनेक्ट होते हैं, कोई ब्रिज आवश्यक नहीं:',
-		step2After: 'अब आप अपने AI सहायक से सीधे EDDI के <strong>89 MCP टूल्स</strong> के साथ इंटरैक्ट कर सकते हैं।',
+		step2After: 'अब आप अपने AI सहायक से सीधे EDDI के <strong>108 MCP टूल्स</strong> के साथ इंटरैक्ट कर सकते हैं।',
 		step2OAuthNote:
 			'<strong>ऑथेंटिकेशन चालू है?</strong> MCP क्लाइंट खुद साइन-इन करते हैं: EDDI <code>/mcp</code> को OAuth 2.0 संरक्षित रिसोर्स के रूप में घोषित करता है, और साथ आने वाला Keycloak realm उनके लिए एक <code>eddi-mcp</code> क्लाइंट देता है, इसलिए कोई टोकन हाथ से कॉपी नहीं करना पड़ता।',
 		step2DocsLink:
@@ -304,7 +304,7 @@ const hi: TranslationSchema = {
 		nextAllFeatures: 'सभी सुविधाएँ',
 		nextAllFeaturesDesc: 'EDDI जो प्रदान करता है सब एक्सप्लोर करें',
 		nextMcpServer: 'MCP सर्वर',
-		nextMcpServerDesc: 'सभी 89 MCP टूल्स ब्राउज़ करें',
+		nextMcpServerDesc: 'सभी 108 MCP टूल्स ब्राउज़ करें',
 		nextDocs: 'डॉक्यूमेंटेशन ↗',
 		nextDocsDesc: 'आर्किटेक्चर और APIs में गहराई से जाएं',
 		nextWhyEddi: 'EDDI क्यों?',
@@ -348,13 +348,13 @@ const hi: TranslationSchema = {
 			'उत्पाद अनुशंसा, ऑर्डर सपोर्ट और बहु-भाषा सेवा एजेंट्स, जिनके आगे इंटेंट-आधारित मल्टी-एजेंट रूटिंग होती है, ताकि हर अनुरोध उस विशेषज्ञ एजेंट तक पहुंचे जिसने मिलान करने वाला इंटेंट घोषित किया है। एजेंट्स लाइव कैटलॉग और ऑर्डर डेटा प्राप्त करने के लिए बिल्ट-इन वेब, HTTP और RAG टूल्स को कॉल करते हैं, और A/B रूटिंग आपको वास्तविक ट्रैफ़िक पर एजेंट वेरिएंट्स को रोलआउट करने से पहले टेस्ट करने देती है।',
 		manufacturing: 'विनिर्माण',
 		manufacturingDesc:
-			'उपकरण-रखरखाव, गुणवत्ता-नियंत्रण और सप्लाई-चेन असिस्टेंट्स जो पूरी तरह सेल्फ-होस्टेड रूप से ऑन-प्रिमाइसेस या प्राइवेट क्लाउड में चलते हैं, बिना किसी US-आधारित API पर निर्भरता के। शेड्यूलिंग और हार्टबीट ट्रिगर्स एजेंट्स को क्रॉन कैडेंस पर नियमित जांच और सक्रिय सारांश चलाने देते हैं, और 89 MCP टूल्स के साथ OpenAPI इंजेशन एजेंट्स को मौजूदा लाइन-ऑफ़-बिज़नेस सिस्टम से जोड़ता है।',
+			'उपकरण-रखरखाव, गुणवत्ता-नियंत्रण और सप्लाई-चेन असिस्टेंट्स जो पूरी तरह सेल्फ-होस्टेड रूप से ऑन-प्रिमाइसेस या प्राइवेट क्लाउड में चलते हैं, बिना किसी US-आधारित API पर निर्भरता के। शेड्यूलिंग और हार्टबीट ट्रिगर्स एजेंट्स को क्रॉन कैडेंस पर नियमित जांच और सक्रिय सारांश चलाने देते हैं, और 108 MCP टूल्स के साथ OpenAPI इंजेशन एजेंट्स को मौजूदा लाइन-ऑफ़-बिज़नेस सिस्टम से जोड़ता है।',
 		government: 'सरकार',
 		governmentDesc:
 			'नागरिक-पूछताछ एजेंट्स, आंतरिक प्रक्रिया स्वचालन और दस्तावेज़ विश्लेषण पूर्णतः एयर-गैप्ड वातावरण में, Ollama या Jlama के माध्यम से लोकल मॉडलों का उपयोग करते हुए ताकि कोई डेटा नेटवर्क से बाहर न जाए। Config-as-code हर एजेंट निर्णय को ऑडिट के लिए पुनरुत्पादनीय बनाता है, और अपरिवर्तनीय ऑडिट ट्रेल तथा Manager UI में मानव-निरीक्षण नियंत्रण सीधे EU AI अधिनियम की रिकॉर्ड-रखरखाव और निरीक्षण आवश्यकताओं से मेल खाते हैं।',
 		devPlatforms: 'डेवलपर प्लेटफ़ॉर्म',
 		devPlatformsDesc:
-			'इंजीनियरिंग टीमों के लिए आंतरिक AI सेवाएँ, API- और MCP-सुलभ एजेंट्स के रूप में उजागर की जाती हैं जो CI/CD पाइपलाइन, कोड रिव्यू और डॉक्यूमेंटेशन वर्कफ़्लो में सीधे फिट होती हैं। एजेंट्स एक ही setup_agent कॉल, अनुमानित CRUD APIs और 89 MCP टूल्स के साथ प्रोग्रामेटिक रूप से बनाए और प्रबंधित किए जाते हैं, ताकि Claude, Cursor या VS Code में कोडिंग एजेंट्स सीधे EDDI को चला सकें, और एक OpenAI-संगत API इन्हीं एजेंट्स को Open WebUI या किसी भी OpenAI क्लाइंट के लिए उपलब्ध कराता है।',
+			'इंजीनियरिंग टीमों के लिए आंतरिक AI सेवाएँ, API- और MCP-सुलभ एजेंट्स के रूप में उजागर की जाती हैं जो CI/CD पाइपलाइन, कोड रिव्यू और डॉक्यूमेंटेशन वर्कफ़्लो में सीधे फिट होती हैं। एजेंट्स एक ही setup_agent कॉल, अनुमानित CRUD APIs और 108 MCP टूल्स के साथ प्रोग्रामेटिक रूप से बनाए और प्रबंधित किए जाते हैं, ताकि Claude, Cursor या VS Code में कोडिंग एजेंट्स सीधे EDDI को चला सकें, और एक OpenAI-संगत API इन्हीं एजेंट्स को Open WebUI या किसी भी OpenAI क्लाइंट के लिए उपलब्ध कराता है।',
 		ctaTitle: 'अपना उपयोग मामला बनाने के लिए तैयार हैं?',
 		ctaDesc: 'पाँच मिनट में EDDI इंस्टॉल करें, अपना पहला एजेंट बनाएं, और इनमें से किसी भी पैटर्न को अपने डिप्लॉयमेंट पर मैप करें। पहले बातचीत करना पसंद करेंगे? हमें मदद करने में खुशी होगी।',
 		ctaButton: '5 मिनट में शुरू करें',
@@ -364,7 +364,7 @@ const hi: TranslationSchema = {
 		title: 'सुविधाओं की एक झलक',
 		metaTitle: 'सुविधाएँ: सेल्फ-होस्टेड AI एजेंट ऑर्केस्ट्रेशन प्लेटफ़ॉर्म',
 		description:
-			'हर क्षमता जो EDDI को एंटरप्राइज़ AI ऑर्केस्ट्रेटर बनाती है, EDDI मैनेजर UI, Config-as-Code, 89 MCP टूल्स, सुरक्षा-प्रथम आर्किटेक्चर और अधिक।',
+			'हर क्षमता जो EDDI को एंटरप्राइज़ AI ऑर्केस्ट्रेटर बनाती है, EDDI मैनेजर UI, Config-as-Code, 108 MCP टूल्स, सुरक्षा-प्रथम आर्किटेक्चर और अधिक।',
 		heroTitle: 'AI ऑर्केस्ट्रेट करने के लिए',
 		heroHighlight: 'सब कुछ जो चाहिए',
 		heroDesc:
@@ -375,7 +375,7 @@ const hi: TranslationSchema = {
 		managerCardDesc: 'एजेंट्स को विज़ुअली बनाने, डिप्लॉय करने और मॉनिटर करने के लिए <strong>प्रोडक्शन-तैयार React UI</strong>।',
 		configCardTitle: '⚙️ Config-as-Code',
 		configCardDesc: 'एजेंट लॉजिक JSON कॉन्फ़िगरेशन है, कंपाइल्ड कोड नहीं। <strong>पुनः कंपाइलेशन की आवश्यकता नहीं</strong>।',
-		mcpCardTitle: '🔌 MCP सर्वर (89 टूल्स)',
+		mcpCardTitle: '🔌 MCP सर्वर (108 टूल्स)',
 		mcpCardDesc: '<strong>Model Context Protocol</strong> के माध्यम से पूर्ण AI-नेटिव कंट्रोल।',
 		securityCardTitle: '🔐 सुरक्षा पहले',
 		securityCardDesc: 'कोई <code>eval()</code> नहीं, Vault इंटीग्रेशन, पाथ ट्रैवर्सल सुरक्षा, OIDC/Keycloak, प्रति-उपयोगकर्ता वर्कस्पेस, <strong>क्रिप्टोग्राफ़िक ऑडिट ट्रेल्स</strong>।',
@@ -437,7 +437,7 @@ const hi: TranslationSchema = {
 		cqCardDesc:
 			`<strong>${TESTS} टेस्ट, हर मर्ज पर हरे।</strong> >90% इंस्ट्रक्शन और >80% ब्रांच कवरेज अनिवार्य। CI में CodeQL, Checkstyle और फ़ॉर्मैटर गेट।`,
 		aiCardTitle: '🧩 AI-तैयार',
-		aiCardDesc: '89 MCP टूल्स, एक OpenAI-संगत API, अनुमानित CRUD पैटर्न, सेल्फ-डॉक्यूमेंटिंग APIs। <strong>कोडिंग एजेंट्स</strong> के साथ काम करने के लिए बनाया गया।',
+		aiCardDesc: '108 MCP टूल्स, एक OpenAI-संगत API, अनुमानित CRUD पैटर्न, सेल्फ-डॉक्यूमेंटिंग APIs। <strong>कोडिंग एजेंट्स</strong> के साथ काम करने के लिए बनाया गया।',
 	},
 
 	// ─── Model Catalog ──────────────────────────────────────────
@@ -593,11 +593,11 @@ const hi: TranslationSchema = {
 			para2: 'मैनेजर गैर-डेवलपर्स को Java कोड छुए बिना एजेंट व्यवहार पर इटरेट करने में सक्षम बनाता है।',
 		},
 		mcpServer: {
-			title: 'MCP सर्वर: 89 टूल्स',
+			title: 'MCP सर्वर: 108 टूल्स',
 			description: 'EDDI Model Context Protocol के माध्यम से अपनी पूर्ण क्षमताएँ उजागर करता है।',
 			heading1: 'AI-नेटिव कंट्रोल प्लेन',
 			para1:
-				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो AI सहायकों को बाहरी टूल्स के साथ इंटरैक्ट करने देता है। EDDI <strong>89 टूल्स</strong> वाला एक व्यापक MCP सर्वर लागू करता है, जो प्लेटफ़ॉर्म के हर पहलू को कवर करता है। पूरे टूल संदर्भ के लिए <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">पूरा MCP डॉक्यूमेंटेशन</a> देखें।',
+				'Model Context Protocol (MCP) एक ओपन स्टैंडर्ड है जो AI सहायकों को बाहरी टूल्स के साथ इंटरैक्ट करने देता है। EDDI <strong>108 टूल्स</strong> वाला एक व्यापक MCP सर्वर लागू करता है, जो प्लेटफ़ॉर्म के हर पहलू को कवर करता है। पूरे टूल संदर्भ के लिए <a href="https://docs.labs.ai/protocols-and-integration/mcp-server.md" target="_blank" rel="noopener">पूरा MCP डॉक्यूमेंटेशन</a> देखें।',
 			heading2: 'टूल श्रेणियाँ',
 			items: [
 				'<strong>वार्तालाप टूल्स (13)</strong>, एजेंट्स से चैट, वार्तालाप प्रबंधन, इतिहास पढ़ें, पाइपलाइन लॉग्स और प्रति-कार्य ऑडिट ट्रेल, एजेंट डिस्कवरी, इंटेंट-आधारित प्रबंधित चैट',
@@ -790,7 +790,7 @@ const hi: TranslationSchema = {
 		},
 		aiReady: {
 			title: 'AI-तैयार आर्किटेक्चर',
-			description: '89 MCP टूल्स, अनुमानित CRUD पैटर्न, सेल्फ-डॉक्यूमेंटिंग APIs। शुरुआत से ही कोडिंग एजेंट्स के साथ काम करने के लिए बनाया गया।',
+			description: '108 MCP टूल्स, अनुमानित CRUD पैटर्न, सेल्फ-डॉक्यूमेंटिंग APIs। शुरुआत से ही कोडिंग एजेंट्स के साथ काम करने के लिए बनाया गया।',
 			heading1: 'AI सहयोग के लिए डिज़ाइन',
 			para1: 'EDDI इस धारणा पर बनाया गया है कि <strong>कोडिंग एजेंट्स इसे प्रबंधित करेंगे</strong>।',
 			heading2: 'AI-फ्रेंडली डिज़ाइन',
@@ -798,7 +798,7 @@ const hi: TranslationSchema = {
 				'<strong>अनुमानित पैटर्न</strong>, संसाधन नामकरण, CRUD कन्वेंशन',
 				'<strong>सेल्फ-डॉक्यूमेंटिंग APIs</strong>, OpenAPI स्पेक्स ऑटो-जनरेटेड',
 				'<strong>LLMs.txt सपोर्ट</strong>, AI-डिस्कवरेबल साइट कंटेंट',
-				'<strong>MCP-फ़र्स्ट</strong>, AI असिस्टेंट इंटीग्रेशन के लिए डिज़ाइन किए गए 89 टूल्स',
+				'<strong>MCP-फ़र्स्ट</strong>, AI असिस्टेंट इंटीग्रेशन के लिए डिज़ाइन किए गए 108 टूल्स',
 				'<strong>सेटअप ऑटोमेशन</strong>, <code>setup_agent</code> से सिंगल-कॉल एजेंट क्रिएशन',
 				'<strong>OpenAI-संगत API</strong>, डिप्लॉय किए गए एजेंट्स Open WebUI, <code>openai</code> SDK, LangChain और LiteLLM को मॉडल के रूप में दिखाई देते हैं',
 				'<strong>एजेंट्स के लिए डॉक्यूमेंटेशन</strong>, EDDI का डॉक्यूमेंटेशन MCP और REST पर पढ़ा जा सकता है, ताकि एजेंट कार्य करने से पहले देख सके कि प्लेटफ़ॉर्म कैसे काम करता है',
@@ -893,7 +893,7 @@ const hi: TranslationSchema = {
 				`<strong>नो-प्रोग्रेस गार्ड</strong>: EDDI हर पॉज़ का फ़िंगरप्रिंट बनाता है। स्वचालित निर्णयों के बाद वही फ़िंगरप्रिंट दोबारा दिखने पर वह अनंत अप्रूवल लूप पहचान लेता है और टोकन ख़र्च करने के बजाय चक्र तोड़ देता है।`,
 				`<strong>क्रैश रिकवरी</strong>: लंबित अप्रूवल सर्वर रीस्टार्ट के बाद भी बने रहते हैं और टाइमआउट टाइमर अपने आप फिर से सेट हो जाते हैं, इसलिए रोलिंग डिप्लॉयमेंट में चल रहा कोई निर्णय चुपचाप नहीं खोता।`,
 				`<strong>Slack अप्रूवल</strong>: इंटरैक्टिव Block Kit कार्ड निर्णय को अप्रूवर तक पहुँचाते हैं, जिनमें आर्ग्युमेंट प्रीव्यू संपादित रहते हैं और अप्रूवर व्हाइटलिस्ट सुनिश्चित करती है कि केवल अधिकृत लोग ही कार्रवाई करें।`,
-				`<strong>MCP अप्रूवल</strong>: बाहरी क्लाइंट लंबित अप्रूवल सूचीबद्ध कर सकते हैं और MCP टूल्स से उन्हें स्वीकार या अस्वीकार कर सकते हैं। ये 89 टूल्स का हिस्सा हैं, जिससे आपका IDE या एजेंट क्लाइंट कंट्रोल प्लेन बन जाता है।`,
+				`<strong>MCP अप्रूवल</strong>: बाहरी क्लाइंट लंबित अप्रूवल सूचीबद्ध कर सकते हैं और MCP टूल्स से उन्हें स्वीकार या अस्वीकार कर सकते हैं। ये 108 टूल्स का हिस्सा हैं, जिससे आपका IDE या एजेंट क्लाइंट कंट्रोल प्लेन बन जाता है।`,
 				`<strong>वही स्वीकृत करें जो वास्तव में चलेगा</strong>: अप्रूवल उसी अंतिम रूप से तय (resolved) अनुरोध से बंधा होता है, और MCP तथा A2A कॉल के अप्रूवर केवल टूल का नाम नहीं, बल्कि लक्ष्य और अनुरोध का फ़िंगरप्रिंट भी देखते हैं।`,
 				`<strong>गेटेड Platform Operator</strong>: Platform Operator EDDI के अपने API से एजेंट्स बना और बदल सकता है, और वह जो भी बदलाव (write) करने की कोशिश करता है, वह उसी अप्रूवल गेट पर मंज़ूरी का इंतज़ार करता है।`,
 			],
@@ -927,7 +927,7 @@ const hi: TranslationSchema = {
 			items: [
 				'<strong>विज़ुअल मैनेजमेंट UI</strong>, EDDI मैनेजर',
 				'<strong>Configuration-as-Code</strong>, JSON एजेंट लॉजिक',
-				'<strong>89 MCP टूल्स</strong>, पूर्ण AI-नेटिव कंट्रोल',
+				'<strong>108 MCP टूल्स</strong>, पूर्ण AI-नेटिव कंट्रोल',
 				'<strong>एंटरप्राइज़ सुरक्षा</strong>, OIDC, Vault, ऑडिट ट्रेल्स',
 				'<strong>शुरुआत से मल्टी-यूज़र</strong>, शेयरिंग के साथ प्रति-उपयोगकर्ता वर्कस्पेस, और Connections जो एजेंट्स को हर उपयोगकर्ता के अपने क्रेडेंशियल्स से कार्य करने देते हैं',
 				'<strong>प्रोडक्शन इंफ्रास्ट्रक्चर</strong>, REST APIs, Prometheus मेट्रिक्स',
@@ -969,7 +969,7 @@ const hi: TranslationSchema = {
 			rfpItems: [
 				{ category: 'Architecture', question: 'Does the platform execute user-supplied code at runtime?', eddiAnswer: 'No. EDDI uses declarative JSON configuration only.' },
 				{ category: 'Performance', question: 'How does the platform handle thousands of concurrent agent conversations?', eddiAnswer: 'Java 25 virtual threads provide true OS-level parallelism.' },
-				{ category: 'Integration', question: 'Can agents consume external tools through open standards?', eddiAnswer: '89 MCP tools, A2A protocol, OpenAPI 3.1, OAuth 2.0/OIDC, plus an OpenAI-compatible API for any OpenAI client.' },
+				{ category: 'Integration', question: 'Can agents consume external tools through open standards?', eddiAnswer: '108 MCP tools, A2A protocol, OpenAPI 3.1, OAuth 2.0/OIDC, plus an OpenAI-compatible API for any OpenAI client.' },
 				{ category: 'Data Privacy', question: 'How are data subject rights implemented?', eddiAnswer: 'Unified REST API cascades across all 5 data stores. 15+ frameworks.' },
 				{ category: 'Security', question: 'What is the platform\'s architectural security posture?', eddiAnswer: 'No dynamic code execution. OIDC/Keycloak, AES-256-GCM vault, HMAC-SHA256 audit trails.' },
 				{ category: 'Compliance', question: 'Does the platform provide immutable audit trails?', eddiAnswer: 'HMAC-SHA256 tamper-evident ledger with full pipeline tracing.' },
