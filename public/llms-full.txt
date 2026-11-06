@@ -1,6 +1,6 @@
 # EDDI — Enterprise AI Orchestrator
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.6.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
+> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6, latest release 6.7.0. Apache 2.0 licensed. Website: https://eddi.technology | GitHub: https://github.com/labsai/EDDI
 
 ## What is EDDI?
 
@@ -68,6 +68,9 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Humans as group members who take a real turn in the discussion
 - Five preset templates: research pod, editorial team, ops task force, decision board, negotiation table
 - Nested groups, runtime recruitment of specialist agents, and group cost ceilings
+- Team budgets (6.7): each standing team's spend is metered against a monthly budget that admins can adjust or transfer; new work is refused with 409 once it is spent
+- Native cross-team handoff under two-sided consent, a team learning loop (bets with hypothesis, metric, target and review date; outcome events), and lessons shared between teams
+- tiePolicy HUMAN_DECIDES (a person breaks a tied vote), humans as task-force executors, and a model-backed convergence judge
 
 ### Stateful Agentic Memory
 - Unified `IUserMemoryStore` handling isolated persistence paradigms
@@ -100,6 +103,9 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - Per-user workspaces (eddi.workspaces.enabled): every resource has an owner, a space (user or Keycloak team), a visibility, and grants at USE, VIEW, EDIT, or OWN level
 - Connections: one credential model for HTTP calls, MCP servers, and A2A peers (static or basic keys from the vault, OAuth2 client credentials, per-user OAuth2 authorization code with PKCE, or a caller-supplied credential that is never stored)
 - Tool results from every source carry a provenance envelope, and a configurable guardrail marks, redacts, warns on, or blocks directive-shaped text
+- Tool-call guardrails (6.7) screen tool-call arguments before the approval gate and re-screen approved or edited calls before execution; judge, expression and disclosure guardrail types
+- HITL edit-on-approve with a decision audit record, approval-card context, approval analytics with sampled audit and earned autonomy, and email notifications for pending approvals
+- Daily release check against api.github.com, on by default since 6.7; air-gapped installs set EDDI_UPDATE_CHECK_ENABLED=false
 
 ### Global Privacy & Regulatory Compliance
 - **AI Governance**: EU AI Act (Art. 9-17), NIST AI RMF, ISO/IEC 42001
@@ -115,10 +121,14 @@ No other product in the market combines these three. Code libraries (Spring AI, 
 - OpenTelemetry tracing via OTLP
 - Conversation lifecycle, tool execution, LLM latency, token usage, and error rate monitoring
 - Integrated audit trail in the Manager UI
+- Cost accounting (6.7): provider usage normalized as each provider bills it (prompt-cache and thinking tokens), every call priced through a managed model price catalog, toolQuotas, and an opt-in hard tenant ceiling
+- Conversation ratings in the Chat UI with a Feedback triage page, and alert rules for low ratings, failed turns and output matches
 
 ### Deployment
 - Docker Compose (with Install Wizard for interactive setup), plus overlays for Ollama, monitoring, auth, NATS, Chroma, Open WebUI, and an MCP stdio sidecar
-- Kubernetes via Helm chart 2.0.0 and Kustomize manifests
+- Kubernetes via Helm (chart 2.14.0 or later for EDDI 6.7) and Kustomize manifests
+- White-label branding: product name, logo, favicon and colours across the Manager, Chat UI, Platform Operator, Swagger, A2A cards and the Keycloak theme
+- Channels: Slack, email (IMAP trigger mode and threaded SMTP replies with DKIM/DMARC checks), signed inbound webhooks (CloudEvents), web chat, OpenAI-compatible /v1 API
 - Supports MongoDB OR PostgreSQL as backend database
 - Optional NATS messaging for event-driven architectures
 - Production image on Red Hat UBI 10 (openjdk-25-runtime, digest-pinned); requires an x86-64-v3 CPU (Intel Haswell / AMD Excavator or newer)
@@ -149,7 +159,7 @@ Supports 19 named providers simultaneously:
 - **Self-Hosted**: Ollama (local models), Jlama (in-process), Hugging Face
 - **Anything else**: any other OpenAI-compatible endpoint (Cohere, Together, vLLM, gateways) via `type: openai` and `baseUrl`
 - Model catalog with per-model configuration: https://eddi.technology/models/
-- Integration catalog (Slack, Open WebUI, MCP, A2A, OpenAPI, SAP via its APIs, vector stores, Kubernetes, OpenShift, Ollama) with configuration: https://eddi.technology/integrations/
+- Integration catalog (Slack, email, Open WebUI, MCP, A2A, OpenAPI, SAP via its APIs, vector stores, Kubernetes, OpenShift, Ollama) with configuration: https://eddi.technology/integrations/
 
 ## API
 
@@ -173,7 +183,7 @@ Organized by domain:
 - Admin tools (30): deploy/undeploy, agents, resources, triggers, schedules, channel integrations, moving conversations to a newer agent version
 - Group tools (18): group discussions, templates, follow-ups, standing-team backlogs
 - Human-in-the-loop tools (10): pending approvals, resume/cancel, group phase approval, human member input
-- Memory tools (8), Setup tools (2: setup_agent, create_api_agent), GDPR tools (2), Documentation tools (2), agent test tools (3: run, read and list agent test runs), version tool (1: running EDDI version and commit)
+- Memory tools (8), Setup tools (2: setup_agent, create_api_agent), GDPR tools (2), Documentation tools (2), agent test tools (4: run, read, cancel and list agent test runs), team budget tools (4), team handoff tools (3), oversight tools (4: approval summaries, earned-autonomy state, audit samples), rating tools (4), alert tools (2), pricing tool (1: model price catalog), version tool (1: running EDDI version and commit)
 
 ### Quarkus SDK
 - Quarkiverse extension: `quarkus-eddi`

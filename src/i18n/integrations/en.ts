@@ -73,9 +73,9 @@ export interface IntegrationsCopy {
 const copy: IntegrationsCopy = {
 	ui: {
 		title: 'Integrations',
-		metaTitle: 'EDDI Integrations: Slack, MCP, OpenAPI, SAP, vector stores and Kubernetes',
+		metaTitle: 'EDDI Integrations: Slack, Email, MCP, OpenAPI, SAP, vector stores and Kubernetes',
 		description:
-			'How EDDI connects to Slack, Open WebUI, Keycloak, MCP and A2A, any REST API through OpenAPI, SAP through its APIs, six vector stores, Kubernetes, OpenShift and Ollama. Each page has the real configuration.',
+			'How EDDI connects to Slack, email, Open WebUI, Keycloak, MCP and A2A, any REST API through OpenAPI, SAP through its APIs, six vector stores, Kubernetes, OpenShift and Ollama. Each page has the real configuration.',
 		heroTitle: 'EDDI',
 		heroHighlight: 'Integrations',
 		heroDesc:
@@ -86,7 +86,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: 'Search, for example Slack, SAP or pgvector',
 		noResults: 'No integration matches. Try a different word or clear the filter.',
 		notCoveredNote:
-			'EDDI does not ship Microsoft Teams, Telegram, WhatsApp or Discord channels, does not send email itself, and has no generic inbound webhooks. Anything with an API can still be reached through <a href="/integrations/openapi/">OpenAPI import</a>, HTTP calls or <a href="/integrations/mcp-client/">MCP</a>.',
+			'EDDI does not ship Microsoft Teams, Telegram, WhatsApp or Discord channels. Inbound webhooks must be signed (HMAC), and email is a mailbox EDDI polls, not a mail server. Anything with an API can still be reached through <a href="/integrations/openapi/">OpenAPI import</a>, HTTP calls or <a href="/integrations/mcp-client/">MCP</a>.',
 		backToCatalog: 'All integrations',
 		whatYouGet: 'What you get',
 		howItWorks: 'How it works in EDDI',
@@ -149,6 +149,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack is the only third-party chat platform EDDI ships a channel for. See the note on the catalog page for what is not included.',
 				'An optional observe mode lets a target see plain channel traffic, behind a trigger, a cooldown and daily response and cost caps. Those caps are per EDDI node.',
+			],
+		},
+		email: {
+			summary: 'Connect a mailbox to an agent. Every new mail starts an agent turn or a group discussion, and in conversation mode the agent replies in the thread, only to a sender whose mail passed DKIM and DMARC.',
+			gets: [
+				'Trigger mode for process mailboxes (invoices, orders, CVs, claims): the agent acts through its tools and never replies to anyone',
+				'Conversation mode for a small team\'s support or info mailbox: replies in the same thread over SMTP, and the sender\'s answer continues the same conversation',
+				'Attachments handed to the agent as files, with allowed types you choose',
+				'Exchange Online and Microsoft 365 through OAuth (XOAUTH2), or any IMAP host with an app password',
+				'A daily cost budget and a per-sender daily cap, so a flood of mail cannot run up the bill',
+			],
+			steps: [
+				'Create a <code>SERVICE</code> connection for the mailbox. Its <code>baseUrlAllowlist</code> must name the IMAP origin (<code>imaps://host</code>), and in conversation mode the SMTP origin too. The secret stays in the vault.',
+				'Create a channel integration with <code>channelType: "email"</code>, the mailbox <code>address</code>, a <code>mode</code> and the agent or group it routes to. Saving creates the poll schedule.',
+				'Restrict who can trigger it: <code>requireAuthentication</code> and a <code>senderAllowlist</code>. The save returns warnings when anyone could make the agent run, or when the agent has tools but no approvals.',
+				'Send a test mail after the first poll. Mail that was already in the folder when the integration was created is not processed.',
+			],
+			captions: [
+				'A mailbox connection for Exchange Online with OAuth client credentials. The client secret is a vault reference.',
+				'A trigger-mode integration that only accepts authenticated mail from two supplier domains and stores PDF and image attachments.',
+			],
+			governance: [
+				'Mail is untrusted input. Give an email agent the fewest tools it needs and put tool approvals on every tool that changes something. When a turn pauses for approval, the sender is told that a person must approve the next step, never which tool or arguments.',
+				'The model never chooses a recipient. Trigger mode sends nothing, and conversation mode answers only the authenticated sender, at most five replies per thread per hour by default, with an AI disclosure appended to every reply.',
+				'Every refused mail and every sent, failed or bounced reply leaves an audit-ledger entry with the sender only as a domain and a hash. No raw mail is stored, and erasure by address reaches the conversations and the ledger rows.',
+				'Mail servers are reached by DNS name only, never on private or metadata addresses, with TLS always verified.',
+			],
+			goodToKnow: [
+				'EDDI is not a mail server. It logs in to an existing mailbox like a mail client: no MX record and no public ingress.',
+				'Gmail and Google Workspace are not supported yet, and neither is an on-premises Exchange on a private address. Replies are plain text.',
+				'If a helpdesk such as Zendesk or Freshdesk already receives the mail, keep it: trigger EDDI through the signed webhook channel and answer through the helpdesk API.',
 			],
 		},
 		'open-webui': {
@@ -621,7 +652,7 @@ const copy: IntegrationsCopy = {
 				'No credential is involved, so there is nothing to put in the vault for the model itself.',
 			],
 			goodToKnow: [
-				'A fully air-gapped setup needs a local Ollama or a pre-seeded Jlama cache, because EDDI cannot download a model with no network.',
+				'A fully air-gapped setup needs a local Ollama or a pre-seeded Jlama cache, because EDDI cannot download a model with no network. Also turn off the daily release check with <code>EDDI_UPDATE_CHECK_ENABLED=false</code>.',
 				'Local models vary in tool-calling and JSON reliability. Test the behavior you depend on.',
 			],
 		},
