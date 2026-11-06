@@ -8,9 +8,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: 'Integraciones',
-		metaTitle: 'Integraciones de EDDI: Slack, MCP, OpenAPI, SAP, almacenes vectoriales y Kubernetes',
+		metaTitle: 'Integraciones de EDDI: Slack, correo electrónico, MCP, OpenAPI, SAP, almacenes vectoriales y Kubernetes',
 		description:
-			'Cómo se conecta EDDI con Slack, Open WebUI, Keycloak, MCP y A2A, cualquier API REST mediante OpenAPI, SAP a través de sus API, seis almacenes vectoriales, Kubernetes, OpenShift y Ollama. Cada página incluye la configuración real.',
+			'Cómo se conecta EDDI con Slack, el correo electrónico, Open WebUI, Keycloak, MCP y A2A, cualquier API REST mediante OpenAPI, SAP a través de sus API, seis almacenes vectoriales, Kubernetes, OpenShift y Ollama. Cada página incluye la configuración real.',
 		heroTitle: 'Integraciones de',
 		heroHighlight: 'EDDI',
 		heroDesc:
@@ -21,7 +21,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: 'Buscar, por ejemplo Slack, SAP o pgvector',
 		noResults: 'Ninguna integración coincide. Prueba con otra palabra o quita el filtro.',
 		notCoveredNote:
-			'EDDI no incluye canales de Microsoft Teams, Telegram, WhatsApp ni Discord, no envía correo electrónico por sí mismo y no tiene webhooks entrantes genéricos. Aun así, todo lo que tenga una API se puede alcanzar mediante la <a href="/integrations/openapi/">importación de OpenAPI</a>, llamadas HTTP o <a href="/integrations/mcp-client/">MCP</a>.',
+			'EDDI no incluye canales de Microsoft Teams, Telegram, WhatsApp ni Discord. Los webhooks entrantes deben ir firmados (HMAC), y el correo electrónico es un buzón que EDDI consulta periódicamente, no un servidor de correo. Aun así, todo lo que tenga una API se puede alcanzar mediante la <a href="/integrations/openapi/">importación de OpenAPI</a>, llamadas HTTP o <a href="/integrations/mcp-client/">MCP</a>.',
 		backToCatalog: 'Todas las integraciones',
 		whatYouGet: 'Qué obtienes',
 		howItWorks: 'Cómo funciona en EDDI',
@@ -84,6 +84,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack es la única plataforma de chat de terceros para la que EDDI incluye un canal. Consulta la nota de la página del catálogo para saber qué no está incluido.',
 				'Un modo de observación opcional permite que un destino vea el tráfico normal del canal, detrás de una activación, un tiempo de espera y límites diarios de respuestas y de coste. Esos límites se aplican por nodo de EDDI.',
+			],
+		},
+		email: {
+			summary: 'Conecta un buzón de correo a un agente. Cada correo nuevo inicia un turno del agente o una discusión de grupo y, en el modo conversación, el agente responde en el mismo hilo, solo a un remitente cuyo correo superó DKIM y DMARC.',
+			gets: [
+				'Modo trigger para buzones de procesos (facturas, pedidos, currículums, siniestros): el agente actúa a través de sus herramientas y nunca responde a nadie',
+				'Modo conversación para el buzón de soporte o de información de un equipo pequeño: responde en el mismo hilo por SMTP, y la respuesta del remitente continúa la misma conversación',
+				'Los adjuntos se entregan al agente como archivos, con los tipos permitidos que tú elijas',
+				'Exchange Online y Microsoft 365 mediante OAuth (XOAUTH2), o cualquier servidor IMAP con una contraseña de aplicación',
+				'Un presupuesto de coste diario y un límite diario por remitente, para que una avalancha de correos no dispare la factura',
+			],
+			steps: [
+				'Crea una conexión <code>SERVICE</code> para el buzón. Su <code>baseUrlAllowlist</code> debe incluir el origen IMAP (<code>imaps://host</code>) y, en el modo conversación, también el origen SMTP. El secreto permanece en la bóveda.',
+				'Crea una integración de canal con <code>channelType: "email"</code>, la <code>address</code> del buzón, un <code>mode</code> y el agente o grupo al que se enruta. Al guardarla se crea la planificación de sondeo.',
+				'Restringe quién puede activarla: <code>requireAuthentication</code> y una <code>senderAllowlist</code>. Al guardar se devuelven advertencias cuando cualquiera podría hacer que el agente se ejecute, o cuando el agente tiene herramientas pero ninguna aprobación.',
+				'Envía un correo de prueba después del primer sondeo. Los correos que ya estaban en la carpeta cuando se creó la integración no se procesan.',
+			],
+			captions: [
+				'Una conexión de buzón para Exchange Online con credenciales de cliente OAuth. El secreto del cliente es una referencia a la bóveda.',
+				'Una integración en modo trigger que solo acepta correo autenticado de dos dominios de proveedores y guarda los adjuntos PDF y de imagen.',
+			],
+			governance: [
+				'El correo es una entrada no confiable. Da a un agente de correo las mínimas herramientas que necesite y pon aprobaciones en cada herramienta que modifique algo. Cuando un turno se pausa a la espera de aprobación, se informa al remitente de que una persona debe aprobar el siguiente paso, nunca de qué herramienta ni con qué argumentos.',
+				'El modelo nunca elige un destinatario. El modo trigger no envía nada, y el modo conversación responde solo al remitente autenticado, con un máximo de cinco respuestas por hilo y por hora por defecto y un aviso de IA añadido a cada respuesta.',
+				'Cada correo rechazado y cada respuesta enviada, fallida o devuelta deja una entrada en el registro de auditoría con el remitente solo como dominio y hash. No se almacena ningún correo en bruto, y el borrado por dirección alcanza a las conversaciones y a las filas del registro.',
+				'Los servidores de correo se alcanzan solo por nombre DNS, nunca en direcciones privadas o de metadatos, y TLS siempre se verifica.',
+			],
+			goodToKnow: [
+				'EDDI no es un servidor de correo. Inicia sesión en un buzón existente como lo haría un cliente de correo: sin registro MX y sin acceso entrante público.',
+				'Gmail y Google Workspace aún no son compatibles, como tampoco un Exchange local en una dirección privada. Las respuestas son de texto plano.',
+				'Si un helpdesk como Zendesk o Freshdesk ya recibe el correo, mantenlo: activa EDDI mediante el canal de webhook firmado y responde a través de la API del helpdesk.',
 			],
 		},
 		'open-webui': {
@@ -556,7 +587,7 @@ const copy: IntegrationsCopy = {
 				'No interviene ninguna credencial, así que no hay nada que poner en la bóveda para el modelo en sí.',
 			],
 			goodToKnow: [
-				'Una configuración totalmente aislada de la red necesita un Ollama local o una caché de Jlama precargada, porque EDDI no puede descargar un modelo sin red.',
+				'Una configuración totalmente aislada de la red necesita un Ollama local o una caché de Jlama precargada, porque EDDI no puede descargar un modelo sin red. Desactiva también la comprobación diaria de nuevas versiones con <code>EDDI_UPDATE_CHECK_ENABLED=false</code>.',
 				'Los modelos locales varían en fiabilidad de llamadas a herramientas y de JSON. Prueba el comportamiento del que dependes.',
 			],
 		},

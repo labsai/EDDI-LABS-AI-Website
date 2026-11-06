@@ -8,9 +8,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: 'Integrationen',
-		metaTitle: 'EDDI-Integrationen: Slack, MCP, OpenAPI, SAP, Vektorspeicher und Kubernetes',
+		metaTitle: 'EDDI-Integrationen: Slack, E-Mail, MCP, OpenAPI, SAP, Vektorspeicher und Kubernetes',
 		description:
-			'Wie EDDI sich mit Slack, Open WebUI, Keycloak, MCP und A2A, jeder REST-API über OpenAPI, SAP über dessen APIs, sechs Vektorspeichern, Kubernetes, OpenShift und Ollama verbindet. Jede Seite zeigt die echte Konfiguration.',
+			'Wie EDDI sich mit Slack, E-Mail, Open WebUI, Keycloak, MCP und A2A, jeder REST-API über OpenAPI, SAP über dessen APIs, sechs Vektorspeichern, Kubernetes, OpenShift und Ollama verbindet. Jede Seite zeigt die echte Konfiguration.',
 		heroTitle: 'EDDI',
 		heroHighlight: 'Integrationen',
 		heroDesc:
@@ -21,7 +21,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: 'Suchen, zum Beispiel Slack, SAP oder pgvector',
 		noResults: 'Keine passende Integration. Versuchen Sie einen anderen Begriff oder setzen Sie den Filter zurück.',
 		notCoveredNote:
-			'EDDI liefert keine Kanäle für Microsoft Teams, Telegram, WhatsApp oder Discord, versendet selbst keine E-Mails und hat keine generischen eingehenden Webhooks. Alles mit einer API ist trotzdem erreichbar, über den <a href="/integrations/openapi/">OpenAPI-Import</a>, HTTP-Aufrufe oder <a href="/integrations/mcp-client/">MCP</a>.',
+			'EDDI liefert keine Kanäle für Microsoft Teams, Telegram, WhatsApp oder Discord. Eingehende Webhooks müssen signiert sein (HMAC), und E-Mail ist ein Postfach, das EDDI abruft, kein Mailserver. Alles mit einer API ist trotzdem erreichbar, über den <a href="/integrations/openapi/">OpenAPI-Import</a>, HTTP-Aufrufe oder <a href="/integrations/mcp-client/">MCP</a>.',
 		backToCatalog: 'Alle Integrationen',
 		whatYouGet: 'Was Sie bekommen',
 		howItWorks: 'So funktioniert es in EDDI',
@@ -84,6 +84,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack ist die einzige Chat-Plattform eines Drittanbieters, für die EDDI einen Kanal mitliefert. Was nicht enthalten ist, steht im Hinweis auf der Katalogseite.',
 				'Ein optionaler Beobachtungsmodus lässt ein Ziel normalen Kanalverkehr sehen, hinter einem Trigger, einer Abkühlzeit und täglichen Antwort- und Kostenobergrenzen. Diese Obergrenzen gelten pro EDDI-Knoten.',
+			],
+		},
+		email: {
+			summary: 'Ein Postfach mit einem Agenten verbinden. Jede neue Mail startet einen Agent-Turn oder eine Gruppendiskussion, und im Konversationsmodus antwortet der Agent im Thread, und zwar nur einem Absender, dessen Mail DKIM und DMARC bestanden hat.',
+			gets: [
+				'Trigger-Modus für Prozesspostfächer (Rechnungen, Bestellungen, Lebensläufe, Schadensmeldungen): Der Agent handelt über seine Tools und antwortet niemandem',
+				'Konversationsmodus für das Support- oder Info-Postfach eines kleinen Teams: Antworten im selben Thread über SMTP, und die Antwort des Absenders setzt dieselbe Konversation fort',
+				'Anhänge werden dem Agenten als Dateien übergeben, mit erlaubten Typen, die Sie festlegen',
+				'Exchange Online und Microsoft 365 über OAuth (XOAUTH2) oder jeder IMAP-Host mit einem App-Passwort',
+				'Ein tägliches Kostenbudget und eine tägliche Obergrenze pro Absender, damit eine Mailflut die Rechnung nicht in die Höhe treiben kann',
+			],
+			steps: [
+				'Eine <code>SERVICE</code>-Connection für das Postfach anlegen. Ihre <code>baseUrlAllowlist</code> muss den IMAP-Origin (<code>imaps://host</code>) nennen, im Konversationsmodus auch den SMTP-Origin. Das Secret bleibt im Vault.',
+				'Eine Kanal-Integration mit <code>channelType: "email"</code>, der Postfach-<code>address</code>, einem <code>mode</code> und dem Agenten oder der Gruppe anlegen, an die sie weiterleitet. Beim Speichern wird der Abruf-Zeitplan erstellt.',
+				'Einschränken, wer sie auslösen kann: <code>requireAuthentication</code> und eine <code>senderAllowlist</code>. Das Speichern liefert Warnungen, wenn jeder den Agenten starten könnte oder wenn der Agent Tools, aber keine Freigaben hat.',
+				'Nach dem ersten Abruf eine Testmail senden. Mails, die beim Anlegen der Integration bereits im Ordner lagen, werden nicht verarbeitet.',
+			],
+			captions: [
+				'Eine Postfach-Connection für Exchange Online mit OAuth-Client-Credentials. Das Client Secret ist eine Vault-Referenz.',
+				'Eine Integration im Trigger-Modus, die nur authentifizierte Mails von zwei Lieferanten-Domains annimmt und PDF- und Bild-Anhänge speichert.',
+			],
+			governance: [
+				'Mail ist nicht vertrauenswürdige Eingabe. Geben Sie einem E-Mail-Agenten so wenige Tools wie nötig und legen Sie Tool-Freigaben auf jedes Tool, das etwas verändert. Pausiert ein Turn für eine Freigabe, erfährt der Absender, dass eine Person den nächsten Schritt freigeben muss, aber nie, welches Tool oder welche Argumente.',
+				'Das Modell wählt nie einen Empfänger. Der Trigger-Modus sendet nichts, und der Konversationsmodus antwortet nur dem authentifizierten Absender, standardmäßig höchstens fünfmal pro Thread und Stunde, mit einem KI-Hinweis unter jeder Antwort.',
+				'Jede abgewiesene Mail und jede gesendete, fehlgeschlagene oder zurückgekommene Antwort hinterlässt einen Eintrag im Audit-Ledger, mit dem Absender nur als Domain und Hash. Rohe Mails werden nicht gespeichert, und eine Löschung nach Adresse erfasst die Konversationen und die Ledger-Einträge.',
+				'Mailserver werden nur über ihren DNS-Namen erreicht, nie über private oder Metadaten-Adressen, und TLS wird immer verifiziert.',
+			],
+			goodToKnow: [
+				'EDDI ist kein Mailserver. Es meldet sich wie ein Mail-Client an einem bestehenden Postfach an: kein MX-Record und kein öffentlicher Ingress.',
+				'Gmail und Google Workspace werden noch nicht unterstützt, ebenso wenig ein On-Premises-Exchange unter einer privaten Adresse. Antworten sind reiner Text.',
+				'Wenn bereits ein Helpdesk wie Zendesk oder Freshdesk die Mails empfängt, behalten Sie ihn: Lösen Sie EDDI über den signierten Webhook-Kanal aus und antworten Sie über die Helpdesk-API.',
 			],
 		},
 		'open-webui': {
@@ -556,7 +587,7 @@ const copy: IntegrationsCopy = {
 				'Es ist kein Credential beteiligt, sodass für das Modell selbst nichts im Vault abzulegen ist.',
 			],
 			goodToKnow: [
-				'Ein vollständig abgeschotteter Betrieb braucht ein lokales Ollama oder einen vorab befüllten Jlama-Cache, weil EDDI ohne Netzwerk kein Modell herunterladen kann.',
+				'Ein vollständig abgeschotteter Betrieb braucht ein lokales Ollama oder einen vorab befüllten Jlama-Cache, weil EDDI ohne Netzwerk kein Modell herunterladen kann. Schalten Sie außerdem die tägliche Release-Prüfung mit <code>EDDI_UPDATE_CHECK_ENABLED=false</code> ab.',
 				'Lokale Modelle unterscheiden sich in der Zuverlässigkeit bei Tool-Calling und JSON. Testen Sie das Verhalten, auf das Sie sich verlassen.',
 			],
 		},
