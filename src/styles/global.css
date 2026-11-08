@@ -12,7 +12,7 @@
 
 @theme {
 	/* Premium EDDI Brand: Black & Gold — matching EDDI Manager */
-	--font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: 'Outfit Variable', 'Outfit', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
 	/* Accent: Gold / Amber — matching EDDI Manager #f59e0b */
@@ -83,7 +83,7 @@ html[data-theme='light'] {
    ========================================================================== */
 
 html {
-	font-family: var(--font-sans, 'Outfit', system-ui, sans-serif);
+	font-family: var(--font-sans, 'Outfit Variable', 'Outfit', system-ui, sans-serif);
 	overflow-x: hidden;
 }
 
