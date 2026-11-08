@@ -4,7 +4,7 @@
  * Renders a styled section with the HubSpot newsletter form.
  * i18n-aware: title and description from translations.
  */
-import { getLocaleFromUrl, getTranslations, type Locale } from '../i18n';
+import { getLocaleFromUrl, getTranslations, localePath, type Locale } from '../i18n';
 
 interface Props {
 	id?: string;
@@ -14,6 +14,8 @@ interface Props {
 const { id = 'newsletter', lang: langProp } = Astro.props;
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
 const t = await getTranslations(lang);
+// The notice links the privacy policy through a {privacyUrl} placeholder, filled per locale.
+const consentNotice = t.newsletter.consentNotice.replaceAll('{privacyUrl}', localePath(lang, '/privacy/'));
 ---
 
 <section class="newsletter-section" id={id}>
@@ -30,7 +32,7 @@ const t = await getTranslations(lang);
 			<p class="newsletter-desc">{t.newsletter.description}</p>
 		</div>
 		<div class="newsletter-consent-gate" data-newsletter-gate>
-			<p class="newsletter-consent-notice">{t.newsletter.consentNotice}</p>
+			<p class="newsletter-consent-notice" set:html={consentNotice} />
 			<button type="button" class="newsletter-consent-btn" data-newsletter-consent-btn>{t.newsletter.consentCta}</button>
 		</div>
 		<div class="newsletter-form-wrapper hidden" id={`hs-form-${id}`}></div>

@@ -550,7 +550,7 @@ const es: TranslationSchema = {
 				'Una interfaz de gestión React lista para producción para construir, desplegar y supervisar agentes de IA visualmente, con i18n en 11 idiomas, depuración de chat en vivo y paneles de auditoría.',
 			heading1: 'Gestión visual de agentes',
 			para1:
-				'El mercado de orquestación de IA tiene tres arquetipos: <strong>constructores de nodos visuales</strong>, <strong>bibliotecas de código</strong> y <strong>plataformas cloud</strong>. EDDI es una <strong>plataforma middleware desplegable</strong>.',
+				'EDDI Manager es una interfaz de gestión completa basada en React que ofrece control visual sobre cada aspecto de la plataforma EDDI, desde la configuración de agentes hasta la supervisión de conversaciones en tiempo real.',
 			heading2: 'Funcionalidades clave',
 			items: [
 				'<strong>Constructor visual de agentes</strong>: Cree y configure agentes mediante una interfaz intuitiva de arrastrar y soltar',

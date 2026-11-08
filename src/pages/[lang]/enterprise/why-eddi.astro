@@ -27,7 +27,7 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang,
 </div>
 
 <h2>{p.llmTitle}</h2>
-<p>{p.llmDesc}</p>
+<p set:html={p.llmDesc} />
 <div class="overflow-x-auto mb-8">
 <table>
 <thead><tr><th>{p.llmHeaderCategory}</th><th>{p.llmHeaderProviders}</th></tr></thead>
