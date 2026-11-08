@@ -7,9 +7,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: '集成',
-		metaTitle: 'EDDI 集成：Slack、MCP、OpenAPI、SAP、向量库与 Kubernetes',
+		metaTitle: 'EDDI 集成：Slack、电子邮件、MCP、OpenAPI、SAP、向量库与 Kubernetes',
 		description:
-			'了解 EDDI 如何连接 Slack、Open WebUI、Keycloak、MCP 与 A2A，通过 OpenAPI 接入任意 REST API，通过 API 接入 SAP，并支持六种向量库、Kubernetes、OpenShift 和 Ollama。每个页面都附有真实配置。',
+			'了解 EDDI 如何连接 Slack、电子邮件、Open WebUI、Keycloak、MCP 与 A2A，通过 OpenAPI 接入任意 REST API，通过 API 接入 SAP，并支持六种向量库、Kubernetes、OpenShift 和 Ollama。每个页面都附有真实配置。',
 		heroTitle: 'EDDI',
 		heroHighlight: '集成',
 		heroDesc:
@@ -20,7 +20,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: '搜索，例如 Slack、SAP 或 pgvector',
 		noResults: '没有匹配的集成。请换一个关键词，或清除筛选。',
 		notCoveredNote:
-			'EDDI 不提供 Microsoft Teams、Telegram、WhatsApp 或 Discord 渠道，自身也不发送电子邮件，且没有通用的入站 Webhook。任何提供 API 的系统仍可通过 <a href="/integrations/openapi/">OpenAPI 导入</a>、HTTP 调用或 <a href="/integrations/mcp-client/">MCP</a> 接入。',
+			'EDDI 不提供 Microsoft Teams、Telegram、WhatsApp 或 Discord 渠道。入站 Webhook 必须签名（HMAC），而电子邮件是 EDDI 轮询的邮箱，EDDI 并不是邮件服务器。任何提供 API 的系统仍可通过 <a href="/integrations/openapi/">OpenAPI 导入</a>、HTTP 调用或 <a href="/integrations/mcp-client/">MCP</a> 接入。',
 		backToCatalog: '所有集成',
 		whatYouGet: '你将获得',
 		howItWorks: '在 EDDI 中如何工作',
@@ -83,6 +83,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack 是 EDDI 唯一提供渠道的第三方聊天平台。未包含的平台请见目录页上的说明。',
 				'可选的观察模式让目标能够看到普通频道流量，并受触发条件、冷却时间以及每日响应和成本上限的约束。这些上限按每个 EDDI 节点计算。',
+			],
+		},
+		email: {
+			summary: '把一个邮箱连接到代理。每封新邮件都会启动一个代理回合或小组讨论；在对话模式下，代理只会在同一线程中回复邮件通过了 DKIM 和 DMARC 验证的发件人。',
+			gets: [
+				'面向流程邮箱（发票、订单、简历、理赔）的触发模式：代理通过其工具执行操作，从不回复任何人',
+				'面向小团队支持或咨询邮箱的对话模式：通过 SMTP 在同一线程中回复，发件人的回信会延续同一个对话',
+				'附件以文件形式交给代理，允许的类型由你选择',
+				'通过 OAuth（XOAUTH2）接入 Exchange Online 和 Microsoft 365，或使用应用专用密码接入任意 IMAP 主机',
+				'每日成本预算和每位发件人的每日上限，避免大量邮件推高费用',
+			],
+			steps: [
+				'为邮箱创建一个 <code>SERVICE</code> 连接。其 <code>baseUrlAllowlist</code> 必须包含 IMAP 源（<code>imaps://host</code>），在对话模式下还需包含 SMTP 源。密钥始终留在保管库中。',
+				'创建一个渠道集成，设置 <code>channelType: "email"</code>、邮箱 <code>address</code>、<code>mode</code>，以及它路由到的代理或小组。保存时会创建轮询计划。',
+				'限制谁可以触发它：使用 <code>requireAuthentication</code> 和 <code>senderAllowlist</code>。当任何人都能让代理运行，或代理有工具却没有审批时，保存操作会返回警告。',
+				'在第一次轮询之后发送一封测试邮件。创建集成时已在文件夹中的邮件不会被处理。',
+			],
+			captions: [
+				'一个使用 OAuth 客户端凭据的 Exchange Online 邮箱连接。客户端密钥是保管库引用。',
+				'一个触发模式的集成，只接受来自两个供应商域名的已认证邮件，并保存 PDF 和图片附件。',
+			],
+			governance: [
+				'邮件是不可信的输入。只给邮件代理所需的最少工具，并为每个会改变状态的工具设置工具审批。当某个回合暂停等待审批时，发件人只会被告知下一步需要人工批准，而不会得知是哪个工具或什么参数。',
+				'模型从不选择收件人。触发模式不发送任何内容，对话模式只回复经过认证的发件人，默认每个线程每小时最多五条回复，每条回复都附有 AI 披露说明。',
+				'每封被拒绝的邮件，以及每条已发送、失败或退回的回复，都会在审计账本中留下记录，发件人仅以域名和哈希值的形式出现。原始邮件不会被存储，按地址执行的擦除会覆盖相关对话和账本记录。',
+				'邮件服务器只通过 DNS 名称访问，从不访问私有地址或元数据地址，并且始终验证 TLS。',
+			],
+			goodToKnow: [
+				'EDDI 不是邮件服务器。它像邮件客户端一样登录现有邮箱：不需要 MX 记录，也不需要公网入口。',
+				'暂不支持 Gmail 和 Google Workspace，也不支持位于私有地址上的本地部署 Exchange。回复为纯文本。',
+				'如果 Zendesk 或 Freshdesk 等帮助台已经在接收邮件，请继续使用它：通过签名 Webhook 渠道触发 EDDI，并通过帮助台 API 回复。',
 			],
 		},
 		'open-webui': {
@@ -555,7 +586,7 @@ const copy: IntegrationsCopy = {
 				'不涉及任何凭据，因此模型本身没有需要放进保管库的内容。',
 			],
 			goodToKnow: [
-				'完全气隙的环境需要本地 Ollama 或预先填充的 Jlama 缓存，因为 EDDI 在没有网络时无法下载模型。',
+				'完全气隙的环境需要本地 Ollama 或预先填充的 Jlama 缓存，因为 EDDI 在没有网络时无法下载模型。还请使用 <code>EDDI_UPDATE_CHECK_ENABLED=false</code> 关闭每日版本检查。',
 				'本地模型在工具调用和 JSON 的可靠性上各不相同。请测试你所依赖的行为。',
 			],
 		},

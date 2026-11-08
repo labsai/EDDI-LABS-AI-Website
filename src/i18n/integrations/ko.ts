@@ -7,9 +7,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: '통합',
-		metaTitle: 'EDDI 통합: Slack, MCP, OpenAPI, SAP, 벡터 스토어, Kubernetes',
+		metaTitle: 'EDDI 통합: Slack, 이메일, MCP, OpenAPI, SAP, 벡터 스토어, Kubernetes',
 		description:
-			'EDDI가 Slack, Open WebUI, Keycloak, MCP와 A2A, OpenAPI를 통한 모든 REST API, API를 통한 SAP, 여섯 가지 벡터 스토어, Kubernetes, OpenShift, Ollama와 어떻게 연결되는지 설명합니다. 각 페이지에 실제 설정 예시가 있습니다.',
+			'EDDI가 Slack, 이메일, Open WebUI, Keycloak, MCP와 A2A, OpenAPI를 통한 모든 REST API, API를 통한 SAP, 여섯 가지 벡터 스토어, Kubernetes, OpenShift, Ollama와 어떻게 연결되는지 설명합니다. 각 페이지에 실제 설정 예시가 있습니다.',
 		heroTitle: 'EDDI',
 		heroHighlight: '통합',
 		heroDesc:
@@ -20,7 +20,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: '검색 예: Slack, SAP, pgvector',
 		noResults: '일치하는 통합이 없습니다. 다른 단어로 검색하거나 필터를 해제해 보세요.',
 		notCoveredNote:
-			'EDDI는 Microsoft Teams, Telegram, WhatsApp, Discord 채널을 제공하지 않으며, 이메일을 직접 보내지 않고, 범용 인바운드 웹훅도 없습니다. 그래도 API가 있는 시스템이라면 <a href="/integrations/openapi/">OpenAPI 가져오기</a>, HTTP 호출 또는 <a href="/integrations/mcp-client/">MCP</a>로 연결할 수 있습니다.',
+			'EDDI는 Microsoft Teams, Telegram, WhatsApp, Discord 채널을 제공하지 않습니다. 인바운드 웹훅은 서명(HMAC)되어야 하며, 이메일은 메일 서버가 아니라 EDDI가 폴링하는 메일함입니다. 그래도 API가 있는 시스템이라면 <a href="/integrations/openapi/">OpenAPI 가져오기</a>, HTTP 호출 또는 <a href="/integrations/mcp-client/">MCP</a>로 연결할 수 있습니다.',
 		backToCatalog: '모든 통합',
 		whatYouGet: '제공되는 기능',
 		howItWorks: 'EDDI에서의 동작 방식',
@@ -83,6 +83,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack은 EDDI가 채널을 제공하는 유일한 서드파티 채팅 플랫폼입니다. 포함되지 않는 항목은 카탈로그 페이지의 안내를 참고하세요.',
 				'선택 사항인 관찰 모드에서는 대상이 일반 채널 대화를 볼 수 있으며, 트리거, 쿨다운, 일일 응답 및 비용 한도가 적용됩니다. 이 한도는 EDDI 노드별로 적용됩니다.',
+			],
+		},
+		email: {
+			summary: '메일함을 에이전트에 연결합니다. 새 메일마다 에이전트 턴이나 그룹 토론이 시작되며, 대화 모드에서는 에이전트가 같은 스레드로 답장하되 메일이 DKIM과 DMARC를 통과한 발신자에게만 답장합니다.',
+			gets: [
+				'처리용 메일함(청구서, 주문, 이력서, 청구 건)을 위한 트리거 모드: 에이전트는 도구를 통해 작업하며 누구에게도 답장하지 않습니다',
+				'소규모 팀의 지원 또는 안내 메일함을 위한 대화 모드: SMTP로 같은 스레드에 답장하고, 발신자의 회신은 같은 대화로 이어집니다',
+				'첨부 파일은 허용할 형식을 직접 정해 에이전트에 파일로 전달',
+				'OAuth(XOAUTH2)를 통한 Exchange Online 및 Microsoft 365, 또는 앱 비밀번호를 사용하는 모든 IMAP 호스트',
+				'일일 비용 예산과 발신자별 일일 한도로, 메일이 쏟아져도 비용이 폭증하지 않음',
+			],
+			steps: [
+				'메일함용 <code>SERVICE</code> 연결을 만듭니다. <code>baseUrlAllowlist</code>에는 IMAP 오리진(<code>imaps://host</code>)을, 대화 모드에서는 SMTP 오리진도 넣어야 합니다. 시크릿은 볼트에 남아 있습니다.',
+				'<code>channelType: "email"</code>, 메일함 <code>address</code>, <code>mode</code>, 그리고 라우팅할 에이전트나 그룹을 지정해 채널 통합을 만듭니다. 저장하면 폴링 스케줄이 생성됩니다.',
+				'트리거할 수 있는 사람을 제한합니다: <code>requireAuthentication</code>과 <code>senderAllowlist</code>. 누구나 에이전트를 실행시킬 수 있거나, 에이전트에 도구는 있지만 승인이 없으면 저장 시 경고가 반환됩니다.',
+				'첫 폴링 후 테스트 메일을 보내세요. 통합을 만들 때 이미 폴더에 있던 메일은 처리되지 않습니다.',
+			],
+			captions: [
+				'OAuth 클라이언트 자격 증명을 사용하는 Exchange Online용 메일함 연결입니다. 클라이언트 시크릿은 볼트 참조입니다.',
+				'두 공급업체 도메인에서 온 인증된 메일만 받고 PDF와 이미지 첨부 파일을 저장하는 트리거 모드 통합입니다.',
+			],
+			governance: [
+				'메일은 신뢰할 수 없는 입력입니다. 이메일 에이전트에는 꼭 필요한 최소한의 도구만 주고, 무언가를 변경하는 모든 도구에 도구 승인을 거세요. 턴이 승인을 위해 일시 중지되면 발신자에게는 다음 단계를 사람이 승인해야 한다는 사실만 알리며, 어떤 도구나 인수인지는 절대 알리지 않습니다.',
+				'모델은 수신자를 절대 선택하지 않습니다. 트리거 모드는 아무것도 보내지 않고, 대화 모드는 인증된 발신자에게만 답하며, 기본적으로 스레드당 시간당 최대 다섯 번까지 답장하고 모든 답장에 AI 고지를 덧붙입니다.',
+				'거부된 모든 메일과 발송, 실패, 반송된 모든 답장은 발신자를 도메인과 해시로만 기록한 감사 원장 항목을 남깁니다. 원본 메일은 저장되지 않으며, 주소 기준 삭제는 대화와 원장 행까지 적용됩니다.',
+				'메일 서버는 DNS 이름으로만 접속하며 사설 주소나 메타데이터 주소로는 절대 접속하지 않고, TLS는 항상 검증합니다.',
+			],
+			goodToKnow: [
+				'EDDI는 메일 서버가 아닙니다. 메일 클라이언트처럼 기존 메일함에 로그인합니다: MX 레코드도, 공개 인그레스도 필요 없습니다.',
+				'Gmail과 Google Workspace는 아직 지원되지 않으며, 사설 주소에 있는 온프레미스 Exchange도 마찬가지입니다. 답장은 일반 텍스트입니다.',
+				'Zendesk나 Freshdesk 같은 헬프데스크가 이미 메일을 받고 있다면 그대로 두세요: 서명된 웹훅 채널로 EDDI를 트리거하고 헬프데스크 API로 답하면 됩니다.',
 			],
 		},
 		'open-webui': {
@@ -555,7 +586,7 @@ const copy: IntegrationsCopy = {
 				'자격 증명이 필요 없으므로 모델 자체를 위해 볼트에 넣을 것이 없습니다.',
 			],
 			goodToKnow: [
-				'완전한 폐쇄망 환경에는 로컬 Ollama나 미리 채워 둔 Jlama 캐시가 필요합니다. 네트워크가 없으면 EDDI가 모델을 내려받을 수 없기 때문입니다.',
+				'완전한 폐쇄망 환경에는 로컬 Ollama나 미리 채워 둔 Jlama 캐시가 필요합니다. 네트워크가 없으면 EDDI가 모델을 내려받을 수 없기 때문입니다. 또한 <code>EDDI_UPDATE_CHECK_ENABLED=false</code>로 일일 릴리스 확인을 끄세요.',
 				'로컬 모델은 도구 호출과 JSON 신뢰도가 제각각입니다. 의존하는 동작은 직접 테스트하세요.',
 			],
 		},

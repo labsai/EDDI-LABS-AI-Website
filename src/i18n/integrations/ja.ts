@@ -7,9 +7,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: 'インテグレーション',
-		metaTitle: 'EDDIインテグレーション: Slack、MCP、OpenAPI、SAP、ベクターストア、Kubernetes',
+		metaTitle: 'EDDIインテグレーション: Slack、メール、MCP、OpenAPI、SAP、ベクターストア、Kubernetes',
 		description:
-			'EDDIが Slack、Open WebUI、Keycloak、MCP と A2A、OpenAPI 経由の任意の REST API、API 経由の SAP、6種類のベクターストア、Kubernetes、OpenShift、Ollama にどのように接続するかを紹介します。各ページには実際の設定例を掲載しています。',
+			'EDDIが Slack、メール、Open WebUI、Keycloak、MCP と A2A、OpenAPI 経由の任意の REST API、API 経由の SAP、6種類のベクターストア、Kubernetes、OpenShift、Ollama にどのように接続するかを紹介します。各ページには実際の設定例を掲載しています。',
 		heroTitle: 'EDDI',
 		heroHighlight: 'インテグレーション',
 		heroDesc:
@@ -20,7 +20,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: '検索例: Slack、SAP、pgvector',
 		noResults: '一致するインテグレーションがありません。別のキーワードを試すか、絞り込みを解除してください。',
 		notCoveredNote:
-			'EDDIには Microsoft Teams、Telegram、WhatsApp、Discord のチャネルは含まれず、EDDI自体がメールを送信することもなく、汎用の受信Webhookもありません。それでもAPIを持つものであれば、<a href="/integrations/openapi/">OpenAPIインポート</a>、HTTP呼び出し、または<a href="/integrations/mcp-client/">MCP</a>で接続できます。',
+			'EDDIには Microsoft Teams、Telegram、WhatsApp、Discord のチャネルは含まれません。受信Webhookには署名(HMAC)が必須で、メールはEDDIがポーリングするメールボックスであり、メールサーバーではありません。それでもAPIを持つものであれば、<a href="/integrations/openapi/">OpenAPIインポート</a>、HTTP呼び出し、または<a href="/integrations/mcp-client/">MCP</a>で接続できます。',
 		backToCatalog: 'すべてのインテグレーション',
 		whatYouGet: '得られるもの',
 		howItWorks: 'EDDIでの仕組み',
@@ -83,6 +83,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slackは、EDDIがチャネルを提供している唯一のサードパーティ製チャットプラットフォームです。含まれないものについては、カタログページの注記を参照してください。',
 				'オプションのオブザーブモードでは、トリガー、クールダウン、1日あたりの応答数とコストの上限のもとで、対象がチャネルの通常のやり取りを参照できます。これらの上限はEDDIノードごとに適用されます。',
+			],
+		},
+		email: {
+			summary: 'メールボックスをエージェントに接続します。新着メールごとにエージェントのターンまたはグループディスカッションが始まり、会話モードでは、DKIM と DMARC を通過したメールの送信者に対してだけ、エージェントが同じスレッドで返信します。',
+			gets: [
+				'処理用メールボックス(請求書、注文、履歴書、保険請求)向けのトリガーモード: エージェントはツールを通じて処理を行い、誰にも返信しません',
+				'小規模チームのサポート用・問い合わせ用メールボックス向けの会話モード: SMTP で同じスレッドに返信し、送信者の返答は同じ会話の続きになります',
+				'添付ファイルはファイルとしてエージェントに渡され、許可する種類は自分で選べます',
+				'Exchange Online と Microsoft 365 には OAuth(XOAUTH2)で、その他の IMAP ホストにはアプリパスワードで接続',
+				'1日あたりのコスト予算と送信者ごとの1日あたりの上限により、大量のメールで費用が膨らむことはありません',
+			],
+			steps: [
+				'メールボックス用の <code>SERVICE</code> コネクションを作成します。その <code>baseUrlAllowlist</code> には IMAP のオリジン(<code>imaps://host</code>)を指定し、会話モードでは SMTP のオリジンも指定する必要があります。シークレットはボルト内にとどまります。',
+				'<code>channelType: "email"</code>、メールボックスの <code>address</code>、<code>mode</code>、振り分け先のエージェントまたはグループを指定してチャネルインテグレーションを作成します。保存するとポーリングのスケジュールが作成されます。',
+				'トリガーできる人を制限します: <code>requireAuthentication</code> と <code>senderAllowlist</code> を使います。誰でもエージェントを実行させられる場合や、エージェントがツールを持つのに承認がない場合、保存時に警告が返されます。',
+				'最初のポーリングの後にテストメールを送信します。インテグレーションの作成時点ですでにフォルダーにあったメールは処理されません。',
+			],
+			captions: [
+				'OAuth クライアント資格情報を使う Exchange Online 用のメールボックスコネクションです。クライアントシークレットはボルト参照です。',
+				'2つの取引先ドメインからの認証済みメールだけを受け付け、PDF と画像の添付ファイルを保存するトリガーモードのインテグレーションです。',
+			],
+			governance: [
+				'メールは信頼できない入力です。メール用エージェントには必要最小限のツールだけを与え、何かを変更するすべてのツールにツール承認を設定してください。ターンが承認待ちで一時停止すると、送信者には次の手順に人の承認が必要であることだけが伝えられ、どのツールや引数かは伝えられません。',
+				'モデルが宛先を選ぶことはありません。トリガーモードは何も送信せず、会話モードは認証済みの送信者にだけ返信します。デフォルトでは1スレッドあたり1時間に最大5通までで、すべての返信にAIによる回答である旨の開示が付きます。',
+				'拒否されたメール、および送信・失敗・バウンスした返信はすべて監査台帳に記録され、送信者はドメインとハッシュとしてのみ残ります。生のメールは保存されず、アドレスによる消去は会話と台帳の行にまで及びます。',
+				'メールサーバーには DNS 名でのみ接続し、プライベートアドレスやメタデータアドレスには接続しません。TLS は常に検証されます。',
+			],
+			goodToKnow: [
+				'EDDIはメールサーバーではありません。メールクライアントのように既存のメールボックスにログインするため、MX レコードも公開の受信経路も不要です。',
+				'Gmail と Google Workspace はまだサポートされておらず、プライベートアドレス上のオンプレミス Exchange もサポートされていません。返信はプレーンテキストです。',
+				'Zendesk や Freshdesk などのヘルプデスクがすでにメールを受信している場合は、それを使い続けてください。署名付き Webhook チャネルで EDDI をトリガーし、ヘルプデスクの API で返信します。',
 			],
 		},
 		'open-webui': {
@@ -555,7 +586,7 @@ const copy: IntegrationsCopy = {
 				'認証情報が関与しないため、モデル自体のためにボルトに保管するものはありません。',
 			],
 			goodToKnow: [
-				'完全なエアギャップ環境では、ローカルの Ollama か、事前に用意した Jlama のキャッシュが必要です。ネットワークがないと、EDDIはモデルをダウンロードできないためです。',
+				'完全なエアギャップ環境では、ローカルの Ollama か、事前に用意した Jlama のキャッシュが必要です。ネットワークがないと、EDDIはモデルをダウンロードできないためです。また、<code>EDDI_UPDATE_CHECK_ENABLED=false</code> で毎日のリリースチェックをオフにしてください。',
 				'ローカルモデルは、ツール呼び出しや JSON の信頼性にばらつきがあります。依存する動作はテストしてください。',
 			],
 		},

@@ -36,7 +36,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 |---|---|---|
 | 🖥️ | **EDDI Manager** | Production-ready React UI for building, deploying, and monitoring agents visually, with 11-language i18n |
 | ⚙️ | **Config-as-Code** | Agent behavior is JSON configuration: change prompts, tools, and pipelines without redeployment |
-| 🔌 | **89 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
+| 🔌 | **108 MCP Tools** | Full AI-native control via the Model Context Protocol, works with Claude Desktop, Cursor, and custom clients |
 | 🤖 | **Multi-Agent** | Intent-based agent discovery, managed conversations, and group collaboration: 7 discussion styles, voting, shared artifacts, standing teams, and humans as members |
 | 👥 | **Multi-User** | Per-user workspaces with sharing, and Connections that let agents act with each user's own credentials |
 | 🔗 | **OpenAI-Compatible API** | Deployed agents appear as models to Open WebUI, the `openai` SDK, LangChain, and LiteLLM |
@@ -71,7 +71,7 @@ EDDI is designed for **regulated industries** and enterprise teams that need:
 curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash
 ```
 
-Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh install starts with no agents: create the first one with the Platform Operator at `/manage/operator` or the agent wizard at `/manage/agents/wizard`.
+Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh install starts with no agents: create the first one with the agent wizard at `/manage/agents/wizard`. (The Platform Operator at `/manage/operator` cannot be activated on a fresh 6.7.0 install; the fix ships in the next release.)
 
 👉 **[Full getting-started guide →](https://eddi.technology/getting-started/)**
 

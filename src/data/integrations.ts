@@ -10,12 +10,13 @@
  *   the repository's own compose and install files. Where a value is a placeholder it is
  *   written as one (`your-agent-id`, `example.com`).
  * - No claims beyond what the documentation states. EDDI has no native SAP connector,
- *   no native HashiCorp Vault client, no Microsoft Teams, Telegram, WhatsApp or Discord
- *   channel, no email sending and no generic inbound webhooks. Pages say so where relevant.
+ *   no native HashiCorp Vault client, and no Microsoft Teams, Telegram, WhatsApp or Discord
+ *   channel. Pages say so where relevant. (Since 6.7.0 there is an email channel, and since
+ *   6.6.0 a signed inbound webhook channel; neither is a mail server or an unsigned webhook.)
  * - Docs links point at docs.labs.ai paths that were fetched and resolve.
  */
 
-export const CHECKED_ON = '2026-10-14';
+export const CHECKED_ON = '2026-11-06';
 
 export type IntegrationCategory = 'channels' | 'identity' | 'protocols' | 'enterprise' | 'data' | 'infrastructure';
 
@@ -61,6 +62,7 @@ const DOCS = 'https://docs.labs.ai';
 
 const doc = {
 	slack: { label: 'Slack Integration', href: `${DOCS}/protocols-and-integration/slack-integration.md` },
+	email: { label: 'Email Integration', href: `${DOCS}/protocols-and-integration/email-integration.md` },
 	openWebui: { label: 'OpenAI-Compatible API (Open WebUI)', href: `${DOCS}/protocols-and-integration/open-webui-integration.md` },
 	mcpServer: { label: 'MCP Server', href: `${DOCS}/protocols-and-integration/mcp-server.md` },
 	mcpClient: { label: 'MCP Client', href: `${DOCS}/protocols-and-integration/mcp-client.md` },
@@ -195,6 +197,60 @@ curl -X PUT http://localhost:7070/secretstore/secrets/default/slack-signing-secr
 		solutionsCta: true,
 	},
 	{
+		slug: 'email',
+		name: 'Email',
+		category: 'channels',
+		tag: 'IMAP · SMTP',
+		keywords: ['mail', 'mailbox', 'imap', 'smtp', 'exchange', 'microsoft 365', 'outlook', 'invoices', 'support', 'dkim', 'dmarc'],
+		snippets: [
+			{
+				lang: 'json',
+				label: 'POST /connectionstore/connections',
+				code: `{
+  "name": "exo-invoices-mailbox",
+  "authType": "OAUTH2_CLIENT_CREDENTIALS",
+  "binding": "SERVICE",
+  "oauth": {
+    "tokenUrl": "https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token",
+    "clientId": "<application-id>",
+    "clientSecret": "\${vault:exo-invoices-client-secret}",
+    "scopes": ["https://outlook.office365.com/.default"]
+  },
+  "baseUrlAllowlist": ["imaps://outlook.office365.com"]
+}`,
+			},
+			{
+				lang: 'bash',
+				label: 'POST /channelstore/channels',
+				code: `curl -X POST http://localhost:7070/channelstore/channels \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "name": "Invoice intake",
+    "channelType": "email",
+    "platformConfig": {
+      "mode": "trigger",
+      "transport": "imap",
+      "connection": "exo-invoices-mailbox",
+      "host": "outlook.office365.com",
+      "address": "invoices@contoso.com",
+      "processedAction": "move:EDDI/Processed",
+      "senderAllowlist": "*@supplier-a.com,*@supplier-b.de",
+      "requireAuthentication": "true",
+      "attachments": "store",
+      "attachmentMimeTypes": "application/pdf,image/png,image/jpeg",
+      "dailyCostBudgetUsd": "20"
+    },
+    "targets": [ { "name": "intake", "type": "AGENT", "targetId": "your-agent-id" } ],
+    "defaultTargetName": "intake"
+  }'`,
+			},
+		],
+		docs: [doc.email, doc.hitl],
+		guides: [],
+		related: ['slack', 'secrets-vault', 'openapi'],
+		solutionsCta: true,
+	},
+	{
 		slug: 'open-webui',
 		name: 'Open WebUI',
 		category: 'channels',
@@ -299,7 +355,7 @@ http://localhost:7070/chat/demo/showcase`,
   -e QUARKUS_OIDC_AUTH_SERVER_URL='https://keycloak.example.com/realms/eddi' \\
   -e QUARKUS_OIDC_CLIENT_ID=eddi \\
   -e QUARKUS_OIDC_CREDENTIALS_SECRET="$OIDC_CLIENT_SECRET" \\
-  labsai/eddi:6.6.0`,
+  labsai/eddi:6.7.0`,
 			},
 		],
 		docs: [doc.security, doc.hitl],

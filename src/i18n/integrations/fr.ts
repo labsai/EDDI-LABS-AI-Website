@@ -8,9 +8,9 @@ import type { IntegrationsCopy } from './en';
 const copy: IntegrationsCopy = {
 	ui: {
 		title: 'Intégrations',
-		metaTitle: 'Intégrations EDDI : Slack, MCP, OpenAPI, SAP, bases vectorielles et Kubernetes',
+		metaTitle: 'Intégrations EDDI : Slack, e-mail, MCP, OpenAPI, SAP, bases vectorielles et Kubernetes',
 		description:
-			'Comment EDDI se connecte à Slack, Open WebUI, Keycloak, MCP et A2A, à toute API REST via OpenAPI, à SAP par ses API, à six bases vectorielles, à Kubernetes, OpenShift et Ollama. Chaque page présente la configuration réelle.',
+			'Comment EDDI se connecte à Slack, à l\'e-mail, à Open WebUI, Keycloak, MCP et A2A, à toute API REST via OpenAPI, à SAP par ses API, à six bases vectorielles, à Kubernetes, OpenShift et Ollama. Chaque page présente la configuration réelle.',
 		heroTitle: 'EDDI',
 		heroHighlight: 'Intégrations',
 		heroDesc:
@@ -21,7 +21,7 @@ const copy: IntegrationsCopy = {
 		searchPlaceholder: 'Rechercher, par exemple Slack, SAP ou pgvector',
 		noResults: 'Aucune intégration ne correspond. Essayez un autre mot ou réinitialisez le filtre.',
 		notCoveredNote:
-			'EDDI ne fournit pas de canaux Microsoft Teams, Telegram, WhatsApp ou Discord, n\'envoie pas d\'e-mails lui-même et n\'a pas de webhooks entrants génériques. Tout système doté d\'une API reste accessible par l\'<a href="/integrations/openapi/">import OpenAPI</a>, des appels HTTP ou <a href="/integrations/mcp-client/">MCP</a>.',
+			'EDDI ne fournit pas de canaux Microsoft Teams, Telegram, WhatsApp ou Discord. Les webhooks entrants doivent être signés (HMAC), et l\'e-mail est une boîte aux lettres qu\'EDDI relève, pas un serveur de messagerie. Tout système doté d\'une API reste accessible par l\'<a href="/integrations/openapi/">import OpenAPI</a>, des appels HTTP ou <a href="/integrations/mcp-client/">MCP</a>.',
 		backToCatalog: 'Toutes les intégrations',
 		whatYouGet: 'Ce que vous obtenez',
 		howItWorks: 'Fonctionnement dans EDDI',
@@ -84,6 +84,37 @@ const copy: IntegrationsCopy = {
 			goodToKnow: [
 				'Slack est la seule plateforme de messagerie tierce pour laquelle EDDI fournit un canal. Voir la note de la page du catalogue pour ce qui n\'est pas inclus.',
 				'Un mode d\'observation optionnel permet à une cible de voir le trafic ordinaire d\'un canal, derrière un déclencheur, un temps de pause et des plafonds quotidiens de réponses et de coûts. Ces plafonds s\'appliquent par nœud EDDI.',
+			],
+		},
+		email: {
+			summary: 'Connecter une boîte aux lettres à un agent. Chaque nouveau message lance un tour d\'agent ou une discussion de groupe, et en mode conversation l\'agent répond dans le fil, uniquement à un expéditeur dont le message a passé DKIM et DMARC.',
+			gets: [
+				'Un mode déclencheur pour les boîtes de traitement (factures, commandes, CV, sinistres) : l\'agent agit via ses outils et ne répond jamais à personne',
+				'Un mode conversation pour la boîte de support ou d\'information d\'une petite équipe : réponses dans le même fil via SMTP, et la réponse de l\'expéditeur poursuit la même conversation',
+				'Des pièces jointes transmises à l\'agent sous forme de fichiers, avec les types autorisés que vous choisissez',
+				'Exchange Online et Microsoft 365 via OAuth (XOAUTH2), ou tout hôte IMAP avec un mot de passe d\'application',
+				'Un budget de coût quotidien et un plafond quotidien par expéditeur, pour qu\'un afflux de messages ne fasse pas grimper la facture',
+			],
+			steps: [
+				'Créer une connexion <code>SERVICE</code> pour la boîte aux lettres. Sa <code>baseUrlAllowlist</code> doit indiquer l\'origine IMAP (<code>imaps://host</code>) et, en mode conversation, aussi l\'origine SMTP. Le secret reste dans le coffre.',
+				'Créer une intégration de canal avec <code>channelType: "email"</code>, l\'<code>address</code> de la boîte, un <code>mode</code> et l\'agent ou le groupe vers lequel elle achemine. L\'enregistrement crée la planification de relève.',
+				'Restreindre qui peut la déclencher : <code>requireAuthentication</code> et une <code>senderAllowlist</code>. L\'enregistrement renvoie des avertissements lorsque n\'importe qui pourrait faire exécuter l\'agent, ou lorsque l\'agent a des outils mais aucune validation.',
+				'Envoyer un message de test après la première relève. Les messages déjà présents dans le dossier lors de la création de l\'intégration ne sont pas traités.',
+			],
+			captions: [
+				'Une connexion de boîte aux lettres pour Exchange Online avec des identifiants client OAuth. Le secret client est une référence au coffre.',
+				'Une intégration en mode déclencheur qui n\'accepte que les messages authentifiés de deux domaines fournisseurs et stocke les pièces jointes PDF et image.',
+			],
+			governance: [
+				'Le courrier est une entrée non fiable. Donnez à un agent e-mail le minimum d\'outils nécessaires et placez une validation sur chaque outil qui modifie quelque chose. Lorsqu\'un tour se met en pause pour une validation, l\'expéditeur est informé qu\'une personne doit valider l\'étape suivante, mais jamais de l\'outil ni des arguments concernés.',
+				'Le modèle ne choisit jamais de destinataire. Le mode déclencheur n\'envoie rien, et le mode conversation ne répond qu\'à l\'expéditeur authentifié, au plus cinq réponses par fil et par heure par défaut, avec une mention d\'IA ajoutée à chaque réponse.',
+				'Chaque message refusé et chaque réponse envoyée, en échec ou rejetée laisse une entrée dans le registre d\'audit, l\'expéditeur n\'y figurant que sous forme de domaine et de hash. Aucun message brut n\'est stocké, et l\'effacement par adresse atteint les conversations et les entrées du registre.',
+				'Les serveurs de messagerie ne sont joints que par leur nom DNS, jamais sur des adresses privées ou de métadonnées, et TLS est toujours vérifié.',
+			],
+			goodToKnow: [
+				'EDDI n\'est pas un serveur de messagerie. Il se connecte à une boîte existante comme un client de messagerie : pas d\'enregistrement MX ni d\'exposition publique.',
+				'Gmail et Google Workspace ne sont pas encore pris en charge, pas plus qu\'un Exchange sur site à une adresse privée. Les réponses sont en texte brut.',
+				'Si un helpdesk comme Zendesk ou Freshdesk reçoit déjà le courrier, gardez-le : déclenchez EDDI via le canal webhook signé et répondez via l\'API du helpdesk.',
 			],
 		},
 		'open-webui': {
@@ -556,7 +587,7 @@ const copy: IntegrationsCopy = {
 				'Aucun identifiant n\'est en jeu : il n\'y a donc rien à placer dans le coffre pour le modèle lui-même.',
 			],
 			goodToKnow: [
-				'Une installation totalement isolée du réseau nécessite un Ollama local ou un cache Jlama pré-alimenté, car EDDI ne peut pas télécharger de modèle sans réseau.',
+				'Une installation totalement isolée du réseau nécessite un Ollama local ou un cache Jlama pré-alimenté, car EDDI ne peut pas télécharger de modèle sans réseau. Désactivez aussi la vérification quotidienne des nouvelles versions avec <code>EDDI_UPDATE_CHECK_ENABLED=false</code>.',
 				'Les modèles locaux varient en fiabilité pour l\'appel d\'outils et le JSON. Testez le comportement dont vous dépendez.',
 			],
 		},

@@ -4,6 +4,28 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🚀 EDDI 6.7.0 Sync: Version, 108 MCP Tools, What's New, Email Integration (11 locales)
+
+Branch `claude/eddi-repo-website-review-46d2e2`. Brings eddi.technology in line with EDDI 6.7.0 (tag `6.7.0`, released 2026-11-05, same commit as `main` at the time). The EDDI repository was read through a blobless sparse clone (`git clone --filter=blob:none --sparse --single-branch`); `git grep <pattern> 6.7.0 -- <path>` reads a tag without checking anything out. In Git Bash, prefix `git sparse-checkout set` with `MSYS_NO_PATHCONV=1`, or the leading-slash patterns are rewritten to Windows paths.
+
+**Counts and version**
+- `EDDI_LATEST_VERSION` → 6.7.0 (banner, JSON-LD), install pin → `labsai/eddi:6.7.0`.
+- `MCP_TOOLS` 89 → **108** (`@Tool(` annotations under `src/main/**/mcp/**` at the tag; same method as 6.6.0). New categories: Team Budget 4, Team Handoff 3, Oversight 4, Rating 4, Alert 2, Pricing 1; Agent Test 3 → 4. EDDI's own README says 96, which is stale; reported upstream as a follow-up. `check-stats` requires 108 and forbids 89 near "MCP".
+
+**Copy (all 11 locales)**
+- What's New rewritten for 6.7: teams with budgets and handoffs, approvals that learn (edit-on-approve, approval analytics, earned autonomy), tool-call guardrails and judge/expression guardrails, cost accounting with a model price catalog and `toolQuotas`, email/ratings/alerts, white-label branding. Also-items carry the breaking changes, the cluster hardening, and the Operator known issue. Banner link reads "What's New in 6.7".
+- Feature bullets: Manager (Branding; Model Prices, Feedback and Alerts), Security (tool-call guardrails; November 2026 hardening entry), Multi-agent (team budgets and handoff, learning loop, humans who decide), Observability (ratings, alert rules), Cascading (hard tenant ceiling, cost accounting, tool quotas), HITL (edit while approving, approval analytics, email notifications).
+- New **Email** integration page (`/integrations/email/`, 19 pages now): trigger mode and conversation mode, from EDDI `docs/email-integration.md`. The catalog note no longer says EDDI has no email or webhooks.
+
+**Accuracy**
+- **Release check.** 6.7 calls `api.github.com` once a day by default. Every "no data leaves the network" / air-gap claim now names the opt-out `EDDI_UPDATE_CHECK_ENABLED=false` (Use Cases government card, "Air-Gap Ready" row, Ollama page, Kubernetes guide FAQ).
+- **Platform Operator.** On a fresh 6.7.0 install the Operator cannot be activated (system prompt over the `setup-api` limit; fix in labsai/EDDI#1290, open). Getting Started and the README now lead with the agent wizard. **Revert when 6.7.1 ships.**
+
+**Follow-ups**
+- Revert the Operator note once the fix is released.
+- Docs move to `docs.eddi.technology` (DNS points at Vercel, TLS not live yet on 2026-11-06). `docs.labs.ai` will 301 every path there, so nothing breaks; switch the links (and AGENTS.md) after the cutover.
+- Translations have not had a native-speaker pass.
+
 ### 🚀 EDDI 6.6.0 Sync: Version, MCP Tool Count and What's New in 11 Locales
 
 Brings eddi.technology in line with EDDI 6.6.0 (tag `6.6.0`, released 2026-10-20). Counts were taken at the tag, not at `main`: **89 MCP tools** (up from 84; `@Tool(` annotations under `src/main/**/mcp/**`), **19 LLM providers** (unchanged), and the **20,000+ tests** headline (the README badge still reads 20,000+; the raw annotation count is higher, so the headline is conservative).

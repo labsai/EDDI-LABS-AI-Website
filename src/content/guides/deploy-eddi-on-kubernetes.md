@@ -24,7 +24,7 @@ faq:
       Yes. Conversation state lives in the database rather than in process memory, which is what makes horizontal scaling possible. The constraint to plan around is the database and the event bus, not the EDDI pods.
   - question: Does it work in an air-gapped cluster?
     answer: >-
-      Yes, and this is a designed-for case rather than an accident. You need the image mirrored into your registry, a database inside the boundary, and either a local model through Ollama or Jlama, or an approved egress route to a provider.
+      Yes, and this is a designed-for case rather than an accident. You need the image mirrored into your registry, a database inside the boundary, and either a local model through Ollama or Jlama, or an approved egress route to a provider. From EDDI 6.7 also set `EDDI_UPDATE_CHECK_ENABLED=false`, because the release check calls GitHub once a day by default.
   - question: Is there a certified container?
     answer: >-
       EDDI ships a Red Hat Certified container, which matters if you are deploying to OpenShift under a policy that requires certified images.
