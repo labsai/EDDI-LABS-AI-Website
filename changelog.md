@@ -4,6 +4,15 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🩹 Raw HTML Shown as Text, and a Misplaced Manager Intro
+
+Found while reviewing the 6.7.0 sync: a scan of the built site for escaped tags (`&lt;a`, `&lt;strong`, `&lt;code`) found 37 pages where markup from the translations was printed as text.
+
+- Rendered with `set:html`, as the neighbouring fields already are: Getting Started `prereq2` (the model catalog link), Why EDDI `llmDesc` (English and localized routes), and the Manager page `para1`.
+- Newsletter consent notice: its `{privacyUrl}` placeholder was never filled, so it showed a literal `<a href="{privacyUrl}">`. `NewsletterSignup.astro` now substitutes the locale's privacy page and renders the notice as HTML. The section appears on the Contact page, so this affected Contact in all 11 locales.
+- **Content fix:** in ar, de, es and pt the Manager page's intro paragraph was the "three archetypes" paragraph from the vs-Alternatives page. It is now the Manager intro, translated from English.
+- After the fix the build has 0 escaped tags and no literal `{privacyUrl}`.
+
 ### 🚀 EDDI 6.7.0 Sync: Version, 108 MCP Tools, What's New, Email Integration (11 locales)
 
 Branch `claude/eddi-repo-website-review-46d2e2`. Brings eddi.technology in line with EDDI 6.7.0 (tag `6.7.0`, released 2026-11-05, same commit as `main` at the time). The EDDI repository was read through a blobless sparse clone (`git clone --filter=blob:none --sparse --single-branch`); `git grep <pattern> 6.7.0 -- <path>` reads a tag without checking anything out. In Git Bash, prefix `git sparse-checkout set` with `MSYS_NO_PATHCONV=1`, or the leading-slash patterns are rewritten to Windows paths.

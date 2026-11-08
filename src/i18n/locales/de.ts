@@ -547,7 +547,7 @@ const de: TranslationSchema = {
 				'Eine produktionsreife React-Management-UI zum visuellen Erstellen, Deployen und Überwachen von KI-Agents, mit 11-Locale-i18n, Live-Chat-Debugging und Audit-Dashboards.',
 			heading1: 'Visuelle Agent-Verwaltung',
 			para1:
-				'Der KI-Orchestrierungsmarkt hat drei Archetypen: <strong>visuelle Node-Builder</strong>, <strong>Code-Bibliotheken</strong> und <strong>Cloud-Plattformen</strong>. EDDI ist eine <strong>deploybare Middleware-Plattform</strong>.',
+				'Der EDDI Manager ist eine umfassende, React-basierte Management-Oberfläche, die visuelle Kontrolle über jeden Aspekt der EDDI-Plattform bietet, von der Agent-Konfiguration bis zur Echtzeit-Überwachung von Konversationen.',
 			heading2: 'Kernfunktionen',
 			items: [
 				'<strong>Visueller Agent-Builder</strong>: Agents über eine intuitive Drag-and-Drop-Oberfläche erstellen und konfigurieren',

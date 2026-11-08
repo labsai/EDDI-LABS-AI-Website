@@ -37,7 +37,7 @@ const { lang, t } = Astro.props;
 		<h2>{t.gettingStarted.prerequisitesTitle}</h2>
 		<ul>
 			<li set:html={t.gettingStarted.prereq1} />
-			<li>{t.gettingStarted.prereq2}</li>
+			<li set:html={t.gettingStarted.prereq2} />
 		</ul>
 	</section>
 	<section class="gs-section">
