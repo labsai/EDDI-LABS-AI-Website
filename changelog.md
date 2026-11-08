@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔧 Dependencies and the Brand Font
+
+- Astro 7.3.5 → **7.3.8**, Tailwind CSS and `@tailwindcss/vite` 4.3.3 → **4.3.5**, `@astrojs/check` 0.9.10 → **0.9.12**. `npm audit fix` then cleared all 10 advisories (6 high, 4 moderate; vite, undici, devalue, zod, fast-uri, source-map-js, yaml). All of them are build-time only; the site is static. `npm audit` now reports 0. TypeScript stays on 5.9: `@astrojs/check` does not support TypeScript 7.
+- Astro 7.3.8 no longer depends on esbuild, so the `@esbuild/*` binaries left the lockfile. The Linux binaries Vercel needs (sharp, rolldown, Tailwind oxide, lightningcss) are still there.
+- **The brand font never loaded.** `@fontsource-variable/outfit` registers the family as `Outfit Variable`, but `global.css` and the newsletter styles asked for `Outfit`, so browsers fell back to the system font. Both now ask for `'Outfit Variable', 'Outfit'`. The same fix went to eddi.solutions. Found by EDDI's docs-site migration plan.
+
 ### 🩹 Raw HTML Shown as Text, and a Misplaced Manager Intro
 
 Found while reviewing the 6.7.0 sync: a scan of the built site for escaped tags (`&lt;a`, `&lt;strong`, `&lt;code`) found 37 pages where markup from the translations was printed as text.
