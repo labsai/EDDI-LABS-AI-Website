@@ -4,6 +4,21 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔎 Search and AI Visibility Audit: Fact Fixes and a Release-Version Guard
+
+Audit of eddi.technology on 2026-11-15: 97 English sitemap pages, robots.txt, sitemap, llms.txt, plus six search queries a prospect would type. On-site health is good (crawlers allowed, static HTML, one H1 per page, alt text everywhere, canonical and hreflang, JSON-LD on every page). The gap is off-site: no query returned an eddi.technology page, including "EDDI AI orchestrator", "EDDI vs n8n" and `site:eddi.technology`.
+
+- JSON-LD `featureList`: "Immutable cryptographic audit trail" → "HMAC-signed, append-only, sequence-checked audit ledger", matching the wording the comparison pages already use. Same change in the README feature table.
+- `public/llms.txt` said "Latest release: 6.6.0"; now 6.7.0. `check-stats` now fails when a "latest release X.Y.Z" line in `public/*.txt` or the README differs from `EDDI_LATEST_VERSION`.
+- English `meta.siteDescription` cut from 259 to 152 characters (it was truncated in results). Other locales unchanged.
+
+**Follow-ups (owner)**
+- Verify the domain in Google Search Console and Bing Webmaster Tools (DNS TXT at easyname), submit `sitemap-index.xml`, and check index coverage after the GitHub Pages migration.
+- Decide on "immutable" in visible copy: about 25 strings in `en.ts` (including home FAQ answers 1 and 3, which feed FAQPage schema) and their counterparts in all locales.
+- Homepage title tag: add a `home.metaTitle` to all 11 locales (proposed English: "Open-Source Self-Hosted AI Agent Orchestration").
+- Third-party listings (genai.works says 42 MCP tools; Product Hunt, mcpmarket) need current facts.
+- Recheck on 2026-12-15 with the same queries.
+
 ### 🩹 Raw HTML Shown as Text, and a Misplaced Manager Intro
 
 Found while reviewing the 6.7.0 sync: a scan of the built site for escaped tags (`&lt;a`, `&lt;strong`, `&lt;code`) found 37 pages where markup from the translations was printed as text.

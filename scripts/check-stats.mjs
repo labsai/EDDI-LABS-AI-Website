@@ -149,6 +149,26 @@ for (const file of [...localeFiles, ...dataFiles, ...contentFiles]) {
 	});
 }
 
+// Release-version guard: agent-facing files state the latest release in prose
+// ("Latest release: 6.6.0"), which the EDDI_LATEST_VERSION constant cannot
+// reach. llms.txt said 6.6.0 for a release after 6.7.0 shipped.
+const LATEST = readFileSync(join(ROOT, 'src', 'i18n', 'version.ts'), 'utf8').match(/EDDI_LATEST_VERSION\s*=\s*'([^']+)'/)?.[1];
+if (!LATEST) {
+	violations.push('src/i18n/version.ts: could not read EDDI_LATEST_VERSION');
+} else {
+	const RELEASE_CLAIM = /latest release[:\s]+(\d+\.\d+\.\d+)/gi;
+	for (const file of [...collect(join(ROOT, 'public'), ['.txt']), ...(existsSync(join(ROOT, 'README.md')) ? [join(ROOT, 'README.md')] : [])]) {
+		const lines = readFileSync(file, 'utf8').split(/\r?\n/);
+		lines.forEach((line, index) => {
+			for (const m of line.matchAll(RELEASE_CLAIM)) {
+				if (m[1] !== LATEST) {
+					violations.push(`${relative(ROOT, file)}:${index + 1}: "${m[0]}" (latest release is ${LATEST}, see src/i18n/version.ts)`);
+				}
+			}
+		});
+	}
+}
+
 if (violations.length > 0) {
 	console.error(`check-stats: found ${violations.length} stale stat(s):\n`);
 	for (const violation of violations) {
