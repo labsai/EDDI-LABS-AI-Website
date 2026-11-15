@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### ⬆️ Astro 7.4 and Build Package Updates
+
+- `chore(website)`: astro 7.3.5 to 7.4.12, @astrojs/sitemap 3.7.4 to 3.7.5, @astrojs/check 0.9.10 to 0.9.12, @tailwindcss/vite and tailwindcss 4.3.3 to 4.3.5. The `package.json` floors were raised to match.
+- Verified with `npm run build`: check-stats OK, astro check 0 errors and 0 warnings, 978 pages built, same as before.
+- Not done: TypeScript stays on 5.9 (7.x is a major release). The 23 hints that `z` from `astro:content` is deprecated remain; switching the import to `astro/zod` is a separate small change.
+
 ### 🔎 Search and AI Visibility Audit: Fact Fixes and a Release-Version Guard
 
 Audit of eddi.technology on 2026-11-15: all 977 built pages (11 locales), the 97 live English sitemap pages, robots.txt, sitemap, llms.txt and its 57 links, and prospect queries run through a web search tool. On-site health is good: crawlers allowed, static HTML, one H1 and a description on every page, no image without alt text, no noindex, unique titles, canonical and hreflang, JSON-LD everywhere.
