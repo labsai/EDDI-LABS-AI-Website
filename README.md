@@ -46,7 +46,7 @@ Agent logic is **JSON configuration**, not compiled code. Prompt engineers itera
 | 📈 | **Model Cascading** | Cost-optimized multi-model routing; published production deployments of the pattern report 31 to 58% lower inference cost (see /benchmarks/) |
 | ⏰ | **Scheduling** | Cron triggers, heartbeat wake-ups, and dream cycles for proactive agent behavior |
 | 🔐 | **Security-First** | No `eval()`, vault integration, OIDC/Keycloak, cryptographic audit trails |
-| 📊 | **Observability** | HMAC-signed, append-only audit ledger, Prometheus metrics, and Grafana dashboards |
+| 📊 | **Observability** | Write-once audit ledger with HMAC-SHA256 tamper detection, Prometheus metrics, and Grafana dashboards |
 | 🚀 | **Performance** | Java 25 Virtual Threads, millions of lightweight threads for I/O-bound LLM workloads |
 | 🧪 | **Code Quality** | 20,000+ tests, green on every merge, with coverage and style gates in CI |
 

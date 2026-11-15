@@ -10,7 +10,7 @@ const en = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION} is an open-source, self-hosted AI agent orchestration platform: config-as-code agents, a visual manager, ${MCP_TOOLS} MCP tools and human approval gates.`,
+			`EDDI ${EDDI_VERSION}: open-source, self-hosted AI agent orchestration. Config-as-code agents, ${MCP_TOOLS} MCP tools, human approval gates, and GDPR and EU AI Act tooling.`,
 	},
 
 	// ─── Navigation ─────────────────────────────────────────────
