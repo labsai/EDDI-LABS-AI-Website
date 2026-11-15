@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 💶 funding.json Ownership Proof
+
+- `public/.well-known/funding-manifest-urls`: one line, `https://github.com/labsai/EDDI/blob/main/funding.json`. EDDI's [funding.json](https://fundingjson.org/) manifest (labsai/EDDI PR 1435) names https://eddi.technology as the project's web page, and funding directories such as FLOSS/fund only count that URL as verified when this host lists the manifest under this well-known path.
+- `vercel.json`: the file has no extension, so it gets an explicit `Content-Type: text/plain; charset=utf-8`.
+- Vite copies `public/` with `readdirSync`, which includes dot-folders, so the file ships in `dist/` as is.
+
 ### ⬆️ Astro 7.4 and Build Package Updates
 
 - `chore(website)`: astro 7.3.5 to 7.4.12, @astrojs/sitemap 3.7.4 to 3.7.5, @astrojs/check 0.9.10 to 0.9.12, @tailwindcss/vite and tailwindcss 4.3.3 to 4.3.5. The `package.json` floors were raised to match.
