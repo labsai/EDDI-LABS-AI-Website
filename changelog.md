@@ -8,7 +8,8 @@ All notable changes to the EDDI website will be documented in this file.
 
 - `chore(website)`: astro 7.3.5 to 7.4.12, @astrojs/sitemap 3.7.4 to 3.7.5, @astrojs/check 0.9.10 to 0.9.12, @tailwindcss/vite and tailwindcss 4.3.3 to 4.3.5. The `package.json` floors were raised to match.
 - Verified with `npm run build`: check-stats OK, astro check 0 errors and 0 warnings, 978 pages built, same as before.
-- Not done: TypeScript stays on 5.9 (7.x is a major release). The 23 hints that `z` from `astro:content` is deprecated remain; switching the import to `astro/zod` is a separate small change.
+- TypeScript stays on 5.9 (7.x is a major release).
+- `src/content.config.ts` now imports `z` from `astro/zod` instead of the deprecated re-export from `astro:content`. `astro/zod` is an official Astro entry point, so zod does not need to be declared in `package.json`. The guide `docsLinks.href` check uses `z.url()` (the zod 4 form of `z.string().url()`), and the unused `ROOT` constant in `scripts/update-docker-pulls.mjs` is gone. `astro check` now reports 0 errors, 0 warnings and 0 hints.
 
 ### 🔎 Search and AI Visibility Audit: Fact Fixes and a Release-Version Guard
 

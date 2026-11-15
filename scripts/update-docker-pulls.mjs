@@ -16,10 +16,8 @@
  * offline or rate-limited build still succeeds with the last known-good number.
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import process from 'node:process';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const API = 'https://hub.docker.com/v2/repositories/labsai/eddi/';
 const SVG_PATH = new URL('../public/badges/docker-pulls.svg', import.meta.url);
 const STATS_PATH = new URL('../src/i18n/stats.ts', import.meta.url);
