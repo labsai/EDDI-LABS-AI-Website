@@ -9,12 +9,8 @@
  * English only, like src/data/comparisons.ts, so the routes pass
  * `localized={false}`.
  */
-// NOTE: Astro 6 deprecates re-exporting `z` from 'astro:content' in favour of
-// importing zod directly, which is why `astro check` reports ~22 deprecation
-// hints (not errors) against this file. Switching means declaring zod in
-// package.json and regenerating package-lock.json, so it is left as a
-// deliberate follow-up rather than an undeclared transitive import.
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 /** Maps to the three search-intent personas the content strategy targets. */
@@ -43,7 +39,7 @@ const guides = defineCollection({
 		order: z.number().int().default(100),
 		/** Reference documentation this guide hands off to. */
 		docsLinks: z
-			.array(z.object({ label: z.string(), href: z.string().url() }))
+			.array(z.object({ label: z.string(), href: z.url() }))
 			.default([]),
 		/** Rendered as an FAQ section and emitted as FAQPage structured data. */
 		faq: z
