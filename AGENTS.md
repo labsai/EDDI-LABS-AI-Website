@@ -44,7 +44,6 @@
 | `src/components/`  | Layout and UI components                        |
 | `vercel.json`      | Security headers (CSP, HSTS, etc.) — OpenSSF Gold |
 | `public/_headers`  | Security headers (Cloudflare/Netlify fallback)    |
-| `CNAME`            | GitHub Pages domain (legacy, remove after migration) |
 
 ### Content policy: guides vs. docs
 

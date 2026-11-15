@@ -4,6 +4,24 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🔎 Search and AI Visibility Audit: Fact Fixes and a Release-Version Guard
+
+Audit of eddi.technology on 2026-11-15: all 977 built pages (11 locales), the 97 live English sitemap pages, robots.txt, sitemap, llms.txt and its 57 links, and prospect queries run through a web search tool. On-site health is good: crawlers allowed, static HTML, one H1 and a description on every page, no image without alt text, no noindex, unique titles, canonical and hreflang, JSON-LD everywhere.
+
+The domain is indexed (an extended search returns six eddi.technology pages). What holds it back is the migration from eddi.labs.ai: searches still return old `eddi.labs.ai` URLs with stale figures ("MCP Server: 42 tools"), even though every eddi.labs.ai path 301s to eddi.technology. A first pass with a lighter search mode concluded the domain was not indexed; that was wrong.
+
+- JSON-LD `featureList`: "Immutable cryptographic audit trail" → "Write-once, append-only audit ledger with HMAC-SHA256 tamper detection", the wording of EDDI's own `docs/audit-ledger.md` at 6.7.0. "Immutable" was not false (the upstream doc uses it, with the GDPR-redaction exception); the new line is just more exact. Same change in the README feature table.
+- `public/llms.txt` said "Latest release: 6.6.0"; now 6.7.0. `check-stats` now fails when a "latest release X.Y.Z" line in `public/*.txt` or the README differs from `EDDI_LATEST_VERSION`.
+- English `meta.siteDescription` cut from 259 to 149 characters, keeping the GDPR / EU AI Act angle. It is used only by the homepage and 404. Other locales unchanged.
+
+**Follow-ups**
+- Search Console: verify both `eddi.technology` and `labs.ai` (domain property), submit `sitemap-index.xml`, and file a Change of Address from eddi.labs.ai. Bing Webmaster Tools has its own Site Move tool.
+- Duplicate hosts (done): removed `.github/workflows/deploy.yml`, which republished the full site to labsai.github.io/EDDI-LABS-AI-Website/ on every push to main, and added a host-conditioned permanent redirect in `vercel.json` from eddi-website.vercel.app to eddi.technology (preview URLs are unaffected; the `headers` block is unchanged). No `CNAME` file was tracked, so the AGENTS.md row for it is gone. Owner step: disable Pages under the repo Settings > Pages, since deleting the workflow does not take down the last deployment.
+- Signing caveat: HMAC signing needs `EDDI_VAULT_MASTER_KEY` or `EDDI_AUDIT_HMAC_KEY`. The install script sets one; plain `docker-compose.yml` defaults to empty, so signing is off there. About 15 English strings say "HMAC-signed" or "cryptographically signed" unconditionally. Add "when a signing key is configured" on the Security page at least.
+- Docker Hub overview still links eddi.labs.ai and says 6.0.0; the EDDI README says 96 MCP tools and pins 6.5.0 (already reported upstream).
+- Homepage title tag: add a `home.metaTitle` to all 11 locales (proposed English: "Open-Source Self-Hosted AI Agent Orchestration").
+- Recheck on 2026-12-15 with the same queries.
+
 ### 🩹 Raw HTML Shown as Text, and a Misplaced Manager Intro
 
 Found while reviewing the 6.7.0 sync: a scan of the built site for escaped tags (`&lt;a`, `&lt;strong`, `&lt;code`) found 37 pages where markup from the translations was printed as text.
