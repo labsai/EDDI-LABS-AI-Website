@@ -16,7 +16,7 @@ The domain is indexed (an extended search returns six eddi.technology pages). Wh
 
 **Follow-ups**
 - Search Console: verify both `eddi.technology` and `labs.ai` (domain property), submit `sitemap-index.xml`, and file a Change of Address from eddi.labs.ai. Bing Webmaster Tools has its own Site Move tool.
-- Duplicate hosts: `deploy.yml` still republishes the full site to labsai.github.io/EDDI-LABS-AI-Website/ on every push to main, and eddi-website.vercel.app serves it too. Both carry a canonical to eddi.technology, so the risk is low. Retire the Pages deploy (with `CNAME`) and redirect the vercel.app host.
+- Duplicate hosts (done): removed `.github/workflows/deploy.yml`, which republished the full site to labsai.github.io/EDDI-LABS-AI-Website/ on every push to main, and added a host-conditioned permanent redirect in `vercel.json` from eddi-website.vercel.app to eddi.technology (preview URLs are unaffected; the `headers` block is unchanged). No `CNAME` file was tracked, so the AGENTS.md row for it is gone. Owner step: disable Pages under the repo Settings > Pages, since deleting the workflow does not take down the last deployment.
 - Signing caveat: HMAC signing needs `EDDI_VAULT_MASTER_KEY` or `EDDI_AUDIT_HMAC_KEY`. The install script sets one; plain `docker-compose.yml` defaults to empty, so signing is off there. About 15 English strings say "HMAC-signed" or "cryptographically signed" unconditionally. Add "when a signing key is configured" on the Security page at least.
 - Docker Hub overview still links eddi.labs.ai and says 6.0.0; the EDDI README says 96 MCP tools and pins 6.5.0 (already reported upstream).
 - Homepage title tag: add a `home.metaTitle` to all 11 locales (proposed English: "Open-Source Self-Hosted AI Agent Orchestration").
