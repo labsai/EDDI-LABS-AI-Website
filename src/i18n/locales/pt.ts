@@ -34,7 +34,7 @@ const pt: TranslationSchema = {
 		observability: 'Observabilidade',
 		observabilityDesc: 'Logs de pipeline e trilhas de auditoria',
 		codeQuality: 'Qualidade de Código',
-		codeQualityDesc: '20.000+ testes, exigência de cobertura >90%',
+		codeQualityDesc: '50.000+ testes, exigência de cobertura >90%',
 		aiReady: 'Preparado para IA',
 		aiReadyDesc: 'Projetado para agentes de codificação',
 
@@ -86,7 +86,7 @@ const pt: TranslationSchema = {
 		subtitle: 'Orientado por configuração. Auto-hospedado. Pronto para produção.',
 		redHatCertified: 'Container Certificado Red Hat',
 		apache2: 'Licença Apache 2.0',
-		tests: '20.000+ Testes · Verde no CI',
+		tests: '50.000+ Testes · Verde no CI',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Best Practices: Gold',
 		platform: 'Plataforma',
@@ -179,7 +179,7 @@ const pt: TranslationSchema = {
 		trustRedHatDesc: 'Imagem certificada, publicada no catálogo da Red Hat',
 		trustApache: 'Licença Apache 2.0',
 		trustApacheDesc: '100% código aberto e pronto para empresas',
-		trustTests: '20.000+ Testes · Verde no CI',
+		trustTests: '50.000+ Testes · Verde no CI',
 		trustTestsDesc: 'Cada merge passa pela suíte completa, com cobertura de instruções >90% obrigatória',
 		trustOpenSSF: 'OpenSSF Best Practices: Gold',
 		trustOpenSSFDesc: 'Selo Gold, o nível mais alto do programa OpenSSF Best Practices',
@@ -436,7 +436,7 @@ const pt: TranslationSchema = {
 		obsCardDesc:
 			'Cada etapa do pipeline registrada com <strong>trilhas de auditoria imutáveis</strong>, tokens, custo, tempo e chamadas de ferramentas.',
 		cqCardTitle: '🧪 Qualidade de Código',
-		cqCardDesc: '<strong>20.000+ testes, verdes em cada merge.</strong> Cobertura obrigatória de >90% das instruções e >80% dos branches. Gates de CodeQL, Checkstyle e formatador no CI.',
+		cqCardDesc: '<strong>50.000+ testes, verdes em cada merge.</strong> Cobertura obrigatória de >90% das instruções e >80% dos branches. Gates de CodeQL, Checkstyle e formatador no CI.',
 		aiCardTitle: '🧩 Preparado para IA',
 		aiCardDesc:
 			'108 ferramentas MCP, uma API compatível com OpenAI, padrões CRUD previsíveis, APIs autodocumentadas. <strong>Projetado para agentes de codificação</strong> trabalharem.',
@@ -782,13 +782,13 @@ const pt: TranslationSchema = {
 		codeQuality: {
 			title: 'Qualidade de Código',
 			metaTitle: 'Qualidade de Código, Cobertura de Testes e Gates de CI',
-			description: '20.000+ testes, verdes em cada merge. Cobertura obrigatória de >90% das instruções e >80% dos branches, com gates de CodeQL, Checkstyle e formatador no CI.',
+			description: '50.000+ testes, verdes em cada merge. Cobertura obrigatória de >90% das instruções e >80% dos branches, com gates de CodeQL, Checkstyle e formatador no CI.',
 			heading1: 'Rigor em Engenharia',
 			para1:
 				'O EDDI mantém <strong>qualidade de código excepcional</strong> através de testes abrangentes, análise estática e portas de qualidade CI/CD. Cada pull request deve passar no conjunto completo de testes antes do merge.',
 			heading2: 'Métricas de Qualidade',
 			items: [
-				'<strong>20.000+ Testes</strong>, Cobertura unitária, de integração e ponta a ponta, executados por completo em cada pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)',
+				'<strong>50.000+ Testes</strong>, Cobertura unitária, de integração e ponta a ponta, executados por completo em cada pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)',
 				'<strong>Gate de Cobertura</strong>, O build falha abaixo de 90% de cobertura de instruções ou 80% de cobertura de branches (JaCoCo)',
 				'<strong>Gates de Estilo</strong>, As regras de imports do Checkstyle e o formatador do Eclipse fazem o build falhar em vez de reescrever o código sem você perceber',
 				'<strong>CodeQL</strong>, Análise semântica do backend Java e das duas interfaces React em cada mudança',
@@ -1334,7 +1334,7 @@ const pt: TranslationSchema = {
 			devCIDesc: 'Verificação de build automatizada em cada commit',
 			devCodeQL: 'CodeQL limpo',
 			devCodeQLDesc: 'Varredura de vulnerabilidades de segurança do GitHub',
-			devTests: '20.000+ Testes',
+			devTests: '50.000+ Testes',
 			devTestsDesc: 'Todos precisam passar antes de cada merge',
 			devIntegration: '70 Suítes de testes de integração',
 			devIntegrationDesc: 'Verificação REST API full-stack com banco de dados real',

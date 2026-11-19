@@ -1265,7 +1265,7 @@ const zh: TranslationSchema = {
 			devCIDesc: '每次提交自动构建验证',
 			devCodeQL: 'CodeQL 清洁',
 			devCodeQLDesc: 'GitHub 安全漏洞扫描',
-			devTests: '20,000+ 测试',
+			devTests: '50,000+ 测试',
 			devTestsDesc: '每次合并前必须全部通过',
 			devIntegration: '70 集成测试套件',
 			devIntegrationDesc: '使用真实数据库的全栈 REST API 验证',

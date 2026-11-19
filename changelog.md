@@ -4,6 +4,12 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🧪 50,000+ Tests, and the Brand Font Finally Loads
+
+- **Test count 20,000+ → 50,000+** (confirmed November 2026), in `TESTS`, every locale's literal renderings (each keeps its own separator: `50,000`, `50.000`, `50 000`), and the README. `check-stats` now requires 50,000 in every locale and forbids 20,000 as a stale count. The same change went to eddi.solutions.
+- **The brand font never loaded.** `@fontsource-variable/outfit` registers the family as `Outfit Variable`, but `global.css` and the newsletter styles asked for `Outfit`, so browsers fell back to the system font. Both now name `'Outfit Variable', 'Outfit'`. Same fix on eddi.solutions.
+- The dependency bump first planned with this change was dropped: `main` already moved to Astro 7.4.12, and its lockfile audits clean.
+
 ### 💶 funding.json Ownership Proof
 
 - `public/.well-known/funding-manifest-urls`: one line, `https://github.com/labsai/EDDI/blob/main/funding.json`. EDDI's [funding.json](https://fundingjson.org/) manifest (labsai/EDDI PR 1435) names https://eddi.technology as the project's web page, and funding directories such as FLOSS/fund only count that URL as verified when this host lists the manifest under this well-known path.

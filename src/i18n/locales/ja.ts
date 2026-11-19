@@ -1278,7 +1278,7 @@ const ja: TranslationSchema = {
 			devCIDesc: 'コミットごとの自動ビルド検証',
 			devCodeQL: 'CodeQLクリーン',
 			devCodeQLDesc: 'GitHubセキュリティ脆弱性スキャン',
-			devTests: '20,000+テスト',
+			devTests: '50,000+テスト',
 			devTestsDesc: 'すべてのマージの前に全テストの合格が必須',
 			devIntegration: '70の統合テストスイート',
 			devIntegrationDesc: '実データベースによるフルスタックREST API検証',

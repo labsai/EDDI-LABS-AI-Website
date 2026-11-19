@@ -1336,7 +1336,7 @@ const th: TranslationSchema = {
 			devCIDesc: 'การตรวจสอบ build อัตโนมัติทุกการ commit',
 			devCodeQL: 'CodeQL สะอาด',
 			devCodeQLDesc: 'การสแกนช่องโหว่ความปลอดภัยของ GitHub',
-			devTests: '20,000+ การทดสอบ',
+			devTests: '50,000+ การทดสอบ',
 			devTestsDesc: 'ทุกเทสต์ต้องผ่านก่อนทุกการ merge',
 			devIntegration: '70 ชุดทดสอบการรวม',
 			devIntegrationDesc: 'การตรวจสอบ REST API แบบ full-stack ด้วยฐานข้อมูลจริง',
