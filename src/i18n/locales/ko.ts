@@ -1281,7 +1281,7 @@ const ko: TranslationSchema = {
 			devCIDesc: '커밋마다 자동 빌드 검증',
 			devCodeQL: 'CodeQL 클린',
 			devCodeQLDesc: 'GitHub 보안 취약점 스캔',
-			devTests: '20,000+ 테스트',
+			devTests: '50,000+ 테스트',
 			devTestsDesc: '모든 머지 전에 전부 통과해야 함',
 			devIntegration: '70 통합 테스트 스위트',
 			devIntegrationDesc: '실제 데이터베이스를 활용한 풀스택 REST API 검증',

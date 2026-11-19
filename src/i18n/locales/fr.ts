@@ -34,7 +34,7 @@ const fr: TranslationSchema = {
 		observability: 'Observabilité',
 		observabilityDesc: 'Logs de pipeline et traces d\'audit',
 		codeQuality: 'Qualité du code',
-		codeQualityDesc: 'Plus de 20 000 tests, seuil de couverture >90%',
+		codeQualityDesc: 'Plus de 50 000 tests, seuil de couverture >90%',
 		aiReady: 'Prêt pour l\'IA',
 		aiReadyDesc: 'Conçu pour les agents de codage',
 
@@ -86,7 +86,7 @@ const fr: TranslationSchema = {
 		subtitle: 'Basé sur la configuration. Auto-hébergé. Prêt pour la production.',
 		redHatCertified: 'Conteneur certifié Red Hat',
 		apache2: 'Licence Apache 2.0',
-		tests: '20 000+ Tests · Vert en CI',
+		tests: '50 000+ Tests · Vert en CI',
 		techStack: 'Java 25 · Quarkus · LangChain4j',
 		openSSFGold: 'OpenSSF Best Practices : Gold',
 		platform: 'Plateforme',
@@ -179,7 +179,7 @@ const fr: TranslationSchema = {
 		trustRedHatDesc: 'Image certifiée, publiée dans le catalogue Red Hat',
 		trustApache: 'Sous Licence Apache 2.0',
 		trustApacheDesc: '100% open-source et Enterprise-ready',
-		trustTests: 'Plus de 20 000 tests · Vert en CI',
+		trustTests: 'Plus de 50 000 tests · Vert en CI',
 		trustTestsDesc: 'Chaque merge passe la suite complète, avec plus de 90% de couverture d\'instructions imposée',
 		trustOpenSSF: 'OpenSSF Best Practices : Gold',
 		trustOpenSSFDesc: 'Badge Gold, le plus haut niveau du programme OpenSSF Best Practices',
@@ -438,7 +438,7 @@ const fr: TranslationSchema = {
 			'Chaque étape du pipeline est journalisée avec des <strong>pistes d\'audit immuables</strong>, tokens, coûts, durées et appels d\'outils.',
 		cqCardTitle: '🧪 Qualité du code',
 		cqCardDesc:
-			'<strong>Plus de 20 000 tests, au vert à chaque merge.</strong> Plus de 90% de couverture d\'instructions et plus de 80% de couverture de branches imposées. Contrôles CodeQL, Checkstyle et formateur dans la CI.',
+			'<strong>Plus de 50 000 tests, au vert à chaque merge.</strong> Plus de 90% de couverture d\'instructions et plus de 80% de couverture de branches imposées. Contrôles CodeQL, Checkstyle et formateur dans la CI.',
 		aiCardTitle: '🧩 Prêt pour l\'IA',
 		aiCardDesc:
 			'108 outils MCP, une API compatible OpenAI, patterns CRUD prévisibles, APIs auto-documentées. <strong>Conçu pour que les agents de codage travaillent avec</strong>.',
@@ -780,13 +780,13 @@ const fr: TranslationSchema = {
 			title: 'Qualité du code',
 			metaTitle: 'Qualité du code, couverture de tests et contrôles CI',
 			description:
-				'Plus de 20 000 tests, au vert à chaque merge. Plus de 90% de couverture d\'instructions et plus de 80% de couverture de branches imposées, avec des contrôles CodeQL, Checkstyle et formateur dans la CI.',
+				'Plus de 50 000 tests, au vert à chaque merge. Plus de 90% de couverture d\'instructions et plus de 80% de couverture de branches imposées, avec des contrôles CodeQL, Checkstyle et formateur dans la CI.',
 			heading1: 'Rigueur d\'ingénierie',
 			para1:
 				'EDDI maintient une <strong>qualité de code exceptionnelle</strong> grâce à des tests exhaustifs, l\'analyse statique et des contrôles qualité CI/CD. Chaque pull request doit passer la suite de tests complète avant d\'être fusionnée.',
 			heading2: 'Métriques de qualité',
 			items: [
-				'<strong>Plus de 20 000 tests</strong>, Couverture unitaire, d\'intégration et de bout en bout, exécutée intégralement sur chaque pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)',
+				'<strong>Plus de 50 000 tests</strong>, Couverture unitaire, d\'intégration et de bout en bout, exécutée intégralement sur chaque pull request (<a href="https://github.com/labsai/EDDI/actions/workflows/ci.yml" target="_blank" rel="noopener">CI</a>)',
 				'<strong>Seuil de couverture</strong>, Le build échoue sous 90% de couverture d\'instructions ou 80% de couverture de branches (JaCoCo)',
 				'<strong>Contrôles de style</strong>, Les règles d\'import Checkstyle et le formateur Eclipse font échouer le build au lieu de réécrire le code dans votre dos',
 				'<strong>CodeQL</strong>, Analyse sémantique du backend Java et des deux interfaces React à chaque modification',
@@ -1338,7 +1338,7 @@ const fr: TranslationSchema = {
 			devCIDesc: 'Vérification de build automatisée à chaque commit',
 			devCodeQL: 'CodeQL propre',
 			devCodeQLDesc: 'Analyse des vulnérabilités de sécurité GitHub',
-			devTests: '20 000+ Tests',
+			devTests: '50 000+ Tests',
 			devTestsDesc: 'Tous doivent passer avant chaque merge',
 			devIntegration: '70 Suites de tests d\'intégration',
 			devIntegrationDesc: 'Vérification REST API full-stack avec vraie base de données',

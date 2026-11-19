@@ -1349,7 +1349,7 @@ const ar: TranslationSchema = {
 			devCIDesc: 'تحقق بناء آلي عند كل commit',
 			devCodeQL: 'CodeQL نظيف',
 			devCodeQLDesc: 'فحص ثغرات الأمان من GitHub',
-			devTests: '+20,000 اختبار',
+			devTests: '+50,000 اختبار',
 			devTestsDesc: 'يجب أن تنجح جميعها قبل كل دمج',
 			devIntegration: '70 مجموعة اختبارات تكامل',
 			devIntegrationDesc: 'التحقق من REST API الكامل مع قاعدة بيانات حقيقية',

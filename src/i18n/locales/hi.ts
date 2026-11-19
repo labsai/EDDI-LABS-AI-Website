@@ -1341,7 +1341,7 @@ const hi: TranslationSchema = {
 			devCIDesc: 'हर कमिट पर स्वचालित बिल्ड सत्यापन',
 			devCodeQL: 'CodeQL क्लीन',
 			devCodeQLDesc: 'GitHub सुरक्षा भेद्यता स्कैनिंग',
-			devTests: '20,000+ परीक्षण',
+			devTests: '50,000+ परीक्षण',
 			devTestsDesc: 'हर मर्ज से पहले सभी का पास होना अनिवार्य',
 			devIntegration: '70 एकीकरण टेस्ट सुइट्स',
 			devIntegrationDesc: 'वास्तविक डेटाबेस के साथ फुल-स्टैक REST API सत्यापन',
