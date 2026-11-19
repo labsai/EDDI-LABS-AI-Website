@@ -4,6 +4,14 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🖼️ Images Follow the Repositioning
+
+- `public/og-image.png` replaced: the old social card had "The Enterprise AI Orchestrator" baked in. The new one matches the README banner (logo, category line, Run · Limit · Approve · Record).
+- Real screens where the page is about a real screen: the Manager feature hero is now the agents list, the Human-in-the-Loop hero is the pending-approvals list, and Getting Started step 6 shows the actual dashboard instead of the rendered control room. `hero_manager.*` is removed.
+- `FeaturePage` keeps a hero image's own aspect ratio; `.premium-image-wrapper--shot` drops the square slot for screenshots.
+- `llms-full.txt`: "the only AI agent management system" → "an AI agent management system".
+- Left as is: the other feature heroes (one consistent set, no text). Not referenced anywhere and off-brand: `images/` at the repo root; check whether one is the GitHub social preview before removing.
+
 ### 🧭 Repositioning: The Open-Source AI Agent Management System (11 locales)
 
 The upstream EDDI README was rewritten around a new category, "the open-source AI agent management system", and four verbs: Run, Limit, Approve, Record. The site led with "The Enterprise AI Orchestrator". This brings it in line.

@@ -4,7 +4,7 @@
 
 ## What is EDDI?
 
-EDDI (Enhanced Dialog Driven Intelligence) is the only AI agent management system that combines all three properties:
+EDDI (Enhanced Dialog Driven Intelligence) is an AI agent management system that combines three properties:
 
 1. **JVM-native runtime** — Built on Java 25 with virtual threads for enterprise-grade concurrency
 2. **Configuration-as-Code** — Agent logic defined as JSON configurations, not compiled code

@@ -4,7 +4,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import managerImage from '../../assets/hero_manager.webp';
+import managerImage from '../../assets/screenshots/eddi-v6-screenshot-dashboard-1.png';
 import heroImage from '../../assets/hero_getting_started.png';
 import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
@@ -176,8 +176,8 @@ curl -X POST http://localhost:7070/agents/<your-agent-id>/start \\
 	<section class="gs-section border-b-0 pb-0">
 		<h2>{t.gettingStarted.step6Title}</h2>
 		<p set:html={t.gettingStarted.step6Desc} />
-		<div class="mt-8 mb-8 premium-image-wrapper mx-auto max-w-4xl shadow-2xl">
-			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} width={1024} height={1024} loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
+		<div class="mt-8 mb-8 premium-image-wrapper premium-image-wrapper--shot mx-auto max-w-4xl shadow-2xl">
+			<Image src={managerImage} alt={t.gettingStarted.managerImageAlt} widths={[800, 1400]} sizes="(max-width: 900px) 100vw, 896px" loading="lazy" decoding="async" class="w-full h-auto block rounded-[1.25rem]" />
 		</div>
 	</section>
 	<section class="gs-section">

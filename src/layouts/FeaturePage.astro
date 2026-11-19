@@ -55,8 +55,8 @@ const t = await getTranslations(lang);
 			</div>
 		</div>
 		{heroImage && (
-			<div class="premium-image-wrapper">
-				<Image src={heroImage} alt={title} width={1024} height={1024} loading="eager" decoding="async" />
+			<div class:list={["premium-image-wrapper", { "premium-image-wrapper--shot": heroImage.width !== heroImage.height }]}>
+				<Image src={heroImage} alt={title} width={1024} height={Math.round((1024 * heroImage.height) / heroImage.width)} loading="eager" decoding="async" />
 			</div>
 		)}
 	</div>
