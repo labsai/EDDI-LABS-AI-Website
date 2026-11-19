@@ -427,6 +427,7 @@ html[data-theme='light'] .premium-image-wrapper:hover {
 /* Real product screenshots keep their own aspect ratio instead of the square art slot. */
 .premium-image-wrapper--shot {
 	aspect-ratio: auto;
+	max-width: 36rem;
 }
 
 .premium-image-wrapper--shot img {
@@ -451,6 +452,13 @@ html[data-theme='light'] .premium-image-wrapper:hover {
 @media (max-width: 30rem) {
 	.premium-image-wrapper {
 		max-width: 16rem;
+	}
+}
+
+/* Screenshots need the width to stay legible on small screens. */
+@media (max-width: 64rem) {
+	.premium-image-wrapper--shot {
+		max-width: 100%;
 	}
 }
 
