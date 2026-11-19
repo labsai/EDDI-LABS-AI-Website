@@ -25,6 +25,8 @@ interface Props {
   title: string;
   /** Longer, keyword-bearing title for search results; the H1 keeps `title`. */
   metaTitle?: string;
+  /** Use metaTitle as the whole <title>, without the " | EDDI" suffix (homepage, whose metaTitle already starts with EDDI). */
+  rawTitle?: boolean;
   description?: string;
   /** Full-bleed page (no content wrapper) — used by homepage */
   fullWidth?: boolean;
@@ -53,6 +55,7 @@ interface Props {
 const {
   title,
   metaTitle,
+  rawTitle = false,
   description: descProp,
   fullWidth = false,
   lang: langProp,
@@ -62,7 +65,7 @@ const {
 } = Astro.props;
 
 const lang = langProp ?? getLocaleFromUrl(Astro.url);
-const fullTitle = `${metaTitle ?? title} | EDDI`;
+const fullTitle = rawTitle && metaTitle ? metaTitle : `${metaTitle ?? title} | EDDI`;
 const dir = getDir(lang);
 
 // Use locale-aware description fallback instead of hardcoded English
@@ -145,7 +148,7 @@ const jsonLdGraph = {
       "@id": SITE_ID,
       name: "EDDI",
       url: siteOrigin,
-      description: `EDDI ${EDDI_VERSION}: The Enterprise AI Orchestrator. Self-hosted, configuration-driven AI agent platform with visual management, security-first architecture, and built-in compliance.`,
+      description: `EDDI ${EDDI_VERSION}: the open-source AI agent management system. Run, limit, approve and record AI agents on your own infrastructure, with config-as-code agents, multi-agent orchestration, human approval gates and an audit ledger.`,
       publisher: { "@id": ORG_ID },
       inLanguage: HREFLANG_MAP[lang] || lang,
     },
@@ -155,7 +158,7 @@ const jsonLdGraph = {
       name: "EDDI",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Cross-platform (JVM)",
-      description: `Self-hosted enterprise AI orchestration platform with a visual management UI, ${MCP_TOOLS} MCP tools, and built-in compliance.`,
+      description: `Self-hosted, open-source AI agent management system with multi-agent orchestration, a visual management UI, ${MCP_TOOLS} MCP tools, human approval gates and an audit ledger.`,
       url: siteOrigin,
       downloadUrl: "https://github.com/labsai/EDDI",
       softwareVersion: EDDI_LATEST_VERSION,
@@ -303,7 +306,7 @@ const jsonLdGraph = {
     <meta property="og:image" content="https://eddi.technology/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="EDDI: The Enterprise AI Orchestrator" />
+    <meta property="og:image:alt" content="EDDI: The Open-Source AI Agent Management System" />
     <meta property="og:locale" content={ogLocale} />
     {
       localized &&
