@@ -5,7 +5,7 @@ import type { TranslationSchema } from './en';
 const ko: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: `EDDI ${EDDI_VERSION}, 엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼. 비주얼 관리 UI, 108개 MCP 도구, 보안 우선 아키텍처, 그리고 GDPR, EU AI법, HIPAA를 비롯한 15개 이상의 프레임워크를 위한 내장 규제 컴플라이언스를 갖춘 자체 호스팅 구성 기반 멀티 에이전트 시스템.`,
+		siteDescription: `EDDI ${EDDI_VERSION}: 오픈소스, 자체 호스팅 AI 에이전트 관리 및 오케스트레이션. Config-as-Code 에이전트, ${MCP_TOOLS}개 MCP 도구, 사람의 승인 게이트, 감사 원장.`,
 	},
 	nav: {
 		features: '기능',
@@ -81,8 +81,8 @@ const ko: TranslationSchema = {
 		enterpriseCtaBtn: '엔터프라이즈 배포 상담하기',
 	},
 	footer: {
-		tagline: '엔터프라이즈 AI 오케스트레이터',
-		subtitle: '구성 기반. Java 네이티브. 프로덕션 대응.',
+		tagline: 'AI 에이전트 관리 시스템',
+		subtitle: '실행. 제한. 승인. 기록.',
 		redHatCertified: 'Red Hat 인증 컨테이너',
 		apache2: 'Apache 2.0 라이선스',
 		tests: `${TESTS} 테스트 · CI 통과`,
@@ -134,10 +134,42 @@ const ko: TranslationSchema = {
 		consentCta: '구독 양식 표시',
 	},
 	home: {
-		title: '엔터프라이즈 AI 오케스트레이터',
-		heroTitle: '엔터프라이즈',
-		heroHighlight: 'AI 오케스트레이터',
-		heroTagline: `거버넌스가 적용된 멀티 에이전트 AI 시스템을 배포하기 위한 오픈소스 플랫폼: 자체 호스팅, 구성 기반, 컴플라이언스 대응. 현재 <strong>${EDDI_VERSION}</strong> 버전으로 제공됩니다.`,
+		title: '오픈소스 AI 에이전트 관리 시스템',
+		/** Full <title> for the homepage, used without the " | EDDI" suffix. */
+		metaTitle: 'EDDI: 오픈소스 AI 에이전트 관리 시스템',
+		heroTitle: 'AI 에이전트',
+		heroHighlight: '관리 시스템',
+		heroTagline: `자체 인프라에서 AI 에이전트 팀을 실행하고, 에이전트가 할 수 있는 일을 제한하며, 중요한 결정 앞에는 사람을 두고, 모든 단계를 기록으로 남기세요. 오픈소스이며 자체 호스팅됩니다. 현재 <strong>${EDDI_VERSION}</strong> 버전으로 제공됩니다.`,
+		// Four things before an agent acts (Run, Limit, Approve, Record)
+		pillarsTitle: '에이전트가 행동하기 전에 갖춰야 할 네 가지',
+		pillarsSubtitle: 'EDDI는 AI 에이전트가 실제 시스템에 손대기 전에 반드시 갖춰져 있어야 할 것을 중심으로 설계되었습니다.',
+		pillarRunTitle: '실행',
+		pillarRunDesc: `에이전트는 단독으로 또는 팀으로 일하며, 로컬 모델을 포함해 ${LLM_PROVIDERS}개 모델 프로바이더 중 어느 것이든 사용해 자체 서버에서 실행됩니다. Docker 명령 하나로 설치하거나, Kubernetes와 OpenShift에 MongoDB 또는 PostgreSQL과 함께 설치할 수 있습니다.`,
+		pillarLimitTitle: '제한',
+		pillarLimitDesc: '에이전트는 구성에서 허용한 도구만, 속도 제한과 비용 예산 범위 안에서 사용합니다. 에이전트는 임의의 코드를 실행할 수 없습니다: eval도, 스크립트 엔진도 없습니다. 시크릿은 봉투 암호화된 볼트에 보관됩니다.',
+		pillarApproveTitle: '승인',
+		pillarApproveDesc: '전체 턴, 개별 도구 호출, 그룹 토론의 단계가 사람의 결정을 기다리게 할 수 있으며, 매니저, Slack 또는 MCP에서 처리할 수 있습니다.',
+		pillarRecordTitle: '기록',
+		pillarRecordDesc: '모든 단계는 추가 전용(append-only) 감사 원장에 기록되며, 서명 키를 구성하면 HMAC으로 서명됩니다. GDPR/CCPA 삭제 및 내보내기가 기본 제공됩니다.',
+		// Works with the AI you already use
+		worksWithTitle: '이미 사용 중인 AI와 함께 작동합니다',
+		worksWithIntro: 'EDDI는 ChatGPT, Claude 또는 IDE의 어시스턴트를 대체하지 않습니다. 그들이 거버넌스 아래에서 일할 수 있는 공간을 제공합니다.',
+		worksWith1Title: '어시스턴트가 에이전트를 만들고 실행합니다',
+		worksWith1Desc: 'Claude, Cursor 또는 로컬에서 실행되는 것을 포함한 모든 MCP 지원 어시스턴트에게 에이전트를 만들고, 테스트하고, 로그를 읽거나 프롬프트를 바꾸도록 요청하세요. 모든 변경은 EDDI에서 새 버전이 되며, 게이트를 건 변경은 여러분의 승인을 기다립니다.',
+		worksWith2Title: '어시스턴트가 닿지 못하는 곳에 닿는 에이전트에게 묻습니다',
+		worksWith2Desc: 'EDDI 에이전트는 개인 어시스턴트가 접근할 수 없는 데이터베이스, 내부 API, 지식 베이스에 대한 연결을 보유할 수 있습니다. 어시스턴트는 그 에이전트나 에이전트 그룹 전체에 질문하고 그 답변으로 작업을 이어갑니다. 자격 증명은 볼트에 그대로 남고, 주고받은 내용은 감사 원장에 기록됩니다.',
+		worksWith3Title: '시스템 간에 협업합니다',
+		worksWith3Desc: '다른 에이전트 플랫폼도 같은 방식으로, A2A 또는 OpenAI 호환 API를 통해 EDDI 에이전트에 접근합니다.',
+		worksWithClosing: 'EDDI는 단독으로도 사용할 수 있습니다: 최종 사용자는 Workforce, 임베드 가능한 채팅 UI 또는 Slack에서 에이전트 및 에이전트 팀과 대화합니다.',
+		worksWithLink: 'MCP 서버 작동 방식 →',
+		// What it looks like (Manager screenshots)
+		shotsTitle: '실제 화면',
+		shotGroupCaption: '실행: 공유 작업물을 활용해 질문을 함께 풀어가는 에이전트 팀',
+		shotGroupAlt: '단계, 두 개의 공유 작업물, 제안 협상 테이블이 표시된 피어 리뷰 그룹 토론을 보여주는 EDDI 매니저',
+		shotApprovalsCaption: '승인: 사람을 기다리는 작업을 한 목록에서',
+		shotApprovalsAlt: '일시 중지된 대화 두 개와 그룹 토론 하나가 각각 승인, 거부, 취소 버튼과 함께 나열된 EDDI 매니저의 승인 대기 페이지',
+		shotAuditCaption: '기록: 턴의 모든 단계를 서명과 함께, 소요 시간과 비용까지',
+		shotAuditAlt: '검증된 서명, 총 소요 시간과 비용, 서명됨으로 표시된 각 파이프라인 단계가 나타난 한 에이전트의 EDDI 매니저 감사 추적 페이지',
 		problemTitle: '문제',
 		problemDesc: '엔터프라이즈 AI 오케스트레이션에는 <strong>비주얼 AI 오케스트레이션 미들웨어가 없습니다</strong>. 팀은 고통스럽고 파편화된 라이프사이클에 갇혀 있습니다:',
 		problemCard1Title: '프로토타입의 함정',
@@ -147,13 +179,13 @@ const ko: TranslationSchema = {
 		problemCard3Title: 'BPMN 마찰',
 		problemCard3Desc: '비결정론적 AI 에이전트를 Camunda/Temporal의 결정론적 워크플로우에 강제하면 <strong>심각한 임피던스 불일치</strong>와 취약한 아키텍처가 발생합니다.',
 		solutionTitle: '솔루션',
-		solutionDesc: 'EDDI는 <strong>배포 가능한 AI 오케스트레이션 플랫폼</strong>입니다, 비주얼 관리 UI를 갖춘 배포 가능한 미들웨어 플랫폼:',
+		solutionDesc: 'EDDI는 <strong>가져다 쓰는 라이브러리가 아니라 직접 배포하는 서비스</strong>입니다. 비주얼 관리, config-as-code, 엔터프라이즈 보안을 기본 제공합니다:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'에이전트 로직, 파이프라인, 도구 정의는 <strong>JSON 구성</strong>입니다, 컴파일된 코드가 아닙니다. 프롬프트 엔지니어가 React UI 또는 REST API를 통해 즉시 반복하며, Java 코드를 건드릴 필요가 없습니다.',
 		sol2Title: '108개 MCP 도구',
 		sol2Desc:
-			'EDDI는 <strong>Model Context Protocol</strong>을 통해 기능을 노출합니다, Claude Desktop과의 상호작용을 가능하게 합니다. 에이전트는 <strong>외부 MCP 도구를 소비</strong>할 수도 있습니다.',
+			'EDDI는 <strong>Model Context Protocol</strong>을 통해 기능을 노출하므로, Claude, Cursor 또는 모든 MCP 클라이언트가 에이전트를 구축, 테스트, 운영할 수 있습니다. 에이전트는 <strong>외부 MCP 도구를 소비</strong>할 수도 있습니다.',
 		sol3Title: '보안 우선',
 		sol3Desc: '<code>eval()</code> 없음, 이스케이프 없음. Vault 통합, URL 검증, 암호화 감사 추적은 <strong>아키텍처 기반</strong>입니다.',
 		sol4Title: '관측성',
@@ -212,10 +244,10 @@ const ko: TranslationSchema = {
 		faqTitle: '자주 묻는 질문',
 		faq1Q: 'EDDI란 무엇인가요?',
 		faq1A:
-			'EDDI는 오픈소스 엔터프라이즈 AI 오케스트레이션 플랫폼입니다. 팀이 컴파일된 코드 대신 JSON 구성을 사용하여 AI 에이전트를 구축, 구성, 배포할 수 있게 합니다. EDDI는 <strong>프로덕션 대응 React 관리 UI</strong>(EDDI 매니저), 내장 REST API, 대화 상태 관리, 보안(OIDC/Keycloak), 불변 감사 추적, 108개 MCP 도구를 갖춘 완전한 플랫폼을 제공합니다, 모두 Docker 또는 Kubernetes로 배포 가능.',
+			'EDDI는 오픈소스 AI 에이전트 관리 시스템입니다. 팀이 컴파일된 코드 대신 JSON 구성을 사용하여 AI 에이전트를 구축, 구성, 배포할 수 있게 합니다. EDDI는 <strong>프로덕션 대응 React 관리 UI</strong>(EDDI 매니저), 내장 REST API, 대화 상태 관리, 보안(OIDC/Keycloak), 불변 감사 추적, 108개 MCP 도구를 갖춘 완전한 플랫폼을 제공합니다, 모두 Docker 또는 Kubernetes로 배포 가능.',
 		faq2Q: 'EDDI는 AI 라이브러리 및 프레임워크와 어떻게 다른가요?',
 		faq2A:
-			'LangChain, Spring AI, LangChain4j 같은 AI 라이브러리는 빌딩 블록을 제공합니다. 하지만 REST 컨트롤러, 인증, 대화 상태 관리, 감사 로깅, 관리 UI는 여전히 직접 구축해야 합니다. EDDI는 라이브러리가 아닌 <strong>배포 가능한 미들웨어 플랫폼</strong>으로, 이 모든 것을 기본 제공하며 Docker로 바로 배포할 수 있습니다.',
+			'LangChain, Spring AI, LangChain4j 같은 AI 라이브러리는 빌딩 블록을 제공합니다. 하지만 REST 컨트롤러, 인증, 대화 상태 관리, 감사 로깅, 관리 UI는 여전히 직접 구축해야 합니다. EDDI는 <strong>가져다 쓰는 라이브러리가 아니라 직접 배포하는 서비스</strong>입니다. 이 모든 것을 기본 제공하며 Docker로 바로 배포할 수 있습니다.',
 		faq3Q: 'EDDI는 엔터프라이즈 프로덕션 사용에 준비되어 있나요?',
 		faq3A:
 			'네. EDDI는 경량 가상 스레드를 갖춘 엔터프라이즈 런타임에 구축되어 I/O 바운드 동시성을 위한 대규모 병렬 처리를 제공합니다. MongoDB와 PostgreSQL을 지원하고, 내장 OIDC/Keycloak 인증과 리소스 공유가 가능한 사용자별 워크스페이스를 포함하며, 규정 준수(EU AI법 포함)를 위한 불변 암호화 감사 추적을 제공하고, NATS JetStream으로 수평 확장합니다.',
@@ -226,7 +258,7 @@ const ko: TranslationSchema = {
 		faq5A:
 			'EDDI는 엔터프라이즈급 아키텍처로 유사한 비주얼 빌딩 목적을 수행합니다. Flowise, n8n과 달리 EDDI는 <code>eval()</code>이나 코드 블록을 사용하지 않고, 엔터프라이즈 급 동시성을 위해 Java 25 가상 스레드를 실행하며, OIDC/Keycloak 인증을 지원하고, MongoDB 또는 PostgreSQL에 데이터를 저장합니다. 규제 산업을 위해 설계되었습니다.',
 		faq6Q: 'EDDI는 "Eddie AI" 또는 "Eddy"라는 이름의 다른 제품과 관련이 있나요?',
-		faq6A: '아니요. EDDI(<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a> 개발)는 Java/Quarkus 기반으로 구축된 자체 호스팅 <strong>엔터프라이즈 AI 에이전트 오케스트레이션 플랫폼</strong>입니다. 소비자용 비디오 편집 도구, HR 소프트웨어, 챗봇 빌더 등 유사한 이름을 가진 제품들과 무관합니다.',
+		faq6A: '아니요. EDDI(<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a> 개발)는 Java/Quarkus 기반으로 구축된 자체 호스팅 <strong>AI 에이전트 관리 시스템</strong>입니다. 소비자용 비디오 편집 도구, HR 소프트웨어, 챗봇 빌더 등 유사한 이름을 가진 제품들과 무관합니다.',
 		faq7Q: 'EDDI는 AWS Bedrock이나 Azure AI Studio 같은 클라우드 AI 플랫폼과 어떻게 다른가요?',
 		faq7A: `클라우드 AI 플랫폼은 관리형 인프라를 제공하지만 <strong>벤더 종속</strong>을 야기합니다. EDDI는 온프레미스, 모든 클라우드, 에어갭 환경 등 Docker가 실행되는 모든 곳에서 실행됩니다. ${LLM_PROVIDERS}개 LLM 프로바이더와 모든 OpenAI 호환 엔드포인트를 지원하여 완전한 모델 이식성과 데이터 주권을 제공합니다. <a href="/ko/enterprise/vs-alternatives/">상세 비교</a>를 확인하세요.`,
 		faq8Q: 'EDDI는 Open WebUI 및 기타 OpenAI 호환 클라이언트와 함께 작동하나요?',
@@ -320,7 +352,7 @@ const ko: TranslationSchema = {
 	useCases: {
 		title: '활용 사례',
 		metaTitle: '규제 산업을 위한 AI 에이전트 활용 사례',
-		description: 'EDDI AI 오케스트레이션 플랫폼을 사용하는 규제 산업과 엔터프라이즈 팀을 위한 배포 패턴.',
+		description: '오픈소스 AI 에이전트 관리 시스템인 EDDI를 사용하는 규제 산업과 엔터프라이즈 팀을 위한 배포 패턴.',
 		heroTitle: '활용 사례',
 		heroSubtitle: '규제 산업과 엔터프라이즈 팀을 위한 배포 패턴.',
 		healthcare: '의료',
@@ -349,12 +381,12 @@ const ko: TranslationSchema = {
 	featuresOverview: {
 		title: '기능 한눈에 보기',
 		metaTitle: '기능: 셀프 호스팅 AI 에이전트 오케스트레이션 플랫폼',
-		description: 'EDDI를 엔터프라이즈 AI 오케스트레이터로 만드는 모든 기능, EDDI 매니저 UI, Config-as-Code, 108개 MCP 도구, 보안 우선 아키텍처 등.',
+		description: 'EDDI를 오픈소스 AI 에이전트 관리 시스템으로 만드는 모든 기능, EDDI 매니저 UI, Config-as-Code, 108개 MCP 도구, 보안 우선 아키텍처 등.',
 		heroTitle: 'AI를 오케스트레이션하는 데',
 		heroHighlight: '필요한 모든 것',
 		heroDesc: 'EDDI는 AI 에이전트를 구축, 배포, 관리하기 위한 완전한 프로덕션 대응 플랫폼을 제공합니다, 보일러플레이트 없이.',
 		coreTitle: '코어 플랫폼',
-		coreDesc: 'EDDI를 <strong>완전한 AI 오케스트레이션 플랫폼</strong>으로 만드는 핵심 기능.',
+		coreDesc: 'EDDI를 <strong>완전한 AI 에이전트 관리 시스템</strong>으로 만드는 핵심 기능.',
 		managerCardTitle: '🖥️ EDDI 매니저',
 		managerCardDesc: '에이전트를 비주얼하게 구축, 배포, 모니터링하기 위한 <strong>프로덕션 대응 React UI</strong>, 11개 로케일 i18n, 라이브 채팅 디버깅, 감사 대시보드.',
 		configCardTitle: '⚙️ Config-as-Code',
@@ -551,6 +583,9 @@ const ko: TranslationSchema = {
 			],
 			heading3: '팀을 위한 설계',
 			para2: '매니저를 통해 비개발자도 소스 코드를 건드리지 않고 에이전트 동작을 반복할 수 있습니다. 프롬프트 엔지니어는 규칙 수정, 대화 테스트, 변경 배포, 모두 브라우저에서.',
+			workforceTitle: 'Workforce: 최종 사용자용 앱',
+			workforcePara: '<code>/workforce</code>의 Workforce는 로그인한 사용자가 조직이 제공하는 에이전트와 팀을 사용하는 곳입니다. 구축과 관리를 위한 매니저와는 별개의 앱이며, 두 앱은 하나의 로그인을 공유합니다. 에이전트는 프로덕션에 배포되고 카탈로그에 등록되면 Workforce에 나타납니다.',
+			workforceLink: 'Workforce 가이드 읽기',
 		},
 		mcpServer: {
 			title: 'MCP 서버, 108개 도구',
@@ -625,8 +660,8 @@ const ko: TranslationSchema = {
 				'<strong>Vault 통합</strong>, API 키를 위한 안전한 시크릿 관리',
 				'<strong>경로 순회 보호</strong>, 모든 경계에서 입력 검증',
 				'<strong>SSRF 보호</strong>, URL 검증과 도메인 허용 목록으로 서버 측 요청 위조를 방지하며, HTTP 호출, MCP, A2A 대상에서는 DNS 확인이나 리다이렉트를 거치는 경우까지 포함해 클라우드 메타데이터 엔드포인트를 차단',
-				'<strong>암호화 감사 추적</strong>, 불변, 변조 방지 운영 로그',
-				'<strong>EU AI법 대응</strong>, 규제 준수를 위한 내장 거버넌스 기능',
+				'<strong>암호화 감사 추적</strong>, 변조 방지 운영 로그, 서명 키가 구성되면 HMAC-SHA256으로 서명됨(설치 프로그램은 키를 설정하지만, 일반 docker-compose 설정에서는 비어 있음), 에이전트별 암호화 서명 포함',
+				'<strong>EU AI법 통제 기능</strong>, 기록 보관, 투명성, 인적 감독을 위한 기술적 통제와 배포 가이드. 이는 가이드이며 인증이 아닙니다',
 				'<strong>시크릿 삭제</strong>, API 키, vault 참조, 민감한 데이터를 모든 감사 항목에서 자동으로 필터링',
 				'<strong>PII 안전 로깅</strong>, GDPR 작업은 SHA-256 가명을 기록하며, 원시 사용자 식별자는 기록하지 않음',
 				'<strong>Sigstore Cosign</strong>, 키리스 OIDC 컨테이너 이미지 서명, 모든 Docker 이미지가 공식 CI에서 빌드되었음을 암호학적으로 검증',
@@ -888,11 +923,11 @@ const ko: TranslationSchema = {
 		whyEddi: {
 			title: '왜 EDDI인가?',
 			metaTitle: '왜 EDDI인가: 셀프 호스팅 엔터프라이즈 AI 에이전트 플랫폼',
-			description: '자체 호스팅 엔터프라이즈 AI 오케스트레이션 플랫폼.',
+			description: '자체 호스팅 오픈소스 AI 에이전트 관리 시스템. 구성 기반 에이전트 로직, 완전한 관리 UI, 엔터프라이즈급 보안을 하나의 배포 가능한 플랫폼에 담았습니다.',
 			heading1: '엔터프라이즈 AI의 공백',
 			para1: '엔터프라이즈 Java에는 <strong>비주얼 AI 오케스트레이션 미들웨어가 없습니다</strong>.',
 			heading2: 'EDDI가 이 공백을 채웁니다',
-			para2: 'EDDI는 <strong>배포 가능한 미들웨어 플랫폼</strong>이며 라이브러리가 아닙니다:',
+			para2: 'EDDI는 <strong>가져다 쓰는 라이브러리가 아니라 직접 배포하는 서비스</strong>입니다. 팀에 필요한 모든 것을 기본 제공합니다:',
 			items: [
 				'<strong>비주얼 관리 UI</strong>, 에이전트 구축과 모니터링을 위한 EDDI 매니저',
 				'<strong>Configuration-as-Code</strong>, 에이전트 로직은 JSON, 컴파일된 Java가 아님',
@@ -973,7 +1008,16 @@ const ko: TranslationSchema = {
 			metaTitle: 'EDDI vs. Flowise, n8n, LangGraph, CrewAI 및 클라우드 AI 플랫폼',
 			description: 'EDDI와 Spring AI, LangChain4j, Flowise, n8n 등 AI 오케스트레이션 접근법 비교.',
 			heading1: '플랫폼 vs. 라이브러리 vs. 빌더',
-			para1: 'AI 오케스트레이션 시장에는 세 가지 유형이 있습니다: <strong>비주얼 노드 빌더</strong>, <strong>코드 라이브러리</strong>, <strong>클라우드 플랫폼</strong>. EDDI는 <strong>배포 가능한 미들웨어 플랫폼</strong>입니다.',
+			para1: 'AI 오케스트레이션 시장에는 세 가지 유형이 있습니다: <strong>비주얼 노드 빌더</strong>(Flowise, n8n), <strong>코드 라이브러리</strong>(LangGraph, CrewAI, AutoGen), <strong>클라우드 플랫폼</strong>(AWS Bedrock, Azure AI Studio). EDDI는 이 중 어디에도 속하지 않습니다: 팀이 AI 에이전트를 프로덕션에 출시하는 데 필요한 완전한 인프라를 갖춘, <strong>가져다 쓰는 라이브러리가 아니라 직접 배포하는 서비스</strong>입니다. 에이전트 로직을 자체 Java 애플리케이션 안에 두고 싶다면, EDDI 자체도 기반으로 삼고 있는 LangChain4j 같은 라이브러리가 더 잘 맞습니다.',
+
+			// ── Where EDDI sits (category level, no vendor names) ──
+			whereTitle: 'EDDI의 위치',
+			whereItems: [
+				'<strong>에이전트 툴킷과 프레임워크</strong>: 에이전트를 구축할 수 있게 해 주지만, 승인, 제한, 감사 기록은 대개 직접 구축해야 합니다.',
+				'<strong>에이전트 보안 애드온</strong>: 다른 곳에서 실행되는 에이전트를 감시하거나 차단하지만, 대개 에이전트를 직접 실행하지는 않습니다.',
+				'<strong>벤더 에이전트 플랫폼</strong>: 에이전트를 실행하고 거버넌스를 적용하지만, 대개 벤더의 클라우드에서 벤더의 모델을 중심으로 동작합니다.',
+				'<strong>EDDI</strong>: 에이전트를 실행하고, 할 수 있는 일을 제한하며, 핵심 결정 앞에 사람을 두고, 모든 단계를 기록합니다. 직접 호스팅하는 하나의 시스템에서, 어떤 모델과도 함께.',
+			],
 
 			heading2: 'vs. 비주얼 노드 빌더',
 			heading2sub: 'Flowise · n8n · 유사 플랫폼',
@@ -1053,7 +1097,7 @@ const ko: TranslationSchema = {
 			title: '글로벌 개인정보 보호 및 규정 준수',
 			metaTitle: 'AI 컴플라이언스: EU AI 법안, GDPR, HIPAA 및 글로벌 개인정보 보호법',
 			description:
-				'EDDI는 GDPR, CCPA, EU AI법, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, 말레이시아 PDPA, PIPL 등에 대한 내장 규정 준수를 제공합니다, 캐스케이드 데이터 삭제, 암호화 감사 추적 및 통합 API와 함께.',
+				'EDDI는 GDPR, CCPA, EU AI법, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, PIPL 등을 위한 기술적 통제와 배포 가이드를 제공합니다: 캐스케이드 삭제, 감사 추적, 하나의 API. 인증이 아닌 가이드입니다.',
 			heading1: '아키텍처에 의한 규정 준수',
 			para1:
 				'규제 산업은 AI 시스템에 사후적으로 규정 준수를 추가할 수 없습니다. EDDI는 <strong>글로벌 규제 준수를 위한 기술적 기반</strong>을 플랫폼 아키텍처 자체에 내장합니다, 불변 감사 추적, 캐스케이드 데이터 삭제, 처리 제한, 암호화 무결성 및 역할 기반 접근 제어는 추가 기능이 아닌 핵심 역량입니다. 하나의 통합 API가 모든 관할권의 데이터 주체 권리를 다룹니다.',
@@ -1064,7 +1108,7 @@ const ko: TranslationSchema = {
 			euAiActPara:
 				'EU AI법(규정 2024/1689)은 세계 최초의 포괄적 AI 법률로, AI 시스템에 대한 위험 기반 요구사항을 수립합니다. EDDI는 고위험 AI 시스템 준수를 위한 <strong>기술적 기반</strong>을 제공합니다:',
 			euAiActItems: [
-				'<strong>불변 감사 추적</strong>, 모든 작업이 HMAC-SHA256 암호화 무결성으로 기록됨 (제12조, 기록 보관)',
+				'<strong>불변 감사 추적</strong>, 모든 작업이 감사 원장에 기록되며, 서명 키가 구성되면 HMAC-SHA256으로 서명됨(설치 프로그램은 키를 설정하지만, 일반 docker-compose 설정에서는 비어 있음) (제12조, 기록 보관)',
 				'<strong>의사결정 투명성</strong>, 전체 파이프라인 트레이싱으로 AI 의사결정 과정을 보여줌, 모델명, 프롬프트 및 응답 포함 (제13조, 투명성)',
 				'<strong>인적 감독</strong>, 턴, 도구 호출, 그룹 단계 수준의 승인 게이트와 관리 UI에서의 인적 검토, 개입 및 비상 정지 (제14조, 인적 감독)',
 				'<strong>위험 분류</strong>, 아키텍처가 구성 가능한 제어로 고위험 AI 시스템 요구사항 지원 (제9조, 위험 관리)',
@@ -1186,7 +1230,7 @@ const ko: TranslationSchema = {
 			],
 			industryHeading: '산업별 규정 준수',
 			hipaaHeading: 'HIPAA, 미국 의료',
-			hipaaPara: '건강보험 이전성 및 책임에 관한 법률은 보호 건강 정보(PHI)에 대한 안전장치를 수립합니다. EDDI는 HIPAA 준수 AI 배포를 위한 기술 인프라를 제공합니다:',
+			hipaaPara: '건강보험 이전성 및 책임에 관한 법률은 보호 건강 정보(PHI)에 대한 안전장치를 수립합니다. EDDI는 HIPAA 배포를 위한 기술적 통제와 배포 가이드를 제공합니다. 이는 인증이 아닌 가이드이며, 규정 준수 여부는 EDDI를 어떻게 배포하고 운영하는지에 달려 있습니다.',
 			hipaaItems: [
 				'<strong>접근 제어(§164.312(a))</strong>, 역할 기반 접근의 Keycloak OIDC(eddi-admin, eddi-editor, eddi-viewer)',
 				'<strong>감사 제어(§164.312(b))</strong>, HMAC 서명, 불변 감사 원장이 모든 작업을 타임스탬프, 사용자 ID 및 결과와 함께 기록',
@@ -1423,7 +1467,7 @@ const ko: TranslationSchema = {
 			emailLabel: '이메일',
 			email: 'contact@labs.ai',
 			mediaOrientationHeading: '기본 방향 (§25 MedienG)',
-			mediaOrientationText: '오픈소스 EDDI AI 오케스트레이션 플랫폼에 대한 정보.',
+			mediaOrientationText: '오픈소스 AI 에이전트 관리 시스템인 EDDI에 대한 정보.',
 			projectHeading: '오픈 소스 프로젝트',
 			projectMaintainers: 'EDDI는 Gregor Jarisch(프로젝트 관리 및 개발)와 Franz Weber(사이버 보안 및 파트너 관리)가 관리합니다.',
 			projectLicense: '<a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>에 따라 라이선스가 부여됩니다.',

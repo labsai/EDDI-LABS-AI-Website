@@ -20,6 +20,10 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang,
 <!-- Section 1: Overview -->
 <h2>{p.heading1}</h2><p set:html={p.para1} />
 
+<!-- Where EDDI sits: category level only -->
+<h3>{p.whereTitle}</h3>
+<ul>{p.whereItems.map((item) => <li set:html={item} />)}</ul>
+
 <!-- Section 2: vs. Visual Node Builders -->
 <h2>{p.heading2}</h2>
 <p class="section-sub">{p.heading2sub}</p>
