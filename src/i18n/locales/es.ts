@@ -611,7 +611,7 @@ const es: TranslationSchema = {
 			],
 			heading3: 'Diseñado para equipos',
 			para2:
-				'Los constructores de nodos visuales agilizan el prototipado. Sin embargo, su arquitectura introduce limitaciones a escala empresarial.',
+				'El Manager permite a quienes no son desarrolladores iterar sobre el comportamiento de los agentes sin tocar el código fuente. Los ingenieros de prompts pueden modificar reglas, probar conversaciones y desplegar cambios, todo desde el navegador.',
 			workforceTitle: 'Workforce: la aplicación para usuarios finales',
 			workforcePara: 'Workforce, en <code>/workforce</code>, es donde las personas con sesión iniciada usan los agentes y equipos que su organización pone a su disposición. Es una aplicación independiente del Manager, que sirve para crear y administrar, y ambas comparten un único inicio de sesión. Un agente aparece en Workforce una vez desplegado en producción e incluido en el catálogo.',
 			workforceLink: 'Leer la guía de Workforce',

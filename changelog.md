@@ -10,7 +10,8 @@ All notable changes to the EDDI website will be documented in this file.
 - Real screens where the page is about a real screen: the Manager feature hero is now the agents list, the Human-in-the-Loop hero is the pending-approvals list, and Getting Started step 6 shows the actual dashboard instead of the rendered control room. `hero_manager.*` is removed.
 - `FeaturePage` keeps a hero image's own aspect ratio; `.premium-image-wrapper--shot` drops the square slot for screenshots.
 - `llms-full.txt`: "the only AI agent management system" → "an AI agent management system".
-- Left as is: the other feature heroes (one consistent set, no text). Not referenced anywhere and off-brand: `images/` at the repo root; check whether one is the GitHub social preview before removing.
+- Left as is: the other feature heroes (one consistent set, no text).
+- Removed the unreferenced `images/` folder at the repo root (three off-brand blue and purple images, one with an old tagline; no reference in this repo or the sibling repos; still in git history). The GitHub social preview is an upload in the repository settings, so it is unaffected: set it to `public/og-image.png` there.
 
 ### 🧭 Repositioning: The Open-Source AI Agent Management System (11 locales)
 
@@ -39,7 +40,7 @@ The upstream EDDI README was rewritten around a new category, "the open-source A
 - Stats unchanged (`MCP_TOOLS` stays 108; the README's 120 is unreleased).
 
 **Follow-ups**
-- Pre-existing: in ar, de, es and pt, `pages.manager.para2` holds the vsAlternatives "visual node builders" sentence instead of the Manager paragraph.
+- Fixed: in ar, de, es and pt, `pages.manager.para2` held the vsAlternatives "visual node builders" sentence instead of the Manager paragraph; it now translates the English one.
 - Several non-English strings still carry a literal 108 instead of `${MCP_TOOLS}` (e.g. `faq1A`, `sol2Title`, `featuresOverview.description`).
 - Decide whether the compare pages and the UNIDO copy should follow the new category.
 - Translations have not had a native-speaker pass.
