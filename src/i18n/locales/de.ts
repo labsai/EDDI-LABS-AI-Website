@@ -608,7 +608,7 @@ const de: TranslationSchema = {
 			],
 			heading3: 'Für Teams entwickelt',
 			para2:
-				'Visuelle Node-Builder machen das Prototyping schnell. Ihre Architektur bringt jedoch Einschränkungen im Enterprise-Bereich mit sich.',
+				'Der Manager ermöglicht es Nicht-Entwicklern, das Verhalten von Agents zu iterieren, ohne Quellcode anzufassen. Prompt-Engineers können Regeln ändern, Konversationen testen und Änderungen ausrollen, alles im Browser.',
 			workforceTitle: 'Workforce: Die App für Endnutzer',
 			workforcePara: 'Workforce unter <code>/workforce</code> ist der Ort, an dem angemeldete Personen die Agents und Teams nutzen, die ihre Organisation ihnen anbietet. Es ist eine eigene App neben dem Manager, der dem Bauen und der Administration dient, und beide teilen sich eine Anmeldung. Ein Agent erscheint in Workforce, sobald er in Produktion deployt und im Katalog gelistet ist.',
 			workforceLink: 'Zum Workforce-Guide',
