@@ -611,7 +611,7 @@ const pt: TranslationSchema = {
 			],
 			heading3: 'Projetado para Equipes',
 			para2:
-				'Construtores visuais de nós tornam a prototipagem rápida. No entanto, sua arquitetura introduz restrições em escala empresarial.',
+				'O Manager permite que pessoas sem perfil de desenvolvedor iterem sobre o comportamento dos agentes sem tocar no código-fonte. Engenheiros de prompt podem modificar regras, testar conversas e implantar mudanças, tudo pelo navegador.',
 			workforceTitle: 'Workforce: o App para Usuários Finais',
 			workforcePara: 'O Workforce, em <code>/workforce</code>, é onde as pessoas autenticadas usam os agentes e equipes que sua organização disponibiliza para elas. É um app separado do Manager, que serve para criação e administração, e os dois compartilham um único login. Um agente aparece no Workforce assim que é implantado em produção e listado no catálogo.',
 			workforceLink: 'Leia o guia do Workforce',
