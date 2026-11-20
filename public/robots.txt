@@ -1,4 +1,4 @@
-# EDDI — Enterprise AI Orchestrator
+# EDDI — The Open-Source AI Agent Management System
 # https://eddi.technology
 
 User-agent: *

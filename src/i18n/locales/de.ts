@@ -1,12 +1,12 @@
 import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
-import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
+import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS, MCP_TOOLS } from '../stats';
 import type { TranslationSchema } from './en';
 
 const de: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
 		siteDescription:
-			`EDDI ${EDDI_VERSION}: Enterprise-Plattform für KI-Agenten-Orchestrierung. Selbst gehostetes, konfigurationsgesteuertes Multi-Agent-System mit visueller Management-UI, 108 MCP-Tools, Security-First-Architektur und integrierter regulatorischer Compliance für DSGVO, EU AI Act, HIPAA und 15+ weitere Rahmenwerke.`,
+			`EDDI ${EDDI_VERSION}: Open Source, selbst gehostet, für Management und Orchestrierung von KI-Agenten. Config-as-Code, ${MCP_TOOLS} MCP-Tools, Freigabe-Gates, Audit-Ledger.`,
 	},
 	nav: {
 		features: 'Features',
@@ -82,8 +82,8 @@ const de: TranslationSchema = {
 		enterpriseCtaBtn: 'Sprechen Sie mit uns über Enterprise-Deployment',
 	},
 	footer: {
-		tagline: 'Der Enterprise-KI-Orchestrator',
-		subtitle: 'Konfigurationsgesteuert. Selbst gehostet. Produktionsbereit.',
+		tagline: 'Das Management-System für KI-Agenten',
+		subtitle: 'Ausführen. Begrenzen. Freigeben. Protokollieren.',
 		redHatCertified: 'Red Hat Certified Container',
 		apache2: 'Apache 2.0 Lizenz',
 		tests: '50.000+ Tests · Grün im CI',
@@ -136,11 +136,43 @@ const de: TranslationSchema = {
 		consentCta: 'Anmeldeformular anzeigen',
 	},
 	home: {
-		title: 'Der Enterprise-KI-Orchestrator',
-		heroTitle: 'Der Enterprise',
-		heroHighlight: 'KI-Orchestrator',
+		title: 'Das Open-Source-System für das Management von KI-Agenten',
+		/** Full <title> for the homepage, used without the " | EDDI" suffix. */
+		metaTitle: 'EDDI: Open-Source-System für das Management von KI-Agenten',
+		heroTitle: 'Das Management-System',
+		heroHighlight: 'für KI-Agenten',
 		heroTagline:
-			`Die Open-Source-Plattform für die Bereitstellung gesteuerter Multi-Agent-KI-Systeme: selbst gehostet, konfigurationsgesteuert und compliance-bereit. Jetzt in <strong>${EDDI_VERSION}</strong>.`,
+			`Betreiben Sie Teams von KI-Agenten auf Ihrer eigenen Infrastruktur, begrenzen Sie, was sie tun dürfen, stellen Sie vor die wichtigen Entscheidungen einen Menschen und protokollieren Sie jeden Schritt. Open Source und selbst gehostet. Jetzt in <strong>${EDDI_VERSION}</strong>.`,
+		// Four things before an agent acts (Run, Limit, Approve, Record)
+		pillarsTitle: 'Vier Dinge, bevor ein Agent handeln darf',
+		pillarsSubtitle: 'EDDI ist um das herum gebaut, was stehen muss, bevor ein KI-Agent echte Systeme berührt.',
+		pillarRunTitle: 'Ausführen',
+		pillarRunDesc: `Agents arbeiten allein oder im Team, mit jedem der ${LLM_PROVIDERS} Modellanbieter, lokale Modelle eingeschlossen, auf Ihren eigenen Servern. Installation mit einem Docker-Befehl oder auf Kubernetes und OpenShift, mit MongoDB oder PostgreSQL.`,
+		pillarLimitTitle: 'Begrenzen',
+		pillarLimitDesc: 'Ein Agent hat nur die Tools, die seine Konfiguration ihm gewährt, innerhalb von Rate-Limits und Kostenbudgets. Agents können keinen beliebigen Code ausführen: Es gibt kein eval und keine Script-Engine. Secrets liegen in einem Vault mit Envelope-Verschlüsselung.',
+		pillarApproveTitle: 'Freigeben',
+		pillarApproveDesc: 'Ganze Turns, einzelne Tool-Aufrufe oder Phasen einer Gruppendiskussion können auf einen Menschen warten, im Manager, in Slack oder über MCP.',
+		pillarRecordTitle: 'Protokollieren',
+		pillarRecordDesc: 'Jeder Schritt landet in einem Append-only-Audit-Ledger, HMAC-signiert, sobald ein Signaturschlüssel konfiguriert ist. Löschung und Export nach DSGVO/CCPA sind integriert.',
+		// Works with the AI you already use
+		worksWithTitle: 'Funktioniert mit der KI, die Sie bereits nutzen',
+		worksWithIntro: 'EDDI ersetzt weder ChatGPT noch Claude noch den Assistenten in Ihrer IDE. Es gibt ihnen einen kontrollierten Ort zum Arbeiten.',
+		worksWith1Title: 'Ihr Assistent baut und betreibt Agents für Sie',
+		worksWith1Desc: 'Bitten Sie Claude, Cursor oder einen anderen MCP-fähigen Assistenten, auch einen lokal laufenden, einen Agent zu erstellen, zu testen, seine Logs zu lesen oder seinen Prompt zu ändern. Jede Änderung ist eine neue Version in EDDI, und die Änderungen, die Sie absichern, warten auf Ihre Freigabe.',
+		worksWith2Title: 'Ihr Assistent fragt Agents, die erreichen, was ihm verschlossen bleibt',
+		worksWith2Desc: 'Ein EDDI-Agent kann eine Verbindung zu einer Datenbank, einer internen API oder einer Wissensdatenbank halten, auf die Ihr persönlicher Assistent keinen Zugriff hat. Ihr Assistent fragt den Agent oder eine ganze Gruppe von Agents und arbeitet mit der Antwort. Die Zugangsdaten bleiben im Vault, und der Austausch landet im Audit-Ledger.',
+		worksWith3Title: 'Zusammenarbeit über Systemgrenzen hinweg',
+		worksWith3Desc: 'Andere Agentenplattformen erreichen EDDI-Agents auf demselben Weg, über A2A oder die OpenAI-kompatible API.',
+		worksWithClosing: 'EDDI funktioniert auch für sich allein: Endnutzer sprechen mit Agents und Agenten-Teams in Workforce, in der einbettbaren Chat-UI oder in Slack.',
+		worksWithLink: 'So funktioniert der MCP-Server →',
+		// What it looks like (Manager screenshots)
+		shotsTitle: 'So sieht es aus',
+		shotGroupCaption: 'Ausführen: ein Team von Agents arbeitet eine Frage durch, mit gemeinsamen Arbeitsergebnissen',
+		shotGroupAlt: 'EDDI Manager mit einer Peer-Review-Gruppendiskussion, ihren Phasen, zwei gemeinsamen Arbeitsergebnissen und einer Verhandlungstabelle mit Vorschlägen',
+		shotApprovalsCaption: 'Freigeben: Aktionen, die auf einen Menschen warten, in einer Liste',
+		shotApprovalsAlt: 'Seite für ausstehende Freigaben im EDDI Manager mit zwei pausierten Konversationen und einer Gruppendiskussion, jeweils mit Schaltflächen zum Freigeben, Ablehnen und Abbrechen',
+		shotAuditCaption: 'Protokollieren: jeder Schritt eines Turns, signiert, mit Dauer und Kosten',
+		shotAuditAlt: 'Audit-Trail-Seite im EDDI Manager für einen Agent, mit verifizierten Signaturen, Gesamtdauer und Kosten sowie jedem Pipeline-Schritt als signiert markiert',
 		problemTitle: 'Das Problem',
 		problemDesc:
 			'Enterprise-KI-Orchestrierung ist <strong>fragmentiert und schmerzhaft</strong>. Teams stecken in einem gebrochenen Lebenszyklus fest:',
@@ -155,13 +187,13 @@ const de: TranslationSchema = {
 			'Nicht-deterministische KI-Agents in deterministische Camunda/Temporal-Workflows zu zwingen erzeugt <strong>schwerwiegende Impedanz-Mismatches</strong> und fragile Architekturen.',
 		solutionTitle: 'Die Lösung',
 		solutionDesc:
-			'EDDI ist eine <strong>deploybare KI-Orchestrierungsplattform</strong>: keine Bibliothek. Visuelle Verwaltung, Config-as-Code und Enterprise-Sicherheit, out of the box:',
+			'EDDI ist <strong>ein Dienst, den Sie deployen, keine Bibliothek, die Sie importieren</strong>. Visuelle Verwaltung, Config-as-Code und Enterprise-Sicherheit, out of the box:',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'Agent-Logik, Pipelines und Tool-Definitionen sind <strong>JSON-Konfigurationen</strong>: kein kompilierter Code. Prompt-Engineers iterieren sofort über die React-UI oder REST-API, ohne Redeployment.',
 		sol2Title: '108 MCP-Tools',
 		sol2Desc:
-			'EDDI bietet seine Funktionen über das <strong>Model Context Protocol</strong> an, Claude Desktop kann direkt interagieren. Agents können auch <strong>externe MCP-Tools nutzen</strong>.',
+			'EDDI bietet seine Funktionen über das <strong>Model Context Protocol</strong> an, sodass Claude, Cursor oder jeder MCP-Client Agents bauen, testen und betreiben kann. Agents können auch <strong>externe MCP-Tools nutzen</strong>.',
 		sol3Title: 'Security-First',
 		sol3Desc:
 			'Kein <code>eval()</code>, keine Escapes. Vault-Integration, URL-Validierung und kryptografische Audit-Trails sind <strong>architektonische Grundlagen</strong>.',
@@ -224,10 +256,10 @@ const de: TranslationSchema = {
 		faqTitle: 'Häufig gestellte Fragen',
 		faq1Q: 'Was ist EDDI?',
 		faq1A:
-			'EDDI ist eine quelloffene, Enterprise-KI-Orchestrierungsplattform. Teams können KI-gestützte Agents per JSON-Konfiguration erstellen, konfigurieren und deployen. EDDI bietet eine <strong>produktionsreife React-Management-UI</strong> (den EDDI Manager), integrierte REST-APIs, Konversationsverwaltung, Sicherheit (OIDC/Keycloak), unveränderliche Audit-Trails und 108 MCP-Tools, alles deploybar via Docker oder Kubernetes.',
+			'EDDI ist ein Open-Source-System für das Management von KI-Agenten. Teams können KI-gestützte Agents per JSON-Konfiguration erstellen, konfigurieren und deployen. EDDI bietet eine <strong>produktionsreife React-Management-UI</strong> (den EDDI Manager), integrierte REST-APIs, Konversationsverwaltung, Sicherheit (OIDC/Keycloak), unveränderliche Audit-Trails und 108 MCP-Tools, alles deploybar via Docker oder Kubernetes.',
 		faq2Q: 'Wie unterscheidet sich EDDI von KI-Bibliotheken und Frameworks?',
 		faq2A:
-			'KI-Bibliotheken wie LangChain, Spring AI und LangChain4j liefern Bausteine, aber Sie müssen REST-Controller, Authentifizierung, Konversationsverwaltung, Audit-Logging und Management-UIs selbst bauen. EDDI ist eine <strong>deploybare Middleware-Plattform</strong>, keine Bibliothek. Es liefert all das out of the box, bereit zum Deployment via Docker.',
+			'KI-Bibliotheken wie LangChain, Spring AI und LangChain4j liefern Bausteine, aber Sie müssen REST-Controller, Authentifizierung, Konversationsverwaltung, Audit-Logging und Management-UIs selbst bauen. EDDI ist <strong>ein Dienst, den Sie deployen, keine Bibliothek, die Sie importieren</strong>. Es liefert all das out of the box, bereit zum Deployment via Docker.',
 		faq3Q: 'Ist EDDI produktionsreif für den Enterprise-Einsatz?',
 		faq3A:
 			'Ja. EDDI basiert auf einer Enterprise-Runtime mit leichtgewichtigen virtuellen Threads für massive I/O-gebundene Nebenläufigkeit. Es unterstützt MongoDB und PostgreSQL, bietet integrierte OIDC/Keycloak-Authentifizierung und Workspaces pro Benutzer mit Ressourcen-Sharing, unveränderliche kryptografische Audit-Trails für Compliance (einschließlich EU AI Act) und skaliert horizontal über NATS JetStream.',
@@ -238,7 +270,7 @@ const de: TranslationSchema = {
 		faq5A:
 			'EDDI erfüllt einen ähnlichen visuellen Zweck, aber mit Enterprise-Architektur. Im Gegensatz zu Flowise und n8n verwendet EDDI kein <code>eval()</code> oder Code-Blöcke, nutzt Millionen leichtgewichtiger virtueller Threads für Enterprise-Nebenläufigkeit, unterstützt OIDC/Keycloak-Authentifizierung und speichert Daten in MongoDB oder PostgreSQL. Es ist für regulierte Branchen konzipiert.',
 		faq6Q: 'Steht EDDI in Zusammenhang mit "Eddie AI" oder anderen Produkten namens "Eddy"?',
-		faq6A: 'Nein. EDDI (von <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) ist eine selbst gehostete <strong>Enterprise-KI-Agenten-Orchestrierungsplattform</strong>, die auf Java/Quarkus aufbaut. Es steht in keinem Zusammenhang mit Video-Editing-Tools, HR-Software, Chatbot-Buildern oder anderen Produkten mit ähnlichen Namen.',
+		faq6A: 'Nein. EDDI (von <a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>) ist ein selbst gehostetes <strong>Management-System für KI-Agenten</strong>, das auf Java/Quarkus aufbaut. Es steht in keinem Zusammenhang mit Video-Editing-Tools, HR-Software, Chatbot-Buildern oder anderen Produkten mit ähnlichen Namen.',
 		faq7Q: 'Wie schneidet EDDI im Vergleich zu Cloud-KI-Plattformen wie AWS Bedrock oder Azure AI Studio ab?',
 		faq7A: `Cloud-KI-Plattformen bieten verwaltete Infrastruktur, schaffen aber <strong>Vendor Lock-in</strong>. EDDI läuft überall, wo Docker läuft: on-premises, in jeder Cloud oder in Air-Gapped-Umgebungen. Es unterstützt ${LLM_PROVIDERS} LLM-Anbieter sowie jeden OpenAI-kompatiblen Endpunkt und bietet damit volle Modellportabilität und Datensouveränität. Siehe unseren <a href="/de/enterprise/vs-alternatives/">detaillierten Vergleich</a>.`,
 		faq8Q: 'Funktioniert EDDI mit Open WebUI und anderen OpenAI-kompatiblen Clients?',
@@ -333,7 +365,7 @@ const de: TranslationSchema = {
 	useCases: {
 		title: 'Anwendungsfälle',
 		metaTitle: 'Anwendungsfälle für KI-Agenten in regulierten Branchen',
-		description: 'Einsatzszenarien für regulierte Branchen und Enterprise-Teams mit der EDDI-KI-Orchestrierungsplattform.',
+		description: 'Einsatzszenarien für regulierte Branchen und Enterprise-Teams mit EDDI, dem Open-Source-System für das Management von KI-Agenten.',
 		heroTitle: 'Anwendungsfälle',
 		heroSubtitle: 'Einsatzszenarien für regulierte Branchen und Enterprise-Teams.',
 		healthcare: 'Gesundheitswesen',
@@ -363,13 +395,13 @@ const de: TranslationSchema = {
 		title: 'Features auf einen Blick',
 		metaTitle: 'Features: Selbst gehostete Plattform für KI-Agenten-Orchestrierung',
 		description:
-			'Alle Fähigkeiten, die EDDI zum Enterprise-KI-Orchestrator machen, EDDI Manager UI, Config-as-Code, 108 MCP-Tools, Security-First-Architektur und mehr.',
+			'Alle Fähigkeiten, die EDDI zum Open-Source-System für das Management von KI-Agenten machen, EDDI Manager UI, Config-as-Code, 108 MCP-Tools, Security-First-Architektur und mehr.',
 		heroTitle: 'Alles was Sie brauchen, um',
 		heroHighlight: 'KI zu orchestrieren',
 		heroDesc:
 			'EDDI bietet eine vollständige, produktionsreife Plattform zum Erstellen, Deployen und Verwalten von KI-Agents, ohne Boilerplate zu schreiben.',
 		coreTitle: 'Kernplattform',
-		coreDesc: 'Die wesentlichen Fähigkeiten, die EDDI zu einer <strong>vollständigen KI-Orchestrierungsplattform</strong> machen.',
+		coreDesc: 'Die wesentlichen Fähigkeiten, die EDDI zu einem <strong>vollständigen Management-System für KI-Agenten</strong> machen.',
 		managerCardTitle: '🖥️ EDDI Manager',
 		managerCardDesc:
 			'Eine <strong>produktionsreife React-UI</strong> zum Erstellen, Deployen und Überwachen von Agents, mit 11-Locale-i18n, Live-Chat-Debugging und Audit-Dashboards.',
@@ -577,6 +609,9 @@ const de: TranslationSchema = {
 			heading3: 'Für Teams entwickelt',
 			para2:
 				'Visuelle Node-Builder machen das Prototyping schnell. Ihre Architektur bringt jedoch Einschränkungen im Enterprise-Bereich mit sich.',
+			workforceTitle: 'Workforce: Die App für Endnutzer',
+			workforcePara: 'Workforce unter <code>/workforce</code> ist der Ort, an dem angemeldete Personen die Agents und Teams nutzen, die ihre Organisation ihnen anbietet. Es ist eine eigene App neben dem Manager, der dem Bauen und der Administration dient, und beide teilen sich eine Anmeldung. Ein Agent erscheint in Workforce, sobald er in Produktion deployt und im Katalog gelistet ist.',
+			workforceLink: 'Zum Workforce-Guide',
 		},
 		mcpServer: {
 			title: 'MCP Server: 108 Tools',
@@ -656,8 +691,8 @@ const de: TranslationSchema = {
 				'<strong>Secrets Vault</strong>: AES-256-GCM-Hüllverschlüsselung für API-Keys mit automatischer Geheimnis-Bereinigung beim Export',
 				'<strong>Path-Traversal-Schutz</strong>: Eingabevalidierung an jeder Grenze verhindert Directory-Escape-Angriffe',
 				'<strong>SSRF-Schutz</strong>: URL-Validierung und Domain-Allowlisting verhindern Server-Side Request Forgery, und Cloud-Metadaten-Endpunkte werden als Ziele für HTTP-Aufrufe, MCP und A2A abgewiesen, auch über DNS-Auflösung und Weiterleitungen',
-				'<strong>Kryptografische Audit-Trails</strong>: HMAC-SHA256-signierte, manipulationssichere Betriebsprotokolle mit kryptografischer Signierung pro Agent',
-				'<strong>EU-AI-Act-bereit</strong>: Integrierte Governance-Funktionen für regulatorische Compliance',
+				'<strong>Kryptografische Audit-Trails</strong>: Manipulationssichere Betriebsprotokolle, HMAC-SHA256-signiert, sobald ein Signaturschlüssel konfiguriert ist (der Installer setzt einen; ein reines docker-compose-Setup lässt ihn leer), mit kryptografischer Signierung pro Agent',
+				'<strong>EU-AI-Act-Kontrollen</strong>: Technische Kontrollen und Deployment-Guides für Aufzeichnungspflichten, Transparenz und menschliche Aufsicht. Es handelt sich um Leitfäden, nicht um eine Zertifizierung',
 				'<strong>Geheimnis-Schwärzung</strong>: Automatischer Filter bereinigt API-Schlüssel, Vault-Referenzen und sensible Daten aus allen Audit-Einträgen',
 				'<strong>PII-sicheres Logging</strong>: DSGVO-Operationen protokollieren SHA-256-Pseudonyme, niemals rohe Benutzerkennungen',
 				'<strong>Sigstore Cosign</strong>: Schlüssellose OIDC-Container-Image-Signierung, kryptografische Verifizierung, dass jedes Docker-Image von der offiziellen CI erstellt wurde',
@@ -930,13 +965,13 @@ const de: TranslationSchema = {
 			title: 'Warum EDDI?',
 			metaTitle: 'Warum EDDI: Die selbst gehostete Enterprise-Plattform für KI-Agenten',
 			description:
-				'Die selbst gehostete Enterprise-KI-Orchestrierungsplattform. Konfigurationsgesteuerte Agent-Logik, eine vollständige Management-UI und Enterprise-Sicherheit, alles in einer deploybaren Plattform.',
+				'Das selbst gehostete Open-Source-System für das Management von KI-Agenten. Konfigurationsgesteuerte Agent-Logik, eine vollständige Management-UI und Enterprise-Sicherheit, alles in einer deploybaren Plattform.',
 			heading1: 'Die Lücke in Enterprise-KI',
 			para1:
 				'Enterprise-KI-Orchestrierung hat <strong>keinen Mittelweg</strong>. Teams prototypen entweder mit fragilen Low-Code-Tools und schreiben für die Produktion um, oder bauen alles von Grund auf mit KI-Bibliotheken und Frameworks.',
 			heading2: 'EDDI füllt diese Lücke',
 			para2:
-				'EDDI ist eine <strong>deploybare Middleware-Plattform</strong>, keine Bibliothek. Es bietet alles, was Teams out of the box brauchen:',
+				'EDDI ist <strong>ein Dienst, den Sie deployen, keine Bibliothek, die Sie importieren</strong>. Es bietet alles, was Teams out of the box brauchen:',
 			items: [
 				'<strong>Visuelle Management-UI</strong>: Der EDDI Manager zum Erstellen und Überwachen von Agents',
 				'<strong>Configuration-as-Code</strong>: Agent-Logik ist JSON, kein kompilierter Code',
@@ -1018,7 +1053,16 @@ const de: TranslationSchema = {
 			metaTitle: 'EDDI vs. Flowise, n8n, LangGraph, CrewAI und Cloud-KI-Plattformen',
 			description: 'Wie sich EDDI mit Spring AI, LangChain4j, Flowise, n8n und anderen KI-Orchestrierungsansätzen vergleicht.',
 			heading1: 'Platform vs. Library vs. Builder',
-			para1: 'Der KI-Orchestrierungsmarkt hat drei Archetypen: <strong>visuelle Node-Builder</strong>, <strong>Code-Bibliotheken</strong> und <strong>Cloud-Plattformen</strong>. EDDI ist eine <strong>deploybare Middleware-Plattform</strong>.',
+			para1: 'Der KI-Orchestrierungsmarkt hat drei Archetypen: <strong>visuelle Node-Builder</strong> (Flowise, n8n), <strong>Code-Bibliotheken</strong> (LangGraph, CrewAI, AutoGen) und <strong>Cloud-Plattformen</strong> (AWS Bedrock, Azure AI Studio). EDDI ist nichts davon: Es ist <strong>ein Dienst, den Sie deployen, keine Bibliothek, die Sie importieren</strong>, mit der vollständigen Infrastruktur, die Teams brauchen, um KI-Agents in Produktion zu bringen. Wenn Sie Agent-Logik in Ihrer eigenen Java-Anwendung wollen, passt eine Bibliothek wie LangChain4j, auf der EDDI selbst aufbaut, besser.',
+
+			// ── Where EDDI sits (category level, no vendor names) ──
+			whereTitle: 'Wo EDDI steht',
+			whereItems: [
+				'<strong>Agenten-Toolkits und Frameworks</strong>: Mit ihnen bauen Sie Agents, aber Freigaben, Limits und ein Audit-Protokoll müssen Sie in der Regel selbst bauen.',
+				'<strong>Sicherheits-Add-ons für Agents</strong>: Sie überwachen oder blockieren Agents, die anderswo laufen, betreiben aber in der Regel selbst keine Agents.',
+				'<strong>Agentenplattformen von Anbietern</strong>: Sie betreiben und steuern Agents, in der Regel in der Cloud des Anbieters und rund um dessen Modelle.',
+				'<strong>EDDI</strong>: betreibt Agents, begrenzt, was sie tun dürfen, stellt vor wichtige Entscheidungen einen Menschen und protokolliert jeden Schritt, in einem System, das Sie selbst hosten, mit jedem Modell.',
+			],
 
 			heading2: 'vs. Visual Node Builders',
 			heading2sub: 'Flowise \u00b7 n8n \u00b7 \u00e4hnliche Plattformen',
@@ -1098,7 +1142,7 @@ const de: TranslationSchema = {
 			title: 'Globaler Datenschutz &amp; Regulatorische Compliance',
 			metaTitle: 'KI-Compliance: EU AI Act, DSGVO, HIPAA und globale Datenschutzgesetze',
 			description:
-				'EDDI bietet integrierte Compliance für DSGVO, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA und 6 weitere Regelwerke, mit kaskadierten Datenlöschungen, kryptografischen Audit-Trails und einer einheitlichen API.',
+				'EDDI bietet technische Kontrollen und Deployment-Guides für DSGVO, CCPA, EU AI Act, HIPAA, PIPEDA, LGPD, APPI, POPIA, PDPA, PIPL und mehr: kaskadierte Löschung, Audit-Trails, eine API. Leitfäden, keine Zertifizierungen.',
 			heading1: 'Compliance durch Architektur',
 			para1:
 				'Regulierte Branchen können Compliance nicht nachträglich an KI-Systeme anbringen. EDDI verankert die <strong>technischen Grundlagen für globale regulatorische Compliance</strong> direkt in der Plattformarchitektur, unveränderliche Audit-Trails, kaskadierte Datenlöschung, Verarbeitungsbeschränkungen, kryptografische Integrität und rollenbasierte Zugriffskontrolle sind Kernfunktionen, keine Zusatzmodule. Eine einheitliche API deckt Betroffenenrechte für jede Jurisdiktion ab.',
@@ -1109,7 +1153,7 @@ const de: TranslationSchema = {
 			euAiActPara:
 				'Der EU AI Act (Verordnung 2024/1689) ist das weltweit erste umfassende KI-Gesetz und stellt risikobasierte Anforderungen an KI-Systeme. EDDI liefert die <strong>technischen Grundlagen</strong> zur Erfüllung der Anforderungen an Hochrisiko-KI-Systeme:',
 			euAiActItems: [
-				'<strong>Unveränderliche Audit-Trails</strong>: Jede Operation wird mit kryptografischer HMAC-SHA256-Integrität aufgezeichnet (Art. 12, Aufzeichnungspflichten)',
+				'<strong>Unveränderliche Audit-Trails</strong>: Jede Operation wird im Audit-Ledger aufgezeichnet, HMAC-SHA256-signiert, sobald ein Signaturschlüssel konfiguriert ist (der Installer setzt einen; ein reines docker-compose-Setup lässt ihn leer) (Art. 12, Aufzeichnungspflichten)',
 				'<strong>Entscheidungstransparenz</strong>: Vollständiges Pipeline-Tracing zeigt, wie KI-Entscheidungen getroffen wurden, einschließlich Modellname, Prompt und Antwort (Art. 13, Transparenz)',
 				'<strong>Menschliche Aufsicht</strong>: Freigabe-Gates auf Turn-, Tool-Aufruf- und Gruppenphasen-Ebene, plus menschliche Überprüfung, Intervention und Notabschaltung in der Management-UI (Art. 14, Menschliche Aufsicht)',
 				'<strong>Risikoklassifizierung</strong>: Die Architektur unterstützt Anforderungen an Hochrisiko-KI-Systeme mit konfigurierbaren Kontrollen (Art. 9, Risikomanagement)',
@@ -1241,7 +1285,7 @@ const de: TranslationSchema = {
 			industryHeading: 'Branchenspezifische Compliance',
 			hipaaHeading: 'HIPAA: US-Gesundheitswesen',
 			hipaaPara:
-				'Der Health Insurance Portability and Accountability Act legt Sicherheitsvorkehrungen für geschützte Gesundheitsinformationen (PHI) fest. EDDI stellt die technische Infrastruktur für HIPAA-konforme KI-Deployments bereit:',
+				'Der Health Insurance Portability and Accountability Act legt Sicherheitsvorkehrungen für geschützte Gesundheitsinformationen (PHI) fest. EDDI bietet technische Kontrollen und Deployment-Guides für HIPAA-Deployments. Es handelt sich um Leitfäden, nicht um eine Zertifizierung: Die Compliance hängt davon ab, wie Sie EDDI deployen und betreiben.',
 			hipaaItems: [
 				'<strong>Zugriffskontrollen (§164.312(a))</strong>: Keycloak OIDC mit rollenbasiertem Zugriff (eddi-admin, eddi-editor, eddi-viewer)',
 				'<strong>Audit-Kontrollen (§164.312(b))</strong>: HMAC-signiertes, unveränderliches Audit-Ledger zeichnet jede Operation mit Zeitstempeln, Benutzer-IDs und Ergebnissen auf',
@@ -1484,7 +1528,7 @@ const de: TranslationSchema = {
 			email: 'contact@labs.ai',
 
 			mediaOrientationHeading: 'Grundlegende Richtung (§25 MedienG)',
-			mediaOrientationText: 'Informationen über die Open-Source-KI-Orchestrierungsplattform EDDI.',
+			mediaOrientationText: 'Informationen über EDDI, das Open-Source-System für das Management von KI-Agenten.',
 
 			projectHeading: 'Open-Source-Projekt',
 			projectMaintainers: 'EDDI wird betreut von Gregor Jarisch (Projektmanagement & Entwicklung) und Franz Weber (Cyber Security & Partnermanagement).',

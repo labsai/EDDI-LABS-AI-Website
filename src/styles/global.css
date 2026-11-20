@@ -424,6 +424,16 @@ html[data-theme='light'] .premium-image-wrapper:hover {
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
+/* Real product screenshots keep their own aspect ratio instead of the square art slot. */
+.premium-image-wrapper--shot {
+	aspect-ratio: auto;
+	max-width: 36rem;
+}
+
+.premium-image-wrapper--shot img {
+	height: auto;
+}
+
 .premium-image-wrapper img {
 	border-radius: 0.75rem;
 	border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
@@ -442,6 +452,13 @@ html[data-theme='light'] .premium-image-wrapper:hover {
 @media (max-width: 30rem) {
 	.premium-image-wrapper {
 		max-width: 16rem;
+	}
+}
+
+/* Screenshots need the width to stay legible on small screens. */
+@media (max-width: 64rem) {
+	.premium-image-wrapper--shot {
+		max-width: 100%;
 	}
 }
 

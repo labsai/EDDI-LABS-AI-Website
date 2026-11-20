@@ -1,6 +1,6 @@
-# EDDI — Enterprise AI Orchestrator
+# EDDI — The Open-Source AI Agent Management System
 
-> EDDI is a configuration-driven AI orchestration middleware built natively on the JVM (Java 25). Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 108 MCP tools, 12 built-in agent tools, multi-agent group collaboration, human-in-the-loop approval gates, per-user workspaces, an OpenAI-compatible API, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 19 LLM providers. Latest release: 6.7.0. Apache 2.0 licensed.
+> EDDI is the open-source AI agent management system: it runs teams of AI agents on your own infrastructure, limits what they may do, puts a person in front of the decisions that matter, and records every step. Built natively on the JVM (Java 25), configuration-driven, with multi-agent orchestration. Currently in v6. It combines config-as-code agent design, a visual React management UI (11 languages), 108 MCP tools, 12 built-in agent tools, multi-agent group collaboration, human-in-the-loop approval gates, per-user workspaces, an OpenAI-compatible API, and enterprise observability (Prometheus + auto-provisioned Grafana dashboards) in a single deployable platform. Supports 19 LLM providers. Latest release: 6.7.0. Apache 2.0 licensed.
 
 ## Documentation
 

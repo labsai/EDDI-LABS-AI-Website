@@ -5,7 +5,7 @@ import type { TranslationSchema } from './en';
 const ja: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: `EDDI ${EDDI_VERSION}、エンタープライズAIエージェントオーケストレーションプラットフォーム。セルフホスト型・構成駆動型のマルチエージェントシステム。ビジュアル管理UI、108のMCPツール、セキュリティファーストアーキテクチャ、そしてGDPR、EU AI規制法、HIPAAをはじめとする15以上のフレームワークに対応した組み込み規制コンプライアンス。`,
+		siteDescription: `EDDI ${EDDI_VERSION}：オープンソースのセルフホスト型AIエージェント管理・オーケストレーションシステム。Config-as-Codeのエージェント、${MCP_TOOLS}のMCPツール、人間による承認ゲート、監査台帳。`,
 	},
 	nav: {
 		features: '機能',
@@ -81,8 +81,8 @@ const ja: TranslationSchema = {
 		enterpriseCtaBtn: 'エンタープライズ導入について相談する',
 	},
 	footer: {
-		tagline: 'エンタープライズAIオーケストレーター',
-		subtitle: '構成駆動型。自己ホスト型。本番環境対応。',
+		tagline: 'AIエージェント管理システム',
+		subtitle: '実行。制限。承認。記録。',
 		redHatCertified: 'Red Hat認定コンテナ',
 		apache2: 'Apache 2.0ライセンス',
 		tests: `${TESTS}のテスト · CIでグリーン`,
@@ -134,11 +134,43 @@ const ja: TranslationSchema = {
 		consentCta: '登録フォームを表示',
 	},
 	home: {
-		title: 'エンタープライズAIオーケストレーター',
-		heroTitle: 'エンタープライズ',
-		heroHighlight: 'AIオーケストレーター',
+		title: 'オープンソースのAIエージェント管理システム',
+		/** Full <title> for the homepage, used without the " | EDDI" suffix. */
+		metaTitle: 'EDDI: オープンソースのAIエージェント管理システム',
+		heroTitle: 'AIエージェント',
+		heroHighlight: '管理システム',
 		heroTagline:
-			`ガバナンスの効いたマルチエージェントAIシステムをデプロイするためのオープンソースプラットフォーム：セルフホスト型、構成駆動型、コンプライアンス対応。現在<strong>${EDDI_VERSION}</strong>で提供中。`,
+			`AIエージェントのチームを自社のインフラで実行し、エージェントに許可する操作を制限し、重要な判断の前に人間を置き、すべてのステップを記録します。オープンソースかつセルフホスト型。現在<strong>${EDDI_VERSION}</strong>で提供中。`,
+		// Four things before an agent acts (Run, Limit, Approve, Record)
+		pillarsTitle: 'エージェントが行動を許される前に必要な4つのこと',
+		pillarsSubtitle: 'EDDIは、AIエージェントが実際のシステムに触れる前に整えておくべきものを中心に設計されています。',
+		pillarRunTitle: '実行',
+		pillarRunDesc: `エージェントは単独でもチームでも動作し、ローカルモデルを含む${LLM_PROVIDERS}のモデルプロバイダーのいずれでも、自社のサーバー上で稼働します。Dockerコマンド1つでインストールでき、KubernetesやOpenShift上にも、MongoDBまたはPostgreSQLとともにデプロイできます。`,
+		pillarLimitTitle: '制限',
+		pillarLimitDesc: 'エージェントが持てるのは、その設定で付与されたツールだけで、レート制限とコスト予算の範囲内に収まります。エージェントは任意のコードを実行できません：evalもスクリプトエンジンもありません。シークレットはエンベロープ暗号化されたVaultに保管されます。',
+		pillarApproveTitle: '承認',
+		pillarApproveDesc: 'ターン全体、個々のツール呼び出し、グループディスカッションのフェーズを、人間による承認待ちにできます。承認はマネージャー、Slack、またはMCP経由で行えます。',
+		pillarRecordTitle: '記録',
+		pillarRecordDesc: 'すべてのステップは追記専用の監査台帳に記録され、署名キーを設定するとHMAC署名されます。GDPR/CCPAに基づく消去とエクスポートを標準で備えています。',
+		// Works with the AI you already use
+		worksWithTitle: '今お使いのAIと連携',
+		worksWithIntro: 'EDDIはChatGPT、Claude、IDEのアシスタントを置き換えるものではありません。それらにガバナンスの効いた作業の場を提供します。',
+		worksWith1Title: 'エージェントを代わりに構築・実行する',
+		worksWith1Desc: 'Claude、Cursor、またはローカルで動作するものを含むMCP対応のアシスタントに、エージェントの作成、テスト、ログの確認、プロンプトの変更を依頼できます。すべての変更はEDDIで新しいバージョンとなり、ゲートを設けた変更はあなたの承認を待ちます。',
+		worksWith2Title: 'アシスタントが届かない場所に届くエージェントに相談する',
+		worksWith2Desc: 'EDDIエージェントは、個人のアシスタントがアクセスできないデータベース、社内API、ナレッジベースへの接続を保持できます。アシスタントはそのエージェント、またはエージェントのグループ全体に問い合わせ、その回答をもとに作業します。認証情報はVaultに留まり、やり取りは監査台帳に記録されます。',
+		worksWith3Title: 'システムをまたいで協働する',
+		worksWith3Desc: '他のエージェントプラットフォームも同じ方法で、A2AまたはOpenAI互換APIを通じてEDDIエージェントにアクセスします。',
+		worksWithClosing: 'EDDIは単体でも使えます：エンドユーザーはWorkforce、埋め込み可能なチャットUI、またはSlackで、エージェントやエージェントのチームと対話できます。',
+		worksWithLink: 'MCPサーバーの仕組み →',
+		// What it looks like (Manager screenshots)
+		shotsTitle: '実際の画面',
+		shotGroupCaption: '実行：共有の成果物を使いながら、エージェントのチームが問いに取り組む様子',
+		shotGroupAlt: 'ピアレビュー形式のグループディスカッションを表示するEDDIマネージャー。フェーズ、2つの共有成果物、提案の交渉テーブルが表示されている',
+		shotApprovalsCaption: '承認：人間の判断を待つアクションを1つのリストに',
+		shotApprovalsAlt: 'EDDIマネージャーの「保留中の承認」ページ。一時停止中の会話2件とグループディスカッション1件が一覧表示され、それぞれに「承認」「却下」「キャンセル」ボタンがある',
+		shotAuditCaption: '記録：ターンのすべてのステップを、所要時間とコストとともに署名付きで',
+		shotAuditAlt: '1つのエージェントに対するEDDIマネージャーの「監査証跡」ページ。検証済みの署名、合計所要時間とコストが表示され、各パイプラインステップが署名済みとして示されている',
 		problemTitle: '問題',
 		problemDesc: 'エンタープライズAIオーケストレーションは<strong>断片化され、困難</strong>です。チームは壊れたライフサイクルに陥っています：',
 		problemCard1Title: 'プロトタイプの罠',
@@ -148,13 +180,13 @@ const ja: TranslationSchema = {
 		problemCard3Title: 'BPMNの摩擦',
 		problemCard3Desc: '非決定論的なAIエージェントをCamunda/Temporalの決定論的ワークフローに押し込むと、<strong>深刻なインピーダンスミスマッチ</strong>と脆弱なアーキテクチャが生まれます。',
 		solutionTitle: 'ソリューション',
-		solutionDesc: 'EDDIは<strong>デプロイ可能なAIオーケストレーションプラットフォーム</strong>です、ライブラリではありません。ビジュアル管理、Config-as-Code、エンタープライズセキュリティ、すべてが箱から出して使えます：',
+		solutionDesc: 'EDDIは<strong>インポートするライブラリではなく、デプロイするサービス</strong>です。ビジュアル管理、Config-as-Code、エンタープライズセキュリティ、すべてが箱から出して使えます：',
 		sol1Title: 'Configuration-as-Code',
 		sol1Desc:
 			'エージェントロジック、パイプライン、ツール定義は<strong>JSON設定</strong>です、コンパイルされたコードではありません。プロンプトエンジニアはReact UIまたはREST APIで即座にイテレーションでき、Javaコードに触れる必要はありません。',
 		sol2Title: '108のMCPツール',
 		sol2Desc:
-			'EDDIは<strong>Model Context Protocol</strong>を通じてその機能を公開し、Claude Desktopとの対話を可能にします。エージェントは<strong>外部MCPツールを消費</strong>することもできます。',
+			'EDDIは<strong>Model Context Protocol</strong>を通じてその機能を公開しているため、Claude、Cursor、あるいは任意のMCPクライアントからエージェントを構築、テスト、運用できます。エージェントは<strong>外部MCPツールを消費</strong>することもできます。',
 		sol3Title: 'セキュリティファースト',
 		sol3Desc: '<code>eval()</code>なし、エスケープなし。Vault統合、URL検証、暗号化監査証跡は<strong>アーキテクチャの基盤</strong>です。',
 		sol4Title: 'オブザーバビリティ',
@@ -213,10 +245,10 @@ const ja: TranslationSchema = {
 		faqTitle: 'よくある質問',
 		faq1Q: 'EDDIとは？',
 		faq1A:
-			'EDDIはオープンソースのエンタープライズAIオーケストレーションプラットフォームです。チームがコンパイルされたコードではなくJSON設定を使用してAIエージェントを構築、設定、デプロイすることを可能にします。EDDIは<strong>本番環境対応のReact管理UI</strong>（EDDIマネージャー）、組み込みREST API、会話状態管理、セキュリティ（OIDC/Keycloak）、不変の監査証跡、108のMCPツールを備えた完全なプラットフォームを提供します、すべてDockerまたはKubernetesでデプロイ可能。',
+			'EDDIはオープンソースのAIエージェント管理システムです。チームがコンパイルされたコードではなくJSON設定を使用してAIエージェントを構築、設定、デプロイすることを可能にします。EDDIは<strong>本番環境対応のReact管理UI</strong>（EDDIマネージャー）、組み込みREST API、会話状態管理、セキュリティ（OIDC/Keycloak）、不変の監査証跡、108のMCPツールを備えた完全なプラットフォームを提供します、すべてDockerまたはKubernetesでデプロイ可能。',
 		faq2Q: 'EDDIはAIライブラリやフレームワークとどう違いますか？',
 		faq2A:
-			'LangChain、Spring AI、LangChain4jのようなAIライブラリはビルディングブロックを提供しますが、RESTコントローラー、認証、会話状態管理、監査ログ、管理UIは依然として自分で構築する必要があります。EDDIはライブラリではなく<strong>デプロイ可能なミドルウェアプラットフォーム</strong>です。これらすべてをすぐに使える形で提供し、Dockerで即座にデプロイできます。',
+			'LangChain、Spring AI、LangChain4jのようなAIライブラリはビルディングブロックを提供しますが、RESTコントローラー、認証、会話状態管理、監査ログ、管理UIは依然として自分で構築する必要があります。EDDIは<strong>インポートするライブラリではなく、デプロイするサービス</strong>です。これらすべてをすぐに使える形で提供し、Dockerで即座にデプロイできます。',
 		faq3Q: 'EDDIはエンタープライズの本番利用に対応していますか？',
 		faq3A:
 			'はい。EDDIは軽量仮想スレッドを備えたエンタープライズランタイム上に構築され、I/Oバウンド並行性のために大規模並列処理を実現します。MongoDBとPostgreSQLをサポートし、組み込みのOIDC/Keycloak認証とリソース共有機能付きのユーザーごとのワークスペースを含み、コンプライアンス（EU AI規制法を含む）のための不変の暗号化監査証跡を提供し、NATS JetStreamで水平スケーリングします。',
@@ -227,7 +259,7 @@ const ja: TranslationSchema = {
 		faq5A:
 			'EDDIはエンタープライズグレードのアーキテクチャで同様のビジュアルビルディング目的を果たします。Flowiseやn8nとは異なり、EDDIは<code>eval()</code>やコードブロックを使用せず、エンタープライズグレードの並行性のために数百万の軽量仮想スレッドを実行し、OIDC/Keycloak認証をサポートし、MongoDBまたはPostgreSQLにデータを保存します。規制産業向けに設計されています。',
 		faq6Q: 'EDDIは「Eddie AI」や「Eddy」という名前の他の製品と関係がありますか？',
-		faq6A: 'いいえ。EDDI（<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>による）は、Java/Quarkus上に構築されたセルフホスト型の<strong>エンタープライズAIエージェントオーケストレーションプラットフォーム</strong>です。ビデオ編集ツール、HRソフトウェア、チャットボットビルダーなど、似た名前の他製品とは無関係です。',
+		faq6A: 'いいえ。EDDI（<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>による）は、Java/Quarkus上に構築されたセルフホスト型の<strong>AIエージェント管理システム</strong>です。ビデオ編集ツール、HRソフトウェア、チャットボットビルダーなど、似た名前の他製品とは無関係です。',
 		faq7Q: 'EDDIは、AWS BedrockやAzure AI StudioなどのクラウドAIプラットフォームとどう違いますか？',
 		faq7A: `クラウドAIプラットフォームはマネージドインフラを提供しますが、<strong>ベンダーロックイン</strong>を生じさせます。EDDIはDockerが動く場所ならどこでも動作します、オンプレミス、任意のクラウド、エアギャップ環境。${LLM_PROVIDERS}のLLMプロバイダーと任意のOpenAI互換エンドポイントをサポートし、完全なモデルポータビリティとデータ主権を提供します。<a href="/ja/enterprise/vs-alternatives/">詳細な比較</a>をご覧ください。`,
 		faq8Q: 'EDDIはOpen WebUIなどのOpenAI互換クライアントで利用できますか？',
@@ -321,7 +353,7 @@ const ja: TranslationSchema = {
 	useCases: {
 		title: 'ユースケース',
 		metaTitle: '規制業界向けAIエージェントのユースケース',
-		description: 'EDDI AIオーケストレーションプラットフォームを活用する、規制産業とエンタープライズチームのためのデプロイメントパターン。',
+		description: 'オープンソースのAIエージェント管理システムであるEDDIを活用する、規制産業とエンタープライズチームのためのデプロイメントパターン。',
 		heroTitle: 'ユースケース',
 		heroSubtitle: '規制産業とエンタープライズチームのためのデプロイメントパターン。',
 		healthcare: 'ヘルスケア',
@@ -350,12 +382,12 @@ const ja: TranslationSchema = {
 	featuresOverview: {
 		title: '機能一覧',
 		metaTitle: '機能：セルフホスト型AIエージェントオーケストレーションプラットフォーム',
-		description: 'EDDIをエンタープライズAIオーケストレーターにするすべての機能、EDDIマネージャーUI、Config-as-Code、108のMCPツール、セキュリティファーストアーキテクチャなど。',
+		description: 'EDDIをオープンソースのAIエージェント管理システムにするすべての機能、EDDIマネージャーUI、Config-as-Code、108のMCPツール、セキュリティファーストアーキテクチャなど。',
 		heroTitle: 'AIオーケストレーションに',
 		heroHighlight: '必要なすべて',
 		heroDesc: 'EDDIは、AIエージェントの構築、デプロイ、管理のための完全な本番環境対応プラットフォームを提供、ボイラープレート不要。',
 		coreTitle: 'コアプラットフォーム',
-		coreDesc: 'EDDIを<strong>完全なAIオーケストレーションプラットフォーム</strong>にする基本機能。',
+		coreDesc: 'EDDIを<strong>完全なAIエージェント管理システム</strong>にする基本機能。',
 		managerCardTitle: '🖥️ EDDIマネージャー',
 		managerCardDesc: 'エージェントをビジュアルに構築、デプロイ、監視するための<strong>本番環境対応React UI</strong>、11言語i18n、ライブチャットデバッグ、監査ダッシュボード付き。',
 		configCardTitle: '⚙️ Config-as-Code',
@@ -552,6 +584,9 @@ const ja: TranslationSchema = {
 			],
 			heading3: 'チーム向けに構築',
 			para2: 'マネージャーにより、非開発者がソースコードに触れることなくエージェントの動作を反復できます。プロンプトエンジニアはルールの修正、会話のテスト、変更のデプロイ、すべてブラウザから。',
+			workforceTitle: 'Workforce：エンドユーザー向けアプリ',
+			workforcePara: '<code>/workforce</code>にあるWorkforceは、サインインしたユーザーが組織から提供されたエージェントやチームを利用する場所です。構築と管理のためのマネージャーとは別のアプリで、両者は1つのサインインを共有します。エージェントは、本番環境にデプロイされカタログに掲載されると、Workforceに表示されます。',
+			workforceLink: 'Workforceガイドを読む',
 		},
 		mcpServer: {
 			title: 'MCPサーバー、108ツール',
@@ -626,8 +661,8 @@ const ja: TranslationSchema = {
 				'<strong>Secrets Vault</strong>、APIキーのAES-256-GCMエンベロープ暗号化、エクスポート時の自動シークレット除去付き',
 				'<strong>パストラバーサル保護</strong>、すべての境界での入力検証によりディレクトリエスケープ攻撃を防止',
 				'<strong>SSRF保護</strong>、URL検証とドメイン許可リストによりサーバーサイドリクエストフォージェリを防止。HTTP呼び出し、MCP、A2Aの宛先では、DNS解決やリダイレクトを経由する場合も含めてクラウドメタデータエンドポイントを拒否',
-				'<strong>暗号化監査証跡</strong>、HMAC-SHA256署名付きの改ざん検知可能な操作ログ、エージェントごとの暗号署名付き',
-				'<strong>EU AI法対応</strong>、規制コンプライアンスのための組み込みガバナンス機能',
+				'<strong>暗号化監査証跡</strong>、改ざん検知可能な操作ログ。署名キーを設定するとHMAC-SHA256で署名され（インストーラーは署名キーを設定しますが、素のdocker-compose構成では空のままです）、エージェントごとの暗号署名付き',
+				'<strong>EU AI法のための制御</strong>、記録保持、透明性、人間による監督のための技術的制御とデプロイメントガイド。これらはガイドであり、認証ではありません',
 				'<strong>シークレット墨消し</strong>、APIキー、Vault参照、機密データをすべての監査エントリから自動フィルタリング',
 				'<strong>PII安全ロギング</strong>、GDPR操作はSHA-256仮名を記録し、生のユーザー識別子は記録しない',
 				'<strong>Sigstore Cosign</strong>、キーレスOIDCコンテナイメージ署名、公式CIでビルドされたDockerイメージを暗号的に検証',
@@ -892,12 +927,12 @@ const ja: TranslationSchema = {
 		whyEddi: {
 			title: 'なぜEDDI？',
 			metaTitle: 'なぜEDDIか：セルフホスト型エンタープライズAIエージェントプラットフォーム',
-			description: '自己ホスト型エンタープライズAIオーケストレーションプラットフォーム。構成駆動型エージェントロジック、完全な管理UI、エンタープライズグレードセキュリティ、すべて1つのデプロイ可能なプラットフォームに。',
+			description: 'セルフホスト型のオープンソースAIエージェント管理システム。構成駆動型エージェントロジック、完全な管理UI、エンタープライズグレードセキュリティ、すべて1つのデプロイ可能なプラットフォームに。',
 			heading1: 'エンタープライズAIの空白',
 			para1:
 				'エンタープライズJavaには<strong>ビジュアルAIオーケストレーションミドルウェアがありません</strong>。チームはPython/Node.jsツールでプロトタイプを作って本番用に書き直すか、Spring AIやLangChain4jのようなライブラリですべてをゼロから構築するかです。',
 			heading2: 'EDDIがこの空白を埋める',
-			para2: 'EDDIは<strong>デプロイ可能なミドルウェアプラットフォーム</strong>で、ライブラリではありません。チームが必要とするすべてをすぐに使える形で提供：',
+			para2: 'EDDIは<strong>インポートするライブラリではなく、デプロイするサービス</strong>です。チームが必要とするすべてをすぐに使える形で提供：',
 			items: [
 				'<strong>ビジュアル管理UI</strong>、エージェントの構築と監視のためのEDDIマネージャー',
 				'<strong>Configuration-as-Code</strong>、エージェントロジックはJSON、コンパイルされたコードではない',
@@ -978,7 +1013,16 @@ const ja: TranslationSchema = {
 			metaTitle: 'EDDIとFlowise、n8n、LangGraph、CrewAI、クラウドAIプラットフォームの比較',
 			description: 'EDDIとSpring AI、LangChain4j、Flowise、n8nおよびその他のAIオーケストレーションアプローチとの比較。',
 			heading1: 'プラットフォーム vs. ライブラリ vs. ビルダー',
-			para1: 'AIオーケストレーション市場には3つの類型があります：<strong>ビジュアルノードビルダー</strong>、<strong>コードライブラリ</strong>、<strong>クラウドプラットフォーム</strong>。EDDIは<strong>デプロイ可能なミドルウェアプラットフォーム</strong>です。',
+			para1: 'AIオーケストレーション市場には3つの類型があります：<strong>ビジュアルノードビルダー</strong>（Flowise、n8n）、<strong>コードライブラリ</strong>（LangGraph、CrewAI、AutoGen）、<strong>クラウドプラットフォーム</strong>（AWS Bedrock、Azure AI Studio）。EDDIはそのいずれでもありません：<strong>インポートするライブラリではなく、デプロイするサービス</strong>であり、チームがAIエージェントを本番環境に送り出すために必要な完全なインフラストラクチャを備えています。自社のJavaアプリケーション内にエージェントロジックを組み込みたい場合は、EDDI自身も基盤としているLangChain4jのようなライブラリの方が適しています。',
+
+			// ── Where EDDI sits (category level, no vendor names) ──
+			whereTitle: 'EDDIの位置付け',
+			whereItems: [
+				'<strong>エージェントツールキットとフレームワーク</strong>：エージェントを構築できますが、承認、制限、監査記録は通常、自分で構築する必要があります。',
+				'<strong>エージェントセキュリティのアドオン</strong>：他の場所で動作するエージェントを監視またはブロックしますが、通常はエージェント自体を実行しません。',
+				'<strong>ベンダーのエージェントプラットフォーム</strong>：エージェントを実行し統制しますが、通常はベンダーのクラウド上で、ベンダーのモデルを中心に動作します。',
+				'<strong>EDDI</strong>：エージェントを実行し、許可する操作を制限し、重要な判断の前に人間を置き、すべてのステップを記録します。これらすべてを、任意のモデルで、自社でホストする1つのシステムの中で行います。',
+			],
 
 			heading2: 'vs. ビジュアルノードビルダー',
 			heading2sub: 'Flowise · n8n · 類似プラットフォーム',
@@ -1051,7 +1095,7 @@ const ja: TranslationSchema = {
 			title: 'グローバルプライバシーと規制コンプライアンス',
 			metaTitle: 'AIコンプライアンス：EU AI法、GDPR、HIPAA、世界のプライバシー法',
 			description:
-				'EDDIは、GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPAマレーシアPDPA、PIPLなどに対する組み込みコンプライアンスを提供します。カスケードデータ削除、暗号化監査追跡、統一APIを備えています。',
+				'EDDIは、GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPA、PIPLなどに対する技術的制御とデプロイメントガイドを提供します：カスケード削除、監査追跡、統一API。ガイドであり、認証ではありません。',
 			heading1: 'アーキテクチャによるコンプライアンス',
 			para1:
 				'規制対象業界は、AI システムに事後的にコンプライアンスを追加することはできません。EDDIは、<strong>グローバルな規制コンプライアンスのための技術基盤</strong>をプラットフォームアーキテクチャに直接組み込んでいます。不変の監査追跡、カスケードデータ削除、処理制限、暗号化整合性、ロールベースのアクセス制御はコア機能であり、アドオンではありません。統一APIがすべての管轄区域のデータ主体の権利をカバーします。',
@@ -1062,7 +1106,7 @@ const ja: TranslationSchema = {
 			euAiActPara:
 				'EU AI Act（規則2024/1689）は世界初の包括的AI法であり、AIシステムにリスクベースの要件を確立しています。EDDIは高リスクAIシステム要件へのコンプライアンスのための<strong>技術基盤</strong>を提供します：',
 			euAiActItems: [
-				'<strong>不変の監査追跡</strong>、すべての操作がHMAC-SHA256暗号化整合性で記録されます（第12条、記録保持）',
+				'<strong>不変の監査追跡</strong>、すべての操作が監査台帳に記録され、署名キーを設定するとHMAC-SHA256で署名されます（インストーラーは署名キーを設定しますが、素のdocker-compose構成では空のままです）（第12条、記録保持）',
 				'<strong>意思決定の透明性</strong>、完全なパイプライントレースがAI決定の方法を示します（第13条、透明性）',
 				'<strong>人間による監視</strong>、ターン、ツール呼び出し、グループフェーズの各レベルでの承認ゲートに加え、管理UIによる人間のレビュー、介入、緊急停止（第14条、人間による監視）',
 				'<strong>リスク分類</strong>、アーキテクチャが構成可能な制御で高リスクAIシステム要件をサポート（第9条、リスク管理）',
@@ -1183,7 +1227,7 @@ const ja: TranslationSchema = {
 			],
 			industryHeading: '業界固有のコンプライアンス',
 			hipaaHeading: 'HIPAA、米国ヘルスケア',
-			hipaaPara: 'HIPAAは保護対象医療情報（PHI）の安全措置を確立します。EDDIはHIPAA準拠のAIデプロイメントのための技術インフラストラクチャを提供します：',
+			hipaaPara: 'HIPAA（医療保険の相互運用性と説明責任に関する法律）は保護対象医療情報（PHI）の安全措置を確立します。EDDIはHIPAAデプロイメントのための技術的制御とデプロイメントガイドを提供します。これらはガイドであり、認証ではありません：コンプライアンスは、EDDIをどのようにデプロイし運用するかに左右されます。',
 			hipaaItems: [
 				'<strong>アクセス制御（§164.312(a)）</strong>、ロールベースアクセスのKeycloak OIDC（eddi-admin、eddi-editor、eddi-viewer）',
 				'<strong>監査制御（§164.312(b)）</strong>、HMAC署名の不変監査台帳がタイムスタンプ、ユーザーID、結果とともにすべての操作を記録',
@@ -1420,7 +1464,7 @@ const ja: TranslationSchema = {
 			emailLabel: 'メール',
 			email: 'contact@labs.ai',
 			mediaOrientationHeading: '基本方針の表示（§25 MedienG）',
-			mediaOrientationText: 'オープンソースのEDDI AIオーケストレーションプラットフォームに関する情報提供。',
+			mediaOrientationText: 'オープンソースのAIエージェント管理システムであるEDDIに関する情報提供。',
 			projectHeading: 'オープンソースプロジェクト',
 			projectMaintainers: 'EDDIはGregor Jarisch（プロジェクト管理・開発）とFranz Weber（サイバーセキュリティ・パートナー管理）によって保守されています。',
 			projectLicense: '<a href="https://github.com/labsai/EDDI/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>のもとでライセンスされています。',

@@ -4,11 +4,11 @@
   </a>
 </p>
 
-<h1 align="center">EDDI: The Enterprise AI Orchestrator</h1>
+<h1 align="center">EDDI: The Open-Source AI Agent Management System</h1>
 
 <p align="center">
-  Build, deploy, and manage AI agents, without writing code.<br/>
-  Configuration-driven · Self-hosted · Compliance-ready
+  Run AI agents on your own infrastructure, limit what they may do, approve the decisions that matter, and record every step.<br/>
+  Run · Limit · Approve · Record
 </p>
 
 <p align="center">
@@ -22,11 +22,11 @@
 
 ## 🤔 What is EDDI?
 
-**EDDI** is an open-source, enterprise-grade AI orchestration platform. Instead of writing boilerplate code for REST controllers, authentication, state management, and audit logging, you deploy EDDI and get all of it out of the box.
+**EDDI** is the open-source AI agent management system. Instead of writing boilerplate code for REST controllers, authentication, state management, and audit logging, you deploy EDDI and get all of it out of the box.
 
 Agent logic is **JSON configuration**, not compiled code. Prompt engineers iterate instantly via the visual management UI or REST API, no redeployment needed.
 
-> 🏗️ EDDI is a **deployable middleware platform**, not a library. Think of it as the missing layer between raw AI models and production applications.
+> 🏗️ EDDI is **a service you deploy, not a library you import**. Think of it as the missing layer between raw AI models and production applications.
 
 ---
 
@@ -94,7 +94,7 @@ Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh insta
 
 | Sector | Use Cases |
 |---|---|
-| 🏥 Healthcare | Patient intake agents, medical FAQ, HIPAA-compliant audit trails |
+| 🏥 Healthcare | Patient intake agents, medical FAQ, audit trails for HIPAA deployments |
 | 🏦 Financial Services | Compliance-logged support agents, fraud detection assistants |
 | 🛒 E-Commerce | Product recommendations, multi-language customer service |
 | 🏭 Manufacturing | Equipment maintenance assistants, quality control agents |

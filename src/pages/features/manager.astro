@@ -1,6 +1,6 @@
 ---
 import FeaturePage from '../../layouts/FeaturePage.astro';
-import heroImage from '../../assets/hero_manager.webp';
+import heroImage from '../../assets/screenshots/eddi-v6-screenshot-agents-1.png';
 import { enTranslations as t } from '../../i18n';
 const p = t.pages.manager;
 import { Image } from 'astro:assets';
@@ -24,6 +24,10 @@ const shots = [shotDashboard, shotGroups, shotVault, shotLogs];
 </div>
 
 <h3>{p.heading3}</h3><p>{p.para2}</p>
+
+<h2>{p.workforceTitle}</h2>
+<p set:html={p.workforcePara} />
+<p><a href="https://docs.labs.ai/protocols-and-integration/workforce-guide.md" target="_blank" rel="noopener">{p.workforceLink} ↗</a></p>
 </FeaturePage>
 
 <style>

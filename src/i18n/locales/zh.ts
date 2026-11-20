@@ -5,7 +5,7 @@ import type { TranslationSchema } from './en';
 const zh: TranslationSchema = {
 	meta: {
 		siteTitle: 'EDDI',
-		siteDescription: `EDDI ${EDDI_VERSION}，企业级AI代理编排平台。自托管、配置驱动的多代理系统，内置可视化管理界面、108个MCP工具和安全优先架构，并为GDPR、欧盟AI法案、HIPAA及15+个监管框架提供内置合规支持。`,
+		siteDescription: `EDDI ${EDDI_VERSION}：开源、自托管的AI代理管理与编排系统。配置即代码的代理、${MCP_TOOLS}个MCP工具、人工审批关卡和审计账本。`,
 	},
 	nav: {
 		features: '功能特性',
@@ -81,8 +81,8 @@ const zh: TranslationSchema = {
 		enterpriseCtaBtn: '与我们洽谈企业部署',
 	},
 	footer: {
-		tagline: '企业级AI编排器',
-		subtitle: '配置驱动。自托管。生产就绪。',
+		tagline: 'AI代理管理系统',
+		subtitle: '运行。限制。审批。记录。',
 		redHatCertified: 'Red Hat认证容器',
 		apache2: 'Apache 2.0许可',
 		tests: `${TESTS}测试 · CI全部通过`,
@@ -134,11 +134,43 @@ const zh: TranslationSchema = {
 		consentCta: '显示订阅表单',
 	},
 	home: {
-		title: '企业级AI编排器',
-		heroTitle: '企业级',
-		heroHighlight: 'AI编排器',
+		title: '开源AI代理管理系统',
+		/** Full <title> for the homepage, used without the " | EDDI" suffix. */
+		metaTitle: 'EDDI: 开源AI代理管理系统',
+		heroTitle: 'AI代理',
+		heroHighlight: '管理系统',
 		heroTagline:
-			`用于部署受治理多代理AI系统的开源平台：自托管、配置驱动、合规就绪。现已推出<strong>${EDDI_VERSION}</strong>。`,
+			`在您自己的基础设施上运行AI代理团队，限制它们可以执行的操作，让关键决策先经过人工把关，并记录每一个步骤。开源、自托管。现已推出<strong>${EDDI_VERSION}</strong>。`,
+		// Four things before an agent acts (Run, Limit, Approve, Record)
+		pillarsTitle: '代理获准行动之前必须具备的四件事',
+		pillarsSubtitle: 'EDDI围绕AI代理接触真实系统之前必须到位的条件而构建。',
+		pillarRunTitle: '运行',
+		pillarRunDesc: `代理可以单独工作，也可以组队协作，可使用${LLM_PROVIDERS}个模型提供商中的任意一个（包括本地模型），运行在您自己的服务器上。一条Docker命令即可安装，也可部署在Kubernetes和OpenShift上，使用MongoDB或PostgreSQL。`,
+		pillarLimitTitle: '限制',
+		pillarLimitDesc: '代理只持有其配置所授予的工具，并受速率限制和成本预算约束。代理无法运行任意代码：没有eval，也没有脚本引擎。密钥存放在信封加密的密钥库中。',
+		pillarApproveTitle: '审批',
+		pillarApproveDesc: '整个回合、单个工具调用或群组讨论的阶段都可以等待人工审批，可在管理器、Slack或通过MCP完成。',
+		pillarRecordTitle: '记录',
+		pillarRecordDesc: '每个步骤都写入仅追加的审计账本，配置签名密钥后即以HMAC签名。内置GDPR/CCPA数据删除和导出。',
+		// Works with the AI you already use
+		worksWithTitle: '与您已在使用的AI协同工作',
+		worksWithIntro: 'EDDI不会取代ChatGPT、Claude或您IDE中的助手。它为它们提供一个受治理的工作场所。',
+		worksWith1Title: '它为您构建和运行代理',
+		worksWith1Desc: '让Claude、Cursor或任何其他支持MCP的助手（包括本地运行的助手）创建代理、测试代理、读取其日志或修改其提示词。每次更改都会在EDDI中成为一个新版本，您设置了关卡的更改会等待您的审批。',
+		worksWith2Title: '它咨询能够触及它所无法触及之处的代理',
+		worksWith2Desc: 'EDDI代理可以持有与数据库、内部API或知识库的连接，而您的个人助手无权访问这些资源。您的助手向该代理或整个代理群组提问，并基于回答继续工作。凭证保留在密钥库中，整个交互记录在审计账本中。',
+		worksWith3Title: '它跨系统协作',
+		worksWith3Desc: '其他代理平台以同样的方式访问EDDI代理：通过A2A或OpenAI兼容API。',
+		worksWithClosing: 'EDDI也可以独立使用：最终用户可以在Workforce、可嵌入的聊天界面或Slack中与代理及代理团队对话。',
+		worksWithLink: '了解MCP服务器的工作原理 →',
+		// What it looks like (Manager screenshots)
+		shotsTitle: '实际界面',
+		shotGroupCaption: '运行：一个代理团队借助共享工作成果逐步解决一个问题',
+		shotGroupAlt: 'EDDI管理器显示一场同行评审式群组讨论，包括其各个阶段、两个共享工作成果以及一张提案协商表',
+		shotApprovalsCaption: '审批：等待人工处理的操作，集中在一个列表中',
+		shotApprovalsAlt: 'EDDI管理器的“待处理审批”页面，列出两个已暂停的对话和一场群组讨论，每项都带有“批准”“拒绝”和“取消”按钮',
+		shotAuditCaption: '记录：一个回合的每个步骤，均已签名，并附有耗时和成本',
+		shotAuditAlt: 'EDDI管理器中某个代理的“审计跟踪”页面，显示已验证的签名、总耗时和成本，并将每个管道步骤标记为已签名',
 		problemTitle: '问题',
 		problemDesc: '企业级AI编排<strong>碎片化且痛苦</strong>。团队陷入一个破碎的生命周期中：',
 		problemCard1Title: '原型陷阱',
@@ -148,11 +180,11 @@ const zh: TranslationSchema = {
 		problemCard3Title: 'BPMN摩擦',
 		problemCard3Desc: '将非确定性AI代理强制放入Camunda/Temporal确定性工作流中会造成<strong>严重的阻抗失配</strong>和脆弱的架构。',
 		solutionTitle: '解决方案',
-		solutionDesc: 'EDDI是一个<strong>可部署的AI编排平台</strong>，不是库。可视化管理、配置即代码和企业级安全，开箱即用：',
+		solutionDesc: 'EDDI是<strong>一项由您自行部署的服务，而不是您导入的库</strong>。可视化管理、配置即代码和企业级安全，开箱即用：',
 		sol1Title: '配置即代码',
 		sol1Desc: '代理逻辑、管道和工具定义都是<strong>JSON配置</strong>，而非编译的代码。提示词工程师通过React UI或REST API即时迭代，无需重新部署。',
 		sol2Title: '108个MCP工具',
-		sol2Desc: 'EDDI通过<strong>模型上下文协议</strong>暴露其功能，支持Claude Desktop交互。代理还可以<strong>消费外部MCP工具</strong>。',
+		sol2Desc: 'EDDI通过<strong>模型上下文协议</strong>暴露其功能，因此Claude、Cursor或任何MCP客户端都可以构建、测试和运行代理。代理还可以<strong>消费外部MCP工具</strong>。',
 		sol3Title: '安全优先',
 		sol3Desc: '无<code>eval()</code>，无逃逸。密钥库集成、URL验证和加密审计跟踪是<strong>架构基础</strong>。',
 		sol4Title: '可观测性',
@@ -211,10 +243,10 @@ const zh: TranslationSchema = {
 		faqTitle: '常见问题',
 		faq1Q: '什么是EDDI？',
 		faq1A:
-			'EDDI是一个开源的企业级AI编排平台。它使团队能够使用JSON配置而非编译代码来构建、配置和部署AI代理。EDDI提供了一个完整的平台，包括<strong>生产就绪的React管理界面</strong>（EDDI管理器）、内置REST API、对话状态管理、安全性（OIDC/Keycloak）、不可变审计跟踪和108个MCP工具，所有这些都可通过Docker或Kubernetes部署。',
+			'EDDI是一个开源的AI代理管理系统。它使团队能够使用JSON配置而非编译代码来构建、配置和部署AI代理。EDDI提供了一个完整的平台，包括<strong>生产就绪的React管理界面</strong>（EDDI管理器）、内置REST API、对话状态管理、安全性（OIDC/Keycloak）、不可变审计跟踪和108个MCP工具，所有这些都可通过Docker或Kubernetes部署。',
 		faq2Q: 'EDDI与AI库和框架有什么不同？',
 		faq2A:
-			'Spring AI和LangChain4j是优秀的<strong>库</strong>，EDDI实际上在内部使用了LangChain4j。关键区别在于EDDI是一个<strong>可部署的中间件平台</strong>，而不是库。使用Spring AI，您仍然需要自己构建REST控制器、认证、对话状态管理、审计日志和管理界面。EDDI开箱即提供所有这些。',
+			'Spring AI和LangChain4j是优秀的<strong>库</strong>，EDDI实际上在内部使用了LangChain4j。关键区别在于EDDI是<strong>一项由您自行部署的服务，而不是您导入的库</strong>。使用Spring AI，您仍然需要自己构建REST控制器、认证、对话状态管理、审计日志和管理界面。EDDI开箱即提供所有这些。',
 		faq3Q: 'EDDI是否可以在生产环境中用于企业？',
 		faq3A:
 			'是的。EDDI基于企业级运行时构建，利用轻量级虚拟线程实现IO密集型操作的大规模并发。支持MongoDB和PostgreSQL，内置OIDC/Keycloak认证以及支持资源共享的按用户工作空间，提供不可变的加密审计跟踪以确保合规（包括欧盟AI法案），并通过NATS JetStream实现水平扩展。',
@@ -224,7 +256,7 @@ const zh: TranslationSchema = {
 		faq5A:
 			'EDDI服务于类似的可视化构建目的，但具有企业级架构。与Flowise和n8n不同，EDDI不使用<code>eval()</code>或代码块，运行数百万轻量级虚拟线程以实现企业级并发，支持OIDC/Keycloak认证，并将数据存储在MongoDB或PostgreSQL中。它专为受监管行业设计。',
 		faq6Q: 'EDDI是否与“Eddie AI”或名为“Eddy”的其他产品有关联？',
-		faq6A: '不。EDDI（由<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>开发）是一个自托管的<strong>企业AI代理编排平台</strong>，基于Java/Quarkus构建。它与消费者视频剪辑工具、HR软件、聊天机器人生成器或其他同名产品无关。',
+		faq6A: '不。EDDI（由<a href="https://eddi.technology" target="_blank" rel="noopener">LABS.AI</a>开发）是一个自托管的<strong>AI代理管理系统</strong>，基于Java/Quarkus构建。它与消费者视频剪辑工具、HR软件、聊天机器人生成器或其他同名产品无关。',
 		faq7Q: '与AWS Bedrock或Azure AI Studio等云端AI平台相比，EDDI如何？',
 		faq7A: `云AI平台提供托管基础设施，但会造成<strong>供应商锁定</strong>。EDDI可在任何运行Docker的地方运行：本地部署、任意云或气隙环境。它支持${LLM_PROVIDERS}个LLM提供商及任何OpenAI兼容端点，提供完整的模型可移植性和数据主权。查看我们的<a href="/zh/enterprise/vs-alternatives/">详细比较</a>。`,
 		faq8Q: 'EDDI能否与Open WebUI及其他OpenAI兼容客户端配合使用？',
@@ -318,7 +350,7 @@ const zh: TranslationSchema = {
 	useCases: {
 		title: '应用场景',
 		metaTitle: '面向受监管行业的AI代理应用场景',
-		description: '面向受监管行业和企业团队的EDDI AI编排平台部署模式。',
+		description: '面向受监管行业和企业团队的部署模式，基于开源AI代理管理系统EDDI。',
 		heroTitle: '应用场景',
 		heroSubtitle: '面向受监管行业和企业团队的部署模式。',
 		healthcare: '医疗健康',
@@ -347,12 +379,12 @@ const zh: TranslationSchema = {
 	featuresOverview: {
 		title: '功能一览',
 		metaTitle: '功能特性：自托管AI代理编排平台',
-		description: '使EDDI成为企业AI编排器的所有功能，EDDI管理器UI、配置即代码、108个MCP工具、安全优先架构等。',
+		description: '使EDDI成为开源AI代理管理系统的所有功能，EDDI管理器UI、配置即代码、108个MCP工具、安全优先架构等。',
 		heroTitle: '编排AI所需的',
 		heroHighlight: '一切',
 		heroDesc: 'EDDI提供完整的、生产就绪的平台，用于构建、部署和管理AI代理，无需编写样板代码。',
 		coreTitle: '核心平台',
-		coreDesc: '使EDDI成为<strong>完整AI编排平台</strong>的核心功能。',
+		coreDesc: '使EDDI成为<strong>完整AI代理管理系统</strong>的核心功能。',
 		managerCardTitle: '🖥️ EDDI管理器',
 		managerCardDesc: '<strong>生产就绪的React UI</strong>，用于可视化构建、部署和监控代理，支持11种语言的i18n、实时聊天调试和审计仪表板。',
 		configCardTitle: '⚙️ 配置即代码',
@@ -549,6 +581,9 @@ const zh: TranslationSchema = {
 			],
 			heading3: '为团队而建',
 			para2: '管理器使非开发人员能够在不触碰源代码的情况下迭代代理行为。提示词工程师可以修改规则、测试对话并部署更改，全部在浏览器中完成。',
+			workforceTitle: 'Workforce：面向最终用户的应用',
+			workforcePara: '位于<code>/workforce</code>的Workforce，是已登录用户使用其组织为其提供的代理和团队的地方。它是独立于管理器的应用，管理器用于构建和管理，两者共用同一个登录。代理一旦部署到生产环境并列入目录，就会出现在Workforce中。',
+			workforceLink: '阅读Workforce指南',
 		},
 		mcpServer: {
 			title: 'MCP服务器，108个工具',
@@ -622,8 +657,8 @@ const zh: TranslationSchema = {
 				'<strong>密钥库集成</strong>，API密钥的安全密钥管理',
 				'<strong>路径遍历保护</strong>，每个边界的输入验证',
 				'<strong>URL验证</strong>，防止SSRF和重定向攻击，并拒绝将云元数据端点作为 HTTP 调用、MCP 和 A2A 的目标，包括经由 DNS 解析和重定向的情况',
-				'<strong>加密审计跟踪</strong>，不可变、防篡改的操作日志',
-				'<strong>欧盟AI法案就绪</strong>，内置治理功能满足监管合规',
+				'<strong>加密审计跟踪</strong>，防篡改的操作日志，配置签名密钥后以HMAC-SHA256签名（安装程序会设置一个；普通的docker-compose部署则留空），并支持按代理的加密签名',
+				'<strong>欧盟AI法案管控</strong>，面向记录保存、透明度和人工监督的技术管控与部署指南。这些是指南，而非认证',
 				'<strong>密钥脱敏</strong>，自动过滤器从所有审计条目中清除 API 密钥、vault 引用和敏感数据',
 				'<strong>PII 安全日志</strong>，GDPR 操作记录 SHA-256 假名，从不记录原始用户标识符',
 				'<strong>Sigstore Cosign</strong>，无密钥 OIDC 容器镜像签名，加密验证每个 Docker 镜像由官方 CI 构建',
@@ -884,11 +919,11 @@ const zh: TranslationSchema = {
 		whyEddi: {
 			title: '为什么选择EDDI？',
 			metaTitle: '为什么选择EDDI：自托管的企业级AI代理平台',
-			description: '自托管的企业级AI编排平台。配置驱动的代理逻辑，完整的管理UI，企业级安全，全在一个可部署的平台中。',
+			description: '自托管的开源AI代理管理系统。配置驱动的代理逻辑，完整的管理UI，企业级安全，全在一个可部署的平台中。',
 			heading1: '企业级AI的空白',
 			para1: '企业Java<strong>缺少可视化AI编排中间件</strong>。团队要么用Python/Node.js工具制作原型后为生产重写，要么使用Spring AI或LangChain4j等库从头构建一切。',
 			heading2: 'EDDI填补这一空白',
-			para2: 'EDDI是<strong>可部署的中间件平台</strong>，而不是库。它提供团队所需的一切：',
+			para2: 'EDDI是<strong>一项由您自行部署的服务，而不是您导入的库</strong>。它提供团队所需的一切：',
 			items: [
 				'<strong>可视化管理界面</strong>，EDDI管理器用于构建和监控代理',
 				'<strong>配置即代码</strong>，代理逻辑是JSON，不是编译的代码',
@@ -969,7 +1004,16 @@ const zh: TranslationSchema = {
 			metaTitle: 'EDDI 对比 Flowise、n8n、LangGraph、CrewAI 及云端 AI 平台',
 			description: 'EDDI与Spring AI、LangChain4j、Flowise、n8n和其他AI编排方法的比较。',
 			heading1: 'Platform vs. Library vs. Builder',
-			para1: 'AI编排市场有三种原型：<strong>可视化节点构建器</strong>、<strong>代码库</strong>和<strong>云平台</strong>。EDDI是一个<strong>可部署的中间件平台</strong>。',
+			para1: 'AI编排市场有三种原型：<strong>可视化节点构建器</strong>（Flowise、n8n）、<strong>代码库</strong>（LangGraph、CrewAI、AutoGen）和<strong>云平台</strong>（AWS Bedrock、Azure AI Studio）。EDDI不属于其中任何一种：它是<strong>一项由您自行部署的服务，而不是您导入的库</strong>，提供团队将AI代理交付到生产环境所需的完整基础设施。如果您希望在自己的Java应用程序内实现代理逻辑，那么像LangChain4j这样的库（EDDI本身就构建于其上）更为合适。',
+
+			// ── Where EDDI sits (category level, no vendor names) ──
+			whereTitle: 'EDDI的定位',
+			whereItems: [
+				'<strong>代理工具包和框架</strong>：它们让您构建代理，但审批、限制和审计记录通常需要您自己构建。',
+				'<strong>代理安全附加组件</strong>：它们监视或阻止在别处运行的代理，但通常自身并不运行代理。',
+				'<strong>供应商代理平台</strong>：它们运行并治理代理，但通常是在供应商的云中、围绕供应商的模型进行。',
+				'<strong>EDDI</strong>：运行代理，限制它们可以执行的操作，让关键决策先经过人工把关，并记录每一个步骤，全部在一个由您自行托管、可使用任何模型的系统中完成。',
+			],
 
 			heading2: 'vs. Visual Node Builders',
 			heading2sub: 'Flowise \u00b7 n8n \u00b7 Similar Platforms',
@@ -1041,7 +1085,7 @@ const zh: TranslationSchema = {
 		compliance: {
 			title: '全球隐私与合规',
 			metaTitle: 'AI合规：欧盟AI法案、GDPR、HIPAA及全球隐私法规',
-			description: 'EDDI 为 GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPA、马来西亚 PDPA、PIPL 等框架提供内置合规，支持级联数据删除、加密审计追踪和统一 API。',
+			description: 'EDDI 为 GDPR、CCPA、EU AI Act、HIPAA、PIPEDA、LGPD、APPI、POPIA、PDPA、PIPL 等提供技术管控和部署指南：级联删除、审计追踪、统一 API。这些是指南，而非认证。',
 			heading1: '架构级合规',
 			para1:
 				'受监管行业不能事后将合规添加到 AI 系统中。EDDI 将<strong>全球监管合规的技术基础</strong>直接嵌入平台架构，不可变审计追踪、级联数据删除、处理限制、加密完整性和基于角色的访问控制是核心能力，而非附加模块。一个统一 API 覆盖每个司法管辖区的数据主体权利。',
@@ -1050,7 +1094,7 @@ const zh: TranslationSchema = {
 			euAiActHeading: 'EU AI Act，欧盟',
 			euAiActPara: 'EU AI Act（法规 2024/1689）是全球首部综合性 AI 法律，建立了基于风险的 AI 系统要求。EDDI 为高风险 AI 系统合规提供<strong>技术基础</strong>：',
 			euAiActItems: [
-				'<strong>不可变审计追踪</strong>，每项操作均以 HMAC-SHA256 加密完整性记录（第 12 条，记录保存）',
+				'<strong>不可变审计追踪</strong>，每项操作都记录在审计账本中，配置签名密钥后以 HMAC-SHA256 签名（安装程序会设置一个；普通的 docker-compose 部署则留空）（第 12 条，记录保存）',
 				'<strong>决策透明</strong>，完整的管道追踪显示 AI 决策的制定过程，包括模型名称、提示和响应（第 13 条，透明度）',
 				'<strong>人工监督</strong>，回合、工具调用和群组阶段级别的审批关卡，以及管理界面中的人工审查、干预和紧急停止（第 14 条，人工监督）',
 				'<strong>风险分类</strong>，架构支持高风险 AI 系统要求，具有可配置控制（第 9 条，风险管理）',
@@ -1170,7 +1214,7 @@ const zh: TranslationSchema = {
 			],
 			industryHeading: '行业特定合规',
 			hipaaHeading: 'HIPAA，美国医疗保健',
-			hipaaPara: 'HIPAA 为受保护健康信息（PHI）建立保障措施。EDDI 为符合 HIPAA 的 AI 部署提供技术基础设施：',
+			hipaaPara: '《健康保险流通与责任法案》（HIPAA）为受保护健康信息（PHI）建立保障措施。EDDI 为 HIPAA 部署提供技术管控和部署指南。这些是指南，而非认证：合规取决于您如何部署和运营 EDDI。',
 			hipaaItems: [
 				'<strong>访问控制（§164.312(a)）</strong>，Keycloak OIDC 基于角色的访问（eddi-admin、eddi-editor、eddi-viewer）',
 				'<strong>审计控制（§164.312(b)）</strong>，HMAC 签名的不可变审计账本记录每项操作的时间戳、用户 ID 和结果',
@@ -1415,7 +1459,7 @@ const zh: TranslationSchema = {
 			email: 'contact@labs.ai',
 
 			mediaOrientationHeading: '基本方向说明（《媒体法》第25条）',
-			mediaOrientationText: '关于开源 EDDI AI 编排平台的信息。',
+			mediaOrientationText: '关于开源 AI 代理管理系统 EDDI 的信息。',
 
 			projectHeading: '开源项目',
 			projectMaintainers: 'EDDI 由 Gregor Jarisch（项目管理与开发）和 Franz Weber（网络安全与合作伙伴管理）维护。',

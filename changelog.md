@@ -4,6 +4,47 @@ All notable changes to the EDDI website will be documented in this file.
 
 ## [Unreleased]
 
+### 🖼️ Images Follow the Repositioning
+
+- `public/og-image.png` replaced: the old social card had "The Enterprise AI Orchestrator" baked in. The new one matches the README banner (logo, category line, Run · Limit · Approve · Record).
+- Real screens where the page is about a real screen: the Manager feature hero is now the agents list, the Human-in-the-Loop hero is the pending-approvals list, and Getting Started step 6 shows the actual dashboard instead of the rendered control room. `hero_manager.*` is removed.
+- `FeaturePage` keeps a hero image's own aspect ratio; `.premium-image-wrapper--shot` drops the square slot for screenshots.
+- `llms-full.txt`: "the only AI agent management system" → "an AI agent management system".
+- Left as is: the other feature heroes (one consistent set, no text). Not referenced anywhere and off-brand: `images/` at the repo root; check whether one is the GitHub social preview before removing.
+
+### 🧭 Repositioning: The Open-Source AI Agent Management System (11 locales)
+
+The upstream EDDI README was rewritten around a new category, "the open-source AI agent management system", and four verbs: Run, Limit, Approve, Record. The site led with "The Enterprise AI Orchestrator". This brings it in line.
+
+**Category sweep (identity statements only)**
+- `home.title`, hero H1 ("The AI Agent / Management System"), hero tagline, `footer.tagline` and `footer.subtitle` ("Run. Limit. Approve. Record."), `meta.siteDescription` (149 characters in English, keeps "orchestration"; every locale stays under 160 rendered).
+- "Deployable middleware platform" / "deployable AI orchestration platform" became "a service you deploy, not a library you import" in `home.solutionDesc`, `home.faq2A`, `whyEddi.para2` and `vsAlternatives.para1`; the last also says a library such as LangChain4j is the closer fit for agent logic inside your own Java application.
+- Identity phrase swapped in `home.faq1A`, `home.faq6A`, `useCases.description`, `useCases.coreDesc`, `featuresOverview.description`, `whyEddi.description` and `legal.mediaOrientationText`. Capability names ("multi-agent orchestration") are unchanged.
+- Outside the locales: JSON-LD WebSite and SoftwareApplication descriptions and `og:image:alt` in `BaseLayout.astro`, the hero image alt, `public/robots.txt`, `public/llms.txt`, `public/llms-full.txt` and the README header and intro.
+- Homepage `<title>` is now `home.metaTitle` ("EDDI: Open-Source AI Agent Management System", all 11 locales). `BaseLayout` gained a `rawTitle` prop so this title is used without the " | EDDI" suffix. This closes the `home.metaTitle` follow-up from the search audit, with different wording than first proposed.
+
+**New homepage sections**
+- "Four Things Before an Agent Is Allowed to Act", directly after the hero: Run, Limit, Approve and Record cards linking to Multi-Agent, Security, Human-in-the-Loop and Compliance.
+- "Works With the AI You Already Use", after The Solution: building agents from an MCP assistant, consulting agents that hold connections the assistant cannot reach, A2A and the OpenAI-compatible API, and Workforce/chat UI/Slack for end users. `home.sol2Desc` no longer names only Claude Desktop.
+- "What It Looks Like": the Manager group discussion, approvals and audit trail screenshots (`src/assets/screenshots/manager-*.png`, 2880×1800), through `astro:assets` at 640/960/1440 widths, lazy, with localized alt text and captions. The frame follows the theme tokens; checked in dark/RTL/mobile (ar) and light/desktop (en).
+
+**Other pages**
+- Manager page: "Workforce: The End-User App", linking https://docs.labs.ai/protocols-and-integration/workforce-guide.md (200 on 2026-11-19).
+- vs. Alternatives: "Where EDDI Sits", category level, no vendor names.
+- Signing caveat (the search-audit follow-up): the Security page's audit-trail item and the Compliance page's first EU AI Act item now say HMAC signing applies once a signing key is configured (the installer sets one; plain docker-compose leaves it empty), as does the homepage Record card. "Immutable" stays. The other HMAC mentions are unchanged.
+- Compliance claims: `compliance.description` ("built-in compliance for … EU AI Act, HIPAA") and `compliance.hipaaPara` ("HIPAA-compliant AI deployments") now say technical controls and deployment guides, not certifications. The Security item "EU AI Act Ready" became "EU AI Act Controls" with the same caveat. README and `llms-full.txt` no longer say "HIPAA-compliant audit trails".
+
+**Decisions**
+- Kept as is: UNIDO `sdg9Desc` ("an industrial AI orchestration platform, the core technology UNIDO recognized"), since it describes what was recognized; the compare pages' "deployable middleware" table cells and the n8n summary ("AI orchestration middleware", also in `llms.txt`); the CCPA "middleware infrastructure" line, which is a legal statement; market descriptions ("The AI orchestration market…", "Enterprise AI orchestration is fragmented").
+- Stats unchanged (`MCP_TOOLS` stays 108; the README's 120 is unreleased).
+
+**Follow-ups**
+- Pre-existing: in ar, de, es and pt, `pages.manager.para2` holds the vsAlternatives "visual node builders" sentence instead of the Manager paragraph.
+- Several non-English strings still carry a literal 108 instead of `${MCP_TOOLS}` (e.g. `faq1A`, `sol2Title`, `featuresOverview.description`).
+- Decide whether the compare pages and the UNIDO copy should follow the new category.
+- Translations have not had a native-speaker pass.
+- Astro needs Node ≥ 22.23.4 (the build and the pre-commit hook fail on 22.14).
+
 ### 🧪 50,000+ Tests, and the Brand Font Finally Loads
 
 - **Test count 20,000+ → 50,000+** (confirmed November 2026), in `TESTS`, every locale's literal renderings (each keeps its own separator: `50,000`, `50.000`, `50 000`), and the README. `check-stats` now requires 50,000 in every locale and forbids 20,000 as a stale count. The same change went to eddi.solutions.
