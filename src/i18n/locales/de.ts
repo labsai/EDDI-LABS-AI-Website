@@ -80,6 +80,8 @@ const de: TranslationSchema = {
 		enterpriseCtaTitle: 'Bereit für die Produktion?',
 		enterpriseCtaDesc: 'Erhalten Sie Managed Deployment, SLA-gestützten Support und praktische Unterstützung vom Team, das EDDI entwickelt.',
 		enterpriseCtaBtn: 'Sprechen Sie mit uns über Enterprise-Deployment',
+		// Related links block at the end of feature pages
+		relatedTitle: 'Verwandte Themen',
 	},
 	footer: {
 		tagline: 'Das Management-System für KI-Agenten',

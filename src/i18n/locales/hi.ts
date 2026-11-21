@@ -81,6 +81,8 @@ const hi: TranslationSchema = {
 		enterpriseCtaTitle: 'प्रोडक्शन के लिए तैयार?',
 		enterpriseCtaDesc: 'EDDI बनाने वाली टीम से मैनेज्ड डिप्लॉयमेंट, SLA-समर्थित सपोर्ट और व्यावहारिक सहायता प्राप्त करें।',
 		enterpriseCtaBtn: 'एंटरप्राइज़ डिप्लॉयमेंट के बारे में हमसे बात करें',
+		// Related links block at the end of feature pages
+		relatedTitle: 'संबंधित',
 	},
 	footer: {
 		tagline: 'AI एजेंट मैनेजमेंट सिस्टम',

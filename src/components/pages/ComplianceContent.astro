@@ -3,6 +3,7 @@
  * Shared Compliance page content — used by both root and [lang] versions.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../RelatedLinks.astro';
 import { Image } from 'astro:assets';
 import heroImage from '../../assets/hero_compliance.webp';
 import { localePath, type Locale } from '../../i18n';
@@ -229,6 +230,7 @@ const industryCards = [
 	</div>
 </section>
 
+<RelatedLinks lang={lang} />
 </BaseLayout>
 
 <style>

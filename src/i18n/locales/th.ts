@@ -81,6 +81,8 @@ const th: TranslationSchema = {
 		enterpriseCtaTitle: 'พร้อมสำหรับ Production หรือยัง?',
 		enterpriseCtaDesc: 'รับการ Deploy แบบมีผู้ดูแล การสนับสนุนที่รองรับด้วย SLA และความช่วยเหลือโดยตรงจากทีมที่สร้าง EDDI',
 		enterpriseCtaBtn: 'คุยกับเราเรื่องการ Deploy ระดับองค์กร',
+		// Related links block at the end of feature pages
+		relatedTitle: 'เนื้อหาที่เกี่ยวข้อง',
 	},
 	footer: {
 		tagline: 'ระบบบริหารจัดการ AI Agent',

@@ -79,6 +79,8 @@ const ko: TranslationSchema = {
 		enterpriseCtaTitle: '프로덕션에 나설 준비가 되셨나요?',
 		enterpriseCtaDesc: '관리형 배포, SLA 기반 지원, 그리고 EDDI를 직접 만드는 팀의 실무 지원을 받아보세요.',
 		enterpriseCtaBtn: '엔터프라이즈 배포 상담하기',
+		// Related links block at the end of feature pages
+		relatedTitle: '관련 내용',
 	},
 	footer: {
 		tagline: 'AI 에이전트 관리 시스템',
