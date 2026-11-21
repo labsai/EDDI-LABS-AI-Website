@@ -8,6 +8,9 @@
  *
  * Labels come from the `nav` translations, so the block is localized without new copy.
  * Integration names are product names and are not translated; guides are English only.
+ *
+ * Only pair pages when the target's copy actually covers the topic: integration pages
+ * show these links back as "Features: …", which reads as a claim.
  */
 import type { TranslationSchema } from '../i18n';
 
@@ -51,7 +54,7 @@ export interface Related {
 export const RELATED: Record<string, Related> = {
 	'/features/manager/': {
 		pages: ['/features/human-in-the-loop/', '/features/observability/', '/features/multi-agent/'],
-		integrations: ['keycloak-oidc', 'slack'],
+		integrations: ['keycloak-oidc'],
 		guides: ['self-host-eddi-with-docker-compose'],
 	},
 	'/features/config-as-code/': {
@@ -74,12 +77,10 @@ export const RELATED: Record<string, Related> = {
 	},
 	'/features/performance/': {
 		pages: ['/features/multi-agent/', '/features/model-cascading/', '/features/code-quality/'],
-		integrations: ['kubernetes-helm', 'openshift'],
-		guides: ['deploy-eddi-on-kubernetes'],
 	},
 	'/features/multi-agent/': {
 		pages: ['/features/human-in-the-loop/', '/features/memory/', '/features/mcp-server/'],
-		integrations: ['a2a', 'mcp-client'],
+		integrations: ['a2a'],
 	},
 	'/features/observability/': {
 		pages: ['/features/security/', '/features/human-in-the-loop/', '/features/model-cascading/'],
@@ -101,12 +102,10 @@ export const RELATED: Record<string, Related> = {
 	},
 	'/features/model-cascading/': {
 		pages: ['/features/observability/', '/features/rag/', '/features/performance/'],
-		integrations: ['ollama'],
 		models: true,
 	},
 	'/features/scheduling/': {
 		pages: ['/features/memory/', '/features/human-in-the-loop/', '/features/multi-agent/'],
-		integrations: ['email'],
 	},
 	'/enterprise/why-eddi/': {
 		pages: ['/enterprise/vs-alternatives/', '/enterprise/trust/', '/use-cases/'],

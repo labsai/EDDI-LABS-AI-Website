@@ -10,7 +10,10 @@ All notable changes to the EDDI website will be documented in this file.
 - Overview: the Config & Portability items link to Config-as-Code; the User Memory and Conversation Recall tools link to Memory, HTTP Calls to the OpenAPI guide. The other tools have no page and stay unlinked.
 - **Related block** at the end of every feature page, Compliance, Trust, UNIDO, Why EDDI and vs. Alternatives: three neighbouring pages (nav labels and descriptions, so localized), then the matching integrations, guides and model catalog. Map in `src/data/related.ts`. Before this, a feature page's only in-content link was Get Started. New key `common.relatedTitle` in all 11 locales.
 - Integration pages list the feature pages that use them; guides end with links to the features and integrations that point at them (reverse lookups on the same map).
-- eddi.solutions (separate repo, branch `feat/cross-linking`): "How it works" links from the Run/Limit/Approve/Record cards, the approval controls, the advisory-board flagship and the About backing cards to the pages here.
+- Every pairing in `related.ts` was checked against the target page's copy. Dropped because the target does not cover the topic: Manager↔Slack, Performance↔Kubernetes/OpenShift, Multi-Agent↔MCP client, Model Cascading↔Ollama, Scheduling↔email.
+- `FeatureCard` keyboard focus draws its ring inside the card (the card clips overflow).
+- eddi.solutions (separate repo, branch `feat/cross-linking`): "How it works" links from the Run/Limit/Approve/Record cards, the approval controls, the advisory-board flagship and the About backing cards to the pages here; the four home solution cards link to their sections on `/solutions/`.
+- New copy needing a native check: `common.relatedTitle` here and `common.howItWorksTech` on eddi.solutions, in the 10 non-English locales.
 
 **Decisions**
 - No `[lang]` copies of guides: guide links from localized pages point at the English route, as the header already does.
