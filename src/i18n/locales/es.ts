@@ -80,6 +80,8 @@ const es: TranslationSchema = {
 		enterpriseCtaTitle: '¿Listo para producción?',
 		enterpriseCtaDesc: 'Obtenga despliegue gestionado, soporte respaldado por SLA y ayuda directa del equipo que desarrolla EDDI.',
 		enterpriseCtaBtn: 'Hable con nosotros sobre el despliegue empresarial',
+		// Related links block at the end of feature pages
+		relatedTitle: 'Relacionado',
 	},
 	footer: {
 		tagline: 'El sistema de gestión de agentes de IA',

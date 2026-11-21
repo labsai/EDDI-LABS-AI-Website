@@ -7,6 +7,9 @@
  */
 import { getCollection, render } from 'astro:content';
 import GuidePage from '../../layouts/GuidePage.astro';
+import { enTranslations as t } from '../../i18n';
+import { INTEGRATIONS } from '../../data/integrations';
+import { pagesForGuide, PAGE_LABELS } from '../../data/related';
 
 export async function getStaticPaths() {
 	const guides = await getCollection('guides', ({ data }) => !data.draft);
@@ -19,6 +22,11 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const d = entry.data;
+
+// Pages on this site that this guide belongs to: features that list it, and
+// integrations whose page links to it (src/data/related.ts, src/data/integrations.ts).
+const featureLinks = pagesForGuide(entry.id).map((p) => ({ href: p, label: t.nav[PAGE_LABELS[p].label] }));
+const integrationLinks = INTEGRATIONS.filter((i) => i.guides.some((g) => g.slug === entry.id)).map((i) => ({ href: `/integrations/${i.slug}/`, label: i.name }));
 ---
 
 <GuidePage
@@ -36,7 +44,17 @@ const d = entry.data;
 >
 	<Content />
 
-	<div slot="footer" class="guide-cta">
+	<div slot="footer">
+	{(featureLinks.length > 0 || integrationLinks.length > 0) && (
+		<section class="guide-related">
+			<h2 id="related">Related</h2>
+			<ul>
+				{featureLinks.map((l) => <li><a href={l.href}>Feature: {l.label}</a></li>)}
+				{integrationLinks.map((l) => <li><a href={l.href}>Integration: {l.label}</a></li>)}
+			</ul>
+		</section>
+	)}
+	<div class="guide-cta">
 		<h2 id="all-guides">More guides</h2>
 		<p>
 			Every guide takes one task from nothing to working, then hands off to the
@@ -44,9 +62,19 @@ const d = entry.data;
 		</p>
 		<a href="/guides/" class="btn-cta-primary">Browse all guides</a>
 	</div>
+	</div>
 </GuidePage>
 
 <style>
+	.guide-related {
+		margin-top: 3.5rem;
+	}
+	.guide-related h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--color-text);
+		margin: 0 0 0.75rem;
+	}
 	.guide-cta {
 		margin-top: 3.5rem;
 		padding-top: 2rem;

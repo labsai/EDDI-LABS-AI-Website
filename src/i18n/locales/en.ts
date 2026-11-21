@@ -93,6 +93,8 @@ const en = {
 		enterpriseCtaTitle: 'Ready for production?',
 		enterpriseCtaDesc: 'Get managed deployment, SLA-backed support, and hands-on help from the team that builds EDDI.',
 		enterpriseCtaBtn: 'Talk to us about enterprise deployment',
+		// Related links block at the end of feature pages
+		relatedTitle: 'Related',
 	},
 
 	// ─── Footer ─────────────────────────────────────────────────
