@@ -8,6 +8,8 @@ import { localePath, type Locale } from '../../i18n';
 import { getIntegrationsCopy } from '../../i18n/integrations';
 import { INTEGRATION_BY_SLUG, CHECKED_ON, type Integration } from '../../data/integrations';
 import { solutionsUrl, SOLUTIONS_LIVE } from '../../config';
+import { getTranslations } from '../../i18n';
+import { pagesForIntegration, PAGE_LABELS } from '../../data/related';
 
 interface Props {
 	lang: Locale;
@@ -19,6 +21,8 @@ const copy = await getIntegrationsCopy(lang);
 const ui = copy.ui;
 const c = copy.integrations[integration.slug];
 const withLocale = (html: string) => (lang === 'en' ? html : html.replaceAll('href="/', `href="/${lang}/`));
+const t = await getTranslations(lang);
+const featurePages = pagesForIntegration(integration.slug).map((p) => ({ href: localePath(lang, p), label: t.nav[PAGE_LABELS[p].label] }));
 const related = integration.related.map((s) => INTEGRATION_BY_SLUG[s]).filter(Boolean);
 const title = integration.name;
 const metaTitle = ui.pageTitle.replace('{name}', integration.name);
@@ -63,6 +67,7 @@ const jsonLd = {
 			<h2>{ui.linksTitle}</h2>
 			<ul>
 				{integration.docs.map((d) => <li><a href={d.href} target="_blank" rel="noopener" class="id-link">{ui.docsLink}: {d.label} ↗</a></li>)}
+				{featurePages.map((f) => <li><a href={f.href} class="id-link">{t.nav.features}: {f.label}</a></li>)}
 				{integration.guides.map((g) => <li><a href={`/guides/${g.slug}/`} class="id-link">{ui.guidesLabel}: {g.title}</a></li>)}
 				{integration.modelsLink && <li><a href={localePath(lang, '/models/')} class="id-link">{ui.modelsLinkText}</a></li>}
 			</ul>

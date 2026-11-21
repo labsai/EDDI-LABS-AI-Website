@@ -79,6 +79,8 @@ const ja: TranslationSchema = {
 		enterpriseCtaTitle: '本番導入の準備はできましたか？',
 		enterpriseCtaDesc: 'EDDIを開発するチームによる、マネージドデプロイメント、SLA付きサポート、実践的な支援を受けられます。',
 		enterpriseCtaBtn: 'エンタープライズ導入について相談する',
+		// Related links block at the end of feature pages
+		relatedTitle: '関連ページ',
 	},
 	footer: {
 		tagline: 'AIエージェント管理システム',

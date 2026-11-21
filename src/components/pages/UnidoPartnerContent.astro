@@ -4,6 +4,7 @@
  * Showcases the UNIDO/AIM Global recognition, certificate, and what it means.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../RelatedLinks.astro';
 import { Image } from 'astro:assets';
 import certImage from '../../assets/unido_certificate.png';
 import { localePath, type Locale } from '../../i18n';
@@ -177,6 +178,7 @@ const unido = t.pages.unido;
 	</div>
 </section>
 
+<RelatedLinks lang={lang} />
 </BaseLayout>
 
 <style>

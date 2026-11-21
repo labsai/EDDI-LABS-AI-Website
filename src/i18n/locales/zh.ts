@@ -79,6 +79,8 @@ const zh: TranslationSchema = {
 		enterpriseCtaTitle: '准备好投入生产了吗？',
 		enterpriseCtaDesc: '获取托管部署、SLA保障的支持，以及来自EDDI构建团队的实操协助。',
 		enterpriseCtaBtn: '与我们洽谈企业部署',
+		// Related links block at the end of feature pages
+		relatedTitle: '相关内容',
 	},
 	footer: {
 		tagline: 'AI代理管理系统',

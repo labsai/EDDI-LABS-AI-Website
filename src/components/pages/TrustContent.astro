@@ -4,6 +4,7 @@
  * Showcases institutional validation, enterprise deployments, and community trust signals.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RelatedLinks from '../RelatedLinks.astro';
 import { localePath, type Locale } from '../../i18n';
 import type { TranslationSchema } from '../../i18n';
 import { TESTS, DOCKER_PULLS, LLM_PROVIDERS } from '../../i18n/stats';
@@ -261,6 +262,7 @@ const enterpriseCtaHref = SOLUTIONS_LIVE ? solutionsUrl(lang) : localePath(lang,
 	</div>
 </section>
 
+<RelatedLinks lang={lang} />
 </BaseLayout>
 
 <style>

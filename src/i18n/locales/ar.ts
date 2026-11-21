@@ -81,6 +81,8 @@ const ar: TranslationSchema = {
 		enterpriseCtaTitle: 'هل أنت جاهز للإنتاج؟',
 		enterpriseCtaDesc: 'احصل على نشر مُدار ودعم مدعوم باتفاقيات مستوى الخدمة (SLA) ومساعدة عملية من الفريق الذي يبني EDDI.',
 		enterpriseCtaBtn: 'تحدث معنا حول النشر المؤسسي',
+		// Related links block at the end of feature pages
+		relatedTitle: 'ذو صلة',
 	},
 	footer: {
 		tagline: 'نظام إدارة وكلاء الذكاء الاصطناعي',

@@ -1,0 +1,76 @@
+---
+/**
+ * "Related" block at the end of feature and enterprise pages: the neighbouring pages,
+ * then the integrations, guides and model catalog that go with this one.
+ * Driven by src/data/related.ts; renders nothing for a page without an entry.
+ */
+import { localePath, getTranslations, LOCALES, type Locale } from '../i18n';
+import { RELATED, PAGE_LABELS } from '../data/related';
+import { INTEGRATION_BY_SLUG } from '../data/integrations';
+import { getCollection } from 'astro:content';
+import FeatureCard from './FeatureCard.astro';
+
+interface Props {
+	lang: Locale;
+	/** Page path without locale prefix. Defaults to the current URL. */
+	path?: string;
+}
+
+const { lang } = Astro.props;
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+if (segments[0] && segments[0] in LOCALES) segments.shift();
+const path = Astro.props.path ?? `/${segments.join('/')}/`;
+const related = RELATED[path];
+const t = await getTranslations(lang);
+
+const cards = (related?.pages ?? [])
+	.filter((p) => PAGE_LABELS[p])
+	.map((p) => ({ href: localePath(lang, p), title: t.nav[PAGE_LABELS[p].label], desc: t.nav[PAGE_LABELS[p].desc] }));
+const integrations = (related?.integrations ?? []).map((s) => INTEGRATION_BY_SLUG[s]).filter(Boolean);
+const guideTitles = Object.fromEntries((await getCollection('guides', (g) => !g.data.draft)).map((g) => [g.id, g.data.title]));
+const guides = (related?.guides ?? []).filter((s) => guideTitles[s]).map((s) => ({ slug: s, title: guideTitles[s] }));
+---
+{related && (
+	<section class="rl not-content" aria-labelledby="related-heading">
+		<h2 id="related-heading">{t.common.relatedTitle}</h2>
+		{cards.length > 0 && (
+			<div class="rl-cards">
+				{cards.map((c) => <FeatureCard {...c} />)}
+			</div>
+		)}
+		{(integrations.length > 0 || guides.length > 0 || related.models) && (
+			<dl class="rl-more">
+				{integrations.length > 0 && (
+					<div>
+						<dt><a href={localePath(lang, '/integrations/')}>{t.nav.integrations}</a></dt>
+						<dd>{integrations.map((i) => <a href={localePath(lang, `/integrations/${i.slug}/`)}>{i.name}</a>)}</dd>
+					</div>
+				)}
+				{guides.length > 0 && (
+					<div>
+						<dt><a href="/guides/">{t.nav.guides}</a></dt>
+						<dd>{guides.map((g) => <a href={`/guides/${g.slug}/`} lang="en">{g.title}</a>)}</dd>
+					</div>
+				)}
+				{related.models && (
+					<div>
+						<dt>{t.nav.models}</dt>
+						<dd><a href={localePath(lang, '/models/')}>{t.models.title}</a></dd>
+					</div>
+				)}
+			</dl>
+		)}
+	</section>
+)}
+<style>
+	.rl { max-width: 72rem; margin: 0 auto; padding: 3rem 1.5rem 5rem; border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.08)); }
+	.rl h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 1.5rem; color: var(--color-text); }
+	.rl-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1.25rem; }
+	.rl-more { display: grid; gap: 0.75rem; margin: 2rem 0 0; }
+	.rl-more > div { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: baseline; }
+	.rl-more dt { font-weight: 600; min-width: 7rem; color: var(--color-text-muted); }
+	.rl-more dt a { color: inherit; }
+	.rl-more dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+	.rl-more a { color: var(--color-accent-400); text-decoration: underline; text-underline-offset: 3px; }
+	.rl-more a:hover { color: var(--color-accent-300); }
+</style>
