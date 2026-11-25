@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'Anthropic 目前全面开放的最强模型，专为高要求的推理和长时间运行的代理工作而打造。',
 			strengths: ['可持续运行数小时的代理会话', '多步骤研究', '文档、电子表格和幻灯片工作', '1M 令牌上下文，128K 输出'],
 			bestFor: ['长周期代理', '深度研究', '一直推进到成品文档的分析工作'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'OpenAI 基于 Apache 2.0 的开放权重混合专家推理模型：120b 可装入一块 80 GB GPU，20b 可在 16 GB 设备上运行。',
 			strengths: ['Apache 2.0 许可证', '函数调用和结构化输出', '可调节的推理强度', '可微调'],
 			bestFor: ['自托管和本地部署', '在 Groq 上快速推理', '使用工具的代理'],
+		},
+		'gemini-4': {
+			summary: 'Google 的最新一代模型，提供三个正式版变体（Neon、Hydrogen、Carbon），具备 100 万 token 上下文，Neon 和 Hydrogen 支持 xhigh 思考级别。',
+			strengths: ['文本、图像、视频、音频和 PDF 输入', '100 万 token 上下文，默认每次请求输出 64K', '思考级别最高到 xhigh（Neon、Hydrogen）', 'Hydrogen 和 Carbon 也可在 Vertex AI 上使用'],
+			bestFor: ['多模态代理', '长上下文分析', '使用工具的复杂推理'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'Google 当前全面开放的 Flash 模型，以 Flash 级的速度和成本面向长周期工程、自主代理和企业工作流。',
@@ -111,9 +116,9 @@ const copy: ModelsCopy = {
 			bestFor: ['编码助手', '长时间的代理任务和工作流自动化', '长视频分析'],
 		},
 		'mistral-large': {
-			summary: 'Mistral 基于 Apache 2.0 的开放权重混合专家旗舰模型（41B 激活参数，675B 总参数），具备图像理解能力。',
-			strengths: ['Apache 2.0 许可证', '图像理解', '支持 40 多种语言', '函数调用和结构化输出'],
-			bestFor: ['多语言助手', '文档分析', '工具使用工作流'],
+			summary: 'Mistral 的开放权重旗舰：一个兼顾指令遵循与推理的混合 mixture-of-experts 模型（激活参数 52B，总参数约 1T），支持图像输入和 100 万 token 上下文。',
+			strengths: ['指令遵循与推理合于一个模型', '100 万 token 上下文', '图像理解', '函数调用'],
+			bestFor: ['多语言助手', '文档分析', '使用工具的工作流'],
 		},
 		'mistral-medium': {
 			summary: '一个 128B 稠密多模态模型，融合了指令遵循、推理和编码能力，可按请求设置推理强度。',

@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'Anthropicが一般提供している中で最も高性能なモデル。高度な推論と長時間実行されるエージェント作業のために設計されています。',
 			strengths: ['数時間にわたって続くエージェントセッション', 'マルチステップのリサーチ', 'ドキュメント、スプレッドシート、スライドの作業', '1Mトークンのコンテキストと128Kトークンの出力'],
 			bestFor: ['長期的なタスクをこなすエージェント', '深いリサーチ', '完成したドキュメントまで仕上げる分析'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'Apache 2.0で提供されるOpenAIのオープンウェイトMixture-of-Experts推論モデル。120bは80 GBのGPU 1基に収まり、20bは16 GBのデバイスで動作します。',
 			strengths: ['Apache 2.0ライセンス', '関数呼び出しと構造化出力', '調整可能な推論強度', 'ファインチューニング可能'],
 			bestFor: ['セルフホストおよびオンプレミス導入', 'Groqでの高速推論', 'ツールを使うエージェント'],
+		},
+		'gemini-4': {
+			summary: 'Googleの最新世代。3つのバリアント（Neon、Hydrogen、Carbon）で一般提供され、100万トークンのコンテキストと、NeonとHydrogenではxhighの思考レベルを備えます。',
+			strengths: ['テキスト、画像、動画、音声、PDFの入力', '100万トークンのコンテキスト、既定で1リクエストあたり64Kの出力', 'xhighまでの思考レベル（Neon、Hydrogen）', 'HydrogenとCarbonはVertex AIでも利用可能'],
+			bestFor: ['マルチモーダルなエージェント', '長いコンテキストの分析', 'ツールを使った複雑な推論'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'Googleが現在一般提供しているFlashモデル。Flashならではの速度とコストで、長期的なエンジニアリング、自律エージェント、エンタープライズワークフローを狙ったモデルです。',
@@ -111,8 +116,8 @@ const copy: ModelsCopy = {
 			bestFor: ['コーディングアシスタント', '長いエージェントタスクとワークフロー自動化', '長尺動画の分析'],
 		},
 		'mistral-large': {
-			summary: 'Apache 2.0で提供されるMistralのオープンウェイトMixture-of-Expertsフラッグシップ（アクティブ41B、総パラメータ675B）。画像理解に対応しています。',
-			strengths: ['Apache 2.0ライセンス', '画像理解', '40以上の言語', '関数呼び出しと構造化出力'],
+			summary: 'Mistralのオープンウェイトのフラッグシップ。指示追従と推論を兼ね備えたハイブリッドのMixture-of-Expertsモデル（アクティブ52B、総パラメータ約1T）で、画像入力と100万トークンのコンテキストに対応。',
+			strengths: ['指示追従と推論を1つのモデルで', '100万トークンのコンテキスト', '画像理解', '関数呼び出し'],
 			bestFor: ['多言語アシスタント', 'ドキュメント分析', 'ツール利用のワークフロー'],
 		},
 		'mistral-medium': {

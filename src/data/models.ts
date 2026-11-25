@@ -118,10 +118,10 @@ export interface ModelFamily {
 export const MODELS: ModelFamily[] = [
 	// ── Anthropic ─────────────────────────────────────────────────────
 	{
-		slug: 'claude-fable-5-1', name: 'Claude Fable 5.1', vendor: 'Anthropic', released: '2026-09', category: 'frontier',
+		slug: 'claude-fable-5-2', name: 'Claude Fable 5.2', vendor: 'Anthropic', released: '2026-11', category: 'frontier',
 		contextTokens: 1000000, maxOutputTokens: 128000, input: ['text', 'image'], tools: true, reasoning: true, openWeights: false, license: null,
-		docsUrl: 'https://platform.claude.com/docs/en/models/fable-5-1/overview', pricingUrl: 'https://platform.claude.com/docs/en/about-claude/pricing',
-		routes: [{ type: 'anthropic', ids: ['claude-fable-5-1', 'claude-fable-5'] }, { type: 'bedrock', ids: ['anthropic.claude-fable-5-1'] }],
+		docsUrl: 'https://platform.claude.com/docs/en/models/fable-5-2/overview', pricingUrl: 'https://platform.claude.com/docs/en/about-claude/pricing',
+		routes: [{ type: 'anthropic', ids: ['claude-fable-5-2', 'claude-fable-5-1'] }, { type: 'bedrock', ids: ['global.anthropic.claude-fable-5-2', 'anthropic.claude-fable-5-1'] }],
 		tips: ['anthropicNoTemperature', 'cascadeTop'], related: ['claude-opus-5-5', 'claude-sonnet-5-5', 'gpt-6'],
 	},
 	{
@@ -129,7 +129,7 @@ export const MODELS: ModelFamily[] = [
 		contextTokens: 1000000, maxOutputTokens: 128000, input: ['text', 'image'], tools: true, reasoning: true, openWeights: false, license: null,
 		docsUrl: 'https://platform.claude.com/docs/en/models/opus-5-5/overview', pricingUrl: 'https://platform.claude.com/docs/en/about-claude/pricing',
 		routes: [{ type: 'anthropic', ids: ['claude-opus-5-5', 'claude-opus-5'] }, { type: 'bedrock', ids: ['anthropic.claude-opus-5-5', 'anthropic.claude-opus-5'] }],
-		tips: ['anthropicNoTemperature', 'cascadeTop'], related: ['claude-fable-5-1', 'claude-sonnet-5-5', 'gpt-6'],
+		tips: ['anthropicNoTemperature', 'cascadeTop'], related: ['claude-fable-5-2', 'claude-sonnet-5-5', 'gpt-6'],
 	},
 	{
 		slug: 'claude-sonnet-5-5', name: 'Claude Sonnet 5.5', vendor: 'Anthropic', released: '2026-09', category: 'frontier',
@@ -149,8 +149,8 @@ export const MODELS: ModelFamily[] = [
 	{
 		slug: 'gpt-6', name: 'GPT-6 (Astra, Sol, Luna)', vendor: 'OpenAI', released: '2026-09', category: 'frontier',
 		contextTokens: 1050000, maxOutputTokens: 128000, input: ['text', 'image'], tools: true, reasoning: true, openWeights: false, license: null,
-		docsUrl: 'https://developers.openai.com/api/docs/guides/latest-model', pricingUrl: 'https://developers.openai.com/api/docs/pricing',
-		routes: [{ type: 'openai', ids: ['gpt-6.1-sol', 'gpt-6-astra', 'gpt-6-luna'] }, { type: 'azure-openai', ids: ['gpt-6-sol'] }],
+		docsUrl: 'https://developers.openai.com/api/docs/models/gpt-6.2-sol', pricingUrl: 'https://developers.openai.com/api/docs/pricing',
+		routes: [{ type: 'openai', ids: ['gpt-6.2-sol', 'gpt-6.2-astra', 'gpt-6-luna'] }, { type: 'azure-openai', ids: ['gpt-6.2-sol', 'gpt-6.2-astra'] }],
 		tips: ['openaiResponsesTools', 'azureDeployment', 'cascadeTop'], related: ['gpt-5-6', 'claude-opus-5-5', 'gemini-3-1-pro'],
 	},
 	{
@@ -172,6 +172,13 @@ export const MODELS: ModelFamily[] = [
 	},
 	// ── Google ────────────────────────────────────────────────────────
 	{
+		slug: 'gemini-4', name: 'Gemini 4 (Neon, Hydrogen, Carbon)', vendor: 'Google', released: '2026-11', category: 'frontier',
+		contextTokens: 1048576, maxOutputTokens: 65536, input: ['text', 'image', 'video', 'audio', 'pdf'], tools: true, reasoning: true, openWeights: false, license: null,
+		docsUrl: 'https://aistudio.google.com/docs/models/gemini-4-neon', pricingUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
+		routes: [{ type: 'gemini', ids: ['gemini-4-neon', 'gemini-4-hydrogen', 'gemini-4-carbon'] }, { type: 'gemini-vertex', ids: ['gemini-4-hydrogen', 'gemini-4-carbon'] }],
+		tips: ['cascadeTop'], related: ['gemini-3-8-flash', 'gpt-6', 'claude-opus-5-5'],
+	},
+	{
 		slug: 'gemini-3-8-flash', name: 'Gemini 3.8 Flash', vendor: 'Google', released: '2026-09', category: 'fast',
 		contextTokens: 1048576, maxOutputTokens: 65536, input: ['text', 'image', 'video', 'audio', 'pdf'], tools: true, reasoning: true, openWeights: false, license: null,
 		docsUrl: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash', pricingUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
@@ -183,7 +190,7 @@ export const MODELS: ModelFamily[] = [
 		contextTokens: 1048576, maxOutputTokens: 65536, input: ['text', 'image', 'video', 'audio', 'pdf'], tools: true, reasoning: true, openWeights: false, license: null,
 		docsUrl: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview', pricingUrl: 'https://ai.google.dev/gemini-api/docs/pricing',
 		routes: [{ type: 'gemini', ids: ['gemini-3.1-pro-preview', 'gemini-3.1-pro-preview-customtools'] }],
-		tips: ['geminiSignature', 'geminiVertexTools'], related: ['gemini-3-8-flash', 'gpt-6', 'claude-opus-5-5'],
+		tips: ['geminiSignature', 'geminiVertexTools'], related: ['gemini-4', 'gemini-3-8-flash', 'gpt-6'],
 	},
 	{
 		slug: 'gemini-3-5-flash-lite', name: 'Gemini 3.5 Flash-Lite', vendor: 'Google', released: '2026-07', category: 'fast',
@@ -231,10 +238,10 @@ export const MODELS: ModelFamily[] = [
 	},
 	// ── Moonshot ──────────────────────────────────────────────────────
 	{
-		slug: 'kimi-k3', name: 'Kimi K3', vendor: 'Moonshot AI', released: '2026-07', category: 'frontier',
-		contextTokens: 1048576, maxOutputTokens: 1048576, input: ['text', 'image', 'video'], tools: true, reasoning: true, openWeights: true, license: 'Kimi K3 License',
-		docsUrl: 'https://platform.kimi.ai/docs/guide/kimi-k3-quickstart', pricingUrl: 'https://platform.moonshot.ai/docs/pricing/chat-k3',
-		routes: [{ type: 'moonshot', ids: ['kimi-k3', 'kimi-k2.6'] }],
+		slug: 'kimi-k3', name: 'Kimi K3 (K3.1 Pro)', vendor: 'Moonshot AI', released: '2026-07', category: 'frontier',
+		contextTokens: 1048576, maxOutputTokens: 1048576, input: ['text', 'image', 'video'], tools: true, reasoning: true, openWeights: true, license: 'Kimi K3 License · K3.1 Pro: Kimi K3.1 Pro License',
+		docsUrl: 'https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart', pricingUrl: 'https://platform.moonshot.ai/docs/pricing/chat-k3',
+		routes: [{ type: 'moonshot', ids: ['kimi-k3.1-pro', 'kimi-k3.1-pro-highspeed', 'kimi-k3'] }],
 		tips: ['thinkingEcho'], related: ['kimi-k2-7-code', 'deepseek-v4-pro', 'glm-5-3'],
 	},
 	{
@@ -277,37 +284,37 @@ export const MODELS: ModelFamily[] = [
 	},
 	// ── Mistral ───────────────────────────────────────────────────────
 	{
-		slug: 'mistral-large', name: 'Mistral Large 3', vendor: 'Mistral AI', released: '2025-12', category: 'open',
-		contextTokens: 256000, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: false, openWeights: true, license: 'Apache 2.0',
-		docsUrl: 'https://docs.mistral.ai/models/mistral-large-3-25-12', pricingUrl: 'https://mistral.ai/pricing',
-		routes: [{ type: 'mistral', ids: ['mistral-large-2512', 'mistral-large-latest'] }],
+		slug: 'mistral-large', name: 'Mistral Large 4', vendor: 'Mistral AI', released: null, category: 'open',
+		contextTokens: 1000000, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: true, openWeights: true, license: 'Mistral Ecosystem Open Weight License',
+		docsUrl: 'https://docs.mistral.ai/models/mistral-large-4', pricingUrl: 'https://mistral.ai/pricing',
+		routes: [{ type: 'mistral', ids: ['mistral-large-4-0', 'mistral-large'] }],
 		tips: [], related: ['mistral-medium', 'mistral-small', 'llama-4'],
 	},
 	{
 		slug: 'mistral-medium', name: 'Mistral Medium 3.5', vendor: 'Mistral AI', released: '2026-04', category: 'open',
 		contextTokens: 256000, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: true, openWeights: true, license: 'Modified MIT',
-		docsUrl: 'https://docs.mistral.ai/models/mistral-medium-3-5-26-04', pricingUrl: 'https://mistral.ai/pricing',
+		docsUrl: 'https://docs.mistral.ai/models/mistral-medium-3-5', pricingUrl: 'https://mistral.ai/pricing',
 		routes: [{ type: 'mistral', ids: ['mistral-medium-3-5'] }],
 		tips: [], related: ['mistral-large', 'mistral-small', 'codestral'],
 	},
 	{
 		slug: 'mistral-small', name: 'Mistral Small 4', vendor: 'Mistral AI', released: '2026-03', category: 'open',
 		contextTokens: 256000, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: true, openWeights: true, license: 'Apache 2.0',
-		docsUrl: 'https://docs.mistral.ai/models/mistral-small-4-0-26-03', pricingUrl: 'https://mistral.ai/pricing',
+		docsUrl: 'https://docs.mistral.ai/models/mistral-small-4', pricingUrl: 'https://mistral.ai/pricing',
 		routes: [{ type: 'mistral', ids: ['mistral-small-latest', 'mistral-small-2603'] }],
 		tips: ['cascadeTier'], related: ['mistral-medium', 'ministral', 'gpt-oss'],
 	},
 	{
 		slug: 'ministral', name: 'Ministral 3 (3B, 8B, 14B)', vendor: 'Mistral AI', released: '2025-12', category: 'local',
 		contextTokens: 256000, maxOutputTokens: null, input: ['text', 'image'], tools: true, reasoning: true, openWeights: true, license: 'Apache 2.0',
-		docsUrl: 'https://docs.mistral.ai/models/ministral-3-14b-25-12', pricingUrl: 'https://mistral.ai/pricing',
+		docsUrl: 'https://docs.mistral.ai/models/ministral-3-14b', pricingUrl: 'https://mistral.ai/pricing',
 		routes: [{ type: 'mistral', ids: ['ministral-14b-2512'] }],
 		tips: ['cascadeTier'], related: ['mistral-small', 'phi-4-mini', 'gemma'],
 	},
 	{
 		slug: 'codestral', name: 'Codestral', vendor: 'Mistral AI', released: '2025-07', category: 'fast',
 		contextTokens: 128000, maxOutputTokens: null, input: ['text'], tools: true, reasoning: false, openWeights: false, license: null,
-		docsUrl: 'https://docs.mistral.ai/models/codestral-25-08', pricingUrl: 'https://mistral.ai/pricing',
+		docsUrl: 'https://docs.mistral.ai/models/codestral', pricingUrl: 'https://mistral.ai/pricing',
 		routes: [{ type: 'mistral', ids: ['codestral-2508'] }],
 		tips: [], related: ['kimi-k2-7-code', 'mistral-medium', 'deepseek-v4-pro'],
 	},
