@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS, MCP_TOOLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -71,7 +71,7 @@ const pt: TranslationSchema = {
 		getStartedCta: 'Começar →',
 		viewOnGithub: 'Ver no GitHub ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS} provedores LLM, bases de conhecimento que rastreiam o seu site e leem os seus arquivos, e conversas que acompanham as versões compatíveis do agente`,
+		bannerText: 'Orçamentos de equipe, guardrails em chamadas de ferramentas e contabilidade de custos, agora com a correção do Java4Shell nas imagens publicadas',
 		bannerLink: 'Novidades',
 		notFoundTitle: 'Página Não Encontrada',
 		notFoundDesc: 'A rota de orquestração de IA que você procura foi desconectada ou realocada.',
@@ -327,7 +327,7 @@ const pt: TranslationSchema = {
 		step4Title: '4. Crie seu primeiro agente',
 		step4Desc: 'Use <code>setup_agent</code> para criar um agente totalmente funcional em uma única chamada, via MCP ou REST API:',
 		step4After: 'Isso cria as regras, a configuração LLM, o workflow, o agente e o implanta, tudo em uma etapa.',
-		step4Operator: 'Prefere um formulário? Uma instalação nova começa sem agentes implantados. Preencha o <strong>assistente de criação de agentes</strong> em <code>http://localhost:7070/manage/agents/wizard</code>. O <strong>Platform Operator</strong> em <code>http://localhost:7070/manage/operator</code> cria agentes em uma conversa, com cada alteração aguardando a sua aprovação, mas em uma instalação nova da 6.7.0 ele ainda não pode ser ativado: a correção chega na próxima versão.',
+		step4Operator: 'Prefere um formulário? Uma instalação nova começa sem agentes implantados. Preencha o <strong>assistente de criação de agentes</strong> em <code>http://localhost:7070/manage/agents/wizard</code>. O <strong>Platform Operator</strong> em <code>http://localhost:7070/manage/operator</code> cria agentes em uma conversa, com cada alteração aguardando a sua aprovação.',
 		step5Title: '5. Converse com seu agente',
 		step6Title: '6. Abra a interface de gerenciamento',
 		step6Desc:
@@ -550,12 +550,12 @@ const pt: TranslationSchema = {
 
 	// ─── Novidades ───────────────────────────────────────────────
 	whatsNew: {
-		title: `Novidades da versão ${EDDI_LATEST_VERSION}`,
-		metaTitle: `Novidades do EDDI ${EDDI_LATEST_VERSION}: orçamentos de equipe, guardrails em chamadas de ferramentas e contabilidade de custos`,
-		description: `O EDDI ${EDDI_LATEST_VERSION} dá às equipes permanentes orçamentos e repasses entre equipes, permite que aprovadores editem respostas, verifica chamadas de ferramentas com guardrails, atribui um preço a cada chamada a partir de um catálogo de preços de modelos e adiciona um canal de e-mail e personalização de marca (white-label).`,
+		title: `Novidades da versão ${EDDI_FEATURE_RELEASE}`,
+		metaTitle: `Novidades do EDDI ${EDDI_FEATURE_RELEASE}: orçamentos de equipe, guardrails em chamadas de ferramentas e contabilidade de custos`,
+		description: `O EDDI ${EDDI_FEATURE_RELEASE} dá às equipes permanentes orçamentos e repasses entre equipes, permite que aprovadores editem respostas, verifica chamadas de ferramentas com guardrails, atribui um preço a cada chamada a partir de um catálogo de preços de modelos e adiciona um canal de e-mail e personalização de marca (white-label).`,
 		heroBadge: `Versão ${EDDI_LATEST_VERSION}`,
 		heroTitle: `Novidades do`,
-		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroHighlight: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroDesc: 'Os destaques desta versão, para que serve cada um e onde ler mais.',
 		sections: [
 			{ icon: '👥', title: 'Equipes com Orçamentos e Repasses', desc: 'Uma equipe permanente recebe um orçamento mensal: o gasto de cada discussão é contabilizado nele, novos trabalhos são recusados quando ele se esgota e administradores podem mover orçamento entre equipes. As equipes registram trabalho nos backlogs umas das outras somente onde os dois lados concordaram, anotam apostas e o que de fato aconteceu, e compartilham as lições das retrospectivas. Uma pessoa pode desempatar uma votação ou executar uma tarefa de uma força-tarefa.', link: '/features/multi-agent/', linkText: 'Orquestração multiagente' },
@@ -568,7 +568,7 @@ const pt: TranslationSchema = {
 		alsoTitle: 'Também nesta Versão',
 		alsoItems: [
 			'Leia as mudanças incompatíveis antes de atualizar: o EDDI agora consulta o GitHub uma vez por dia em busca de novas versões (defina EDDI_UPDATE_CHECK_ENABLED=false para desativar, o que instalações air-gapped devem fazer), os valores de custo agora incluem tokens de cache de prompt e de raciocínio, então tetos ajustados com os números antigos podem ser atingidos antes, mais caminhos falham de forma fechada (fail closed) e implantações com Helm precisam do chart 2.14.0 ou posterior',
-			'Problema conhecido: em uma instalação nova da 6.7.0, o Platform Operator não pode ser ativado, e um Operator configurado em uma versão anterior ainda não deve ser atualizado. Ele continua funcionando como está, e o assistente de criação de agentes cria agentes enquanto isso. A correção chega na próxima versão',
+			'6.7.1, uma versão de correção (22 de novembro de 2026): as imagens publicadas usam um JDK com a correção do Java4Shell (CVE-2026-114938), o Platform Operator pode ser ativado em uma instalação nova, as ferramentas geradas a partir de uma especificação OpenAPI deixam de fora os parâmetros de consulta opcionais e dão nomes únicos a nomes repetidos (então essas ferramentas são renomeadas), e o seletor de modelos inclui Claude Fable 5.2, GPT-6.2, Gemini 4 e Kimi K3.1',
 			'Um cluster reforçado: um plano de controle assinado, fencing, verificação de nome de host no NATS e uma readiness que falha de forma explícita, testado todas as noites por uma suíte que executa três nós do EDDI, particiona a rede e derruba nós no meio de um turno, no MongoDB e no PostgreSQL',
 			'Tarefas longas continuam sozinhas turno a turno, uma chamada HTTP pode ser executada uma vez por elemento de um array, ferramentas HTTP, MCP e A2A podem ser carregadas sob demanda, agentes de API validam os argumentos das ferramentas com um schema gerado a partir da spec OpenAPI, e respostas JSON quase corretas são reparadas sem uma segunda chamada ao modelo',
 			'Uma revisão abrangente de segredos, requisições de saída (incluindo a brecha de DNS rebinding), exclusão GDPR no registro de auditoria, ingestão, backup e as interfaces, com correções para código lançado na 6.6.0 ou antes, portanto atualizar é recomendado independentemente dos novos recursos',
@@ -721,6 +721,7 @@ const pt: TranslationSchema = {
 			hardeningTitle: 'Registro de Hardening',
 			hardeningPara: 'O trabalho de segurança é contínuo, e publicamos o que ele encontra. Rodadas recentes:',
 			hardeningItems: [
+				'<strong>Novembro de 2026 (6.7.1)</strong>, Java4Shell (CVE-2026-114938) corrigido nas imagens publicadas, com a flag da JVM mantida como segunda linha de defesa. Uma mensagem de chat não consegue mais injetar expressões de regras de comportamento, um recurso de espaço de trabalho sem dono não torna mais qualquer usuário o seu dono, e um HTML de e-mail profundamente aninhado não consegue mais esgotar a memória',
 				'<strong>Novembro de 2026 (6.7.0)</strong>, Uma revisão abrangente de segredos, requisições de saída (fechando a brecha de DNS rebinding entre a verificação SSRF e a conexão), autorização, exclusão GDPR no registro de auditoria, ingestão de documentos hostis, backup e as interfaces. Os checksums das versões agora trazem procedência SLSA',
 				'<strong>Outubro de 2026 (6.6.0)</strong>, Reforço de segurança em tratamento de segredos, lacunas de autorização, requisições de saída e padrões de implantação, incluindo correções para código lançado na 6.5.0 e antes, portanto atualizar é recomendado independentemente dos novos recursos',
 				'<strong>Setembro de 2026 (6.5.0)</strong>, Uma rodada de revisão com cerca de 30 correções em injeção de templates, SSRF em chamadas de saída, gestão de chaves do vault, escopo de segredos, autorização de espaços de trabalho, identidade de canais e a interface de segurança do Manager, cada uma com um teste de regressão',

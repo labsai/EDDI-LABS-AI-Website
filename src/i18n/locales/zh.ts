@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -70,7 +70,7 @@ const zh: TranslationSchema = {
 		getStartedCta: '立即开始 →',
 		viewOnGithub: '在GitHub上查看 ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS}个LLM提供商、可抓取网站并读取文件的知识库，以及沿用兼容代理版本的对话`,
+		bannerText: '团队预算、工具调用护栏和成本核算，现在发布的镜像还包含Java4Shell修复',
 		bannerLink: '新功能',
 		notFoundTitle: '页面未找到',
 		notFoundDesc: '您查找的AI编排路由已断开或已迁移。',
@@ -312,7 +312,7 @@ const zh: TranslationSchema = {
 		step4Title: '4. 创建您的第一个代理',
 		step4Desc: '使用<code>setup_agent</code>一次调用创建一个完整的代理，通过MCP或REST API：',
 		step4After: '这一步会创建规则、LLM配置、工作流和代理，并完成部署，全部一步完成。',
-		step4Operator: '更喜欢表单？全新安装时不会部署任何代理。在 <code>http://localhost:7070/manage/agents/wizard</code> 填写<strong>代理向导</strong>即可。位于 <code>http://localhost:7070/manage/operator</code> 的 <strong>Platform Operator</strong> 可以通过对话构建代理，每项更改都会等待您的批准，但在全新安装的 6.7.0 上暂时无法激活：修复将在下一个版本中发布。',
+		step4Operator: '更喜欢表单？全新安装时不会部署任何代理。在 <code>http://localhost:7070/manage/agents/wizard</code> 填写<strong>代理向导</strong>即可。位于 <code>http://localhost:7070/manage/operator</code> 的 <strong>Platform Operator</strong> 可以通过对话构建代理，每项更改都会等待您的批准。',
 		step5Title: '5. 与您的代理对话',
 		step6Title: '6. 打开管理界面',
 		step6Desc:
@@ -522,11 +522,11 @@ const zh: TranslationSchema = {
 		category: { frontier: '前沿', fast: '快速低成本', open: '开放权重', local: '本地运行' },
 	},
 	whatsNew: {
-		title: `${EDDI_LATEST_VERSION}版新功能`,
-		metaTitle: `EDDI ${EDDI_LATEST_VERSION}新功能：团队预算、工具调用护栏、成本核算`,
-		description: `EDDI ${EDDI_LATEST_VERSION}为常设团队提供预算和跨团队交接，允许审批人编辑回答，用护栏筛查工具调用，依据模型价格目录为每次调用计价，并新增电子邮件渠道和白标品牌定制。`,
+		title: `${EDDI_FEATURE_RELEASE}版新功能`,
+		metaTitle: `EDDI ${EDDI_FEATURE_RELEASE}新功能：团队预算、工具调用护栏、成本核算`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE}为常设团队提供预算和跨团队交接，允许审批人编辑回答，用护栏筛查工具调用，依据模型价格目录为每次调用计价，并新增电子邮件渠道和白标品牌定制。`,
 		heroBadge: `版本 ${EDDI_LATEST_VERSION}`,
-		heroTitle: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroTitle: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroHighlight: '新功能',
 		heroDesc: '本版本的亮点、各自的用途，以及在哪里了解更多。',
 		sections: [
@@ -540,7 +540,7 @@ const zh: TranslationSchema = {
 		alsoTitle: '本版本还包括',
 		alsoItems: [
 			'升级前请阅读破坏性变更：EDDI现在每天会在GitHub上检查一次新版本（设置EDDI_UPDATE_CHECK_ENABLED=false即可关闭，气隙环境应当关闭），成本数据现在包含提示缓存令牌和思考令牌，因此按旧数值调好的上限可能会更早触发，更多路径会失败即关闭，Helm部署需要2.14.0或更高版本的chart',
-			'已知问题：在全新安装的6.7.0上无法激活Platform Operator，在早期版本上设置的Operator暂时不要升级。它会按现状继续工作，在此期间可使用代理向导创建代理。修复将在下一个版本中发布',
+			'6.7.1 补丁版本（2026年11月22日）：发布的镜像运行已修复Java4Shell（CVE-2026-114938）的JDK；全新安装时可以激活Platform Operator；由OpenAPI规范生成的工具会省略可选查询参数，并为重复的名称分配唯一名称（因此这些工具会被重命名）；模型选择器新增Claude Fable 5.2、GPT-6.2、Gemini 4和Kimi K3.1',
 			'加固的集群：签名的控制平面、隔离保护（fencing）、NATS主机名验证，以及会明确报错的就绪检查。每晚都会由一套测试在MongoDB和PostgreSQL上运行三个EDDI节点、制造网络分区，并在回合进行中终止节点',
 			'长任务会逐回合自动继续，HTTP调用可以对数组中的每个元素各运行一次，HTTP、MCP和A2A工具可以延迟加载，API代理会依据从OpenAPI规范生成的schema校验工具参数，几乎正确的JSON回复无需再次调用模型即可修复',
 			'一轮覆盖密钥、出站请求（包括DNS重绑定缺口）、审计账本中的GDPR擦除、摄取、备份和界面的审查，包括对6.6.0及更早版本中已发布代码的修复，因此无论是否需要新功能，都建议升级',
@@ -684,6 +684,7 @@ const zh: TranslationSchema = {
 			hardeningTitle: '安全加固日志',
 			hardeningPara: '安全工作持续进行，我们会公开所发现的问题。最近几轮：',
 			hardeningItems: [
+				'<strong>2026年11月（6.7.1）</strong>，在发布的镜像中修复Java4Shell（CVE-2026-114938），JVM参数保留作为第二道防线。聊天输入不再能注入行为规则表达式，没有所有者的工作空间资源不再让每个调用者都成为其所有者，深度嵌套的邮件HTML也不再能耗尽内存',
 				'<strong>2026年11月（6.7.0）</strong>，一轮覆盖密钥、出站请求（弥补了SSRF检查与建立连接之间的DNS重绑定缺口）、授权、审计账本中的GDPR擦除、恶意文档摄取、备份和界面的审查。发布校验和现在附带SLSA来源证明',
 				'<strong>2026年10月（6.6.0）</strong>，全面加固密钥处理、授权缺口、出站请求和部署默认值，包括对6.5.0及更早版本中已发布代码的修复，因此无论是否需要新功能，都建议升级',
 				'<strong>2026年9月（6.5.0）</strong>，一轮约30项修复的审查，涵盖模板注入、出站调用的SSRF、密钥库密钥处理、密钥作用域、工作空间授权、渠道身份以及EDDI管理器的安全界面，每项修复都附带回归测试',

@@ -2,7 +2,7 @@
  * English translations — Source of truth.
  * All other locale files must export the same shape.
  */
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 
 const en = {
@@ -83,7 +83,7 @@ const en = {
 		viewOnGithub: 'View on GitHub ↗',
 		// Announcement Banner
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS} LLM providers, knowledge bases that crawl your site and read your files, and conversations that follow compatible agent versions`,
+		bannerText: 'Team budgets, tool-call guardrails and cost accounting, now with the Java4Shell fix in the shipped images',
 		bannerLink: "What's new",
 		// 404 Page
 		notFoundTitle: 'Page Not Found',
@@ -359,7 +359,7 @@ const en = {
 		step4Title: '4. Create Your First Agent',
 		step4Desc: 'Use <code>setup_agent</code> to create a fully working agent in one call, via MCP or REST API:',
 		step4After: 'This creates the rules, LLM config, workflow, agent, and deploys it, all in one step.',
-		step4Operator: 'Prefer a form? A fresh install starts with no agents deployed. Fill in the <strong>agent wizard</strong> at <code>http://localhost:7070/manage/agents/wizard</code>. The <strong>Platform Operator</strong> at <code>http://localhost:7070/manage/operator</code> builds agents in conversation, with every change waiting for your approval, but on a fresh 6.7.0 install it cannot be activated yet: the fix ships in the next release.',
+		step4Operator: 'Prefer a form? A fresh install starts with no agents deployed. Fill in the <strong>agent wizard</strong> at <code>http://localhost:7070/manage/agents/wizard</code>. The <strong>Platform Operator</strong> at <code>http://localhost:7070/manage/operator</code> builds agents in conversation, with every change waiting for your approval.',
 		step5Title: '5. Chat with Your Agent',
 		step6Title: '6. Open the Manager UI',
 		step6Desc:
@@ -595,12 +595,12 @@ const en = {
 
 	// ─── What's New ─────────────────────────────────────────────
 	whatsNew: {
-		title: `What's New in ${EDDI_LATEST_VERSION}`,
-		metaTitle: `What's New in EDDI ${EDDI_LATEST_VERSION}: Team Budgets, Tool-Call Guardrails, Cost Accounting`,
-		description: `EDDI ${EDDI_LATEST_VERSION} gives standing teams budgets and cross-team handoffs, lets approvers edit answers, screens tool calls with guardrails, prices every call from a model price catalog, and adds an email channel and white-label branding.`,
+		title: `What's New in ${EDDI_FEATURE_RELEASE}`,
+		metaTitle: `What's New in EDDI ${EDDI_FEATURE_RELEASE}: Team Budgets, Tool-Call Guardrails, Cost Accounting`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE} gives standing teams budgets and cross-team handoffs, lets approvers edit answers, screens tool calls with guardrails, prices every call from a model price catalog, and adds an email channel and white-label branding.`,
 		heroBadge: `Release ${EDDI_LATEST_VERSION}`,
 		heroTitle: `What's New in`,
-		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroHighlight: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroDesc: 'The highlights of this release, what each one is for, and where to read more.',
 		sections: [
 			{ icon: '👥', title: 'Teams With Budgets and Handoffs', desc: 'A standing team gets a monthly budget: every discussion\'s spend is metered to it, new work is refused once it is spent, and admins can move budget between teams. Teams file work into each other\'s backlogs only where both sides agreed, record bets and what actually happened, and share retro lessons. A person can break a tied vote or carry out a task-force task.', link: '/features/multi-agent/', linkText: 'Multi-agent orchestration' },
@@ -613,7 +613,7 @@ const en = {
 		alsoTitle: 'Also in This Release',
 		alsoItems: [
 			'Read the breaking changes before upgrading: EDDI now checks GitHub for new releases once a day (set EDDI_UPDATE_CHECK_ENABLED=false to turn it off, which air-gapped installs should), cost figures now include prompt-cache and thinking tokens so ceilings tuned on the old numbers may trip sooner, more paths fail closed, and Helm deployments need chart 2.14.0 or later',
-			'Known issue: on a fresh 6.7.0 install the Platform Operator cannot be activated, and an Operator set up on an earlier release should not be upgraded yet. It keeps working as it is, and the agent wizard creates agents in the meantime. The fix ships in the next release',
+			'6.7.1, a patch release (22 November 2026): the shipped images run a JDK with the Java4Shell fix (CVE-2026-114938), the Platform Operator can be activated on a fresh install, tools generated from an OpenAPI spec leave optional query parameters out and give repeated names unique ones (so those tools are renamed), and the model pickers add Claude Fable 5.2, GPT-6.2, Gemini 4 and Kimi K3.1',
 			'A hardened cluster: a signed control plane, fencing, NATS host-name verification and readiness that fails loudly, tested every night by a suite that runs three EDDI nodes, partitions the network and kills nodes in the middle of a turn, on MongoDB and on PostgreSQL',
 			'Long jobs continue themselves turn by turn, an HTTP call can run once per array element, HTTP, MCP and A2A tools can load lazily, API agents validate tool arguments against a schema generated from the OpenAPI spec, and near-miss JSON replies are repaired without a second model call',
 			'A review sweep across secrets, outbound requests (including the DNS-rebinding gap), GDPR erasure in the audit ledger, ingestion, backup and the UIs, with fixes for code that shipped in 6.6.0 or earlier, so upgrading is recommended regardless of the new features',
@@ -773,6 +773,7 @@ const en = {
 			hardeningTitle: 'Hardening Log',
 			hardeningPara: 'Security work is continuous, and we publish what it finds. Recent rounds:',
 			hardeningItems: [
+				'<strong>November 2026 (6.7.1)</strong>: Java4Shell (CVE-2026-114938) fixed in the shipped images, with the JVM flag kept as a second line of defence. Chat input can no longer inject behavior-rule expressions, a workspace resource without an owner no longer makes every caller its owner, and deeply nested mail HTML can no longer exhaust memory',
 				'<strong>November 2026 (6.7.0)</strong>: A review sweep across secrets, outbound requests (closing the DNS-rebinding gap between the SSRF check and the connection), authorization, GDPR erasure in the audit ledger, ingestion of hostile documents, backup and the UIs. Release checksums now carry SLSA provenance',
 				'<strong>October 2026 (6.6.0)</strong>: Hardening across secret handling, authorization gaps, outbound requests and deployment defaults, including fixes for code that shipped in 6.5.0 and earlier, so upgrading is recommended regardless of the new features',
 				'<strong>September 2026 (6.5.0)</strong>: A review round of about 30 fixes across template injection, SSRF on outbound calls, vault key handling, secret scoping, workspace authorization, channel identity and the Manager\'s security UI, each with a regression test',

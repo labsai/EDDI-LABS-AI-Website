@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS, MCP_TOOLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -71,7 +71,7 @@ const fr: TranslationSchema = {
 		getStartedCta: 'Démarrer →',
 		viewOnGithub: 'Voir sur GitHub ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS} fournisseurs LLM, des bases de connaissances qui explorent votre site et lisent vos fichiers, et des conversations qui suivent les versions compatibles des agents`,
+		bannerText: 'Budgets d\'équipe, garde-fous sur les appels d\'outils et comptabilité des coûts, désormais avec le correctif Java4Shell dans les images livrées',
 		bannerLink: 'Nouveautés',
 		notFoundTitle: 'Page introuvable',
 		notFoundDesc: 'La route d\'orchestration IA que vous recherchez a été déconnectée ou déplacée.',
@@ -327,7 +327,7 @@ const fr: TranslationSchema = {
 		step4Title: '4. Créez votre premier agent',
 		step4Desc: 'Utilisez <code>setup_agent</code> pour créer un agent fonctionnel en un seul appel, via MCP ou REST API :',
 		step4After: 'Cela crée les règles, la configuration LLM, le workflow, l\'agent et le déploie, le tout en une seule étape.',
-		step4Operator: 'Vous préférez un formulaire ? Une installation neuve démarre sans aucun agent déployé. Remplissez l\'<strong>assistant de création d\'agent</strong> sur <code>http://localhost:7070/manage/agents/wizard</code>. Le <strong>Platform Operator</strong> sur <code>http://localhost:7070/manage/operator</code> construit des agents en conversation, chaque modification attendant votre approbation, mais sur une installation neuve de la 6.7.0 il ne peut pas encore être activé : le correctif arrive dans la prochaine version.',
+		step4Operator: 'Vous préférez un formulaire ? Une installation neuve démarre sans aucun agent déployé. Remplissez l\'<strong>assistant de création d\'agent</strong> sur <code>http://localhost:7070/manage/agents/wizard</code>. Le <strong>Platform Operator</strong> sur <code>http://localhost:7070/manage/operator</code> construit des agents en conversation, chaque modification attendant votre approbation.',
 		step5Title: '5. Discutez avec votre agent',
 		step6Title: '6. Ouvrez l\'interface de gestion',
 		step6Desc:
@@ -549,12 +549,12 @@ const fr: TranslationSchema = {
 		category: { frontier: 'Frontier', fast: 'Rapides et économiques', open: 'Poids ouverts', local: 'Exécution locale' },
 	},
 	whatsNew: {
-		title: `Nouveautés de la ${EDDI_LATEST_VERSION}`,
-		metaTitle: `Nouveautés d'EDDI ${EDDI_LATEST_VERSION} : budgets d'équipe, garde-fous sur les appels d'outils, comptabilité des coûts`,
-		description: `EDDI ${EDDI_LATEST_VERSION} donne aux équipes permanentes des budgets et des passations entre équipes, permet aux approbateurs de modifier les réponses, contrôle les appels d'outils avec des garde-fous, chiffre chaque appel à partir d'un catalogue de prix des modèles, et ajoute un canal e-mail et la personnalisation en marque blanche.`,
+		title: `Nouveautés de la ${EDDI_FEATURE_RELEASE}`,
+		metaTitle: `Nouveautés d'EDDI ${EDDI_FEATURE_RELEASE} : budgets d'équipe, garde-fous sur les appels d'outils, comptabilité des coûts`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE} donne aux équipes permanentes des budgets et des passations entre équipes, permet aux approbateurs de modifier les réponses, contrôle les appels d'outils avec des garde-fous, chiffre chaque appel à partir d'un catalogue de prix des modèles, et ajoute un canal e-mail et la personnalisation en marque blanche.`,
 		heroBadge: `Version ${EDDI_LATEST_VERSION}`,
 		heroTitle: `Nouveautés de`,
-		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroHighlight: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroDesc: 'Les points forts de cette version, à quoi sert chacun et où en savoir plus.',
 		sections: [
 			{ icon: '👥', title: 'Des équipes avec budgets et passations', desc: 'Une équipe permanente reçoit un budget mensuel : les dépenses de chaque discussion y sont imputées, tout nouveau travail est refusé une fois le budget épuisé, et les administrateurs peuvent transférer du budget entre équipes. Les équipes ne déposent du travail dans le backlog d\'une autre que là où les deux parties l\'ont accepté, consignent leurs paris et ce qui s\'est réellement passé, et partagent les enseignements de leurs rétrospectives. Une personne peut départager un vote à égalité ou exécuter une tâche de task force.', link: '/features/multi-agent/', linkText: 'Orchestration multi-agents' },
@@ -567,7 +567,7 @@ const fr: TranslationSchema = {
 		alsoTitle: 'Également dans cette version',
 		alsoItems: [
 			'Lisez les breaking changes avant de mettre à niveau : EDDI vérifie désormais une fois par jour sur GitHub la présence de nouvelles versions (EDDI_UPDATE_CHECK_ENABLED=false la désactive, ce que doivent faire les installations isolées), les montants de coût incluent désormais les tokens de cache de prompt et de réflexion, si bien que des plafonds réglés sur les anciens chiffres peuvent se déclencher plus tôt, davantage de chemins échouent en mode fermé (fail closed), et les déploiements Helm exigent le chart 2.14.0 ou ultérieur',
-			'Problème connu : sur une installation neuve de la 6.7.0, le Platform Operator ne peut pas être activé, et un Operator configuré sur une version antérieure ne doit pas encore être mis à niveau. Il continue de fonctionner tel quel, et l\'assistant de création d\'agent crée les agents en attendant. Le correctif arrive dans la prochaine version',
+			'La 6.7.1, une version corrective (22 novembre 2026) : les images livrées tournent sur un JDK qui corrige Java4Shell (CVE-2026-114938), le Platform Operator peut être activé sur une installation neuve, les outils générés à partir d\'une spécification OpenAPI omettent les paramètres de requête facultatifs et donnent un nom unique aux noms répétés (ces outils sont donc renommés), et le choix de modèles ajoute Claude Fable 5.2, GPT-6.2, Gemini 4 et Kimi K3.1',
 			'Un cluster durci : un plan de contrôle signé, du fencing, la vérification du nom d\'hôte NATS et une readiness qui échoue bruyamment, testés chaque nuit par une suite qui exécute trois nœuds EDDI, partitionne le réseau et arrête des nœuds au milieu d\'un tour, sur MongoDB et sur PostgreSQL',
 			'Les tâches longues se poursuivent d\'elles-mêmes tour après tour, un appel HTTP peut s\'exécuter une fois par élément de tableau, les outils HTTP, MCP et A2A peuvent se charger à la demande, les agents API valident les arguments d\'outils selon un schéma généré à partir de la spec OpenAPI, et les réponses JSON presque valides sont réparées sans second appel au modèle',
 			'Une revue complète des secrets, des requêtes sortantes (y compris la faille de DNS rebinding), de l\'effacement RGPD dans le registre d\'audit, de l\'ingestion, de la sauvegarde et des interfaces, avec des correctifs pour du code livré dans la 6.6.0 ou avant, si bien que la mise à niveau est recommandée indépendamment des nouvelles fonctionnalités',
@@ -720,6 +720,7 @@ const fr: TranslationSchema = {
 			hardeningTitle: 'Journal de durcissement',
 			hardeningPara: 'Le travail de sécurité est continu, et nous publions ce qu\'il met au jour. Campagnes récentes :',
 			hardeningItems: [
+				'<strong>Novembre 2026 (6.7.1)</strong>, Java4Shell (CVE-2026-114938) corrigé dans les images livrées, le drapeau JVM restant une seconde ligne de défense. Une saisie de chat ne peut plus injecter d\'expressions de règles de comportement, une ressource d\'espace de travail sans propriétaire ne fait plus de chaque appelant son propriétaire, et un HTML de courriel profondément imbriqué ne peut plus épuiser la mémoire',
 				'<strong>Novembre 2026 (6.7.0)</strong>, Une revue complète des secrets, des requêtes sortantes (avec la fermeture de la faille de DNS rebinding entre le contrôle SSRF et la connexion), de l\'autorisation, de l\'effacement RGPD dans le registre d\'audit, de l\'ingestion de documents malveillants, de la sauvegarde et des interfaces. Les sommes de contrôle des versions portent désormais une provenance SLSA',
 				'<strong>Octobre 2026 (6.6.0)</strong>, Durcissement de la gestion des secrets, des failles d\'autorisation, des requêtes sortantes et des valeurs de déploiement par défaut, y compris des correctifs pour du code livré dans la 6.5.0 et avant, si bien que la mise à niveau est recommandée indépendamment des nouvelles fonctionnalités',
 				'<strong>Septembre 2026 (6.5.0)</strong>, Une campagne de revue d\'une trentaine de correctifs portant sur l\'injection de templates, le SSRF des appels sortants, la gestion des clés du vault, la portée des secrets, les autorisations des espaces de travail, l\'identité des canaux et l\'interface de sécurité du Manager, chacun avec un test de non-régression',
