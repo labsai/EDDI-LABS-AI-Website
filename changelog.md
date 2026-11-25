@@ -6,7 +6,7 @@ All notable changes to the EDDI website will be documented in this file.
 
 ### 🩹 EDDI 6.7.1 (11 locales), Model Catalog Refresh, Astro 7.4.13
 
-EDDI 6.7.1 (tagged 2026-11-22) is a patch on 6.7.0. It fixes Java4Shell in the shipped images, makes Platform Operator activation work, includes security fixes, and refreshes the model catalog. The MCP tool count is unchanged at 108 (no `@Tool` added or removed between the tags).
+EDDI 6.7.1 (2026-11-22 in EDDI's release notes; GitHub release published 2026-11-24) is a patch on 6.7.0. It fixes Java4Shell in the shipped images, makes Platform Operator activation work, includes security fixes, and refreshes the model catalog. The MCP tool count is unchanged at 108 (no `@Tool` added or removed between the tags).
 
 **Release copy**
 - `EDDI_LATEST_VERSION` is 6.7.1. New `EDDI_FEATURE_RELEASE` (6.7) keeps the What's New title, meta title, description and hero on the feature release. The badge, the GitHub release link and the JSON-LD `softwareVersion` follow the patch.
@@ -22,7 +22,8 @@ EDDI 6.7.1 (tagged 2026-11-22) is a patch on 6.7.0. It fixes Java4Shell in the s
 - New: Gemini 4 (Neon, Hydrogen, Carbon), GA since November. 1M context and 64K output per request by default. Neon is not on Vertex. Copy in 11 locales. The `geminiSignature`/`geminiVertexTools` tips were not attached, because they name Gemini 3 and nothing was verified for 4.
 - GPT-6 family: `gpt-6.2-sol` and `gpt-6.2-astra` lead (same limits, no 6.2 Luna), and the docs link points at the gpt-6.2-sol page. Kimi K3: `kimi-k3.1-pro` and `-highspeed` lead. `kimi-k2.6` was dropped because it is closed to new users.
 - Mistral Large 4 replaces Large 3: `mistral-large-2512` no longer appears in Mistral's docs. Large 4 has a 1M context, reasoning, the Mistral Ecosystem Open Weight License, and no stated release date. Copy in 11 locales.
-- Five Mistral docs links returned 404 and now point at the current pages.
+- Four other Mistral docs links (Medium, Small, Ministral, Codestral) returned 404 and now point at the current pages.
+- The catalog now has 33 families; `llms.txt` said 32 and is corrected.
 - `CHECKED_ON` stays 2026-09-30, because only the entries above were re-verified.
 
 **Dependencies**
