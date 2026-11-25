@@ -27,7 +27,7 @@ EDDI 6.7.1 (2026-11-22 in EDDI's release notes; GitHub release published 2026-11
 - `CHECKED_ON` stays 2026-09-30, because only the entries above were re-verified.
 
 **Dependencies**
-- astro 7.4.12 → 7.4.13, @astrojs/sitemap 3.7.5 → 3.7.6. TypeScript 7 (major) left for a separate change. npm on Windows dropped four wasm32 `@emnapi` lockfile entries again; they are restored from the previous lockfile.
+- astro 7.4.12 → 7.4.13, @astrojs/sitemap 3.7.5 → 3.7.6. TypeScript 7 (major) left for a separate change. npm on Windows dropped four wasm32 `@emnapi` lockfile entries again; they are restored from the previous lockfile, plus the two nested `@emnapi/core` and `@emnapi/runtime` 2.0.0-beta.2 entries under `astro/node_modules` that `npm ci` on Linux needs. The Fable 5.1 redirect sources use `{/}?` for the optional trailing slash; Vercel rejects a bare `/?`.
 - eddi.solutions (branch `update/eddi-6.7.1`): `llms.txt` says 6.7.1, and the `package.json` floors were raised to what its lockfile already resolved (astro 7.4.13). Nothing else on that site names a version or the Operator caveat.
 
 **Follow-ups**
