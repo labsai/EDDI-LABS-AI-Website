@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -70,7 +70,7 @@ const ja: TranslationSchema = {
 		getStartedCta: '始める →',
 		viewOnGithub: 'GitHubで見る ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS}のLLMプロバイダー、サイトをクロールしファイルを読み込むナレッジベース、互換性のあるエージェントバージョンに追従する会話`,
+		bannerText: 'チーム予算、ツール呼び出しガードレール、コスト計算。配布イメージにはJava4Shellの修正も',
 		bannerLink: '新機能',
 		notFoundTitle: 'ページが見つかりません',
 		notFoundDesc: 'お探しのAIオーケストレーションルートは切断または移動されました。',
@@ -315,7 +315,7 @@ const ja: TranslationSchema = {
 		step4Title: '4. 最初のエージェントを作成',
 		step4Desc: '<code>setup_agent</code>を使用して、MCPまたはREST API経由で1回の呼び出しで完全なエージェントを作成します：',
 		step4After: 'ルール、LLM設定、ワークフロー、エージェントを作成してデプロイします、すべて1ステップで。',
-		step4Operator: 'フォームで作成したい場合は？新規インストール直後は、デプロイ済みのエージェントはありません。<code>http://localhost:7070/manage/agents/wizard</code>で<strong>エージェントウィザード</strong>に入力してください。<code>http://localhost:7070/manage/operator</code>の<strong>Platform Operator</strong>は会話の中でエージェントを構築し、すべての変更はあなたの承認を待ちます。ただし、6.7.0の新規インストールではまだ有効化できません。修正は次のリリースで提供されます。',
+		step4Operator: 'フォームで作成したい場合は？新規インストール直後は、デプロイ済みのエージェントはありません。<code>http://localhost:7070/manage/agents/wizard</code>で<strong>エージェントウィザード</strong>に入力してください。<code>http://localhost:7070/manage/operator</code>の<strong>Platform Operator</strong>は会話の中でエージェントを構築し、すべての変更はあなたの承認を待ちます。',
 		step5Title: '5. エージェントとチャット',
 		step6Title: '6. Manager UIを開く',
 		step6Desc:
@@ -525,11 +525,11 @@ const ja: TranslationSchema = {
 		category: { frontier: 'フロンティア', fast: '高速・低コスト', open: 'オープンウェイト', local: 'ローカル実行' },
 	},
 	whatsNew: {
-		title: `${EDDI_LATEST_VERSION}の新機能`,
-		metaTitle: `EDDI ${EDDI_LATEST_VERSION}の新機能：チーム予算、ツール呼び出しガードレール、コスト計算`,
-		description: `EDDI ${EDDI_LATEST_VERSION}では、常設チームに予算とチーム間のハンドオフが加わり、承認者は回答を編集でき、ツール呼び出しをガードレールでチェックし、すべての呼び出しをモデル価格カタログで価格計算し、メールチャネルとホワイトラベルのブランディングが追加されました。`,
+		title: `${EDDI_FEATURE_RELEASE}の新機能`,
+		metaTitle: `EDDI ${EDDI_FEATURE_RELEASE}の新機能：チーム予算、ツール呼び出しガードレール、コスト計算`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE}では、常設チームに予算とチーム間のハンドオフが加わり、承認者は回答を編集でき、ツール呼び出しをガードレールでチェックし、すべての呼び出しをモデル価格カタログで価格計算し、メールチャネルとホワイトラベルのブランディングが追加されました。`,
 		heroBadge: `リリース ${EDDI_LATEST_VERSION}`,
-		heroTitle: `EDDI ${EDDI_LATEST_VERSION}の`,
+		heroTitle: `EDDI ${EDDI_FEATURE_RELEASE}の`,
 		heroHighlight: '新機能',
 		heroDesc: '本リリースのハイライト、それぞれの目的、詳しい情報の参照先。',
 		sections: [
@@ -543,7 +543,7 @@ const ja: TranslationSchema = {
 		alsoTitle: 'このリリースのその他の変更',
 		alsoItems: [
 			'アップグレード前に破壊的変更を確認してください：EDDIは1日1回GitHubで新しいリリースを確認するようになりました（EDDI_UPDATE_CHECK_ENABLED=falseでオフにでき、エアギャップ環境ではオフにすべきです）。コストの数値にプロンプトキャッシュと思考トークンが含まれるようになったため、以前の数値で調整した上限が早く発動する可能性があります。また、フェイルクローズする経路が増え、Helmでのデプロイにはチャート2.14.0以降が必要です',
-			'既知の問題：6.7.0の新規インストールではPlatform Operatorを有効化できず、以前のリリースでセットアップしたOperatorはまだアップグレードしないでください。現状のまま動作し続け、その間はエージェントウィザードでエージェントを作成できます。修正は次のリリースで提供されます',
+			'6.7.1（2026年11月22日のパッチリリース）：配布イメージはJava4Shell（CVE-2026-114938）を修正したJDKで動作し、新規インストールでもPlatform Operatorを有効化できます。OpenAPI仕様から生成したツールは任意のクエリパラメータを省略し、重複する名前には一意の名前を付けます（該当するツールは名前が変わります）。モデル選択にはClaude Fable 5.2、GPT-6.2、Gemini 4、Kimi K3.1が加わりました',
 			'強化されたクラスター：署名付きコントロールプレーン、フェンシング、NATSのホスト名検証、問題を明確に報告するレディネスチェック。3つのEDDIノードを動かし、ネットワークを分断し、ターンの途中でノードを停止させるテストスイートで、MongoDBとPostgreSQLの両方について毎晩検証しています',
 			'長いジョブはターンごとに自動で継続し、HTTP呼び出しは配列の要素ごとに1回ずつ実行でき、HTTP、MCP、A2Aのツールは遅延読み込みでき、APIエージェントはOpenAPI仕様から生成されたスキーマでツール引数を検証し、惜しくも不正なJSON応答は2回目のモデル呼び出しなしで修復されます',
 			'シークレット、外部リクエスト（DNSリバインディングの抜けを含む）、監査台帳でのGDPR消去、取り込み、バックアップ、UIにわたるレビュー。6.6.0以前で出荷されたコードの修正も含むため、新機能にかかわらずアップグレードを推奨します',
@@ -688,6 +688,7 @@ const ja: TranslationSchema = {
 			hardeningTitle: 'ハードニングログ',
 			hardeningPara: 'セキュリティ対策は継続的な取り組みであり、見つかった内容は公開しています。最近の実施内容：',
 			hardeningItems: [
+				'<strong>2026年11月（6.7.1）</strong>、配布イメージでJava4Shell（CVE-2026-114938）を修正し、JVMフラグは第二の防御線として残しています。チャット入力から振る舞いルールの式を注入できなくなり、所有者のいないワークスペースリソースが呼び出し元全員を所有者にすることはなくなり、深くネストしたメールHTMLがメモリを使い果たすこともなくなりました',
 				'<strong>2026年11月（6.7.0）</strong>、シークレット、外部リクエスト（SSRFチェックと接続の間にあったDNSリバインディングの抜けを解消）、認可、監査台帳でのGDPR消去、悪意のあるドキュメントの取り込み、バックアップ、UIにわたるレビュー。リリースのチェックサムにはSLSAの来歴情報が付くようになりました',
 				'<strong>2026年10月（6.6.0）</strong>、シークレットの扱い、認可の抜け、外部リクエスト、デプロイのデフォルトにわたるハードニング。6.5.0以前で出荷されたコードの修正も含むため、新機能にかかわらずアップグレードを推奨します',
 				'<strong>2026年9月（6.5.0）</strong>、テンプレートインジェクション、外部呼び出しのSSRF、Vaultキーの扱い、シークレットのスコープ、ワークスペースの認可、チャネルのID管理、EDDIマネージャーのセキュリティUIにわたる約30件の修正を含むレビュー。各修正には回帰テスト付き',

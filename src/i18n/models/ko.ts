@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'Anthropic이 정식 제공하는 모델 중 가장 강력한 모델로, 까다로운 추론과 장시간 실행되는 에이전트 작업을 위해 만들어졌습니다.',
 			strengths: ['몇 시간씩 이어지는 에이전트 세션', '다단계 리서치', '문서, 스프레드시트, 슬라이드 작업', '1M 토큰 컨텍스트와 128K 출력'],
 			bestFor: ['장기 과제를 수행하는 에이전트', '심층 리서치', '완성된 문서까지 이어지는 분석'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'Apache 2.0으로 제공되는 OpenAI의 오픈 웨이트 전문가 혼합(MoE) 추론 모델: 120b는 80 GB GPU 한 장에 들어가고, 20b는 16 GB 기기에서 실행됩니다.',
 			strengths: ['Apache 2.0 라이선스', '함수 호출과 구조화된 출력', '조절 가능한 추론 강도', '파인튜닝 가능'],
 			bestFor: ['셀프 호스팅 및 온프레미스 배포', 'Groq에서의 빠른 추론', '도구를 사용하는 에이전트'],
+		},
+		'gemini-4': {
+			summary: 'Google의 최신 세대로, 세 가지 변형(Neon, Hydrogen, Carbon)으로 정식 제공되며 100만 토큰 컨텍스트와 Neon·Hydrogen의 xhigh 사고 수준을 갖췄습니다.',
+			strengths: ['텍스트, 이미지, 동영상, 오디오, PDF 입력', '100만 토큰 컨텍스트, 기본 요청당 64K 출력', 'xhigh까지의 사고 수준(Neon, Hydrogen)', 'Hydrogen과 Carbon은 Vertex AI에서도 제공'],
+			bestFor: ['멀티모달 에이전트', '긴 컨텍스트 분석', '도구를 사용한 복잡한 추론'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'Google이 현재 정식 제공하는 Flash 모델로, Flash 수준의 속도와 비용으로 장기 엔지니어링, 자율 에이전트, 엔터프라이즈 워크플로를 겨냥합니다.',
@@ -111,9 +116,9 @@ const copy: ModelsCopy = {
 			bestFor: ['코딩 어시스턴트', '긴 에이전트 작업과 워크플로 자동화', '긴 영상 분석'],
 		},
 		'mistral-large': {
-			summary: 'Apache 2.0으로 제공되는 Mistral의 오픈 웨이트 전문가 혼합 플래그십(활성 41B, 전체 675B 파라미터)으로, 이미지 이해를 지원합니다.',
-			strengths: ['Apache 2.0 라이선스', '이미지 이해', '40개 이상의 언어', '함수 호출과 구조화된 출력'],
-			bestFor: ['다국어 어시스턴트', '문서 분석', '도구 사용 워크플로'],
+			summary: 'Mistral의 오픈 웨이트 플래그십. 지시 수행과 추론을 결합한 하이브리드 Mixture-of-Experts 모델(활성 52B, 전체 약 1T 매개변수)로, 이미지 입력과 100만 토큰 컨텍스트를 지원합니다.',
+			strengths: ['지시 수행과 추론을 하나의 모델로', '100만 토큰 컨텍스트', '이미지 이해', '함수 호출'],
+			bestFor: ['다국어 어시스턴트', '문서 분석', '도구를 사용하는 워크플로'],
 		},
 		'mistral-medium': {
 			summary: '지시 수행, 추론, 코딩을 결합한 128B 덴스 멀티모달 모델로, 추론 강도를 요청마다 설정할 수 있습니다.',

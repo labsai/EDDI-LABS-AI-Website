@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'El modelo de disponibilidad general más capaz de Anthropic, creado para el razonamiento exigente y el trabajo de agentes de larga duración.',
 			strengths: ['Sesiones de agente que duran horas', 'Investigación en varios pasos', 'Trabajo con documentos, hojas de cálculo y presentaciones', 'Contexto de 1M de tokens con salida de 128K'],
 			bestFor: ['Agentes de largo horizonte', 'Investigación en profundidad', 'Análisis llevados hasta un documento terminado'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'Los modelos de razonamiento de pesos abiertos y mezcla de expertos de OpenAI, bajo Apache 2.0: 120b cabe en una GPU de 80 GB y 20b funciona en dispositivos de 16 GB.',
 			strengths: ['Licencia Apache 2.0', 'Llamada a funciones y salidas estructuradas', 'Esfuerzo de razonamiento ajustable', 'Admite fine-tuning'],
 			bestFor: ['Despliegue autoalojado y on-premises', 'Inferencia rápida en Groq', 'Agentes con uso de herramientas'],
+		},
+		'gemini-4': {
+			summary: 'La generación más reciente de Google, disponible de forma general en tres variantes (Neon, Hydrogen, Carbon), con un contexto de 1M de tokens y un nivel de razonamiento xhigh en Neon y Hydrogen.',
+			strengths: ['Entrada de texto, imagen, vídeo, audio y PDF', 'Contexto de 1M de tokens, 64K de salida por solicitud por defecto', 'Niveles de razonamiento hasta xhigh (Neon, Hydrogen)', 'Hydrogen y Carbon también en Vertex AI'],
+			bestFor: ['Agentes multimodales', 'Análisis de contextos largos', 'Razonamiento complejo con herramientas'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'El modelo Flash de disponibilidad general actual de Google, orientado a la ingeniería de largo horizonte, los agentes autónomos y los flujos de trabajo empresariales con la velocidad y el coste de Flash.',
@@ -111,9 +116,9 @@ const copy: ModelsCopy = {
 			bestFor: ['Asistentes de programación', 'Tareas largas de agentes y automatización de flujos de trabajo', 'Análisis de vídeos largos'],
 		},
 		'mistral-large': {
-			summary: 'El buque insignia de pesos abiertos y mezcla de expertos de Mistral (41B de parámetros activos, 675B en total), con comprensión de imágenes, bajo Apache 2.0.',
-			strengths: ['Licencia Apache 2.0', 'Comprensión de imágenes', 'Más de 40 idiomas', 'Llamada a funciones y salidas estructuradas'],
-			bestFor: ['Asistentes multilingües', 'Análisis de documentos', 'Flujos de trabajo con herramientas'],
+			summary: 'El modelo insignia de pesos abiertos de Mistral: un mixture-of-experts híbrido de instrucciones y razonamiento (52B parámetros activos, unos 1T en total), con entrada de imagen y un contexto de 1M de tokens.',
+			strengths: ['Instrucciones y razonamiento en un solo modelo', 'Contexto de 1M de tokens', 'Comprensión de imágenes', 'Llamadas a funciones'],
+			bestFor: ['Asistentes multilingües', 'Análisis de documentos', 'Flujos con herramientas'],
 		},
 		'mistral-medium': {
 			summary: 'Un modelo multimodal denso de 128B que combina seguimiento de instrucciones, razonamiento y programación, con el esfuerzo de razonamiento definido en cada solicitud.',

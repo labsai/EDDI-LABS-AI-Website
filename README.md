@@ -71,7 +71,7 @@ EDDI is designed for **regulated industries** and enterprise teams that need:
 curl -fsSL https://raw.githubusercontent.com/labsai/EDDI/main/install.sh | bash
 ```
 
-Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh install starts with no agents: create the first one with the agent wizard at `/manage/agents/wizard`. (The Platform Operator at `/manage/operator` cannot be activated on a fresh 6.7.0 install; the fix ships in the next release.)
+Then open **http://localhost:7070** to access the EDDI Manager UI. A fresh install starts with no agents: create the first one with the agent wizard at `/manage/agents/wizard`. Or describe it to the Platform Operator at `/manage/operator`, which builds agents in conversation and waits for your approval on every change.
 
 👉 **[Full getting-started guide →](https://eddi.technology/getting-started/)**
 

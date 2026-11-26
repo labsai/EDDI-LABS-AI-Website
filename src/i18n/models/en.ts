@@ -25,7 +25,7 @@ export interface ModelsCopy {
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'Anthropic\'s most capable generally available model, built for demanding reasoning and long-running agent work.',
 			strengths: ['Agent sessions that run for hours', 'Multistep research', 'Document, spreadsheet and slide work', '1M-token context with 128K output'],
 			bestFor: ['Long-horizon agents', 'Deep research', 'Analysis carried through to a finished document'],
@@ -59,6 +59,11 @@ const copy: ModelsCopy = {
 			summary: 'OpenAI\'s open-weight mixture-of-experts reasoning models under Apache 2.0: 120b fits one 80 GB GPU, 20b runs on 16 GB devices.',
 			strengths: ['Apache 2.0 license', 'Function calling and structured outputs', 'Adjustable reasoning effort', 'Can be fine-tuned'],
 			bestFor: ['Self-hosted and on-premises deployment', 'Fast inference on Groq', 'Agents with tool use'],
+		},
+		'gemini-4': {
+			summary: 'Google\'s newest generation, generally available in three variants (Neon, Hydrogen, Carbon), with a 1M-token context and an xhigh thinking level on Neon and Hydrogen.',
+			strengths: ['Text, image, video, audio and PDF input', '1M-token context, 64K output per request by default', 'Thinking levels up to xhigh (Neon, Hydrogen)', 'Hydrogen and Carbon also on Vertex AI'],
+			bestFor: ['Multimodal agents', 'Long-context analysis', 'Complex reasoning with tools'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'Google\'s current generally available Flash model, aimed at long-horizon engineering, autonomous agents and enterprise workflows at Flash speed and cost.',
@@ -131,8 +136,8 @@ const copy: ModelsCopy = {
 			bestFor: ['Coding assistants', 'Long agent tasks and workflow automation', 'Long-video analysis'],
 		},
 		'mistral-large': {
-			summary: 'Mistral\'s open-weight mixture-of-experts flagship (41B active, 675B total parameters) with image understanding, under Apache 2.0.',
-			strengths: ['Apache 2.0 license', 'Image understanding', 'More than 40 languages', 'Function calling and structured outputs'],
+			summary: 'Mistral\'s open-weight flagship: a hybrid instruct-and-reasoning mixture-of-experts model (52B active, about 1T total parameters) with image input and a 1M-token context.',
+			strengths: ['Instruct and reasoning in one model', '1M-token context', 'Image understanding', 'Function calling'],
 			bestFor: ['Multilingual assistants', 'Document analysis', 'Tool-use workflows'],
 		},
 		'mistral-medium': {

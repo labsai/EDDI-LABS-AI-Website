@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { TESTS, MCP_TOOLS, FRAMEWORKS, LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -70,7 +70,7 @@ const ko: TranslationSchema = {
 		getStartedCta: '시작하기 →',
 		viewOnGithub: 'GitHub에서 보기 ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS}개 LLM 프로바이더, 사이트를 크롤링하고 파일을 읽는 지식 베이스, 호환되는 에이전트 버전을 따라가는 대화`,
+		bannerText: '팀 예산, 도구 호출 가드레일, 비용 회계, 이제 배포 이미지에 Java4Shell 수정까지',
 		bannerLink: '새로운 기능',
 		notFoundTitle: '페이지를 찾을 수 없습니다',
 		notFoundDesc: '찾고 계신 AI 오케스트레이션 경로가 연결 해제되었거나 이동되었습니다.',
@@ -314,7 +314,7 @@ const ko: TranslationSchema = {
 		step4Title: '4. 첫 번째 에이전트 만들기',
 		step4Desc: '<code>setup_agent</code>를 사용하여 MCP 또는 REST API를 통해 한 번의 호출로 완전한 에이전트를 만드세요:',
 		step4After: '규칙, LLM 설정, 워크플로우, 에이전트를 생성하고 배포합니다, 모두 한 단계로.',
-		step4Operator: '양식이 더 편하신가요? 새로 설치한 환경에는 배포된 에이전트가 없습니다. <code>http://localhost:7070/manage/agents/wizard</code>에서 <strong>에이전트 위저드</strong>를 작성하세요. <code>http://localhost:7070/manage/operator</code>의 <strong>Platform Operator</strong>는 대화로 에이전트를 만들고 모든 변경 사항이 승인을 기다리지만, 새로 설치한 6.7.0에서는 아직 활성화할 수 없습니다. 수정 사항은 다음 릴리스에 포함됩니다.',
+		step4Operator: '양식이 더 편하신가요? 새로 설치한 환경에는 배포된 에이전트가 없습니다. <code>http://localhost:7070/manage/agents/wizard</code>에서 <strong>에이전트 위저드</strong>를 작성하세요. <code>http://localhost:7070/manage/operator</code>의 <strong>Platform Operator</strong>는 대화로 에이전트를 만들고 모든 변경 사항은 승인을 기다립니다.',
 		step5Title: '5. 에이전트와 대화',
 		step6Title: '6. Manager UI 열기',
 		step6Desc:
@@ -524,11 +524,11 @@ const ko: TranslationSchema = {
 		category: { frontier: '프런티어', fast: '빠르고 저렴한', open: '오픈 웨이트', local: '로컬 실행' },
 	},
 	whatsNew: {
-		title: `${EDDI_LATEST_VERSION}의 새로운 기능`,
-		metaTitle: `EDDI ${EDDI_LATEST_VERSION}의 새로운 기능: 팀 예산, 도구 호출 가드레일, 비용 회계`,
-		description: `EDDI ${EDDI_LATEST_VERSION}은 상설 팀에 예산과 팀 간 핸드오프를 제공하고, 승인자가 답변을 편집할 수 있게 하며, 도구 호출을 가드레일로 검사하고, 모델 가격 카탈로그로 모든 호출의 비용을 산정하며, 이메일 채널과 화이트 라벨 브랜딩을 추가합니다.`,
+		title: `${EDDI_FEATURE_RELEASE}의 새로운 기능`,
+		metaTitle: `EDDI ${EDDI_FEATURE_RELEASE}의 새로운 기능: 팀 예산, 도구 호출 가드레일, 비용 회계`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE}은 상설 팀에 예산과 팀 간 핸드오프를 제공하고, 승인자가 답변을 편집할 수 있게 하며, 도구 호출을 가드레일로 검사하고, 모델 가격 카탈로그로 모든 호출의 비용을 산정하며, 이메일 채널과 화이트 라벨 브랜딩을 추가합니다.`,
 		heroBadge: `릴리스 ${EDDI_LATEST_VERSION}`,
-		heroTitle: `EDDI ${EDDI_LATEST_VERSION}의`,
+		heroTitle: `EDDI ${EDDI_FEATURE_RELEASE}의`,
 		heroHighlight: '새로운 기능',
 		heroDesc: '이번 릴리스의 주요 내용, 각각의 용도, 그리고 더 읽을 수 있는 곳.',
 		sections: [
@@ -542,7 +542,7 @@ const ko: TranslationSchema = {
 		alsoTitle: '이번 릴리스의 기타 변경 사항',
 		alsoItems: [
 			'업그레이드 전에 호환성 깨짐 변경 사항을 읽어 보세요: EDDI는 이제 하루에 한 번 GitHub에서 새 릴리스를 확인하며(끄려면 EDDI_UPDATE_CHECK_ENABLED=false 설정, 에어갭 설치는 꺼야 합니다), 비용 수치에 프롬프트 캐시와 thinking 토큰이 포함되어 이전 수치에 맞춘 상한이 더 일찍 걸릴 수 있고, 더 많은 경로가 실패 시 차단(fail closed)되며, Helm 배포에는 차트 2.14.0 이상이 필요합니다',
-			'알려진 문제: 새로 설치한 6.7.0에서는 Platform Operator를 활성화할 수 없으며, 이전 릴리스에서 설정한 Operator는 아직 업그레이드하지 않는 것이 좋습니다. 기존 Operator는 그대로 계속 작동하며, 그동안에는 에이전트 위저드로 에이전트를 만들 수 있습니다. 수정 사항은 다음 릴리스에 포함됩니다',
+			'6.7.1, 패치 릴리스(2026년 11월 22일): 배포 이미지가 Java4Shell(CVE-2026-114938) 수정이 적용된 JDK로 실행되고, 새로 설치한 환경에서도 Platform Operator를 활성화할 수 있으며, OpenAPI 명세로 생성한 도구는 선택적 쿼리 매개변수를 생략하고 중복된 이름에 고유한 이름을 붙입니다(해당 도구의 이름이 바뀝니다). 모델 선택기에는 Claude Fable 5.2, GPT-6.2, Gemini 4, Kimi K3.1이 추가되었습니다',
 			'강화된 클러스터: 서명된 컨트롤 플레인, 펜싱, NATS 호스트 이름 검증, 명확하게 실패하는 준비 상태 검사. 매일 밤 EDDI 노드 3개를 실행하고, 네트워크를 분할하며, 턴 도중에 노드를 종료하는 테스트 스위트로 MongoDB와 PostgreSQL에서 검증합니다',
 			'긴 작업은 턴마다 스스로 이어지고, HTTP 호출은 배열 요소마다 한 번씩 실행할 수 있으며, HTTP, MCP, A2A 도구는 지연 로딩할 수 있고, API 에이전트는 OpenAPI 사양에서 생성된 스키마로 도구 인수를 검증하며, 거의 맞는 JSON 응답은 두 번째 모델 호출 없이 복구됩니다',
 			'시크릿, 아웃바운드 요청(DNS 리바인딩 공백 포함), 감사 원장의 GDPR 삭제, 수집, 백업, UI 전반에 걸친 검토, 6.6.0 이전에 출시된 코드의 수정 포함, 따라서 새 기능과 관계없이 업그레이드를 권장합니다',
@@ -687,6 +687,7 @@ const ko: TranslationSchema = {
 			hardeningTitle: '보안 강화 기록',
 			hardeningPara: '보안 작업은 지속적으로 이루어지며, 발견한 내용을 공개합니다. 최근 라운드:',
 			hardeningItems: [
+				'<strong>2026년 11월 (6.7.1)</strong>, 배포 이미지의 Java4Shell(CVE-2026-114938) 수정, JVM 플래그는 두 번째 방어선으로 유지. 채팅 입력으로 동작 규칙 표현식을 주입할 수 없게 되었고, 소유자가 없는 워크스페이스 리소스가 더 이상 모든 호출자를 소유자로 만들지 않으며, 깊게 중첩된 메일 HTML이 더 이상 메모리를 고갈시킬 수 없습니다',
 				'<strong>2026년 11월 (6.7.0)</strong>, 시크릿, 아웃바운드 요청(SSRF 검사와 연결 사이의 DNS 리바인딩 공백 해소), 권한 부여, 감사 원장의 GDPR 삭제, 악의적 문서의 수집, 백업, UI 전반에 걸친 검토. 이제 릴리스 체크섬에 SLSA 출처 증명이 포함됩니다',
 				'<strong>2026년 10월 (6.6.0)</strong>, 시크릿 처리, 권한 부여 누락, 아웃바운드 요청, 배포 기본값 전반의 보안 강화, 6.5.0 및 그 이전에 출시된 코드의 수정 포함, 따라서 새 기능과 관계없이 업그레이드를 권장합니다',
 				'<strong>2026년 9월 (6.5.0)</strong>, 템플릿 인젝션, 아웃바운드 호출의 SSRF, 볼트 키 처리, 시크릿 범위, 워크스페이스 권한 부여, 채널 신원, EDDI 매니저의 보안 UI에 걸친 약 30건의 수정을 담은 검토 라운드, 각 수정에는 회귀 테스트 포함',

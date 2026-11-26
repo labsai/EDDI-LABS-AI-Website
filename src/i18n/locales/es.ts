@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS, MCP_TOOLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -71,7 +71,7 @@ const es: TranslationSchema = {
 		getStartedCta: 'Empezar →',
 		viewOnGithub: 'Ver en GitHub ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS} proveedores LLM, bases de conocimiento que rastrean su sitio y leen sus archivos, y conversaciones que siguen las versiones compatibles del agente`,
+		bannerText: 'Presupuestos de equipo, guardrails en llamadas a herramientas y contabilidad de costes, ahora con la corrección de Java4Shell en las imágenes publicadas',
 		bannerLink: 'Novedades',
 		notFoundTitle: 'Página no encontrada',
 		notFoundDesc: 'La ruta de orquestación de IA que buscas ha sido desconectada o reubicada.',
@@ -327,7 +327,7 @@ const es: TranslationSchema = {
 		step4Title: '4. Cree su primer agente',
 		step4Desc: 'Use <code>setup_agent</code> para crear un agente completamente funcional en una sola llamada, vía MCP o REST API:',
 		step4After: 'Esto crea las reglas, la configuración LLM, el flujo de trabajo, el agente y lo despliega, todo en un solo paso.',
-		step4Operator: '¿Prefiere un formulario? Una instalación nueva empieza sin agentes desplegados. Complete el <strong>asistente de agentes</strong> en <code>http://localhost:7070/manage/agents/wizard</code>. El <strong>Platform Operator</strong> en <code>http://localhost:7070/manage/operator</code> crea agentes mediante una conversación, con cada cambio a la espera de su aprobación, pero en una instalación nueva de 6.7.0 todavía no se puede activar: la corrección llega en la próxima versión.',
+		step4Operator: '¿Prefiere un formulario? Una instalación nueva empieza sin agentes desplegados. Complete el <strong>asistente de agentes</strong> en <code>http://localhost:7070/manage/agents/wizard</code>. El <strong>Platform Operator</strong> en <code>http://localhost:7070/manage/operator</code> crea agentes mediante una conversación, con cada cambio a la espera de su aprobación.',
 		step5Title: '5. Converse con su agente',
 		step6Title: '6. Abra la interfaz de gestión',
 		step6Desc:
@@ -550,12 +550,12 @@ const es: TranslationSchema = {
 
 	// ─── Novedades ───────────────────────────────────────────────
 	whatsNew: {
-		title: `Novedades de ${EDDI_LATEST_VERSION}`,
-		metaTitle: `Novedades de EDDI ${EDDI_LATEST_VERSION}: presupuestos de equipo, guardrails en llamadas a herramientas y contabilidad de costes`,
-		description: `EDDI ${EDDI_LATEST_VERSION} da a los equipos permanentes presupuestos y traspasos entre equipos, permite a los aprobadores editar respuestas, revisa las llamadas a herramientas con guardrails, asigna un precio a cada llamada a partir de un catálogo de precios de modelos y añade un canal de correo electrónico y la personalización de marca (white-label).`,
+		title: `Novedades de ${EDDI_FEATURE_RELEASE}`,
+		metaTitle: `Novedades de EDDI ${EDDI_FEATURE_RELEASE}: presupuestos de equipo, guardrails en llamadas a herramientas y contabilidad de costes`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE} da a los equipos permanentes presupuestos y traspasos entre equipos, permite a los aprobadores editar respuestas, revisa las llamadas a herramientas con guardrails, asigna un precio a cada llamada a partir de un catálogo de precios de modelos y añade un canal de correo electrónico y la personalización de marca (white-label).`,
 		heroBadge: `Versión ${EDDI_LATEST_VERSION}`,
 		heroTitle: `Novedades de`,
-		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroHighlight: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroDesc: 'Lo más destacado de esta versión, para qué sirve cada novedad y dónde leer más.',
 		sections: [
 			{ icon: '👥', title: 'Equipos con presupuestos y traspasos', desc: 'Un equipo permanente recibe un presupuesto mensual: el gasto de cada discusión se imputa a él, el trabajo nuevo se rechaza en cuanto se agota y los administradores pueden mover presupuesto entre equipos. Los equipos registran trabajo en los backlogs de otros equipos solo donde ambas partes lo han acordado, anotan apuestas y lo que realmente ocurrió, y comparten las lecciones de sus retrospectivas. Una persona puede deshacer un empate en una votación o ejecutar una tarea de un task force.', link: '/features/multi-agent/', linkText: 'Orquestación multi-agente' },
@@ -568,7 +568,7 @@ const es: TranslationSchema = {
 		alsoTitle: 'También en esta versión',
 		alsoItems: [
 			'Lea los breaking changes antes de actualizar: EDDI ahora consulta GitHub una vez al día en busca de nuevas versiones (defina EDDI_UPDATE_CHECK_ENABLED=false para desactivarlo, como deberían hacer las instalaciones air-gapped), las cifras de coste incluyen ahora los tokens de caché de prompt y de razonamiento, por lo que los límites ajustados con las cifras anteriores pueden saltar antes, más rutas fallan de forma cerrada (fail closed) y los despliegues con Helm necesitan el chart 2.14.0 o posterior',
-			'Problema conocido: en una instalación nueva de 6.7.0 no se puede activar el Platform Operator, y un Operator configurado en una versión anterior no debería actualizarse todavía. Sigue funcionando tal como está, y mientras tanto el asistente de agentes crea agentes. La corrección llega en la próxima versión',
+			'6.7.1, una versión de corrección (22 de noviembre de 2026): las imágenes publicadas usan un JDK con la corrección de Java4Shell (CVE-2026-114938), el Platform Operator se puede activar en una instalación nueva, las herramientas generadas desde una especificación OpenAPI omiten los parámetros de consulta opcionales y dan un nombre único a los nombres repetidos (por lo que esas herramientas cambian de nombre), y el selector de modelos añade Claude Fable 5.2, GPT-6.2, Gemini 4 y Kimi K3.1',
 			'Un clúster reforzado: un plano de control firmado, fencing, verificación del nombre de host en NATS y una readiness que falla de forma visible, probado cada noche por una suite que ejecuta tres nodos de EDDI, particiona la red y detiene nodos en mitad de un turno, sobre MongoDB y sobre PostgreSQL',
 			'Los trabajos largos continúan por sí solos turno a turno, una llamada HTTP puede ejecutarse una vez por cada elemento de un array, las herramientas HTTP, MCP y A2A pueden cargarse de forma diferida, los agentes de API validan los argumentos de las herramientas con un esquema generado a partir de la spec OpenAPI, y las respuestas JSON casi correctas se reparan sin una segunda llamada al modelo',
 			'Una revisión a fondo de secretos, solicitudes salientes (incluido el hueco de DNS rebinding), borrado RGPD en el registro de auditoría, ingesta, copias de seguridad y las interfaces, con correcciones de código publicado en la 6.6.0 o anteriores, por lo que se recomienda actualizar independientemente de las nuevas funciones',
@@ -722,6 +722,7 @@ const es: TranslationSchema = {
 			hardeningTitle: 'Registro de refuerzo de seguridad',
 			hardeningPara: 'El trabajo de seguridad es continuo, y publicamos lo que encuentra. Rondas recientes:',
 			hardeningItems: [
+				'<strong>Noviembre de 2026 (6.7.1)</strong>: Java4Shell (CVE-2026-114938) corregido en las imágenes publicadas, con el flag de la JVM como segunda línea de defensa. Un mensaje de chat ya no puede inyectar expresiones de reglas de comportamiento, un recurso de espacio de trabajo sin propietario ya no convierte a cualquier usuario en su propietario, y un HTML de correo muy anidado ya no puede agotar la memoria',
 				'<strong>Noviembre de 2026 (6.7.0)</strong>: Una revisión a fondo de secretos, solicitudes salientes (cerrando el hueco de DNS rebinding entre la comprobación SSRF y la conexión), autorización, borrado RGPD en el registro de auditoría, ingesta de documentos hostiles, copias de seguridad y las interfaces. Las sumas de comprobación de las versiones incluyen ahora procedencia SLSA',
 				'<strong>Octubre de 2026 (6.6.0)</strong>: Refuerzo de seguridad en el manejo de secretos, huecos de autorización, solicitudes salientes y valores de despliegue por defecto, incluidas correcciones de código publicado en la 6.5.0 y anteriores, por lo que se recomienda actualizar independientemente de las nuevas funciones',
 				'<strong>Septiembre de 2026 (6.5.0)</strong>: Una ronda de revisión de unas 30 correcciones en inyección de plantillas, SSRF en llamadas salientes, gestión de claves del vault, alcance de secretos, autorización de espacios de trabajo, identidad de canales y la interfaz de seguridad del Manager, cada una con una prueba de regresión',

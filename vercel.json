@@ -6,6 +6,16 @@
       "has": [{ "type": "host", "value": "eddi-website.vercel.app" }],
       "destination": "https://eddi.technology/:path",
       "permanent": true
+    },
+    {
+      "source": "/models/claude-fable-5-1{/}?",
+      "destination": "/models/claude-fable-5-2/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|es|fr|pt|ar|zh|ja|ko|hi|th)/models/claude-fable-5-1{/}?",
+      "destination": "/:lang/models/claude-fable-5-2/",
+      "permanent": true
     }
   ],
   "headers": [

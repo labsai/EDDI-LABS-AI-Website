@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'Das leistungsfähigste allgemein verfügbare Modell von Anthropic, gebaut für anspruchsvolles Reasoning und lang laufende Agentenarbeit.',
 			strengths: ['Agenten-Sessions, die stundenlang laufen', 'Mehrstufige Recherche', 'Arbeit mit Dokumenten, Tabellen und Folien', '1M-Token-Kontext mit 128K Ausgabe'],
 			bestFor: ['Agenten mit langem Horizont', 'Tiefgehende Recherche', 'Analysen bis zum fertigen Dokument'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'Die Open-Weight-Reasoning-Modelle von OpenAI mit Mixture-of-Experts-Architektur unter Apache 2.0: 120b passt auf eine 80-GB-GPU, 20b läuft auf Geräten mit 16 GB.',
 			strengths: ['Apache-2.0-Lizenz', 'Function Calling und strukturierte Ausgaben', 'Einstellbarer Reasoning-Aufwand', 'Fine-Tuning möglich'],
 			bestFor: ['Selbst gehosteter und On-Premises-Betrieb', 'Schnelle Inferenz auf Groq', 'Agenten mit Tool-Nutzung'],
+		},
+		'gemini-4': {
+			summary: 'Die neueste Generation von Google, allgemein verfügbar in drei Varianten (Neon, Hydrogen, Carbon), mit 1M-Token-Kontext und der Denkstufe xhigh bei Neon und Hydrogen.',
+			strengths: ['Text-, Bild-, Video-, Audio- und PDF-Eingabe', '1M-Token-Kontext, standardmäßig 64K Ausgabe pro Anfrage', 'Denkstufen bis xhigh (Neon, Hydrogen)', 'Hydrogen und Carbon auch auf Vertex AI'],
+			bestFor: ['Multimodale Agenten', 'Analyse langer Kontexte', 'Komplexes Reasoning mit Tools'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'Das aktuelle allgemein verfügbare Flash-Modell von Google, ausgerichtet auf Engineering mit langem Horizont, autonome Agenten und Unternehmens-Workflows bei Flash-Geschwindigkeit und -Kosten.',
@@ -111,8 +116,8 @@ const copy: ModelsCopy = {
 			bestFor: ['Coding-Assistenten', 'Lange Agentenaufgaben und Workflow-Automatisierung', 'Analyse langer Videos'],
 		},
 		'mistral-large': {
-			summary: 'Das Open-Weight-Flaggschiff von Mistral mit Mixture-of-Experts-Architektur (41B aktive, 675B Parameter insgesamt) und Bildverständnis, unter Apache 2.0.',
-			strengths: ['Apache-2.0-Lizenz', 'Bildverständnis', 'Mehr als 40 Sprachen', 'Function Calling und strukturierte Ausgaben'],
+			summary: 'Das Open-Weight-Flaggschiff von Mistral: ein hybrides Instruct- und Reasoning-Modell mit Mixture-of-Experts-Architektur (52B aktive, rund 1T Parameter insgesamt), Bildeingabe und 1M-Token-Kontext.',
+			strengths: ['Instruct und Reasoning in einem Modell', '1M-Token-Kontext', 'Bildverständnis', 'Function Calling'],
 			bestFor: ['Mehrsprachige Assistenten', 'Dokumentenanalyse', 'Workflows mit Tool-Nutzung'],
 		},
 		'mistral-medium': {

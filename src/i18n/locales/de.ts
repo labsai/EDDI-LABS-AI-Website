@@ -1,4 +1,4 @@
-import { EDDI_VERSION, EDDI_LATEST_VERSION } from '../version';
+import { EDDI_VERSION, EDDI_LATEST_VERSION, EDDI_FEATURE_RELEASE } from '../version';
 import { LLM_PROVIDERS, EMBEDDING_PROVIDERS, VECTOR_STORES, DOCKER_PULLS, MCP_TOOLS } from '../stats';
 import type { TranslationSchema } from './en';
 
@@ -71,7 +71,7 @@ const de: TranslationSchema = {
 		getStartedCta: 'Jetzt Starten →',
 		viewOnGithub: 'Auf GitHub ansehen ↗',
 		bannerBadge: `🚀 EDDI ${EDDI_LATEST_VERSION}`,
-		bannerText: `${LLM_PROVIDERS} LLM-Anbieter, Wissensdatenbanken, die Ihre Website crawlen und Ihre Dateien lesen, und Konversationen, die kompatiblen Agentenversionen folgen`,
+		bannerText: 'Team-Budgets, Guardrails für Tool-Aufrufe und Kostenabrechnung, jetzt mit dem Java4Shell-Fix in den ausgelieferten Images',
 		bannerLink: 'Neuigkeiten',
 		notFoundTitle: 'Seite nicht gefunden',
 		notFoundDesc: 'Die gesuchte KI-Orchestrierungsroute wurde getrennt oder verschoben.',
@@ -327,7 +327,7 @@ const de: TranslationSchema = {
 		step4Title: '4. Ersten Agent erstellen',
 		step4Desc: 'Verwenden Sie <code>setup_agent</code>, um in einem Aufruf einen funktionsfähigen Agent zu erstellen, via MCP oder REST-API:',
 		step4After: 'Dies erstellt Regeln, LLM-Konfiguration, Workflow, Agent und deployt ihn, alles in einem Schritt.',
-		step4Operator: 'Lieber per Formular? Eine neue Installation startet ohne deployte Agents. Füllen Sie den <strong>Agent-Assistenten</strong> unter <code>http://localhost:7070/manage/agents/wizard</code> aus. Der <strong>Platform Operator</strong> unter <code>http://localhost:7070/manage/operator</code> baut Agenten im Gespräch, wobei jede Änderung auf Ihre Freigabe wartet, lässt sich aber auf einer neuen 6.7.0-Installation noch nicht aktivieren: Der Fix kommt mit dem nächsten Release.',
+		step4Operator: 'Lieber per Formular? Eine neue Installation startet ohne deployte Agents. Füllen Sie den <strong>Agent-Assistenten</strong> unter <code>http://localhost:7070/manage/agents/wizard</code> aus. Der <strong>Platform Operator</strong> unter <code>http://localhost:7070/manage/operator</code> baut Agenten im Gespräch, wobei jede Änderung auf Ihre Freigabe wartet.',
 		step5Title: '5. Mit Ihrem Agent chatten',
 		step6Title: '6. Die Manager-UI öffnen',
 		step6Desc:
@@ -547,12 +547,12 @@ const de: TranslationSchema = {
 		category: { frontier: 'Frontier', fast: 'Schnell und günstig', open: 'Offene Gewichte', local: 'Läuft lokal' },
 	},
 	whatsNew: {
-		title: `Neu in ${EDDI_LATEST_VERSION}`,
-		metaTitle: `Neu in EDDI ${EDDI_LATEST_VERSION}: Team-Budgets, Guardrails für Tool-Aufrufe, Kostenabrechnung`,
-		description: `EDDI ${EDDI_LATEST_VERSION} gibt festen Teams Budgets und teamübergreifende Übergaben, lässt Freigebende Antworten bearbeiten, prüft Tool-Aufrufe mit Guardrails, bepreist jeden Aufruf aus einem Modellpreiskatalog und ergänzt einen E-Mail-Kanal sowie White-Label-Branding.`,
+		title: `Neu in ${EDDI_FEATURE_RELEASE}`,
+		metaTitle: `Neu in EDDI ${EDDI_FEATURE_RELEASE}: Team-Budgets, Guardrails für Tool-Aufrufe, Kostenabrechnung`,
+		description: `EDDI ${EDDI_FEATURE_RELEASE} gibt festen Teams Budgets und teamübergreifende Übergaben, lässt Freigebende Antworten bearbeiten, prüft Tool-Aufrufe mit Guardrails, bepreist jeden Aufruf aus einem Modellpreiskatalog und ergänzt einen E-Mail-Kanal sowie White-Label-Branding.`,
 		heroBadge: `Release ${EDDI_LATEST_VERSION}`,
 		heroTitle: `Neu in`,
-		heroHighlight: `EDDI ${EDDI_LATEST_VERSION}`,
+		heroHighlight: `EDDI ${EDDI_FEATURE_RELEASE}`,
 		heroDesc: 'Die Highlights dieses Releases, wofür sie gedacht sind und wo Sie mehr darüber lesen.',
 		sections: [
 			{ icon: '👥', title: 'Teams mit Budgets und Übergaben', desc: 'Ein festes Team erhält ein Monatsbudget: Die Ausgaben jeder Diskussion werden darauf angerechnet, neue Arbeit wird abgewiesen, sobald es aufgebraucht ist, und Admins können Budget zwischen Teams verschieben. Teams legen einander nur dort Arbeit in den Backlog, wo beide Seiten zugestimmt haben, halten Wetten und tatsächliche Ergebnisse fest und teilen Erkenntnisse aus Retros. Eine Person kann ein Abstimmungspatt auflösen oder eine Task-Force-Aufgabe übernehmen.', link: '/features/multi-agent/', linkText: 'Multi-Agenten-Orchestrierung' },
@@ -565,7 +565,7 @@ const de: TranslationSchema = {
 		alsoTitle: 'Außerdem in diesem Release',
 		alsoItems: [
 			'Lesen Sie vor dem Upgrade die Breaking Changes: EDDI prüft jetzt einmal täglich auf GitHub, ob es neue Releases gibt (mit EDDI_UPDATE_CHECK_ENABLED=false abschalten, was Air-Gapped-Installationen tun sollten), Kostenangaben enthalten jetzt Prompt-Cache- und Thinking-Tokens, sodass auf die alten Zahlen abgestimmte Obergrenzen früher greifen können, mehr Pfade schlagen sicher fehl (fail closed), und Helm-Deployments brauchen Chart 2.14.0 oder neuer',
-			'Bekanntes Problem: Auf einer neuen 6.7.0-Installation lässt sich der Platform Operator nicht aktivieren, und ein Operator, der auf einem früheren Release eingerichtet wurde, sollte noch nicht aktualisiert werden. Er funktioniert weiter wie bisher, und bis dahin erstellt der Agent-Assistent Agenten. Der Fix kommt mit dem nächsten Release',
+			'6.7.1, ein Patch-Release (22. November 2026): Die ausgelieferten Images laufen auf einem JDK mit dem Java4Shell-Fix (CVE-2026-114938), der Platform Operator lässt sich auf einer neuen Installation aktivieren, aus einer OpenAPI-Spezifikation erzeugte Tools lassen optionale Query-Parameter weg und geben doppelten Namen eindeutige (diese Tools werden also umbenannt), und die Modellauswahl ergänzt Claude Fable 5.2, GPT-6.2, Gemini 4 und Kimi K3.1',
 			'Ein gehärteter Cluster: eine signierte Control Plane, Fencing, Hostnamen-Prüfung für NATS und eine Readiness, die laut fehlschlägt, jede Nacht getestet von einer Suite, die drei EDDI-Knoten betreibt, das Netzwerk partitioniert und Knoten mitten in einem Turn beendet, auf MongoDB und auf PostgreSQL',
 			'Lange Jobs setzen sich Turn für Turn selbst fort, ein HTTP-Aufruf kann einmal pro Array-Element laufen, HTTP-, MCP- und A2A-Tools können lazy geladen werden, API-Agenten validieren Tool-Argumente gegen ein aus der OpenAPI-Spec generiertes Schema, und fast korrekte JSON-Antworten werden ohne zweiten Modellaufruf repariert',
 			'Ein Review über Secrets, ausgehende Anfragen (einschließlich der DNS-Rebinding-Lücke), DSGVO-Löschung im Audit-Ledger, Ingestion, Backup und die UIs, mit Fixes für Code, der in 6.6.0 oder früher ausgeliefert wurde, daher wird das Upgrade unabhängig von den neuen Funktionen empfohlen',
@@ -719,6 +719,7 @@ const de: TranslationSchema = {
 			hardeningTitle: 'Härtungsprotokoll',
 			hardeningPara: 'Sicherheitsarbeit ist ein fortlaufender Prozess, und wir veröffentlichen, was sie findet. Die letzten Runden:',
 			hardeningItems: [
+				'<strong>November 2026 (6.7.1)</strong>: Java4Shell (CVE-2026-114938) in den ausgelieferten Images behoben, das JVM-Flag bleibt als zweite Verteidigungslinie. Chat-Eingaben können keine Ausdrücke für Verhaltensregeln mehr einschleusen, eine Workspace-Ressource ohne Eigentümer macht nicht mehr jeden Aufrufer zu ihrem Eigentümer, und tief verschachteltes Mail-HTML kann den Speicher nicht mehr erschöpfen',
 				'<strong>November 2026 (6.7.0)</strong>: Ein Review über Secrets, ausgehende Anfragen (mit Schließung der DNS-Rebinding-Lücke zwischen SSRF-Prüfung und Verbindung), Autorisierung, DSGVO-Löschung im Audit-Ledger, Ingestion feindseliger Dokumente, Backup und die UIs. Release-Prüfsummen tragen jetzt SLSA-Provenienz',
 				'<strong>Oktober 2026 (6.6.0)</strong>: Hardening bei Secret-Umgang, Autorisierungslücken, ausgehenden Anfragen und Deployment-Defaults, einschließlich Fixes für Code, der in 6.5.0 und früher ausgeliefert wurde, daher wird das Upgrade unabhängig von den neuen Funktionen empfohlen',
 				'<strong>September 2026 (6.5.0)</strong>: Eine Review-Runde mit rund 30 Fixes zu Template Injection, SSRF bei ausgehenden Aufrufen, Umgang mit Vault-Schlüsseln, Secret-Scoping, Workspace-Autorisierung, Kanal-Identität und der Sicherheits-UI des Managers, jeder mit einem Regressionstest',

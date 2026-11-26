@@ -5,7 +5,7 @@ import type { ModelsCopy } from './en';
 
 const copy: ModelsCopy = {
 	models: {
-		'claude-fable-5-1': {
+		'claude-fable-5-2': {
 			summary: 'O modelo de disponibilidade geral mais capaz da Anthropic, criado para raciocínio exigente e trabalho de agentes de longa duração.',
 			strengths: ['Sessões de agente que duram horas', 'Pesquisa em várias etapas', 'Trabalho com documentos, planilhas e apresentações', 'Contexto de 1M de tokens com saída de 128K'],
 			bestFor: ['Agentes de longo horizonte', 'Pesquisa aprofundada', 'Análises levadas até um documento finalizado'],
@@ -39,6 +39,11 @@ const copy: ModelsCopy = {
 			summary: 'Os modelos de raciocínio de pesos abertos e mistura de especialistas da OpenAI, sob Apache 2.0: o 120b cabe em uma GPU de 80 GB e o 20b roda em dispositivos de 16 GB.',
 			strengths: ['Licença Apache 2.0', 'Chamada de funções e saídas estruturadas', 'Esforço de raciocínio ajustável', 'Permite fine-tuning'],
 			bestFor: ['Implantação auto-hospedada e on-premises', 'Inferência rápida no Groq', 'Agentes com uso de ferramentas'],
+		},
+		'gemini-4': {
+			summary: 'A geração mais recente do Google, disponível de forma geral em três variantes (Neon, Hydrogen, Carbon), com contexto de 1M de tokens e nível de raciocínio xhigh no Neon e no Hydrogen.',
+			strengths: ['Entrada de texto, imagem, vídeo, áudio e PDF', 'Contexto de 1M de tokens, 64K de saída por requisição por padrão', 'Níveis de raciocínio até xhigh (Neon, Hydrogen)', 'Hydrogen e Carbon também no Vertex AI'],
+			bestFor: ['Agentes multimodais', 'Análise de contextos longos', 'Raciocínio complexo com ferramentas'],
 		},
 		'gemini-3-8-flash': {
 			summary: 'O modelo Flash de disponibilidade geral atual do Google, voltado a engenharia de longo horizonte, agentes autônomos e fluxos de trabalho corporativos com a velocidade e o custo do Flash.',
@@ -111,9 +116,9 @@ const copy: ModelsCopy = {
 			bestFor: ['Assistentes de programação', 'Tarefas longas de agentes e automação de fluxos de trabalho', 'Análise de vídeos longos'],
 		},
 		'mistral-large': {
-			summary: 'O carro-chefe de pesos abertos e mistura de especialistas da Mistral (41B de parâmetros ativos, 675B no total), com compreensão de imagens, sob Apache 2.0.',
-			strengths: ['Licença Apache 2.0', 'Compreensão de imagens', 'Mais de 40 idiomas', 'Chamada de funções e saídas estruturadas'],
-			bestFor: ['Assistentes multilíngues', 'Análise de documentos', 'Fluxos de trabalho com ferramentas'],
+			summary: 'O modelo principal de pesos abertos da Mistral: um mixture-of-experts híbrido de instruções e raciocínio (52B parâmetros ativos, cerca de 1T no total), com entrada de imagem e contexto de 1M de tokens.',
+			strengths: ['Instruções e raciocínio em um só modelo', 'Contexto de 1M de tokens', 'Compreensão de imagens', 'Chamada de funções'],
+			bestFor: ['Assistentes multilíngues', 'Análise de documentos', 'Fluxos com ferramentas'],
 		},
 		'mistral-medium': {
 			summary: 'Um modelo multimodal denso de 128B que combina seguimento de instruções, raciocínio e programação, com esforço de raciocínio definido por requisição.',
